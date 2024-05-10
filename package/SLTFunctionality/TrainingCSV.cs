@@ -17,9 +17,10 @@ namespace SLTFunctionality
         public double FixedABL { get; set; }
         public int DifferentABLs { get; set; }
         public int ABLBlock { get; set; }
-        public double ILDUnit { get; set; }
+        public double ILDStepSize { get; set; }
         public int ILDSteps { get; set; }
         public int UseLog { get; set; }
+        public double LogBase { get; set; }
         public double IntendedITI { get; set; }
         public int ITIReset { get; set; }
         public double MaxWait { get; set; }

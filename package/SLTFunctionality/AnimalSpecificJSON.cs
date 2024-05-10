@@ -15,13 +15,16 @@ namespace SLTFunctionality
         public int Box { get; set; }
         public int Session { get; set; }
         public int SessionType { get; set; }
+        public TimeSpan SessionDuration { get; set; }
+        public int StartingTrialNumber { get; set; }
+        public int StartingBlockNumber { get; set; }
         public double[] ABLList { get; set; }
         public int CycleILD { get; set; }
         public double Bias { get; set; }
-        public double BaseFixation {  get; set; }
-        public double BaseFixationDelta { get; set; }
-        public double BaseFixationTarget { get; set; }
-        public double ExpFixationMean { get; set; }
+        public double MinFT{  get; set; }
+        public double FTDelta { get; set; }
+        public double FTTarget { get; set; }
+        public double ExpFTMean { get; set; }
         public double MinRT {  get; set; }
         public double RTDelta { get; set; }
         public double RTTarget { get; set; }
