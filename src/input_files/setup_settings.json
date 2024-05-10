@@ -1,0 +1,23 @@
+{
+    "PenaltyDurationPress": 2,
+    "PenaltyFlashF": 5,
+    "PerformAvg": 10,
+    "FS": 4096,
+    "FSDiv": 4,
+    "FSSound": 192000,
+    "FreqMin": 5000,
+    "FreqMax": 20000,
+    "RampTime": 0.005,
+    "DSound": 5,
+    "IBILight": 1,
+    "Rp1": 20.023,
+    "Rp2": 69.034,
+    "RCalFactor": [],
+    "RFVecCal": [],
+    "Lp1": 20.005,
+    "Lp2": 70.173,
+    "LCalFactor": [],
+    "LFVecCal": [],
+    "RewardOpenL": 0.079,
+    "RewardOpenR": 0.099
+}

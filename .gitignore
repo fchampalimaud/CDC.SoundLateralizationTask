@@ -1,0 +1,7 @@
+Packages
+*.exe
+*.exe.settings
+
+.vs
+bin
+obj
