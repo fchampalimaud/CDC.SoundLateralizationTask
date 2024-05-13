@@ -3,7 +3,7 @@
     "Box": 2,
     "Session": 53,
     "SessionType": 1,
-    "SessionDuration": "02:00:00",
+    "SessionDuration": "01:00:00",
     "StartingTrialNumber": 1,
     "StartingBlockNumber": 1,
     "ABLList": [20, 40, 60],
