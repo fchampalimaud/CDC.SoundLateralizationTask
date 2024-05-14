@@ -7,7 +7,7 @@ using System.Reactive.Linq;
 using Bonsai;
 using Newtonsoft.Json;
 
-namespace SLTFunctionality
+namespace SLTUtils
 {
     public class AnimalSpecificConfiguration
     {

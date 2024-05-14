@@ -8,7 +8,7 @@ using System.Reactive.Linq;
 using Bonsai;
 using CsvHelper;
 
-namespace SLTFunctionality
+namespace SLTUtils
 {
     public class TrainingConfiguration 
     {

@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Title>CDC.SLTUtils</Title>
+    <Description>A Bonsai package which contains utility nodes necessary to run the Sound Lateralization Task workflow.</Description>
+    <Authors>José Grilo</Authors>
+    <Copyright>Copyright © 2024</Copyright>
+    <GeneratePackageOnBuild Condition="'$(Configuration)'=='Release'">true</GeneratePackageOnBuild>
+    <PackageProjectUrl>CDC.SLTUtils</PackageProjectUrl>
+    <PackageLicenseExpression></PackageLicenseExpression>
+    <PackageIcon>cf_logo.png</PackageIcon>
+    <PackageOutputPath></PackageOutputPath>
+    <PackageTags>Bonsai Rx CDC.SLTUtils</PackageTags>
+    <TargetFramework>net472</TargetFramework>
+    <Features>strict</Features>
+    <Version>0.3.0-alpha</Version>
+    <PackageId>CDC.SLTUtils</PackageId>
+    <RepositoryUrl>https://github.com/fchampalimaud/CDC.SoundLateralizationTask</RepositoryUrl>
+    <Company>Champalimaud Foundation</Company>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+    <ItemGroup>
+		<None Include="..\README.md">
+		  <Pack>True</Pack>
+		  <PackagePath>\</PackagePath>
+		</None>
+		<None Include=".\cf_logo.png" Pack="true" PackagePath="" />
+		<EmbeddedResource Include=".\SLTUtils.svg"></EmbeddedResource>
+    </ItemGroup>
+
+	<ItemGroup>
+    <PackageReference Include="Bonsai.Core" Version="2.8.1" />
+    <PackageReference Include="CsvHelper" Version="32.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+</Project>

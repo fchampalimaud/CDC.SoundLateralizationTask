@@ -6,7 +6,7 @@ using System.Reactive.Linq;
 using System.Threading;
 using Bonsai;
 
-namespace SLTFunctionality
+namespace SLTUtils
 {
     [Description("Generates an array with the possible ILD values.")]
     [Combinator(MethodName = nameof(Generate))]

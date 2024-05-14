@@ -5,7 +5,7 @@ using System.Linq;
 using System.Reactive.Linq;
 using Bonsai;
 
-namespace SLTFunctionality
+namespace SLTUtils
 {
     [Combinator]
     [Description("Shuffles the input array.")]
