@@ -1,0 +1,32 @@
+% !TEX program = lualatex
+\documentclass{report}
+
+\usepackage{amsmath}
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage[margin=2cm]{geometry}
+\usepackage{tikz}
+\usepackage{hyperref}
+
+\usetikzlibrary{graphs, graphdrawing, matrix, quotes, arrows.meta}
+\usegdlibrary{circular}
+
+\renewcommand{\familydefault}{\sfdefault}
+\renewcommand{\chaptername}{}
+\renewcommand{\labelitemi}{$\bullet$}
+
+\begin{document}
+    \tableofcontents
+    \input{Chapters/introduction.tex}
+    \input{Chapters/state_machine.tex}
+    \input{Chapters/bonsai.tex}
+    \input{Chapters/subjects.tex}
+    % \input{Chapters/iti.tex}
+    % \input{Chapters/start_trial.tex}
+    % \input{Chapters/fixation_time.tex}
+    % \input{Chapters/stimulus.tex}
+    % \input{Chapters/choice.tex}
+    % \input{Chapters/reward.tex}
+    % \input{Chapters/abort.tex}
+    % \input{Chapters/io_files.tex}
+\end{document}
