@@ -10,6 +10,9 @@ using CsvHelper;
 
 namespace SLTUtils
 {
+    /// <summary>
+    /// Class <c>TrainingConfiguration</c> models the input parameters of the Sound Lateralization Task present in a row of the <c>training_settings.csv</c> file.
+    /// </summary>
     public class TrainingConfiguration 
     {
         public int Level { get; set; }
@@ -40,6 +43,9 @@ namespace SLTUtils
         public int ITILight { get; set; }
     }
 
+    /// <summary>
+    /// Class <c>TrainingCSV</c> contains the logic of the Bonsai node with the same name.
+    /// </summary>
     [Description("Generates an instance of the TrainingConfiguration class based on the row number of the CSV file containing the task's training matrix.")]
     [Combinator(MethodName = nameof(Generate))]
     [WorkflowElementCategory(ElementCategory.Source)]
@@ -52,6 +58,12 @@ namespace SLTUtils
         [Editor(DesignTypes.NumericUpDownEditor, DesignTypes.UITypeEditor)]
         public int RowNumber { get; set; }
 
+        /// <summary>
+        /// Reads a CSV file and outputs one of the rows.
+        /// </summary>
+        /// <returns>
+        /// A <c>TrainingConfiguration</c> instance corresponding to one of the rows of the CSV file.
+        /// </returns>
         TrainingConfiguration CSVtoArray()
         {
             using (var reader = new StreamReader(FileName))
@@ -69,13 +81,24 @@ namespace SLTUtils
             }
         }
 
-        // Node version without input data stream
+        /// <summary>
+        /// Generates an observable sequence which outputs the training/task-specific parameters. This method is called when the node doesn't have an input data stream.
+        /// </summary>
+        /// <returns>
+        /// An observable sequence which sends a single event containing a <c>TrainingConfiguration</c> instance.
+        /// </returns>
         public IObservable<TrainingConfiguration> Generate()
         {
             return Observable.Defer(() => Observable.Return(CSVtoArray()));
         }
 
-        // Node version with input data stream
+        /// <summary>
+        /// Generates an observable sequence which outputs the training/task-specific parameters. This method is called when the node has an input data stream.
+        /// </summary>
+        /// <param name="source">the input data stream.</param>
+        /// <returns>
+        /// An observable sequence which sends a single event containing a <c>TrainingConfiguration</c> instance.
+        /// </returns>
         public IObservable<TrainingConfiguration> Generate<TSource>(IObservable<TSource> source)
         {
             return source.Select(input => CSVtoArray());

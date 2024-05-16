@@ -8,6 +8,9 @@ using Bonsai;
 
 namespace SLTUtils
 {
+    /// <summary>
+    /// Class <c>GenerateILDArray</c> contains the logic of the Bonsai node with the same name.
+    /// </summary>
     [Description("Generates an array with the possible ILD values.")]
     [Combinator(MethodName = nameof(Generate))]
     [WorkflowElementCategory(ElementCategory.Source)]
@@ -66,6 +69,12 @@ namespace SLTUtils
             ValueChanged?.Invoke(ILDArray());
         }
 
+        /// <summary>
+        /// Generates an array containing the ILD values to be used based on <c>NumSteps</c>, <c>StepSize</c>, <c>UseLog</c> and <c>LogBase</c>.
+        /// </summary>
+        /// <returns>
+        /// An array with 2*<c>NumSteps</c> ILD values.
+        /// </returns>
         double[] ILDArray()
         {
             double[] ILDs = new double[NumSteps * 2];
@@ -96,7 +105,12 @@ namespace SLTUtils
             return ILDs;
         }
 
-        // Node version without input data stream
+        /// <summary>
+        /// Generates an observable sequence which outputs an array of ILDs. This method is called when the node doesn't have an input data stream.
+        /// </summary>
+        /// <returns>
+        /// An observable sequence which sends a single event containing an array of ILD values.
+        /// </returns>
         public IObservable<double[]> Generate()
         {
             return Observable
@@ -107,6 +121,13 @@ namespace SLTUtils
         }
 
         // Node version with input data stream
+        /// <summary>
+        /// Generates an observable sequence which outputs an array of ILDs. This method is called when the node has an input data stream.
+        /// </summary>
+        /// <param name="source">the input data stream.</param>
+        /// <returns>
+        /// An observable sequence which sends a single event containing an array of ILD values.
+        /// </returns>
         public IObservable<double[]> Generate<TSource>(IObservable<TSource> source)
         {
             return source.Select(input => ILDArray());

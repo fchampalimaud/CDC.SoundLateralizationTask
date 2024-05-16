@@ -9,6 +9,9 @@ using Newtonsoft.Json;
 
 namespace SLTUtils
 {
+    /// <summary>
+    /// Class <c>AnimalSpecificConfiguration</c> models the input parameters of the Sound Lateralization Task present in the <c>animal_settings.json</c> file.
+    /// </summary>
     public class AnimalSpecificConfiguration
     {
         public int Animal { get; set; }
@@ -57,6 +60,9 @@ namespace SLTUtils
         //public double RewardOpenR { get; set; }
     }
 
+    /// <summary>
+    /// Class <c>AnimalSpecificJSON</c> contains the logic of the Bonsai node with the same name.
+    /// </summary>
     [Description("Generates an instance of the AnimalSpecificConfiguration class based on the JSON file containing the task's animal-specific configuration.")]
     [Combinator(MethodName = nameof(Generate))]
     [WorkflowElementCategory(ElementCategory.Source)]
@@ -66,22 +72,18 @@ namespace SLTUtils
         [Editor(DesignTypes.OpenFileNameEditor, DesignTypes.UITypeEditor)]
         public String FilePath { get; set; }
 
-        // Node version without input data stream
+        /// <summary>
+        /// Reads the animal-specific input parameters needed for the Sound Lateralization Task from a JSON file.
+        /// </summary>
+        /// <returns>
+        /// An observable sequence which sends a single event containing an <c>AnimalSpecificConfiguration</c> instance.
+        /// </returns>
         public IObservable<AnimalSpecificConfiguration> Generate()
         {
             string fileContent = File.ReadAllText(FilePath);
             AnimalSpecificConfiguration asc = JsonConvert.DeserializeObject<AnimalSpecificConfiguration>(fileContent);
 
             return Observable.Defer(() => Observable.Return(asc));
-        }
-
-        // Node version with input data stream
-        public IObservable<AnimalSpecificConfiguration> Generate<TSource>(IObservable<TSource> source)
-        {
-            string fileContent = File.ReadAllText(FilePath);
-            AnimalSpecificConfiguration asc = JsonConvert.DeserializeObject<AnimalSpecificConfiguration>(fileContent);
-
-            return source.Select(input => asc);
         }
     }
 }
