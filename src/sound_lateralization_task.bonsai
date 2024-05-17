@@ -464,81 +464,113 @@
                       </Edges>
                     </Workflow>
                   </Expression>
-                  <Expression xsi:type="SubscribeSubject">
-                    <Name>SoundCardCommands</Name>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="SubscribeSubject">
+                      <Name>SoundCardCommands</Name>
+                    </Builder>
                   </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="p1:Device">
-                      <harp:OperationMode>Active</harp:OperationMode>
-                      <harp:OperationLed>On</harp:OperationLed>
-                      <harp:DumpRegisters>true</harp:DumpRegisters>
-                      <harp:VisualIndicators>On</harp:VisualIndicators>
-                      <harp:Heartbeat>Disabled</harp:Heartbeat>
-                      <harp:IgnoreErrors>false</harp:IgnoreErrors>
-                      <harp:PortName>COM4</harp:PortName>
-                    </Combinator>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="Combinator">
+                      <Combinator xsi:type="p1:Device">
+                        <harp:OperationMode>Active</harp:OperationMode>
+                        <harp:OperationLed>On</harp:OperationLed>
+                        <harp:DumpRegisters>true</harp:DumpRegisters>
+                        <harp:VisualIndicators>On</harp:VisualIndicators>
+                        <harp:Heartbeat>Disabled</harp:Heartbeat>
+                        <harp:IgnoreErrors>false</harp:IgnoreErrors>
+                        <harp:PortName>COM4</harp:PortName>
+                      </Combinator>
+                    </Builder>
                   </Expression>
-                  <Expression xsi:type="SubscribeSubject">
-                    <Name>SoundIndex</Name>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="SubscribeSubject">
+                      <Name>SoundIndex</Name>
+                    </Builder>
                   </Expression>
-                  <Expression xsi:type="InputMapping">
-                    <PropertyMappings>
-                      <Property Name="SoundIndexDI0" Selector="it" />
-                    </PropertyMappings>
-                    <Selector>it</Selector>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="InputMapping">
+                      <PropertyMappings>
+                        <Property Name="SoundIndexDI0" Selector="it" />
+                      </PropertyMappings>
+                      <Selector>it</Selector>
+                    </Builder>
                   </Expression>
-                  <Expression xsi:type="p1:CreateMessage">
-                    <harp:MessageType>Write</harp:MessageType>
-                    <harp:Payload xsi:type="p1:CreateSoundIndexDI0Payload">
-                      <p1:SoundIndexDI0>2</p1:SoundIndexDI0>
-                    </harp:Payload>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="p1:CreateMessage">
+                      <harp:MessageType>Write</harp:MessageType>
+                      <harp:Payload xsi:type="p1:CreateSoundIndexDI0Payload">
+                        <p1:SoundIndexDI0>2</p1:SoundIndexDI0>
+                      </harp:Payload>
+                    </Builder>
                   </Expression>
-                  <Expression xsi:type="MulticastSubject">
-                    <Name>SoundCardCommands</Name>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="MulticastSubject">
+                      <Name>SoundCardCommands</Name>
+                    </Builder>
                   </Expression>
-                  <Expression xsi:type="SubscribeSubject">
-                    <Name>LeftAttenuation</Name>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="SubscribeSubject">
+                      <Name>LeftAttenuation</Name>
+                    </Builder>
                   </Expression>
-                  <Expression xsi:type="Multiply">
-                    <Operand xsi:type="DoubleProperty">
-                      <Value>10</Value>
-                    </Operand>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="Multiply">
+                      <Operand xsi:type="DoubleProperty">
+                        <Value>10</Value>
+                      </Operand>
+                    </Builder>
                   </Expression>
-                  <Expression xsi:type="PropertyMapping">
-                    <PropertyMappings>
-                      <Property Name="AttenuationLeft" />
-                    </PropertyMappings>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="PropertyMapping">
+                      <PropertyMappings>
+                        <Property Name="AttenuationLeft" />
+                      </PropertyMappings>
+                    </Builder>
                   </Expression>
-                  <Expression xsi:type="p1:CreateMessage">
-                    <harp:MessageType>Write</harp:MessageType>
-                    <harp:Payload xsi:type="p1:CreateAttenuationLeftPayload">
-                      <p1:AttenuationLeft>400</p1:AttenuationLeft>
-                    </harp:Payload>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="p1:CreateMessage">
+                      <harp:MessageType>Write</harp:MessageType>
+                      <harp:Payload xsi:type="p1:CreateAttenuationLeftPayload">
+                        <p1:AttenuationLeft>400</p1:AttenuationLeft>
+                      </harp:Payload>
+                    </Builder>
                   </Expression>
-                  <Expression xsi:type="MulticastSubject">
-                    <Name>SoundCardCommands</Name>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="MulticastSubject">
+                      <Name>SoundCardCommands</Name>
+                    </Builder>
                   </Expression>
-                  <Expression xsi:type="SubscribeSubject">
-                    <Name>RightAttenuation</Name>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="SubscribeSubject">
+                      <Name>RightAttenuation</Name>
+                    </Builder>
                   </Expression>
-                  <Expression xsi:type="Multiply">
-                    <Operand xsi:type="DoubleProperty">
-                      <Value>10</Value>
-                    </Operand>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="Multiply">
+                      <Operand xsi:type="DoubleProperty">
+                        <Value>10</Value>
+                      </Operand>
+                    </Builder>
                   </Expression>
-                  <Expression xsi:type="PropertyMapping">
-                    <PropertyMappings>
-                      <Property Name="AttenuationRight" />
-                    </PropertyMappings>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="PropertyMapping">
+                      <PropertyMappings>
+                        <Property Name="AttenuationRight" />
+                      </PropertyMappings>
+                    </Builder>
                   </Expression>
-                  <Expression xsi:type="p1:CreateMessage">
-                    <harp:MessageType>Write</harp:MessageType>
-                    <harp:Payload xsi:type="p1:CreateAttenuationRightPayload">
-                      <p1:AttenuationRight>300</p1:AttenuationRight>
-                    </harp:Payload>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="p1:CreateMessage">
+                      <harp:MessageType>Write</harp:MessageType>
+                      <harp:Payload xsi:type="p1:CreateAttenuationRightPayload">
+                        <p1:AttenuationRight>300</p1:AttenuationRight>
+                      </harp:Payload>
+                    </Builder>
                   </Expression>
-                  <Expression xsi:type="MulticastSubject">
-                    <Name>SoundCardCommands</Name>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="MulticastSubject">
+                      <Name>SoundCardCommands</Name>
+                    </Builder>
                   </Expression>
                 </Nodes>
                 <Edges>
@@ -2620,7 +2652,7 @@
                   </Expression>
                   <Expression xsi:type="Index">
                     <Operand xsi:type="IntProperty">
-                      <Value>7</Value>
+                      <Value>8</Value>
                     </Operand>
                   </Expression>
                   <Expression xsi:type="rx:Condition">
@@ -3272,7 +3304,7 @@
             </Expression>
             <Expression xsi:type="Multiply">
               <Operand xsi:type="DoubleProperty">
-                <Value>10000000</Value>
+                <Value>10000</Value>
               </Operand>
             </Expression>
             <Expression xsi:type="PropertyMapping">
@@ -3282,7 +3314,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="rx:Timer">
-                <rx:DueTime>PT0.0888732S</rx:DueTime>
+                <rx:DueTime>PT1.0002638S</rx:DueTime>
                 <rx:Period>PT0S</rx:Period>
               </Combinator>
             </Expression>
@@ -5048,10 +5080,35 @@
               </PropertyMappings>
               <Selector>it</Selector>
             </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="rx:Delay">
-                <rx:DueTime>PT10S</rx:DueTime>
-              </Combinator>
+            <Expression xsi:type="rx:SelectMany">
+              <Name>Delay (DuckTapeSolution)</Name>
+              <Workflow>
+                <Nodes>
+                  <Expression xsi:type="WorkflowInput">
+                    <Name>Source1</Name>
+                  </Expression>
+                  <Expression xsi:type="ExternalizedMapping">
+                    <Property Name="DueTime" />
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="rx:Delay">
+                      <rx:DueTime>PT1S</rx:DueTime>
+                    </Combinator>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="rx:Take">
+                      <rx:Count>1</rx:Count>
+                    </Combinator>
+                  </Expression>
+                  <Expression xsi:type="WorkflowOutput" />
+                </Nodes>
+                <Edges>
+                  <Edge From="0" To="2" Label="Source1" />
+                  <Edge From="1" To="2" Label="Source2" />
+                  <Edge From="2" To="3" Label="Source1" />
+                  <Edge From="3" To="4" Label="Source1" />
+                </Edges>
+              </Workflow>
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="IntProperty">
@@ -5315,7 +5372,7 @@
             <Edge From="8" To="9" Label="Source2" />
             <Edge From="9" To="10" Label="Source1" />
             <Edge From="10" To="11" Label="Source1" />
-            <Edge From="11" To="12" Label="Source2" />
+            <Edge From="11" To="12" Label="Source1" />
             <Edge From="12" To="13" Label="Source1" />
             <Edge From="13" To="14" Label="Source1" />
             <Edge From="14" To="15" Label="Source1" />

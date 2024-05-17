@@ -1,0 +1,16 @@
+\contentsline {chapter}{\numberline {1}Introduction}{2}{chapter.1}%
+\contentsline {chapter}{\numberline {2}State Machine}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Inter-Trial Interval}{3}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Start Trial}{4}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Fixation Time}{4}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Stimulus}{4}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Choice}{4}{section.2.5}%
+\contentsline {section}{\numberline {2.6}Reward}{4}{section.2.6}%
+\contentsline {section}{\numberline {2.7}Abort}{4}{section.2.7}%
+\contentsline {chapter}{\numberline {3}Bonsai Guidelines}{5}{chapter.3}%
+\contentsline {section}{\numberline {3.1}State (SelectMany) Workflow Organization Logic}{5}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Timestamping Method}{5}{section.3.2}%
+\contentsline {chapter}{\numberline {4}Input/Output Files}{7}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Animal-Specific File}{7}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Task/Level-Specific File}{10}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Output File}{13}{section.4.3}%
