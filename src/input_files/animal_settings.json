@@ -9,7 +9,7 @@
     "ABLList": [20, 40, 60],
     "CycleILD": 1,
     "Bias": 0.5,
-    "MinFT": 1000,
+    "MinFT": 10,
     "FTDelta": 1E-3,
     "FTTarget": 0.2,
     "ExpFTMean": 0.075,
