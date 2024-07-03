@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Reactive.Linq;
@@ -28,8 +27,7 @@ namespace SLTUtils
             return source.Select(input =>
             {
                 Random random = new Random();
-                TSource[] output = input.OrderBy(x => random.Next()).ToArray();
-                return output;
+                return input.OrderBy(x => random.Next()).ToArray();
             });
         }
     }
