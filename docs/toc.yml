@@ -1,4 +1,8 @@
-- name: Docs
+- name: Home
+  href: index.md
+- name: Install
+  href: installation/
+- name: Task
   href: articles/
-# - name: API
-#   href: api/
+- name: Package
+  href: api/

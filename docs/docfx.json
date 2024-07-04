@@ -38,6 +38,8 @@
     "globalMetadata": {
       "_appName": "CDC.SoundLateralizationTask",
       "_appTitle": "CDC.SoundLateralizationTask",
+      "_appLogoPath": "images/logo_white.svg",
+      "_appFaviconPath":"images/logo.svg",
       "_enableSearch": true,
       "pdf": true
     }
