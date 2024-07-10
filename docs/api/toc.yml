@@ -1,0 +1,18 @@
+### YamlMime:TableOfContent
+items:
+- uid: SLTUtils
+  name: SLTUtils
+  items:
+  - uid: SLTUtils.AnimalSpecificConfiguration
+    name: AnimalSpecificConfiguration
+  - uid: SLTUtils.AnimalSpecificJSON
+    name: AnimalSpecificJSON
+  - uid: SLTUtils.GenerateILDArray
+    name: GenerateILDArray
+  - uid: SLTUtils.ShuffleArray
+    name: ShuffleArray
+  - uid: SLTUtils.TrainingCSV
+    name: TrainingCSV
+  - uid: SLTUtils.TrainingConfiguration
+    name: TrainingConfiguration
+memberLayout: SamePage

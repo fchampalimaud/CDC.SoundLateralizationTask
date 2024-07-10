@@ -1,0 +1,10 @@
+/* file: my-template/public/main.css */
+article h1 {
+    font-size: 40px;
+  }
+/* file: my-template/public/main.css */
+body {
+    --bs-link-color-rgb: 66, 184, 131 !important;
+    --bs-link-hover-color-rgb: 64, 180, 128 !important;
+  }
+    

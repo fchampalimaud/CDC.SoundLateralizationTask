@@ -1,0 +1,453 @@
+### YamlMime:ManagedReference
+items:
+- uid: SLTUtils.AnimalSpecificJSON
+  commentId: T:SLTUtils.AnimalSpecificJSON
+  id: AnimalSpecificJSON
+  parent: SLTUtils
+  children:
+  - SLTUtils.AnimalSpecificJSON.FilePath
+  - SLTUtils.AnimalSpecificJSON.Generate
+  langs:
+  - csharp
+  - vb
+  name: AnimalSpecificJSON
+  nameWithType: AnimalSpecificJSON
+  fullName: SLTUtils.AnimalSpecificJSON
+  type: Class
+  source:
+    remote:
+      path: package/SLTUtils/AnimalSpecificJSON.cs
+      branch: develop
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: AnimalSpecificJSON
+    path: ../package/SLTUtils/AnimalSpecificJSON.cs
+    startLine: 65
+  assemblies:
+  - SLTUtils
+  namespace: SLTUtils
+  summary: Class <code>AnimalSpecificJSON</code> contains the logic of the Bonsai node with the same name.
+  example: []
+  syntax:
+    content: >-
+      [Combinator(MethodName = "Generate")]
+
+      [WorkflowElementCategory(ElementCategory.Source)]
+
+      public class AnimalSpecificJSON
+    content.vb: >-
+      <Combinator(MethodName:="Generate")>
+
+      <WorkflowElementCategory(ElementCategory.Source)>
+
+      Public Class AnimalSpecificJSON
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  attributes:
+  - type: Bonsai.CombinatorAttribute
+    ctor: Bonsai.CombinatorAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: MethodName
+      type: System.String
+      value: Generate
+  - type: Bonsai.WorkflowElementCategoryAttribute
+    ctor: Bonsai.WorkflowElementCategoryAttribute.#ctor(Bonsai.ElementCategory)
+    arguments:
+    - type: Bonsai.ElementCategory
+      value: 0
+- uid: SLTUtils.AnimalSpecificJSON.FilePath
+  commentId: P:SLTUtils.AnimalSpecificJSON.FilePath
+  id: FilePath
+  parent: SLTUtils.AnimalSpecificJSON
+  langs:
+  - csharp
+  - vb
+  name: FilePath
+  nameWithType: AnimalSpecificJSON.FilePath
+  fullName: SLTUtils.AnimalSpecificJSON.FilePath
+  type: Property
+  source:
+    remote:
+      path: package/SLTUtils/AnimalSpecificJSON.cs
+      branch: develop
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: FilePath
+    path: ../package/SLTUtils/AnimalSpecificJSON.cs
+    startLine: 70
+  assemblies:
+  - SLTUtils
+  namespace: SLTUtils
+  syntax:
+    content: public string FilePath { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property FilePath As String
+  overload: SLTUtils.AnimalSpecificJSON.FilePath*
+- uid: SLTUtils.AnimalSpecificJSON.Generate
+  commentId: M:SLTUtils.AnimalSpecificJSON.Generate
+  id: Generate
+  parent: SLTUtils.AnimalSpecificJSON
+  langs:
+  - csharp
+  - vb
+  name: Generate()
+  nameWithType: AnimalSpecificJSON.Generate()
+  fullName: SLTUtils.AnimalSpecificJSON.Generate()
+  type: Method
+  source:
+    remote:
+      path: package/SLTUtils/AnimalSpecificJSON.cs
+      branch: develop
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: Generate
+    path: ../package/SLTUtils/AnimalSpecificJSON.cs
+    startLine: 80
+  assemblies:
+  - SLTUtils
+  namespace: SLTUtils
+  summary: Reads the animal-specific input parameters needed for the Sound Lateralization Task from a JSON file.
+  example: []
+  syntax:
+    content: public IObservable<AnimalSpecificConfiguration> Generate()
+    return:
+      type: System.IObservable{SLTUtils.AnimalSpecificConfiguration}
+      description: An observable sequence which sends a single event containing an <code>AnimalSpecificConfiguration</code> instance.
+    content.vb: Public Function Generate() As IObservable(Of AnimalSpecificConfiguration)
+  overload: SLTUtils.AnimalSpecificJSON.Generate*
+references:
+- uid: SLTUtils
+  commentId: N:SLTUtils
+  href: SLTUtils.html
+  name: SLTUtils
+  nameWithType: SLTUtils
+  fullName: SLTUtils
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: SLTUtils.AnimalSpecificJSON.FilePath*
+  commentId: Overload:SLTUtils.AnimalSpecificJSON.FilePath
+  href: SLTUtils.AnimalSpecificJSON.html#SLTUtils_AnimalSpecificJSON_FilePath
+  name: FilePath
+  nameWithType: AnimalSpecificJSON.FilePath
+  fullName: SLTUtils.AnimalSpecificJSON.FilePath
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: SLTUtils.AnimalSpecificJSON.Generate*
+  commentId: Overload:SLTUtils.AnimalSpecificJSON.Generate
+  href: SLTUtils.AnimalSpecificJSON.html#SLTUtils_AnimalSpecificJSON_Generate
+  name: Generate
+  nameWithType: AnimalSpecificJSON.Generate
+  fullName: SLTUtils.AnimalSpecificJSON.Generate
+- uid: System.IObservable{SLTUtils.AnimalSpecificConfiguration}
+  commentId: T:System.IObservable{SLTUtils.AnimalSpecificConfiguration}
+  parent: System
+  definition: System.IObservable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  name: IObservable<AnimalSpecificConfiguration>
+  nameWithType: IObservable<AnimalSpecificConfiguration>
+  fullName: System.IObservable<SLTUtils.AnimalSpecificConfiguration>
+  nameWithType.vb: IObservable(Of AnimalSpecificConfiguration)
+  fullName.vb: System.IObservable(Of SLTUtils.AnimalSpecificConfiguration)
+  name.vb: IObservable(Of AnimalSpecificConfiguration)
+  spec.csharp:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: <
+  - uid: SLTUtils.AnimalSpecificConfiguration
+    name: AnimalSpecificConfiguration
+    href: SLTUtils.AnimalSpecificConfiguration.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SLTUtils.AnimalSpecificConfiguration
+    name: AnimalSpecificConfiguration
+    href: SLTUtils.AnimalSpecificConfiguration.html
+  - name: )
+- uid: System.IObservable`1
+  commentId: T:System.IObservable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  name: IObservable<T>
+  nameWithType: IObservable<T>
+  fullName: System.IObservable<T>
+  nameWithType.vb: IObservable(Of T)
+  fullName.vb: System.IObservable(Of T)
+  name.vb: IObservable(Of T)
+  spec.csharp:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )

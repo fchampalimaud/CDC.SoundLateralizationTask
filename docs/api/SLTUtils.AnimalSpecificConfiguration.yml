@@ -1,0 +1,1165 @@
+### YamlMime:ManagedReference
+items:
+- uid: SLTUtils.AnimalSpecificConfiguration
+  commentId: T:SLTUtils.AnimalSpecificConfiguration
+  id: AnimalSpecificConfiguration
+  parent: SLTUtils
+  children:
+  - SLTUtils.AnimalSpecificConfiguration.ABLList
+  - SLTUtils.AnimalSpecificConfiguration.Animal
+  - SLTUtils.AnimalSpecificConfiguration.Bias
+  - SLTUtils.AnimalSpecificConfiguration.Box
+  - SLTUtils.AnimalSpecificConfiguration.CycleILD
+  - SLTUtils.AnimalSpecificConfiguration.ExpFTMean
+  - SLTUtils.AnimalSpecificConfiguration.FTDelta
+  - SLTUtils.AnimalSpecificConfiguration.FTTarget
+  - SLTUtils.AnimalSpecificConfiguration.LNPDelta
+  - SLTUtils.AnimalSpecificConfiguration.LNPTarget
+  - SLTUtils.AnimalSpecificConfiguration.MaxRT
+  - SLTUtils.AnimalSpecificConfiguration.MaxSamplingTime
+  - SLTUtils.AnimalSpecificConfiguration.MinFT
+  - SLTUtils.AnimalSpecificConfiguration.MinLNP
+  - SLTUtils.AnimalSpecificConfiguration.MinMT
+  - SLTUtils.AnimalSpecificConfiguration.MinRT
+  - SLTUtils.AnimalSpecificConfiguration.RTDelta
+  - SLTUtils.AnimalSpecificConfiguration.RTTarget
+  - SLTUtils.AnimalSpecificConfiguration.Session
+  - SLTUtils.AnimalSpecificConfiguration.SessionDuration
+  - SLTUtils.AnimalSpecificConfiguration.SessionType
+  - SLTUtils.AnimalSpecificConfiguration.StartingBlockNumber
+  - SLTUtils.AnimalSpecificConfiguration.StartingTrialNumber
+  langs:
+  - csharp
+  - vb
+  name: AnimalSpecificConfiguration
+  nameWithType: AnimalSpecificConfiguration
+  fullName: SLTUtils.AnimalSpecificConfiguration
+  type: Class
+  source:
+    remote:
+      path: package/SLTUtils/AnimalSpecificJSON.cs
+      branch: develop
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: AnimalSpecificConfiguration
+    path: ../package/SLTUtils/AnimalSpecificJSON.cs
+    startLine: 14
+  assemblies:
+  - SLTUtils
+  namespace: SLTUtils
+  summary: Class <code>AnimalSpecificConfiguration</code> models the input parameters of the Sound Lateralization Task present in the <code>animal_settings.json</code> file.
+  example: []
+  syntax:
+    content: public class AnimalSpecificConfiguration
+    content.vb: Public Class AnimalSpecificConfiguration
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: SLTUtils.AnimalSpecificConfiguration.Animal
+  commentId: P:SLTUtils.AnimalSpecificConfiguration.Animal
+  id: Animal
+  parent: SLTUtils.AnimalSpecificConfiguration
+  langs:
+  - csharp
+  - vb
+  name: Animal
+  nameWithType: AnimalSpecificConfiguration.Animal
+  fullName: SLTUtils.AnimalSpecificConfiguration.Animal
+  type: Property
+  source:
+    remote:
+      path: package/SLTUtils/AnimalSpecificJSON.cs
+      branch: develop
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: Animal
+    path: ../package/SLTUtils/AnimalSpecificJSON.cs
+    startLine: 16
+  assemblies:
+  - SLTUtils
+  namespace: SLTUtils
+  syntax:
+    content: public int Animal { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Animal As Integer
+  overload: SLTUtils.AnimalSpecificConfiguration.Animal*
+- uid: SLTUtils.AnimalSpecificConfiguration.Box
+  commentId: P:SLTUtils.AnimalSpecificConfiguration.Box
+  id: Box
+  parent: SLTUtils.AnimalSpecificConfiguration
+  langs:
+  - csharp
+  - vb
+  name: Box
+  nameWithType: AnimalSpecificConfiguration.Box
+  fullName: SLTUtils.AnimalSpecificConfiguration.Box
+  type: Property
+  source:
+    remote:
+      path: package/SLTUtils/AnimalSpecificJSON.cs
+      branch: develop
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: Box
+    path: ../package/SLTUtils/AnimalSpecificJSON.cs
+    startLine: 17
+  assemblies:
+  - SLTUtils
+  namespace: SLTUtils
+  syntax:
+    content: public int Box { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Box As Integer
+  overload: SLTUtils.AnimalSpecificConfiguration.Box*
+- uid: SLTUtils.AnimalSpecificConfiguration.Session
+  commentId: P:SLTUtils.AnimalSpecificConfiguration.Session
+  id: Session
+  parent: SLTUtils.AnimalSpecificConfiguration
+  langs:
+  - csharp
+  - vb
+  name: Session
+  nameWithType: AnimalSpecificConfiguration.Session
+  fullName: SLTUtils.AnimalSpecificConfiguration.Session
+  type: Property
+  source:
+    remote:
+      path: package/SLTUtils/AnimalSpecificJSON.cs
+      branch: develop
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: Session
+    path: ../package/SLTUtils/AnimalSpecificJSON.cs
+    startLine: 18
+  assemblies:
+  - SLTUtils
+  namespace: SLTUtils
+  syntax:
+    content: public int Session { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Session As Integer
+  overload: SLTUtils.AnimalSpecificConfiguration.Session*
+- uid: SLTUtils.AnimalSpecificConfiguration.SessionType
+  commentId: P:SLTUtils.AnimalSpecificConfiguration.SessionType
+  id: SessionType
+  parent: SLTUtils.AnimalSpecificConfiguration
+  langs:
+  - csharp
+  - vb
+  name: SessionType
+  nameWithType: AnimalSpecificConfiguration.SessionType
+  fullName: SLTUtils.AnimalSpecificConfiguration.SessionType
+  type: Property
+  source:
+    remote:
+      path: package/SLTUtils/AnimalSpecificJSON.cs
+      branch: develop
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: SessionType
+    path: ../package/SLTUtils/AnimalSpecificJSON.cs
+    startLine: 19
+  assemblies:
+  - SLTUtils
+  namespace: SLTUtils
+  syntax:
+    content: public int SessionType { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property SessionType As Integer
+  overload: SLTUtils.AnimalSpecificConfiguration.SessionType*
+- uid: SLTUtils.AnimalSpecificConfiguration.SessionDuration
+  commentId: P:SLTUtils.AnimalSpecificConfiguration.SessionDuration
+  id: SessionDuration
+  parent: SLTUtils.AnimalSpecificConfiguration
+  langs:
+  - csharp
+  - vb
+  name: SessionDuration
+  nameWithType: AnimalSpecificConfiguration.SessionDuration
+  fullName: SLTUtils.AnimalSpecificConfiguration.SessionDuration
+  type: Property
+  source:
+    remote:
+      path: package/SLTUtils/AnimalSpecificJSON.cs
+      branch: develop
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: SessionDuration
+    path: ../package/SLTUtils/AnimalSpecificJSON.cs
+    startLine: 20
+  assemblies:
+  - SLTUtils
+  namespace: SLTUtils
+  syntax:
+    content: public TimeSpan SessionDuration { get; set; }
+    parameters: []
+    return:
+      type: System.TimeSpan
+    content.vb: Public Property SessionDuration As TimeSpan
+  overload: SLTUtils.AnimalSpecificConfiguration.SessionDuration*
+- uid: SLTUtils.AnimalSpecificConfiguration.StartingTrialNumber
+  commentId: P:SLTUtils.AnimalSpecificConfiguration.StartingTrialNumber
+  id: StartingTrialNumber
+  parent: SLTUtils.AnimalSpecificConfiguration
+  langs:
+  - csharp
+  - vb
+  name: StartingTrialNumber
+  nameWithType: AnimalSpecificConfiguration.StartingTrialNumber
+  fullName: SLTUtils.AnimalSpecificConfiguration.StartingTrialNumber
+  type: Property
+  source:
+    remote:
+      path: package/SLTUtils/AnimalSpecificJSON.cs
+      branch: develop
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: StartingTrialNumber
+    path: ../package/SLTUtils/AnimalSpecificJSON.cs
+    startLine: 21
+  assemblies:
+  - SLTUtils
+  namespace: SLTUtils
+  syntax:
+    content: public int StartingTrialNumber { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property StartingTrialNumber As Integer
+  overload: SLTUtils.AnimalSpecificConfiguration.StartingTrialNumber*
+- uid: SLTUtils.AnimalSpecificConfiguration.StartingBlockNumber
+  commentId: P:SLTUtils.AnimalSpecificConfiguration.StartingBlockNumber
+  id: StartingBlockNumber
+  parent: SLTUtils.AnimalSpecificConfiguration
+  langs:
+  - csharp
+  - vb
+  name: StartingBlockNumber
+  nameWithType: AnimalSpecificConfiguration.StartingBlockNumber
+  fullName: SLTUtils.AnimalSpecificConfiguration.StartingBlockNumber
+  type: Property
+  source:
+    remote:
+      path: package/SLTUtils/AnimalSpecificJSON.cs
+      branch: develop
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: StartingBlockNumber
+    path: ../package/SLTUtils/AnimalSpecificJSON.cs
+    startLine: 22
+  assemblies:
+  - SLTUtils
+  namespace: SLTUtils
+  syntax:
+    content: public int StartingBlockNumber { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property StartingBlockNumber As Integer
+  overload: SLTUtils.AnimalSpecificConfiguration.StartingBlockNumber*
+- uid: SLTUtils.AnimalSpecificConfiguration.ABLList
+  commentId: P:SLTUtils.AnimalSpecificConfiguration.ABLList
+  id: ABLList
+  parent: SLTUtils.AnimalSpecificConfiguration
+  langs:
+  - csharp
+  - vb
+  name: ABLList
+  nameWithType: AnimalSpecificConfiguration.ABLList
+  fullName: SLTUtils.AnimalSpecificConfiguration.ABLList
+  type: Property
+  source:
+    remote:
+      path: package/SLTUtils/AnimalSpecificJSON.cs
+      branch: develop
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: ABLList
+    path: ../package/SLTUtils/AnimalSpecificJSON.cs
+    startLine: 23
+  assemblies:
+  - SLTUtils
+  namespace: SLTUtils
+  syntax:
+    content: public double[] ABLList { get; set; }
+    parameters: []
+    return:
+      type: System.Double[]
+    content.vb: Public Property ABLList As Double()
+  overload: SLTUtils.AnimalSpecificConfiguration.ABLList*
+- uid: SLTUtils.AnimalSpecificConfiguration.CycleILD
+  commentId: P:SLTUtils.AnimalSpecificConfiguration.CycleILD
+  id: CycleILD
+  parent: SLTUtils.AnimalSpecificConfiguration
+  langs:
+  - csharp
+  - vb
+  name: CycleILD
+  nameWithType: AnimalSpecificConfiguration.CycleILD
+  fullName: SLTUtils.AnimalSpecificConfiguration.CycleILD
+  type: Property
+  source:
+    remote:
+      path: package/SLTUtils/AnimalSpecificJSON.cs
+      branch: develop
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: CycleILD
+    path: ../package/SLTUtils/AnimalSpecificJSON.cs
+    startLine: 24
+  assemblies:
+  - SLTUtils
+  namespace: SLTUtils
+  syntax:
+    content: public int CycleILD { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property CycleILD As Integer
+  overload: SLTUtils.AnimalSpecificConfiguration.CycleILD*
+- uid: SLTUtils.AnimalSpecificConfiguration.Bias
+  commentId: P:SLTUtils.AnimalSpecificConfiguration.Bias
+  id: Bias
+  parent: SLTUtils.AnimalSpecificConfiguration
+  langs:
+  - csharp
+  - vb
+  name: Bias
+  nameWithType: AnimalSpecificConfiguration.Bias
+  fullName: SLTUtils.AnimalSpecificConfiguration.Bias
+  type: Property
+  source:
+    remote:
+      path: package/SLTUtils/AnimalSpecificJSON.cs
+      branch: develop
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: Bias
+    path: ../package/SLTUtils/AnimalSpecificJSON.cs
+    startLine: 25
+  assemblies:
+  - SLTUtils
+  namespace: SLTUtils
+  syntax:
+    content: public double Bias { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property Bias As Double
+  overload: SLTUtils.AnimalSpecificConfiguration.Bias*
+- uid: SLTUtils.AnimalSpecificConfiguration.MinFT
+  commentId: P:SLTUtils.AnimalSpecificConfiguration.MinFT
+  id: MinFT
+  parent: SLTUtils.AnimalSpecificConfiguration
+  langs:
+  - csharp
+  - vb
+  name: MinFT
+  nameWithType: AnimalSpecificConfiguration.MinFT
+  fullName: SLTUtils.AnimalSpecificConfiguration.MinFT
+  type: Property
+  source:
+    remote:
+      path: package/SLTUtils/AnimalSpecificJSON.cs
+      branch: develop
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: MinFT
+    path: ../package/SLTUtils/AnimalSpecificJSON.cs
+    startLine: 26
+  assemblies:
+  - SLTUtils
+  namespace: SLTUtils
+  syntax:
+    content: public double MinFT { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property MinFT As Double
+  overload: SLTUtils.AnimalSpecificConfiguration.MinFT*
+- uid: SLTUtils.AnimalSpecificConfiguration.FTDelta
+  commentId: P:SLTUtils.AnimalSpecificConfiguration.FTDelta
+  id: FTDelta
+  parent: SLTUtils.AnimalSpecificConfiguration
+  langs:
+  - csharp
+  - vb
+  name: FTDelta
+  nameWithType: AnimalSpecificConfiguration.FTDelta
+  fullName: SLTUtils.AnimalSpecificConfiguration.FTDelta
+  type: Property
+  source:
+    remote:
+      path: package/SLTUtils/AnimalSpecificJSON.cs
+      branch: develop
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: FTDelta
+    path: ../package/SLTUtils/AnimalSpecificJSON.cs
+    startLine: 27
+  assemblies:
+  - SLTUtils
+  namespace: SLTUtils
+  syntax:
+    content: public double FTDelta { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property FTDelta As Double
+  overload: SLTUtils.AnimalSpecificConfiguration.FTDelta*
+- uid: SLTUtils.AnimalSpecificConfiguration.FTTarget
+  commentId: P:SLTUtils.AnimalSpecificConfiguration.FTTarget
+  id: FTTarget
+  parent: SLTUtils.AnimalSpecificConfiguration
+  langs:
+  - csharp
+  - vb
+  name: FTTarget
+  nameWithType: AnimalSpecificConfiguration.FTTarget
+  fullName: SLTUtils.AnimalSpecificConfiguration.FTTarget
+  type: Property
+  source:
+    remote:
+      path: package/SLTUtils/AnimalSpecificJSON.cs
+      branch: develop
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: FTTarget
+    path: ../package/SLTUtils/AnimalSpecificJSON.cs
+    startLine: 28
+  assemblies:
+  - SLTUtils
+  namespace: SLTUtils
+  syntax:
+    content: public double FTTarget { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property FTTarget As Double
+  overload: SLTUtils.AnimalSpecificConfiguration.FTTarget*
+- uid: SLTUtils.AnimalSpecificConfiguration.ExpFTMean
+  commentId: P:SLTUtils.AnimalSpecificConfiguration.ExpFTMean
+  id: ExpFTMean
+  parent: SLTUtils.AnimalSpecificConfiguration
+  langs:
+  - csharp
+  - vb
+  name: ExpFTMean
+  nameWithType: AnimalSpecificConfiguration.ExpFTMean
+  fullName: SLTUtils.AnimalSpecificConfiguration.ExpFTMean
+  type: Property
+  source:
+    remote:
+      path: package/SLTUtils/AnimalSpecificJSON.cs
+      branch: develop
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: ExpFTMean
+    path: ../package/SLTUtils/AnimalSpecificJSON.cs
+    startLine: 29
+  assemblies:
+  - SLTUtils
+  namespace: SLTUtils
+  syntax:
+    content: public double ExpFTMean { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property ExpFTMean As Double
+  overload: SLTUtils.AnimalSpecificConfiguration.ExpFTMean*
+- uid: SLTUtils.AnimalSpecificConfiguration.MinRT
+  commentId: P:SLTUtils.AnimalSpecificConfiguration.MinRT
+  id: MinRT
+  parent: SLTUtils.AnimalSpecificConfiguration
+  langs:
+  - csharp
+  - vb
+  name: MinRT
+  nameWithType: AnimalSpecificConfiguration.MinRT
+  fullName: SLTUtils.AnimalSpecificConfiguration.MinRT
+  type: Property
+  source:
+    remote:
+      path: package/SLTUtils/AnimalSpecificJSON.cs
+      branch: develop
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: MinRT
+    path: ../package/SLTUtils/AnimalSpecificJSON.cs
+    startLine: 30
+  assemblies:
+  - SLTUtils
+  namespace: SLTUtils
+  syntax:
+    content: public double MinRT { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property MinRT As Double
+  overload: SLTUtils.AnimalSpecificConfiguration.MinRT*
+- uid: SLTUtils.AnimalSpecificConfiguration.RTDelta
+  commentId: P:SLTUtils.AnimalSpecificConfiguration.RTDelta
+  id: RTDelta
+  parent: SLTUtils.AnimalSpecificConfiguration
+  langs:
+  - csharp
+  - vb
+  name: RTDelta
+  nameWithType: AnimalSpecificConfiguration.RTDelta
+  fullName: SLTUtils.AnimalSpecificConfiguration.RTDelta
+  type: Property
+  source:
+    remote:
+      path: package/SLTUtils/AnimalSpecificJSON.cs
+      branch: develop
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: RTDelta
+    path: ../package/SLTUtils/AnimalSpecificJSON.cs
+    startLine: 31
+  assemblies:
+  - SLTUtils
+  namespace: SLTUtils
+  syntax:
+    content: public double RTDelta { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property RTDelta As Double
+  overload: SLTUtils.AnimalSpecificConfiguration.RTDelta*
+- uid: SLTUtils.AnimalSpecificConfiguration.RTTarget
+  commentId: P:SLTUtils.AnimalSpecificConfiguration.RTTarget
+  id: RTTarget
+  parent: SLTUtils.AnimalSpecificConfiguration
+  langs:
+  - csharp
+  - vb
+  name: RTTarget
+  nameWithType: AnimalSpecificConfiguration.RTTarget
+  fullName: SLTUtils.AnimalSpecificConfiguration.RTTarget
+  type: Property
+  source:
+    remote:
+      path: package/SLTUtils/AnimalSpecificJSON.cs
+      branch: develop
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: RTTarget
+    path: ../package/SLTUtils/AnimalSpecificJSON.cs
+    startLine: 32
+  assemblies:
+  - SLTUtils
+  namespace: SLTUtils
+  syntax:
+    content: public double RTTarget { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property RTTarget As Double
+  overload: SLTUtils.AnimalSpecificConfiguration.RTTarget*
+- uid: SLTUtils.AnimalSpecificConfiguration.MaxRT
+  commentId: P:SLTUtils.AnimalSpecificConfiguration.MaxRT
+  id: MaxRT
+  parent: SLTUtils.AnimalSpecificConfiguration
+  langs:
+  - csharp
+  - vb
+  name: MaxRT
+  nameWithType: AnimalSpecificConfiguration.MaxRT
+  fullName: SLTUtils.AnimalSpecificConfiguration.MaxRT
+  type: Property
+  source:
+    remote:
+      path: package/SLTUtils/AnimalSpecificJSON.cs
+      branch: develop
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: MaxRT
+    path: ../package/SLTUtils/AnimalSpecificJSON.cs
+    startLine: 33
+  assemblies:
+  - SLTUtils
+  namespace: SLTUtils
+  syntax:
+    content: public double MaxRT { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property MaxRT As Double
+  overload: SLTUtils.AnimalSpecificConfiguration.MaxRT*
+- uid: SLTUtils.AnimalSpecificConfiguration.MaxSamplingTime
+  commentId: P:SLTUtils.AnimalSpecificConfiguration.MaxSamplingTime
+  id: MaxSamplingTime
+  parent: SLTUtils.AnimalSpecificConfiguration
+  langs:
+  - csharp
+  - vb
+  name: MaxSamplingTime
+  nameWithType: AnimalSpecificConfiguration.MaxSamplingTime
+  fullName: SLTUtils.AnimalSpecificConfiguration.MaxSamplingTime
+  type: Property
+  source:
+    remote:
+      path: package/SLTUtils/AnimalSpecificJSON.cs
+      branch: develop
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: MaxSamplingTime
+    path: ../package/SLTUtils/AnimalSpecificJSON.cs
+    startLine: 34
+  assemblies:
+  - SLTUtils
+  namespace: SLTUtils
+  syntax:
+    content: public double[] MaxSamplingTime { get; set; }
+    parameters: []
+    return:
+      type: System.Double[]
+    content.vb: Public Property MaxSamplingTime As Double()
+  overload: SLTUtils.AnimalSpecificConfiguration.MaxSamplingTime*
+- uid: SLTUtils.AnimalSpecificConfiguration.MinMT
+  commentId: P:SLTUtils.AnimalSpecificConfiguration.MinMT
+  id: MinMT
+  parent: SLTUtils.AnimalSpecificConfiguration
+  langs:
+  - csharp
+  - vb
+  name: MinMT
+  nameWithType: AnimalSpecificConfiguration.MinMT
+  fullName: SLTUtils.AnimalSpecificConfiguration.MinMT
+  type: Property
+  source:
+    remote:
+      path: package/SLTUtils/AnimalSpecificJSON.cs
+      branch: develop
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: MinMT
+    path: ../package/SLTUtils/AnimalSpecificJSON.cs
+    startLine: 35
+  assemblies:
+  - SLTUtils
+  namespace: SLTUtils
+  syntax:
+    content: public double MinMT { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property MinMT As Double
+  overload: SLTUtils.AnimalSpecificConfiguration.MinMT*
+- uid: SLTUtils.AnimalSpecificConfiguration.MinLNP
+  commentId: P:SLTUtils.AnimalSpecificConfiguration.MinLNP
+  id: MinLNP
+  parent: SLTUtils.AnimalSpecificConfiguration
+  langs:
+  - csharp
+  - vb
+  name: MinLNP
+  nameWithType: AnimalSpecificConfiguration.MinLNP
+  fullName: SLTUtils.AnimalSpecificConfiguration.MinLNP
+  type: Property
+  source:
+    remote:
+      path: package/SLTUtils/AnimalSpecificJSON.cs
+      branch: develop
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: MinLNP
+    path: ../package/SLTUtils/AnimalSpecificJSON.cs
+    startLine: 36
+  assemblies:
+  - SLTUtils
+  namespace: SLTUtils
+  syntax:
+    content: public double MinLNP { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property MinLNP As Double
+  overload: SLTUtils.AnimalSpecificConfiguration.MinLNP*
+- uid: SLTUtils.AnimalSpecificConfiguration.LNPDelta
+  commentId: P:SLTUtils.AnimalSpecificConfiguration.LNPDelta
+  id: LNPDelta
+  parent: SLTUtils.AnimalSpecificConfiguration
+  langs:
+  - csharp
+  - vb
+  name: LNPDelta
+  nameWithType: AnimalSpecificConfiguration.LNPDelta
+  fullName: SLTUtils.AnimalSpecificConfiguration.LNPDelta
+  type: Property
+  source:
+    remote:
+      path: package/SLTUtils/AnimalSpecificJSON.cs
+      branch: develop
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: LNPDelta
+    path: ../package/SLTUtils/AnimalSpecificJSON.cs
+    startLine: 37
+  assemblies:
+  - SLTUtils
+  namespace: SLTUtils
+  syntax:
+    content: public double LNPDelta { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property LNPDelta As Double
+  overload: SLTUtils.AnimalSpecificConfiguration.LNPDelta*
+- uid: SLTUtils.AnimalSpecificConfiguration.LNPTarget
+  commentId: P:SLTUtils.AnimalSpecificConfiguration.LNPTarget
+  id: LNPTarget
+  parent: SLTUtils.AnimalSpecificConfiguration
+  langs:
+  - csharp
+  - vb
+  name: LNPTarget
+  nameWithType: AnimalSpecificConfiguration.LNPTarget
+  fullName: SLTUtils.AnimalSpecificConfiguration.LNPTarget
+  type: Property
+  source:
+    remote:
+      path: package/SLTUtils/AnimalSpecificJSON.cs
+      branch: develop
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: LNPTarget
+    path: ../package/SLTUtils/AnimalSpecificJSON.cs
+    startLine: 38
+  assemblies:
+  - SLTUtils
+  namespace: SLTUtils
+  syntax:
+    content: public double LNPTarget { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property LNPTarget As Double
+  overload: SLTUtils.AnimalSpecificConfiguration.LNPTarget*
+references:
+- uid: SLTUtils
+  commentId: N:SLTUtils
+  href: SLTUtils.html
+  name: SLTUtils
+  nameWithType: SLTUtils
+  fullName: SLTUtils
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: SLTUtils.AnimalSpecificConfiguration.Animal*
+  commentId: Overload:SLTUtils.AnimalSpecificConfiguration.Animal
+  href: SLTUtils.AnimalSpecificConfiguration.html#SLTUtils_AnimalSpecificConfiguration_Animal
+  name: Animal
+  nameWithType: AnimalSpecificConfiguration.Animal
+  fullName: SLTUtils.AnimalSpecificConfiguration.Animal
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: SLTUtils.AnimalSpecificConfiguration.Box*
+  commentId: Overload:SLTUtils.AnimalSpecificConfiguration.Box
+  href: SLTUtils.AnimalSpecificConfiguration.html#SLTUtils_AnimalSpecificConfiguration_Box
+  name: Box
+  nameWithType: AnimalSpecificConfiguration.Box
+  fullName: SLTUtils.AnimalSpecificConfiguration.Box
+- uid: SLTUtils.AnimalSpecificConfiguration.Session*
+  commentId: Overload:SLTUtils.AnimalSpecificConfiguration.Session
+  href: SLTUtils.AnimalSpecificConfiguration.html#SLTUtils_AnimalSpecificConfiguration_Session
+  name: Session
+  nameWithType: AnimalSpecificConfiguration.Session
+  fullName: SLTUtils.AnimalSpecificConfiguration.Session
+- uid: SLTUtils.AnimalSpecificConfiguration.SessionType*
+  commentId: Overload:SLTUtils.AnimalSpecificConfiguration.SessionType
+  href: SLTUtils.AnimalSpecificConfiguration.html#SLTUtils_AnimalSpecificConfiguration_SessionType
+  name: SessionType
+  nameWithType: AnimalSpecificConfiguration.SessionType
+  fullName: SLTUtils.AnimalSpecificConfiguration.SessionType
+- uid: SLTUtils.AnimalSpecificConfiguration.SessionDuration*
+  commentId: Overload:SLTUtils.AnimalSpecificConfiguration.SessionDuration
+  href: SLTUtils.AnimalSpecificConfiguration.html#SLTUtils_AnimalSpecificConfiguration_SessionDuration
+  name: SessionDuration
+  nameWithType: AnimalSpecificConfiguration.SessionDuration
+  fullName: SLTUtils.AnimalSpecificConfiguration.SessionDuration
+- uid: System.TimeSpan
+  commentId: T:System.TimeSpan
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.timespan
+  name: TimeSpan
+  nameWithType: TimeSpan
+  fullName: System.TimeSpan
+- uid: SLTUtils.AnimalSpecificConfiguration.StartingTrialNumber*
+  commentId: Overload:SLTUtils.AnimalSpecificConfiguration.StartingTrialNumber
+  href: SLTUtils.AnimalSpecificConfiguration.html#SLTUtils_AnimalSpecificConfiguration_StartingTrialNumber
+  name: StartingTrialNumber
+  nameWithType: AnimalSpecificConfiguration.StartingTrialNumber
+  fullName: SLTUtils.AnimalSpecificConfiguration.StartingTrialNumber
+- uid: SLTUtils.AnimalSpecificConfiguration.StartingBlockNumber*
+  commentId: Overload:SLTUtils.AnimalSpecificConfiguration.StartingBlockNumber
+  href: SLTUtils.AnimalSpecificConfiguration.html#SLTUtils_AnimalSpecificConfiguration_StartingBlockNumber
+  name: StartingBlockNumber
+  nameWithType: AnimalSpecificConfiguration.StartingBlockNumber
+  fullName: SLTUtils.AnimalSpecificConfiguration.StartingBlockNumber
+- uid: SLTUtils.AnimalSpecificConfiguration.ABLList*
+  commentId: Overload:SLTUtils.AnimalSpecificConfiguration.ABLList
+  href: SLTUtils.AnimalSpecificConfiguration.html#SLTUtils_AnimalSpecificConfiguration_ABLList
+  name: ABLList
+  nameWithType: AnimalSpecificConfiguration.ABLList
+  fullName: SLTUtils.AnimalSpecificConfiguration.ABLList
+- uid: System.Double[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double[]
+  nameWithType: double[]
+  fullName: double[]
+  nameWithType.vb: Double()
+  fullName.vb: Double()
+  name.vb: Double()
+  spec.csharp:
+  - uid: System.Double
+    name: double
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Double
+    name: Double
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double
+  - name: (
+  - name: )
+- uid: SLTUtils.AnimalSpecificConfiguration.CycleILD*
+  commentId: Overload:SLTUtils.AnimalSpecificConfiguration.CycleILD
+  href: SLTUtils.AnimalSpecificConfiguration.html#SLTUtils_AnimalSpecificConfiguration_CycleILD
+  name: CycleILD
+  nameWithType: AnimalSpecificConfiguration.CycleILD
+  fullName: SLTUtils.AnimalSpecificConfiguration.CycleILD
+- uid: SLTUtils.AnimalSpecificConfiguration.Bias*
+  commentId: Overload:SLTUtils.AnimalSpecificConfiguration.Bias
+  href: SLTUtils.AnimalSpecificConfiguration.html#SLTUtils_AnimalSpecificConfiguration_Bias
+  name: Bias
+  nameWithType: AnimalSpecificConfiguration.Bias
+  fullName: SLTUtils.AnimalSpecificConfiguration.Bias
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: SLTUtils.AnimalSpecificConfiguration.MinFT*
+  commentId: Overload:SLTUtils.AnimalSpecificConfiguration.MinFT
+  href: SLTUtils.AnimalSpecificConfiguration.html#SLTUtils_AnimalSpecificConfiguration_MinFT
+  name: MinFT
+  nameWithType: AnimalSpecificConfiguration.MinFT
+  fullName: SLTUtils.AnimalSpecificConfiguration.MinFT
+- uid: SLTUtils.AnimalSpecificConfiguration.FTDelta*
+  commentId: Overload:SLTUtils.AnimalSpecificConfiguration.FTDelta
+  href: SLTUtils.AnimalSpecificConfiguration.html#SLTUtils_AnimalSpecificConfiguration_FTDelta
+  name: FTDelta
+  nameWithType: AnimalSpecificConfiguration.FTDelta
+  fullName: SLTUtils.AnimalSpecificConfiguration.FTDelta
+- uid: SLTUtils.AnimalSpecificConfiguration.FTTarget*
+  commentId: Overload:SLTUtils.AnimalSpecificConfiguration.FTTarget
+  href: SLTUtils.AnimalSpecificConfiguration.html#SLTUtils_AnimalSpecificConfiguration_FTTarget
+  name: FTTarget
+  nameWithType: AnimalSpecificConfiguration.FTTarget
+  fullName: SLTUtils.AnimalSpecificConfiguration.FTTarget
+- uid: SLTUtils.AnimalSpecificConfiguration.ExpFTMean*
+  commentId: Overload:SLTUtils.AnimalSpecificConfiguration.ExpFTMean
+  href: SLTUtils.AnimalSpecificConfiguration.html#SLTUtils_AnimalSpecificConfiguration_ExpFTMean
+  name: ExpFTMean
+  nameWithType: AnimalSpecificConfiguration.ExpFTMean
+  fullName: SLTUtils.AnimalSpecificConfiguration.ExpFTMean
+- uid: SLTUtils.AnimalSpecificConfiguration.MinRT*
+  commentId: Overload:SLTUtils.AnimalSpecificConfiguration.MinRT
+  href: SLTUtils.AnimalSpecificConfiguration.html#SLTUtils_AnimalSpecificConfiguration_MinRT
+  name: MinRT
+  nameWithType: AnimalSpecificConfiguration.MinRT
+  fullName: SLTUtils.AnimalSpecificConfiguration.MinRT
+- uid: SLTUtils.AnimalSpecificConfiguration.RTDelta*
+  commentId: Overload:SLTUtils.AnimalSpecificConfiguration.RTDelta
+  href: SLTUtils.AnimalSpecificConfiguration.html#SLTUtils_AnimalSpecificConfiguration_RTDelta
+  name: RTDelta
+  nameWithType: AnimalSpecificConfiguration.RTDelta
+  fullName: SLTUtils.AnimalSpecificConfiguration.RTDelta
+- uid: SLTUtils.AnimalSpecificConfiguration.RTTarget*
+  commentId: Overload:SLTUtils.AnimalSpecificConfiguration.RTTarget
+  href: SLTUtils.AnimalSpecificConfiguration.html#SLTUtils_AnimalSpecificConfiguration_RTTarget
+  name: RTTarget
+  nameWithType: AnimalSpecificConfiguration.RTTarget
+  fullName: SLTUtils.AnimalSpecificConfiguration.RTTarget
+- uid: SLTUtils.AnimalSpecificConfiguration.MaxRT*
+  commentId: Overload:SLTUtils.AnimalSpecificConfiguration.MaxRT
+  href: SLTUtils.AnimalSpecificConfiguration.html#SLTUtils_AnimalSpecificConfiguration_MaxRT
+  name: MaxRT
+  nameWithType: AnimalSpecificConfiguration.MaxRT
+  fullName: SLTUtils.AnimalSpecificConfiguration.MaxRT
+- uid: SLTUtils.AnimalSpecificConfiguration.MaxSamplingTime*
+  commentId: Overload:SLTUtils.AnimalSpecificConfiguration.MaxSamplingTime
+  href: SLTUtils.AnimalSpecificConfiguration.html#SLTUtils_AnimalSpecificConfiguration_MaxSamplingTime
+  name: MaxSamplingTime
+  nameWithType: AnimalSpecificConfiguration.MaxSamplingTime
+  fullName: SLTUtils.AnimalSpecificConfiguration.MaxSamplingTime
+- uid: SLTUtils.AnimalSpecificConfiguration.MinMT*
+  commentId: Overload:SLTUtils.AnimalSpecificConfiguration.MinMT
+  href: SLTUtils.AnimalSpecificConfiguration.html#SLTUtils_AnimalSpecificConfiguration_MinMT
+  name: MinMT
+  nameWithType: AnimalSpecificConfiguration.MinMT
+  fullName: SLTUtils.AnimalSpecificConfiguration.MinMT
+- uid: SLTUtils.AnimalSpecificConfiguration.MinLNP*
+  commentId: Overload:SLTUtils.AnimalSpecificConfiguration.MinLNP
+  href: SLTUtils.AnimalSpecificConfiguration.html#SLTUtils_AnimalSpecificConfiguration_MinLNP
+  name: MinLNP
+  nameWithType: AnimalSpecificConfiguration.MinLNP
+  fullName: SLTUtils.AnimalSpecificConfiguration.MinLNP
+- uid: SLTUtils.AnimalSpecificConfiguration.LNPDelta*
+  commentId: Overload:SLTUtils.AnimalSpecificConfiguration.LNPDelta
+  href: SLTUtils.AnimalSpecificConfiguration.html#SLTUtils_AnimalSpecificConfiguration_LNPDelta
+  name: LNPDelta
+  nameWithType: AnimalSpecificConfiguration.LNPDelta
+  fullName: SLTUtils.AnimalSpecificConfiguration.LNPDelta
+- uid: SLTUtils.AnimalSpecificConfiguration.LNPTarget*
+  commentId: Overload:SLTUtils.AnimalSpecificConfiguration.LNPTarget
+  href: SLTUtils.AnimalSpecificConfiguration.html#SLTUtils_AnimalSpecificConfiguration_LNPTarget
+  name: LNPTarget
+  nameWithType: AnimalSpecificConfiguration.LNPTarget
+  fullName: SLTUtils.AnimalSpecificConfiguration.LNPTarget

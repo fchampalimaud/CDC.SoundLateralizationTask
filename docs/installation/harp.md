@@ -15,11 +15,11 @@ For most boards, it's possible to install the corresponding firmware in two diff
 1. Go to the [Harp Tech GitHub organization](https://github.com/harp-tech).
 2. Search for the board's repository. The name of the repository follows the format device.[_board_name_] (for example, [device.behavior](https://github.com/harp-tech/device.behavior)).
 3. Click on `Releases` and search for the latest firmware release, whose name follows the format fw[_firmware_version_]-harp[_harp_core_version_] (for example, fw2.2-harp1.13).
-4. Download the latest version of the firmware binary corresponding to the hardware version of the board being used. The firmware binary name follows the format [_board_name_]-fw[_firmware_version_]-harp[_harp_core_version_]-hw[_hardware_version_]-ass0.hex (for example, Behavior-fw3.2-harp1.13-hw2.0-ass0.hex).
+4. Download the latest version of the firmware binary corresponding to the hardware version of the board being used. The firmware binary name follows the format [_board_name_]-fw[_firmware_version_]-harp[_harp_core_version_]-hw[_hardware_version_]-ass[_assembly_version_].hex (for example, Behavior-fw3.2-harp1.13-hw2.0-ass0.hex).
     - **Note:** For the Harp SoundCard, an additional firmware binary must be downloaded (the PIC32 firmware).
 
 ### Via Harp Convert to CSV GUI
-If the Harp Convert to CSV GUI is already installed, skip to step 3. If it's not already installed, but other Harp board GUI is (except the Harp Olfactometer GUI), skip to step 2 instead.
+If the Harp Convert to CSV GUI is already installed, skip to step 3. If it's not already installed, but other Labview-based Harp board GUI is, skip to step 2 instead.
 
 1. Install the [LabView Runtime](https://bitbucket.org/fchampalimaud/downloads/downloads/Runtime-1.0.zip) and reboot the computer.
 2. Install the latest version of the [Harp Convert to CSV GUI](https://github.com/harp-tech/csv_converter/releases/tag/1.9.0-preview).
@@ -30,7 +30,7 @@ If the Harp Convert to CSV GUI is already installed, skip to step 3. If it's not
     - **Note:** For the Harp SoundCard, during the installation of the firmware, select the PIC32 firmware when the application asks for the 32 bits device firmware.
 
 ### Via Bonsai
-As explained at the beginning of the [section](#firmware), it is not possible to install the Harp SoundCard firmware through this method.
+As explained at the beginning of the [section](#firmware), it is not possible to install the Harp SoundCard firmware through this method. Skip to step 4 if the Bonsai environment is already installed.
 
 1. Install [Bonsai](https://bonsai-rx.org/docs/articles/installation.html).
 2. Open Bonsai and click on `Manage Packages`.

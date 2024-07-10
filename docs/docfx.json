@@ -3,7 +3,7 @@
     {
       "src": [
         {
-          "src": "../../package/SLTUtils",
+          "src": "../package/SLTUtils",
           "files": [
             "**/*.csproj"
           ]
@@ -33,7 +33,8 @@
     "output": "_site",
     "template": [
       "default",
-      "modern"
+      "modern",
+      "template"
     ],
     "globalMetadata": {
       "_appName": "CDC.SoundLateralizationTask",

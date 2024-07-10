@@ -1,0 +1,58 @@
+### YamlMime:ManagedReference
+items:
+- uid: SLTUtils
+  commentId: N:SLTUtils
+  id: SLTUtils
+  children:
+  - SLTUtils.AnimalSpecificConfiguration
+  - SLTUtils.AnimalSpecificJSON
+  - SLTUtils.GenerateILDArray
+  - SLTUtils.ShuffleArray
+  - SLTUtils.TrainingCSV
+  - SLTUtils.TrainingConfiguration
+  langs:
+  - csharp
+  - vb
+  name: SLTUtils
+  nameWithType: SLTUtils
+  fullName: SLTUtils
+  type: Namespace
+  assemblies:
+  - SLTUtils
+references:
+- uid: SLTUtils.AnimalSpecificConfiguration
+  commentId: T:SLTUtils.AnimalSpecificConfiguration
+  href: SLTUtils.AnimalSpecificConfiguration.html
+  name: AnimalSpecificConfiguration
+  nameWithType: AnimalSpecificConfiguration
+  fullName: SLTUtils.AnimalSpecificConfiguration
+- uid: SLTUtils.AnimalSpecificJSON
+  commentId: T:SLTUtils.AnimalSpecificJSON
+  href: SLTUtils.AnimalSpecificJSON.html
+  name: AnimalSpecificJSON
+  nameWithType: AnimalSpecificJSON
+  fullName: SLTUtils.AnimalSpecificJSON
+- uid: SLTUtils.GenerateILDArray
+  commentId: T:SLTUtils.GenerateILDArray
+  href: SLTUtils.GenerateILDArray.html
+  name: GenerateILDArray
+  nameWithType: GenerateILDArray
+  fullName: SLTUtils.GenerateILDArray
+- uid: SLTUtils.ShuffleArray
+  commentId: T:SLTUtils.ShuffleArray
+  href: SLTUtils.ShuffleArray.html
+  name: ShuffleArray
+  nameWithType: ShuffleArray
+  fullName: SLTUtils.ShuffleArray
+- uid: SLTUtils.TrainingConfiguration
+  commentId: T:SLTUtils.TrainingConfiguration
+  href: SLTUtils.TrainingConfiguration.html
+  name: TrainingConfiguration
+  nameWithType: TrainingConfiguration
+  fullName: SLTUtils.TrainingConfiguration
+- uid: SLTUtils.TrainingCSV
+  commentId: T:SLTUtils.TrainingCSV
+  href: SLTUtils.TrainingCSV.html
+  name: TrainingCSV
+  nameWithType: TrainingCSV
+  fullName: SLTUtils.TrainingCSV

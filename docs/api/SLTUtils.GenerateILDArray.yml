@@ -1,0 +1,659 @@
+### YamlMime:ManagedReference
+items:
+- uid: SLTUtils.GenerateILDArray
+  commentId: T:SLTUtils.GenerateILDArray
+  id: GenerateILDArray
+  parent: SLTUtils
+  children:
+  - SLTUtils.GenerateILDArray.Generate
+  - SLTUtils.GenerateILDArray.Generate``1(System.IObservable{``0})
+  - SLTUtils.GenerateILDArray.LogBase
+  - SLTUtils.GenerateILDArray.NumSteps
+  - SLTUtils.GenerateILDArray.StepSize
+  - SLTUtils.GenerateILDArray.UseLog
+  langs:
+  - csharp
+  - vb
+  name: GenerateILDArray
+  nameWithType: GenerateILDArray
+  fullName: SLTUtils.GenerateILDArray
+  type: Class
+  source:
+    remote:
+      path: package/SLTUtils/GenerateILDArray.cs
+      branch: develop
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: GenerateILDArray
+    path: ../package/SLTUtils/GenerateILDArray.cs
+    startLine: 13
+  assemblies:
+  - SLTUtils
+  namespace: SLTUtils
+  summary: Class <code>GenerateILDArray</code> contains the logic of the Bonsai node with the same name.
+  example: []
+  syntax:
+    content: >-
+      [Combinator(MethodName = "Generate")]
+
+      [WorkflowElementCategory(ElementCategory.Source)]
+
+      public class GenerateILDArray
+    content.vb: >-
+      <Combinator(MethodName:="Generate")>
+
+      <WorkflowElementCategory(ElementCategory.Source)>
+
+      Public Class GenerateILDArray
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  attributes:
+  - type: Bonsai.CombinatorAttribute
+    ctor: Bonsai.CombinatorAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: MethodName
+      type: System.String
+      value: Generate
+  - type: Bonsai.WorkflowElementCategoryAttribute
+    ctor: Bonsai.WorkflowElementCategoryAttribute.#ctor(Bonsai.ElementCategory)
+    arguments:
+    - type: Bonsai.ElementCategory
+      value: 0
+- uid: SLTUtils.GenerateILDArray.NumSteps
+  commentId: P:SLTUtils.GenerateILDArray.NumSteps
+  id: NumSteps
+  parent: SLTUtils.GenerateILDArray
+  langs:
+  - csharp
+  - vb
+  name: NumSteps
+  nameWithType: GenerateILDArray.NumSteps
+  fullName: SLTUtils.GenerateILDArray.NumSteps
+  type: Property
+  source:
+    remote:
+      path: package/SLTUtils/GenerateILDArray.cs
+      branch: develop
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: NumSteps
+    path: ../package/SLTUtils/GenerateILDArray.cs
+    startLine: 24
+  assemblies:
+  - SLTUtils
+  namespace: SLTUtils
+  syntax:
+    content: public int NumSteps { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property NumSteps As Integer
+  overload: SLTUtils.GenerateILDArray.NumSteps*
+- uid: SLTUtils.GenerateILDArray.StepSize
+  commentId: P:SLTUtils.GenerateILDArray.StepSize
+  id: StepSize
+  parent: SLTUtils.GenerateILDArray
+  langs:
+  - csharp
+  - vb
+  name: StepSize
+  nameWithType: GenerateILDArray.StepSize
+  fullName: SLTUtils.GenerateILDArray.StepSize
+  type: Property
+  source:
+    remote:
+      path: package/SLTUtils/GenerateILDArray.cs
+      branch: develop
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: StepSize
+    path: ../package/SLTUtils/GenerateILDArray.cs
+    startLine: 35
+  assemblies:
+  - SLTUtils
+  namespace: SLTUtils
+  syntax:
+    content: public double StepSize { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property StepSize As Double
+  overload: SLTUtils.GenerateILDArray.StepSize*
+- uid: SLTUtils.GenerateILDArray.UseLog
+  commentId: P:SLTUtils.GenerateILDArray.UseLog
+  id: UseLog
+  parent: SLTUtils.GenerateILDArray
+  langs:
+  - csharp
+  - vb
+  name: UseLog
+  nameWithType: GenerateILDArray.UseLog
+  fullName: SLTUtils.GenerateILDArray.UseLog
+  type: Property
+  source:
+    remote:
+      path: package/SLTUtils/GenerateILDArray.cs
+      branch: develop
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: UseLog
+    path: ../package/SLTUtils/GenerateILDArray.cs
+    startLine: 45
+  assemblies:
+  - SLTUtils
+  namespace: SLTUtils
+  syntax:
+    content: public bool UseLog { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property UseLog As Boolean
+  overload: SLTUtils.GenerateILDArray.UseLog*
+- uid: SLTUtils.GenerateILDArray.LogBase
+  commentId: P:SLTUtils.GenerateILDArray.LogBase
+  id: LogBase
+  parent: SLTUtils.GenerateILDArray
+  langs:
+  - csharp
+  - vb
+  name: LogBase
+  nameWithType: GenerateILDArray.LogBase
+  fullName: SLTUtils.GenerateILDArray.LogBase
+  type: Property
+  source:
+    remote:
+      path: package/SLTUtils/GenerateILDArray.cs
+      branch: develop
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: LogBase
+    path: ../package/SLTUtils/GenerateILDArray.cs
+    startLine: 55
+  assemblies:
+  - SLTUtils
+  namespace: SLTUtils
+  syntax:
+    content: public double LogBase { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property LogBase As Double
+  overload: SLTUtils.GenerateILDArray.LogBase*
+- uid: SLTUtils.GenerateILDArray.Generate
+  commentId: M:SLTUtils.GenerateILDArray.Generate
+  id: Generate
+  parent: SLTUtils.GenerateILDArray
+  langs:
+  - csharp
+  - vb
+  name: Generate()
+  nameWithType: GenerateILDArray.Generate()
+  fullName: SLTUtils.GenerateILDArray.Generate()
+  type: Method
+  source:
+    remote:
+      path: package/SLTUtils/GenerateILDArray.cs
+      branch: develop
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: Generate
+    path: ../package/SLTUtils/GenerateILDArray.cs
+    startLine: 113
+  assemblies:
+  - SLTUtils
+  namespace: SLTUtils
+  summary: Generates an observable sequence which outputs an array of ILDs. This method is called when the node doesn't have an input data stream.
+  example: []
+  syntax:
+    content: public IObservable<double[]> Generate()
+    return:
+      type: System.IObservable{System.Double[]}
+      description: An observable sequence which sends a single event containing an array of ILD values.
+    content.vb: Public Function Generate() As IObservable(Of Double())
+  overload: SLTUtils.GenerateILDArray.Generate*
+- uid: SLTUtils.GenerateILDArray.Generate``1(System.IObservable{``0})
+  commentId: M:SLTUtils.GenerateILDArray.Generate``1(System.IObservable{``0})
+  id: Generate``1(System.IObservable{``0})
+  parent: SLTUtils.GenerateILDArray
+  langs:
+  - csharp
+  - vb
+  name: Generate<TSource>(IObservable<TSource>)
+  nameWithType: GenerateILDArray.Generate<TSource>(IObservable<TSource>)
+  fullName: SLTUtils.GenerateILDArray.Generate<TSource>(System.IObservable<TSource>)
+  type: Method
+  source:
+    remote:
+      path: package/SLTUtils/GenerateILDArray.cs
+      branch: develop
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: Generate
+    path: ../package/SLTUtils/GenerateILDArray.cs
+    startLine: 130
+  assemblies:
+  - SLTUtils
+  namespace: SLTUtils
+  summary: Generates an observable sequence which outputs an array of ILDs. This method is called when the node has an input data stream.
+  example: []
+  syntax:
+    content: public IObservable<double[]> Generate<TSource>(IObservable<TSource> source)
+    parameters:
+    - id: source
+      type: System.IObservable{{TSource}}
+      description: the input data stream.
+    typeParameters:
+    - id: TSource
+    return:
+      type: System.IObservable{System.Double[]}
+      description: An observable sequence which sends a single event containing an array of ILD values.
+    content.vb: Public Function Generate(Of TSource)(source As IObservable(Of TSource)) As IObservable(Of Double())
+  overload: SLTUtils.GenerateILDArray.Generate*
+  nameWithType.vb: GenerateILDArray.Generate(Of TSource)(IObservable(Of TSource))
+  fullName.vb: SLTUtils.GenerateILDArray.Generate(Of TSource)(System.IObservable(Of TSource))
+  name.vb: Generate(Of TSource)(IObservable(Of TSource))
+references:
+- uid: SLTUtils
+  commentId: N:SLTUtils
+  href: SLTUtils.html
+  name: SLTUtils
+  nameWithType: SLTUtils
+  fullName: SLTUtils
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: SLTUtils.GenerateILDArray.NumSteps*
+  commentId: Overload:SLTUtils.GenerateILDArray.NumSteps
+  href: SLTUtils.GenerateILDArray.html#SLTUtils_GenerateILDArray_NumSteps
+  name: NumSteps
+  nameWithType: GenerateILDArray.NumSteps
+  fullName: SLTUtils.GenerateILDArray.NumSteps
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: SLTUtils.GenerateILDArray.StepSize*
+  commentId: Overload:SLTUtils.GenerateILDArray.StepSize
+  href: SLTUtils.GenerateILDArray.html#SLTUtils_GenerateILDArray_StepSize
+  name: StepSize
+  nameWithType: GenerateILDArray.StepSize
+  fullName: SLTUtils.GenerateILDArray.StepSize
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: SLTUtils.GenerateILDArray.UseLog*
+  commentId: Overload:SLTUtils.GenerateILDArray.UseLog
+  href: SLTUtils.GenerateILDArray.html#SLTUtils_GenerateILDArray_UseLog
+  name: UseLog
+  nameWithType: GenerateILDArray.UseLog
+  fullName: SLTUtils.GenerateILDArray.UseLog
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: SLTUtils.GenerateILDArray.LogBase*
+  commentId: Overload:SLTUtils.GenerateILDArray.LogBase
+  href: SLTUtils.GenerateILDArray.html#SLTUtils_GenerateILDArray_LogBase
+  name: LogBase
+  nameWithType: GenerateILDArray.LogBase
+  fullName: SLTUtils.GenerateILDArray.LogBase
+- uid: SLTUtils.GenerateILDArray.Generate*
+  commentId: Overload:SLTUtils.GenerateILDArray.Generate
+  href: SLTUtils.GenerateILDArray.html#SLTUtils_GenerateILDArray_Generate
+  name: Generate
+  nameWithType: GenerateILDArray.Generate
+  fullName: SLTUtils.GenerateILDArray.Generate
+- uid: System.IObservable{System.Double[]}
+  commentId: T:System.IObservable{System.Double[]}
+  parent: System
+  definition: System.IObservable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  name: IObservable<double[]>
+  nameWithType: IObservable<double[]>
+  fullName: System.IObservable<double[]>
+  nameWithType.vb: IObservable(Of Double())
+  fullName.vb: System.IObservable(Of Double())
+  name.vb: IObservable(Of Double())
+  spec.csharp:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: <
+  - uid: System.Double
+    name: double
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double
+  - name: '['
+  - name: ']'
+  - name: '>'
+  spec.vb:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Double
+    name: Double
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double
+  - name: (
+  - name: )
+  - name: )
+- uid: System.IObservable`1
+  commentId: T:System.IObservable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  name: IObservable<T>
+  nameWithType: IObservable<T>
+  fullName: System.IObservable<T>
+  nameWithType.vb: IObservable(Of T)
+  fullName.vb: System.IObservable(Of T)
+  name.vb: IObservable(Of T)
+  spec.csharp:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.IObservable{{TSource}}
+  commentId: T:System.IObservable{``0}
+  parent: System
+  definition: System.IObservable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  name: IObservable<TSource>
+  nameWithType: IObservable<TSource>
+  fullName: System.IObservable<TSource>
+  nameWithType.vb: IObservable(Of TSource)
+  fullName.vb: System.IObservable(Of TSource)
+  name.vb: IObservable(Of TSource)
+  spec.csharp:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: <
+  - name: TSource
+  - name: '>'
+  spec.vb:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TSource
+  - name: )
