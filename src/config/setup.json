@@ -1,0 +1,22 @@
+{
+    "LowToHighL": true,
+    "LowToHighCNP": true,
+    "LowToHighR": true,
+    "RewardOpenL": 79,
+    "RewardOpenR": 99,
+    "RightSlope": 20.023,
+    "RightIntercept": 69.034,
+    "LeftSlope": 20.005,
+    "LeftIntercept": 70.173,
+    "SoundDuration": 5,
+    "PenaltyDurationPress": 2,
+    "PenaltyFlashF": 5,
+    "PerformAvg": 10,
+    "IBILight": 1,
+    "FS": 4096,
+    "FSDiv": 4,
+    "FSSound": 192000,
+    "MinFreq": 5000,
+    "MaxFreq": 20000,
+    "RampTime": 0.005
+}

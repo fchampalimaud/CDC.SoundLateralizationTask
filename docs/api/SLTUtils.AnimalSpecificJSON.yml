@@ -21,7 +21,7 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: AnimalSpecificJSON
     path: ../package/SLTUtils/AnimalSpecificJSON.cs
-    startLine: 65
+    startLine: 66
   assemblies:
   - SLTUtils
   namespace: SLTUtils
@@ -81,7 +81,7 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: FilePath
     path: ../package/SLTUtils/AnimalSpecificJSON.cs
-    startLine: 70
+    startLine: 71
   assemblies:
   - SLTUtils
   namespace: SLTUtils
@@ -110,7 +110,7 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Generate
     path: ../package/SLTUtils/AnimalSpecificJSON.cs
-    startLine: 80
+    startLine: 81
   assemblies:
   - SLTUtils
   namespace: SLTUtils

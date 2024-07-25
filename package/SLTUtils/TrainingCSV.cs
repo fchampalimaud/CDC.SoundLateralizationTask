@@ -17,6 +17,7 @@ namespace SLTUtils
     {
         public int Level { get; set; }
         public int TrialsPerBlock { get; set; }
+        public int Level0 { get; set; }
         public double FixedABL { get; set; }
         public int DifferentABLs { get; set; }
         public int ABLBlock { get; set; }
@@ -27,6 +28,7 @@ namespace SLTUtils
         public double IntendedITI { get; set; }
         public int ITIReset { get; set; }
         public double MaxWait { get; set; }
+        public int RandomizeFT { get; set; }
         public int UseRT { get; set; }
         public int UseMaxRT { get; set; }
         public double MaxMT { get; set; }
@@ -64,7 +66,7 @@ namespace SLTUtils
         /// <returns>
         /// A <c>TrainingConfiguration</c> instance corresponding to one of the rows of the CSV file.
         /// </returns>
-        TrainingConfiguration CSVtoArray()
+        (TrainingConfiguration, int) CSVtoArray()
         {
             using (var reader = new StreamReader(FileName))
             using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
@@ -77,7 +79,7 @@ namespace SLTUtils
                     RowNumber = 0;
                 }
 
-                return levels[RowNumber];
+                return (levels[RowNumber], levels.Count);
             }
         }
 
@@ -87,7 +89,7 @@ namespace SLTUtils
         /// <returns>
         /// An observable sequence which sends a single event containing a <c>TrainingConfiguration</c> instance.
         /// </returns>
-        public IObservable<TrainingConfiguration> Generate()
+        public IObservable<(TrainingConfiguration, int)> Generate()
         {
             return Observable.Defer(() => Observable.Return(CSVtoArray()));
         }
@@ -99,7 +101,7 @@ namespace SLTUtils
         /// <returns>
         /// An observable sequence which sends a single event containing a <c>TrainingConfiguration</c> instance.
         /// </returns>
-        public IObservable<TrainingConfiguration> Generate<TSource>(IObservable<TSource> source)
+        public IObservable<(TrainingConfiguration, int)> Generate<TSource>(IObservable<TSource> source)
         {
             return source.Select(input => CSVtoArray());
         }

@@ -14,50 +14,52 @@ namespace SLTUtils
     /// </summary>
     public class AnimalSpecificConfiguration
     {
+        /// <value>Property <c>Animal</c> is the ID number of the animal.</value>
         public int Animal { get; set; }
+        /// <value>Property <c>Box</c> is the number of the box where the task was conducted.</value>
         public int Box { get; set; }
+        /// <value>Property <c>Session</c> is the number of the session.</value>
         public int Session { get; set; }
+        /// <value>Property <c>SessionType</c></value>
         public int SessionType { get; set; }
+        /// <value>Property <c>SessionDuration</c> is the duration of the task ("hh:mm:ss").</value>
         public TimeSpan SessionDuration { get; set; }
+        /// <value>Property <c>StartingTrialNumber</c> is the number of the first trial of the session.</value>
         public int StartingTrialNumber { get; set; }
+        /// <value>Property <c>StartingBlockNumber</c> is the number of the first block of the session.</value>
         public int StartingBlockNumber { get; set; }
+        /// <value>Property <c>StartingBlockNumber</c> is an array containing the possible ABLs to present when <c>DifferentABLs</c> is 1.</value>
         public double[] ABLList { get; set; }
+        /// <value>Property <c>CycleILD</c></value>
         public int CycleILD { get; set; }
+        /// <value>Property <c>Bias</c></value>
         public double Bias { get; set; }
+        /// <value>Property <c>MinFT</c> is the minimum fixation time (ms).</value>
         public double MinFT{  get; set; }
+        /// <value>Property <c>FTDelta</c> is the increment to make to the constant part of the fixation time every non-abort trial (ms).</value>
         public double FTDelta { get; set; }
+        /// <value>Property <c>FTTarget</c> is the target value for the constant part of the fixation time (ms).</value>
         public double FTTarget { get; set; }
+        /// <value>Property <c>ExpFTMean</c> is the mean value of the random part of the fixation time (ms).</value>
         public double ExpFTMean { get; set; }
+        /// <value>Property <c>MinRT</c> is the minimum amount of time in CNP to wait after the sound presentation starts (s).</value>
         public double MinRT {  get; set; }
+        /// <value>Property <c>RTDelta</c> is the increment to make to RT every non-abort trial (s).</value>
         public double RTDelta { get; set; }
+        /// <value>Property <c>RTDelta</c> is the target value for RT (s).</value>
         public double RTTarget { get; set; }
+        /// <value>Property <c>MaxRT</c> is the maximum amount of time in CNP to wait after sound presentation starts (s).</value>
         public double MaxRT { get; set; }
+        /// <value>Property <c>MaxSamplingTime</c></value>
         public double[] MaxSamplingTime { get; set; }
+        /// <value>Property <c>MinMT</c> is the minimum time allowed to move to LNP after leaving CNP (s).</value>
         public double MinMT { get; set; }
+        /// <value>Property <c>MinLNP</c> is the minimum poke duration in LNP (s).</value>
         public double MinLNP { get; set; }
+        /// <value>Property <c>LNPDelta</c> is the increment to make to LNP time every non-abort trial (s).</value>
         public double LNPDelta { get; set; }
+        /// <value>Property <c>LNPTarget</c> is the target for LNP time (s).</value>
         public double LNPTarget { get; set; }
-        //public double PenaltyDurationPress { get; set; }
-        //public double PenaltyFlashF { get; set; }
-        //public double PerformAvg { get; set; }
-        //public int FS { get; set; }
-        //public int FSDiv { get; set; }
-        //public int FSSound { get; set; }
-        //public int FreqMin { get; set; }
-        //public int FreqMax { get; set; }
-        //public double RampTime { get; set; }
-        //public double SoundDuration { get; set; }
-        //public int IBILight { get; set; }
-        //public double Rp1 { get; set; }
-        //public double Rp2 { get; set; }
-        //public int[] RCalFactor { get; set; }
-        //public int[] RVecCal { get; set; }
-        //public double Lp1 { get; set; }
-        //public double Lp2 { get; set; }
-        //public int[] LCalFactor { get; set; }
-        //public int[] LVecCal { get; set; }
-        //public double RewardOpenL { get; set; }
-        //public double RewardOpenR { get; set; }
     }
 
     /// <summary>
