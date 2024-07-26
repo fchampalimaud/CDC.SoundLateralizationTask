@@ -1,4 +1,4 @@
-/* file: my-template/public/main.js */
+import WorkflowContainer from "./workflow.js"
 
 const observer = new MutationObserver(() => {
   if (document.documentElement.getAttribute("data-bs-theme") == "dark") {
@@ -13,4 +13,8 @@ observer.observe(document.documentElement, {
   attributeFilter: ['data-bs-theme'] // only observe changes to this specific attribute
 });
 
-export default {}
+export default {
+  start: () => {
+    WorkflowContainer.init();
+  }
+}

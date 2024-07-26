@@ -110,15 +110,17 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Box
     path: ../package/SLTUtils/AnimalSpecificJSON.cs
-    startLine: 18
+    startLine: 19
   assemblies:
   - SLTUtils
   namespace: SLTUtils
+  example: []
   syntax:
     content: public int Box { get; set; }
     parameters: []
     return:
       type: System.Int32
+      description: Property <code>Box</code> is the number of the box where the task was conducted.
     content.vb: Public Property Box As Integer
   overload: SLTUtils.AnimalSpecificConfiguration.Box*
 - uid: SLTUtils.AnimalSpecificConfiguration.Session
@@ -139,15 +141,17 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Session
     path: ../package/SLTUtils/AnimalSpecificJSON.cs
-    startLine: 19
+    startLine: 21
   assemblies:
   - SLTUtils
   namespace: SLTUtils
+  example: []
   syntax:
     content: public int Session { get; set; }
     parameters: []
     return:
       type: System.Int32
+      description: Property <code>Session</code> is the number of the session.
     content.vb: Public Property Session As Integer
   overload: SLTUtils.AnimalSpecificConfiguration.Session*
 - uid: SLTUtils.AnimalSpecificConfiguration.SessionType
@@ -168,15 +172,17 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: SessionType
     path: ../package/SLTUtils/AnimalSpecificJSON.cs
-    startLine: 20
+    startLine: 23
   assemblies:
   - SLTUtils
   namespace: SLTUtils
+  example: []
   syntax:
     content: public int SessionType { get; set; }
     parameters: []
     return:
       type: System.Int32
+      description: Property <code>SessionType</code>
     content.vb: Public Property SessionType As Integer
   overload: SLTUtils.AnimalSpecificConfiguration.SessionType*
 - uid: SLTUtils.AnimalSpecificConfiguration.SessionDuration
@@ -197,15 +203,17 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: SessionDuration
     path: ../package/SLTUtils/AnimalSpecificJSON.cs
-    startLine: 21
+    startLine: 25
   assemblies:
   - SLTUtils
   namespace: SLTUtils
+  example: []
   syntax:
     content: public TimeSpan SessionDuration { get; set; }
     parameters: []
     return:
       type: System.TimeSpan
+      description: Property <code>SessionDuration</code> is the duration of the task ("hh:mm:ss").
     content.vb: Public Property SessionDuration As TimeSpan
   overload: SLTUtils.AnimalSpecificConfiguration.SessionDuration*
 - uid: SLTUtils.AnimalSpecificConfiguration.StartingTrialNumber
@@ -226,15 +234,17 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: StartingTrialNumber
     path: ../package/SLTUtils/AnimalSpecificJSON.cs
-    startLine: 22
+    startLine: 27
   assemblies:
   - SLTUtils
   namespace: SLTUtils
+  example: []
   syntax:
     content: public int StartingTrialNumber { get; set; }
     parameters: []
     return:
       type: System.Int32
+      description: Property <code>StartingTrialNumber</code> is the number of the first trial of the session.
     content.vb: Public Property StartingTrialNumber As Integer
   overload: SLTUtils.AnimalSpecificConfiguration.StartingTrialNumber*
 - uid: SLTUtils.AnimalSpecificConfiguration.StartingBlockNumber
@@ -255,15 +265,17 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: StartingBlockNumber
     path: ../package/SLTUtils/AnimalSpecificJSON.cs
-    startLine: 23
+    startLine: 29
   assemblies:
   - SLTUtils
   namespace: SLTUtils
+  example: []
   syntax:
     content: public int StartingBlockNumber { get; set; }
     parameters: []
     return:
       type: System.Int32
+      description: Property <code>StartingBlockNumber</code> is the number of the first block of the session.
     content.vb: Public Property StartingBlockNumber As Integer
   overload: SLTUtils.AnimalSpecificConfiguration.StartingBlockNumber*
 - uid: SLTUtils.AnimalSpecificConfiguration.ABLList
@@ -284,15 +296,17 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: ABLList
     path: ../package/SLTUtils/AnimalSpecificJSON.cs
-    startLine: 24
+    startLine: 31
   assemblies:
   - SLTUtils
   namespace: SLTUtils
+  example: []
   syntax:
     content: public double[] ABLList { get; set; }
     parameters: []
     return:
       type: System.Double[]
+      description: Property <code>StartingBlockNumber</code> is an array containing the possible ABLs to present when <code>DifferentABLs</code> is 1.
     content.vb: Public Property ABLList As Double()
   overload: SLTUtils.AnimalSpecificConfiguration.ABLList*
 - uid: SLTUtils.AnimalSpecificConfiguration.CycleILD
@@ -313,15 +327,17 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: CycleILD
     path: ../package/SLTUtils/AnimalSpecificJSON.cs
-    startLine: 25
+    startLine: 33
   assemblies:
   - SLTUtils
   namespace: SLTUtils
+  example: []
   syntax:
     content: public int CycleILD { get; set; }
     parameters: []
     return:
       type: System.Int32
+      description: Property <code>CycleILD</code>
     content.vb: Public Property CycleILD As Integer
   overload: SLTUtils.AnimalSpecificConfiguration.CycleILD*
 - uid: SLTUtils.AnimalSpecificConfiguration.Bias
@@ -342,15 +358,17 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Bias
     path: ../package/SLTUtils/AnimalSpecificJSON.cs
-    startLine: 26
+    startLine: 35
   assemblies:
   - SLTUtils
   namespace: SLTUtils
+  example: []
   syntax:
     content: public double Bias { get; set; }
     parameters: []
     return:
       type: System.Double
+      description: Property <code>Bias</code>
     content.vb: Public Property Bias As Double
   overload: SLTUtils.AnimalSpecificConfiguration.Bias*
 - uid: SLTUtils.AnimalSpecificConfiguration.MinFT
@@ -371,15 +389,17 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: MinFT
     path: ../package/SLTUtils/AnimalSpecificJSON.cs
-    startLine: 27
+    startLine: 37
   assemblies:
   - SLTUtils
   namespace: SLTUtils
+  example: []
   syntax:
     content: public double MinFT { get; set; }
     parameters: []
     return:
       type: System.Double
+      description: Property <code>MinFT</code> is the minimum fixation time (ms).
     content.vb: Public Property MinFT As Double
   overload: SLTUtils.AnimalSpecificConfiguration.MinFT*
 - uid: SLTUtils.AnimalSpecificConfiguration.FTDelta
@@ -400,15 +420,17 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: FTDelta
     path: ../package/SLTUtils/AnimalSpecificJSON.cs
-    startLine: 28
+    startLine: 39
   assemblies:
   - SLTUtils
   namespace: SLTUtils
+  example: []
   syntax:
     content: public double FTDelta { get; set; }
     parameters: []
     return:
       type: System.Double
+      description: Property <code>FTDelta</code> is the increment to make to the constant part of the fixation time every non-abort trial (ms).
     content.vb: Public Property FTDelta As Double
   overload: SLTUtils.AnimalSpecificConfiguration.FTDelta*
 - uid: SLTUtils.AnimalSpecificConfiguration.FTTarget
@@ -429,15 +451,17 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: FTTarget
     path: ../package/SLTUtils/AnimalSpecificJSON.cs
-    startLine: 29
+    startLine: 41
   assemblies:
   - SLTUtils
   namespace: SLTUtils
+  example: []
   syntax:
     content: public double FTTarget { get; set; }
     parameters: []
     return:
       type: System.Double
+      description: Property <code>FTTarget</code> is the target value for the constant part of the fixation time (ms).
     content.vb: Public Property FTTarget As Double
   overload: SLTUtils.AnimalSpecificConfiguration.FTTarget*
 - uid: SLTUtils.AnimalSpecificConfiguration.ExpFTMean
@@ -458,15 +482,17 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: ExpFTMean
     path: ../package/SLTUtils/AnimalSpecificJSON.cs
-    startLine: 30
+    startLine: 43
   assemblies:
   - SLTUtils
   namespace: SLTUtils
+  example: []
   syntax:
     content: public double ExpFTMean { get; set; }
     parameters: []
     return:
       type: System.Double
+      description: Property <code>ExpFTMean</code> is the mean value of the random part of the fixation time (ms).
     content.vb: Public Property ExpFTMean As Double
   overload: SLTUtils.AnimalSpecificConfiguration.ExpFTMean*
 - uid: SLTUtils.AnimalSpecificConfiguration.MinRT
@@ -487,15 +513,17 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: MinRT
     path: ../package/SLTUtils/AnimalSpecificJSON.cs
-    startLine: 31
+    startLine: 45
   assemblies:
   - SLTUtils
   namespace: SLTUtils
+  example: []
   syntax:
     content: public double MinRT { get; set; }
     parameters: []
     return:
       type: System.Double
+      description: Property <code>MinRT</code> is the minimum amount of time in CNP to wait after the sound presentation starts (s).
     content.vb: Public Property MinRT As Double
   overload: SLTUtils.AnimalSpecificConfiguration.MinRT*
 - uid: SLTUtils.AnimalSpecificConfiguration.RTDelta
@@ -516,15 +544,17 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: RTDelta
     path: ../package/SLTUtils/AnimalSpecificJSON.cs
-    startLine: 32
+    startLine: 47
   assemblies:
   - SLTUtils
   namespace: SLTUtils
+  example: []
   syntax:
     content: public double RTDelta { get; set; }
     parameters: []
     return:
       type: System.Double
+      description: Property <code>RTDelta</code> is the increment to make to RT every non-abort trial (s).
     content.vb: Public Property RTDelta As Double
   overload: SLTUtils.AnimalSpecificConfiguration.RTDelta*
 - uid: SLTUtils.AnimalSpecificConfiguration.RTTarget
@@ -545,15 +575,17 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: RTTarget
     path: ../package/SLTUtils/AnimalSpecificJSON.cs
-    startLine: 33
+    startLine: 49
   assemblies:
   - SLTUtils
   namespace: SLTUtils
+  example: []
   syntax:
     content: public double RTTarget { get; set; }
     parameters: []
     return:
       type: System.Double
+      description: Property <code>RTDelta</code> is the target value for RT (s).
     content.vb: Public Property RTTarget As Double
   overload: SLTUtils.AnimalSpecificConfiguration.RTTarget*
 - uid: SLTUtils.AnimalSpecificConfiguration.MaxRT
@@ -574,15 +606,17 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: MaxRT
     path: ../package/SLTUtils/AnimalSpecificJSON.cs
-    startLine: 34
+    startLine: 51
   assemblies:
   - SLTUtils
   namespace: SLTUtils
+  example: []
   syntax:
     content: public double MaxRT { get; set; }
     parameters: []
     return:
       type: System.Double
+      description: Property <code>MaxRT</code> is the maximum amount of time in CNP to wait after sound presentation starts (s).
     content.vb: Public Property MaxRT As Double
   overload: SLTUtils.AnimalSpecificConfiguration.MaxRT*
 - uid: SLTUtils.AnimalSpecificConfiguration.MaxSamplingTime
@@ -603,15 +637,17 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: MaxSamplingTime
     path: ../package/SLTUtils/AnimalSpecificJSON.cs
-    startLine: 35
+    startLine: 53
   assemblies:
   - SLTUtils
   namespace: SLTUtils
+  example: []
   syntax:
     content: public double[] MaxSamplingTime { get; set; }
     parameters: []
     return:
       type: System.Double[]
+      description: Property <code>MaxSamplingTime</code>
     content.vb: Public Property MaxSamplingTime As Double()
   overload: SLTUtils.AnimalSpecificConfiguration.MaxSamplingTime*
 - uid: SLTUtils.AnimalSpecificConfiguration.MinMT
@@ -632,15 +668,17 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: MinMT
     path: ../package/SLTUtils/AnimalSpecificJSON.cs
-    startLine: 36
+    startLine: 55
   assemblies:
   - SLTUtils
   namespace: SLTUtils
+  example: []
   syntax:
     content: public double MinMT { get; set; }
     parameters: []
     return:
       type: System.Double
+      description: Property <code>MinMT</code> is the minimum time allowed to move to LNP after leaving CNP (s).
     content.vb: Public Property MinMT As Double
   overload: SLTUtils.AnimalSpecificConfiguration.MinMT*
 - uid: SLTUtils.AnimalSpecificConfiguration.MinLNP
@@ -661,15 +699,17 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: MinLNP
     path: ../package/SLTUtils/AnimalSpecificJSON.cs
-    startLine: 37
+    startLine: 57
   assemblies:
   - SLTUtils
   namespace: SLTUtils
+  example: []
   syntax:
     content: public double MinLNP { get; set; }
     parameters: []
     return:
       type: System.Double
+      description: Property <code>MinLNP</code> is the minimum poke duration in LNP (s).
     content.vb: Public Property MinLNP As Double
   overload: SLTUtils.AnimalSpecificConfiguration.MinLNP*
 - uid: SLTUtils.AnimalSpecificConfiguration.LNPDelta
@@ -690,15 +730,17 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: LNPDelta
     path: ../package/SLTUtils/AnimalSpecificJSON.cs
-    startLine: 38
+    startLine: 59
   assemblies:
   - SLTUtils
   namespace: SLTUtils
+  example: []
   syntax:
     content: public double LNPDelta { get; set; }
     parameters: []
     return:
       type: System.Double
+      description: Property <code>LNPDelta</code> is the increment to make to LNP time every non-abort trial (s).
     content.vb: Public Property LNPDelta As Double
   overload: SLTUtils.AnimalSpecificConfiguration.LNPDelta*
 - uid: SLTUtils.AnimalSpecificConfiguration.LNPTarget
@@ -719,15 +761,17 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: LNPTarget
     path: ../package/SLTUtils/AnimalSpecificJSON.cs
-    startLine: 39
+    startLine: 61
   assemblies:
   - SLTUtils
   namespace: SLTUtils
+  example: []
   syntax:
     content: public double LNPTarget { get; set; }
     parameters: []
     return:
       type: System.Double
+      description: Property <code>LNPTarget</code> is the target for LNP time (s).
     content.vb: Public Property LNPTarget As Double
   overload: SLTUtils.AnimalSpecificConfiguration.LNPTarget*
 references:

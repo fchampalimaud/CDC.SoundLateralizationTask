@@ -23,7 +23,7 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: TrainingCSV
     path: ../package/SLTUtils/TrainingCSV.cs
-    startLine: 48
+    startLine: 50
   assemblies:
   - SLTUtils
   namespace: SLTUtils
@@ -83,7 +83,7 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: FileName
     path: ../package/SLTUtils/TrainingCSV.cs
-    startLine: 53
+    startLine: 55
   assemblies:
   - SLTUtils
   namespace: SLTUtils
@@ -112,7 +112,7 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: RowNumber
     path: ../package/SLTUtils/TrainingCSV.cs
-    startLine: 56
+    startLine: 58
   assemblies:
   - SLTUtils
   namespace: SLTUtils
@@ -141,18 +141,18 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Generate
     path: ../package/SLTUtils/TrainingCSV.cs
-    startLine: 89
+    startLine: 91
   assemblies:
   - SLTUtils
   namespace: SLTUtils
   summary: Generates an observable sequence which outputs the training/task-specific parameters. This method is called when the node doesn't have an input data stream.
   example: []
   syntax:
-    content: public IObservable<TrainingConfiguration> Generate()
+    content: public IObservable<(TrainingConfiguration, int)> Generate()
     return:
-      type: System.IObservable{SLTUtils.TrainingConfiguration}
+      type: System.IObservable{System.ValueTuple{SLTUtils.TrainingConfiguration,System.Int32}}
       description: An observable sequence which sends a single event containing a <code>TrainingConfiguration</code> instance.
-    content.vb: Public Function Generate() As IObservable(Of TrainingConfiguration)
+    content.vb: Public Function Generate() As IObservable(Of (TrainingConfiguration, Integer))
   overload: SLTUtils.TrainingCSV.Generate*
 - uid: SLTUtils.TrainingCSV.Generate``1(System.IObservable{``0})
   commentId: M:SLTUtils.TrainingCSV.Generate``1(System.IObservable{``0})
@@ -172,14 +172,14 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Generate
     path: ../package/SLTUtils/TrainingCSV.cs
-    startLine: 101
+    startLine: 103
   assemblies:
   - SLTUtils
   namespace: SLTUtils
   summary: Generates an observable sequence which outputs the training/task-specific parameters. This method is called when the node has an input data stream.
   example: []
   syntax:
-    content: public IObservable<TrainingConfiguration> Generate<TSource>(IObservable<TSource> source)
+    content: public IObservable<(TrainingConfiguration, int)> Generate<TSource>(IObservable<TSource> source)
     parameters:
     - id: source
       type: System.IObservable{{TSource}}
@@ -187,9 +187,9 @@ items:
     typeParameters:
     - id: TSource
     return:
-      type: System.IObservable{SLTUtils.TrainingConfiguration}
+      type: System.IObservable{System.ValueTuple{SLTUtils.TrainingConfiguration,System.Int32}}
       description: An observable sequence which sends a single event containing a <code>TrainingConfiguration</code> instance.
-    content.vb: Public Function Generate(Of TSource)(source As IObservable(Of TSource)) As IObservable(Of TrainingConfiguration)
+    content.vb: Public Function Generate(Of TSource)(source As IObservable(Of TSource)) As IObservable(Of (TrainingConfiguration, Integer))
   overload: SLTUtils.TrainingCSV.Generate*
   nameWithType.vb: TrainingCSV.Generate(Of TSource)(IObservable(Of TSource))
   fullName.vb: SLTUtils.TrainingCSV.Generate(Of TSource)(System.IObservable(Of TSource))
@@ -478,26 +478,34 @@ references:
   name: Generate
   nameWithType: TrainingCSV.Generate
   fullName: SLTUtils.TrainingCSV.Generate
-- uid: System.IObservable{SLTUtils.TrainingConfiguration}
-  commentId: T:System.IObservable{SLTUtils.TrainingConfiguration}
+- uid: System.IObservable{System.ValueTuple{SLTUtils.TrainingConfiguration,System.Int32}}
+  commentId: T:System.IObservable{System.ValueTuple{SLTUtils.TrainingConfiguration,System.Int32}}
   parent: System
   definition: System.IObservable`1
   href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
-  name: IObservable<TrainingConfiguration>
-  nameWithType: IObservable<TrainingConfiguration>
-  fullName: System.IObservable<SLTUtils.TrainingConfiguration>
-  nameWithType.vb: IObservable(Of TrainingConfiguration)
-  fullName.vb: System.IObservable(Of SLTUtils.TrainingConfiguration)
-  name.vb: IObservable(Of TrainingConfiguration)
+  name: IObservable<(TrainingConfiguration, int)>
+  nameWithType: IObservable<(TrainingConfiguration, int)>
+  fullName: System.IObservable<(SLTUtils.TrainingConfiguration, int)>
+  nameWithType.vb: IObservable(Of (TrainingConfiguration, Integer))
+  fullName.vb: System.IObservable(Of (SLTUtils.TrainingConfiguration, Integer))
+  name.vb: IObservable(Of (TrainingConfiguration, Integer))
   spec.csharp:
   - uid: System.IObservable`1
     name: IObservable
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
   - name: <
+  - name: (
   - uid: SLTUtils.TrainingConfiguration
     name: TrainingConfiguration
     href: SLTUtils.TrainingConfiguration.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
   - name: '>'
   spec.vb:
   - uid: System.IObservable`1
@@ -507,9 +515,17 @@ references:
   - name: (
   - name: Of
   - name: " "
+  - name: (
   - uid: SLTUtils.TrainingConfiguration
     name: TrainingConfiguration
     href: SLTUtils.TrainingConfiguration.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
   - name: )
 - uid: System.IObservable`1
   commentId: T:System.IObservable`1

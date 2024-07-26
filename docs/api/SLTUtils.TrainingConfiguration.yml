@@ -19,10 +19,12 @@ items:
   - SLTUtils.TrainingConfiguration.IncorrectPenalty
   - SLTUtils.TrainingConfiguration.IntendedITI
   - SLTUtils.TrainingConfiguration.Level
+  - SLTUtils.TrainingConfiguration.Level0
   - SLTUtils.TrainingConfiguration.LogBase
   - SLTUtils.TrainingConfiguration.MaxAborts
   - SLTUtils.TrainingConfiguration.MaxMT
   - SLTUtils.TrainingConfiguration.MaxWait
+  - SLTUtils.TrainingConfiguration.RandomizeFT
   - SLTUtils.TrainingConfiguration.RepeatAbort
   - SLTUtils.TrainingConfiguration.RepeatError
   - SLTUtils.TrainingConfiguration.Speakers
@@ -122,6 +124,35 @@ items:
       type: System.Int32
     content.vb: Public Property TrialsPerBlock As Integer
   overload: SLTUtils.TrainingConfiguration.TrialsPerBlock*
+- uid: SLTUtils.TrainingConfiguration.Level0
+  commentId: P:SLTUtils.TrainingConfiguration.Level0
+  id: Level0
+  parent: SLTUtils.TrainingConfiguration
+  langs:
+  - csharp
+  - vb
+  name: Level0
+  nameWithType: TrainingConfiguration.Level0
+  fullName: SLTUtils.TrainingConfiguration.Level0
+  type: Property
+  source:
+    remote:
+      path: package/SLTUtils/TrainingCSV.cs
+      branch: develop
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: Level0
+    path: ../package/SLTUtils/TrainingCSV.cs
+    startLine: 19
+  assemblies:
+  - SLTUtils
+  namespace: SLTUtils
+  syntax:
+    content: public int Level0 { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Level0 As Integer
+  overload: SLTUtils.TrainingConfiguration.Level0*
 - uid: SLTUtils.TrainingConfiguration.FixedABL
   commentId: P:SLTUtils.TrainingConfiguration.FixedABL
   id: FixedABL
@@ -140,7 +171,7 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: FixedABL
     path: ../package/SLTUtils/TrainingCSV.cs
-    startLine: 19
+    startLine: 20
   assemblies:
   - SLTUtils
   namespace: SLTUtils
@@ -169,7 +200,7 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: DifferentABLs
     path: ../package/SLTUtils/TrainingCSV.cs
-    startLine: 20
+    startLine: 21
   assemblies:
   - SLTUtils
   namespace: SLTUtils
@@ -198,7 +229,7 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: ABLBlock
     path: ../package/SLTUtils/TrainingCSV.cs
-    startLine: 21
+    startLine: 22
   assemblies:
   - SLTUtils
   namespace: SLTUtils
@@ -227,7 +258,7 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: ILDStepSize
     path: ../package/SLTUtils/TrainingCSV.cs
-    startLine: 22
+    startLine: 23
   assemblies:
   - SLTUtils
   namespace: SLTUtils
@@ -256,7 +287,7 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: ILDSteps
     path: ../package/SLTUtils/TrainingCSV.cs
-    startLine: 23
+    startLine: 24
   assemblies:
   - SLTUtils
   namespace: SLTUtils
@@ -285,7 +316,7 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: UseLog
     path: ../package/SLTUtils/TrainingCSV.cs
-    startLine: 24
+    startLine: 25
   assemblies:
   - SLTUtils
   namespace: SLTUtils
@@ -314,7 +345,7 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: LogBase
     path: ../package/SLTUtils/TrainingCSV.cs
-    startLine: 25
+    startLine: 26
   assemblies:
   - SLTUtils
   namespace: SLTUtils
@@ -343,7 +374,7 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: IntendedITI
     path: ../package/SLTUtils/TrainingCSV.cs
-    startLine: 26
+    startLine: 27
   assemblies:
   - SLTUtils
   namespace: SLTUtils
@@ -372,7 +403,7 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: ITIReset
     path: ../package/SLTUtils/TrainingCSV.cs
-    startLine: 27
+    startLine: 28
   assemblies:
   - SLTUtils
   namespace: SLTUtils
@@ -401,7 +432,7 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: MaxWait
     path: ../package/SLTUtils/TrainingCSV.cs
-    startLine: 28
+    startLine: 29
   assemblies:
   - SLTUtils
   namespace: SLTUtils
@@ -412,6 +443,35 @@ items:
       type: System.Double
     content.vb: Public Property MaxWait As Double
   overload: SLTUtils.TrainingConfiguration.MaxWait*
+- uid: SLTUtils.TrainingConfiguration.RandomizeFT
+  commentId: P:SLTUtils.TrainingConfiguration.RandomizeFT
+  id: RandomizeFT
+  parent: SLTUtils.TrainingConfiguration
+  langs:
+  - csharp
+  - vb
+  name: RandomizeFT
+  nameWithType: TrainingConfiguration.RandomizeFT
+  fullName: SLTUtils.TrainingConfiguration.RandomizeFT
+  type: Property
+  source:
+    remote:
+      path: package/SLTUtils/TrainingCSV.cs
+      branch: develop
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: RandomizeFT
+    path: ../package/SLTUtils/TrainingCSV.cs
+    startLine: 30
+  assemblies:
+  - SLTUtils
+  namespace: SLTUtils
+  syntax:
+    content: public int RandomizeFT { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property RandomizeFT As Integer
+  overload: SLTUtils.TrainingConfiguration.RandomizeFT*
 - uid: SLTUtils.TrainingConfiguration.UseRT
   commentId: P:SLTUtils.TrainingConfiguration.UseRT
   id: UseRT
@@ -430,7 +490,7 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: UseRT
     path: ../package/SLTUtils/TrainingCSV.cs
-    startLine: 29
+    startLine: 31
   assemblies:
   - SLTUtils
   namespace: SLTUtils
@@ -459,7 +519,7 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: UseMaxRT
     path: ../package/SLTUtils/TrainingCSV.cs
-    startLine: 30
+    startLine: 32
   assemblies:
   - SLTUtils
   namespace: SLTUtils
@@ -488,7 +548,7 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: MaxMT
     path: ../package/SLTUtils/TrainingCSV.cs
-    startLine: 31
+    startLine: 33
   assemblies:
   - SLTUtils
   namespace: SLTUtils
@@ -517,7 +577,7 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: AbortPenalty
     path: ../package/SLTUtils/TrainingCSV.cs
-    startLine: 32
+    startLine: 34
   assemblies:
   - SLTUtils
   namespace: SLTUtils
@@ -546,7 +606,7 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: IncorrectPenalty
     path: ../package/SLTUtils/TrainingCSV.cs
-    startLine: 33
+    startLine: 35
   assemblies:
   - SLTUtils
   namespace: SLTUtils
@@ -575,7 +635,7 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: FixationAbortPenalty
     path: ../package/SLTUtils/TrainingCSV.cs
-    startLine: 34
+    startLine: 36
   assemblies:
   - SLTUtils
   namespace: SLTUtils
@@ -604,7 +664,7 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: UsePerformance
     path: ../package/SLTUtils/TrainingCSV.cs
-    startLine: 35
+    startLine: 37
   assemblies:
   - SLTUtils
   namespace: SLTUtils
@@ -633,7 +693,7 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: CriticalPerformance
     path: ../package/SLTUtils/TrainingCSV.cs
-    startLine: 36
+    startLine: 38
   assemblies:
   - SLTUtils
   namespace: SLTUtils
@@ -662,7 +722,7 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: MaxAborts
     path: ../package/SLTUtils/TrainingCSV.cs
-    startLine: 37
+    startLine: 39
   assemblies:
   - SLTUtils
   namespace: SLTUtils
@@ -691,7 +751,7 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: RepeatError
     path: ../package/SLTUtils/TrainingCSV.cs
-    startLine: 38
+    startLine: 40
   assemblies:
   - SLTUtils
   namespace: SLTUtils
@@ -720,7 +780,7 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: RepeatAbort
     path: ../package/SLTUtils/TrainingCSV.cs
-    startLine: 39
+    startLine: 41
   assemblies:
   - SLTUtils
   namespace: SLTUtils
@@ -749,7 +809,7 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Speakers
     path: ../package/SLTUtils/TrainingCSV.cs
-    startLine: 40
+    startLine: 42
   assemblies:
   - SLTUtils
   namespace: SLTUtils
@@ -778,7 +838,7 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: AbortLight
     path: ../package/SLTUtils/TrainingCSV.cs
-    startLine: 41
+    startLine: 43
   assemblies:
   - SLTUtils
   namespace: SLTUtils
@@ -807,7 +867,7 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: ITILight
     path: ../package/SLTUtils/TrainingCSV.cs
-    startLine: 42
+    startLine: 44
   assemblies:
   - SLTUtils
   namespace: SLTUtils
@@ -1085,6 +1145,12 @@ references:
   name: TrialsPerBlock
   nameWithType: TrainingConfiguration.TrialsPerBlock
   fullName: SLTUtils.TrainingConfiguration.TrialsPerBlock
+- uid: SLTUtils.TrainingConfiguration.Level0*
+  commentId: Overload:SLTUtils.TrainingConfiguration.Level0
+  href: SLTUtils.TrainingConfiguration.html#SLTUtils_TrainingConfiguration_Level0
+  name: Level0
+  nameWithType: TrainingConfiguration.Level0
+  fullName: SLTUtils.TrainingConfiguration.Level0
 - uid: SLTUtils.TrainingConfiguration.FixedABL*
   commentId: Overload:SLTUtils.TrainingConfiguration.FixedABL
   href: SLTUtils.TrainingConfiguration.html#SLTUtils_TrainingConfiguration_FixedABL
@@ -1156,6 +1222,12 @@ references:
   name: MaxWait
   nameWithType: TrainingConfiguration.MaxWait
   fullName: SLTUtils.TrainingConfiguration.MaxWait
+- uid: SLTUtils.TrainingConfiguration.RandomizeFT*
+  commentId: Overload:SLTUtils.TrainingConfiguration.RandomizeFT
+  href: SLTUtils.TrainingConfiguration.html#SLTUtils_TrainingConfiguration_RandomizeFT
+  name: RandomizeFT
+  nameWithType: TrainingConfiguration.RandomizeFT
+  fullName: SLTUtils.TrainingConfiguration.RandomizeFT
 - uid: SLTUtils.TrainingConfiguration.UseRT*
   commentId: Overload:SLTUtils.TrainingConfiguration.UseRT
   href: SLTUtils.TrainingConfiguration.html#SLTUtils_TrainingConfiguration_UseRT

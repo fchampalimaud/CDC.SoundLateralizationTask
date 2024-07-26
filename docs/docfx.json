@@ -26,7 +26,11 @@
     "resource": [
       {
         "files": [
-          "images/**"
+          "**"
+        ],
+        "exclude": [
+          "_site/**",
+          "**.tex"
         ]
       }
     ],
@@ -34,6 +38,7 @@
     "template": [
       "default",
       "modern",
+      "bonsai/template",
       "template"
     ],
     "globalMetadata": {

@@ -2,5 +2,21 @@
   href: introduction.md
 - name: Getting Started
   href: getting-started.md
-- name: Inter-Trial Interval
-  href: inter-trial-interval.md
+- name: State Machine
+  items: 
+    - name: Introduction
+      href: ./state_machine/introduction.md
+    - name: Inter-trial Interval
+      href: ./state_machine/inter-trial-interval.md
+    - name: Start Trial
+      href: ./state_machine/start-trial.md
+    - name: Fixation Time
+      href: ./state_machine/fixation-time.md
+    - name: Stimulus
+      href: ./state_machine/stimulus.md
+    - name: Choice
+      href: ./state_machine/choice.md
+    - name: Reward
+      href: ./state_machine/reward.md
+    - name: Abort
+      href: ./state_machine/abort.md
