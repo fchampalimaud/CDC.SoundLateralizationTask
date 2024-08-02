@@ -11,7 +11,4 @@ The experimental setup makes use of the capabilities of the Harp devices (which 
 The documentation for the task is divided in 3 sections:
 - **[Install](./installation/bonsai.md)** - This section is a step-by-step guide for installing everything that is needed to run the task in a new setup. It includes instructions for installing the Bonsai environment and the firmware for each Harp board used during the task.
 - **[Task](./articles/introduction.md)** - This is the section where the task is described. It contains a high-level explanation of the task, as well as a user guide of how the task should be run (it includes a description of every input and output parameter). It also has explanations regarding some of the Bonsai implementation details.
-- **[Package](./api/introduction.md)** - Since a custom Bonsai package that adds new nodes with functionality which was difficulty to implement or wasn't available natively in Bonsai (namely the reading of configuration files) was created, there was a need to create a section documenting it.
-
-<!-- ## References
-[1]  -->
+- **[Package](./api/SLTUtils.yml)** - Since a custom Bonsai package that adds new nodes with functionality which was difficulty to implement or wasn't available natively in Bonsai (namely the reading of configuration files) was created, there was a need to create a section documenting it.

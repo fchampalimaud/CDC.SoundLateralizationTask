@@ -1,7 +1,5 @@
 # Choice
-When the stimulus presentation stops, the animal has to pick the side (left or right) which corresponds to the speaker which played the sound the loudest by poking in either lateral nose port. If the animal doesn’t decide within a certain time (typically, of a few seconds), the trial is aborted.
-## State description
+In this state, the animal has to pick the side (left or right) which corresponds to the speaker that played the loudest sound by poking in either lateral nose port (LNP).
 
-## What happens in this state
-
-## Subjects used and/or updated
+## Progression conditions
+If the animal pokes either LNP after the minimum movement time (MinMT) and before the maximum reaction time (MaxMT), the task proceeds as expected. Otherwise, it is aborted.
