@@ -16,7 +16,7 @@
     "MinRT": 0.01,
     "RTDelta": 1E-3,
     "RTTarget": 0.15,
-    "MaxRT": 10,
+    "MaxRT": 5,
     "MaxSamplingTime": [],
     "MinMT": 0.01,
     "MinLNP": 0.01,
