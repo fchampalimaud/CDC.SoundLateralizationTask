@@ -1,0 +1,11 @@
+[project]
+name = "slt-ui"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "matplotlib>=3.9.2",
+    "numpy>=2.1.2",
+    "python-osc>=1.9.0",
+]
