@@ -1,5 +1,5 @@
 import matplotlib.pyplot as plt
-import numpy as sc
+import numpy as np
 from pythonosc import udp_client
 from pythonosc.dispatcher import Dispatcher
 from pythonosc import osc_server
