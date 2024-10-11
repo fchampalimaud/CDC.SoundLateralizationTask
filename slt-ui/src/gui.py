@@ -30,6 +30,7 @@ class UserInterface:
         args = parser.parse_args()
 
         dispatcher = Dispatcher()
+        dispatcher.map("/beginning", self.update_plots)
         dispatcher.map("/plots", self.update_plots)
 
         server = osc_server.ThreadingOSCUDPServer(
@@ -64,62 +65,90 @@ class UserInterface:
         self.ax[0, 0].set_yticks([])
         self.ax[0, 0].set_xticks([])
 
-        self.ax[0, 2].set_yticks(range(10, 0, -1), ['Trial +', 'Trial -', '', 'CNP', 'CNP fix', 'RT', 'MT+', 'MT-', 'LNP fix', 'IO crash'])
+        self.ax[0, 2].set_yticks(range(2, -8, -1), ['Trial +', 'Trial -', '', 'CNP', 'CNP fix', 'RT', 'MT+', 'MT-', 'LNP fix', 'IO crash'])
 
         self.ax[0, 1].axhline(y = 0, color='black')
-        self.ax[0, 2].axhline(y = 8, color='black')
+        self.ax[0, 2].axhline(y = 0, color='black')
         self.ax[1, 1].axhline(y = 0.5, color='black', linestyle = ':')
 
         self.ax[0, 1].set_ylim(-60, 60)
-        self.ax[0, 2].set_ylim(0, 10)
+        self.ax[0, 2].set_ylim(-8, 2)
         self.ax[1, 0].set_ylim(0, 1)
         self.ax[1, 1].set_ylim(0, 1)
 
         self.plots = np.zeros((3, 3), dtype=np.ndarray)
+        self.plot_data = np.zeros((3, 3), dtype=np.ndarray)
 
         colors_outcome = ["green", "red", "black"]
         self.plots[0, 1] = np.zeros(3, dtype=object)
+        self.plot_data[0, 1] = np.zeros((3, 2), dtype=list)
         for i in range(self.plots[0, 1].size):
             self.plots[0, 1][i], = self.ax[0, 1].plot([], [], 'o', markerfacecolor='none', markeredgecolor=colors_outcome[i], markeredgewidth=1.5)
+            self.plot_data[0, 1][i, 0] = []
+            self.plot_data[0, 1][i, 1] = []
 
-        colors_aborts = plt.cm.hsv(np.linspace(0.75, 0, 9)) 
+        colors_aborts = plt.cm.hsv(np.linspace(0.75, 0, 9))
         self.plots[0, 2] = np.zeros(11, dtype=object)
+        self.plot_data[0, 2] = np.zeros((11, 2), dtype=list)
         self.plots[0, 2][0], = self.ax[0, 2].plot([], [], '<', markerfacecolor='none', markeredgecolor=colors_aborts[0], markeredgewidth=1.5)
         self.plots[0, 2][1], = self.ax[0, 2].plot([], [], '>', markerfacecolor='none', markeredgecolor=colors_aborts[0], markeredgewidth=1.5)
         self.plots[0, 2][2], = self.ax[0, 2].plot([], [], '<', markerfacecolor='none', markeredgecolor=colors_aborts[1], markeredgewidth=1.5)
         self.plots[0, 2][3], = self.ax[0, 2].plot([], [], '>', markerfacecolor='none', markeredgecolor=colors_aborts[1], markeredgewidth=1.5)
         for i in range(4, self.plots[0, 2].size):
             self.plots[0, 2][i], = self.ax[0, 2].plot([], [], 'o', markerfacecolor='none', markeredgecolor=colors_aborts[i - 2], markeredgewidth=1.5)
+        for i in range(self.plots[0, 2].size):
+            self.plot_data[0, 2][i, 0] = []
+            self.plot_data[0, 2][i, 1] = []
 
         self.plots[1, 0] = np.zeros(3, dtype=object)
+        self.plot_data[1, 0] = np.zeros((3, 2), dtype=list)
         self.plots[1, 0][0], = self.ax[1, 0].plot([], [], 'o', color="grey", markeredgewidth=1.5)
         self.plots[1, 0][1], = self.ax[1, 0].plot([], [], '.', color=colors_outcome[0], markeredgewidth=1.5)
         self.plots[1, 0][2], = self.ax[1, 0].plot([], [], '.', color=colors_outcome[2], markeredgewidth=1.5)
+        for i in range(self.plots[1, 0].size):
+            self.plot_data[1, 0][i, 0] = []
+            self.plot_data[1, 0][i, 1] = []
         
         self.plots[1, 1] = np.zeros(2, dtype=object)
+        self.plot_data[1, 1] = np.zeros((2, 2), dtype=list)
         self.plots[1, 1][0], = self.ax[1, 1].plot([], [], 'o-', markerfacecolor='none', markeredgecolor=colors_outcome[0], markeredgewidth=1.5)
         self.plots[1, 1][1], = self.ax[1, 1].plot([], [], 'o-', markerfacecolor='none', markeredgecolor=colors_outcome[2], markeredgewidth=1.5)
+        for i in range(self.plots[1, 1].size):
+            self.plot_data[1, 1][i, 0] = []
+            self.plot_data[1, 1][i, 1] = []
         
         self.plots[1, 2] = np.zeros(5, dtype=object)
+        self.plot_data[1, 2] = np.zeros((5, 2), dtype=list)
         self.plots[1, 2][0], = self.ax[1, 2].plot([], [], '<', markerfacecolor='none', markeredgecolor=colors_outcome[0], markeredgewidth=1.5)
         self.plots[1, 2][1], = self.ax[1, 2].plot([], [], '>', markerfacecolor='none', markeredgecolor=colors_outcome[0], markeredgewidth=1.5)
         self.plots[1, 2][2], = self.ax[1, 2].plot([], [], '<', markerfacecolor='none', markeredgecolor=colors_outcome[1], markeredgewidth=1.5)
         self.plots[1, 2][3], = self.ax[1, 2].plot([], [], '>', markerfacecolor='none', markeredgecolor=colors_outcome[1], markeredgewidth=1.5)
         self.plots[1, 2][4], = self.ax[1, 2].plot([], [], 'o', markerfacecolor='none', markeredgecolor=colors_outcome[2], markeredgewidth=1.5)
+        for i in range(self.plots[1, 2].size):
+            self.plot_data[1, 2][i, 0] = []
+            self.plot_data[1, 2][i, 1] = []
         
         self.plots[2, 0] = np.zeros(5, dtype=object)
+        self.plot_data[2, 0] = np.zeros((5, 2), dtype=list)
         self.plots[2, 0][0], = self.ax[2, 0].plot([], [], '<', markerfacecolor='none', markeredgecolor=colors_outcome[0], markeredgewidth=1.5)
         self.plots[2, 0][1], = self.ax[2, 0].plot([], [], '>', markerfacecolor='none', markeredgecolor=colors_outcome[0], markeredgewidth=1.5)
         self.plots[2, 0][2], = self.ax[2, 0].plot([], [], '<', markerfacecolor='none', markeredgecolor=colors_outcome[1], markeredgewidth=1.5)
         self.plots[2, 0][3], = self.ax[2, 0].plot([], [], '>', markerfacecolor='none', markeredgecolor=colors_outcome[1], markeredgewidth=1.5)
         self.plots[2, 0][4], = self.ax[2, 0].plot([], [], 'o', markerfacecolor='none', markeredgecolor=colors_outcome[2], markeredgewidth=1.5)
+        for i in range(self.plots[2, 0].size):
+            self.plot_data[2, 0][i, 0] = []
+            self.plot_data[2, 0][i, 1] = []
         
         self.plots[2, 1] = np.zeros(5, dtype=object)
+        self.plot_data[2, 1] = np.zeros((5, 2), dtype=list)
         self.plots[2, 1][0], = self.ax[2, 1].plot([], [], '<', markerfacecolor='none', markeredgecolor=colors_outcome[0], markeredgewidth=1.5)
         self.plots[2, 1][1], = self.ax[2, 1].plot([], [], '>', markerfacecolor='none', markeredgecolor=colors_outcome[0], markeredgewidth=1.5)
         self.plots[2, 1][2], = self.ax[2, 1].plot([], [], '<', markerfacecolor='none', markeredgecolor=colors_outcome[1], markeredgewidth=1.5)
         self.plots[2, 1][3], = self.ax[2, 1].plot([], [], '>', markerfacecolor='none', markeredgecolor=colors_outcome[1], markeredgewidth=1.5)
         self.plots[2, 1][4], = self.ax[2, 1].plot([], [], 'o', markerfacecolor='none', markeredgecolor=colors_outcome[2], markeredgewidth=1.5)
+        for i in range(self.plots[2, 1].size):
+            self.plot_data[2, 1][i, 0] = []
+            self.plot_data[2, 1][i, 1] = []
 
         self.ax[0, 2].set_xlim(left=0)
 
@@ -170,13 +199,100 @@ class UserInterface:
 
         # fig.canvas.mpl_connect('close_event', on_close)
 
+        self.trial = 0
+        self.ild = 0
+        self.abl = 0
+        self.bias = 0
+        self.ft = 0
+        self.iti = 0
+
         plt.show()
 
-    def update_plots(self, address, *args):
-        print(address)
-        # self.plot.set_xdata([1, 2])
-        # self.plot.set_ydata([1, 2])
+    def new_trial(self, address, *args):
+        self.trial = args[0]
+        self.ild = args[1]
 
+    # TODO: plots 1, 3, 4, 5, 6, 7
+    def update_plots(self, address, *args):
+        print(args[0])
+        if args[0] > 0:
+            if self.ild >= 0:
+                self.plot_data[0, 2][2 * args[0] - 2, 0].append(self.trial)
+                self.plot_data[0, 2][2 * args[0] - 2, 1].append(2 * args[0] - 2)
+                self.plots[0, 2][2 * args[0] - 2].set_xdata(self.plot_data[0, 2][2 * args[0] - 2, 0])
+                self.plots[0, 2][2 * args[0] - 2].set_ydata(self.plot_data[0, 2][2 * args[0] - 2, 1])
+
+                self.plot_data[1, 2][2 * args[0] - 2, 0].append(self.trial)
+                self.plot_data[1, 2][2 * args[0] - 2, 1].append(args[1])
+                self.plots[1, 2][2 * args[0] - 2].set_xdata(self.plot_data[1, 2][2 * args[0] - 2, 0])
+                self.plots[1, 2][2 * args[0] - 2].set_ydata(self.plot_data[1, 2][2 * args[0] - 2, 1])
+
+                self.plot_data[2, 0][2 * args[0] - 2, 0].append(self.trial)
+                self.plot_data[2, 0][2 * args[0] - 2, 1].append(args[2])
+                self.plots[2, 0][2 * args[0] - 2].set_xdata(self.plot_data[2, 0][2 * args[0] - 2, 0])
+                self.plots[2, 0][2 * args[0] - 2].set_ydata(self.plot_data[2, 0][2 * args[0] - 2, 1])
+
+                self.plot_data[2, 1][2 * args[0] - 2, 0].append(self.trial)
+                self.plot_data[2, 1][2 * args[0] - 2, 1].append(args[3])
+                self.plots[2, 1][2 * args[0] - 2].set_xdata(self.plot_data[2, 1][2 * args[0] - 2, 0])
+                self.plots[2, 1][2 * args[0] - 2].set_ydata(self.plot_data[2, 1][2 * args[0] - 2, 1])
+            else:
+                self.plot_data[0, 2][2 * args[0] - 1, 0].append(self.trial)
+                self.plot_data[0, 2][2 * args[0] - 1, 1].append(2 * args[0] - 1)
+                self.plots[0, 2][2 * args[0] - 1].set_xdata(self.plot_data[0, 2][2 * args[0] - 1, 0])
+                self.plots[0, 2][2 * args[0] - 1].set_ydata(self.plot_data[0, 2][2 * args[0] - 1, 1])
+                
+                self.plot_data[1, 2][2 * args[0] - 1, 0].append(self.trial)
+                self.plot_data[1, 2][2 * args[0] - 1, 1].append(args[1])
+                self.plots[1, 2][2 * args[0] - 1].set_xdata(self.plot_data[1, 2][2 * args[0] - 1, 0])
+                self.plots[1, 2][2 * args[0] - 1].set_ydata(self.plot_data[1, 2][2 * args[0] - 1, 1])
+                
+                self.plot_data[2, 0][2 * args[0] - 1, 0].append(self.trial)
+                self.plot_data[2, 0][2 * args[0] - 1, 1].append(args[2])
+                self.plots[2, 0][2 * args[0] - 1].set_xdata(self.plot_data[2, 0][2 * args[0] - 1, 0])
+                self.plots[2, 0][2 * args[0] - 1].set_ydata(self.plot_data[2, 0][2 * args[0] - 1, 1])
+                
+                self.plot_data[2, 1][2 * args[0] - 1, 0].append(self.trial)
+                self.plot_data[2, 1][2 * args[0] - 1, 1].append(args[3])
+                self.plots[2, 1][2 * args[0] - 1].set_xdata(self.plot_data[2, 1][2 * args[0] - 1, 0])
+                self.plots[2, 1][2 * args[0] - 1].set_ydata(self.plot_data[2, 1][2 * args[0] - 1, 1])
+        else:
+            self.plot_data[0, 2][-args[0] + 3, 0].append(self.trial)
+            self.plot_data[0, 2][-args[0] + 3, 1].append(args[0])
+            self.plots[0, 2][-args[0] + 3].set_xdata(self.plot_data[0, 2][-args[0] + 3, 0])
+            self.plots[0, 2][-args[0] + 3].set_ydata(self.plot_data[0, 2][-args[0] + 3, 1])
+
+            if args[1] > 0:
+                self.plot_data[1, 2][4, 0].append(self.trial)
+                self.plot_data[1, 2][4, 1].append(args[1])
+                self.plots[1, 2][4].set_xdata(self.plot_data[1, 2][4, 0])
+                self.plots[1, 2][4].set_ydata(self.plot_data[1, 2][4, 1])
+            if args[2] > 0:
+                self.plot_data[2, 0][4, 0].append(self.trial)
+                self.plot_data[2, 0][4, 1].append(args[2])
+                self.plots[2, 0][4].set_xdata(self.plot_data[2, 0][4, 0])
+                self.plots[2, 0][4].set_ydata(self.plot_data[2, 0][4, 1])
+            if args[3] > 0:
+                self.plot_data[2, 1][4, 0].append(self.trial)
+                self.plot_data[2, 1][4, 1].append(args[3])
+                self.plots[2, 1][4].set_xdata(self.plot_data[2, 1][4, 0])
+                self.plots[2, 1][4].set_ydata(self.plot_data[2, 1][4, 1])
+
+        self.ax[0, 1].set_ylim(-60, 60)
+        self.ax[0, 2].set_ylim(-8, 2)
+        self.ax[1, 0].set_ylim(0, 1)
+        self.ax[1, 1].set_ylim(0, 1)
+
+        self.ax[0, 2].set_xlim(left=0)
+        self.ax[1, 2].set_xlim(left=0)
+        self.ax[2, 0].set_xlim(left=0)
+        self.ax[2, 1].set_xlim(left=0)
+
+        for i in range(3):
+            for j in range(3):
+                self.ax[i, j].xaxis.set_major_locator(MaxNLocator(integer=True))
+                plt.draw()
+        
     def click(self, event):
         self.client.send_message("/commands", "hello")
 
