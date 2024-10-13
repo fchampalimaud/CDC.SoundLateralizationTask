@@ -26,11 +26,11 @@ class UserInterface:
         parser.add_argument("--ip",
             default="127.0.0.1", help="The ip to listen on")
         parser.add_argument("--port",
-            type=int, default=2, help="The port to listen on")
+            type=float, default=2, help="The port to listen on")
         args = parser.parse_args()
 
         dispatcher = Dispatcher()
-        dispatcher.map("/beginning", self.update_plots)
+        dispatcher.map("/beginning", self.new_trial)
         dispatcher.map("/plots", self.update_plots)
 
         server = osc_server.ThreadingOSCUDPServer(
@@ -41,7 +41,7 @@ class UserInterface:
 
 
         # Matplotlib GUI
-        fig, self.ax = plt.subplots(3, 3, figsize=(14, 10))
+        self.fig, self.ax = plt.subplots(3, 3, figsize=(14, 10))
         plt.subplots_adjust(wspace=0.4, hspace=0.4)
 
         titles = np.array([["", "ILD condition and t. outcome", "Outcome with abort tags"], ["Running average performance and abort rate", "Performance and abort rate for all ILD conditions", "Time to central nose poke"], ["Reaction Time", "Movement time", ""]])
@@ -119,10 +119,10 @@ class UserInterface:
         
         self.plots[1, 2] = np.zeros(5, dtype=object)
         self.plot_data[1, 2] = np.zeros((5, 2), dtype=list)
-        self.plots[1, 2][0], = self.ax[1, 2].plot([], [], '<', markerfacecolor='none', markeredgecolor=colors_outcome[0], markeredgewidth=1.5)
-        self.plots[1, 2][1], = self.ax[1, 2].plot([], [], '>', markerfacecolor='none', markeredgecolor=colors_outcome[0], markeredgewidth=1.5)
-        self.plots[1, 2][2], = self.ax[1, 2].plot([], [], '<', markerfacecolor='none', markeredgecolor=colors_outcome[1], markeredgewidth=1.5)
-        self.plots[1, 2][3], = self.ax[1, 2].plot([], [], '>', markerfacecolor='none', markeredgecolor=colors_outcome[1], markeredgewidth=1.5)
+        self.plots[1, 2][0], = self.ax[1, 2].plot([], [], '<', markerfacecolor='none', markeredgecolor=colors_outcome[1], markeredgewidth=1.5)
+        self.plots[1, 2][1], = self.ax[1, 2].plot([], [], '>', markerfacecolor='none', markeredgecolor=colors_outcome[1], markeredgewidth=1.5)
+        self.plots[1, 2][2], = self.ax[1, 2].plot([], [], '<', markerfacecolor='none', markeredgecolor=colors_outcome[0], markeredgewidth=1.5)
+        self.plots[1, 2][3], = self.ax[1, 2].plot([], [], '>', markerfacecolor='none', markeredgecolor=colors_outcome[0], markeredgewidth=1.5)
         self.plots[1, 2][4], = self.ax[1, 2].plot([], [], 'o', markerfacecolor='none', markeredgecolor=colors_outcome[2], markeredgewidth=1.5)
         for i in range(self.plots[1, 2].size):
             self.plot_data[1, 2][i, 0] = []
@@ -130,10 +130,10 @@ class UserInterface:
         
         self.plots[2, 0] = np.zeros(5, dtype=object)
         self.plot_data[2, 0] = np.zeros((5, 2), dtype=list)
-        self.plots[2, 0][0], = self.ax[2, 0].plot([], [], '<', markerfacecolor='none', markeredgecolor=colors_outcome[0], markeredgewidth=1.5)
-        self.plots[2, 0][1], = self.ax[2, 0].plot([], [], '>', markerfacecolor='none', markeredgecolor=colors_outcome[0], markeredgewidth=1.5)
-        self.plots[2, 0][2], = self.ax[2, 0].plot([], [], '<', markerfacecolor='none', markeredgecolor=colors_outcome[1], markeredgewidth=1.5)
-        self.plots[2, 0][3], = self.ax[2, 0].plot([], [], '>', markerfacecolor='none', markeredgecolor=colors_outcome[1], markeredgewidth=1.5)
+        self.plots[2, 0][0], = self.ax[2, 0].plot([], [], '<', markerfacecolor='none', markeredgecolor=colors_outcome[1], markeredgewidth=1.5)
+        self.plots[2, 0][1], = self.ax[2, 0].plot([], [], '>', markerfacecolor='none', markeredgecolor=colors_outcome[1], markeredgewidth=1.5)
+        self.plots[2, 0][2], = self.ax[2, 0].plot([], [], '<', markerfacecolor='none', markeredgecolor=colors_outcome[0], markeredgewidth=1.5)
+        self.plots[2, 0][3], = self.ax[2, 0].plot([], [], '>', markerfacecolor='none', markeredgecolor=colors_outcome[0], markeredgewidth=1.5)
         self.plots[2, 0][4], = self.ax[2, 0].plot([], [], 'o', markerfacecolor='none', markeredgecolor=colors_outcome[2], markeredgewidth=1.5)
         for i in range(self.plots[2, 0].size):
             self.plot_data[2, 0][i, 0] = []
@@ -141,16 +141,14 @@ class UserInterface:
         
         self.plots[2, 1] = np.zeros(5, dtype=object)
         self.plot_data[2, 1] = np.zeros((5, 2), dtype=list)
-        self.plots[2, 1][0], = self.ax[2, 1].plot([], [], '<', markerfacecolor='none', markeredgecolor=colors_outcome[0], markeredgewidth=1.5)
-        self.plots[2, 1][1], = self.ax[2, 1].plot([], [], '>', markerfacecolor='none', markeredgecolor=colors_outcome[0], markeredgewidth=1.5)
-        self.plots[2, 1][2], = self.ax[2, 1].plot([], [], '<', markerfacecolor='none', markeredgecolor=colors_outcome[1], markeredgewidth=1.5)
-        self.plots[2, 1][3], = self.ax[2, 1].plot([], [], '>', markerfacecolor='none', markeredgecolor=colors_outcome[1], markeredgewidth=1.5)
+        self.plots[2, 1][0], = self.ax[2, 1].plot([], [], '<', markerfacecolor='none', markeredgecolor=colors_outcome[1], markeredgewidth=1.5)
+        self.plots[2, 1][1], = self.ax[2, 1].plot([], [], '>', markerfacecolor='none', markeredgecolor=colors_outcome[1], markeredgewidth=1.5)
+        self.plots[2, 1][2], = self.ax[2, 1].plot([], [], '<', markerfacecolor='none', markeredgecolor=colors_outcome[0], markeredgewidth=1.5)
+        self.plots[2, 1][3], = self.ax[2, 1].plot([], [], '>', markerfacecolor='none', markeredgecolor=colors_outcome[0], markeredgewidth=1.5)
         self.plots[2, 1][4], = self.ax[2, 1].plot([], [], 'o', markerfacecolor='none', markeredgecolor=colors_outcome[2], markeredgewidth=1.5)
         for i in range(self.plots[2, 1].size):
             self.plot_data[2, 1][i, 0] = []
             self.plot_data[2, 1][i, 1] = []
-
-        self.ax[0, 2].set_xlim(left=0)
 
         # Display buttons
         button_ax = np.zeros(9, dtype=object)
@@ -162,14 +160,14 @@ class UserInterface:
                 x = 0.8
             else:
                 x = 0.69
-            button_ax[i] = fig.add_axes([x, button_ypos[i], 0.1, 0.03])
+            button_ax[i] = self.fig.add_axes([x, button_ypos[i], 0.1, 0.03])
             buttons[i] = Button(button_ax[i], button_labels[i], hovercolor='0.975')
             buttons[i].label.set_fontsize(9)
         buttons[0].on_clicked(self.click)
         buttons[1].on_clicked(self.update_plots)
 
         # Slider
-        axfreq = fig.add_axes([0.69, 0.2, 0.21, 0.03])
+        axfreq = self.fig.add_axes([0.69, 0.2, 0.21, 0.03])
         freq_slider = Slider(
             ax=axfreq,
             label='ILD Bias',
@@ -195,9 +193,9 @@ class UserInterface:
             "Current fixation time: \n"
             "Current ITI: \n"
             "Time elapsed: ")
-        plt.text(self.ax[0, 0].get_position().x0 + 0.005, self.ax[0, 0].get_position().y0 + 0.01, t, transform=fig.transFigure, fontsize = 8, linespacing = 1.5)
+        plt.text(self.ax[0, 0].get_position().x0 + 0.005, self.ax[0, 0].get_position().y0 + 0.01, t, transform=self.fig.transFigure, fontsize = 8, linespacing = 1.5)
 
-        # fig.canvas.mpl_connect('close_event', on_close)
+        # self.fig.canvas.mpl_connect('close_event', on_close)
 
         self.trial = 0
         self.ild = 0
@@ -211,14 +209,14 @@ class UserInterface:
     def new_trial(self, address, *args):
         self.trial = args[0]
         self.ild = args[1]
+        print(self.ild)
 
     # TODO: plots 1, 3, 4, 5, 6, 7
     def update_plots(self, address, *args):
-        print(args[0])
         if args[0] > 0:
             if self.ild >= 0:
                 self.plot_data[0, 2][2 * args[0] - 2, 0].append(self.trial)
-                self.plot_data[0, 2][2 * args[0] - 2, 1].append(2 * args[0] - 2)
+                self.plot_data[0, 2][2 * args[0] - 2, 1].append(args[0])
                 self.plots[0, 2][2 * args[0] - 2].set_xdata(self.plot_data[0, 2][2 * args[0] - 2, 0])
                 self.plots[0, 2][2 * args[0] - 2].set_ydata(self.plot_data[0, 2][2 * args[0] - 2, 1])
 
@@ -238,7 +236,7 @@ class UserInterface:
                 self.plots[2, 1][2 * args[0] - 2].set_ydata(self.plot_data[2, 1][2 * args[0] - 2, 1])
             else:
                 self.plot_data[0, 2][2 * args[0] - 1, 0].append(self.trial)
-                self.plot_data[0, 2][2 * args[0] - 1, 1].append(2 * args[0] - 1)
+                self.plot_data[0, 2][2 * args[0] - 1, 1].append(args[0])
                 self.plots[0, 2][2 * args[0] - 1].set_xdata(self.plot_data[0, 2][2 * args[0] - 1, 0])
                 self.plots[0, 2][2 * args[0] - 1].set_ydata(self.plot_data[0, 2][2 * args[0] - 1, 1])
                 
@@ -283,15 +281,17 @@ class UserInterface:
         self.ax[1, 0].set_ylim(0, 1)
         self.ax[1, 1].set_ylim(0, 1)
 
-        self.ax[0, 2].set_xlim(left=0)
-        self.ax[1, 2].set_xlim(left=0)
-        self.ax[2, 0].set_xlim(left=0)
-        self.ax[2, 1].set_xlim(left=0)
+        # self.ax[0, 2].set_xlim(left=0)
+        # self.ax[1, 2].set_xlim(left=0)
+        # self.ax[2, 0].set_xlim(left=0)
+        # self.ax[2, 1].set_xlim(left=0)
 
         for i in range(3):
             for j in range(3):
                 self.ax[i, j].xaxis.set_major_locator(MaxNLocator(integer=True))
-                plt.draw()
+                self.ax[i, j].relim()
+                self.ax[i, j].autoscale_view()
+        self.fig.canvas.draw()
         
     def click(self, event):
         self.client.send_message("/commands", "hello")
