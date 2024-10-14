@@ -32,12 +32,17 @@ class UserInterface:
         dispatcher = Dispatcher()
         dispatcher.map("/beginning", self.new_trial)
         dispatcher.map("/plots", self.update_plots)
+        dispatcher.map("/block", self.new_block)
 
-        server = osc_server.ThreadingOSCUDPServer(
+        self.server = osc_server.ThreadingOSCUDPServer(
             (args.ip, args.port), dispatcher)
 
-        server_thread = Thread(target=server.serve_forever)
-        server_thread.start()
+        self.server_thread = Thread(target=self.server.serve_forever)
+        self.server_thread.start()
+
+
+        self.last_aborts = []
+        self.last_right = []
 
 
         # Matplotlib GUI
@@ -111,8 +116,8 @@ class UserInterface:
         
         self.plots[1, 1] = np.zeros(2, dtype=object)
         self.plot_data[1, 1] = np.zeros((2, 2), dtype=list)
-        self.plots[1, 1][0], = self.ax[1, 1].plot([], [], 'o-', markerfacecolor='none', markeredgecolor=colors_outcome[0], markeredgewidth=1.5)
-        self.plots[1, 1][1], = self.ax[1, 1].plot([], [], 'o-', markerfacecolor='none', markeredgecolor=colors_outcome[2], markeredgewidth=1.5)
+        self.plots[1, 1][0], = self.ax[1, 1].plot([], [], 'o-', markerfacecolor='none', color=colors_outcome[0], markeredgewidth=1.5)
+        self.plots[1, 1][1], = self.ax[1, 1].plot([], [], 'o-', markerfacecolor='none', color=colors_outcome[2], markeredgewidth=1.5)
         for i in range(self.plots[1, 1].size):
             self.plot_data[1, 1][i, 0] = []
             self.plot_data[1, 1][i, 1] = []
@@ -151,34 +156,24 @@ class UserInterface:
             self.plot_data[2, 1][i, 1] = []
 
         # Display buttons
-        button_ax = np.zeros(9, dtype=object)
-        buttons = np.zeros(9, dtype=object)
-        button_labels = ["Next trial left", " Next trial right", "Reward left", "Reward right", "Light flashes", "Go to next block", "Repeat errors", "Fix block", "Stop session"]
-        button_ypos = [0.3, 0.3, 0.25, 0.25, 0.15, 0.15, 0.1, 0.1, 0.05]
-        for i in range(9):
-            if i % 2 != 0 or i == 8:
+        button_ax = np.zeros(6, dtype=object)
+        buttons = np.zeros(6, dtype=object)
+        button_labels = ["Next trial left", " Next trial right", "Reward left", "Reward right", "Repeat errors", "Stop session"]
+        button_ypos = [0.25, 0.25, 0.2, 0.2, 0.15, 0.15]
+        for i in range(6):
+            if i % 2 != 0:
                 x = 0.8
             else:
                 x = 0.69
             button_ax[i] = self.fig.add_axes([x, button_ypos[i], 0.1, 0.03])
             buttons[i] = Button(button_ax[i], button_labels[i], hovercolor='0.975')
             buttons[i].label.set_fontsize(9)
-        buttons[0].on_clicked(self.click)
-        buttons[1].on_clicked(self.update_plots)
-
-        # Slider
-        axfreq = self.fig.add_axes([0.69, 0.2, 0.21, 0.03])
-        freq_slider = Slider(
-            ax=axfreq,
-            label='ILD Bias',
-            valmin=-1,
-            valmax=1,
-            valinit=0,
-        )
-        
-        freq_slider.on_changed(self.foo)
-        freq_slider.label.set_size(9)
-
+        buttons[0].on_clicked(self.left_trial_click)
+        buttons[1].on_clicked(self.right_trial_click)
+        buttons[2].on_clicked(self.left_reward)
+        buttons[3].on_clicked(self.right_reward)
+        buttons[4].on_clicked(self.repeat_errors)
+        buttons[5].on_clicked(self.stop_session)
 
         t = ("Rat: \n"
             "Trial: \n"
@@ -186,7 +181,6 @@ class UserInterface:
             "Block: \n"
             "ILD: \n"
             "ABL: \n"
-            "Bias: \n"
             "Learning stage: \n"
             "Current performance: \n"
             "Current abort rate: \n"
@@ -195,23 +189,86 @@ class UserInterface:
             "Time elapsed: ")
         plt.text(self.ax[0, 0].get_position().x0 + 0.005, self.ax[0, 0].get_position().y0 + 0.01, t, transform=self.fig.transFigure, fontsize = 8, linespacing = 1.5)
 
-        # self.fig.canvas.mpl_connect('close_event', on_close)
-
         self.trial = 0
         self.ild = 0
         self.abl = 0
-        self.bias = 0
         self.ft = 0
         self.iti = 0
 
+        self.fig.canvas.mpl_connect('close_event', self.close_connection)
+
         plt.show()
 
+    def close_connection(self, event):
+        self.server.shutdown()
+        self.server_thread.join()
+
+    def new_block(self, address, *args):
+        self.ild_array = np.array(args[1:args[0] + 1])
+        self.performance_rate = np.zeros(args[0])
+        self.abort_rate = np.zeros(args[0])
+        self.completed_trials = np.zeros(args[0])
+        self.abort_trials = np.zeros(args[0])
+        self.right_answers = np.zeros(args[0])
+
+        for i in range(3):
+            for j in range(3):
+                if (i, j) in [(1, 1)]:
+                    self.plots[1, 1][0].set_xdata(self.ild_array)
+                    self.plots[1, 1][0].set_ydata(self.performance_rate)
+                    self.plots[1, 1][1].set_xdata(self.ild_array)
+                    self.plots[1, 1][1].set_ydata(self.abort_rate)
+                    self.ax[1, 1].relim()
+                    self.ax[1, 1].autoscale_view()
+                elif (i, j) not in [(0, 0), (2, 2)]:
+                    for k in range(self.plots[i, j].size):
+                        self.plot_data[i, j][k, 0] = []
+                        self.plot_data[i, j][k, 1] = []
+                        self.plots[i, j][k].set_xdata([])
+                        self.plots[i, j][k].set_ydata([])
+                    
+        self.fig.canvas.draw()
+
+    def last_ten(self, outcome):
+        if outcome == 2:
+            self.last_right.append(True)
+            self.last_aborts.append(False)
+        elif outcome == 1:
+            self.last_right.append(False)
+            self.last_aborts.append(False)
+        else:
+            self.last_aborts.append(True)
+
+        if len(self.last_aborts) == 11:
+            self.last_aborts.pop(0)
+        if len(self.last_right) == 11:
+            self.last_right.pop(0)
+
+        count = 0
+        for i in range(len(self.last_right)):
+            if self.last_right[i]:
+                count += 1
+
+        self.plot_data[1, 0][1, 0].append(self.trial)
+        self.plot_data[1, 0][1, 1].append(float(count) / len(self.last_right))
+        self.plots[1, 0][1].set_xdata(self.plot_data[1, 0][1, 0])
+        self.plots[1, 0][1].set_ydata(self.plot_data[1, 0][1, 1])
+        
+        count = 0
+        for i in range(len(self.last_aborts)):
+            if self.last_aborts[i]:
+                count += 1
+
+        self.plot_data[1, 0][2, 0].append(self.trial)
+        self.plot_data[1, 0][2, 1].append(float(count) / len(self.last_aborts))
+        self.plots[1, 0][2].set_xdata(self.plot_data[1, 0][2, 0])
+        self.plots[1, 0][2].set_ydata(self.plot_data[1, 0][2, 1])
+
+    # TODO
     def new_trial(self, address, *args):
         self.trial = args[0]
         self.ild = args[1]
-        print(self.ild)
 
-    # TODO: plots 1, 3, 4, 5, 6, 7
     def update_plots(self, address, *args):
         if args[0] > 0:
             if self.ild >= 0:
@@ -254,7 +311,23 @@ class UserInterface:
                 self.plot_data[2, 1][2 * args[0] - 1, 1].append(args[3])
                 self.plots[2, 1][2 * args[0] - 1].set_xdata(self.plot_data[2, 1][2 * args[0] - 1, 0])
                 self.plots[2, 1][2 * args[0] - 1].set_ydata(self.plot_data[2, 1][2 * args[0] - 1, 1])
+            if args[0] == 1:
+                self.plot_data[0, 1][1, 0].append(self.trial) 
+                self.plot_data[0, 1][1, 1].append(self.ild) 
+                self.plots[0, 1][1].set_xdata(self.plot_data[0, 1][2, 0])
+                self.plots[0, 1][1].set_ydata(self.plot_data[0, 1][2, 1])
+            else:
+                self.plot_data[0, 1][0, 0].append(self.trial) 
+                self.plot_data[0, 1][0, 1].append(self.ild) 
+                self.plots[0, 1][0].set_xdata(self.plot_data[0, 1][2, 0])
+                self.plots[0, 1][0].set_ydata(self.plot_data[0, 1][2, 1])
+
         else:
+            self.plot_data[0, 1][2, 0].append(self.trial) 
+            self.plot_data[0, 1][2, 1].append(self.ild) 
+            self.plots[0, 1][2].set_xdata(self.plot_data[0, 1][2, 0])
+            self.plots[0, 1][2].set_ydata(self.plot_data[0, 1][2, 1])
+
             self.plot_data[0, 2][-args[0] + 3, 0].append(self.trial)
             self.plot_data[0, 2][-args[0] + 3, 1].append(args[0])
             self.plots[0, 2][-args[0] + 3].set_xdata(self.plot_data[0, 2][-args[0] + 3, 0])
@@ -276,15 +349,15 @@ class UserInterface:
                 self.plots[2, 1][4].set_xdata(self.plot_data[2, 1][4, 0])
                 self.plots[2, 1][4].set_ydata(self.plot_data[2, 1][4, 1])
 
+        self.plot_data[1, 0][0, 0].append(self.trial)
+        self.plot_data[1, 0][0, 1].append(self.args[4])
+        self.plots[1, 0][0].set_xdata(self.plot_data[1, 0][0, 0])
+        self.plots[1, 0][0].set_ydata(self.plot_data[1, 0][0, 1])
+
         self.ax[0, 1].set_ylim(-60, 60)
         self.ax[0, 2].set_ylim(-8, 2)
         self.ax[1, 0].set_ylim(0, 1)
         self.ax[1, 1].set_ylim(0, 1)
-
-        # self.ax[0, 2].set_xlim(left=0)
-        # self.ax[1, 2].set_xlim(left=0)
-        # self.ax[2, 0].set_xlim(left=0)
-        # self.ax[2, 1].set_xlim(left=0)
 
         for i in range(3):
             for j in range(3):
@@ -293,8 +366,23 @@ class UserInterface:
                 self.ax[i, j].autoscale_view()
         self.fig.canvas.draw()
         
-    def click(self, event):
-        self.client.send_message("/commands", "hello")
+    def left_trial_click(self, event):
+        self.client.send_message("/nexttrial", -1)
+
+    def right_trial_click(self, event):
+        self.client.send_message("/nexttrial", 1)
+
+    def left_reward(self, event):
+        self.client.send_message("/reward", -1)
+
+    def right_reward(self, event):
+        self.client.send_message("/reward", 1)
+
+    def repeat_errors(self, event):
+        self.client.send_message("/repeat", 0)
+
+    def stop_session(self, event):
+        self.client.send_message("/stop", 0)
 
     def foo(self, val):
         print(val)
