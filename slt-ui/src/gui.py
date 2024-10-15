@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.ticker import MaxNLocator
-from matplotlib.widgets import Button, Slider
+from matplotlib.widgets import Button
 from pythonosc import udp_client
 from pythonosc.dispatcher import Dispatcher
 from pythonosc import osc_server
@@ -350,7 +350,7 @@ class UserInterface:
                 self.plots[2, 1][4].set_ydata(self.plot_data[2, 1][4, 1])
 
         self.plot_data[1, 0][0, 0].append(self.trial)
-        self.plot_data[1, 0][0, 1].append(self.args[4])
+        self.plot_data[1, 0][0, 1].append(args[4])
         self.plots[1, 0][0].set_xdata(self.plot_data[1, 0][0, 0])
         self.plots[1, 0][0].set_ydata(self.plot_data[1, 0][0, 1])
 
