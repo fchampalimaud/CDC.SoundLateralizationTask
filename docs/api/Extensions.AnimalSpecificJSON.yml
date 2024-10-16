@@ -1,44 +1,45 @@
 ### YamlMime:ManagedReference
 items:
-- uid: SLTUtils.ShuffleArray
-  commentId: T:SLTUtils.ShuffleArray
-  id: ShuffleArray
-  parent: SLTUtils
+- uid: Extensions.AnimalSpecificJSON
+  commentId: T:Extensions.AnimalSpecificJSON
+  id: AnimalSpecificJSON
+  parent: Extensions
   children:
-  - SLTUtils.ShuffleArray.Process``1(System.IObservable{``0[]})
+  - Extensions.AnimalSpecificJSON.FilePath
+  - Extensions.AnimalSpecificJSON.Process
   langs:
   - csharp
   - vb
-  name: ShuffleArray
-  nameWithType: ShuffleArray
-  fullName: SLTUtils.ShuffleArray
+  name: AnimalSpecificJSON
+  nameWithType: AnimalSpecificJSON
+  fullName: Extensions.AnimalSpecificJSON
   type: Class
   source:
     remote:
-      path: package/SLTUtils/ShuffleArray.cs
-      branch: develop
+      path: src/Extensions/AnimalSpecificJSON.cs
+      branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
-    id: ShuffleArray
-    path: ../package/SLTUtils/ShuffleArray.cs
-    startLine: 11
+    id: AnimalSpecificJSON
+    path: ../src/Extensions/AnimalSpecificJSON.cs
+    startLine: 67
   assemblies:
-  - SLTUtils
-  namespace: SLTUtils
-  summary: Class <code>ShuffleArray</code> contains the logic of the Bonsai node with the same name.
+  - Extensions
+  namespace: Extensions
+  summary: Class <code>AnimalSpecificJSON</code> contains the logic of the Bonsai node with the same name.
   example: []
   syntax:
     content: >-
       [Combinator]
 
-      [WorkflowElementCategory(ElementCategory.Transform)]
+      [WorkflowElementCategory(ElementCategory.Source)]
 
-      public class ShuffleArray
+      public class AnimalSpecificJSON
     content.vb: >-
       <Combinator>
 
-      <WorkflowElementCategory(ElementCategory.Transform)>
+      <WorkflowElementCategory(ElementCategory.Source)>
 
-      Public Class ShuffleArray
+      Public Class AnimalSpecificJSON
   inheritance:
   - System.Object
   inheritedMembers:
@@ -57,55 +58,74 @@ items:
     ctor: Bonsai.WorkflowElementCategoryAttribute.#ctor(Bonsai.ElementCategory)
     arguments:
     - type: Bonsai.ElementCategory
-      value: 2
-- uid: SLTUtils.ShuffleArray.Process``1(System.IObservable{``0[]})
-  commentId: M:SLTUtils.ShuffleArray.Process``1(System.IObservable{``0[]})
-  id: Process``1(System.IObservable{``0[]})
-  parent: SLTUtils.ShuffleArray
+      value: 0
+- uid: Extensions.AnimalSpecificJSON.FilePath
+  commentId: P:Extensions.AnimalSpecificJSON.FilePath
+  id: FilePath
+  parent: Extensions.AnimalSpecificJSON
   langs:
   - csharp
   - vb
-  name: Process<TSource>(IObservable<TSource[]>)
-  nameWithType: ShuffleArray.Process<TSource>(IObservable<TSource[]>)
-  fullName: SLTUtils.ShuffleArray.Process<TSource>(System.IObservable<TSource[]>)
+  name: FilePath
+  nameWithType: AnimalSpecificJSON.FilePath
+  fullName: Extensions.AnimalSpecificJSON.FilePath
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/AnimalSpecificJSON.cs
+      branch: gui
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: FilePath
+    path: ../src/Extensions/AnimalSpecificJSON.cs
+    startLine: 72
+  assemblies:
+  - Extensions
+  namespace: Extensions
+  syntax:
+    content: public string FilePath { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property FilePath As String
+  overload: Extensions.AnimalSpecificJSON.FilePath*
+- uid: Extensions.AnimalSpecificJSON.Process
+  commentId: M:Extensions.AnimalSpecificJSON.Process
+  id: Process
+  parent: Extensions.AnimalSpecificJSON
+  langs:
+  - csharp
+  - vb
+  name: Process()
+  nameWithType: AnimalSpecificJSON.Process()
+  fullName: Extensions.AnimalSpecificJSON.Process()
   type: Method
   source:
     remote:
-      path: package/SLTUtils/ShuffleArray.cs
-      branch: develop
+      path: src/Extensions/AnimalSpecificJSON.cs
+      branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
-    path: ../package/SLTUtils/ShuffleArray.cs
-    startLine: 24
+    path: ../src/Extensions/AnimalSpecificJSON.cs
+    startLine: 82
   assemblies:
-  - SLTUtils
-  namespace: SLTUtils
-  summary: Shuffles the input array.
+  - Extensions
+  namespace: Extensions
+  summary: Reads the animal-specific input parameters needed for the Sound Lateralization Task from a JSON file.
   example: []
   syntax:
-    content: public IObservable<TSource[]> Process<TSource>(IObservable<TSource[]> source)
-    parameters:
-    - id: source
-      type: System.IObservable{{TSource}[]}
-      description: the input data stream, which sends arrays of the type TSource.
-    typeParameters:
-    - id: TSource
-      description: The type of the elements of the input array.
+    content: public IObservable<AnimalSpecificConfiguration> Process()
     return:
-      type: System.IObservable{{TSource}[]}
-      description: The shuffled input array (of type TSource).
-    content.vb: Public Function Process(Of TSource)(source As IObservable(Of TSource())) As IObservable(Of TSource())
-  overload: SLTUtils.ShuffleArray.Process*
-  nameWithType.vb: ShuffleArray.Process(Of TSource)(IObservable(Of TSource()))
-  fullName.vb: SLTUtils.ShuffleArray.Process(Of TSource)(System.IObservable(Of TSource()))
-  name.vb: Process(Of TSource)(IObservable(Of TSource()))
+      type: System.IObservable{Extensions.AnimalSpecificConfiguration}
+      description: An observable sequence which sends a single event containing an <code>AnimalSpecificConfiguration</code> instance.
+    content.vb: Public Function Process() As IObservable(Of AnimalSpecificConfiguration)
+  overload: Extensions.AnimalSpecificJSON.Process*
 references:
-- uid: SLTUtils
-  commentId: N:SLTUtils
-  href: SLTUtils.html
-  name: SLTUtils
-  nameWithType: SLTUtils
-  fullName: SLTUtils
+- uid: Extensions
+  commentId: N:Extensions
+  href: Extensions.html
+  name: Extensions
+  nameWithType: Extensions
+  fullName: Extensions
 - uid: System.Object
   commentId: T:System.Object
   parent: System
@@ -343,32 +363,49 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: SLTUtils.ShuffleArray.Process*
-  commentId: Overload:SLTUtils.ShuffleArray.Process
-  href: SLTUtils.ShuffleArray.html#SLTUtils_ShuffleArray_Process__1_System_IObservable___0____
+- uid: Extensions.AnimalSpecificJSON.FilePath*
+  commentId: Overload:Extensions.AnimalSpecificJSON.FilePath
+  href: Extensions.AnimalSpecificJSON.html#Extensions_AnimalSpecificJSON_FilePath
+  name: FilePath
+  nameWithType: AnimalSpecificJSON.FilePath
+  fullName: Extensions.AnimalSpecificJSON.FilePath
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Extensions.AnimalSpecificJSON.Process*
+  commentId: Overload:Extensions.AnimalSpecificJSON.Process
+  href: Extensions.AnimalSpecificJSON.html#Extensions_AnimalSpecificJSON_Process
   name: Process
-  nameWithType: ShuffleArray.Process
-  fullName: SLTUtils.ShuffleArray.Process
-- uid: System.IObservable{{TSource}[]}
-  commentId: T:System.IObservable{``0[]}
+  nameWithType: AnimalSpecificJSON.Process
+  fullName: Extensions.AnimalSpecificJSON.Process
+- uid: System.IObservable{Extensions.AnimalSpecificConfiguration}
+  commentId: T:System.IObservable{Extensions.AnimalSpecificConfiguration}
   parent: System
   definition: System.IObservable`1
   href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
-  name: IObservable<TSource[]>
-  nameWithType: IObservable<TSource[]>
-  fullName: System.IObservable<TSource[]>
-  nameWithType.vb: IObservable(Of TSource())
-  fullName.vb: System.IObservable(Of TSource())
-  name.vb: IObservable(Of TSource())
+  name: IObservable<AnimalSpecificConfiguration>
+  nameWithType: IObservable<AnimalSpecificConfiguration>
+  fullName: System.IObservable<Extensions.AnimalSpecificConfiguration>
+  nameWithType.vb: IObservable(Of AnimalSpecificConfiguration)
+  fullName.vb: System.IObservable(Of Extensions.AnimalSpecificConfiguration)
+  name.vb: IObservable(Of AnimalSpecificConfiguration)
   spec.csharp:
   - uid: System.IObservable`1
     name: IObservable
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
   - name: <
-  - name: TSource
-  - name: '['
-  - name: ']'
+  - uid: Extensions.AnimalSpecificConfiguration
+    name: AnimalSpecificConfiguration
+    href: Extensions.AnimalSpecificConfiguration.html
   - name: '>'
   spec.vb:
   - uid: System.IObservable`1
@@ -378,9 +415,9 @@ references:
   - name: (
   - name: Of
   - name: " "
-  - name: TSource
-  - name: (
-  - name: )
+  - uid: Extensions.AnimalSpecificConfiguration
+    name: AnimalSpecificConfiguration
+    href: Extensions.AnimalSpecificConfiguration.html
   - name: )
 - uid: System.IObservable`1
   commentId: T:System.IObservable`1

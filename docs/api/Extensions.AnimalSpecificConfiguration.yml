@@ -1,51 +1,51 @@
 ### YamlMime:ManagedReference
 items:
-- uid: SLTUtils.AnimalSpecificConfiguration
-  commentId: T:SLTUtils.AnimalSpecificConfiguration
+- uid: Extensions.AnimalSpecificConfiguration
+  commentId: T:Extensions.AnimalSpecificConfiguration
   id: AnimalSpecificConfiguration
-  parent: SLTUtils
+  parent: Extensions
   children:
-  - SLTUtils.AnimalSpecificConfiguration.ABLList
-  - SLTUtils.AnimalSpecificConfiguration.Animal
-  - SLTUtils.AnimalSpecificConfiguration.Bias
-  - SLTUtils.AnimalSpecificConfiguration.Box
-  - SLTUtils.AnimalSpecificConfiguration.CycleILD
-  - SLTUtils.AnimalSpecificConfiguration.ExpFTMean
-  - SLTUtils.AnimalSpecificConfiguration.FTDelta
-  - SLTUtils.AnimalSpecificConfiguration.FTTarget
-  - SLTUtils.AnimalSpecificConfiguration.LNPDelta
-  - SLTUtils.AnimalSpecificConfiguration.LNPTarget
-  - SLTUtils.AnimalSpecificConfiguration.MaxRT
-  - SLTUtils.AnimalSpecificConfiguration.MaxSamplingTime
-  - SLTUtils.AnimalSpecificConfiguration.MinFT
-  - SLTUtils.AnimalSpecificConfiguration.MinLNP
-  - SLTUtils.AnimalSpecificConfiguration.MinMT
-  - SLTUtils.AnimalSpecificConfiguration.MinRT
-  - SLTUtils.AnimalSpecificConfiguration.RTDelta
-  - SLTUtils.AnimalSpecificConfiguration.RTTarget
-  - SLTUtils.AnimalSpecificConfiguration.Session
-  - SLTUtils.AnimalSpecificConfiguration.SessionDuration
-  - SLTUtils.AnimalSpecificConfiguration.SessionType
-  - SLTUtils.AnimalSpecificConfiguration.StartingBlockNumber
-  - SLTUtils.AnimalSpecificConfiguration.StartingTrialNumber
+  - Extensions.AnimalSpecificConfiguration.ABLList
+  - Extensions.AnimalSpecificConfiguration.Animal
+  - Extensions.AnimalSpecificConfiguration.Bias
+  - Extensions.AnimalSpecificConfiguration.Box
+  - Extensions.AnimalSpecificConfiguration.CycleILD
+  - Extensions.AnimalSpecificConfiguration.ExpFTMean
+  - Extensions.AnimalSpecificConfiguration.FTDelta
+  - Extensions.AnimalSpecificConfiguration.FTTarget
+  - Extensions.AnimalSpecificConfiguration.LNPDelta
+  - Extensions.AnimalSpecificConfiguration.LNPTarget
+  - Extensions.AnimalSpecificConfiguration.MaxRT
+  - Extensions.AnimalSpecificConfiguration.MaxSamplingTime
+  - Extensions.AnimalSpecificConfiguration.MinFT
+  - Extensions.AnimalSpecificConfiguration.MinLNP
+  - Extensions.AnimalSpecificConfiguration.MinMT
+  - Extensions.AnimalSpecificConfiguration.MinRT
+  - Extensions.AnimalSpecificConfiguration.RTDelta
+  - Extensions.AnimalSpecificConfiguration.RTTarget
+  - Extensions.AnimalSpecificConfiguration.Session
+  - Extensions.AnimalSpecificConfiguration.SessionDuration
+  - Extensions.AnimalSpecificConfiguration.SessionType
+  - Extensions.AnimalSpecificConfiguration.StartingBlockNumber
+  - Extensions.AnimalSpecificConfiguration.StartingTrialNumber
   langs:
   - csharp
   - vb
   name: AnimalSpecificConfiguration
   nameWithType: AnimalSpecificConfiguration
-  fullName: SLTUtils.AnimalSpecificConfiguration
+  fullName: Extensions.AnimalSpecificConfiguration
   type: Class
   source:
     remote:
-      path: package/SLTUtils/AnimalSpecificJSON.cs
-      branch: develop
+      path: src/Extensions/AnimalSpecificJSON.cs
+      branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: AnimalSpecificConfiguration
-    path: ../package/SLTUtils/AnimalSpecificJSON.cs
+    path: ../src/Extensions/AnimalSpecificJSON.cs
     startLine: 14
   assemblies:
-  - SLTUtils
-  namespace: SLTUtils
+  - Extensions
+  namespace: Extensions
   summary: Class <code>AnimalSpecificConfiguration</code> models the input parameters of the Sound Lateralization Task present in the <code>animal_settings.json</code> file.
   example: []
   syntax:
@@ -61,28 +61,28 @@ items:
   - System.Object.GetHashCode
   - System.Object.GetType
   - System.Object.MemberwiseClone
-- uid: SLTUtils.AnimalSpecificConfiguration.Animal
-  commentId: P:SLTUtils.AnimalSpecificConfiguration.Animal
+- uid: Extensions.AnimalSpecificConfiguration.Animal
+  commentId: P:Extensions.AnimalSpecificConfiguration.Animal
   id: Animal
-  parent: SLTUtils.AnimalSpecificConfiguration
+  parent: Extensions.AnimalSpecificConfiguration
   langs:
   - csharp
   - vb
   name: Animal
   nameWithType: AnimalSpecificConfiguration.Animal
-  fullName: SLTUtils.AnimalSpecificConfiguration.Animal
+  fullName: Extensions.AnimalSpecificConfiguration.Animal
   type: Property
   source:
     remote:
-      path: package/SLTUtils/AnimalSpecificJSON.cs
-      branch: develop
+      path: src/Extensions/AnimalSpecificJSON.cs
+      branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Animal
-    path: ../package/SLTUtils/AnimalSpecificJSON.cs
+    path: ../src/Extensions/AnimalSpecificJSON.cs
     startLine: 17
   assemblies:
-  - SLTUtils
-  namespace: SLTUtils
+  - Extensions
+  namespace: Extensions
   example: []
   syntax:
     content: public int Animal { get; set; }
@@ -91,29 +91,29 @@ items:
       type: System.Int32
       description: Property <code>Animal</code> is the ID number of the animal.
     content.vb: Public Property Animal As Integer
-  overload: SLTUtils.AnimalSpecificConfiguration.Animal*
-- uid: SLTUtils.AnimalSpecificConfiguration.Box
-  commentId: P:SLTUtils.AnimalSpecificConfiguration.Box
+  overload: Extensions.AnimalSpecificConfiguration.Animal*
+- uid: Extensions.AnimalSpecificConfiguration.Box
+  commentId: P:Extensions.AnimalSpecificConfiguration.Box
   id: Box
-  parent: SLTUtils.AnimalSpecificConfiguration
+  parent: Extensions.AnimalSpecificConfiguration
   langs:
   - csharp
   - vb
   name: Box
   nameWithType: AnimalSpecificConfiguration.Box
-  fullName: SLTUtils.AnimalSpecificConfiguration.Box
+  fullName: Extensions.AnimalSpecificConfiguration.Box
   type: Property
   source:
     remote:
-      path: package/SLTUtils/AnimalSpecificJSON.cs
-      branch: develop
+      path: src/Extensions/AnimalSpecificJSON.cs
+      branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Box
-    path: ../package/SLTUtils/AnimalSpecificJSON.cs
+    path: ../src/Extensions/AnimalSpecificJSON.cs
     startLine: 19
   assemblies:
-  - SLTUtils
-  namespace: SLTUtils
+  - Extensions
+  namespace: Extensions
   example: []
   syntax:
     content: public int Box { get; set; }
@@ -122,29 +122,29 @@ items:
       type: System.Int32
       description: Property <code>Box</code> is the number of the box where the task was conducted.
     content.vb: Public Property Box As Integer
-  overload: SLTUtils.AnimalSpecificConfiguration.Box*
-- uid: SLTUtils.AnimalSpecificConfiguration.Session
-  commentId: P:SLTUtils.AnimalSpecificConfiguration.Session
+  overload: Extensions.AnimalSpecificConfiguration.Box*
+- uid: Extensions.AnimalSpecificConfiguration.Session
+  commentId: P:Extensions.AnimalSpecificConfiguration.Session
   id: Session
-  parent: SLTUtils.AnimalSpecificConfiguration
+  parent: Extensions.AnimalSpecificConfiguration
   langs:
   - csharp
   - vb
   name: Session
   nameWithType: AnimalSpecificConfiguration.Session
-  fullName: SLTUtils.AnimalSpecificConfiguration.Session
+  fullName: Extensions.AnimalSpecificConfiguration.Session
   type: Property
   source:
     remote:
-      path: package/SLTUtils/AnimalSpecificJSON.cs
-      branch: develop
+      path: src/Extensions/AnimalSpecificJSON.cs
+      branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Session
-    path: ../package/SLTUtils/AnimalSpecificJSON.cs
+    path: ../src/Extensions/AnimalSpecificJSON.cs
     startLine: 21
   assemblies:
-  - SLTUtils
-  namespace: SLTUtils
+  - Extensions
+  namespace: Extensions
   example: []
   syntax:
     content: public int Session { get; set; }
@@ -153,29 +153,29 @@ items:
       type: System.Int32
       description: Property <code>Session</code> is the number of the session.
     content.vb: Public Property Session As Integer
-  overload: SLTUtils.AnimalSpecificConfiguration.Session*
-- uid: SLTUtils.AnimalSpecificConfiguration.SessionType
-  commentId: P:SLTUtils.AnimalSpecificConfiguration.SessionType
+  overload: Extensions.AnimalSpecificConfiguration.Session*
+- uid: Extensions.AnimalSpecificConfiguration.SessionType
+  commentId: P:Extensions.AnimalSpecificConfiguration.SessionType
   id: SessionType
-  parent: SLTUtils.AnimalSpecificConfiguration
+  parent: Extensions.AnimalSpecificConfiguration
   langs:
   - csharp
   - vb
   name: SessionType
   nameWithType: AnimalSpecificConfiguration.SessionType
-  fullName: SLTUtils.AnimalSpecificConfiguration.SessionType
+  fullName: Extensions.AnimalSpecificConfiguration.SessionType
   type: Property
   source:
     remote:
-      path: package/SLTUtils/AnimalSpecificJSON.cs
-      branch: develop
+      path: src/Extensions/AnimalSpecificJSON.cs
+      branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: SessionType
-    path: ../package/SLTUtils/AnimalSpecificJSON.cs
+    path: ../src/Extensions/AnimalSpecificJSON.cs
     startLine: 23
   assemblies:
-  - SLTUtils
-  namespace: SLTUtils
+  - Extensions
+  namespace: Extensions
   example: []
   syntax:
     content: public int SessionType { get; set; }
@@ -184,29 +184,29 @@ items:
       type: System.Int32
       description: Property <code>SessionType</code>
     content.vb: Public Property SessionType As Integer
-  overload: SLTUtils.AnimalSpecificConfiguration.SessionType*
-- uid: SLTUtils.AnimalSpecificConfiguration.SessionDuration
-  commentId: P:SLTUtils.AnimalSpecificConfiguration.SessionDuration
+  overload: Extensions.AnimalSpecificConfiguration.SessionType*
+- uid: Extensions.AnimalSpecificConfiguration.SessionDuration
+  commentId: P:Extensions.AnimalSpecificConfiguration.SessionDuration
   id: SessionDuration
-  parent: SLTUtils.AnimalSpecificConfiguration
+  parent: Extensions.AnimalSpecificConfiguration
   langs:
   - csharp
   - vb
   name: SessionDuration
   nameWithType: AnimalSpecificConfiguration.SessionDuration
-  fullName: SLTUtils.AnimalSpecificConfiguration.SessionDuration
+  fullName: Extensions.AnimalSpecificConfiguration.SessionDuration
   type: Property
   source:
     remote:
-      path: package/SLTUtils/AnimalSpecificJSON.cs
-      branch: develop
+      path: src/Extensions/AnimalSpecificJSON.cs
+      branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: SessionDuration
-    path: ../package/SLTUtils/AnimalSpecificJSON.cs
+    path: ../src/Extensions/AnimalSpecificJSON.cs
     startLine: 25
   assemblies:
-  - SLTUtils
-  namespace: SLTUtils
+  - Extensions
+  namespace: Extensions
   example: []
   syntax:
     content: public TimeSpan SessionDuration { get; set; }
@@ -215,29 +215,29 @@ items:
       type: System.TimeSpan
       description: Property <code>SessionDuration</code> is the duration of the task ("hh:mm:ss").
     content.vb: Public Property SessionDuration As TimeSpan
-  overload: SLTUtils.AnimalSpecificConfiguration.SessionDuration*
-- uid: SLTUtils.AnimalSpecificConfiguration.StartingTrialNumber
-  commentId: P:SLTUtils.AnimalSpecificConfiguration.StartingTrialNumber
+  overload: Extensions.AnimalSpecificConfiguration.SessionDuration*
+- uid: Extensions.AnimalSpecificConfiguration.StartingTrialNumber
+  commentId: P:Extensions.AnimalSpecificConfiguration.StartingTrialNumber
   id: StartingTrialNumber
-  parent: SLTUtils.AnimalSpecificConfiguration
+  parent: Extensions.AnimalSpecificConfiguration
   langs:
   - csharp
   - vb
   name: StartingTrialNumber
   nameWithType: AnimalSpecificConfiguration.StartingTrialNumber
-  fullName: SLTUtils.AnimalSpecificConfiguration.StartingTrialNumber
+  fullName: Extensions.AnimalSpecificConfiguration.StartingTrialNumber
   type: Property
   source:
     remote:
-      path: package/SLTUtils/AnimalSpecificJSON.cs
-      branch: develop
+      path: src/Extensions/AnimalSpecificJSON.cs
+      branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: StartingTrialNumber
-    path: ../package/SLTUtils/AnimalSpecificJSON.cs
+    path: ../src/Extensions/AnimalSpecificJSON.cs
     startLine: 27
   assemblies:
-  - SLTUtils
-  namespace: SLTUtils
+  - Extensions
+  namespace: Extensions
   example: []
   syntax:
     content: public int StartingTrialNumber { get; set; }
@@ -246,29 +246,29 @@ items:
       type: System.Int32
       description: Property <code>StartingTrialNumber</code> is the number of the first trial of the session.
     content.vb: Public Property StartingTrialNumber As Integer
-  overload: SLTUtils.AnimalSpecificConfiguration.StartingTrialNumber*
-- uid: SLTUtils.AnimalSpecificConfiguration.StartingBlockNumber
-  commentId: P:SLTUtils.AnimalSpecificConfiguration.StartingBlockNumber
+  overload: Extensions.AnimalSpecificConfiguration.StartingTrialNumber*
+- uid: Extensions.AnimalSpecificConfiguration.StartingBlockNumber
+  commentId: P:Extensions.AnimalSpecificConfiguration.StartingBlockNumber
   id: StartingBlockNumber
-  parent: SLTUtils.AnimalSpecificConfiguration
+  parent: Extensions.AnimalSpecificConfiguration
   langs:
   - csharp
   - vb
   name: StartingBlockNumber
   nameWithType: AnimalSpecificConfiguration.StartingBlockNumber
-  fullName: SLTUtils.AnimalSpecificConfiguration.StartingBlockNumber
+  fullName: Extensions.AnimalSpecificConfiguration.StartingBlockNumber
   type: Property
   source:
     remote:
-      path: package/SLTUtils/AnimalSpecificJSON.cs
-      branch: develop
+      path: src/Extensions/AnimalSpecificJSON.cs
+      branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: StartingBlockNumber
-    path: ../package/SLTUtils/AnimalSpecificJSON.cs
+    path: ../src/Extensions/AnimalSpecificJSON.cs
     startLine: 29
   assemblies:
-  - SLTUtils
-  namespace: SLTUtils
+  - Extensions
+  namespace: Extensions
   example: []
   syntax:
     content: public int StartingBlockNumber { get; set; }
@@ -277,29 +277,29 @@ items:
       type: System.Int32
       description: Property <code>StartingBlockNumber</code> is the number of the first block of the session.
     content.vb: Public Property StartingBlockNumber As Integer
-  overload: SLTUtils.AnimalSpecificConfiguration.StartingBlockNumber*
-- uid: SLTUtils.AnimalSpecificConfiguration.ABLList
-  commentId: P:SLTUtils.AnimalSpecificConfiguration.ABLList
+  overload: Extensions.AnimalSpecificConfiguration.StartingBlockNumber*
+- uid: Extensions.AnimalSpecificConfiguration.ABLList
+  commentId: P:Extensions.AnimalSpecificConfiguration.ABLList
   id: ABLList
-  parent: SLTUtils.AnimalSpecificConfiguration
+  parent: Extensions.AnimalSpecificConfiguration
   langs:
   - csharp
   - vb
   name: ABLList
   nameWithType: AnimalSpecificConfiguration.ABLList
-  fullName: SLTUtils.AnimalSpecificConfiguration.ABLList
+  fullName: Extensions.AnimalSpecificConfiguration.ABLList
   type: Property
   source:
     remote:
-      path: package/SLTUtils/AnimalSpecificJSON.cs
-      branch: develop
+      path: src/Extensions/AnimalSpecificJSON.cs
+      branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: ABLList
-    path: ../package/SLTUtils/AnimalSpecificJSON.cs
+    path: ../src/Extensions/AnimalSpecificJSON.cs
     startLine: 31
   assemblies:
-  - SLTUtils
-  namespace: SLTUtils
+  - Extensions
+  namespace: Extensions
   example: []
   syntax:
     content: public double[] ABLList { get; set; }
@@ -308,29 +308,29 @@ items:
       type: System.Double[]
       description: Property <code>StartingBlockNumber</code> is an array containing the possible ABLs to present when <code>DifferentABLs</code> is 1.
     content.vb: Public Property ABLList As Double()
-  overload: SLTUtils.AnimalSpecificConfiguration.ABLList*
-- uid: SLTUtils.AnimalSpecificConfiguration.CycleILD
-  commentId: P:SLTUtils.AnimalSpecificConfiguration.CycleILD
+  overload: Extensions.AnimalSpecificConfiguration.ABLList*
+- uid: Extensions.AnimalSpecificConfiguration.CycleILD
+  commentId: P:Extensions.AnimalSpecificConfiguration.CycleILD
   id: CycleILD
-  parent: SLTUtils.AnimalSpecificConfiguration
+  parent: Extensions.AnimalSpecificConfiguration
   langs:
   - csharp
   - vb
   name: CycleILD
   nameWithType: AnimalSpecificConfiguration.CycleILD
-  fullName: SLTUtils.AnimalSpecificConfiguration.CycleILD
+  fullName: Extensions.AnimalSpecificConfiguration.CycleILD
   type: Property
   source:
     remote:
-      path: package/SLTUtils/AnimalSpecificJSON.cs
-      branch: develop
+      path: src/Extensions/AnimalSpecificJSON.cs
+      branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: CycleILD
-    path: ../package/SLTUtils/AnimalSpecificJSON.cs
+    path: ../src/Extensions/AnimalSpecificJSON.cs
     startLine: 33
   assemblies:
-  - SLTUtils
-  namespace: SLTUtils
+  - Extensions
+  namespace: Extensions
   example: []
   syntax:
     content: public int CycleILD { get; set; }
@@ -339,29 +339,29 @@ items:
       type: System.Int32
       description: Property <code>CycleILD</code>
     content.vb: Public Property CycleILD As Integer
-  overload: SLTUtils.AnimalSpecificConfiguration.CycleILD*
-- uid: SLTUtils.AnimalSpecificConfiguration.Bias
-  commentId: P:SLTUtils.AnimalSpecificConfiguration.Bias
+  overload: Extensions.AnimalSpecificConfiguration.CycleILD*
+- uid: Extensions.AnimalSpecificConfiguration.Bias
+  commentId: P:Extensions.AnimalSpecificConfiguration.Bias
   id: Bias
-  parent: SLTUtils.AnimalSpecificConfiguration
+  parent: Extensions.AnimalSpecificConfiguration
   langs:
   - csharp
   - vb
   name: Bias
   nameWithType: AnimalSpecificConfiguration.Bias
-  fullName: SLTUtils.AnimalSpecificConfiguration.Bias
+  fullName: Extensions.AnimalSpecificConfiguration.Bias
   type: Property
   source:
     remote:
-      path: package/SLTUtils/AnimalSpecificJSON.cs
-      branch: develop
+      path: src/Extensions/AnimalSpecificJSON.cs
+      branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Bias
-    path: ../package/SLTUtils/AnimalSpecificJSON.cs
+    path: ../src/Extensions/AnimalSpecificJSON.cs
     startLine: 35
   assemblies:
-  - SLTUtils
-  namespace: SLTUtils
+  - Extensions
+  namespace: Extensions
   example: []
   syntax:
     content: public double Bias { get; set; }
@@ -370,29 +370,29 @@ items:
       type: System.Double
       description: Property <code>Bias</code>
     content.vb: Public Property Bias As Double
-  overload: SLTUtils.AnimalSpecificConfiguration.Bias*
-- uid: SLTUtils.AnimalSpecificConfiguration.MinFT
-  commentId: P:SLTUtils.AnimalSpecificConfiguration.MinFT
+  overload: Extensions.AnimalSpecificConfiguration.Bias*
+- uid: Extensions.AnimalSpecificConfiguration.MinFT
+  commentId: P:Extensions.AnimalSpecificConfiguration.MinFT
   id: MinFT
-  parent: SLTUtils.AnimalSpecificConfiguration
+  parent: Extensions.AnimalSpecificConfiguration
   langs:
   - csharp
   - vb
   name: MinFT
   nameWithType: AnimalSpecificConfiguration.MinFT
-  fullName: SLTUtils.AnimalSpecificConfiguration.MinFT
+  fullName: Extensions.AnimalSpecificConfiguration.MinFT
   type: Property
   source:
     remote:
-      path: package/SLTUtils/AnimalSpecificJSON.cs
-      branch: develop
+      path: src/Extensions/AnimalSpecificJSON.cs
+      branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: MinFT
-    path: ../package/SLTUtils/AnimalSpecificJSON.cs
+    path: ../src/Extensions/AnimalSpecificJSON.cs
     startLine: 37
   assemblies:
-  - SLTUtils
-  namespace: SLTUtils
+  - Extensions
+  namespace: Extensions
   example: []
   syntax:
     content: public double MinFT { get; set; }
@@ -401,29 +401,29 @@ items:
       type: System.Double
       description: Property <code>MinFT</code> is the minimum fixation time (ms).
     content.vb: Public Property MinFT As Double
-  overload: SLTUtils.AnimalSpecificConfiguration.MinFT*
-- uid: SLTUtils.AnimalSpecificConfiguration.FTDelta
-  commentId: P:SLTUtils.AnimalSpecificConfiguration.FTDelta
+  overload: Extensions.AnimalSpecificConfiguration.MinFT*
+- uid: Extensions.AnimalSpecificConfiguration.FTDelta
+  commentId: P:Extensions.AnimalSpecificConfiguration.FTDelta
   id: FTDelta
-  parent: SLTUtils.AnimalSpecificConfiguration
+  parent: Extensions.AnimalSpecificConfiguration
   langs:
   - csharp
   - vb
   name: FTDelta
   nameWithType: AnimalSpecificConfiguration.FTDelta
-  fullName: SLTUtils.AnimalSpecificConfiguration.FTDelta
+  fullName: Extensions.AnimalSpecificConfiguration.FTDelta
   type: Property
   source:
     remote:
-      path: package/SLTUtils/AnimalSpecificJSON.cs
-      branch: develop
+      path: src/Extensions/AnimalSpecificJSON.cs
+      branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: FTDelta
-    path: ../package/SLTUtils/AnimalSpecificJSON.cs
+    path: ../src/Extensions/AnimalSpecificJSON.cs
     startLine: 39
   assemblies:
-  - SLTUtils
-  namespace: SLTUtils
+  - Extensions
+  namespace: Extensions
   example: []
   syntax:
     content: public double FTDelta { get; set; }
@@ -432,29 +432,29 @@ items:
       type: System.Double
       description: Property <code>FTDelta</code> is the increment to make to the constant part of the fixation time every non-abort trial (ms).
     content.vb: Public Property FTDelta As Double
-  overload: SLTUtils.AnimalSpecificConfiguration.FTDelta*
-- uid: SLTUtils.AnimalSpecificConfiguration.FTTarget
-  commentId: P:SLTUtils.AnimalSpecificConfiguration.FTTarget
+  overload: Extensions.AnimalSpecificConfiguration.FTDelta*
+- uid: Extensions.AnimalSpecificConfiguration.FTTarget
+  commentId: P:Extensions.AnimalSpecificConfiguration.FTTarget
   id: FTTarget
-  parent: SLTUtils.AnimalSpecificConfiguration
+  parent: Extensions.AnimalSpecificConfiguration
   langs:
   - csharp
   - vb
   name: FTTarget
   nameWithType: AnimalSpecificConfiguration.FTTarget
-  fullName: SLTUtils.AnimalSpecificConfiguration.FTTarget
+  fullName: Extensions.AnimalSpecificConfiguration.FTTarget
   type: Property
   source:
     remote:
-      path: package/SLTUtils/AnimalSpecificJSON.cs
-      branch: develop
+      path: src/Extensions/AnimalSpecificJSON.cs
+      branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: FTTarget
-    path: ../package/SLTUtils/AnimalSpecificJSON.cs
+    path: ../src/Extensions/AnimalSpecificJSON.cs
     startLine: 41
   assemblies:
-  - SLTUtils
-  namespace: SLTUtils
+  - Extensions
+  namespace: Extensions
   example: []
   syntax:
     content: public double FTTarget { get; set; }
@@ -463,29 +463,29 @@ items:
       type: System.Double
       description: Property <code>FTTarget</code> is the target value for the constant part of the fixation time (ms).
     content.vb: Public Property FTTarget As Double
-  overload: SLTUtils.AnimalSpecificConfiguration.FTTarget*
-- uid: SLTUtils.AnimalSpecificConfiguration.ExpFTMean
-  commentId: P:SLTUtils.AnimalSpecificConfiguration.ExpFTMean
+  overload: Extensions.AnimalSpecificConfiguration.FTTarget*
+- uid: Extensions.AnimalSpecificConfiguration.ExpFTMean
+  commentId: P:Extensions.AnimalSpecificConfiguration.ExpFTMean
   id: ExpFTMean
-  parent: SLTUtils.AnimalSpecificConfiguration
+  parent: Extensions.AnimalSpecificConfiguration
   langs:
   - csharp
   - vb
   name: ExpFTMean
   nameWithType: AnimalSpecificConfiguration.ExpFTMean
-  fullName: SLTUtils.AnimalSpecificConfiguration.ExpFTMean
+  fullName: Extensions.AnimalSpecificConfiguration.ExpFTMean
   type: Property
   source:
     remote:
-      path: package/SLTUtils/AnimalSpecificJSON.cs
-      branch: develop
+      path: src/Extensions/AnimalSpecificJSON.cs
+      branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: ExpFTMean
-    path: ../package/SLTUtils/AnimalSpecificJSON.cs
+    path: ../src/Extensions/AnimalSpecificJSON.cs
     startLine: 43
   assemblies:
-  - SLTUtils
-  namespace: SLTUtils
+  - Extensions
+  namespace: Extensions
   example: []
   syntax:
     content: public double ExpFTMean { get; set; }
@@ -494,29 +494,29 @@ items:
       type: System.Double
       description: Property <code>ExpFTMean</code> is the mean value of the random part of the fixation time (ms).
     content.vb: Public Property ExpFTMean As Double
-  overload: SLTUtils.AnimalSpecificConfiguration.ExpFTMean*
-- uid: SLTUtils.AnimalSpecificConfiguration.MinRT
-  commentId: P:SLTUtils.AnimalSpecificConfiguration.MinRT
+  overload: Extensions.AnimalSpecificConfiguration.ExpFTMean*
+- uid: Extensions.AnimalSpecificConfiguration.MinRT
+  commentId: P:Extensions.AnimalSpecificConfiguration.MinRT
   id: MinRT
-  parent: SLTUtils.AnimalSpecificConfiguration
+  parent: Extensions.AnimalSpecificConfiguration
   langs:
   - csharp
   - vb
   name: MinRT
   nameWithType: AnimalSpecificConfiguration.MinRT
-  fullName: SLTUtils.AnimalSpecificConfiguration.MinRT
+  fullName: Extensions.AnimalSpecificConfiguration.MinRT
   type: Property
   source:
     remote:
-      path: package/SLTUtils/AnimalSpecificJSON.cs
-      branch: develop
+      path: src/Extensions/AnimalSpecificJSON.cs
+      branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: MinRT
-    path: ../package/SLTUtils/AnimalSpecificJSON.cs
+    path: ../src/Extensions/AnimalSpecificJSON.cs
     startLine: 45
   assemblies:
-  - SLTUtils
-  namespace: SLTUtils
+  - Extensions
+  namespace: Extensions
   example: []
   syntax:
     content: public double MinRT { get; set; }
@@ -525,29 +525,29 @@ items:
       type: System.Double
       description: Property <code>MinRT</code> is the minimum amount of time in CNP to wait after the sound presentation starts (s).
     content.vb: Public Property MinRT As Double
-  overload: SLTUtils.AnimalSpecificConfiguration.MinRT*
-- uid: SLTUtils.AnimalSpecificConfiguration.RTDelta
-  commentId: P:SLTUtils.AnimalSpecificConfiguration.RTDelta
+  overload: Extensions.AnimalSpecificConfiguration.MinRT*
+- uid: Extensions.AnimalSpecificConfiguration.RTDelta
+  commentId: P:Extensions.AnimalSpecificConfiguration.RTDelta
   id: RTDelta
-  parent: SLTUtils.AnimalSpecificConfiguration
+  parent: Extensions.AnimalSpecificConfiguration
   langs:
   - csharp
   - vb
   name: RTDelta
   nameWithType: AnimalSpecificConfiguration.RTDelta
-  fullName: SLTUtils.AnimalSpecificConfiguration.RTDelta
+  fullName: Extensions.AnimalSpecificConfiguration.RTDelta
   type: Property
   source:
     remote:
-      path: package/SLTUtils/AnimalSpecificJSON.cs
-      branch: develop
+      path: src/Extensions/AnimalSpecificJSON.cs
+      branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: RTDelta
-    path: ../package/SLTUtils/AnimalSpecificJSON.cs
+    path: ../src/Extensions/AnimalSpecificJSON.cs
     startLine: 47
   assemblies:
-  - SLTUtils
-  namespace: SLTUtils
+  - Extensions
+  namespace: Extensions
   example: []
   syntax:
     content: public double RTDelta { get; set; }
@@ -556,29 +556,29 @@ items:
       type: System.Double
       description: Property <code>RTDelta</code> is the increment to make to RT every non-abort trial (s).
     content.vb: Public Property RTDelta As Double
-  overload: SLTUtils.AnimalSpecificConfiguration.RTDelta*
-- uid: SLTUtils.AnimalSpecificConfiguration.RTTarget
-  commentId: P:SLTUtils.AnimalSpecificConfiguration.RTTarget
+  overload: Extensions.AnimalSpecificConfiguration.RTDelta*
+- uid: Extensions.AnimalSpecificConfiguration.RTTarget
+  commentId: P:Extensions.AnimalSpecificConfiguration.RTTarget
   id: RTTarget
-  parent: SLTUtils.AnimalSpecificConfiguration
+  parent: Extensions.AnimalSpecificConfiguration
   langs:
   - csharp
   - vb
   name: RTTarget
   nameWithType: AnimalSpecificConfiguration.RTTarget
-  fullName: SLTUtils.AnimalSpecificConfiguration.RTTarget
+  fullName: Extensions.AnimalSpecificConfiguration.RTTarget
   type: Property
   source:
     remote:
-      path: package/SLTUtils/AnimalSpecificJSON.cs
-      branch: develop
+      path: src/Extensions/AnimalSpecificJSON.cs
+      branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: RTTarget
-    path: ../package/SLTUtils/AnimalSpecificJSON.cs
+    path: ../src/Extensions/AnimalSpecificJSON.cs
     startLine: 49
   assemblies:
-  - SLTUtils
-  namespace: SLTUtils
+  - Extensions
+  namespace: Extensions
   example: []
   syntax:
     content: public double RTTarget { get; set; }
@@ -587,29 +587,29 @@ items:
       type: System.Double
       description: Property <code>RTDelta</code> is the target value for RT (s).
     content.vb: Public Property RTTarget As Double
-  overload: SLTUtils.AnimalSpecificConfiguration.RTTarget*
-- uid: SLTUtils.AnimalSpecificConfiguration.MaxRT
-  commentId: P:SLTUtils.AnimalSpecificConfiguration.MaxRT
+  overload: Extensions.AnimalSpecificConfiguration.RTTarget*
+- uid: Extensions.AnimalSpecificConfiguration.MaxRT
+  commentId: P:Extensions.AnimalSpecificConfiguration.MaxRT
   id: MaxRT
-  parent: SLTUtils.AnimalSpecificConfiguration
+  parent: Extensions.AnimalSpecificConfiguration
   langs:
   - csharp
   - vb
   name: MaxRT
   nameWithType: AnimalSpecificConfiguration.MaxRT
-  fullName: SLTUtils.AnimalSpecificConfiguration.MaxRT
+  fullName: Extensions.AnimalSpecificConfiguration.MaxRT
   type: Property
   source:
     remote:
-      path: package/SLTUtils/AnimalSpecificJSON.cs
-      branch: develop
+      path: src/Extensions/AnimalSpecificJSON.cs
+      branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: MaxRT
-    path: ../package/SLTUtils/AnimalSpecificJSON.cs
+    path: ../src/Extensions/AnimalSpecificJSON.cs
     startLine: 51
   assemblies:
-  - SLTUtils
-  namespace: SLTUtils
+  - Extensions
+  namespace: Extensions
   example: []
   syntax:
     content: public double MaxRT { get; set; }
@@ -618,29 +618,29 @@ items:
       type: System.Double
       description: Property <code>MaxRT</code> is the maximum amount of time in CNP to wait after sound presentation starts (s).
     content.vb: Public Property MaxRT As Double
-  overload: SLTUtils.AnimalSpecificConfiguration.MaxRT*
-- uid: SLTUtils.AnimalSpecificConfiguration.MaxSamplingTime
-  commentId: P:SLTUtils.AnimalSpecificConfiguration.MaxSamplingTime
+  overload: Extensions.AnimalSpecificConfiguration.MaxRT*
+- uid: Extensions.AnimalSpecificConfiguration.MaxSamplingTime
+  commentId: P:Extensions.AnimalSpecificConfiguration.MaxSamplingTime
   id: MaxSamplingTime
-  parent: SLTUtils.AnimalSpecificConfiguration
+  parent: Extensions.AnimalSpecificConfiguration
   langs:
   - csharp
   - vb
   name: MaxSamplingTime
   nameWithType: AnimalSpecificConfiguration.MaxSamplingTime
-  fullName: SLTUtils.AnimalSpecificConfiguration.MaxSamplingTime
+  fullName: Extensions.AnimalSpecificConfiguration.MaxSamplingTime
   type: Property
   source:
     remote:
-      path: package/SLTUtils/AnimalSpecificJSON.cs
-      branch: develop
+      path: src/Extensions/AnimalSpecificJSON.cs
+      branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: MaxSamplingTime
-    path: ../package/SLTUtils/AnimalSpecificJSON.cs
+    path: ../src/Extensions/AnimalSpecificJSON.cs
     startLine: 53
   assemblies:
-  - SLTUtils
-  namespace: SLTUtils
+  - Extensions
+  namespace: Extensions
   example: []
   syntax:
     content: public double[] MaxSamplingTime { get; set; }
@@ -649,29 +649,29 @@ items:
       type: System.Double[]
       description: Property <code>MaxSamplingTime</code>
     content.vb: Public Property MaxSamplingTime As Double()
-  overload: SLTUtils.AnimalSpecificConfiguration.MaxSamplingTime*
-- uid: SLTUtils.AnimalSpecificConfiguration.MinMT
-  commentId: P:SLTUtils.AnimalSpecificConfiguration.MinMT
+  overload: Extensions.AnimalSpecificConfiguration.MaxSamplingTime*
+- uid: Extensions.AnimalSpecificConfiguration.MinMT
+  commentId: P:Extensions.AnimalSpecificConfiguration.MinMT
   id: MinMT
-  parent: SLTUtils.AnimalSpecificConfiguration
+  parent: Extensions.AnimalSpecificConfiguration
   langs:
   - csharp
   - vb
   name: MinMT
   nameWithType: AnimalSpecificConfiguration.MinMT
-  fullName: SLTUtils.AnimalSpecificConfiguration.MinMT
+  fullName: Extensions.AnimalSpecificConfiguration.MinMT
   type: Property
   source:
     remote:
-      path: package/SLTUtils/AnimalSpecificJSON.cs
-      branch: develop
+      path: src/Extensions/AnimalSpecificJSON.cs
+      branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: MinMT
-    path: ../package/SLTUtils/AnimalSpecificJSON.cs
+    path: ../src/Extensions/AnimalSpecificJSON.cs
     startLine: 55
   assemblies:
-  - SLTUtils
-  namespace: SLTUtils
+  - Extensions
+  namespace: Extensions
   example: []
   syntax:
     content: public double MinMT { get; set; }
@@ -680,29 +680,29 @@ items:
       type: System.Double
       description: Property <code>MinMT</code> is the minimum time allowed to move to LNP after leaving CNP (s).
     content.vb: Public Property MinMT As Double
-  overload: SLTUtils.AnimalSpecificConfiguration.MinMT*
-- uid: SLTUtils.AnimalSpecificConfiguration.MinLNP
-  commentId: P:SLTUtils.AnimalSpecificConfiguration.MinLNP
+  overload: Extensions.AnimalSpecificConfiguration.MinMT*
+- uid: Extensions.AnimalSpecificConfiguration.MinLNP
+  commentId: P:Extensions.AnimalSpecificConfiguration.MinLNP
   id: MinLNP
-  parent: SLTUtils.AnimalSpecificConfiguration
+  parent: Extensions.AnimalSpecificConfiguration
   langs:
   - csharp
   - vb
   name: MinLNP
   nameWithType: AnimalSpecificConfiguration.MinLNP
-  fullName: SLTUtils.AnimalSpecificConfiguration.MinLNP
+  fullName: Extensions.AnimalSpecificConfiguration.MinLNP
   type: Property
   source:
     remote:
-      path: package/SLTUtils/AnimalSpecificJSON.cs
-      branch: develop
+      path: src/Extensions/AnimalSpecificJSON.cs
+      branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: MinLNP
-    path: ../package/SLTUtils/AnimalSpecificJSON.cs
+    path: ../src/Extensions/AnimalSpecificJSON.cs
     startLine: 57
   assemblies:
-  - SLTUtils
-  namespace: SLTUtils
+  - Extensions
+  namespace: Extensions
   example: []
   syntax:
     content: public double MinLNP { get; set; }
@@ -711,29 +711,29 @@ items:
       type: System.Double
       description: Property <code>MinLNP</code> is the minimum poke duration in LNP (s).
     content.vb: Public Property MinLNP As Double
-  overload: SLTUtils.AnimalSpecificConfiguration.MinLNP*
-- uid: SLTUtils.AnimalSpecificConfiguration.LNPDelta
-  commentId: P:SLTUtils.AnimalSpecificConfiguration.LNPDelta
+  overload: Extensions.AnimalSpecificConfiguration.MinLNP*
+- uid: Extensions.AnimalSpecificConfiguration.LNPDelta
+  commentId: P:Extensions.AnimalSpecificConfiguration.LNPDelta
   id: LNPDelta
-  parent: SLTUtils.AnimalSpecificConfiguration
+  parent: Extensions.AnimalSpecificConfiguration
   langs:
   - csharp
   - vb
   name: LNPDelta
   nameWithType: AnimalSpecificConfiguration.LNPDelta
-  fullName: SLTUtils.AnimalSpecificConfiguration.LNPDelta
+  fullName: Extensions.AnimalSpecificConfiguration.LNPDelta
   type: Property
   source:
     remote:
-      path: package/SLTUtils/AnimalSpecificJSON.cs
-      branch: develop
+      path: src/Extensions/AnimalSpecificJSON.cs
+      branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: LNPDelta
-    path: ../package/SLTUtils/AnimalSpecificJSON.cs
+    path: ../src/Extensions/AnimalSpecificJSON.cs
     startLine: 59
   assemblies:
-  - SLTUtils
-  namespace: SLTUtils
+  - Extensions
+  namespace: Extensions
   example: []
   syntax:
     content: public double LNPDelta { get; set; }
@@ -742,29 +742,29 @@ items:
       type: System.Double
       description: Property <code>LNPDelta</code> is the increment to make to LNP time every non-abort trial (s).
     content.vb: Public Property LNPDelta As Double
-  overload: SLTUtils.AnimalSpecificConfiguration.LNPDelta*
-- uid: SLTUtils.AnimalSpecificConfiguration.LNPTarget
-  commentId: P:SLTUtils.AnimalSpecificConfiguration.LNPTarget
+  overload: Extensions.AnimalSpecificConfiguration.LNPDelta*
+- uid: Extensions.AnimalSpecificConfiguration.LNPTarget
+  commentId: P:Extensions.AnimalSpecificConfiguration.LNPTarget
   id: LNPTarget
-  parent: SLTUtils.AnimalSpecificConfiguration
+  parent: Extensions.AnimalSpecificConfiguration
   langs:
   - csharp
   - vb
   name: LNPTarget
   nameWithType: AnimalSpecificConfiguration.LNPTarget
-  fullName: SLTUtils.AnimalSpecificConfiguration.LNPTarget
+  fullName: Extensions.AnimalSpecificConfiguration.LNPTarget
   type: Property
   source:
     remote:
-      path: package/SLTUtils/AnimalSpecificJSON.cs
-      branch: develop
+      path: src/Extensions/AnimalSpecificJSON.cs
+      branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: LNPTarget
-    path: ../package/SLTUtils/AnimalSpecificJSON.cs
+    path: ../src/Extensions/AnimalSpecificJSON.cs
     startLine: 61
   assemblies:
-  - SLTUtils
-  namespace: SLTUtils
+  - Extensions
+  namespace: Extensions
   example: []
   syntax:
     content: public double LNPTarget { get; set; }
@@ -773,14 +773,14 @@ items:
       type: System.Double
       description: Property <code>LNPTarget</code> is the target for LNP time (s).
     content.vb: Public Property LNPTarget As Double
-  overload: SLTUtils.AnimalSpecificConfiguration.LNPTarget*
+  overload: Extensions.AnimalSpecificConfiguration.LNPTarget*
 references:
-- uid: SLTUtils
-  commentId: N:SLTUtils
-  href: SLTUtils.html
-  name: SLTUtils
-  nameWithType: SLTUtils
-  fullName: SLTUtils
+- uid: Extensions
+  commentId: N:Extensions
+  href: Extensions.html
+  name: Extensions
+  nameWithType: Extensions
+  fullName: Extensions
 - uid: System.Object
   commentId: T:System.Object
   parent: System
@@ -1018,12 +1018,12 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: SLTUtils.AnimalSpecificConfiguration.Animal*
-  commentId: Overload:SLTUtils.AnimalSpecificConfiguration.Animal
-  href: SLTUtils.AnimalSpecificConfiguration.html#SLTUtils_AnimalSpecificConfiguration_Animal
+- uid: Extensions.AnimalSpecificConfiguration.Animal*
+  commentId: Overload:Extensions.AnimalSpecificConfiguration.Animal
+  href: Extensions.AnimalSpecificConfiguration.html#Extensions_AnimalSpecificConfiguration_Animal
   name: Animal
   nameWithType: AnimalSpecificConfiguration.Animal
-  fullName: SLTUtils.AnimalSpecificConfiguration.Animal
+  fullName: Extensions.AnimalSpecificConfiguration.Animal
 - uid: System.Int32
   commentId: T:System.Int32
   parent: System
@@ -1035,30 +1035,30 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
-- uid: SLTUtils.AnimalSpecificConfiguration.Box*
-  commentId: Overload:SLTUtils.AnimalSpecificConfiguration.Box
-  href: SLTUtils.AnimalSpecificConfiguration.html#SLTUtils_AnimalSpecificConfiguration_Box
+- uid: Extensions.AnimalSpecificConfiguration.Box*
+  commentId: Overload:Extensions.AnimalSpecificConfiguration.Box
+  href: Extensions.AnimalSpecificConfiguration.html#Extensions_AnimalSpecificConfiguration_Box
   name: Box
   nameWithType: AnimalSpecificConfiguration.Box
-  fullName: SLTUtils.AnimalSpecificConfiguration.Box
-- uid: SLTUtils.AnimalSpecificConfiguration.Session*
-  commentId: Overload:SLTUtils.AnimalSpecificConfiguration.Session
-  href: SLTUtils.AnimalSpecificConfiguration.html#SLTUtils_AnimalSpecificConfiguration_Session
+  fullName: Extensions.AnimalSpecificConfiguration.Box
+- uid: Extensions.AnimalSpecificConfiguration.Session*
+  commentId: Overload:Extensions.AnimalSpecificConfiguration.Session
+  href: Extensions.AnimalSpecificConfiguration.html#Extensions_AnimalSpecificConfiguration_Session
   name: Session
   nameWithType: AnimalSpecificConfiguration.Session
-  fullName: SLTUtils.AnimalSpecificConfiguration.Session
-- uid: SLTUtils.AnimalSpecificConfiguration.SessionType*
-  commentId: Overload:SLTUtils.AnimalSpecificConfiguration.SessionType
-  href: SLTUtils.AnimalSpecificConfiguration.html#SLTUtils_AnimalSpecificConfiguration_SessionType
+  fullName: Extensions.AnimalSpecificConfiguration.Session
+- uid: Extensions.AnimalSpecificConfiguration.SessionType*
+  commentId: Overload:Extensions.AnimalSpecificConfiguration.SessionType
+  href: Extensions.AnimalSpecificConfiguration.html#Extensions_AnimalSpecificConfiguration_SessionType
   name: SessionType
   nameWithType: AnimalSpecificConfiguration.SessionType
-  fullName: SLTUtils.AnimalSpecificConfiguration.SessionType
-- uid: SLTUtils.AnimalSpecificConfiguration.SessionDuration*
-  commentId: Overload:SLTUtils.AnimalSpecificConfiguration.SessionDuration
-  href: SLTUtils.AnimalSpecificConfiguration.html#SLTUtils_AnimalSpecificConfiguration_SessionDuration
+  fullName: Extensions.AnimalSpecificConfiguration.SessionType
+- uid: Extensions.AnimalSpecificConfiguration.SessionDuration*
+  commentId: Overload:Extensions.AnimalSpecificConfiguration.SessionDuration
+  href: Extensions.AnimalSpecificConfiguration.html#Extensions_AnimalSpecificConfiguration_SessionDuration
   name: SessionDuration
   nameWithType: AnimalSpecificConfiguration.SessionDuration
-  fullName: SLTUtils.AnimalSpecificConfiguration.SessionDuration
+  fullName: Extensions.AnimalSpecificConfiguration.SessionDuration
 - uid: System.TimeSpan
   commentId: T:System.TimeSpan
   parent: System
@@ -1067,24 +1067,24 @@ references:
   name: TimeSpan
   nameWithType: TimeSpan
   fullName: System.TimeSpan
-- uid: SLTUtils.AnimalSpecificConfiguration.StartingTrialNumber*
-  commentId: Overload:SLTUtils.AnimalSpecificConfiguration.StartingTrialNumber
-  href: SLTUtils.AnimalSpecificConfiguration.html#SLTUtils_AnimalSpecificConfiguration_StartingTrialNumber
+- uid: Extensions.AnimalSpecificConfiguration.StartingTrialNumber*
+  commentId: Overload:Extensions.AnimalSpecificConfiguration.StartingTrialNumber
+  href: Extensions.AnimalSpecificConfiguration.html#Extensions_AnimalSpecificConfiguration_StartingTrialNumber
   name: StartingTrialNumber
   nameWithType: AnimalSpecificConfiguration.StartingTrialNumber
-  fullName: SLTUtils.AnimalSpecificConfiguration.StartingTrialNumber
-- uid: SLTUtils.AnimalSpecificConfiguration.StartingBlockNumber*
-  commentId: Overload:SLTUtils.AnimalSpecificConfiguration.StartingBlockNumber
-  href: SLTUtils.AnimalSpecificConfiguration.html#SLTUtils_AnimalSpecificConfiguration_StartingBlockNumber
+  fullName: Extensions.AnimalSpecificConfiguration.StartingTrialNumber
+- uid: Extensions.AnimalSpecificConfiguration.StartingBlockNumber*
+  commentId: Overload:Extensions.AnimalSpecificConfiguration.StartingBlockNumber
+  href: Extensions.AnimalSpecificConfiguration.html#Extensions_AnimalSpecificConfiguration_StartingBlockNumber
   name: StartingBlockNumber
   nameWithType: AnimalSpecificConfiguration.StartingBlockNumber
-  fullName: SLTUtils.AnimalSpecificConfiguration.StartingBlockNumber
-- uid: SLTUtils.AnimalSpecificConfiguration.ABLList*
-  commentId: Overload:SLTUtils.AnimalSpecificConfiguration.ABLList
-  href: SLTUtils.AnimalSpecificConfiguration.html#SLTUtils_AnimalSpecificConfiguration_ABLList
+  fullName: Extensions.AnimalSpecificConfiguration.StartingBlockNumber
+- uid: Extensions.AnimalSpecificConfiguration.ABLList*
+  commentId: Overload:Extensions.AnimalSpecificConfiguration.ABLList
+  href: Extensions.AnimalSpecificConfiguration.html#Extensions_AnimalSpecificConfiguration_ABLList
   name: ABLList
   nameWithType: AnimalSpecificConfiguration.ABLList
-  fullName: SLTUtils.AnimalSpecificConfiguration.ABLList
+  fullName: Extensions.AnimalSpecificConfiguration.ABLList
 - uid: System.Double[]
   isExternal: true
   href: https://learn.microsoft.com/dotnet/api/system.double
@@ -1108,18 +1108,18 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.double
   - name: (
   - name: )
-- uid: SLTUtils.AnimalSpecificConfiguration.CycleILD*
-  commentId: Overload:SLTUtils.AnimalSpecificConfiguration.CycleILD
-  href: SLTUtils.AnimalSpecificConfiguration.html#SLTUtils_AnimalSpecificConfiguration_CycleILD
+- uid: Extensions.AnimalSpecificConfiguration.CycleILD*
+  commentId: Overload:Extensions.AnimalSpecificConfiguration.CycleILD
+  href: Extensions.AnimalSpecificConfiguration.html#Extensions_AnimalSpecificConfiguration_CycleILD
   name: CycleILD
   nameWithType: AnimalSpecificConfiguration.CycleILD
-  fullName: SLTUtils.AnimalSpecificConfiguration.CycleILD
-- uid: SLTUtils.AnimalSpecificConfiguration.Bias*
-  commentId: Overload:SLTUtils.AnimalSpecificConfiguration.Bias
-  href: SLTUtils.AnimalSpecificConfiguration.html#SLTUtils_AnimalSpecificConfiguration_Bias
+  fullName: Extensions.AnimalSpecificConfiguration.CycleILD
+- uid: Extensions.AnimalSpecificConfiguration.Bias*
+  commentId: Overload:Extensions.AnimalSpecificConfiguration.Bias
+  href: Extensions.AnimalSpecificConfiguration.html#Extensions_AnimalSpecificConfiguration_Bias
   name: Bias
   nameWithType: AnimalSpecificConfiguration.Bias
-  fullName: SLTUtils.AnimalSpecificConfiguration.Bias
+  fullName: Extensions.AnimalSpecificConfiguration.Bias
 - uid: System.Double
   commentId: T:System.Double
   parent: System
@@ -1131,81 +1131,81 @@ references:
   nameWithType.vb: Double
   fullName.vb: Double
   name.vb: Double
-- uid: SLTUtils.AnimalSpecificConfiguration.MinFT*
-  commentId: Overload:SLTUtils.AnimalSpecificConfiguration.MinFT
-  href: SLTUtils.AnimalSpecificConfiguration.html#SLTUtils_AnimalSpecificConfiguration_MinFT
+- uid: Extensions.AnimalSpecificConfiguration.MinFT*
+  commentId: Overload:Extensions.AnimalSpecificConfiguration.MinFT
+  href: Extensions.AnimalSpecificConfiguration.html#Extensions_AnimalSpecificConfiguration_MinFT
   name: MinFT
   nameWithType: AnimalSpecificConfiguration.MinFT
-  fullName: SLTUtils.AnimalSpecificConfiguration.MinFT
-- uid: SLTUtils.AnimalSpecificConfiguration.FTDelta*
-  commentId: Overload:SLTUtils.AnimalSpecificConfiguration.FTDelta
-  href: SLTUtils.AnimalSpecificConfiguration.html#SLTUtils_AnimalSpecificConfiguration_FTDelta
+  fullName: Extensions.AnimalSpecificConfiguration.MinFT
+- uid: Extensions.AnimalSpecificConfiguration.FTDelta*
+  commentId: Overload:Extensions.AnimalSpecificConfiguration.FTDelta
+  href: Extensions.AnimalSpecificConfiguration.html#Extensions_AnimalSpecificConfiguration_FTDelta
   name: FTDelta
   nameWithType: AnimalSpecificConfiguration.FTDelta
-  fullName: SLTUtils.AnimalSpecificConfiguration.FTDelta
-- uid: SLTUtils.AnimalSpecificConfiguration.FTTarget*
-  commentId: Overload:SLTUtils.AnimalSpecificConfiguration.FTTarget
-  href: SLTUtils.AnimalSpecificConfiguration.html#SLTUtils_AnimalSpecificConfiguration_FTTarget
+  fullName: Extensions.AnimalSpecificConfiguration.FTDelta
+- uid: Extensions.AnimalSpecificConfiguration.FTTarget*
+  commentId: Overload:Extensions.AnimalSpecificConfiguration.FTTarget
+  href: Extensions.AnimalSpecificConfiguration.html#Extensions_AnimalSpecificConfiguration_FTTarget
   name: FTTarget
   nameWithType: AnimalSpecificConfiguration.FTTarget
-  fullName: SLTUtils.AnimalSpecificConfiguration.FTTarget
-- uid: SLTUtils.AnimalSpecificConfiguration.ExpFTMean*
-  commentId: Overload:SLTUtils.AnimalSpecificConfiguration.ExpFTMean
-  href: SLTUtils.AnimalSpecificConfiguration.html#SLTUtils_AnimalSpecificConfiguration_ExpFTMean
+  fullName: Extensions.AnimalSpecificConfiguration.FTTarget
+- uid: Extensions.AnimalSpecificConfiguration.ExpFTMean*
+  commentId: Overload:Extensions.AnimalSpecificConfiguration.ExpFTMean
+  href: Extensions.AnimalSpecificConfiguration.html#Extensions_AnimalSpecificConfiguration_ExpFTMean
   name: ExpFTMean
   nameWithType: AnimalSpecificConfiguration.ExpFTMean
-  fullName: SLTUtils.AnimalSpecificConfiguration.ExpFTMean
-- uid: SLTUtils.AnimalSpecificConfiguration.MinRT*
-  commentId: Overload:SLTUtils.AnimalSpecificConfiguration.MinRT
-  href: SLTUtils.AnimalSpecificConfiguration.html#SLTUtils_AnimalSpecificConfiguration_MinRT
+  fullName: Extensions.AnimalSpecificConfiguration.ExpFTMean
+- uid: Extensions.AnimalSpecificConfiguration.MinRT*
+  commentId: Overload:Extensions.AnimalSpecificConfiguration.MinRT
+  href: Extensions.AnimalSpecificConfiguration.html#Extensions_AnimalSpecificConfiguration_MinRT
   name: MinRT
   nameWithType: AnimalSpecificConfiguration.MinRT
-  fullName: SLTUtils.AnimalSpecificConfiguration.MinRT
-- uid: SLTUtils.AnimalSpecificConfiguration.RTDelta*
-  commentId: Overload:SLTUtils.AnimalSpecificConfiguration.RTDelta
-  href: SLTUtils.AnimalSpecificConfiguration.html#SLTUtils_AnimalSpecificConfiguration_RTDelta
+  fullName: Extensions.AnimalSpecificConfiguration.MinRT
+- uid: Extensions.AnimalSpecificConfiguration.RTDelta*
+  commentId: Overload:Extensions.AnimalSpecificConfiguration.RTDelta
+  href: Extensions.AnimalSpecificConfiguration.html#Extensions_AnimalSpecificConfiguration_RTDelta
   name: RTDelta
   nameWithType: AnimalSpecificConfiguration.RTDelta
-  fullName: SLTUtils.AnimalSpecificConfiguration.RTDelta
-- uid: SLTUtils.AnimalSpecificConfiguration.RTTarget*
-  commentId: Overload:SLTUtils.AnimalSpecificConfiguration.RTTarget
-  href: SLTUtils.AnimalSpecificConfiguration.html#SLTUtils_AnimalSpecificConfiguration_RTTarget
+  fullName: Extensions.AnimalSpecificConfiguration.RTDelta
+- uid: Extensions.AnimalSpecificConfiguration.RTTarget*
+  commentId: Overload:Extensions.AnimalSpecificConfiguration.RTTarget
+  href: Extensions.AnimalSpecificConfiguration.html#Extensions_AnimalSpecificConfiguration_RTTarget
   name: RTTarget
   nameWithType: AnimalSpecificConfiguration.RTTarget
-  fullName: SLTUtils.AnimalSpecificConfiguration.RTTarget
-- uid: SLTUtils.AnimalSpecificConfiguration.MaxRT*
-  commentId: Overload:SLTUtils.AnimalSpecificConfiguration.MaxRT
-  href: SLTUtils.AnimalSpecificConfiguration.html#SLTUtils_AnimalSpecificConfiguration_MaxRT
+  fullName: Extensions.AnimalSpecificConfiguration.RTTarget
+- uid: Extensions.AnimalSpecificConfiguration.MaxRT*
+  commentId: Overload:Extensions.AnimalSpecificConfiguration.MaxRT
+  href: Extensions.AnimalSpecificConfiguration.html#Extensions_AnimalSpecificConfiguration_MaxRT
   name: MaxRT
   nameWithType: AnimalSpecificConfiguration.MaxRT
-  fullName: SLTUtils.AnimalSpecificConfiguration.MaxRT
-- uid: SLTUtils.AnimalSpecificConfiguration.MaxSamplingTime*
-  commentId: Overload:SLTUtils.AnimalSpecificConfiguration.MaxSamplingTime
-  href: SLTUtils.AnimalSpecificConfiguration.html#SLTUtils_AnimalSpecificConfiguration_MaxSamplingTime
+  fullName: Extensions.AnimalSpecificConfiguration.MaxRT
+- uid: Extensions.AnimalSpecificConfiguration.MaxSamplingTime*
+  commentId: Overload:Extensions.AnimalSpecificConfiguration.MaxSamplingTime
+  href: Extensions.AnimalSpecificConfiguration.html#Extensions_AnimalSpecificConfiguration_MaxSamplingTime
   name: MaxSamplingTime
   nameWithType: AnimalSpecificConfiguration.MaxSamplingTime
-  fullName: SLTUtils.AnimalSpecificConfiguration.MaxSamplingTime
-- uid: SLTUtils.AnimalSpecificConfiguration.MinMT*
-  commentId: Overload:SLTUtils.AnimalSpecificConfiguration.MinMT
-  href: SLTUtils.AnimalSpecificConfiguration.html#SLTUtils_AnimalSpecificConfiguration_MinMT
+  fullName: Extensions.AnimalSpecificConfiguration.MaxSamplingTime
+- uid: Extensions.AnimalSpecificConfiguration.MinMT*
+  commentId: Overload:Extensions.AnimalSpecificConfiguration.MinMT
+  href: Extensions.AnimalSpecificConfiguration.html#Extensions_AnimalSpecificConfiguration_MinMT
   name: MinMT
   nameWithType: AnimalSpecificConfiguration.MinMT
-  fullName: SLTUtils.AnimalSpecificConfiguration.MinMT
-- uid: SLTUtils.AnimalSpecificConfiguration.MinLNP*
-  commentId: Overload:SLTUtils.AnimalSpecificConfiguration.MinLNP
-  href: SLTUtils.AnimalSpecificConfiguration.html#SLTUtils_AnimalSpecificConfiguration_MinLNP
+  fullName: Extensions.AnimalSpecificConfiguration.MinMT
+- uid: Extensions.AnimalSpecificConfiguration.MinLNP*
+  commentId: Overload:Extensions.AnimalSpecificConfiguration.MinLNP
+  href: Extensions.AnimalSpecificConfiguration.html#Extensions_AnimalSpecificConfiguration_MinLNP
   name: MinLNP
   nameWithType: AnimalSpecificConfiguration.MinLNP
-  fullName: SLTUtils.AnimalSpecificConfiguration.MinLNP
-- uid: SLTUtils.AnimalSpecificConfiguration.LNPDelta*
-  commentId: Overload:SLTUtils.AnimalSpecificConfiguration.LNPDelta
-  href: SLTUtils.AnimalSpecificConfiguration.html#SLTUtils_AnimalSpecificConfiguration_LNPDelta
+  fullName: Extensions.AnimalSpecificConfiguration.MinLNP
+- uid: Extensions.AnimalSpecificConfiguration.LNPDelta*
+  commentId: Overload:Extensions.AnimalSpecificConfiguration.LNPDelta
+  href: Extensions.AnimalSpecificConfiguration.html#Extensions_AnimalSpecificConfiguration_LNPDelta
   name: LNPDelta
   nameWithType: AnimalSpecificConfiguration.LNPDelta
-  fullName: SLTUtils.AnimalSpecificConfiguration.LNPDelta
-- uid: SLTUtils.AnimalSpecificConfiguration.LNPTarget*
-  commentId: Overload:SLTUtils.AnimalSpecificConfiguration.LNPTarget
-  href: SLTUtils.AnimalSpecificConfiguration.html#SLTUtils_AnimalSpecificConfiguration_LNPTarget
+  fullName: Extensions.AnimalSpecificConfiguration.LNPDelta
+- uid: Extensions.AnimalSpecificConfiguration.LNPTarget*
+  commentId: Overload:Extensions.AnimalSpecificConfiguration.LNPTarget
+  href: Extensions.AnimalSpecificConfiguration.html#Extensions_AnimalSpecificConfiguration_LNPTarget
   name: LNPTarget
   nameWithType: AnimalSpecificConfiguration.LNPTarget
-  fullName: SLTUtils.AnimalSpecificConfiguration.LNPTarget
+  fullName: Extensions.AnimalSpecificConfiguration.LNPTarget

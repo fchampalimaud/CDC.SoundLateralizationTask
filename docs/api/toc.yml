@@ -1,18 +1,24 @@
 ### YamlMime:TableOfContent
 items:
-- uid: SLTUtils
-  name: SLTUtils
+- uid: Extensions
+  name: Extensions
   items:
-  - uid: SLTUtils.AnimalSpecificConfiguration
+  - uid: Extensions.AnimalSpecificConfiguration
     name: AnimalSpecificConfiguration
-  - uid: SLTUtils.AnimalSpecificJSON
+  - uid: Extensions.AnimalSpecificJSON
     name: AnimalSpecificJSON
-  - uid: SLTUtils.GenerateILDArray
+  - uid: Extensions.GenerateILDArray
     name: GenerateILDArray
-  - uid: SLTUtils.ShuffleArray
+  - uid: Extensions.SelectMasterFolder
+    name: SelectMasterFolder
+  - uid: Extensions.SetupSpecificConfiguration
+    name: SetupSpecificConfiguration
+  - uid: Extensions.SetupSpecificJSON
+    name: SetupSpecificJSON
+  - uid: Extensions.ShuffleArray
     name: ShuffleArray
-  - uid: SLTUtils.TrainingCSV
+  - uid: Extensions.TrainingCSV
     name: TrainingCSV
-  - uid: SLTUtils.TrainingConfiguration
+  - uid: Extensions.TrainingConfiguration
     name: TrainingConfiguration
 memberLayout: SamePage

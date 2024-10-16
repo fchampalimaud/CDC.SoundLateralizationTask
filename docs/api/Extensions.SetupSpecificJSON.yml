@@ -1,45 +1,43 @@
 ### YamlMime:ManagedReference
 items:
-- uid: SLTUtils.AnimalSpecificJSON
-  commentId: T:SLTUtils.AnimalSpecificJSON
-  id: AnimalSpecificJSON
-  parent: SLTUtils
+- uid: Extensions.SetupSpecificJSON
+  commentId: T:Extensions.SetupSpecificJSON
+  id: SetupSpecificJSON
+  parent: Extensions
   children:
-  - SLTUtils.AnimalSpecificJSON.FilePath
-  - SLTUtils.AnimalSpecificJSON.Generate
+  - Extensions.SetupSpecificJSON.FilePath
+  - Extensions.SetupSpecificJSON.Process
   langs:
   - csharp
   - vb
-  name: AnimalSpecificJSON
-  nameWithType: AnimalSpecificJSON
-  fullName: SLTUtils.AnimalSpecificJSON
+  name: SetupSpecificJSON
+  nameWithType: SetupSpecificJSON
+  fullName: Extensions.SetupSpecificJSON
   type: Class
   source:
     remote:
-      path: package/SLTUtils/AnimalSpecificJSON.cs
-      branch: develop
+      path: src/Extensions/SetupSpecificJSON.cs
+      branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
-    id: AnimalSpecificJSON
-    path: ../package/SLTUtils/AnimalSpecificJSON.cs
-    startLine: 67
+    id: SetupSpecificJSON
+    path: ../src/Extensions/SetupSpecificJSON.cs
+    startLine: 48
   assemblies:
-  - SLTUtils
-  namespace: SLTUtils
-  summary: Class <code>AnimalSpecificJSON</code> contains the logic of the Bonsai node with the same name.
-  example: []
+  - Extensions
+  namespace: Extensions
   syntax:
     content: >-
-      [Combinator(MethodName = "Generate")]
+      [Combinator]
 
       [WorkflowElementCategory(ElementCategory.Source)]
 
-      public class AnimalSpecificJSON
+      public class SetupSpecificJSON
     content.vb: >-
-      <Combinator(MethodName:="Generate")>
+      <Combinator>
 
       <WorkflowElementCategory(ElementCategory.Source)>
 
-      Public Class AnimalSpecificJSON
+      Public Class SetupSpecificJSON
   inheritance:
   - System.Object
   inheritedMembers:
@@ -54,82 +52,75 @@ items:
   - type: Bonsai.CombinatorAttribute
     ctor: Bonsai.CombinatorAttribute.#ctor
     arguments: []
-    namedArguments:
-    - name: MethodName
-      type: System.String
-      value: Generate
   - type: Bonsai.WorkflowElementCategoryAttribute
     ctor: Bonsai.WorkflowElementCategoryAttribute.#ctor(Bonsai.ElementCategory)
     arguments:
     - type: Bonsai.ElementCategory
       value: 0
-- uid: SLTUtils.AnimalSpecificJSON.FilePath
-  commentId: P:SLTUtils.AnimalSpecificJSON.FilePath
+- uid: Extensions.SetupSpecificJSON.FilePath
+  commentId: P:Extensions.SetupSpecificJSON.FilePath
   id: FilePath
-  parent: SLTUtils.AnimalSpecificJSON
+  parent: Extensions.SetupSpecificJSON
   langs:
   - csharp
   - vb
   name: FilePath
-  nameWithType: AnimalSpecificJSON.FilePath
-  fullName: SLTUtils.AnimalSpecificJSON.FilePath
+  nameWithType: SetupSpecificJSON.FilePath
+  fullName: Extensions.SetupSpecificJSON.FilePath
   type: Property
   source:
     remote:
-      path: package/SLTUtils/AnimalSpecificJSON.cs
-      branch: develop
+      path: src/Extensions/SetupSpecificJSON.cs
+      branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: FilePath
-    path: ../package/SLTUtils/AnimalSpecificJSON.cs
-    startLine: 72
+    path: ../src/Extensions/SetupSpecificJSON.cs
+    startLine: 53
   assemblies:
-  - SLTUtils
-  namespace: SLTUtils
+  - Extensions
+  namespace: Extensions
   syntax:
     content: public string FilePath { get; set; }
     parameters: []
     return:
       type: System.String
     content.vb: Public Property FilePath As String
-  overload: SLTUtils.AnimalSpecificJSON.FilePath*
-- uid: SLTUtils.AnimalSpecificJSON.Generate
-  commentId: M:SLTUtils.AnimalSpecificJSON.Generate
-  id: Generate
-  parent: SLTUtils.AnimalSpecificJSON
+  overload: Extensions.SetupSpecificJSON.FilePath*
+- uid: Extensions.SetupSpecificJSON.Process
+  commentId: M:Extensions.SetupSpecificJSON.Process
+  id: Process
+  parent: Extensions.SetupSpecificJSON
   langs:
   - csharp
   - vb
-  name: Generate()
-  nameWithType: AnimalSpecificJSON.Generate()
-  fullName: SLTUtils.AnimalSpecificJSON.Generate()
+  name: Process()
+  nameWithType: SetupSpecificJSON.Process()
+  fullName: Extensions.SetupSpecificJSON.Process()
   type: Method
   source:
     remote:
-      path: package/SLTUtils/AnimalSpecificJSON.cs
-      branch: develop
+      path: src/Extensions/SetupSpecificJSON.cs
+      branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
-    id: Generate
-    path: ../package/SLTUtils/AnimalSpecificJSON.cs
-    startLine: 82
+    id: Process
+    path: ../src/Extensions/SetupSpecificJSON.cs
+    startLine: 57
   assemblies:
-  - SLTUtils
-  namespace: SLTUtils
-  summary: Reads the animal-specific input parameters needed for the Sound Lateralization Task from a JSON file.
-  example: []
+  - Extensions
+  namespace: Extensions
   syntax:
-    content: public IObservable<AnimalSpecificConfiguration> Generate()
+    content: public IObservable<SetupSpecificConfiguration> Process()
     return:
-      type: System.IObservable{SLTUtils.AnimalSpecificConfiguration}
-      description: An observable sequence which sends a single event containing an <code>AnimalSpecificConfiguration</code> instance.
-    content.vb: Public Function Generate() As IObservable(Of AnimalSpecificConfiguration)
-  overload: SLTUtils.AnimalSpecificJSON.Generate*
+      type: System.IObservable{Extensions.SetupSpecificConfiguration}
+    content.vb: Public Function Process() As IObservable(Of SetupSpecificConfiguration)
+  overload: Extensions.SetupSpecificJSON.Process*
 references:
-- uid: SLTUtils
-  commentId: N:SLTUtils
-  href: SLTUtils.html
-  name: SLTUtils
-  nameWithType: SLTUtils
-  fullName: SLTUtils
+- uid: Extensions
+  commentId: N:Extensions
+  href: Extensions.html
+  name: Extensions
+  nameWithType: Extensions
+  fullName: Extensions
 - uid: System.Object
   commentId: T:System.Object
   parent: System
@@ -367,12 +358,12 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: SLTUtils.AnimalSpecificJSON.FilePath*
-  commentId: Overload:SLTUtils.AnimalSpecificJSON.FilePath
-  href: SLTUtils.AnimalSpecificJSON.html#SLTUtils_AnimalSpecificJSON_FilePath
+- uid: Extensions.SetupSpecificJSON.FilePath*
+  commentId: Overload:Extensions.SetupSpecificJSON.FilePath
+  href: Extensions.SetupSpecificJSON.html#Extensions_SetupSpecificJSON_FilePath
   name: FilePath
-  nameWithType: AnimalSpecificJSON.FilePath
-  fullName: SLTUtils.AnimalSpecificJSON.FilePath
+  nameWithType: SetupSpecificJSON.FilePath
+  fullName: Extensions.SetupSpecificJSON.FilePath
 - uid: System.String
   commentId: T:System.String
   parent: System
@@ -384,32 +375,32 @@ references:
   nameWithType.vb: String
   fullName.vb: String
   name.vb: String
-- uid: SLTUtils.AnimalSpecificJSON.Generate*
-  commentId: Overload:SLTUtils.AnimalSpecificJSON.Generate
-  href: SLTUtils.AnimalSpecificJSON.html#SLTUtils_AnimalSpecificJSON_Generate
-  name: Generate
-  nameWithType: AnimalSpecificJSON.Generate
-  fullName: SLTUtils.AnimalSpecificJSON.Generate
-- uid: System.IObservable{SLTUtils.AnimalSpecificConfiguration}
-  commentId: T:System.IObservable{SLTUtils.AnimalSpecificConfiguration}
+- uid: Extensions.SetupSpecificJSON.Process*
+  commentId: Overload:Extensions.SetupSpecificJSON.Process
+  href: Extensions.SetupSpecificJSON.html#Extensions_SetupSpecificJSON_Process
+  name: Process
+  nameWithType: SetupSpecificJSON.Process
+  fullName: Extensions.SetupSpecificJSON.Process
+- uid: System.IObservable{Extensions.SetupSpecificConfiguration}
+  commentId: T:System.IObservable{Extensions.SetupSpecificConfiguration}
   parent: System
   definition: System.IObservable`1
   href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
-  name: IObservable<AnimalSpecificConfiguration>
-  nameWithType: IObservable<AnimalSpecificConfiguration>
-  fullName: System.IObservable<SLTUtils.AnimalSpecificConfiguration>
-  nameWithType.vb: IObservable(Of AnimalSpecificConfiguration)
-  fullName.vb: System.IObservable(Of SLTUtils.AnimalSpecificConfiguration)
-  name.vb: IObservable(Of AnimalSpecificConfiguration)
+  name: IObservable<SetupSpecificConfiguration>
+  nameWithType: IObservable<SetupSpecificConfiguration>
+  fullName: System.IObservable<Extensions.SetupSpecificConfiguration>
+  nameWithType.vb: IObservable(Of SetupSpecificConfiguration)
+  fullName.vb: System.IObservable(Of Extensions.SetupSpecificConfiguration)
+  name.vb: IObservable(Of SetupSpecificConfiguration)
   spec.csharp:
   - uid: System.IObservable`1
     name: IObservable
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
   - name: <
-  - uid: SLTUtils.AnimalSpecificConfiguration
-    name: AnimalSpecificConfiguration
-    href: SLTUtils.AnimalSpecificConfiguration.html
+  - uid: Extensions.SetupSpecificConfiguration
+    name: SetupSpecificConfiguration
+    href: Extensions.SetupSpecificConfiguration.html
   - name: '>'
   spec.vb:
   - uid: System.IObservable`1
@@ -419,9 +410,9 @@ references:
   - name: (
   - name: Of
   - name: " "
-  - uid: SLTUtils.AnimalSpecificConfiguration
-    name: AnimalSpecificConfiguration
-    href: SLTUtils.AnimalSpecificConfiguration.html
+  - uid: Extensions.SetupSpecificConfiguration
+    name: SetupSpecificConfiguration
+    href: Extensions.SetupSpecificConfiguration.html
   - name: )
 - uid: System.IObservable`1
   commentId: T:System.IObservable`1

@@ -1,47 +1,44 @@
 ### YamlMime:ManagedReference
 items:
-- uid: SLTUtils.TrainingCSV
-  commentId: T:SLTUtils.TrainingCSV
-  id: TrainingCSV
-  parent: SLTUtils
+- uid: Extensions.ShuffleArray
+  commentId: T:Extensions.ShuffleArray
+  id: ShuffleArray
+  parent: Extensions
   children:
-  - SLTUtils.TrainingCSV.FileName
-  - SLTUtils.TrainingCSV.Generate
-  - SLTUtils.TrainingCSV.Generate``1(System.IObservable{``0})
-  - SLTUtils.TrainingCSV.RowNumber
+  - Extensions.ShuffleArray.Process``1(System.IObservable{``0[]})
   langs:
   - csharp
   - vb
-  name: TrainingCSV
-  nameWithType: TrainingCSV
-  fullName: SLTUtils.TrainingCSV
+  name: ShuffleArray
+  nameWithType: ShuffleArray
+  fullName: Extensions.ShuffleArray
   type: Class
   source:
     remote:
-      path: package/SLTUtils/TrainingCSV.cs
-      branch: develop
+      path: src/Extensions/ShuffleArray.cs
+      branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
-    id: TrainingCSV
-    path: ../package/SLTUtils/TrainingCSV.cs
-    startLine: 50
+    id: ShuffleArray
+    path: ../src/Extensions/ShuffleArray.cs
+    startLine: 11
   assemblies:
-  - SLTUtils
-  namespace: SLTUtils
-  summary: Class <code>TrainingCSV</code> contains the logic of the Bonsai node with the same name.
+  - Extensions
+  namespace: Extensions
+  summary: Class <code>ShuffleArray</code> contains the logic of the Bonsai node with the same name.
   example: []
   syntax:
     content: >-
-      [Combinator(MethodName = "Generate")]
+      [Combinator]
 
-      [WorkflowElementCategory(ElementCategory.Source)]
+      [WorkflowElementCategory(ElementCategory.Transform)]
 
-      public class TrainingCSV
+      public class ShuffleArray
     content.vb: >-
-      <Combinator(MethodName:="Generate")>
+      <Combinator>
 
-      <WorkflowElementCategory(ElementCategory.Source)>
+      <WorkflowElementCategory(ElementCategory.Transform)>
 
-      Public Class TrainingCSV
+      Public Class ShuffleArray
   inheritance:
   - System.Object
   inheritedMembers:
@@ -56,151 +53,59 @@ items:
   - type: Bonsai.CombinatorAttribute
     ctor: Bonsai.CombinatorAttribute.#ctor
     arguments: []
-    namedArguments:
-    - name: MethodName
-      type: System.String
-      value: Generate
   - type: Bonsai.WorkflowElementCategoryAttribute
     ctor: Bonsai.WorkflowElementCategoryAttribute.#ctor(Bonsai.ElementCategory)
     arguments:
     - type: Bonsai.ElementCategory
-      value: 0
-- uid: SLTUtils.TrainingCSV.FileName
-  commentId: P:SLTUtils.TrainingCSV.FileName
-  id: FileName
-  parent: SLTUtils.TrainingCSV
+      value: 2
+- uid: Extensions.ShuffleArray.Process``1(System.IObservable{``0[]})
+  commentId: M:Extensions.ShuffleArray.Process``1(System.IObservable{``0[]})
+  id: Process``1(System.IObservable{``0[]})
+  parent: Extensions.ShuffleArray
   langs:
   - csharp
   - vb
-  name: FileName
-  nameWithType: TrainingCSV.FileName
-  fullName: SLTUtils.TrainingCSV.FileName
-  type: Property
-  source:
-    remote:
-      path: package/SLTUtils/TrainingCSV.cs
-      branch: develop
-      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
-    id: FileName
-    path: ../package/SLTUtils/TrainingCSV.cs
-    startLine: 55
-  assemblies:
-  - SLTUtils
-  namespace: SLTUtils
-  syntax:
-    content: public string FileName { get; set; }
-    parameters: []
-    return:
-      type: System.String
-    content.vb: Public Property FileName As String
-  overload: SLTUtils.TrainingCSV.FileName*
-- uid: SLTUtils.TrainingCSV.RowNumber
-  commentId: P:SLTUtils.TrainingCSV.RowNumber
-  id: RowNumber
-  parent: SLTUtils.TrainingCSV
-  langs:
-  - csharp
-  - vb
-  name: RowNumber
-  nameWithType: TrainingCSV.RowNumber
-  fullName: SLTUtils.TrainingCSV.RowNumber
-  type: Property
-  source:
-    remote:
-      path: package/SLTUtils/TrainingCSV.cs
-      branch: develop
-      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
-    id: RowNumber
-    path: ../package/SLTUtils/TrainingCSV.cs
-    startLine: 58
-  assemblies:
-  - SLTUtils
-  namespace: SLTUtils
-  syntax:
-    content: public int RowNumber { get; set; }
-    parameters: []
-    return:
-      type: System.Int32
-    content.vb: Public Property RowNumber As Integer
-  overload: SLTUtils.TrainingCSV.RowNumber*
-- uid: SLTUtils.TrainingCSV.Generate
-  commentId: M:SLTUtils.TrainingCSV.Generate
-  id: Generate
-  parent: SLTUtils.TrainingCSV
-  langs:
-  - csharp
-  - vb
-  name: Generate()
-  nameWithType: TrainingCSV.Generate()
-  fullName: SLTUtils.TrainingCSV.Generate()
+  name: Process<TSource>(IObservable<TSource[]>)
+  nameWithType: ShuffleArray.Process<TSource>(IObservable<TSource[]>)
+  fullName: Extensions.ShuffleArray.Process<TSource>(System.IObservable<TSource[]>)
   type: Method
   source:
     remote:
-      path: package/SLTUtils/TrainingCSV.cs
-      branch: develop
+      path: src/Extensions/ShuffleArray.cs
+      branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
-    id: Generate
-    path: ../package/SLTUtils/TrainingCSV.cs
-    startLine: 91
+    id: Process
+    path: ../src/Extensions/ShuffleArray.cs
+    startLine: 24
   assemblies:
-  - SLTUtils
-  namespace: SLTUtils
-  summary: Generates an observable sequence which outputs the training/task-specific parameters. This method is called when the node doesn't have an input data stream.
+  - Extensions
+  namespace: Extensions
+  summary: Shuffles the input array.
   example: []
   syntax:
-    content: public IObservable<(TrainingConfiguration, int)> Generate()
-    return:
-      type: System.IObservable{System.ValueTuple{SLTUtils.TrainingConfiguration,System.Int32}}
-      description: An observable sequence which sends a single event containing a <code>TrainingConfiguration</code> instance.
-    content.vb: Public Function Generate() As IObservable(Of (TrainingConfiguration, Integer))
-  overload: SLTUtils.TrainingCSV.Generate*
-- uid: SLTUtils.TrainingCSV.Generate``1(System.IObservable{``0})
-  commentId: M:SLTUtils.TrainingCSV.Generate``1(System.IObservable{``0})
-  id: Generate``1(System.IObservable{``0})
-  parent: SLTUtils.TrainingCSV
-  langs:
-  - csharp
-  - vb
-  name: Generate<TSource>(IObservable<TSource>)
-  nameWithType: TrainingCSV.Generate<TSource>(IObservable<TSource>)
-  fullName: SLTUtils.TrainingCSV.Generate<TSource>(System.IObservable<TSource>)
-  type: Method
-  source:
-    remote:
-      path: package/SLTUtils/TrainingCSV.cs
-      branch: develop
-      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
-    id: Generate
-    path: ../package/SLTUtils/TrainingCSV.cs
-    startLine: 103
-  assemblies:
-  - SLTUtils
-  namespace: SLTUtils
-  summary: Generates an observable sequence which outputs the training/task-specific parameters. This method is called when the node has an input data stream.
-  example: []
-  syntax:
-    content: public IObservable<(TrainingConfiguration, int)> Generate<TSource>(IObservable<TSource> source)
+    content: public IObservable<TSource[]> Process<TSource>(IObservable<TSource[]> source)
     parameters:
     - id: source
-      type: System.IObservable{{TSource}}
-      description: the input data stream.
+      type: System.IObservable{{TSource}[]}
+      description: the input data stream, which sends arrays of the type TSource.
     typeParameters:
     - id: TSource
+      description: The type of the elements of the input array.
     return:
-      type: System.IObservable{System.ValueTuple{SLTUtils.TrainingConfiguration,System.Int32}}
-      description: An observable sequence which sends a single event containing a <code>TrainingConfiguration</code> instance.
-    content.vb: Public Function Generate(Of TSource)(source As IObservable(Of TSource)) As IObservable(Of (TrainingConfiguration, Integer))
-  overload: SLTUtils.TrainingCSV.Generate*
-  nameWithType.vb: TrainingCSV.Generate(Of TSource)(IObservable(Of TSource))
-  fullName.vb: SLTUtils.TrainingCSV.Generate(Of TSource)(System.IObservable(Of TSource))
-  name.vb: Generate(Of TSource)(IObservable(Of TSource))
+      type: System.IObservable{{TSource}[]}
+      description: The shuffled input array (of type TSource).
+    content.vb: Public Function Process(Of TSource)(source As IObservable(Of TSource())) As IObservable(Of TSource())
+  overload: Extensions.ShuffleArray.Process*
+  nameWithType.vb: ShuffleArray.Process(Of TSource)(IObservable(Of TSource()))
+  fullName.vb: Extensions.ShuffleArray.Process(Of TSource)(System.IObservable(Of TSource()))
+  name.vb: Process(Of TSource)(IObservable(Of TSource()))
 references:
-- uid: SLTUtils
-  commentId: N:SLTUtils
-  href: SLTUtils.html
-  name: SLTUtils
-  nameWithType: SLTUtils
-  fullName: SLTUtils
+- uid: Extensions
+  commentId: N:Extensions
+  href: Extensions.html
+  name: Extensions
+  nameWithType: Extensions
+  fullName: Extensions
 - uid: System.Object
   commentId: T:System.Object
   parent: System
@@ -438,74 +343,32 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: SLTUtils.TrainingCSV.FileName*
-  commentId: Overload:SLTUtils.TrainingCSV.FileName
-  href: SLTUtils.TrainingCSV.html#SLTUtils_TrainingCSV_FileName
-  name: FileName
-  nameWithType: TrainingCSV.FileName
-  fullName: SLTUtils.TrainingCSV.FileName
-- uid: System.String
-  commentId: T:System.String
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.string
-  name: string
-  nameWithType: string
-  fullName: string
-  nameWithType.vb: String
-  fullName.vb: String
-  name.vb: String
-- uid: SLTUtils.TrainingCSV.RowNumber*
-  commentId: Overload:SLTUtils.TrainingCSV.RowNumber
-  href: SLTUtils.TrainingCSV.html#SLTUtils_TrainingCSV_RowNumber
-  name: RowNumber
-  nameWithType: TrainingCSV.RowNumber
-  fullName: SLTUtils.TrainingCSV.RowNumber
-- uid: System.Int32
-  commentId: T:System.Int32
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int32
-  name: int
-  nameWithType: int
-  fullName: int
-  nameWithType.vb: Integer
-  fullName.vb: Integer
-  name.vb: Integer
-- uid: SLTUtils.TrainingCSV.Generate*
-  commentId: Overload:SLTUtils.TrainingCSV.Generate
-  href: SLTUtils.TrainingCSV.html#SLTUtils_TrainingCSV_Generate
-  name: Generate
-  nameWithType: TrainingCSV.Generate
-  fullName: SLTUtils.TrainingCSV.Generate
-- uid: System.IObservable{System.ValueTuple{SLTUtils.TrainingConfiguration,System.Int32}}
-  commentId: T:System.IObservable{System.ValueTuple{SLTUtils.TrainingConfiguration,System.Int32}}
+- uid: Extensions.ShuffleArray.Process*
+  commentId: Overload:Extensions.ShuffleArray.Process
+  href: Extensions.ShuffleArray.html#Extensions_ShuffleArray_Process__1_System_IObservable___0____
+  name: Process
+  nameWithType: ShuffleArray.Process
+  fullName: Extensions.ShuffleArray.Process
+- uid: System.IObservable{{TSource}[]}
+  commentId: T:System.IObservable{``0[]}
   parent: System
   definition: System.IObservable`1
   href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
-  name: IObservable<(TrainingConfiguration, int)>
-  nameWithType: IObservable<(TrainingConfiguration, int)>
-  fullName: System.IObservable<(SLTUtils.TrainingConfiguration, int)>
-  nameWithType.vb: IObservable(Of (TrainingConfiguration, Integer))
-  fullName.vb: System.IObservable(Of (SLTUtils.TrainingConfiguration, Integer))
-  name.vb: IObservable(Of (TrainingConfiguration, Integer))
+  name: IObservable<TSource[]>
+  nameWithType: IObservable<TSource[]>
+  fullName: System.IObservable<TSource[]>
+  nameWithType.vb: IObservable(Of TSource())
+  fullName.vb: System.IObservable(Of TSource())
+  name.vb: IObservable(Of TSource())
   spec.csharp:
   - uid: System.IObservable`1
     name: IObservable
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
   - name: <
-  - name: (
-  - uid: SLTUtils.TrainingConfiguration
-    name: TrainingConfiguration
-    href: SLTUtils.TrainingConfiguration.html
-  - name: ','
-  - name: " "
-  - uid: System.Int32
-    name: int
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: )
+  - name: TSource
+  - name: '['
+  - name: ']'
   - name: '>'
   spec.vb:
   - uid: System.IObservable`1
@@ -515,16 +378,8 @@ references:
   - name: (
   - name: Of
   - name: " "
+  - name: TSource
   - name: (
-  - uid: SLTUtils.TrainingConfiguration
-    name: TrainingConfiguration
-    href: SLTUtils.TrainingConfiguration.html
-  - name: ','
-  - name: " "
-  - uid: System.Int32
-    name: Integer
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
   - name: )
   - name: )
 - uid: System.IObservable`1
@@ -554,33 +409,4 @@ references:
   - name: Of
   - name: " "
   - name: T
-  - name: )
-- uid: System.IObservable{{TSource}}
-  commentId: T:System.IObservable{``0}
-  parent: System
-  definition: System.IObservable`1
-  href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
-  name: IObservable<TSource>
-  nameWithType: IObservable<TSource>
-  fullName: System.IObservable<TSource>
-  nameWithType.vb: IObservable(Of TSource)
-  fullName.vb: System.IObservable(Of TSource)
-  name.vb: IObservable(Of TSource)
-  spec.csharp:
-  - uid: System.IObservable`1
-    name: IObservable
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
-  - name: <
-  - name: TSource
-  - name: '>'
-  spec.vb:
-  - uid: System.IObservable`1
-    name: IObservable
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
-  - name: (
-  - name: Of
-  - name: " "
-  - name: TSource
   - name: )

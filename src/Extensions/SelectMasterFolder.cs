@@ -5,17 +5,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reactive.Linq;
 
-[Combinator]
-[Description("")]
-[WorkflowElementCategory(ElementCategory.Source)]
-public class SelectMasterFolder
+namespace Extensions
 {
-    [Description("The name of the JSON file.")]
-    [Editor(DesignTypes.FolderNameEditor, DesignTypes.UITypeEditor)]
-    public String FolderPath { get; set; }
-
-    public IObservable<String> Process()
+    [Combinator]
+    [Description("")]
+    [WorkflowElementCategory(ElementCategory.Source)]
+    public class SelectMasterFolder
     {
-        return Observable.Return(FolderPath);
+        [Description("The name of the JSON file.")]
+        [Editor(DesignTypes.FolderNameEditor, DesignTypes.UITypeEditor)]
+        public String FolderPath { get; set; }
+
+        public IObservable<String> Process()
+        {
+            return Observable.Return(FolderPath);
+        }
     }
 }
