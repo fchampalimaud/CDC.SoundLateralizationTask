@@ -204,30 +204,33 @@ class UserInterface:
         self.server_thread.join()
 
     def new_block(self, address, *args):
-        self.ild_array = np.array(args[1:args[0] + 1])
-        self.performance_rate = np.zeros(args[0])
-        self.abort_rate = np.zeros(args[0])
-        self.completed_trials = np.zeros(args[0])
-        self.abort_trials = np.zeros(args[0])
-        self.right_answers = np.zeros(args[0])
-
-        for i in range(3):
-            for j in range(3):
-                if (i, j) in [(1, 1)]:
-                    self.plots[1, 1][0].set_xdata(self.ild_array)
-                    self.plots[1, 1][0].set_ydata(self.performance_rate)
-                    self.plots[1, 1][1].set_xdata(self.ild_array)
-                    self.plots[1, 1][1].set_ydata(self.abort_rate)
-                    self.ax[1, 1].relim()
-                    self.ax[1, 1].autoscale_view()
-                elif (i, j) not in [(0, 0), (2, 2)]:
-                    for k in range(self.plots[i, j].size):
-                        self.plot_data[i, j][k, 0] = []
-                        self.plot_data[i, j][k, 1] = []
-                        self.plots[i, j][k].set_xdata([])
-                        self.plots[i, j][k].set_ydata([])
-                    
-        self.fig.canvas.draw()
+        if args[0] == 0:
+            self.ild_array = np.zeros(int(args[1]))
+            self.performance_rate = np.zeros(int(args[1]))
+            self.abort_rate = np.zeros(int(args[1]))
+            self.completed_trials = np.zeros(int(args[1]))
+            self.abort_trials = np.zeros(int(args[1]))
+            self.right_answers = np.zeros(int(args[1]))
+        else:
+            self.ild_array[int(args[0]) - 1] = args[1]
+        if args[0] == self.ild_array.size:
+            for i in range(3):
+                for j in range(3):
+                    if (i, j) in [(1, 1)]:
+                        self.plots[1, 1][0].set_xdata(self.ild_array)
+                        self.plots[1, 1][0].set_ydata(self.performance_rate)
+                        self.plots[1, 1][1].set_xdata(self.ild_array)
+                        self.plots[1, 1][1].set_ydata(self.abort_rate)
+                        self.ax[1, 1].relim()
+                        self.ax[1, 1].autoscale_view()
+                    elif (i, j) not in [(0, 0), (2, 2)]:
+                        for k in range(self.plots[i, j].size):
+                            self.plot_data[i, j][k, 0] = []
+                            self.plot_data[i, j][k, 1] = []
+                            self.plots[i, j][k].set_xdata([])
+                            self.plots[i, j][k].set_ydata([])
+                        
+            self.fig.canvas.draw()
 
     def last_ten(self, outcome):
         if outcome == 2:

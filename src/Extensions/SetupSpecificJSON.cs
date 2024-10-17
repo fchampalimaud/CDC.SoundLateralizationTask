@@ -32,6 +32,14 @@ namespace Extensions
         public double LeftSlope { get; set; }
         /// <value>Property <c>LeftIntercept</c> is the intercept of the calibration curve of the left speaker.</value>
         public double LeftIntercept { get; set; }
+        /// <value>Property <c>FlashPeriod</c></value>
+        public double BoxLEDPeriod { get; set; }
+        /// <value>Property <c>FlashPeriod</c></value>
+        public double BoxLEDDutyCycle { get; set; }
+        /// <value>Property <c>FlashPeriod</c></value>
+        public double PokeLEDPeriod { get; set; }
+        /// <value>Property <c>FlashPeriod</c></value>
+        public double PokeLEDDutyCycle { get; set; }
         /// <value>Property <c>SoundDuration</c> is the duration of the sounds loaded to the soundcard (s).</value>
         public double SoundDuration { get; set; }
         public double PenaltyDurationPress { get; set; }
