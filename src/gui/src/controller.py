@@ -25,10 +25,9 @@ class Controller:
 
         self.view.fig.canvas.mpl_connect('close_event', self.listener.shutdown)
 
-        # TODO: function to turn into text
         self.information = {
             "Rat": 0,
-            "Trial:": 0,
+            "Trial": 0,
             "Trials completed": 0,
             "Block" : 0,
             "ILD": 0,
@@ -40,10 +39,13 @@ class Controller:
             "ITI": 0,
             "Time elapsed": 0
             }
-        # self.view.text.set_text("")
+
+        self.units = ["", "", "", "", "dB", "dB", "", "", "", "s", "s", ""]
 
         self.last_aborts = []
         self.last_right = []
+
+        self.generate_text()
 
         self.view.show()
 
@@ -52,10 +54,6 @@ class Controller:
             for i in range(self.view.plots[1, 1].size):
                 self.view.plots[1, 1][i].x = np.zeros(int(args[1]))
                 self.view.plots[1, 1][i].y = np.zeros(int(args[1]))
-
-            # self.completed_trials = np.zeros(int(args[1]))
-            # self.abort_trials = np.zeros(int(args[1]))
-            # self.right_answers = np.zeros(int(args[1]))
         else:
             for i in range(self.view.plots[1, 1].size):
                 self.view.plots[1, 1][i].x[int(args[0]) - 1] = args[1]
@@ -70,16 +68,23 @@ class Controller:
                         self.view.ax[1, 1].autoscale_view()
                     elif (i, j) not in [(0, 0), (1, 1), (2, 2)]:
                         for k in range(self.view.plots[i, j].size):
-                            self.view.plots[i, j][k].update()
+                            self.view.plots[i, j][k].reset()
                         
             self.view.fig.canvas.draw()
 
-    # TODO
     def new_trial(self, address, *args):
         self.information["Trial"] = args[0]
         self.information["ILD"] = args[1]
+        self.information["ABL"] = args[2]
+        self.information["Fixation time"] = args[3]
+        self.information["ITI"] = args[4]
+
+        self.generate_text()
+        self.view.fig.canvas.draw()
 
     def update_plots(self, address, *args):
+        self.last_ten(args[0])
+
         if args[0] > 0:
             if self.information["ILD"] >= 0:
                 self.view.plots[0, 2][2 * args[0] - 2].add_data(self.information["Trial"], args[0])
@@ -148,3 +153,16 @@ class Controller:
                 count += 1
 
         self.view.plots[1, 0][2].add_data(self.information["Trial"], float(count) / len(self.last_aborts))
+
+    def generate_text(self):
+        keys = list(self.information.keys())
+        values = list(self.information.values())
+
+        string = ""
+
+        for i in range(len(keys)):
+            string += keys[i] + ": " + str(values[i]) + " " + self.units[i]
+            if i != (len(keys) - 1):
+                string += "\n"
+
+        self.view.text.set_text(string)
