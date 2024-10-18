@@ -71,6 +71,10 @@ namespace Extensions
         public int AbortLight { get; set; }
         /// <value>Property <c>ITILight</c></value>
         public int ITILight { get; set; }
+        /// <value>Property <c>PokeLight</c></value>
+        public int PokeLight { get; set; }
+        /// <value>Property <c>FixLight</c></value>
+        public int FixLight { get; set; }
     }
 
     /// <summary>

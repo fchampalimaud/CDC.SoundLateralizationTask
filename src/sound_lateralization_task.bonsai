@@ -1652,6 +1652,42 @@
                   <Expression xsi:type="rx:BehaviorSubject">
                     <Name>Speakers</Name>
                   </Expression>
+                  <Expression xsi:type="SubscribeSubject">
+                    <Name>TrainingConfigurations</Name>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>AbortLight</Selector>
+                  </Expression>
+                  <Expression xsi:type="rx:BehaviorSubject">
+                    <Name>AbortLight</Name>
+                  </Expression>
+                  <Expression xsi:type="SubscribeSubject">
+                    <Name>TrainingConfigurations</Name>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>ITILight</Selector>
+                  </Expression>
+                  <Expression xsi:type="rx:BehaviorSubject">
+                    <Name>ITILight</Name>
+                  </Expression>
+                  <Expression xsi:type="SubscribeSubject">
+                    <Name>TrainingConfigurations</Name>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>PokeLight</Selector>
+                  </Expression>
+                  <Expression xsi:type="rx:BehaviorSubject">
+                    <Name>PokeLight</Name>
+                  </Expression>
+                  <Expression xsi:type="SubscribeSubject">
+                    <Name>TrainingConfigurations</Name>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>FixLight</Selector>
+                  </Expression>
+                  <Expression xsi:type="rx:BehaviorSubject">
+                    <Name>FixLight</Name>
+                  </Expression>
                 </Nodes>
                 <Edges>
                   <Edge From="0" To="1" Label="Source1" />
@@ -1711,6 +1747,14 @@
                   <Edge From="77" To="78" Label="Source1" />
                   <Edge From="79" To="80" Label="Source1" />
                   <Edge From="80" To="81" Label="Source1" />
+                  <Edge From="82" To="83" Label="Source1" />
+                  <Edge From="83" To="84" Label="Source1" />
+                  <Edge From="85" To="86" Label="Source1" />
+                  <Edge From="86" To="87" Label="Source1" />
+                  <Edge From="88" To="89" Label="Source1" />
+                  <Edge From="89" To="90" Label="Source1" />
+                  <Edge From="91" To="92" Label="Source1" />
+                  <Edge From="92" To="93" Label="Source1" />
                 </Edges>
               </Workflow>
             </Expression>
@@ -2542,81 +2586,6 @@
                 <osc:RemotePort>0</osc:RemotePort>
               </Combinator>
             </Expression>
-            <Expression xsi:type="osc:ReceiveMessage">
-              <osc:Address>/commands</osc:Address>
-              <osc:TypeTag>i</osc:TypeTag>
-              <osc:Connection>UdpServer</osc:Connection>
-            </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="osc:CreateUdpClient">
-                <osc:Name>UdpClient</osc:Name>
-                <osc:Port>0</osc:Port>
-                <osc:RemoteHostName>localhost</osc:RemoteHostName>
-                <osc:RemotePort>2</osc:RemotePort>
-              </Combinator>
-            </Expression>
-            <Expression xsi:type="SubscribeSubject">
-              <Name>BeginningMessage</Name>
-            </Expression>
-            <Expression xsi:type="SubscribeSubject">
-              <Name>Trial</Name>
-            </Expression>
-            <Expression xsi:type="SubscribeSubject">
-              <Name>ILD</Name>
-            </Expression>
-            <Expression xsi:type="SubscribeSubject">
-              <Name>ABL</Name>
-            </Expression>
-            <Expression xsi:type="SubscribeSubject">
-              <Name>IntendedFT</Name>
-            </Expression>
-            <Expression xsi:type="SubscribeSubject">
-              <Name>IntendedITI</Name>
-            </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="rx:CombineLatest" />
-            </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="rx:WithLatestFrom" />
-            </Expression>
-            <Expression xsi:type="MemberSelector">
-              <Selector>Item2</Selector>
-            </Expression>
-            <Expression xsi:type="osc:SendMessage">
-              <osc:Connection>UdpClient</osc:Connection>
-              <osc:Address>/beginning</osc:Address>
-            </Expression>
-            <Expression xsi:type="SubscribeSubject">
-              <Name>PlotsMessage</Name>
-            </Expression>
-            <Expression xsi:type="SubscribeSubject">
-              <Name>Outcome</Name>
-            </Expression>
-            <Expression xsi:type="SubscribeSubject">
-              <Name>TimeToCNP</Name>
-            </Expression>
-            <Expression xsi:type="SubscribeSubject">
-              <Name>TimedRT</Name>
-            </Expression>
-            <Expression xsi:type="SubscribeSubject">
-              <Name>TimedMT</Name>
-            </Expression>
-            <Expression xsi:type="SubscribeSubject">
-              <Name>BlockPerformance</Name>
-            </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="rx:CombineLatest" />
-            </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="rx:WithLatestFrom" />
-            </Expression>
-            <Expression xsi:type="MemberSelector">
-              <Selector>Item2</Selector>
-            </Expression>
-            <Expression xsi:type="osc:SendMessage">
-              <osc:Connection>UdpClient</osc:Connection>
-              <osc:Address>/plots</osc:Address>
-            </Expression>
             <Expression xsi:type="SubscribeSubject">
               <Name>BlockMessage</Name>
             </Expression>
@@ -2715,34 +2684,109 @@
               <osc:Connection>UdpClient</osc:Connection>
               <osc:Address>/block</osc:Address>
             </Expression>
+            <Expression xsi:type="osc:ReceiveMessage">
+              <osc:Address>/commands</osc:Address>
+              <osc:TypeTag>i</osc:TypeTag>
+              <osc:Connection>UdpServer</osc:Connection>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="osc:CreateUdpClient">
+                <osc:Name>UdpClient</osc:Name>
+                <osc:Port>0</osc:Port>
+                <osc:RemoteHostName>localhost</osc:RemoteHostName>
+                <osc:RemotePort>2</osc:RemotePort>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>BeginningMessage</Name>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>Trial</Name>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>ILD</Name>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>ABL</Name>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>IntendedFT</Name>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>IntendedITI</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:CombineLatest" />
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:WithLatestFrom" />
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>Item2</Selector>
+            </Expression>
+            <Expression xsi:type="osc:SendMessage">
+              <osc:Connection>UdpClient</osc:Connection>
+              <osc:Address>/beginning</osc:Address>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>PlotsMessage</Name>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>Outcome</Name>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>TimeToCNP</Name>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>TimedRT</Name>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>TimedMT</Name>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>BlockPerformance</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:CombineLatest" />
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:WithLatestFrom" />
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>Item2</Selector>
+            </Expression>
+            <Expression xsi:type="osc:SendMessage">
+              <osc:Connection>UdpClient</osc:Connection>
+              <osc:Address>/plots</osc:Address>
+            </Expression>
           </Nodes>
           <Edges>
-            <Edge From="4" To="11" Label="Source1" />
-            <Edge From="5" To="10" Label="Source1" />
-            <Edge From="6" To="10" Label="Source2" />
-            <Edge From="7" To="10" Label="Source3" />
-            <Edge From="8" To="10" Label="Source4" />
-            <Edge From="9" To="10" Label="Source5" />
-            <Edge From="10" To="11" Label="Source2" />
-            <Edge From="11" To="12" Label="Source1" />
-            <Edge From="12" To="13" Label="Source1" />
-            <Edge From="14" To="21" Label="Source1" />
-            <Edge From="15" To="20" Label="Source1" />
-            <Edge From="16" To="20" Label="Source2" />
-            <Edge From="17" To="20" Label="Source3" />
-            <Edge From="18" To="20" Label="Source4" />
-            <Edge From="19" To="20" Label="Source5" />
-            <Edge From="20" To="21" Label="Source2" />
+            <Edge From="2" To="4" Label="Source1" />
+            <Edge From="3" To="4" Label="Source2" />
+            <Edge From="4" To="5" Label="Source1" />
+            <Edge From="5" To="6" Label="Source1" />
+            <Edge From="5" To="9" Label="Source1" />
+            <Edge From="6" To="7" Label="Source1" />
+            <Edge From="7" To="8" Label="Source1" />
+            <Edge From="8" To="9" Label="Source2" />
+            <Edge From="9" To="10" Label="Source1" />
+            <Edge From="13" To="20" Label="Source1" />
+            <Edge From="14" To="19" Label="Source1" />
+            <Edge From="15" To="19" Label="Source2" />
+            <Edge From="16" To="19" Label="Source3" />
+            <Edge From="17" To="19" Label="Source4" />
+            <Edge From="18" To="19" Label="Source5" />
+            <Edge From="19" To="20" Label="Source2" />
+            <Edge From="20" To="21" Label="Source1" />
             <Edge From="21" To="22" Label="Source1" />
-            <Edge From="22" To="23" Label="Source1" />
-            <Edge From="24" To="26" Label="Source1" />
-            <Edge From="25" To="26" Label="Source2" />
-            <Edge From="26" To="27" Label="Source1" />
-            <Edge From="27" To="28" Label="Source1" />
-            <Edge From="27" To="31" Label="Source1" />
-            <Edge From="28" To="29" Label="Source1" />
-            <Edge From="29" To="30" Label="Source1" />
-            <Edge From="30" To="31" Label="Source2" />
+            <Edge From="23" To="30" Label="Source1" />
+            <Edge From="24" To="29" Label="Source1" />
+            <Edge From="25" To="29" Label="Source2" />
+            <Edge From="26" To="29" Label="Source3" />
+            <Edge From="27" To="29" Label="Source4" />
+            <Edge From="28" To="29" Label="Source5" />
+            <Edge From="29" To="30" Label="Source2" />
+            <Edge From="30" To="31" Label="Source1" />
             <Edge From="31" To="32" Label="Source1" />
           </Edges>
         </Workflow>
@@ -2897,6 +2941,12 @@
                   <Edge From="27" To="28" Label="Source1" />
                 </Edges>
               </Workflow>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>ITILight</Name>
+            </Expression>
+            <Expression xsi:type="scr:ExpressionCondition">
+              <scr:Expression>it != 0</scr:Expression>
             </Expression>
             <Expression xsi:type="beh:CreateMessage">
               <harp:MessageType>Write</harp:MessageType>
@@ -4175,37 +4225,39 @@
           </Nodes>
           <Edges>
             <Edge From="1" To="2" Label="Source1" />
+            <Edge From="2" To="3" Label="Source1" />
             <Edge From="3" To="4" Label="Source1" />
-            <Edge From="4" To="5" Label="Source1" />
             <Edge From="5" To="6" Label="Source1" />
-            <Edge From="6" To="10" Label="Source1" />
+            <Edge From="6" To="7" Label="Source1" />
             <Edge From="7" To="8" Label="Source1" />
-            <Edge From="8" To="9" Label="Source1" />
-            <Edge From="9" To="10" Label="Source2" />
+            <Edge From="8" To="12" Label="Source1" />
+            <Edge From="9" To="10" Label="Source1" />
             <Edge From="10" To="11" Label="Source1" />
-            <Edge From="11" To="12" Label="Source1" />
+            <Edge From="11" To="12" Label="Source2" />
             <Edge From="12" To="13" Label="Source1" />
             <Edge From="13" To="14" Label="Source1" />
-            <Edge From="14" To="18" Label="Source1" />
+            <Edge From="14" To="15" Label="Source1" />
             <Edge From="15" To="16" Label="Source1" />
-            <Edge From="16" To="17" Label="Source1" />
-            <Edge From="17" To="18" Label="Source2" />
+            <Edge From="16" To="20" Label="Source1" />
+            <Edge From="17" To="18" Label="Source1" />
             <Edge From="18" To="19" Label="Source1" />
-            <Edge From="18" To="28" Label="Source1" />
-            <Edge From="19" To="20" Label="Source1" />
-            <Edge From="19" To="23" Label="Source1" />
+            <Edge From="19" To="20" Label="Source2" />
             <Edge From="20" To="21" Label="Source1" />
+            <Edge From="20" To="30" Label="Source1" />
             <Edge From="21" To="22" Label="Source1" />
-            <Edge From="22" To="24" Label="Source1" />
-            <Edge From="23" To="24" Label="Source2" />
-            <Edge From="24" To="25" Label="Source1" />
-            <Edge From="25" To="26" Label="Source1" />
+            <Edge From="21" To="25" Label="Source1" />
+            <Edge From="22" To="23" Label="Source1" />
+            <Edge From="23" To="24" Label="Source1" />
+            <Edge From="24" To="26" Label="Source1" />
+            <Edge From="25" To="26" Label="Source2" />
             <Edge From="26" To="27" Label="Source1" />
-            <Edge From="27" To="29" Label="Source1" />
-            <Edge From="28" To="29" Label="Source2" />
-            <Edge From="29" To="30" Label="Source1" />
-            <Edge From="30" To="31" Label="Source1" />
+            <Edge From="27" To="28" Label="Source1" />
+            <Edge From="28" To="29" Label="Source1" />
+            <Edge From="29" To="31" Label="Source1" />
+            <Edge From="30" To="31" Label="Source2" />
             <Edge From="31" To="32" Label="Source1" />
+            <Edge From="32" To="33" Label="Source1" />
+            <Edge From="33" To="34" Label="Source1" />
           </Edges>
         </Workflow>
       </Expression>
@@ -4234,6 +4286,12 @@
             </Expression>
             <Expression xsi:type="MulticastSubject">
               <Name>BehaviorCommands</Name>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>PokeLight</Name>
+            </Expression>
+            <Expression xsi:type="scr:ExpressionCondition">
+              <scr:Expression>it != 0</scr:Expression>
             </Expression>
             <Expression xsi:type="beh:CreateMessage">
               <harp:MessageType>Write</harp:MessageType>
@@ -4327,28 +4385,30 @@
             <Edge From="0" To="1" Label="Source1" />
             <Edge From="2" To="3" Label="Source1" />
             <Edge From="4" To="5" Label="Source1" />
+            <Edge From="5" To="6" Label="Source1" />
             <Edge From="6" To="7" Label="Source1" />
-            <Edge From="7" To="8" Label="Source1" />
-            <Edge From="8" To="13" Label="Source1" />
-            <Edge From="8" To="17" Label="Source2" />
+            <Edge From="8" To="9" Label="Source1" />
             <Edge From="9" To="10" Label="Source1" />
-            <Edge From="10" To="11" Label="Source1" />
+            <Edge From="10" To="15" Label="Source1" />
+            <Edge From="10" To="19" Label="Source2" />
             <Edge From="11" To="12" Label="Source1" />
-            <Edge From="12" To="13" Label="Source2" />
+            <Edge From="12" To="13" Label="Source1" />
             <Edge From="13" To="14" Label="Source1" />
-            <Edge From="14" To="15" Label="Source1" />
+            <Edge From="14" To="15" Label="Source2" />
+            <Edge From="15" To="16" Label="Source1" />
             <Edge From="16" To="17" Label="Source1" />
-            <Edge From="17" To="18" Label="Source1" />
-            <Edge From="18" To="25" Label="Source1" />
+            <Edge From="18" To="19" Label="Source1" />
             <Edge From="19" To="20" Label="Source1" />
-            <Edge From="20" To="21" Label="Source1" />
+            <Edge From="20" To="27" Label="Source1" />
             <Edge From="21" To="22" Label="Source1" />
             <Edge From="22" To="23" Label="Source1" />
             <Edge From="23" To="24" Label="Source1" />
-            <Edge From="24" To="25" Label="Source2" />
+            <Edge From="24" To="25" Label="Source1" />
             <Edge From="25" To="26" Label="Source1" />
-            <Edge From="26" To="27" Label="Source1" />
+            <Edge From="26" To="27" Label="Source2" />
             <Edge From="27" To="28" Label="Source1" />
+            <Edge From="28" To="29" Label="Source1" />
+            <Edge From="29" To="30" Label="Source1" />
           </Edges>
         </Workflow>
       </Expression>
@@ -4385,6 +4445,25 @@
                 <rx:DueTime>PT0S</rx:DueTime>
                 <rx:Period>PT1S</rx:Period>
               </Combinator>
+            </Expression>
+            <Expression xsi:type="rx:Condition">
+              <Workflow>
+                <Nodes>
+                  <Expression xsi:type="SubscribeSubject">
+                    <Name>FixLight</Name>
+                  </Expression>
+                  <Expression xsi:type="NotEqual">
+                    <Operand xsi:type="IntProperty">
+                      <Value>0</Value>
+                    </Operand>
+                  </Expression>
+                  <Expression xsi:type="WorkflowOutput" />
+                </Nodes>
+                <Edges>
+                  <Edge From="0" To="1" Label="Source1" />
+                  <Edge From="1" To="2" Label="Source1" />
+                </Edges>
+              </Workflow>
             </Expression>
             <Expression xsi:type="beh:CreateMessage">
               <harp:MessageType>Write</harp:MessageType>
@@ -4590,52 +4669,53 @@
             <Edge From="4" To="5" Label="Source1" />
             <Edge From="5" To="6" Label="Source1" />
             <Edge From="6" To="7" Label="Source1" />
-            <Edge From="7" To="14" Label="Source1" />
-            <Edge From="8" To="10" Label="Source1" />
-            <Edge From="9" To="10" Label="Source2" />
-            <Edge From="10" To="11" Label="Source1" />
+            <Edge From="7" To="8" Label="Source1" />
+            <Edge From="8" To="15" Label="Source1" />
+            <Edge From="9" To="11" Label="Source1" />
+            <Edge From="10" To="11" Label="Source2" />
             <Edge From="11" To="12" Label="Source1" />
             <Edge From="12" To="13" Label="Source1" />
-            <Edge From="13" To="14" Label="Source2" />
-            <Edge From="14" To="15" Label="Source1" />
+            <Edge From="13" To="14" Label="Source1" />
+            <Edge From="14" To="15" Label="Source2" />
             <Edge From="15" To="16" Label="Source1" />
-            <Edge From="17" To="28" Label="Source1" />
-            <Edge From="18" To="19" Label="Source1" />
-            <Edge From="18" To="21" Label="Source1" />
+            <Edge From="16" To="17" Label="Source1" />
+            <Edge From="18" To="29" Label="Source1" />
             <Edge From="19" To="20" Label="Source1" />
-            <Edge From="20" To="23" Label="Source1" />
-            <Edge From="20" To="32" Label="Source2" />
-            <Edge From="21" To="22" Label="Source1" />
-            <Edge From="22" To="23" Label="Source2" />
-            <Edge From="23" To="24" Label="Source1" />
+            <Edge From="19" To="22" Label="Source1" />
+            <Edge From="20" To="21" Label="Source1" />
+            <Edge From="21" To="24" Label="Source1" />
+            <Edge From="21" To="33" Label="Source2" />
+            <Edge From="22" To="23" Label="Source1" />
+            <Edge From="23" To="24" Label="Source2" />
             <Edge From="24" To="25" Label="Source1" />
             <Edge From="25" To="26" Label="Source1" />
-            <Edge From="26" To="28" Label="Source2" />
-            <Edge From="27" To="28" Label="Source3" />
-            <Edge From="28" To="29" Label="Source1" />
+            <Edge From="26" To="27" Label="Source1" />
+            <Edge From="27" To="29" Label="Source2" />
+            <Edge From="28" To="29" Label="Source3" />
             <Edge From="29" To="30" Label="Source1" />
-            <Edge From="31" To="32" Label="Source1" />
+            <Edge From="30" To="31" Label="Source1" />
             <Edge From="32" To="33" Label="Source1" />
-            <Edge From="33" To="49" Label="Source1" />
-            <Edge From="34" To="41" Label="Source1" />
-            <Edge From="35" To="36" Label="Source1" />
-            <Edge From="35" To="38" Label="Source1" />
+            <Edge From="33" To="34" Label="Source1" />
+            <Edge From="34" To="50" Label="Source1" />
+            <Edge From="35" To="42" Label="Source1" />
             <Edge From="36" To="37" Label="Source1" />
-            <Edge From="37" To="40" Label="Source1" />
-            <Edge From="38" To="39" Label="Source1" />
-            <Edge From="39" To="40" Label="Source2" />
+            <Edge From="36" To="39" Label="Source1" />
+            <Edge From="37" To="38" Label="Source1" />
+            <Edge From="38" To="41" Label="Source1" />
+            <Edge From="39" To="40" Label="Source1" />
             <Edge From="40" To="41" Label="Source2" />
-            <Edge From="41" To="42" Label="Source1" />
+            <Edge From="41" To="42" Label="Source2" />
             <Edge From="42" To="43" Label="Source1" />
             <Edge From="43" To="44" Label="Source1" />
             <Edge From="44" To="45" Label="Source1" />
             <Edge From="45" To="46" Label="Source1" />
             <Edge From="46" To="47" Label="Source1" />
             <Edge From="47" To="48" Label="Source1" />
-            <Edge From="48" To="49" Label="Source2" />
-            <Edge From="49" To="50" Label="Source1" />
+            <Edge From="48" To="49" Label="Source1" />
+            <Edge From="49" To="50" Label="Source2" />
             <Edge From="50" To="51" Label="Source1" />
             <Edge From="51" To="52" Label="Source1" />
+            <Edge From="52" To="53" Label="Source1" />
           </Edges>
         </Workflow>
       </Expression>
@@ -6032,6 +6112,25 @@
                       <rx:Period>PT1S</rx:Period>
                     </Combinator>
                   </Expression>
+                  <Expression xsi:type="rx:Condition">
+                    <Workflow>
+                      <Nodes>
+                        <Expression xsi:type="SubscribeSubject">
+                          <Name>AbortLight</Name>
+                        </Expression>
+                        <Expression xsi:type="NotEqual">
+                          <Operand xsi:type="IntProperty">
+                            <Value>0</Value>
+                          </Operand>
+                        </Expression>
+                        <Expression xsi:type="WorkflowOutput" />
+                      </Nodes>
+                      <Edges>
+                        <Edge From="0" To="1" Label="Source1" />
+                        <Edge From="1" To="2" Label="Source1" />
+                      </Edges>
+                    </Workflow>
+                  </Expression>
                   <Expression xsi:type="beh:CreateMessage">
                     <harp:MessageType>Write</harp:MessageType>
                     <harp:Payload xsi:type="beh:CreateOutputSetPayload">
@@ -6086,15 +6185,16 @@
                   <Edge From="8" To="9" Label="Source1" />
                   <Edge From="9" To="10" Label="Source1" />
                   <Edge From="10" To="11" Label="Source1" />
-                  <Edge From="11" To="18" Label="Source1" />
-                  <Edge From="12" To="14" Label="Source1" />
-                  <Edge From="13" To="14" Label="Source2" />
-                  <Edge From="14" To="15" Label="Source1" />
+                  <Edge From="11" To="12" Label="Source1" />
+                  <Edge From="12" To="19" Label="Source1" />
+                  <Edge From="13" To="15" Label="Source1" />
+                  <Edge From="14" To="15" Label="Source2" />
                   <Edge From="15" To="16" Label="Source1" />
                   <Edge From="16" To="17" Label="Source1" />
-                  <Edge From="17" To="18" Label="Source2" />
-                  <Edge From="18" To="19" Label="Source1" />
+                  <Edge From="17" To="18" Label="Source1" />
+                  <Edge From="18" To="19" Label="Source2" />
                   <Edge From="19" To="20" Label="Source1" />
+                  <Edge From="20" To="21" Label="Source1" />
                 </Edges>
               </Workflow>
             </Expression>
