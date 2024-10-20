@@ -88,7 +88,7 @@ class View():
 
         # Display buttons
         button_ax = np.zeros(6, dtype=object)
-        buttons = np.zeros(6, dtype=object)
+        self.buttons = np.zeros(6, dtype=object)
         button_labels = ["Next trial left", " Next trial right", "Reward left", "Reward right", "Repeat errors", "Stop session"]
         button_ypos = [0.25, 0.25, 0.2, 0.2, 0.15, 0.15]
         for i in range(6):
@@ -97,9 +97,10 @@ class View():
             else:
                 x = 0.69
             button_ax[i] = self.fig.add_axes([x, button_ypos[i], 0.1, 0.03])
-            buttons[i] = Button(button_ax[i], button_labels[i], hovercolor='0.975')
-            buttons[i].label.set_fontsize(9)
-            buttons[i].on_clicked(callbacks[i])
+            self.buttons[i] = Button(button_ax[i], button_labels[i], hovercolor='0.975')
+            self.buttons[i].label.set_fontsize(9)
+            self.buttons[i].on_clicked(callbacks[i])
+        # buttons[0].on_clicked(self.hell)
 
         self.text = plt.text(self.ax[0, 0].get_position().x0 + 0.005, self.ax[0, 0].get_position().y0 + 0.01, "", transform=self.fig.transFigure, fontsize = 8, linespacing = 1.5)
 
