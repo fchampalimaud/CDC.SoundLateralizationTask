@@ -1,0 +1,6 @@
+{
+    "setupFile": ".src/config/setup.csv",
+    "trainingFile": "./src/config/training.csv",
+    "animalFile": "./src/config/animal.json",
+    "outputDir": "./src/output"
+}

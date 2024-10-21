@@ -8,12 +8,12 @@ using System.Reactive.Linq;
 using Bonsai;
 using CsvHelper;
 
-namespace Extensions
+namespace Parameters
 {
     /// <summary>
-    /// Class <c>TrainingConfiguration</c> models the input parameters of the Sound Lateralization Task present in a row of the <c>training_settings.csv</c> file.
+    /// Class <c>TrainingConfig</c> models the input parameters of the Sound Lateralization Task present in a row of the <c>training_settings.csv</c> file.
     /// </summary>
-    public class TrainingConfiguration 
+    public class TrainingConfig
     {
         /// <value>Property <c>Level</c> is the number of the level.</value>
         public int Level { get; set; }
@@ -76,14 +76,17 @@ namespace Extensions
         /// <value>Property <c>FixLight</c></value>
         public int FixLight { get; set; }
     }
+}
 
+namespace Extensions
+{
     /// <summary>
-    /// Class <c>TrainingCSV</c> contains the logic of the Bonsai node with the same name.
+    /// Class <c>ReadTrainingCSV</c> contains the logic of the Bonsai node with the same name.
     /// </summary>
     [Description("Generates an instance of the TrainingConfiguration class based on the row number of the CSV file containing the task's training matrix.")]
     [Combinator]
     [WorkflowElementCategory(ElementCategory.Source)]
-    public class TrainingCSV
+    public class ReadTrainingCSV
     {
         [Description("The name of the CSV file.")]
         [Editor(DesignTypes.OpenFileNameEditor, DesignTypes.UITypeEditor)]
@@ -98,12 +101,12 @@ namespace Extensions
         /// <returns>
         /// A <c>TrainingConfiguration</c> instance corresponding to one of the rows of the CSV file.
         /// </returns>
-        Tuple<TrainingConfiguration, int> CSVtoArray()
+        Tuple<Parameters.TrainingConfig, int> CSVtoArray()
         {
             using (var reader = new StreamReader(FileName))
             using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
             {
-                List<TrainingConfiguration> levels = csv.GetRecords<TrainingConfiguration>().ToList();
+                List<Parameters.TrainingConfig> levels = csv.GetRecords<Parameters.TrainingConfig>().ToList();
 
                 if (RowNumber >= levels.Count) {
                     RowNumber = levels.Count - 1;
@@ -111,7 +114,7 @@ namespace Extensions
                     RowNumber = 0;
                 }
 
-                return new Tuple<TrainingConfiguration, int>(levels[RowNumber], levels.Count);
+                return new Tuple<Parameters.TrainingConfig, int>(levels[RowNumber], levels.Count);
             }
         }
 
@@ -121,7 +124,7 @@ namespace Extensions
         /// <returns>
         /// An observable sequence which sends a single event containing a <c>TrainingConfiguration</c> instance.
         /// </returns>
-        public IObservable<Tuple<TrainingConfiguration, int>> Process()
+        public IObservable<Tuple<Parameters.TrainingConfig, int>> Process()
         {
             return Observable.Defer(() => Observable.Return(CSVtoArray()));
         }
@@ -133,7 +136,7 @@ namespace Extensions
         /// <returns>
         /// An observable sequence which sends a single event containing a <c>TrainingConfiguration</c> instance.
         /// </returns>
-        public IObservable<Tuple<TrainingConfiguration, int>> Process<TSource>(IObservable<TSource> source)
+        public IObservable<Tuple<Parameters.TrainingConfig, int>> Process<TSource>(IObservable<TSource> source)
         {
             return source.Select(input => CSVtoArray());
         }

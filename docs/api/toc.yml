@@ -3,22 +3,25 @@ items:
 - uid: Extensions
   name: Extensions
   items:
-  - uid: Extensions.AnimalSpecificConfiguration
-    name: AnimalSpecificConfiguration
-  - uid: Extensions.AnimalSpecificJSON
-    name: AnimalSpecificJSON
   - uid: Extensions.GenerateILDArray
     name: GenerateILDArray
+  - uid: Extensions.ReadAnimalJSON
+    name: ReadAnimalJSON
+  - uid: Extensions.ReadSetupJSON
+    name: ReadSetupJSON
   - uid: Extensions.SelectMasterFolder
     name: SelectMasterFolder
-  - uid: Extensions.SetupSpecificConfiguration
-    name: SetupSpecificConfiguration
-  - uid: Extensions.SetupSpecificJSON
-    name: SetupSpecificJSON
   - uid: Extensions.ShuffleArray
     name: ShuffleArray
   - uid: Extensions.TrainingCSV
     name: TrainingCSV
-  - uid: Extensions.TrainingConfiguration
-    name: TrainingConfiguration
+- uid: Parameters
+  name: Parameters
+  items:
+  - uid: Parameters.AnimalConfig
+    name: AnimalConfig
+  - uid: Parameters.SetupConfig
+    name: SetupConfig
+  - uid: Parameters.TrainingConfig
+    name: TrainingConfig
 memberLayout: SamePage

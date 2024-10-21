@@ -1,0 +1,9 @@
+Setup,LowtoHighL,LowtoHighCNP,LowToHighR,RewardOpenL,RewardOpenR,RightSlope,RightIntercept,LeftSlope,LeftIntercept,PokeLEDPeriod,PokeLEDDutyCycle,BoxLEDDutyCycle,
+0,true,true,true,79,99,20.023,69.034,20.005,70.173,1000,0.5,1000,0.5
+1,false,false,false,79,99,20.023,69.034,20.005,70.173,1000,0.5,1000,0.5
+2,false,false,false,79,99,20.023,69.034,20.005,70.173,1000,0.5,1000,0.5
+3,false,false,false,79,99,20.023,69.034,20.005,70.173,1000,0.5,1000,0.5
+4,false,false,false,79,99,20.023,69.034,20.005,70.173,1000,0.5,1000,0.5
+5,false,false,false,79,99,20.023,69.034,20.005,70.173,1000,0.5,1000,0.5
+6,false,false,false,79,99,20.023,69.034,20.005,70.173,1000,0.5,1000,0.5
+7,false,false,false,79,99,20.023,69.034,20.005,70.173,1000,0.5,1000,0.5

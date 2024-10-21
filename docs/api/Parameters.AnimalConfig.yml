@@ -1,0 +1,1211 @@
+### YamlMime:ManagedReference
+items:
+- uid: Parameters.AnimalConfig
+  commentId: T:Parameters.AnimalConfig
+  id: AnimalConfig
+  parent: Parameters
+  children:
+  - Parameters.AnimalConfig.ABLList
+  - Parameters.AnimalConfig.Animal
+  - Parameters.AnimalConfig.Bias
+  - Parameters.AnimalConfig.Box
+  - Parameters.AnimalConfig.CycleILD
+  - Parameters.AnimalConfig.ExpFTMean
+  - Parameters.AnimalConfig.FTDelta
+  - Parameters.AnimalConfig.FTTarget
+  - Parameters.AnimalConfig.LNPDelta
+  - Parameters.AnimalConfig.LNPTarget
+  - Parameters.AnimalConfig.MaxRT
+  - Parameters.AnimalConfig.MaxSamplingTime
+  - Parameters.AnimalConfig.MinFT
+  - Parameters.AnimalConfig.MinLNP
+  - Parameters.AnimalConfig.MinMT
+  - Parameters.AnimalConfig.MinRT
+  - Parameters.AnimalConfig.RTDelta
+  - Parameters.AnimalConfig.RTTarget
+  - Parameters.AnimalConfig.Session
+  - Parameters.AnimalConfig.SessionDuration
+  - Parameters.AnimalConfig.SessionType
+  - Parameters.AnimalConfig.StartingBlockNumber
+  - Parameters.AnimalConfig.StartingTrialNumber
+  langs:
+  - csharp
+  - vb
+  name: AnimalConfig
+  nameWithType: AnimalConfig
+  fullName: Parameters.AnimalConfig
+  type: Class
+  source:
+    remote:
+      path: src/Extensions/AnimalConfig.cs
+      branch: gui
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: AnimalConfig
+    path: ../src/Extensions/AnimalConfig.cs
+    startLine: 14
+  assemblies:
+  - Extensions
+  namespace: Parameters
+  summary: Class <code>AnimalConfig</code> models the input parameters of the Sound Lateralization Task present in the <code>animal.json</code> file.
+  example: []
+  syntax:
+    content: public class AnimalConfig
+    content.vb: Public Class AnimalConfig
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Parameters.AnimalConfig.Animal
+  commentId: P:Parameters.AnimalConfig.Animal
+  id: Animal
+  parent: Parameters.AnimalConfig
+  langs:
+  - csharp
+  - vb
+  name: Animal
+  nameWithType: AnimalConfig.Animal
+  fullName: Parameters.AnimalConfig.Animal
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/AnimalConfig.cs
+      branch: gui
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: Animal
+    path: ../src/Extensions/AnimalConfig.cs
+    startLine: 17
+  assemblies:
+  - Extensions
+  namespace: Parameters
+  example: []
+  syntax:
+    content: public int Animal { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+      description: Property <code>Animal</code> is the ID number of the animal.
+    content.vb: Public Property Animal As Integer
+  overload: Parameters.AnimalConfig.Animal*
+- uid: Parameters.AnimalConfig.Box
+  commentId: P:Parameters.AnimalConfig.Box
+  id: Box
+  parent: Parameters.AnimalConfig
+  langs:
+  - csharp
+  - vb
+  name: Box
+  nameWithType: AnimalConfig.Box
+  fullName: Parameters.AnimalConfig.Box
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/AnimalConfig.cs
+      branch: gui
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: Box
+    path: ../src/Extensions/AnimalConfig.cs
+    startLine: 19
+  assemblies:
+  - Extensions
+  namespace: Parameters
+  example: []
+  syntax:
+    content: public int Box { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+      description: Property <code>Box</code> is the number of the box where the task was conducted.
+    content.vb: Public Property Box As Integer
+  overload: Parameters.AnimalConfig.Box*
+- uid: Parameters.AnimalConfig.Session
+  commentId: P:Parameters.AnimalConfig.Session
+  id: Session
+  parent: Parameters.AnimalConfig
+  langs:
+  - csharp
+  - vb
+  name: Session
+  nameWithType: AnimalConfig.Session
+  fullName: Parameters.AnimalConfig.Session
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/AnimalConfig.cs
+      branch: gui
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: Session
+    path: ../src/Extensions/AnimalConfig.cs
+    startLine: 21
+  assemblies:
+  - Extensions
+  namespace: Parameters
+  example: []
+  syntax:
+    content: public int Session { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+      description: Property <code>Session</code> is the number of the session.
+    content.vb: Public Property Session As Integer
+  overload: Parameters.AnimalConfig.Session*
+- uid: Parameters.AnimalConfig.SessionType
+  commentId: P:Parameters.AnimalConfig.SessionType
+  id: SessionType
+  parent: Parameters.AnimalConfig
+  langs:
+  - csharp
+  - vb
+  name: SessionType
+  nameWithType: AnimalConfig.SessionType
+  fullName: Parameters.AnimalConfig.SessionType
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/AnimalConfig.cs
+      branch: gui
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: SessionType
+    path: ../src/Extensions/AnimalConfig.cs
+    startLine: 23
+  assemblies:
+  - Extensions
+  namespace: Parameters
+  example: []
+  syntax:
+    content: public int SessionType { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+      description: Property <code>SessionType</code>
+    content.vb: Public Property SessionType As Integer
+  overload: Parameters.AnimalConfig.SessionType*
+- uid: Parameters.AnimalConfig.SessionDuration
+  commentId: P:Parameters.AnimalConfig.SessionDuration
+  id: SessionDuration
+  parent: Parameters.AnimalConfig
+  langs:
+  - csharp
+  - vb
+  name: SessionDuration
+  nameWithType: AnimalConfig.SessionDuration
+  fullName: Parameters.AnimalConfig.SessionDuration
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/AnimalConfig.cs
+      branch: gui
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: SessionDuration
+    path: ../src/Extensions/AnimalConfig.cs
+    startLine: 25
+  assemblies:
+  - Extensions
+  namespace: Parameters
+  example: []
+  syntax:
+    content: public TimeSpan SessionDuration { get; set; }
+    parameters: []
+    return:
+      type: System.TimeSpan
+      description: Property <code>SessionDuration</code> is the duration of the task ("hh:mm:ss").
+    content.vb: Public Property SessionDuration As TimeSpan
+  overload: Parameters.AnimalConfig.SessionDuration*
+- uid: Parameters.AnimalConfig.StartingTrialNumber
+  commentId: P:Parameters.AnimalConfig.StartingTrialNumber
+  id: StartingTrialNumber
+  parent: Parameters.AnimalConfig
+  langs:
+  - csharp
+  - vb
+  name: StartingTrialNumber
+  nameWithType: AnimalConfig.StartingTrialNumber
+  fullName: Parameters.AnimalConfig.StartingTrialNumber
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/AnimalConfig.cs
+      branch: gui
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: StartingTrialNumber
+    path: ../src/Extensions/AnimalConfig.cs
+    startLine: 27
+  assemblies:
+  - Extensions
+  namespace: Parameters
+  example: []
+  syntax:
+    content: public int StartingTrialNumber { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+      description: Property <code>StartingTrialNumber</code> is the number of the first trial of the session.
+    content.vb: Public Property StartingTrialNumber As Integer
+  overload: Parameters.AnimalConfig.StartingTrialNumber*
+- uid: Parameters.AnimalConfig.StartingBlockNumber
+  commentId: P:Parameters.AnimalConfig.StartingBlockNumber
+  id: StartingBlockNumber
+  parent: Parameters.AnimalConfig
+  langs:
+  - csharp
+  - vb
+  name: StartingBlockNumber
+  nameWithType: AnimalConfig.StartingBlockNumber
+  fullName: Parameters.AnimalConfig.StartingBlockNumber
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/AnimalConfig.cs
+      branch: gui
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: StartingBlockNumber
+    path: ../src/Extensions/AnimalConfig.cs
+    startLine: 29
+  assemblies:
+  - Extensions
+  namespace: Parameters
+  example: []
+  syntax:
+    content: public int StartingBlockNumber { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+      description: Property <code>StartingBlockNumber</code> is the number of the first block of the session.
+    content.vb: Public Property StartingBlockNumber As Integer
+  overload: Parameters.AnimalConfig.StartingBlockNumber*
+- uid: Parameters.AnimalConfig.ABLList
+  commentId: P:Parameters.AnimalConfig.ABLList
+  id: ABLList
+  parent: Parameters.AnimalConfig
+  langs:
+  - csharp
+  - vb
+  name: ABLList
+  nameWithType: AnimalConfig.ABLList
+  fullName: Parameters.AnimalConfig.ABLList
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/AnimalConfig.cs
+      branch: gui
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: ABLList
+    path: ../src/Extensions/AnimalConfig.cs
+    startLine: 31
+  assemblies:
+  - Extensions
+  namespace: Parameters
+  example: []
+  syntax:
+    content: public double[] ABLList { get; set; }
+    parameters: []
+    return:
+      type: System.Double[]
+      description: Property <code>StartingBlockNumber</code> is an array containing the possible ABLs to present when <code>DifferentABLs</code> is 1.
+    content.vb: Public Property ABLList As Double()
+  overload: Parameters.AnimalConfig.ABLList*
+- uid: Parameters.AnimalConfig.CycleILD
+  commentId: P:Parameters.AnimalConfig.CycleILD
+  id: CycleILD
+  parent: Parameters.AnimalConfig
+  langs:
+  - csharp
+  - vb
+  name: CycleILD
+  nameWithType: AnimalConfig.CycleILD
+  fullName: Parameters.AnimalConfig.CycleILD
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/AnimalConfig.cs
+      branch: gui
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: CycleILD
+    path: ../src/Extensions/AnimalConfig.cs
+    startLine: 33
+  assemblies:
+  - Extensions
+  namespace: Parameters
+  example: []
+  syntax:
+    content: public int CycleILD { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+      description: Property <code>CycleILD</code>
+    content.vb: Public Property CycleILD As Integer
+  overload: Parameters.AnimalConfig.CycleILD*
+- uid: Parameters.AnimalConfig.Bias
+  commentId: P:Parameters.AnimalConfig.Bias
+  id: Bias
+  parent: Parameters.AnimalConfig
+  langs:
+  - csharp
+  - vb
+  name: Bias
+  nameWithType: AnimalConfig.Bias
+  fullName: Parameters.AnimalConfig.Bias
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/AnimalConfig.cs
+      branch: gui
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: Bias
+    path: ../src/Extensions/AnimalConfig.cs
+    startLine: 35
+  assemblies:
+  - Extensions
+  namespace: Parameters
+  example: []
+  syntax:
+    content: public double Bias { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+      description: Property <code>Bias</code>
+    content.vb: Public Property Bias As Double
+  overload: Parameters.AnimalConfig.Bias*
+- uid: Parameters.AnimalConfig.MinFT
+  commentId: P:Parameters.AnimalConfig.MinFT
+  id: MinFT
+  parent: Parameters.AnimalConfig
+  langs:
+  - csharp
+  - vb
+  name: MinFT
+  nameWithType: AnimalConfig.MinFT
+  fullName: Parameters.AnimalConfig.MinFT
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/AnimalConfig.cs
+      branch: gui
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: MinFT
+    path: ../src/Extensions/AnimalConfig.cs
+    startLine: 37
+  assemblies:
+  - Extensions
+  namespace: Parameters
+  example: []
+  syntax:
+    content: public double MinFT { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+      description: Property <code>MinFT</code> is the minimum fixation time (ms).
+    content.vb: Public Property MinFT As Double
+  overload: Parameters.AnimalConfig.MinFT*
+- uid: Parameters.AnimalConfig.FTDelta
+  commentId: P:Parameters.AnimalConfig.FTDelta
+  id: FTDelta
+  parent: Parameters.AnimalConfig
+  langs:
+  - csharp
+  - vb
+  name: FTDelta
+  nameWithType: AnimalConfig.FTDelta
+  fullName: Parameters.AnimalConfig.FTDelta
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/AnimalConfig.cs
+      branch: gui
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: FTDelta
+    path: ../src/Extensions/AnimalConfig.cs
+    startLine: 39
+  assemblies:
+  - Extensions
+  namespace: Parameters
+  example: []
+  syntax:
+    content: public double FTDelta { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+      description: Property <code>FTDelta</code> is the increment to make to the constant part of the fixation time every non-abort trial (ms).
+    content.vb: Public Property FTDelta As Double
+  overload: Parameters.AnimalConfig.FTDelta*
+- uid: Parameters.AnimalConfig.FTTarget
+  commentId: P:Parameters.AnimalConfig.FTTarget
+  id: FTTarget
+  parent: Parameters.AnimalConfig
+  langs:
+  - csharp
+  - vb
+  name: FTTarget
+  nameWithType: AnimalConfig.FTTarget
+  fullName: Parameters.AnimalConfig.FTTarget
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/AnimalConfig.cs
+      branch: gui
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: FTTarget
+    path: ../src/Extensions/AnimalConfig.cs
+    startLine: 41
+  assemblies:
+  - Extensions
+  namespace: Parameters
+  example: []
+  syntax:
+    content: public double FTTarget { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+      description: Property <code>FTTarget</code> is the target value for the constant part of the fixation time (ms).
+    content.vb: Public Property FTTarget As Double
+  overload: Parameters.AnimalConfig.FTTarget*
+- uid: Parameters.AnimalConfig.ExpFTMean
+  commentId: P:Parameters.AnimalConfig.ExpFTMean
+  id: ExpFTMean
+  parent: Parameters.AnimalConfig
+  langs:
+  - csharp
+  - vb
+  name: ExpFTMean
+  nameWithType: AnimalConfig.ExpFTMean
+  fullName: Parameters.AnimalConfig.ExpFTMean
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/AnimalConfig.cs
+      branch: gui
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: ExpFTMean
+    path: ../src/Extensions/AnimalConfig.cs
+    startLine: 43
+  assemblies:
+  - Extensions
+  namespace: Parameters
+  example: []
+  syntax:
+    content: public double ExpFTMean { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+      description: Property <code>ExpFTMean</code> is the mean value of the random part of the fixation time (ms).
+    content.vb: Public Property ExpFTMean As Double
+  overload: Parameters.AnimalConfig.ExpFTMean*
+- uid: Parameters.AnimalConfig.MinRT
+  commentId: P:Parameters.AnimalConfig.MinRT
+  id: MinRT
+  parent: Parameters.AnimalConfig
+  langs:
+  - csharp
+  - vb
+  name: MinRT
+  nameWithType: AnimalConfig.MinRT
+  fullName: Parameters.AnimalConfig.MinRT
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/AnimalConfig.cs
+      branch: gui
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: MinRT
+    path: ../src/Extensions/AnimalConfig.cs
+    startLine: 45
+  assemblies:
+  - Extensions
+  namespace: Parameters
+  example: []
+  syntax:
+    content: public double MinRT { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+      description: Property <code>MinRT</code> is the minimum amount of time in CNP to wait after the sound presentation starts (s).
+    content.vb: Public Property MinRT As Double
+  overload: Parameters.AnimalConfig.MinRT*
+- uid: Parameters.AnimalConfig.RTDelta
+  commentId: P:Parameters.AnimalConfig.RTDelta
+  id: RTDelta
+  parent: Parameters.AnimalConfig
+  langs:
+  - csharp
+  - vb
+  name: RTDelta
+  nameWithType: AnimalConfig.RTDelta
+  fullName: Parameters.AnimalConfig.RTDelta
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/AnimalConfig.cs
+      branch: gui
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: RTDelta
+    path: ../src/Extensions/AnimalConfig.cs
+    startLine: 47
+  assemblies:
+  - Extensions
+  namespace: Parameters
+  example: []
+  syntax:
+    content: public double RTDelta { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+      description: Property <code>RTDelta</code> is the increment to make to RT every non-abort trial (s).
+    content.vb: Public Property RTDelta As Double
+  overload: Parameters.AnimalConfig.RTDelta*
+- uid: Parameters.AnimalConfig.RTTarget
+  commentId: P:Parameters.AnimalConfig.RTTarget
+  id: RTTarget
+  parent: Parameters.AnimalConfig
+  langs:
+  - csharp
+  - vb
+  name: RTTarget
+  nameWithType: AnimalConfig.RTTarget
+  fullName: Parameters.AnimalConfig.RTTarget
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/AnimalConfig.cs
+      branch: gui
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: RTTarget
+    path: ../src/Extensions/AnimalConfig.cs
+    startLine: 49
+  assemblies:
+  - Extensions
+  namespace: Parameters
+  example: []
+  syntax:
+    content: public double RTTarget { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+      description: Property <code>RTDelta</code> is the target value for RT (s).
+    content.vb: Public Property RTTarget As Double
+  overload: Parameters.AnimalConfig.RTTarget*
+- uid: Parameters.AnimalConfig.MaxRT
+  commentId: P:Parameters.AnimalConfig.MaxRT
+  id: MaxRT
+  parent: Parameters.AnimalConfig
+  langs:
+  - csharp
+  - vb
+  name: MaxRT
+  nameWithType: AnimalConfig.MaxRT
+  fullName: Parameters.AnimalConfig.MaxRT
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/AnimalConfig.cs
+      branch: gui
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: MaxRT
+    path: ../src/Extensions/AnimalConfig.cs
+    startLine: 51
+  assemblies:
+  - Extensions
+  namespace: Parameters
+  example: []
+  syntax:
+    content: public double MaxRT { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+      description: Property <code>MaxRT</code> is the maximum amount of time in CNP to wait after sound presentation starts (s).
+    content.vb: Public Property MaxRT As Double
+  overload: Parameters.AnimalConfig.MaxRT*
+- uid: Parameters.AnimalConfig.MaxSamplingTime
+  commentId: P:Parameters.AnimalConfig.MaxSamplingTime
+  id: MaxSamplingTime
+  parent: Parameters.AnimalConfig
+  langs:
+  - csharp
+  - vb
+  name: MaxSamplingTime
+  nameWithType: AnimalConfig.MaxSamplingTime
+  fullName: Parameters.AnimalConfig.MaxSamplingTime
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/AnimalConfig.cs
+      branch: gui
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: MaxSamplingTime
+    path: ../src/Extensions/AnimalConfig.cs
+    startLine: 53
+  assemblies:
+  - Extensions
+  namespace: Parameters
+  example: []
+  syntax:
+    content: public double[] MaxSamplingTime { get; set; }
+    parameters: []
+    return:
+      type: System.Double[]
+      description: Property <code>MaxSamplingTime</code>
+    content.vb: Public Property MaxSamplingTime As Double()
+  overload: Parameters.AnimalConfig.MaxSamplingTime*
+- uid: Parameters.AnimalConfig.MinMT
+  commentId: P:Parameters.AnimalConfig.MinMT
+  id: MinMT
+  parent: Parameters.AnimalConfig
+  langs:
+  - csharp
+  - vb
+  name: MinMT
+  nameWithType: AnimalConfig.MinMT
+  fullName: Parameters.AnimalConfig.MinMT
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/AnimalConfig.cs
+      branch: gui
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: MinMT
+    path: ../src/Extensions/AnimalConfig.cs
+    startLine: 55
+  assemblies:
+  - Extensions
+  namespace: Parameters
+  example: []
+  syntax:
+    content: public double MinMT { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+      description: Property <code>MinMT</code> is the minimum time allowed to move to LNP after leaving CNP (s).
+    content.vb: Public Property MinMT As Double
+  overload: Parameters.AnimalConfig.MinMT*
+- uid: Parameters.AnimalConfig.MinLNP
+  commentId: P:Parameters.AnimalConfig.MinLNP
+  id: MinLNP
+  parent: Parameters.AnimalConfig
+  langs:
+  - csharp
+  - vb
+  name: MinLNP
+  nameWithType: AnimalConfig.MinLNP
+  fullName: Parameters.AnimalConfig.MinLNP
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/AnimalConfig.cs
+      branch: gui
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: MinLNP
+    path: ../src/Extensions/AnimalConfig.cs
+    startLine: 57
+  assemblies:
+  - Extensions
+  namespace: Parameters
+  example: []
+  syntax:
+    content: public double MinLNP { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+      description: Property <code>MinLNP</code> is the minimum poke duration in LNP (s).
+    content.vb: Public Property MinLNP As Double
+  overload: Parameters.AnimalConfig.MinLNP*
+- uid: Parameters.AnimalConfig.LNPDelta
+  commentId: P:Parameters.AnimalConfig.LNPDelta
+  id: LNPDelta
+  parent: Parameters.AnimalConfig
+  langs:
+  - csharp
+  - vb
+  name: LNPDelta
+  nameWithType: AnimalConfig.LNPDelta
+  fullName: Parameters.AnimalConfig.LNPDelta
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/AnimalConfig.cs
+      branch: gui
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: LNPDelta
+    path: ../src/Extensions/AnimalConfig.cs
+    startLine: 59
+  assemblies:
+  - Extensions
+  namespace: Parameters
+  example: []
+  syntax:
+    content: public double LNPDelta { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+      description: Property <code>LNPDelta</code> is the increment to make to LNP time every non-abort trial (s).
+    content.vb: Public Property LNPDelta As Double
+  overload: Parameters.AnimalConfig.LNPDelta*
+- uid: Parameters.AnimalConfig.LNPTarget
+  commentId: P:Parameters.AnimalConfig.LNPTarget
+  id: LNPTarget
+  parent: Parameters.AnimalConfig
+  langs:
+  - csharp
+  - vb
+  name: LNPTarget
+  nameWithType: AnimalConfig.LNPTarget
+  fullName: Parameters.AnimalConfig.LNPTarget
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/AnimalConfig.cs
+      branch: gui
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: LNPTarget
+    path: ../src/Extensions/AnimalConfig.cs
+    startLine: 61
+  assemblies:
+  - Extensions
+  namespace: Parameters
+  example: []
+  syntax:
+    content: public double LNPTarget { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+      description: Property <code>LNPTarget</code> is the target for LNP time (s).
+    content.vb: Public Property LNPTarget As Double
+  overload: Parameters.AnimalConfig.LNPTarget*
+references:
+- uid: Parameters
+  commentId: N:Parameters
+  href: Parameters.html
+  name: Parameters
+  nameWithType: Parameters
+  fullName: Parameters
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Parameters.AnimalConfig.Animal*
+  commentId: Overload:Parameters.AnimalConfig.Animal
+  href: Parameters.AnimalConfig.html#Parameters_AnimalConfig_Animal
+  name: Animal
+  nameWithType: AnimalConfig.Animal
+  fullName: Parameters.AnimalConfig.Animal
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Parameters.AnimalConfig.Box*
+  commentId: Overload:Parameters.AnimalConfig.Box
+  href: Parameters.AnimalConfig.html#Parameters_AnimalConfig_Box
+  name: Box
+  nameWithType: AnimalConfig.Box
+  fullName: Parameters.AnimalConfig.Box
+- uid: Parameters.AnimalConfig.Session*
+  commentId: Overload:Parameters.AnimalConfig.Session
+  href: Parameters.AnimalConfig.html#Parameters_AnimalConfig_Session
+  name: Session
+  nameWithType: AnimalConfig.Session
+  fullName: Parameters.AnimalConfig.Session
+- uid: Parameters.AnimalConfig.SessionType*
+  commentId: Overload:Parameters.AnimalConfig.SessionType
+  href: Parameters.AnimalConfig.html#Parameters_AnimalConfig_SessionType
+  name: SessionType
+  nameWithType: AnimalConfig.SessionType
+  fullName: Parameters.AnimalConfig.SessionType
+- uid: Parameters.AnimalConfig.SessionDuration*
+  commentId: Overload:Parameters.AnimalConfig.SessionDuration
+  href: Parameters.AnimalConfig.html#Parameters_AnimalConfig_SessionDuration
+  name: SessionDuration
+  nameWithType: AnimalConfig.SessionDuration
+  fullName: Parameters.AnimalConfig.SessionDuration
+- uid: System.TimeSpan
+  commentId: T:System.TimeSpan
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.timespan
+  name: TimeSpan
+  nameWithType: TimeSpan
+  fullName: System.TimeSpan
+- uid: Parameters.AnimalConfig.StartingTrialNumber*
+  commentId: Overload:Parameters.AnimalConfig.StartingTrialNumber
+  href: Parameters.AnimalConfig.html#Parameters_AnimalConfig_StartingTrialNumber
+  name: StartingTrialNumber
+  nameWithType: AnimalConfig.StartingTrialNumber
+  fullName: Parameters.AnimalConfig.StartingTrialNumber
+- uid: Parameters.AnimalConfig.StartingBlockNumber*
+  commentId: Overload:Parameters.AnimalConfig.StartingBlockNumber
+  href: Parameters.AnimalConfig.html#Parameters_AnimalConfig_StartingBlockNumber
+  name: StartingBlockNumber
+  nameWithType: AnimalConfig.StartingBlockNumber
+  fullName: Parameters.AnimalConfig.StartingBlockNumber
+- uid: Parameters.AnimalConfig.ABLList*
+  commentId: Overload:Parameters.AnimalConfig.ABLList
+  href: Parameters.AnimalConfig.html#Parameters_AnimalConfig_ABLList
+  name: ABLList
+  nameWithType: AnimalConfig.ABLList
+  fullName: Parameters.AnimalConfig.ABLList
+- uid: System.Double[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double[]
+  nameWithType: double[]
+  fullName: double[]
+  nameWithType.vb: Double()
+  fullName.vb: Double()
+  name.vb: Double()
+  spec.csharp:
+  - uid: System.Double
+    name: double
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Double
+    name: Double
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double
+  - name: (
+  - name: )
+- uid: Parameters.AnimalConfig.CycleILD*
+  commentId: Overload:Parameters.AnimalConfig.CycleILD
+  href: Parameters.AnimalConfig.html#Parameters_AnimalConfig_CycleILD
+  name: CycleILD
+  nameWithType: AnimalConfig.CycleILD
+  fullName: Parameters.AnimalConfig.CycleILD
+- uid: Parameters.AnimalConfig.Bias*
+  commentId: Overload:Parameters.AnimalConfig.Bias
+  href: Parameters.AnimalConfig.html#Parameters_AnimalConfig_Bias
+  name: Bias
+  nameWithType: AnimalConfig.Bias
+  fullName: Parameters.AnimalConfig.Bias
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: Parameters.AnimalConfig.MinFT*
+  commentId: Overload:Parameters.AnimalConfig.MinFT
+  href: Parameters.AnimalConfig.html#Parameters_AnimalConfig_MinFT
+  name: MinFT
+  nameWithType: AnimalConfig.MinFT
+  fullName: Parameters.AnimalConfig.MinFT
+- uid: Parameters.AnimalConfig.FTDelta*
+  commentId: Overload:Parameters.AnimalConfig.FTDelta
+  href: Parameters.AnimalConfig.html#Parameters_AnimalConfig_FTDelta
+  name: FTDelta
+  nameWithType: AnimalConfig.FTDelta
+  fullName: Parameters.AnimalConfig.FTDelta
+- uid: Parameters.AnimalConfig.FTTarget*
+  commentId: Overload:Parameters.AnimalConfig.FTTarget
+  href: Parameters.AnimalConfig.html#Parameters_AnimalConfig_FTTarget
+  name: FTTarget
+  nameWithType: AnimalConfig.FTTarget
+  fullName: Parameters.AnimalConfig.FTTarget
+- uid: Parameters.AnimalConfig.ExpFTMean*
+  commentId: Overload:Parameters.AnimalConfig.ExpFTMean
+  href: Parameters.AnimalConfig.html#Parameters_AnimalConfig_ExpFTMean
+  name: ExpFTMean
+  nameWithType: AnimalConfig.ExpFTMean
+  fullName: Parameters.AnimalConfig.ExpFTMean
+- uid: Parameters.AnimalConfig.MinRT*
+  commentId: Overload:Parameters.AnimalConfig.MinRT
+  href: Parameters.AnimalConfig.html#Parameters_AnimalConfig_MinRT
+  name: MinRT
+  nameWithType: AnimalConfig.MinRT
+  fullName: Parameters.AnimalConfig.MinRT
+- uid: Parameters.AnimalConfig.RTDelta*
+  commentId: Overload:Parameters.AnimalConfig.RTDelta
+  href: Parameters.AnimalConfig.html#Parameters_AnimalConfig_RTDelta
+  name: RTDelta
+  nameWithType: AnimalConfig.RTDelta
+  fullName: Parameters.AnimalConfig.RTDelta
+- uid: Parameters.AnimalConfig.RTTarget*
+  commentId: Overload:Parameters.AnimalConfig.RTTarget
+  href: Parameters.AnimalConfig.html#Parameters_AnimalConfig_RTTarget
+  name: RTTarget
+  nameWithType: AnimalConfig.RTTarget
+  fullName: Parameters.AnimalConfig.RTTarget
+- uid: Parameters.AnimalConfig.MaxRT*
+  commentId: Overload:Parameters.AnimalConfig.MaxRT
+  href: Parameters.AnimalConfig.html#Parameters_AnimalConfig_MaxRT
+  name: MaxRT
+  nameWithType: AnimalConfig.MaxRT
+  fullName: Parameters.AnimalConfig.MaxRT
+- uid: Parameters.AnimalConfig.MaxSamplingTime*
+  commentId: Overload:Parameters.AnimalConfig.MaxSamplingTime
+  href: Parameters.AnimalConfig.html#Parameters_AnimalConfig_MaxSamplingTime
+  name: MaxSamplingTime
+  nameWithType: AnimalConfig.MaxSamplingTime
+  fullName: Parameters.AnimalConfig.MaxSamplingTime
+- uid: Parameters.AnimalConfig.MinMT*
+  commentId: Overload:Parameters.AnimalConfig.MinMT
+  href: Parameters.AnimalConfig.html#Parameters_AnimalConfig_MinMT
+  name: MinMT
+  nameWithType: AnimalConfig.MinMT
+  fullName: Parameters.AnimalConfig.MinMT
+- uid: Parameters.AnimalConfig.MinLNP*
+  commentId: Overload:Parameters.AnimalConfig.MinLNP
+  href: Parameters.AnimalConfig.html#Parameters_AnimalConfig_MinLNP
+  name: MinLNP
+  nameWithType: AnimalConfig.MinLNP
+  fullName: Parameters.AnimalConfig.MinLNP
+- uid: Parameters.AnimalConfig.LNPDelta*
+  commentId: Overload:Parameters.AnimalConfig.LNPDelta
+  href: Parameters.AnimalConfig.html#Parameters_AnimalConfig_LNPDelta
+  name: LNPDelta
+  nameWithType: AnimalConfig.LNPDelta
+  fullName: Parameters.AnimalConfig.LNPDelta
+- uid: Parameters.AnimalConfig.LNPTarget*
+  commentId: Overload:Parameters.AnimalConfig.LNPTarget
+  href: Parameters.AnimalConfig.html#Parameters_AnimalConfig_LNPTarget
+  name: LNPTarget
+  nameWithType: AnimalConfig.LNPTarget
+  fullName: Parameters.AnimalConfig.LNPTarget

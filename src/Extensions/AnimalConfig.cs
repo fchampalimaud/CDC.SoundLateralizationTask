@@ -7,12 +7,12 @@ using System.Reactive.Linq;
 using Bonsai;
 using Newtonsoft.Json;
 
-namespace Extensions
+namespace Parameters
 {
     /// <summary>
-    /// Class <c>AnimalSpecificConfiguration</c> models the input parameters of the Sound Lateralization Task present in the <c>animal_settings.json</c> file.
+    /// Class <c>AnimalConfig</c> models the input parameters of the Sound Lateralization Task present in the <c>animal.json</c> file.
     /// </summary>
-    public class AnimalSpecificConfiguration
+    public class AnimalConfig
     {
         /// <value>Property <c>Animal</c> is the ID number of the animal.</value>
         public int Animal { get; set; }
@@ -61,14 +61,17 @@ namespace Extensions
         /// <value>Property <c>LNPTarget</c> is the target for LNP time (s).</value>
         public double LNPTarget { get; set; }
     }
+}
 
+namespace Extensions
+{
     /// <summary>
-    /// Class <c>AnimalSpecificJSON</c> contains the logic of the Bonsai node with the same name.
+    /// Class <c>ReadAnimalJSON</c> contains the logic of the Bonsai node with the same name.
     /// </summary>
-    [Description("Generates an instance of the AnimalSpecificConfiguration class based on the JSON file containing the task's animal-specific configuration.")]
+    [Description("Generates an instance of the AnimalConfig class based on the JSON file containing the task's animal-specific configuration.")]
     [Combinator]
     [WorkflowElementCategory(ElementCategory.Source)]
-    public class AnimalSpecificJSON
+    public class ReadAnimalJSON
     {
         [Description("The name of the JSON file.")]
         [Editor(DesignTypes.OpenFileNameEditor, DesignTypes.UITypeEditor)]
@@ -78,14 +81,14 @@ namespace Extensions
         /// Reads the animal-specific input parameters needed for the Sound Lateralization Task from a JSON file.
         /// </summary>
         /// <returns>
-        /// An observable sequence which sends a single event containing an <c>AnimalSpecificConfiguration</c> instance.
+        /// An observable sequence which sends a single event containing an <c>AnimalConfig</c> instance.
         /// </returns>
-        public IObservable<AnimalSpecificConfiguration> Process()
+        public IObservable<Parameters.AnimalConfig> Process()
         {
             string fileContent = File.ReadAllText(FilePath);
-            AnimalSpecificConfiguration asc = JsonConvert.DeserializeObject<AnimalSpecificConfiguration>(fileContent);
+            Parameters.AnimalConfig animalConfig = JsonConvert.DeserializeObject<Parameters.AnimalConfig>(fileContent);
 
-            return Observable.Defer(() => Observable.Return(asc));
+            return Observable.Defer(() => Observable.Return(animalConfig));
         }
     }
 }

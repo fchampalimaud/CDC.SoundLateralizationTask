@@ -7,12 +7,12 @@ using System.Linq;
 using System.Reactive.Linq;
 using Newtonsoft.Json;
 
-namespace Extensions
+namespace Parameters
 {
     /// <summary>
-    /// Class <c>SetupSpecificConfiguration</c> models the input parameters of the Sound Lateralization Task present in the <c>setup_settings.json</c> file.
+    /// Class <c>SetupConfig</c> models the input parameters of the Sound Lateralization Task present in the <c>setup.csv</c> file.
     /// </summary>
-    public class SetupSpecificConfiguration
+    public class SetupConfig
     {
         /// <value>Property <c>LowToHighL</c> indicates whether the left poke is a low-to-high (true) or a high-to-low device.</value>
         public bool LowToHighL { get; set; }
@@ -53,22 +53,26 @@ namespace Extensions
         public int MaxFreq { get; set; }
         public double RampTime { get; set; }
     }
+}
 
+namespace Extensions
+{
     [Combinator]
-    [Description("Generates an instance of the SetupSpecificConfiguration class based on the JSON file containing the task's setup-specific configuration.")]
+    [Description("Generates an instance of the SetupConfig class based on the JSON file containing the task's setup-specific configuration.")]
     [WorkflowElementCategory(ElementCategory.Source)]
-    public class SetupSpecificJSON
+    // FIXME: rewrite function to ReadSetupCSV
+    public class ReadSetupJSON
     {
         [Description("The name of the JSON file.")]
         [Editor(DesignTypes.OpenFileNameEditor, DesignTypes.UITypeEditor)]
         public String FilePath { get; set; }
 
-        public IObservable<SetupSpecificConfiguration> Process()
+        public IObservable<Parameters.SetupConfig> Process()
         {
             string fileContent = File.ReadAllText(FilePath);
-            SetupSpecificConfiguration ssc = Newtonsoft.Json.JsonConvert.DeserializeObject<SetupSpecificConfiguration>(fileContent);
+            Parameters.SetupConfig setupConfig = Newtonsoft.Json.JsonConvert.DeserializeObject<Parameters.SetupConfig>(fileContent);
 
-            return Observable.Defer(() => Observable.Return(ssc));
+            return Observable.Defer(() => Observable.Return(setupConfig));
         }
     }
 }

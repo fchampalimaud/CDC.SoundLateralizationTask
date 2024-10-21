@@ -1,63 +1,63 @@
 ### YamlMime:ManagedReference
 items:
-- uid: Extensions.TrainingConfiguration
-  commentId: T:Extensions.TrainingConfiguration
-  id: TrainingConfiguration
-  parent: Extensions
+- uid: Parameters.TrainingConfig
+  commentId: T:Parameters.TrainingConfig
+  id: TrainingConfig
+  parent: Parameters
   children:
-  - Extensions.TrainingConfiguration.ABLBlock
-  - Extensions.TrainingConfiguration.AbortLight
-  - Extensions.TrainingConfiguration.AbortPenalty
-  - Extensions.TrainingConfiguration.CriticalPerformance
-  - Extensions.TrainingConfiguration.DifferentABLs
-  - Extensions.TrainingConfiguration.FixLight
-  - Extensions.TrainingConfiguration.FixationAbortPenalty
-  - Extensions.TrainingConfiguration.FixedABL
-  - Extensions.TrainingConfiguration.ILDStepSize
-  - Extensions.TrainingConfiguration.ILDSteps
-  - Extensions.TrainingConfiguration.ITILight
-  - Extensions.TrainingConfiguration.ITIReset
-  - Extensions.TrainingConfiguration.IncorrectPenalty
-  - Extensions.TrainingConfiguration.IntendedITI
-  - Extensions.TrainingConfiguration.Level
-  - Extensions.TrainingConfiguration.Level0
-  - Extensions.TrainingConfiguration.LogBase
-  - Extensions.TrainingConfiguration.MaxAborts
-  - Extensions.TrainingConfiguration.MaxMT
-  - Extensions.TrainingConfiguration.MaxWait
-  - Extensions.TrainingConfiguration.PokeLight
-  - Extensions.TrainingConfiguration.RandomizeFT
-  - Extensions.TrainingConfiguration.RepeatAbort
-  - Extensions.TrainingConfiguration.RepeatError
-  - Extensions.TrainingConfiguration.Speakers
-  - Extensions.TrainingConfiguration.TrialsPerBlock
-  - Extensions.TrainingConfiguration.UseLog
-  - Extensions.TrainingConfiguration.UseMaxRT
-  - Extensions.TrainingConfiguration.UsePerformance
-  - Extensions.TrainingConfiguration.UseRT
+  - Parameters.TrainingConfig.ABLBlock
+  - Parameters.TrainingConfig.AbortLight
+  - Parameters.TrainingConfig.AbortPenalty
+  - Parameters.TrainingConfig.CriticalPerformance
+  - Parameters.TrainingConfig.DifferentABLs
+  - Parameters.TrainingConfig.FixLight
+  - Parameters.TrainingConfig.FixationAbortPenalty
+  - Parameters.TrainingConfig.FixedABL
+  - Parameters.TrainingConfig.ILDStepSize
+  - Parameters.TrainingConfig.ILDSteps
+  - Parameters.TrainingConfig.ITILight
+  - Parameters.TrainingConfig.ITIReset
+  - Parameters.TrainingConfig.IncorrectPenalty
+  - Parameters.TrainingConfig.IntendedITI
+  - Parameters.TrainingConfig.Level
+  - Parameters.TrainingConfig.Level0
+  - Parameters.TrainingConfig.LogBase
+  - Parameters.TrainingConfig.MaxAborts
+  - Parameters.TrainingConfig.MaxMT
+  - Parameters.TrainingConfig.MaxWait
+  - Parameters.TrainingConfig.PokeLight
+  - Parameters.TrainingConfig.RandomizeFT
+  - Parameters.TrainingConfig.RepeatAbort
+  - Parameters.TrainingConfig.RepeatError
+  - Parameters.TrainingConfig.Speakers
+  - Parameters.TrainingConfig.TrialsPerBlock
+  - Parameters.TrainingConfig.UseLog
+  - Parameters.TrainingConfig.UseMaxRT
+  - Parameters.TrainingConfig.UsePerformance
+  - Parameters.TrainingConfig.UseRT
   langs:
   - csharp
   - vb
-  name: TrainingConfiguration
-  nameWithType: TrainingConfiguration
-  fullName: Extensions.TrainingConfiguration
+  name: TrainingConfig
+  nameWithType: TrainingConfig
+  fullName: Parameters.TrainingConfig
   type: Class
   source:
     remote:
-      path: src/Extensions/TrainingCSV.cs
+      path: src/Extensions/TrainingConfig.cs
       branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
-    id: TrainingConfiguration
-    path: ../src/Extensions/TrainingCSV.cs
+    id: TrainingConfig
+    path: ../src/Extensions/TrainingConfig.cs
     startLine: 15
   assemblies:
   - Extensions
-  namespace: Extensions
-  summary: Class <code>TrainingConfiguration</code> models the input parameters of the Sound Lateralization Task present in a row of the <code>training_settings.csv</code> file.
+  namespace: Parameters
+  summary: Class <code>TrainingConfig</code> models the input parameters of the Sound Lateralization Task present in a row of the <code>training_settings.csv</code> file.
   example: []
   syntax:
-    content: public class TrainingConfiguration
-    content.vb: Public Class TrainingConfiguration
+    content: public class TrainingConfig
+    content.vb: Public Class TrainingConfig
   inheritance:
   - System.Object
   inheritedMembers:
@@ -68,28 +68,28 @@ items:
   - System.Object.GetHashCode
   - System.Object.GetType
   - System.Object.MemberwiseClone
-- uid: Extensions.TrainingConfiguration.Level
-  commentId: P:Extensions.TrainingConfiguration.Level
+- uid: Parameters.TrainingConfig.Level
+  commentId: P:Parameters.TrainingConfig.Level
   id: Level
-  parent: Extensions.TrainingConfiguration
+  parent: Parameters.TrainingConfig
   langs:
   - csharp
   - vb
   name: Level
-  nameWithType: TrainingConfiguration.Level
-  fullName: Extensions.TrainingConfiguration.Level
+  nameWithType: TrainingConfig.Level
+  fullName: Parameters.TrainingConfig.Level
   type: Property
   source:
     remote:
-      path: src/Extensions/TrainingCSV.cs
+      path: src/Extensions/TrainingConfig.cs
       branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Level
-    path: ../src/Extensions/TrainingCSV.cs
+    path: ../src/Extensions/TrainingConfig.cs
     startLine: 18
   assemblies:
   - Extensions
-  namespace: Extensions
+  namespace: Parameters
   example: []
   syntax:
     content: public int Level { get; set; }
@@ -98,29 +98,29 @@ items:
       type: System.Int32
       description: Property <code>Level</code> is the number of the level.
     content.vb: Public Property Level As Integer
-  overload: Extensions.TrainingConfiguration.Level*
-- uid: Extensions.TrainingConfiguration.TrialsPerBlock
-  commentId: P:Extensions.TrainingConfiguration.TrialsPerBlock
+  overload: Parameters.TrainingConfig.Level*
+- uid: Parameters.TrainingConfig.TrialsPerBlock
+  commentId: P:Parameters.TrainingConfig.TrialsPerBlock
   id: TrialsPerBlock
-  parent: Extensions.TrainingConfiguration
+  parent: Parameters.TrainingConfig
   langs:
   - csharp
   - vb
   name: TrialsPerBlock
-  nameWithType: TrainingConfiguration.TrialsPerBlock
-  fullName: Extensions.TrainingConfiguration.TrialsPerBlock
+  nameWithType: TrainingConfig.TrialsPerBlock
+  fullName: Parameters.TrainingConfig.TrialsPerBlock
   type: Property
   source:
     remote:
-      path: src/Extensions/TrainingCSV.cs
+      path: src/Extensions/TrainingConfig.cs
       branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: TrialsPerBlock
-    path: ../src/Extensions/TrainingCSV.cs
+    path: ../src/Extensions/TrainingConfig.cs
     startLine: 20
   assemblies:
   - Extensions
-  namespace: Extensions
+  namespace: Parameters
   example: []
   syntax:
     content: public int TrialsPerBlock { get; set; }
@@ -129,29 +129,29 @@ items:
       type: System.Int32
       description: Property <code>TrialsPerBlock</code> is the number of trials that a block of the current level has.
     content.vb: Public Property TrialsPerBlock As Integer
-  overload: Extensions.TrainingConfiguration.TrialsPerBlock*
-- uid: Extensions.TrainingConfiguration.Level0
-  commentId: P:Extensions.TrainingConfiguration.Level0
+  overload: Parameters.TrainingConfig.TrialsPerBlock*
+- uid: Parameters.TrainingConfig.Level0
+  commentId: P:Parameters.TrainingConfig.Level0
   id: Level0
-  parent: Extensions.TrainingConfiguration
+  parent: Parameters.TrainingConfig
   langs:
   - csharp
   - vb
   name: Level0
-  nameWithType: TrainingConfiguration.Level0
-  fullName: Extensions.TrainingConfiguration.Level0
+  nameWithType: TrainingConfig.Level0
+  fullName: Parameters.TrainingConfig.Level0
   type: Property
   source:
     remote:
-      path: src/Extensions/TrainingCSV.cs
+      path: src/Extensions/TrainingConfig.cs
       branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Level0
-    path: ../src/Extensions/TrainingCSV.cs
+    path: ../src/Extensions/TrainingConfig.cs
     startLine: 22
   assemblies:
   - Extensions
-  namespace: Extensions
+  namespace: Parameters
   example: []
   syntax:
     content: public int Level0 { get; set; }
@@ -160,29 +160,29 @@ items:
       type: System.Int32
       description: Property <code>Level0</code> is whether the current level's protocol follows the level-0 of the task. The level-0 of the task doesn't use ILD values because it consists of playing the sound in only one of the speakers at a time.
     content.vb: Public Property Level0 As Integer
-  overload: Extensions.TrainingConfiguration.Level0*
-- uid: Extensions.TrainingConfiguration.FixedABL
-  commentId: P:Extensions.TrainingConfiguration.FixedABL
+  overload: Parameters.TrainingConfig.Level0*
+- uid: Parameters.TrainingConfig.FixedABL
+  commentId: P:Parameters.TrainingConfig.FixedABL
   id: FixedABL
-  parent: Extensions.TrainingConfiguration
+  parent: Parameters.TrainingConfig
   langs:
   - csharp
   - vb
   name: FixedABL
-  nameWithType: TrainingConfiguration.FixedABL
-  fullName: Extensions.TrainingConfiguration.FixedABL
+  nameWithType: TrainingConfig.FixedABL
+  fullName: Parameters.TrainingConfig.FixedABL
   type: Property
   source:
     remote:
-      path: src/Extensions/TrainingCSV.cs
+      path: src/Extensions/TrainingConfig.cs
       branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: FixedABL
-    path: ../src/Extensions/TrainingCSV.cs
+    path: ../src/Extensions/TrainingConfig.cs
     startLine: 24
   assemblies:
   - Extensions
-  namespace: Extensions
+  namespace: Parameters
   example: []
   syntax:
     content: public double FixedABL { get; set; }
@@ -191,29 +191,29 @@ items:
       type: System.Double
       description: Property <code>FixedABL</code> is the ABL value to use when the <code>DifferentABLs</code> property is 0.
     content.vb: Public Property FixedABL As Double
-  overload: Extensions.TrainingConfiguration.FixedABL*
-- uid: Extensions.TrainingConfiguration.DifferentABLs
-  commentId: P:Extensions.TrainingConfiguration.DifferentABLs
+  overload: Parameters.TrainingConfig.FixedABL*
+- uid: Parameters.TrainingConfig.DifferentABLs
+  commentId: P:Parameters.TrainingConfig.DifferentABLs
   id: DifferentABLs
-  parent: Extensions.TrainingConfiguration
+  parent: Parameters.TrainingConfig
   langs:
   - csharp
   - vb
   name: DifferentABLs
-  nameWithType: TrainingConfiguration.DifferentABLs
-  fullName: Extensions.TrainingConfiguration.DifferentABLs
+  nameWithType: TrainingConfig.DifferentABLs
+  fullName: Parameters.TrainingConfig.DifferentABLs
   type: Property
   source:
     remote:
-      path: src/Extensions/TrainingCSV.cs
+      path: src/Extensions/TrainingConfig.cs
       branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: DifferentABLs
-    path: ../src/Extensions/TrainingCSV.cs
+    path: ../src/Extensions/TrainingConfig.cs
     startLine: 26
   assemblies:
   - Extensions
-  namespace: Extensions
+  namespace: Parameters
   example: []
   syntax:
     content: public int DifferentABLs { get; set; }
@@ -222,29 +222,29 @@ items:
       type: System.Int32
       description: Property <code>DifferentABLs</code> is whether to use the ABLs from <code>ABLList</code> (1) or from <code>FixedABL</code> (0).
     content.vb: Public Property DifferentABLs As Integer
-  overload: Extensions.TrainingConfiguration.DifferentABLs*
-- uid: Extensions.TrainingConfiguration.ABLBlock
-  commentId: P:Extensions.TrainingConfiguration.ABLBlock
+  overload: Parameters.TrainingConfig.DifferentABLs*
+- uid: Parameters.TrainingConfig.ABLBlock
+  commentId: P:Parameters.TrainingConfig.ABLBlock
   id: ABLBlock
-  parent: Extensions.TrainingConfiguration
+  parent: Parameters.TrainingConfig
   langs:
   - csharp
   - vb
   name: ABLBlock
-  nameWithType: TrainingConfiguration.ABLBlock
-  fullName: Extensions.TrainingConfiguration.ABLBlock
+  nameWithType: TrainingConfig.ABLBlock
+  fullName: Parameters.TrainingConfig.ABLBlock
   type: Property
   source:
     remote:
-      path: src/Extensions/TrainingCSV.cs
+      path: src/Extensions/TrainingConfig.cs
       branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: ABLBlock
-    path: ../src/Extensions/TrainingCSV.cs
+    path: ../src/Extensions/TrainingConfig.cs
     startLine: 28
   assemblies:
   - Extensions
-  namespace: Extensions
+  namespace: Parameters
   example: []
   syntax:
     content: public int ABLBlock { get; set; }
@@ -253,29 +253,29 @@ items:
       type: System.Int32
       description: Property <code>ABLBlock</code> is whether ABLs change only across blocks (1) or not (0).
     content.vb: Public Property ABLBlock As Integer
-  overload: Extensions.TrainingConfiguration.ABLBlock*
-- uid: Extensions.TrainingConfiguration.ILDStepSize
-  commentId: P:Extensions.TrainingConfiguration.ILDStepSize
+  overload: Parameters.TrainingConfig.ABLBlock*
+- uid: Parameters.TrainingConfig.ILDStepSize
+  commentId: P:Parameters.TrainingConfig.ILDStepSize
   id: ILDStepSize
-  parent: Extensions.TrainingConfiguration
+  parent: Parameters.TrainingConfig
   langs:
   - csharp
   - vb
   name: ILDStepSize
-  nameWithType: TrainingConfiguration.ILDStepSize
-  fullName: Extensions.TrainingConfiguration.ILDStepSize
+  nameWithType: TrainingConfig.ILDStepSize
+  fullName: Parameters.TrainingConfig.ILDStepSize
   type: Property
   source:
     remote:
-      path: src/Extensions/TrainingCSV.cs
+      path: src/Extensions/TrainingConfig.cs
       branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: ILDStepSize
-    path: ../src/Extensions/TrainingCSV.cs
+    path: ../src/Extensions/TrainingConfig.cs
     startLine: 30
   assemblies:
   - Extensions
-  namespace: Extensions
+  namespace: Parameters
   example: []
   syntax:
     content: public double ILDStepSize { get; set; }
@@ -284,29 +284,29 @@ items:
       type: System.Double
       description: Property <code>ILDStepSize</code> is the separation between two consecutive |ILD| values.
     content.vb: Public Property ILDStepSize As Double
-  overload: Extensions.TrainingConfiguration.ILDStepSize*
-- uid: Extensions.TrainingConfiguration.ILDSteps
-  commentId: P:Extensions.TrainingConfiguration.ILDSteps
+  overload: Parameters.TrainingConfig.ILDStepSize*
+- uid: Parameters.TrainingConfig.ILDSteps
+  commentId: P:Parameters.TrainingConfig.ILDSteps
   id: ILDSteps
-  parent: Extensions.TrainingConfiguration
+  parent: Parameters.TrainingConfig
   langs:
   - csharp
   - vb
   name: ILDSteps
-  nameWithType: TrainingConfiguration.ILDSteps
-  fullName: Extensions.TrainingConfiguration.ILDSteps
+  nameWithType: TrainingConfig.ILDSteps
+  fullName: Parameters.TrainingConfig.ILDSteps
   type: Property
   source:
     remote:
-      path: src/Extensions/TrainingCSV.cs
+      path: src/Extensions/TrainingConfig.cs
       branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: ILDSteps
-    path: ../src/Extensions/TrainingCSV.cs
+    path: ../src/Extensions/TrainingConfig.cs
     startLine: 32
   assemblies:
   - Extensions
-  namespace: Extensions
+  namespace: Parameters
   example: []
   syntax:
     content: public int ILDSteps { get; set; }
@@ -315,29 +315,29 @@ items:
       type: System.Int32
       description: Property <code>ILDSteps</code> is the number of |ILD| values. The final array will contain 2*<code>ILDSteps</code> elements to account for both the positive and the negative ILD values.
     content.vb: Public Property ILDSteps As Integer
-  overload: Extensions.TrainingConfiguration.ILDSteps*
-- uid: Extensions.TrainingConfiguration.UseLog
-  commentId: P:Extensions.TrainingConfiguration.UseLog
+  overload: Parameters.TrainingConfig.ILDSteps*
+- uid: Parameters.TrainingConfig.UseLog
+  commentId: P:Parameters.TrainingConfig.UseLog
   id: UseLog
-  parent: Extensions.TrainingConfiguration
+  parent: Parameters.TrainingConfig
   langs:
   - csharp
   - vb
   name: UseLog
-  nameWithType: TrainingConfiguration.UseLog
-  fullName: Extensions.TrainingConfiguration.UseLog
+  nameWithType: TrainingConfig.UseLog
+  fullName: Parameters.TrainingConfig.UseLog
   type: Property
   source:
     remote:
-      path: src/Extensions/TrainingCSV.cs
+      path: src/Extensions/TrainingConfig.cs
       branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: UseLog
-    path: ../src/Extensions/TrainingCSV.cs
+    path: ../src/Extensions/TrainingConfig.cs
     startLine: 34
   assemblies:
   - Extensions
-  namespace: Extensions
+  namespace: Parameters
   example: []
   syntax:
     content: public int UseLog { get; set; }
@@ -346,29 +346,29 @@ items:
       type: System.Int32
       description: Property <code>UseLog</code> is whether to use logarithmic steps between consecutive ILD values.
     content.vb: Public Property UseLog As Integer
-  overload: Extensions.TrainingConfiguration.UseLog*
-- uid: Extensions.TrainingConfiguration.LogBase
-  commentId: P:Extensions.TrainingConfiguration.LogBase
+  overload: Parameters.TrainingConfig.UseLog*
+- uid: Parameters.TrainingConfig.LogBase
+  commentId: P:Parameters.TrainingConfig.LogBase
   id: LogBase
-  parent: Extensions.TrainingConfiguration
+  parent: Parameters.TrainingConfig
   langs:
   - csharp
   - vb
   name: LogBase
-  nameWithType: TrainingConfiguration.LogBase
-  fullName: Extensions.TrainingConfiguration.LogBase
+  nameWithType: TrainingConfig.LogBase
+  fullName: Parameters.TrainingConfig.LogBase
   type: Property
   source:
     remote:
-      path: src/Extensions/TrainingCSV.cs
+      path: src/Extensions/TrainingConfig.cs
       branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: LogBase
-    path: ../src/Extensions/TrainingCSV.cs
+    path: ../src/Extensions/TrainingConfig.cs
     startLine: 36
   assemblies:
   - Extensions
-  namespace: Extensions
+  namespace: Parameters
   example: []
   syntax:
     content: public double LogBase { get; set; }
@@ -377,29 +377,29 @@ items:
       type: System.Double
       description: Property <code>LogBase</code> is the base of the logarithm.
     content.vb: Public Property LogBase As Double
-  overload: Extensions.TrainingConfiguration.LogBase*
-- uid: Extensions.TrainingConfiguration.IntendedITI
-  commentId: P:Extensions.TrainingConfiguration.IntendedITI
+  overload: Parameters.TrainingConfig.LogBase*
+- uid: Parameters.TrainingConfig.IntendedITI
+  commentId: P:Parameters.TrainingConfig.IntendedITI
   id: IntendedITI
-  parent: Extensions.TrainingConfiguration
+  parent: Parameters.TrainingConfig
   langs:
   - csharp
   - vb
   name: IntendedITI
-  nameWithType: TrainingConfiguration.IntendedITI
-  fullName: Extensions.TrainingConfiguration.IntendedITI
+  nameWithType: TrainingConfig.IntendedITI
+  fullName: Parameters.TrainingConfig.IntendedITI
   type: Property
   source:
     remote:
-      path: src/Extensions/TrainingCSV.cs
+      path: src/Extensions/TrainingConfig.cs
       branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: IntendedITI
-    path: ../src/Extensions/TrainingCSV.cs
+    path: ../src/Extensions/TrainingConfig.cs
     startLine: 38
   assemblies:
   - Extensions
-  namespace: Extensions
+  namespace: Parameters
   example: []
   syntax:
     content: public double IntendedITI { get; set; }
@@ -408,29 +408,29 @@ items:
       type: System.Double
       description: Property <code>IntendedITI</code> is the intended ITI duration (s).
     content.vb: Public Property IntendedITI As Double
-  overload: Extensions.TrainingConfiguration.IntendedITI*
-- uid: Extensions.TrainingConfiguration.ITIReset
-  commentId: P:Extensions.TrainingConfiguration.ITIReset
+  overload: Parameters.TrainingConfig.IntendedITI*
+- uid: Parameters.TrainingConfig.ITIReset
+  commentId: P:Parameters.TrainingConfig.ITIReset
   id: ITIReset
-  parent: Extensions.TrainingConfiguration
+  parent: Parameters.TrainingConfig
   langs:
   - csharp
   - vb
   name: ITIReset
-  nameWithType: TrainingConfiguration.ITIReset
-  fullName: Extensions.TrainingConfiguration.ITIReset
+  nameWithType: TrainingConfig.ITIReset
+  fullName: Parameters.TrainingConfig.ITIReset
   type: Property
   source:
     remote:
-      path: src/Extensions/TrainingCSV.cs
+      path: src/Extensions/TrainingConfig.cs
       branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: ITIReset
-    path: ../src/Extensions/TrainingCSV.cs
+    path: ../src/Extensions/TrainingConfig.cs
     startLine: 40
   assemblies:
   - Extensions
-  namespace: Extensions
+  namespace: Parameters
   example: []
   syntax:
     content: public int ITIReset { get; set; }
@@ -439,29 +439,29 @@ items:
       type: System.Int32
       description: Property <code>ITIReset</code> is whether the ITI partially resets if the animal tries to poke in the CNP before it ends.
     content.vb: Public Property ITIReset As Integer
-  overload: Extensions.TrainingConfiguration.ITIReset*
-- uid: Extensions.TrainingConfiguration.MaxWait
-  commentId: P:Extensions.TrainingConfiguration.MaxWait
+  overload: Parameters.TrainingConfig.ITIReset*
+- uid: Parameters.TrainingConfig.MaxWait
+  commentId: P:Parameters.TrainingConfig.MaxWait
   id: MaxWait
-  parent: Extensions.TrainingConfiguration
+  parent: Parameters.TrainingConfig
   langs:
   - csharp
   - vb
   name: MaxWait
-  nameWithType: TrainingConfiguration.MaxWait
-  fullName: Extensions.TrainingConfiguration.MaxWait
+  nameWithType: TrainingConfig.MaxWait
+  fullName: Parameters.TrainingConfig.MaxWait
   type: Property
   source:
     remote:
-      path: src/Extensions/TrainingCSV.cs
+      path: src/Extensions/TrainingConfig.cs
       branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: MaxWait
-    path: ../src/Extensions/TrainingCSV.cs
+    path: ../src/Extensions/TrainingConfig.cs
     startLine: 42
   assemblies:
   - Extensions
-  namespace: Extensions
+  namespace: Parameters
   example: []
   syntax:
     content: public double MaxWait { get; set; }
@@ -470,29 +470,29 @@ items:
       type: System.Double
       description: Property <code>MaxWait</code> is the maximum allowed time to start the trial (s).
     content.vb: Public Property MaxWait As Double
-  overload: Extensions.TrainingConfiguration.MaxWait*
-- uid: Extensions.TrainingConfiguration.RandomizeFT
-  commentId: P:Extensions.TrainingConfiguration.RandomizeFT
+  overload: Parameters.TrainingConfig.MaxWait*
+- uid: Parameters.TrainingConfig.RandomizeFT
+  commentId: P:Parameters.TrainingConfig.RandomizeFT
   id: RandomizeFT
-  parent: Extensions.TrainingConfiguration
+  parent: Parameters.TrainingConfig
   langs:
   - csharp
   - vb
   name: RandomizeFT
-  nameWithType: TrainingConfiguration.RandomizeFT
-  fullName: Extensions.TrainingConfiguration.RandomizeFT
+  nameWithType: TrainingConfig.RandomizeFT
+  fullName: Parameters.TrainingConfig.RandomizeFT
   type: Property
   source:
     remote:
-      path: src/Extensions/TrainingCSV.cs
+      path: src/Extensions/TrainingConfig.cs
       branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: RandomizeFT
-    path: ../src/Extensions/TrainingCSV.cs
+    path: ../src/Extensions/TrainingConfig.cs
     startLine: 44
   assemblies:
   - Extensions
-  namespace: Extensions
+  namespace: Parameters
   example: []
   syntax:
     content: public int RandomizeFT { get; set; }
@@ -501,29 +501,29 @@ items:
       type: System.Int32
       description: Property <code>RandomizeFT</code> is whether to use a random FT value (1) or not (0).
     content.vb: Public Property RandomizeFT As Integer
-  overload: Extensions.TrainingConfiguration.RandomizeFT*
-- uid: Extensions.TrainingConfiguration.UseRT
-  commentId: P:Extensions.TrainingConfiguration.UseRT
+  overload: Parameters.TrainingConfig.RandomizeFT*
+- uid: Parameters.TrainingConfig.UseRT
+  commentId: P:Parameters.TrainingConfig.UseRT
   id: UseRT
-  parent: Extensions.TrainingConfiguration
+  parent: Parameters.TrainingConfig
   langs:
   - csharp
   - vb
   name: UseRT
-  nameWithType: TrainingConfiguration.UseRT
-  fullName: Extensions.TrainingConfiguration.UseRT
+  nameWithType: TrainingConfig.UseRT
+  fullName: Parameters.TrainingConfig.UseRT
   type: Property
   source:
     remote:
-      path: src/Extensions/TrainingCSV.cs
+      path: src/Extensions/TrainingConfig.cs
       branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: UseRT
-    path: ../src/Extensions/TrainingCSV.cs
+    path: ../src/Extensions/TrainingConfig.cs
     startLine: 46
   assemblies:
   - Extensions
-  namespace: Extensions
+  namespace: Parameters
   example: []
   syntax:
     content: public int UseRT { get; set; }
@@ -532,29 +532,29 @@ items:
       type: System.Int32
       description: Property <code>UseRT</code> is whether the sound stops with the animal leaving the CNP.
     content.vb: Public Property UseRT As Integer
-  overload: Extensions.TrainingConfiguration.UseRT*
-- uid: Extensions.TrainingConfiguration.UseMaxRT
-  commentId: P:Extensions.TrainingConfiguration.UseMaxRT
+  overload: Parameters.TrainingConfig.UseRT*
+- uid: Parameters.TrainingConfig.UseMaxRT
+  commentId: P:Parameters.TrainingConfig.UseMaxRT
   id: UseMaxRT
-  parent: Extensions.TrainingConfiguration
+  parent: Parameters.TrainingConfig
   langs:
   - csharp
   - vb
   name: UseMaxRT
-  nameWithType: TrainingConfiguration.UseMaxRT
-  fullName: Extensions.TrainingConfiguration.UseMaxRT
+  nameWithType: TrainingConfig.UseMaxRT
+  fullName: Parameters.TrainingConfig.UseMaxRT
   type: Property
   source:
     remote:
-      path: src/Extensions/TrainingCSV.cs
+      path: src/Extensions/TrainingConfig.cs
       branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: UseMaxRT
-    path: ../src/Extensions/TrainingCSV.cs
+    path: ../src/Extensions/TrainingConfig.cs
     startLine: 48
   assemblies:
   - Extensions
-  namespace: Extensions
+  namespace: Parameters
   example: []
   syntax:
     content: public int UseMaxRT { get; set; }
@@ -563,29 +563,29 @@ items:
       type: System.Int32
       description: Property <code>UseMaxRT</code> is whether there is a MaxRT.
     content.vb: Public Property UseMaxRT As Integer
-  overload: Extensions.TrainingConfiguration.UseMaxRT*
-- uid: Extensions.TrainingConfiguration.MaxMT
-  commentId: P:Extensions.TrainingConfiguration.MaxMT
+  overload: Parameters.TrainingConfig.UseMaxRT*
+- uid: Parameters.TrainingConfig.MaxMT
+  commentId: P:Parameters.TrainingConfig.MaxMT
   id: MaxMT
-  parent: Extensions.TrainingConfiguration
+  parent: Parameters.TrainingConfig
   langs:
   - csharp
   - vb
   name: MaxMT
-  nameWithType: TrainingConfiguration.MaxMT
-  fullName: Extensions.TrainingConfiguration.MaxMT
+  nameWithType: TrainingConfig.MaxMT
+  fullName: Parameters.TrainingConfig.MaxMT
   type: Property
   source:
     remote:
-      path: src/Extensions/TrainingCSV.cs
+      path: src/Extensions/TrainingConfig.cs
       branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: MaxMT
-    path: ../src/Extensions/TrainingCSV.cs
+    path: ../src/Extensions/TrainingConfig.cs
     startLine: 50
   assemblies:
   - Extensions
-  namespace: Extensions
+  namespace: Parameters
   example: []
   syntax:
     content: public double MaxMT { get; set; }
@@ -594,29 +594,29 @@ items:
       type: System.Double
       description: Property <code>MaxMT</code> is the maximum allowed time to move to the LNP (s).
     content.vb: Public Property MaxMT As Double
-  overload: Extensions.TrainingConfiguration.MaxMT*
-- uid: Extensions.TrainingConfiguration.AbortPenalty
-  commentId: P:Extensions.TrainingConfiguration.AbortPenalty
+  overload: Parameters.TrainingConfig.MaxMT*
+- uid: Parameters.TrainingConfig.AbortPenalty
+  commentId: P:Parameters.TrainingConfig.AbortPenalty
   id: AbortPenalty
-  parent: Extensions.TrainingConfiguration
+  parent: Parameters.TrainingConfig
   langs:
   - csharp
   - vb
   name: AbortPenalty
-  nameWithType: TrainingConfiguration.AbortPenalty
-  fullName: Extensions.TrainingConfiguration.AbortPenalty
+  nameWithType: TrainingConfig.AbortPenalty
+  fullName: Parameters.TrainingConfig.AbortPenalty
   type: Property
   source:
     remote:
-      path: src/Extensions/TrainingCSV.cs
+      path: src/Extensions/TrainingConfig.cs
       branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: AbortPenalty
-    path: ../src/Extensions/TrainingCSV.cs
+    path: ../src/Extensions/TrainingConfig.cs
     startLine: 52
   assemblies:
   - Extensions
-  namespace: Extensions
+  namespace: Parameters
   example: []
   syntax:
     content: public double AbortPenalty { get; set; }
@@ -625,29 +625,29 @@ items:
       type: System.Double
       description: Property <code>AbortPenalty</code> is the abort penalty time (s).
     content.vb: Public Property AbortPenalty As Double
-  overload: Extensions.TrainingConfiguration.AbortPenalty*
-- uid: Extensions.TrainingConfiguration.IncorrectPenalty
-  commentId: P:Extensions.TrainingConfiguration.IncorrectPenalty
+  overload: Parameters.TrainingConfig.AbortPenalty*
+- uid: Parameters.TrainingConfig.IncorrectPenalty
+  commentId: P:Parameters.TrainingConfig.IncorrectPenalty
   id: IncorrectPenalty
-  parent: Extensions.TrainingConfiguration
+  parent: Parameters.TrainingConfig
   langs:
   - csharp
   - vb
   name: IncorrectPenalty
-  nameWithType: TrainingConfiguration.IncorrectPenalty
-  fullName: Extensions.TrainingConfiguration.IncorrectPenalty
+  nameWithType: TrainingConfig.IncorrectPenalty
+  fullName: Parameters.TrainingConfig.IncorrectPenalty
   type: Property
   source:
     remote:
-      path: src/Extensions/TrainingCSV.cs
+      path: src/Extensions/TrainingConfig.cs
       branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: IncorrectPenalty
-    path: ../src/Extensions/TrainingCSV.cs
+    path: ../src/Extensions/TrainingConfig.cs
     startLine: 54
   assemblies:
   - Extensions
-  namespace: Extensions
+  namespace: Parameters
   example: []
   syntax:
     content: public double IncorrectPenalty { get; set; }
@@ -656,29 +656,29 @@ items:
       type: System.Double
       description: Property <code>IncorrectPenalty</code> is the incorrect answer penalty time (s).
     content.vb: Public Property IncorrectPenalty As Double
-  overload: Extensions.TrainingConfiguration.IncorrectPenalty*
-- uid: Extensions.TrainingConfiguration.FixationAbortPenalty
-  commentId: P:Extensions.TrainingConfiguration.FixationAbortPenalty
+  overload: Parameters.TrainingConfig.IncorrectPenalty*
+- uid: Parameters.TrainingConfig.FixationAbortPenalty
+  commentId: P:Parameters.TrainingConfig.FixationAbortPenalty
   id: FixationAbortPenalty
-  parent: Extensions.TrainingConfiguration
+  parent: Parameters.TrainingConfig
   langs:
   - csharp
   - vb
   name: FixationAbortPenalty
-  nameWithType: TrainingConfiguration.FixationAbortPenalty
-  fullName: Extensions.TrainingConfiguration.FixationAbortPenalty
+  nameWithType: TrainingConfig.FixationAbortPenalty
+  fullName: Parameters.TrainingConfig.FixationAbortPenalty
   type: Property
   source:
     remote:
-      path: src/Extensions/TrainingCSV.cs
+      path: src/Extensions/TrainingConfig.cs
       branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: FixationAbortPenalty
-    path: ../src/Extensions/TrainingCSV.cs
+    path: ../src/Extensions/TrainingConfig.cs
     startLine: 56
   assemblies:
   - Extensions
-  namespace: Extensions
+  namespace: Parameters
   example: []
   syntax:
     content: public double FixationAbortPenalty { get; set; }
@@ -687,29 +687,29 @@ items:
       type: System.Double
       description: Property <code>FixationAbortPenalty</code> is the fixation abort penalty time (s).
     content.vb: Public Property FixationAbortPenalty As Double
-  overload: Extensions.TrainingConfiguration.FixationAbortPenalty*
-- uid: Extensions.TrainingConfiguration.UsePerformance
-  commentId: P:Extensions.TrainingConfiguration.UsePerformance
+  overload: Parameters.TrainingConfig.FixationAbortPenalty*
+- uid: Parameters.TrainingConfig.UsePerformance
+  commentId: P:Parameters.TrainingConfig.UsePerformance
   id: UsePerformance
-  parent: Extensions.TrainingConfiguration
+  parent: Parameters.TrainingConfig
   langs:
   - csharp
   - vb
   name: UsePerformance
-  nameWithType: TrainingConfiguration.UsePerformance
-  fullName: Extensions.TrainingConfiguration.UsePerformance
+  nameWithType: TrainingConfig.UsePerformance
+  fullName: Parameters.TrainingConfig.UsePerformance
   type: Property
   source:
     remote:
-      path: src/Extensions/TrainingCSV.cs
+      path: src/Extensions/TrainingConfig.cs
       branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: UsePerformance
-    path: ../src/Extensions/TrainingCSV.cs
+    path: ../src/Extensions/TrainingConfig.cs
     startLine: 58
   assemblies:
   - Extensions
-  namespace: Extensions
+  namespace: Parameters
   example: []
   syntax:
     content: public int UsePerformance { get; set; }
@@ -718,29 +718,29 @@ items:
       type: System.Int32
       description: Property <code>UsePerformance</code> is whether there is a minimum performance requirement to advance block.
     content.vb: Public Property UsePerformance As Integer
-  overload: Extensions.TrainingConfiguration.UsePerformance*
-- uid: Extensions.TrainingConfiguration.CriticalPerformance
-  commentId: P:Extensions.TrainingConfiguration.CriticalPerformance
+  overload: Parameters.TrainingConfig.UsePerformance*
+- uid: Parameters.TrainingConfig.CriticalPerformance
+  commentId: P:Parameters.TrainingConfig.CriticalPerformance
   id: CriticalPerformance
-  parent: Extensions.TrainingConfiguration
+  parent: Parameters.TrainingConfig
   langs:
   - csharp
   - vb
   name: CriticalPerformance
-  nameWithType: TrainingConfiguration.CriticalPerformance
-  fullName: Extensions.TrainingConfiguration.CriticalPerformance
+  nameWithType: TrainingConfig.CriticalPerformance
+  fullName: Parameters.TrainingConfig.CriticalPerformance
   type: Property
   source:
     remote:
-      path: src/Extensions/TrainingCSV.cs
+      path: src/Extensions/TrainingConfig.cs
       branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: CriticalPerformance
-    path: ../src/Extensions/TrainingCSV.cs
+    path: ../src/Extensions/TrainingConfig.cs
     startLine: 60
   assemblies:
   - Extensions
-  namespace: Extensions
+  namespace: Parameters
   example: []
   syntax:
     content: public double CriticalPerformance { get; set; }
@@ -749,29 +749,29 @@ items:
       type: System.Double
       description: Property <code>CriticalPerformance</code> is the minimum correct answer ratio required to advance block (if <code>UsePerformance</code> is 1).
     content.vb: Public Property CriticalPerformance As Double
-  overload: Extensions.TrainingConfiguration.CriticalPerformance*
-- uid: Extensions.TrainingConfiguration.MaxAborts
-  commentId: P:Extensions.TrainingConfiguration.MaxAborts
+  overload: Parameters.TrainingConfig.CriticalPerformance*
+- uid: Parameters.TrainingConfig.MaxAborts
+  commentId: P:Parameters.TrainingConfig.MaxAborts
   id: MaxAborts
-  parent: Extensions.TrainingConfiguration
+  parent: Parameters.TrainingConfig
   langs:
   - csharp
   - vb
   name: MaxAborts
-  nameWithType: TrainingConfiguration.MaxAborts
-  fullName: Extensions.TrainingConfiguration.MaxAborts
+  nameWithType: TrainingConfig.MaxAborts
+  fullName: Parameters.TrainingConfig.MaxAborts
   type: Property
   source:
     remote:
-      path: src/Extensions/TrainingCSV.cs
+      path: src/Extensions/TrainingConfig.cs
       branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: MaxAborts
-    path: ../src/Extensions/TrainingCSV.cs
+    path: ../src/Extensions/TrainingConfig.cs
     startLine: 62
   assemblies:
   - Extensions
-  namespace: Extensions
+  namespace: Parameters
   example: []
   syntax:
     content: public int MaxAborts { get; set; }
@@ -780,29 +780,29 @@ items:
       type: System.Int32
       description: Property <code>MaxAborts</code>
     content.vb: Public Property MaxAborts As Integer
-  overload: Extensions.TrainingConfiguration.MaxAborts*
-- uid: Extensions.TrainingConfiguration.RepeatError
-  commentId: P:Extensions.TrainingConfiguration.RepeatError
+  overload: Parameters.TrainingConfig.MaxAborts*
+- uid: Parameters.TrainingConfig.RepeatError
+  commentId: P:Parameters.TrainingConfig.RepeatError
   id: RepeatError
-  parent: Extensions.TrainingConfiguration
+  parent: Parameters.TrainingConfig
   langs:
   - csharp
   - vb
   name: RepeatError
-  nameWithType: TrainingConfiguration.RepeatError
-  fullName: Extensions.TrainingConfiguration.RepeatError
+  nameWithType: TrainingConfig.RepeatError
+  fullName: Parameters.TrainingConfig.RepeatError
   type: Property
   source:
     remote:
-      path: src/Extensions/TrainingCSV.cs
+      path: src/Extensions/TrainingConfig.cs
       branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: RepeatError
-    path: ../src/Extensions/TrainingCSV.cs
+    path: ../src/Extensions/TrainingConfig.cs
     startLine: 64
   assemblies:
   - Extensions
-  namespace: Extensions
+  namespace: Parameters
   example: []
   syntax:
     content: public int RepeatError { get; set; }
@@ -811,29 +811,29 @@ items:
       type: System.Int32
       description: Property <code>RepeatError</code> is whether the stimulus is repeated after incorrect responses.
     content.vb: Public Property RepeatError As Integer
-  overload: Extensions.TrainingConfiguration.RepeatError*
-- uid: Extensions.TrainingConfiguration.RepeatAbort
-  commentId: P:Extensions.TrainingConfiguration.RepeatAbort
+  overload: Parameters.TrainingConfig.RepeatError*
+- uid: Parameters.TrainingConfig.RepeatAbort
+  commentId: P:Parameters.TrainingConfig.RepeatAbort
   id: RepeatAbort
-  parent: Extensions.TrainingConfiguration
+  parent: Parameters.TrainingConfig
   langs:
   - csharp
   - vb
   name: RepeatAbort
-  nameWithType: TrainingConfiguration.RepeatAbort
-  fullName: Extensions.TrainingConfiguration.RepeatAbort
+  nameWithType: TrainingConfig.RepeatAbort
+  fullName: Parameters.TrainingConfig.RepeatAbort
   type: Property
   source:
     remote:
-      path: src/Extensions/TrainingCSV.cs
+      path: src/Extensions/TrainingConfig.cs
       branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: RepeatAbort
-    path: ../src/Extensions/TrainingCSV.cs
+    path: ../src/Extensions/TrainingConfig.cs
     startLine: 66
   assemblies:
   - Extensions
-  namespace: Extensions
+  namespace: Parameters
   example: []
   syntax:
     content: public int RepeatAbort { get; set; }
@@ -842,29 +842,29 @@ items:
       type: System.Int32
       description: Property <code>RepeatAbort</code> is whether the stimulus is repeated after aborts.
     content.vb: Public Property RepeatAbort As Integer
-  overload: Extensions.TrainingConfiguration.RepeatAbort*
-- uid: Extensions.TrainingConfiguration.Speakers
-  commentId: P:Extensions.TrainingConfiguration.Speakers
+  overload: Parameters.TrainingConfig.RepeatAbort*
+- uid: Parameters.TrainingConfig.Speakers
+  commentId: P:Parameters.TrainingConfig.Speakers
   id: Speakers
-  parent: Extensions.TrainingConfiguration
+  parent: Parameters.TrainingConfig
   langs:
   - csharp
   - vb
   name: Speakers
-  nameWithType: TrainingConfiguration.Speakers
-  fullName: Extensions.TrainingConfiguration.Speakers
+  nameWithType: TrainingConfig.Speakers
+  fullName: Parameters.TrainingConfig.Speakers
   type: Property
   source:
     remote:
-      path: src/Extensions/TrainingCSV.cs
+      path: src/Extensions/TrainingConfig.cs
       branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Speakers
-    path: ../src/Extensions/TrainingCSV.cs
+    path: ../src/Extensions/TrainingConfig.cs
     startLine: 68
   assemblies:
   - Extensions
-  namespace: Extensions
+  namespace: Parameters
   example: []
   syntax:
     content: public int Speakers { get; set; }
@@ -873,29 +873,29 @@ items:
       type: System.Int32
       description: Property <code>Speakers</code> is whether the animal is using headphones or not (Headphones = 1, Box Speakers = 0).
     content.vb: Public Property Speakers As Integer
-  overload: Extensions.TrainingConfiguration.Speakers*
-- uid: Extensions.TrainingConfiguration.AbortLight
-  commentId: P:Extensions.TrainingConfiguration.AbortLight
+  overload: Parameters.TrainingConfig.Speakers*
+- uid: Parameters.TrainingConfig.AbortLight
+  commentId: P:Parameters.TrainingConfig.AbortLight
   id: AbortLight
-  parent: Extensions.TrainingConfiguration
+  parent: Parameters.TrainingConfig
   langs:
   - csharp
   - vb
   name: AbortLight
-  nameWithType: TrainingConfiguration.AbortLight
-  fullName: Extensions.TrainingConfiguration.AbortLight
+  nameWithType: TrainingConfig.AbortLight
+  fullName: Parameters.TrainingConfig.AbortLight
   type: Property
   source:
     remote:
-      path: src/Extensions/TrainingCSV.cs
+      path: src/Extensions/TrainingConfig.cs
       branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: AbortLight
-    path: ../src/Extensions/TrainingCSV.cs
+    path: ../src/Extensions/TrainingConfig.cs
     startLine: 70
   assemblies:
   - Extensions
-  namespace: Extensions
+  namespace: Parameters
   example: []
   syntax:
     content: public int AbortLight { get; set; }
@@ -904,29 +904,29 @@ items:
       type: System.Int32
       description: Property <code>AbortLight</code>
     content.vb: Public Property AbortLight As Integer
-  overload: Extensions.TrainingConfiguration.AbortLight*
-- uid: Extensions.TrainingConfiguration.ITILight
-  commentId: P:Extensions.TrainingConfiguration.ITILight
+  overload: Parameters.TrainingConfig.AbortLight*
+- uid: Parameters.TrainingConfig.ITILight
+  commentId: P:Parameters.TrainingConfig.ITILight
   id: ITILight
-  parent: Extensions.TrainingConfiguration
+  parent: Parameters.TrainingConfig
   langs:
   - csharp
   - vb
   name: ITILight
-  nameWithType: TrainingConfiguration.ITILight
-  fullName: Extensions.TrainingConfiguration.ITILight
+  nameWithType: TrainingConfig.ITILight
+  fullName: Parameters.TrainingConfig.ITILight
   type: Property
   source:
     remote:
-      path: src/Extensions/TrainingCSV.cs
+      path: src/Extensions/TrainingConfig.cs
       branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: ITILight
-    path: ../src/Extensions/TrainingCSV.cs
+    path: ../src/Extensions/TrainingConfig.cs
     startLine: 72
   assemblies:
   - Extensions
-  namespace: Extensions
+  namespace: Parameters
   example: []
   syntax:
     content: public int ITILight { get; set; }
@@ -935,29 +935,29 @@ items:
       type: System.Int32
       description: Property <code>ITILight</code>
     content.vb: Public Property ITILight As Integer
-  overload: Extensions.TrainingConfiguration.ITILight*
-- uid: Extensions.TrainingConfiguration.PokeLight
-  commentId: P:Extensions.TrainingConfiguration.PokeLight
+  overload: Parameters.TrainingConfig.ITILight*
+- uid: Parameters.TrainingConfig.PokeLight
+  commentId: P:Parameters.TrainingConfig.PokeLight
   id: PokeLight
-  parent: Extensions.TrainingConfiguration
+  parent: Parameters.TrainingConfig
   langs:
   - csharp
   - vb
   name: PokeLight
-  nameWithType: TrainingConfiguration.PokeLight
-  fullName: Extensions.TrainingConfiguration.PokeLight
+  nameWithType: TrainingConfig.PokeLight
+  fullName: Parameters.TrainingConfig.PokeLight
   type: Property
   source:
     remote:
-      path: src/Extensions/TrainingCSV.cs
+      path: src/Extensions/TrainingConfig.cs
       branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: PokeLight
-    path: ../src/Extensions/TrainingCSV.cs
+    path: ../src/Extensions/TrainingConfig.cs
     startLine: 74
   assemblies:
   - Extensions
-  namespace: Extensions
+  namespace: Parameters
   example: []
   syntax:
     content: public int PokeLight { get; set; }
@@ -966,29 +966,29 @@ items:
       type: System.Int32
       description: Property <code>PokeLight</code>
     content.vb: Public Property PokeLight As Integer
-  overload: Extensions.TrainingConfiguration.PokeLight*
-- uid: Extensions.TrainingConfiguration.FixLight
-  commentId: P:Extensions.TrainingConfiguration.FixLight
+  overload: Parameters.TrainingConfig.PokeLight*
+- uid: Parameters.TrainingConfig.FixLight
+  commentId: P:Parameters.TrainingConfig.FixLight
   id: FixLight
-  parent: Extensions.TrainingConfiguration
+  parent: Parameters.TrainingConfig
   langs:
   - csharp
   - vb
   name: FixLight
-  nameWithType: TrainingConfiguration.FixLight
-  fullName: Extensions.TrainingConfiguration.FixLight
+  nameWithType: TrainingConfig.FixLight
+  fullName: Parameters.TrainingConfig.FixLight
   type: Property
   source:
     remote:
-      path: src/Extensions/TrainingCSV.cs
+      path: src/Extensions/TrainingConfig.cs
       branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: FixLight
-    path: ../src/Extensions/TrainingCSV.cs
+    path: ../src/Extensions/TrainingConfig.cs
     startLine: 76
   assemblies:
   - Extensions
-  namespace: Extensions
+  namespace: Parameters
   example: []
   syntax:
     content: public int FixLight { get; set; }
@@ -997,14 +997,14 @@ items:
       type: System.Int32
       description: Property <code>FixLight</code>
     content.vb: Public Property FixLight As Integer
-  overload: Extensions.TrainingConfiguration.FixLight*
+  overload: Parameters.TrainingConfig.FixLight*
 references:
-- uid: Extensions
-  commentId: N:Extensions
-  href: Extensions.html
-  name: Extensions
-  nameWithType: Extensions
-  fullName: Extensions
+- uid: Parameters
+  commentId: N:Parameters
+  href: Parameters.html
+  name: Parameters
+  nameWithType: Parameters
+  fullName: Parameters
 - uid: System.Object
   commentId: T:System.Object
   parent: System
@@ -1242,12 +1242,12 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: Extensions.TrainingConfiguration.Level*
-  commentId: Overload:Extensions.TrainingConfiguration.Level
-  href: Extensions.TrainingConfiguration.html#Extensions_TrainingConfiguration_Level
+- uid: Parameters.TrainingConfig.Level*
+  commentId: Overload:Parameters.TrainingConfig.Level
+  href: Parameters.TrainingConfig.html#Parameters_TrainingConfig_Level
   name: Level
-  nameWithType: TrainingConfiguration.Level
-  fullName: Extensions.TrainingConfiguration.Level
+  nameWithType: TrainingConfig.Level
+  fullName: Parameters.TrainingConfig.Level
 - uid: System.Int32
   commentId: T:System.Int32
   parent: System
@@ -1259,24 +1259,24 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
-- uid: Extensions.TrainingConfiguration.TrialsPerBlock*
-  commentId: Overload:Extensions.TrainingConfiguration.TrialsPerBlock
-  href: Extensions.TrainingConfiguration.html#Extensions_TrainingConfiguration_TrialsPerBlock
+- uid: Parameters.TrainingConfig.TrialsPerBlock*
+  commentId: Overload:Parameters.TrainingConfig.TrialsPerBlock
+  href: Parameters.TrainingConfig.html#Parameters_TrainingConfig_TrialsPerBlock
   name: TrialsPerBlock
-  nameWithType: TrainingConfiguration.TrialsPerBlock
-  fullName: Extensions.TrainingConfiguration.TrialsPerBlock
-- uid: Extensions.TrainingConfiguration.Level0*
-  commentId: Overload:Extensions.TrainingConfiguration.Level0
-  href: Extensions.TrainingConfiguration.html#Extensions_TrainingConfiguration_Level0
+  nameWithType: TrainingConfig.TrialsPerBlock
+  fullName: Parameters.TrainingConfig.TrialsPerBlock
+- uid: Parameters.TrainingConfig.Level0*
+  commentId: Overload:Parameters.TrainingConfig.Level0
+  href: Parameters.TrainingConfig.html#Parameters_TrainingConfig_Level0
   name: Level0
-  nameWithType: TrainingConfiguration.Level0
-  fullName: Extensions.TrainingConfiguration.Level0
-- uid: Extensions.TrainingConfiguration.FixedABL*
-  commentId: Overload:Extensions.TrainingConfiguration.FixedABL
-  href: Extensions.TrainingConfiguration.html#Extensions_TrainingConfiguration_FixedABL
+  nameWithType: TrainingConfig.Level0
+  fullName: Parameters.TrainingConfig.Level0
+- uid: Parameters.TrainingConfig.FixedABL*
+  commentId: Overload:Parameters.TrainingConfig.FixedABL
+  href: Parameters.TrainingConfig.html#Parameters_TrainingConfig_FixedABL
   name: FixedABL
-  nameWithType: TrainingConfiguration.FixedABL
-  fullName: Extensions.TrainingConfiguration.FixedABL
+  nameWithType: TrainingConfig.FixedABL
+  fullName: Parameters.TrainingConfig.FixedABL
 - uid: System.Double
   commentId: T:System.Double
   parent: System
@@ -1288,159 +1288,159 @@ references:
   nameWithType.vb: Double
   fullName.vb: Double
   name.vb: Double
-- uid: Extensions.TrainingConfiguration.DifferentABLs*
-  commentId: Overload:Extensions.TrainingConfiguration.DifferentABLs
-  href: Extensions.TrainingConfiguration.html#Extensions_TrainingConfiguration_DifferentABLs
+- uid: Parameters.TrainingConfig.DifferentABLs*
+  commentId: Overload:Parameters.TrainingConfig.DifferentABLs
+  href: Parameters.TrainingConfig.html#Parameters_TrainingConfig_DifferentABLs
   name: DifferentABLs
-  nameWithType: TrainingConfiguration.DifferentABLs
-  fullName: Extensions.TrainingConfiguration.DifferentABLs
-- uid: Extensions.TrainingConfiguration.ABLBlock*
-  commentId: Overload:Extensions.TrainingConfiguration.ABLBlock
-  href: Extensions.TrainingConfiguration.html#Extensions_TrainingConfiguration_ABLBlock
+  nameWithType: TrainingConfig.DifferentABLs
+  fullName: Parameters.TrainingConfig.DifferentABLs
+- uid: Parameters.TrainingConfig.ABLBlock*
+  commentId: Overload:Parameters.TrainingConfig.ABLBlock
+  href: Parameters.TrainingConfig.html#Parameters_TrainingConfig_ABLBlock
   name: ABLBlock
-  nameWithType: TrainingConfiguration.ABLBlock
-  fullName: Extensions.TrainingConfiguration.ABLBlock
-- uid: Extensions.TrainingConfiguration.ILDStepSize*
-  commentId: Overload:Extensions.TrainingConfiguration.ILDStepSize
-  href: Extensions.TrainingConfiguration.html#Extensions_TrainingConfiguration_ILDStepSize
+  nameWithType: TrainingConfig.ABLBlock
+  fullName: Parameters.TrainingConfig.ABLBlock
+- uid: Parameters.TrainingConfig.ILDStepSize*
+  commentId: Overload:Parameters.TrainingConfig.ILDStepSize
+  href: Parameters.TrainingConfig.html#Parameters_TrainingConfig_ILDStepSize
   name: ILDStepSize
-  nameWithType: TrainingConfiguration.ILDStepSize
-  fullName: Extensions.TrainingConfiguration.ILDStepSize
-- uid: Extensions.TrainingConfiguration.ILDSteps*
-  commentId: Overload:Extensions.TrainingConfiguration.ILDSteps
-  href: Extensions.TrainingConfiguration.html#Extensions_TrainingConfiguration_ILDSteps
+  nameWithType: TrainingConfig.ILDStepSize
+  fullName: Parameters.TrainingConfig.ILDStepSize
+- uid: Parameters.TrainingConfig.ILDSteps*
+  commentId: Overload:Parameters.TrainingConfig.ILDSteps
+  href: Parameters.TrainingConfig.html#Parameters_TrainingConfig_ILDSteps
   name: ILDSteps
-  nameWithType: TrainingConfiguration.ILDSteps
-  fullName: Extensions.TrainingConfiguration.ILDSteps
-- uid: Extensions.TrainingConfiguration.UseLog*
-  commentId: Overload:Extensions.TrainingConfiguration.UseLog
-  href: Extensions.TrainingConfiguration.html#Extensions_TrainingConfiguration_UseLog
+  nameWithType: TrainingConfig.ILDSteps
+  fullName: Parameters.TrainingConfig.ILDSteps
+- uid: Parameters.TrainingConfig.UseLog*
+  commentId: Overload:Parameters.TrainingConfig.UseLog
+  href: Parameters.TrainingConfig.html#Parameters_TrainingConfig_UseLog
   name: UseLog
-  nameWithType: TrainingConfiguration.UseLog
-  fullName: Extensions.TrainingConfiguration.UseLog
-- uid: Extensions.TrainingConfiguration.LogBase*
-  commentId: Overload:Extensions.TrainingConfiguration.LogBase
-  href: Extensions.TrainingConfiguration.html#Extensions_TrainingConfiguration_LogBase
+  nameWithType: TrainingConfig.UseLog
+  fullName: Parameters.TrainingConfig.UseLog
+- uid: Parameters.TrainingConfig.LogBase*
+  commentId: Overload:Parameters.TrainingConfig.LogBase
+  href: Parameters.TrainingConfig.html#Parameters_TrainingConfig_LogBase
   name: LogBase
-  nameWithType: TrainingConfiguration.LogBase
-  fullName: Extensions.TrainingConfiguration.LogBase
-- uid: Extensions.TrainingConfiguration.IntendedITI*
-  commentId: Overload:Extensions.TrainingConfiguration.IntendedITI
-  href: Extensions.TrainingConfiguration.html#Extensions_TrainingConfiguration_IntendedITI
+  nameWithType: TrainingConfig.LogBase
+  fullName: Parameters.TrainingConfig.LogBase
+- uid: Parameters.TrainingConfig.IntendedITI*
+  commentId: Overload:Parameters.TrainingConfig.IntendedITI
+  href: Parameters.TrainingConfig.html#Parameters_TrainingConfig_IntendedITI
   name: IntendedITI
-  nameWithType: TrainingConfiguration.IntendedITI
-  fullName: Extensions.TrainingConfiguration.IntendedITI
-- uid: Extensions.TrainingConfiguration.ITIReset*
-  commentId: Overload:Extensions.TrainingConfiguration.ITIReset
-  href: Extensions.TrainingConfiguration.html#Extensions_TrainingConfiguration_ITIReset
+  nameWithType: TrainingConfig.IntendedITI
+  fullName: Parameters.TrainingConfig.IntendedITI
+- uid: Parameters.TrainingConfig.ITIReset*
+  commentId: Overload:Parameters.TrainingConfig.ITIReset
+  href: Parameters.TrainingConfig.html#Parameters_TrainingConfig_ITIReset
   name: ITIReset
-  nameWithType: TrainingConfiguration.ITIReset
-  fullName: Extensions.TrainingConfiguration.ITIReset
-- uid: Extensions.TrainingConfiguration.MaxWait*
-  commentId: Overload:Extensions.TrainingConfiguration.MaxWait
-  href: Extensions.TrainingConfiguration.html#Extensions_TrainingConfiguration_MaxWait
+  nameWithType: TrainingConfig.ITIReset
+  fullName: Parameters.TrainingConfig.ITIReset
+- uid: Parameters.TrainingConfig.MaxWait*
+  commentId: Overload:Parameters.TrainingConfig.MaxWait
+  href: Parameters.TrainingConfig.html#Parameters_TrainingConfig_MaxWait
   name: MaxWait
-  nameWithType: TrainingConfiguration.MaxWait
-  fullName: Extensions.TrainingConfiguration.MaxWait
-- uid: Extensions.TrainingConfiguration.RandomizeFT*
-  commentId: Overload:Extensions.TrainingConfiguration.RandomizeFT
-  href: Extensions.TrainingConfiguration.html#Extensions_TrainingConfiguration_RandomizeFT
+  nameWithType: TrainingConfig.MaxWait
+  fullName: Parameters.TrainingConfig.MaxWait
+- uid: Parameters.TrainingConfig.RandomizeFT*
+  commentId: Overload:Parameters.TrainingConfig.RandomizeFT
+  href: Parameters.TrainingConfig.html#Parameters_TrainingConfig_RandomizeFT
   name: RandomizeFT
-  nameWithType: TrainingConfiguration.RandomizeFT
-  fullName: Extensions.TrainingConfiguration.RandomizeFT
-- uid: Extensions.TrainingConfiguration.UseRT*
-  commentId: Overload:Extensions.TrainingConfiguration.UseRT
-  href: Extensions.TrainingConfiguration.html#Extensions_TrainingConfiguration_UseRT
+  nameWithType: TrainingConfig.RandomizeFT
+  fullName: Parameters.TrainingConfig.RandomizeFT
+- uid: Parameters.TrainingConfig.UseRT*
+  commentId: Overload:Parameters.TrainingConfig.UseRT
+  href: Parameters.TrainingConfig.html#Parameters_TrainingConfig_UseRT
   name: UseRT
-  nameWithType: TrainingConfiguration.UseRT
-  fullName: Extensions.TrainingConfiguration.UseRT
-- uid: Extensions.TrainingConfiguration.UseMaxRT*
-  commentId: Overload:Extensions.TrainingConfiguration.UseMaxRT
-  href: Extensions.TrainingConfiguration.html#Extensions_TrainingConfiguration_UseMaxRT
+  nameWithType: TrainingConfig.UseRT
+  fullName: Parameters.TrainingConfig.UseRT
+- uid: Parameters.TrainingConfig.UseMaxRT*
+  commentId: Overload:Parameters.TrainingConfig.UseMaxRT
+  href: Parameters.TrainingConfig.html#Parameters_TrainingConfig_UseMaxRT
   name: UseMaxRT
-  nameWithType: TrainingConfiguration.UseMaxRT
-  fullName: Extensions.TrainingConfiguration.UseMaxRT
-- uid: Extensions.TrainingConfiguration.MaxMT*
-  commentId: Overload:Extensions.TrainingConfiguration.MaxMT
-  href: Extensions.TrainingConfiguration.html#Extensions_TrainingConfiguration_MaxMT
+  nameWithType: TrainingConfig.UseMaxRT
+  fullName: Parameters.TrainingConfig.UseMaxRT
+- uid: Parameters.TrainingConfig.MaxMT*
+  commentId: Overload:Parameters.TrainingConfig.MaxMT
+  href: Parameters.TrainingConfig.html#Parameters_TrainingConfig_MaxMT
   name: MaxMT
-  nameWithType: TrainingConfiguration.MaxMT
-  fullName: Extensions.TrainingConfiguration.MaxMT
-- uid: Extensions.TrainingConfiguration.AbortPenalty*
-  commentId: Overload:Extensions.TrainingConfiguration.AbortPenalty
-  href: Extensions.TrainingConfiguration.html#Extensions_TrainingConfiguration_AbortPenalty
+  nameWithType: TrainingConfig.MaxMT
+  fullName: Parameters.TrainingConfig.MaxMT
+- uid: Parameters.TrainingConfig.AbortPenalty*
+  commentId: Overload:Parameters.TrainingConfig.AbortPenalty
+  href: Parameters.TrainingConfig.html#Parameters_TrainingConfig_AbortPenalty
   name: AbortPenalty
-  nameWithType: TrainingConfiguration.AbortPenalty
-  fullName: Extensions.TrainingConfiguration.AbortPenalty
-- uid: Extensions.TrainingConfiguration.IncorrectPenalty*
-  commentId: Overload:Extensions.TrainingConfiguration.IncorrectPenalty
-  href: Extensions.TrainingConfiguration.html#Extensions_TrainingConfiguration_IncorrectPenalty
+  nameWithType: TrainingConfig.AbortPenalty
+  fullName: Parameters.TrainingConfig.AbortPenalty
+- uid: Parameters.TrainingConfig.IncorrectPenalty*
+  commentId: Overload:Parameters.TrainingConfig.IncorrectPenalty
+  href: Parameters.TrainingConfig.html#Parameters_TrainingConfig_IncorrectPenalty
   name: IncorrectPenalty
-  nameWithType: TrainingConfiguration.IncorrectPenalty
-  fullName: Extensions.TrainingConfiguration.IncorrectPenalty
-- uid: Extensions.TrainingConfiguration.FixationAbortPenalty*
-  commentId: Overload:Extensions.TrainingConfiguration.FixationAbortPenalty
-  href: Extensions.TrainingConfiguration.html#Extensions_TrainingConfiguration_FixationAbortPenalty
+  nameWithType: TrainingConfig.IncorrectPenalty
+  fullName: Parameters.TrainingConfig.IncorrectPenalty
+- uid: Parameters.TrainingConfig.FixationAbortPenalty*
+  commentId: Overload:Parameters.TrainingConfig.FixationAbortPenalty
+  href: Parameters.TrainingConfig.html#Parameters_TrainingConfig_FixationAbortPenalty
   name: FixationAbortPenalty
-  nameWithType: TrainingConfiguration.FixationAbortPenalty
-  fullName: Extensions.TrainingConfiguration.FixationAbortPenalty
-- uid: Extensions.TrainingConfiguration.UsePerformance*
-  commentId: Overload:Extensions.TrainingConfiguration.UsePerformance
-  href: Extensions.TrainingConfiguration.html#Extensions_TrainingConfiguration_UsePerformance
+  nameWithType: TrainingConfig.FixationAbortPenalty
+  fullName: Parameters.TrainingConfig.FixationAbortPenalty
+- uid: Parameters.TrainingConfig.UsePerformance*
+  commentId: Overload:Parameters.TrainingConfig.UsePerformance
+  href: Parameters.TrainingConfig.html#Parameters_TrainingConfig_UsePerformance
   name: UsePerformance
-  nameWithType: TrainingConfiguration.UsePerformance
-  fullName: Extensions.TrainingConfiguration.UsePerformance
-- uid: Extensions.TrainingConfiguration.CriticalPerformance*
-  commentId: Overload:Extensions.TrainingConfiguration.CriticalPerformance
-  href: Extensions.TrainingConfiguration.html#Extensions_TrainingConfiguration_CriticalPerformance
+  nameWithType: TrainingConfig.UsePerformance
+  fullName: Parameters.TrainingConfig.UsePerformance
+- uid: Parameters.TrainingConfig.CriticalPerformance*
+  commentId: Overload:Parameters.TrainingConfig.CriticalPerformance
+  href: Parameters.TrainingConfig.html#Parameters_TrainingConfig_CriticalPerformance
   name: CriticalPerformance
-  nameWithType: TrainingConfiguration.CriticalPerformance
-  fullName: Extensions.TrainingConfiguration.CriticalPerformance
-- uid: Extensions.TrainingConfiguration.MaxAborts*
-  commentId: Overload:Extensions.TrainingConfiguration.MaxAborts
-  href: Extensions.TrainingConfiguration.html#Extensions_TrainingConfiguration_MaxAborts
+  nameWithType: TrainingConfig.CriticalPerformance
+  fullName: Parameters.TrainingConfig.CriticalPerformance
+- uid: Parameters.TrainingConfig.MaxAborts*
+  commentId: Overload:Parameters.TrainingConfig.MaxAborts
+  href: Parameters.TrainingConfig.html#Parameters_TrainingConfig_MaxAborts
   name: MaxAborts
-  nameWithType: TrainingConfiguration.MaxAborts
-  fullName: Extensions.TrainingConfiguration.MaxAborts
-- uid: Extensions.TrainingConfiguration.RepeatError*
-  commentId: Overload:Extensions.TrainingConfiguration.RepeatError
-  href: Extensions.TrainingConfiguration.html#Extensions_TrainingConfiguration_RepeatError
+  nameWithType: TrainingConfig.MaxAborts
+  fullName: Parameters.TrainingConfig.MaxAborts
+- uid: Parameters.TrainingConfig.RepeatError*
+  commentId: Overload:Parameters.TrainingConfig.RepeatError
+  href: Parameters.TrainingConfig.html#Parameters_TrainingConfig_RepeatError
   name: RepeatError
-  nameWithType: TrainingConfiguration.RepeatError
-  fullName: Extensions.TrainingConfiguration.RepeatError
-- uid: Extensions.TrainingConfiguration.RepeatAbort*
-  commentId: Overload:Extensions.TrainingConfiguration.RepeatAbort
-  href: Extensions.TrainingConfiguration.html#Extensions_TrainingConfiguration_RepeatAbort
+  nameWithType: TrainingConfig.RepeatError
+  fullName: Parameters.TrainingConfig.RepeatError
+- uid: Parameters.TrainingConfig.RepeatAbort*
+  commentId: Overload:Parameters.TrainingConfig.RepeatAbort
+  href: Parameters.TrainingConfig.html#Parameters_TrainingConfig_RepeatAbort
   name: RepeatAbort
-  nameWithType: TrainingConfiguration.RepeatAbort
-  fullName: Extensions.TrainingConfiguration.RepeatAbort
-- uid: Extensions.TrainingConfiguration.Speakers*
-  commentId: Overload:Extensions.TrainingConfiguration.Speakers
-  href: Extensions.TrainingConfiguration.html#Extensions_TrainingConfiguration_Speakers
+  nameWithType: TrainingConfig.RepeatAbort
+  fullName: Parameters.TrainingConfig.RepeatAbort
+- uid: Parameters.TrainingConfig.Speakers*
+  commentId: Overload:Parameters.TrainingConfig.Speakers
+  href: Parameters.TrainingConfig.html#Parameters_TrainingConfig_Speakers
   name: Speakers
-  nameWithType: TrainingConfiguration.Speakers
-  fullName: Extensions.TrainingConfiguration.Speakers
-- uid: Extensions.TrainingConfiguration.AbortLight*
-  commentId: Overload:Extensions.TrainingConfiguration.AbortLight
-  href: Extensions.TrainingConfiguration.html#Extensions_TrainingConfiguration_AbortLight
+  nameWithType: TrainingConfig.Speakers
+  fullName: Parameters.TrainingConfig.Speakers
+- uid: Parameters.TrainingConfig.AbortLight*
+  commentId: Overload:Parameters.TrainingConfig.AbortLight
+  href: Parameters.TrainingConfig.html#Parameters_TrainingConfig_AbortLight
   name: AbortLight
-  nameWithType: TrainingConfiguration.AbortLight
-  fullName: Extensions.TrainingConfiguration.AbortLight
-- uid: Extensions.TrainingConfiguration.ITILight*
-  commentId: Overload:Extensions.TrainingConfiguration.ITILight
-  href: Extensions.TrainingConfiguration.html#Extensions_TrainingConfiguration_ITILight
+  nameWithType: TrainingConfig.AbortLight
+  fullName: Parameters.TrainingConfig.AbortLight
+- uid: Parameters.TrainingConfig.ITILight*
+  commentId: Overload:Parameters.TrainingConfig.ITILight
+  href: Parameters.TrainingConfig.html#Parameters_TrainingConfig_ITILight
   name: ITILight
-  nameWithType: TrainingConfiguration.ITILight
-  fullName: Extensions.TrainingConfiguration.ITILight
-- uid: Extensions.TrainingConfiguration.PokeLight*
-  commentId: Overload:Extensions.TrainingConfiguration.PokeLight
-  href: Extensions.TrainingConfiguration.html#Extensions_TrainingConfiguration_PokeLight
+  nameWithType: TrainingConfig.ITILight
+  fullName: Parameters.TrainingConfig.ITILight
+- uid: Parameters.TrainingConfig.PokeLight*
+  commentId: Overload:Parameters.TrainingConfig.PokeLight
+  href: Parameters.TrainingConfig.html#Parameters_TrainingConfig_PokeLight
   name: PokeLight
-  nameWithType: TrainingConfiguration.PokeLight
-  fullName: Extensions.TrainingConfiguration.PokeLight
-- uid: Extensions.TrainingConfiguration.FixLight*
-  commentId: Overload:Extensions.TrainingConfiguration.FixLight
-  href: Extensions.TrainingConfiguration.html#Extensions_TrainingConfiguration_FixLight
+  nameWithType: TrainingConfig.PokeLight
+  fullName: Parameters.TrainingConfig.PokeLight
+- uid: Parameters.TrainingConfig.FixLight*
+  commentId: Overload:Parameters.TrainingConfig.FixLight
+  href: Parameters.TrainingConfig.html#Parameters_TrainingConfig_FixLight
   name: FixLight
-  nameWithType: TrainingConfiguration.FixLight
-  fullName: Extensions.TrainingConfiguration.FixLight
+  nameWithType: TrainingConfig.FixLight
+  fullName: Parameters.TrainingConfig.FixLight

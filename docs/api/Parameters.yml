@@ -1,0 +1,37 @@
+### YamlMime:ManagedReference
+items:
+- uid: Parameters
+  commentId: N:Parameters
+  id: Parameters
+  children:
+  - Parameters.AnimalConfig
+  - Parameters.SetupConfig
+  - Parameters.TrainingConfig
+  langs:
+  - csharp
+  - vb
+  name: Parameters
+  nameWithType: Parameters
+  fullName: Parameters
+  type: Namespace
+  assemblies:
+  - Extensions
+references:
+- uid: Parameters.AnimalConfig
+  commentId: T:Parameters.AnimalConfig
+  href: Parameters.AnimalConfig.html
+  name: AnimalConfig
+  nameWithType: AnimalConfig
+  fullName: Parameters.AnimalConfig
+- uid: Parameters.SetupConfig
+  commentId: T:Parameters.SetupConfig
+  href: Parameters.SetupConfig.html
+  name: SetupConfig
+  nameWithType: SetupConfig
+  fullName: Parameters.SetupConfig
+- uid: Parameters.TrainingConfig
+  commentId: T:Parameters.TrainingConfig
+  href: Parameters.TrainingConfig.html
+  name: TrainingConfig
+  nameWithType: TrainingConfig
+  fullName: Parameters.TrainingConfig

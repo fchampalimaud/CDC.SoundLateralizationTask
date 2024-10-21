@@ -4,15 +4,12 @@ items:
   commentId: N:Extensions
   id: Extensions
   children:
-  - Extensions.AnimalSpecificConfiguration
-  - Extensions.AnimalSpecificJSON
   - Extensions.GenerateILDArray
+  - Extensions.ReadAnimalJSON
+  - Extensions.ReadSetupJSON
   - Extensions.SelectMasterFolder
-  - Extensions.SetupSpecificConfiguration
-  - Extensions.SetupSpecificJSON
   - Extensions.ShuffleArray
   - Extensions.TrainingCSV
-  - Extensions.TrainingConfiguration
   langs:
   - csharp
   - vb
@@ -23,18 +20,12 @@ items:
   assemblies:
   - Extensions
 references:
-- uid: Extensions.AnimalSpecificConfiguration
-  commentId: T:Extensions.AnimalSpecificConfiguration
-  href: Extensions.AnimalSpecificConfiguration.html
-  name: AnimalSpecificConfiguration
-  nameWithType: AnimalSpecificConfiguration
-  fullName: Extensions.AnimalSpecificConfiguration
-- uid: Extensions.AnimalSpecificJSON
-  commentId: T:Extensions.AnimalSpecificJSON
-  href: Extensions.AnimalSpecificJSON.html
-  name: AnimalSpecificJSON
-  nameWithType: AnimalSpecificJSON
-  fullName: Extensions.AnimalSpecificJSON
+- uid: Extensions.ReadAnimalJSON
+  commentId: T:Extensions.ReadAnimalJSON
+  href: Extensions.ReadAnimalJSON.html
+  name: ReadAnimalJSON
+  nameWithType: ReadAnimalJSON
+  fullName: Extensions.ReadAnimalJSON
 - uid: Extensions.GenerateILDArray
   commentId: T:Extensions.GenerateILDArray
   href: Extensions.GenerateILDArray.html
@@ -47,30 +38,18 @@ references:
   name: SelectMasterFolder
   nameWithType: SelectMasterFolder
   fullName: Extensions.SelectMasterFolder
-- uid: Extensions.SetupSpecificConfiguration
-  commentId: T:Extensions.SetupSpecificConfiguration
-  href: Extensions.SetupSpecificConfiguration.html
-  name: SetupSpecificConfiguration
-  nameWithType: SetupSpecificConfiguration
-  fullName: Extensions.SetupSpecificConfiguration
-- uid: Extensions.SetupSpecificJSON
-  commentId: T:Extensions.SetupSpecificJSON
-  href: Extensions.SetupSpecificJSON.html
-  name: SetupSpecificJSON
-  nameWithType: SetupSpecificJSON
-  fullName: Extensions.SetupSpecificJSON
+- uid: Extensions.ReadSetupJSON
+  commentId: T:Extensions.ReadSetupJSON
+  href: Extensions.ReadSetupJSON.html
+  name: ReadSetupJSON
+  nameWithType: ReadSetupJSON
+  fullName: Extensions.ReadSetupJSON
 - uid: Extensions.ShuffleArray
   commentId: T:Extensions.ShuffleArray
   href: Extensions.ShuffleArray.html
   name: ShuffleArray
   nameWithType: ShuffleArray
   fullName: Extensions.ShuffleArray
-- uid: Extensions.TrainingConfiguration
-  commentId: T:Extensions.TrainingConfiguration
-  href: Extensions.TrainingConfiguration.html
-  name: TrainingConfiguration
-  nameWithType: TrainingConfiguration
-  fullName: Extensions.TrainingConfiguration
 - uid: Extensions.TrainingCSV
   commentId: T:Extensions.TrainingCSV
   href: Extensions.TrainingCSV.html

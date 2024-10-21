@@ -20,5 +20,9 @@
       href: ./state_machine/reward.md
     - name: Abort
       href: ./state_machine/abort.md
-- name: Implementation Details
+- name: Bonsai-Python Communication
+  items:
+    - name: Introduction
+      href: ./osc_protocol/introduction.md
+- name: Bonsai Implementation Details
   href: implementation_details.md
