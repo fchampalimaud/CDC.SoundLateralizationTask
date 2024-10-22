@@ -90,5 +90,19 @@ namespace Extensions
 
             return Observable.Defer(() => Observable.Return(animalConfig));
         }
+
+        /// <summary>
+        /// Reads the animal-specific input parameters needed for the Sound Lateralization Task from a JSON file.
+        /// </summary>
+        /// <returns>
+        /// An observable sequence which sends a single event containing an <c>AnimalConfig</c> instance.
+        /// </returns>
+        public IObservable<Parameters.AnimalConfig> Process<TSource>(IObservable<TSource> source)
+        {
+            string fileContent = File.ReadAllText(FilePath);
+            Parameters.AnimalConfig animalConfig = JsonConvert.DeserializeObject<Parameters.AnimalConfig>(fileContent);
+
+            return source.Select(input => animalConfig);
+        }
     }
 }

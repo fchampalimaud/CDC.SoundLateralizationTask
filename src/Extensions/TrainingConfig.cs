@@ -90,7 +90,7 @@ namespace Extensions
     {
         [Description("The name of the CSV file.")]
         [Editor(DesignTypes.OpenFileNameEditor, DesignTypes.UITypeEditor)]
-        public String FileName { get; set; }
+        public String FilePath { get; set; }
         [Description("The row number which corresponds to the desired training level (settings).")]
         [Editor(DesignTypes.NumericUpDownEditor, DesignTypes.UITypeEditor)]
         public int RowNumber { get; set; }
@@ -103,7 +103,7 @@ namespace Extensions
         /// </returns>
         Tuple<Parameters.TrainingConfig, int> CSVtoArray()
         {
-            using (var reader = new StreamReader(FileName))
+            using (var reader = new StreamReader(FilePath))
             using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
             {
                 List<Parameters.TrainingConfig> levels = csv.GetRecords<Parameters.TrainingConfig>().ToList();

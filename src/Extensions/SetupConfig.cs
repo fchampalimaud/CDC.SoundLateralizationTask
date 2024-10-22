@@ -1,11 +1,12 @@
 using Bonsai;
 using System;
+using System.Globalization;
 using System.ComponentModel;
 using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reactive.Linq;
-using Newtonsoft.Json;
+using CsvHelper;
 
 namespace Parameters
 {
@@ -14,6 +15,8 @@ namespace Parameters
     /// </summary>
     public class SetupConfig
     {
+        /// <value>Property <c>Setup</c> is the ID of the setup.</value>
+        public int Setup { get; set; }
         /// <value>Property <c>LowToHighL</c> indicates whether the left poke is a low-to-high (true) or a high-to-low device.</value>
         public bool LowToHighL { get; set; }
         /// <value>Property <c>LowToHighCNP</c> indicates whether the central poke is a low-to-high (true) or a high-to-low device.</value>
@@ -41,17 +44,17 @@ namespace Parameters
         /// <value>Property <c>FlashPeriod</c></value>
         public double PokeLEDDutyCycle { get; set; }
         /// <value>Property <c>SoundDuration</c> is the duration of the sounds loaded to the soundcard (s).</value>
-        public double SoundDuration { get; set; }
-        public double PenaltyDurationPress { get; set; }
-        public double PenaltyFlashF { get; set; }
-        public double PerformAvg { get; set; }
-        public int IBILight { get; set; }
-        public int FS { get; set; }
-        public int FSDiv { get; set; }
-        public int FSSound { get; set; }
-        public int MinFreq { get; set; }
-        public int MaxFreq { get; set; }
-        public double RampTime { get; set; }
+        // public double SoundDuration { get; set; }
+        // public double PenaltyDurationPress { get; set; }
+        // public double PenaltyFlashF { get; set; }
+        // public double PerformAvg { get; set; }
+        // public int IBILight { get; set; }
+        // public int FS { get; set; }
+        // public int FSDiv { get; set; }
+        // public int FSSound { get; set; }
+        // public int MinFreq { get; set; }
+        // public int MaxFreq { get; set; }
+        // public double RampTime { get; set; }
     }
 }
 
@@ -61,18 +64,46 @@ namespace Extensions
     [Description("Generates an instance of the SetupConfig class based on the JSON file containing the task's setup-specific configuration.")]
     [WorkflowElementCategory(ElementCategory.Source)]
     // FIXME: rewrite function to ReadSetupCSV
-    public class ReadSetupJSON
+    public class ReadSetupCSV
     {
         [Description("The name of the JSON file.")]
         [Editor(DesignTypes.OpenFileNameEditor, DesignTypes.UITypeEditor)]
         public String FilePath { get; set; }
+        [Description("The row number which corresponds to the desired training level (settings).")]
+        [Editor(DesignTypes.NumericUpDownEditor, DesignTypes.UITypeEditor)]
+        public int RowNumber { get; set; }
+
+        /// <summary>
+        /// Reads a CSV file and outputs one of the rows.
+        /// </summary>
+        /// <returns>
+        /// A <c>TrainingConfiguration</c> instance corresponding to one of the rows of the CSV file.
+        /// </returns>
+        Parameters.SetupConfig CSVtoArray()
+        {
+            using (var reader = new StreamReader(FilePath))
+            using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+            {
+                List<Parameters.SetupConfig> setups = csv.GetRecords<Parameters.SetupConfig>().ToList();
+
+                if (RowNumber >= setups.Count) {
+                    RowNumber = setups.Count - 1;
+                } else if (RowNumber < 0) {
+                    RowNumber = 0;
+                }
+
+                return setups[RowNumber];
+            }
+        }
 
         public IObservable<Parameters.SetupConfig> Process()
         {
-            string fileContent = File.ReadAllText(FilePath);
-            Parameters.SetupConfig setupConfig = Newtonsoft.Json.JsonConvert.DeserializeObject<Parameters.SetupConfig>(fileContent);
+            return Observable.Defer(() => Observable.Return(CSVtoArray()));
+        }
 
-            return Observable.Defer(() => Observable.Return(setupConfig));
+        public IObservable<Parameters.SetupConfig> Process<TSource>(IObservable<TSource> source)
+        {
+            return source.Select(input => CSVtoArray());
         }
     }
 }

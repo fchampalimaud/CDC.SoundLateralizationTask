@@ -1,6 +1,14 @@
 from pythonosc import udp_client
 
 class Speaker:
+    """
+    A class that sends messages to the Bonsai OSC server.
+
+    Attributes
+    ----------
+    client : SimpleUDPClient
+        an OSC/UDP client.
+    """
     def __init__(self, ip: str = "127.0.0.1", port: int = 2):
         self.client = udp_client.SimpleUDPClient(ip, port)
 
