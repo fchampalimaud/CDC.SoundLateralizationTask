@@ -87,111 +87,60 @@ class Controller:
 
         self.view.show()
 
-    def bonsai(self):
-        """
-        Opens and runs the Bonsai task.
-        """
-        os.system(r"..\\..\\bonsai\\Bonsai.exe ..\\sound_lateralization_task.bonsai --start")
-
-    # FIXME
     def initialization(self):
         """
         Asks a bunch of initial prompts useful for the task execution.
         """
-        # FIXME
-        df = pd.read_csv("../output/Rat001/241017/out.csv")
-        df = df.iloc[-1]
+        # File paths used
+        startup_path = "../config/startup.json"
+        with open(startup_path, "r") as file:
+            paths = json.load(file)
 
-        file = open("../config/animal.json",)
+        # Read animal.json
+        with open(correct_path(paths["AnimalFile"]), "r") as file:
+            animal = json.load(file)
 
-        animal = json.load(file)
+        # Animal number
+        self.information["Rat"] = get_animal_number()
+        animal["Animal"] = self.information["Rat"]
 
-        while True:
-            animal_number = input("Animal number: ")
-            try:
-                self.information["Rat"] = int(animal_number)
-                animal["Animal"] = int(animal_number)
-                break
-            except:
-                print("Not a valid input. Please enter an integer.")
+        self.output_dir = correct_path(paths["OutputDir"])
+        df, is_new_animal = get_latest_file(self.output_dir, animal["Animal"])
 
-        while True:
-            setup = input("Setup number: ")
-            try:
-                animal["Box"] = int(setup)
-                break
-            except:
-                print("Not a valid input. Please enter an integer.")
-
-        while True:
-            new_session = input("New session? (blank or 1 = yes, 0 = no) ")
-            if new_session == "" or new_session == "1":
+        # Setup number
+        animal["Box"] = get_setup_number()
+        # Asks whether this is a new session
+        if is_new_animal or is_new_session():
+            # Session number
+            if is_new_animal:
+                animal["Session"] = 1
+                self.information["Block"] = 1
+            else:
                 animal["Session"] = int(df["Session"] + 1)
-                loop = True
-                break
-            elif new_session == "0":
-                animal["Session"] = int(df["Session"])
-                animal["SessionType"] = int(df["SessionType"])
-                animal["StartingTrainingLevel"] = int(df["TrainingLevel"])
-                self.information["Training level"] = int(df["TrainingLevel"])
-                loop = False
-                break
-            else:
-                print("Not a valid input.")
+                self.information["Block"] = df["Block"] + 1
+                
+            # Session type
+            animal["SessionType"] = get_session_type(df, is_new_animal)
+            # Initial training level
+            animal["StartingTrainingLevel"] = get_initial_level(df, is_new_animal)
+            self.information["Training level"] = animal["StartingTrainingLevel"]
+        else:
+            # Session number
+            animal["Session"] = int(df["Session"])
+            # Session type
+            animal["SessionType"] = int(df["SessionType"])
+            # Initial training level
+            animal["StartingTrainingLevel"] = int(df["TrainingLevel"])
+            self.information["Training level"] = int(df["TrainingLevel"])
+            self.information["Block"] = df["Block"]
 
-        while loop:
-            session_type = input("Type of session: ")
-            if session_type == "":
-                animal["SessionType"] = int(df["SessionType"])
-                break
-            else:
-                try:
-                    animal["SessionType"] = int(session_type)
-                    break
-                except:
-                    print("Not a valid input. Please enter an integer.")
+        # Last training level
+        animal["LastTrainingLevel"] = get_last_level(correct_path(paths["TrainingFile"]))
+        # Session duration
+        animal["SessionDuration"] = get_session_duration()
 
-        while loop:
-            training_level = input("Training level to start from (leave blank = start from previous): ")
-            if training_level == "":
-                animal["StartingTrainingLevel"] = int(df["TrainingLevel"])
-                self.information["Training level"] = int(df["TrainingLevel"])
-                break
-            else:
-                try:
-                    self.information["Training level"] = int(training_level)
-                    animal["StartingTrainingLevel"] = int(training_level)
-                    break
-                except:
-                    print("Not a valid input. Please enter an integer.")
-
-        while True:
-            last_training_level = input("Training level to stop progressing (leave blank = final level): ")
-            if last_training_level == "":
-                # FIXME
-                df2 = pd.read_csv("../config/training.csv")
-                df2 = df2.iloc[-1]
-                animal["LastTrainingLevel"] = int(df2["Level"])
-                break
-            else:
-                try:
-                    animal["LastTrainingLevel"] = int(last_training_level)
-                    break
-                except:
-                    print("Not a valid input. Please enter an integer.")
-
-        while True:
-            duration = input("Time of the session (in hh:mm:ss format): ")
-            try:
-                datetime.strptime(duration, "%H:%M:%S")
-                animal["SessionDuration"] = duration
-                break
-            except:
-                print("Not a valid input. Please enter the duration in the hh:mm:ss format.")
-
-        file.close()
-
-        with open("../config/animal.json", "w") as file:
+        # Write new animal.json
+        with open(correct_path(paths["AnimalFile"]), "w") as file:
             json.dump(animal, file, indent=4)
 
     def new_block(self, address, *args):
@@ -207,6 +156,15 @@ class Controller:
         """
         # If the first argument is 0, reset the ILD array
         if args[0] == 0:
+            directory = self.output_dir + '/' + datetime.now().strftime('%y%m%d')
+            png_names = [os.path.splitext(file)[0] for file in os.listdir(directory) if file.endswith('.png')]
+            if len(png_names) == 0:
+                new_png = directory + '/' + str(0) + ".png"
+            else:
+                new_png = directory + '/' + png_names[-1] + ".png"
+
+            self.view.fig.savefig(new_png)
+
             for i in range(self.view.plots[1, 1].size):
                 self.view.plots[1, 1][i].x = np.zeros(int(args[1]))
                 self.view.plots[1, 1][i].y = np.zeros(int(args[1]))
@@ -265,27 +223,37 @@ class Controller:
         args : list
             the message itself. For the "/plots" address, the message is composed by: [int outcome, float cnp_time, float reaction_time, float movement_time, float performance, float abort_rate].
         """
+        # Updates the data structures related to the last 10 trials
         self.last_ten(args[0])
+        # Updates the performance plot
+        self.view.plots[1, 0][0].add_data(self.information["Trial"], args[4])
 
+        # If trial was completed
         if args[0] > 0:
+            # If "Right" would be the correct answer
             if self.information["ILD"] >= 0:
                 self.view.plots[0, 2][2 * args[0] - 2].add_data(self.information["Trial"], args[0])
                 self.view.plots[1, 2][2 * args[0] - 2].add_data(self.information["Trial"], args[1])
                 self.view.plots[2, 0][2 * args[0] - 2].add_data(self.information["Trial"], args[2])
                 self.view.plots[2, 1][2 * args[0] - 2].add_data(self.information["Trial"], args[3])
+            # If "Left" would be the correct answer
             else:
                 self.view.plots[0, 2][2 * args[0] - 1].add_data(self.information["Trial"], args[0])
                 self.view.plots[1, 2][2 * args[0] - 1].add_data(self.information["Trial"], args[1])
                 self.view.plots[2, 0][2 * args[0] - 1].add_data(self.information["Trial"], args[2])
                 self.view.plots[2, 1][2 * args[0] - 1].add_data(self.information["Trial"], args[3])
+            # If the animal didn't answer correctly
             if args[0] == 1:
                 self.view.plots[0, 1][1].add_data(self.information["Trial"], self.information["ILD"])
+            # If the animal answered correctly
             else:
                 self.view.plots[0, 1][0].add_data(self.information["Trial"], self.information["ILD"])
+        # If trial was aborted
         else:
             self.view.plots[0, 1][2].add_data(self.information["Trial"], self.information["ILD"])
             self.view.plots[0, 2][-args[0] + 3].add_data(self.information["Trial"], args[0])
 
+            # If the animal "produced" a CNP time, a reaction time or a movement time in this aborted trial
             if args[1] > 0:
                 self.view.plots[1, 2][4].add_data(self.information["Trial"], args[1])
             if args[2] > 0:
@@ -293,18 +261,19 @@ class Controller:
             if args[3] > 0:
                 self.view.plots[2, 1][4].add_data(self.information["Trial"], args[3])
 
-        self.view.plots[1, 0][0].add_data(self.information["Trial"], args[4])
-
+        # Applies y-axis limits in the necessary plots
         self.view.ax[0, 1].set_ylim(-60, 60)
         self.view.ax[0, 2].set_ylim(-8, 2)
         self.view.ax[1, 0].set_ylim(0, 1)
         self.view.ax[1, 1].set_ylim(0, 1)
 
+        # Applies some other plot configurations
         for i in range(3):
             for j in range(3):
                 self.view.ax[i, j].xaxis.set_major_locator(MaxNLocator(integer=True))
                 self.view.ax[i, j].relim()
                 self.view.ax[i, j].autoscale_view()
+        # Redraws the figure
         self.view.fig.canvas.draw()
 
     def last_ten(self, outcome):
@@ -367,3 +336,135 @@ class Controller:
 
         # Sets the string created as the new informative text of the figure
         self.view.text.set_text(string)
+
+    def bonsai(self):
+        """
+        Opens and runs the Bonsai task.
+        """
+        os.system(r"..\\..\\bonsai\\Bonsai.exe ..\\sound_lateralization_task.bonsai --start")
+
+def get_animal_number():
+    """
+    Asks the user for the animal number.
+    """
+    while True:
+        animal_number = input("Animal number: ")
+        try:
+            return int(animal_number)
+        except:
+            print("Not a valid input. Please enter an integer.")
+
+def get_setup_number():
+    """
+    Asks the user for the setup number.
+    """
+    while True:
+        setup = input("Setup number: ")
+        try:
+            return int(setup)
+        except:
+            print("Not a valid input. Please enter an integer.")
+
+def is_new_session():
+    """
+    Asks the user whether this is a new session or not.
+    """
+    while True:
+        new_session = input("New session? (blank or 1 = yes, 0 = no) ")
+        if new_session == "" or new_session == "1":
+            return True
+        elif new_session == "0":
+            return False
+        else:
+            print("Not a valid input.")
+
+def get_session_type(df, is_new_animal: bool):
+    """
+    Asks the user for the session type.
+
+    Parameters
+    ----------
+    df
+        the Pandas dataframe from the last output file.
+    """
+    while True:
+        session_type = input("Type of session: ")
+        if session_type == "":
+            if is_new_animal:
+                return 1
+            return int(df["SessionType"])
+        else:
+            try:
+                return int(session_type)
+            except:
+                print("Not a valid input. Please enter an integer.")
+
+def get_initial_level(df, is_new_animal: bool):
+    """
+    Asks the user for the initial training level.
+
+    Parameters
+    ----------
+    df
+        the Pandas dataframe from the last output file.
+    """
+    while True:
+        training_level = input("Training level to start from (leave blank = start from previous): ")
+        if training_level == "":
+            if is_new_animal:
+                return 1
+            return int(df["TrainingLevel"])
+        else:
+            try:
+                return int(training_level)
+            except:
+                print("Not a valid input. Please enter an integer.")
+
+def get_last_level(training_path: str):
+    """
+    Asks the user for the last training level.
+
+    Parameters
+    ----------
+    training_path : str
+        path to the training.csv file.
+    """
+    while True:
+        last_training_level = input("Training level to stop progressing (leave blank = final level): ")
+        if last_training_level == "":
+            df = pd.read_csv(training_path).iloc[-1]
+            return int(df["Level"])
+        else:
+            try:
+                return int(last_training_level)
+            except:
+                print("Not a valid input. Please enter an integer.")
+
+def get_session_duration():
+    """
+    Asks the user for duration of the session.
+    """
+    while True:
+        duration = input("Time of the session (in hh:mm:ss format): ")
+        try:
+            datetime.strptime(duration, "%H:%M:%S")
+            return duration
+        except:
+            print("Not a valid input. Please enter the duration in the hh:mm:ss format.")
+
+def get_latest_file(path: str, animal_number: int):
+    folder = path + "/Rat" + str(animal_number).zfill(3)
+    dirs = [d for d in os.listdir(folder) if os.path.isdir(os.path.join(folder, d))]
+
+    for i in range(len(dirs) - 1, -1, -1):
+        try:
+            return pd.read_csv(folder + '/' + dirs[-1] + "/out.csv").iloc[-1], False
+        except:
+            continue
+    return None, True
+
+
+def correct_path(path: str):
+    if path[0] == '.':
+        return '.' + path
+    return path

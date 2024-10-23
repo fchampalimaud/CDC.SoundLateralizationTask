@@ -1,12 +1,12 @@
 {
     "Animal": 10,
     "Box": 10,
-    "Session": 54,
+    "Session": 1,
     "SessionType": 1,
-    "SessionDuration": "10:30:00",
+    "SessionDuration": "10:02:00",
     "StartingTrialNumber": 1,
     "StartingBlockNumber": 1,
-    "StartingTrainingLevel": 16,
+    "StartingTrainingLevel": 1,
     "LastTrainingLevel": 16,
     "ABLList": [
         20,
