@@ -43,6 +43,8 @@ namespace Parameters
         public double PokeLEDPeriod { get; set; }
         /// <value>Property <c>FlashPeriod</c></value>
         public double PokeLEDDutyCycle { get; set; }
+        /// <value>Property <c>FlashPeriod</c></value>
+        public bool UsePumps { get; set; }
         /// <value>Property <c>SoundDuration</c> is the duration of the sounds loaded to the soundcard (s).</value>
         // public double SoundDuration { get; set; }
         // public double PenaltyDurationPress { get; set; }

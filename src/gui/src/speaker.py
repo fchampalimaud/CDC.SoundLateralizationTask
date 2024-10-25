@@ -9,7 +9,7 @@ class Speaker:
     client : SimpleUDPClient
         an OSC/UDP client.
     """
-    def __init__(self, ip: str = "127.0.0.1", port: int = 2):
+    def __init__(self, ip: str = "127.0.0.1", port: int = 1):
         self.client = udp_client.SimpleUDPClient(ip, port)
 
     def next_left(self, event):

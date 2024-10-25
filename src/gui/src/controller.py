@@ -2,6 +2,8 @@ from speaker import Speaker
 from listener import Listener
 from view import View
 
+
+import shutil
 from threading import Thread
 import os
 import json
@@ -41,7 +43,7 @@ class Controller:
         # Initializes the text information dictionary
         self.information = {
             "Rat": 0,
-            "Trial": 0,
+            "Trial": 1,
             "Trials completed": 0,
             "Block" : 0,
             "ILD": 0,
@@ -117,7 +119,7 @@ class Controller:
                 self.information["Block"] = 1
             else:
                 animal["Session"] = int(df["Session"] + 1)
-                self.information["Block"] = df["Block"] + 1
+                self.information["Block"] = int(df["Block"] + 1)
                 
             # Session type
             animal["SessionType"] = get_session_type(df, is_new_animal)
@@ -132,8 +134,9 @@ class Controller:
             # Initial training level
             animal["StartingTrainingLevel"] = int(df["TrainingLevel"])
             self.information["Training level"] = int(df["TrainingLevel"])
-            self.information["Block"] = df["Block"]
+            self.information["Block"] = int(df["Block"])
 
+        animal["StartingBlockNumber"] = self.information["Block"]
         # Last training level
         animal["LastTrainingLevel"] = get_last_level(correct_path(paths["TrainingFile"]))
         # Session duration
@@ -142,6 +145,19 @@ class Controller:
         # Write new animal.json
         with open(correct_path(paths["AnimalFile"]), "w") as file:
             json.dump(animal, file, indent=4)
+
+        rat_path = correct_path(paths["OutputDir"]) + "/Rat" + str(animal["Animal"]).zfill(3)
+        if os.path.isdir(rat_path):
+            folders = [name for name in os.listdir(rat_path) if os.path.isdir(os.path.join(rat_path, name))]
+            if folders[-1] != datetime.now().strftime('%y%m%d'):
+                new_csv = pd.read_csv(rat_path + '/' + folders[-1] + "/out.csv")
+                os.makedirs(rat_path + '/' + datetime.now().strftime('%y%m%d'), exist_ok=True)
+                new_csv.to_csv(rat_path + '/' + datetime.now().strftime('%y%m%d') + "/out.csv", index=False)
+        else:
+            os.makedirs(rat_path + '/' + datetime.now().strftime('%y%m%d'), exist_ok=True)
+            header = ["Animal", "Session", "SessionType", "Trial", "Block", "TrialsPerBlock", "TrainingLevel", "ABL", "ILD", "Bias", "LeftAmp", "RightAmp", "WaveformL", "WaveformR", "TrialStart", "TrialEnd", "TrialDuration", "IntendedITI", "ITIStart", "ITIEnd", "TimedITI", "MaxWait", "TimeToCNP", "BaseFix", "ExpFixMean", "IntendedFix", "TimedFix", "BaseRT", "MaxRT", "TimedRT", "MaxMT", "TimedMT", "IntendedLNP", "TimedLNP", "ResponsePoke", "Outcome", "RepeatTrial", "BlockPerformance", "BlockAbortRatio", "LEDTrial", "TimedLED", "LEDPowerL", "LEDPowerR", "Box"]
+            new_csv = pd.DataFrame(columns=header)
+            new_csv.to_csv(rat_path + '/' + datetime.now().strftime('%y%m%d') + "/out.csv", index=False)
 
     def new_block(self, address, *args):
         """
@@ -156,18 +172,14 @@ class Controller:
         """
         # If the first argument is 0, reset the ILD array
         if args[0] == 0:
-            directory = self.output_dir + '/' + datetime.now().strftime('%y%m%d')
-            png_names = [os.path.splitext(file)[0] for file in os.listdir(directory) if file.endswith('.png')]
-            if len(png_names) == 0:
-                new_png = directory + '/' + str(0) + ".png"
-            else:
-                new_png = directory + '/' + png_names[-1] + ".png"
-
-            self.view.fig.savefig(new_png)
-
             for i in range(self.view.plots[1, 1].size):
                 self.view.plots[1, 1][i].x = np.zeros(int(args[1]))
                 self.view.plots[1, 1][i].y = np.zeros(int(args[1]))
+            self.ild_aborts = np.zeros(int(args[1]))
+            self.ild_correct = np.zeros(int(args[1]))
+            self.ild_trials = np.zeros(int(args[1]))
+            self.ild_completed = np.zeros(int(args[1]))
+
         # Otherwise, fill in the ILD array
         else:
             for i in range(self.view.plots[1, 1].size):
@@ -175,6 +187,15 @@ class Controller:
 
         # When the new ILD array is completed, reset all of the plots
         if args[0] == self.view.plots[1, 1][0].x.size:
+            directory = self.output_dir + "/Rat" + str(self.information["Rat"]).zfill(3) + '/' + datetime.now().strftime('%y%m%d')
+            png_names = [os.path.splitext(file)[0] for file in os.listdir(directory) if file.endswith('.png')]
+            if len(png_names) == 0:
+                new_png = directory + '/' + str(0).zfill(3) + ".png"
+            else:
+                new_png = directory + '/' + str(int(png_names[-1]) + 1).zfill(3) + ".png"
+
+            self.view.fig.savefig(new_png)
+            
             for i in range(3):
                 for j in range(3):
                     # Resets the plot which has the ILD array in the x-axis
@@ -228,6 +249,9 @@ class Controller:
         # Updates the performance plot
         self.view.plots[1, 0][0].add_data(self.information["Trial"], args[4])
 
+        ild_index = np.where(self.view.plots[1, 1][0].x == self.information["ILD"])[0]
+        self.ild_trials[ild_index] += 1
+
         # If trial was completed
         if args[0] > 0:
             # If "Right" would be the correct answer
@@ -248,8 +272,13 @@ class Controller:
             # If the animal answered correctly
             else:
                 self.view.plots[0, 1][0].add_data(self.information["Trial"], self.information["ILD"])
+                self.ild_correct[ild_index] += 1
+            self.ild_completed[ild_index] += 1
+            self.view.plots[1, 1][0].y[ild_index] = float(self.ild_correct[ild_index]) / self.ild_completed [ild_index]
+            self.view.plots[1, 1][0].update()
         # If trial was aborted
         else:
+            self.ild_aborts[ild_index] += 1
             self.view.plots[0, 1][2].add_data(self.information["Trial"], self.information["ILD"])
             self.view.plots[0, 2][-args[0] + 3].add_data(self.information["Trial"], args[0])
 
@@ -261,9 +290,11 @@ class Controller:
             if args[3] > 0:
                 self.view.plots[2, 1][4].add_data(self.information["Trial"], args[3])
 
+        self.view.plots[1, 1][1].y[ild_index] = float(self.ild_aborts[ild_index]) / self.ild_trials[ild_index]
+        self.view.plots[1, 1][1].update()
         # Applies y-axis limits in the necessary plots
         self.view.ax[0, 1].set_ylim(-60, 60)
-        self.view.ax[0, 2].set_ylim(-8, 2)
+        self.view.ax[0, 2].set_ylim(-8, 3)
         self.view.ax[1, 0].set_ylim(0, 1)
         self.view.ax[1, 1].set_ylim(0, 1)
 
@@ -307,7 +338,10 @@ class Controller:
             if self.last_right[i]:
                 count += 1
         # Adds a new data point with the performance of the last 10 completed trials
-        self.view.plots[1, 0][1].add_data(self.information["Trial"], float(count) / len(self.last_right))
+        try:
+            self.view.plots[1, 0][1].add_data(self.information["Trial"], float(count) / len(self.last_right))
+        except:
+            self.view.plots[1, 0][1].add_data(self.information["Trial"], 0)
         
         # Counts the number of aborted trials among the last 10 trials
         count = 0
@@ -454,7 +488,10 @@ def get_session_duration():
 
 def get_latest_file(path: str, animal_number: int):
     folder = path + "/Rat" + str(animal_number).zfill(3)
-    dirs = [d for d in os.listdir(folder) if os.path.isdir(os.path.join(folder, d))]
+    try:
+        dirs = [d for d in os.listdir(folder) if os.path.isdir(os.path.join(folder, d))]
+    except:
+        return None, True
 
     for i in range(len(dirs) - 1, -1, -1):
         try:

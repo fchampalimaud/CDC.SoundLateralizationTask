@@ -62,7 +62,7 @@ class View():
 
         # Applies limits in the y-axis for some plots
         self.ax[0, 1].set_ylim(-60, 60)
-        self.ax[0, 2].set_ylim(-8, 2)
+        self.ax[0, 2].set_ylim(-8, 3)
         self.ax[1, 0].set_ylim(0, 1)
         self.ax[1, 1].set_ylim(0, 1)
 
