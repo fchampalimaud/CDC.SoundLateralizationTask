@@ -120,7 +120,7 @@ items:
     parameters: []
     return:
       type: System.Int32
-      description: Property <code>Box</code> is the number of the box where the task was conducted.
+      description: Property <code>Box</code> is the number of the box where the task is going to be conducted.
     content.vb: Public Property Box As Integer
   overload: Parameters.AnimalConfig.Box*
 - uid: Parameters.AnimalConfig.Session
@@ -182,7 +182,7 @@ items:
     parameters: []
     return:
       type: System.Int32
-      description: Property <code>SessionType</code>
+      description: Property <code>SessionType</code> is the number of the session type (for example, the "standard" sound lateralization task might be session type number 1 and a version of the task with optogenetics might be session type number 2). This parameter is purely informative, it doesn't change how the task works by itself.
     content.vb: Public Property SessionType As Integer
   overload: Parameters.AnimalConfig.SessionType*
 - uid: Parameters.AnimalConfig.SessionDuration
@@ -213,7 +213,7 @@ items:
     parameters: []
     return:
       type: System.TimeSpan
-      description: Property <code>SessionDuration</code> is the duration of the task ("hh:mm:ss").
+      description: Property <code>SessionDuration</code> is the duration of the task (in the format "hh:mm:ss").
     content.vb: Public Property SessionDuration As TimeSpan
   overload: Parameters.AnimalConfig.SessionDuration*
 - uid: Parameters.AnimalConfig.StartingTrialNumber
@@ -244,7 +244,7 @@ items:
     parameters: []
     return:
       type: System.Int32
-      description: Property <code>StartingTrialNumber</code> is the number of the first trial of the session.
+      description: Property <code>StartingTrialNumber</code> is the number of the first trial of the session. <b>At the moment, this parameter is not updated automatically, but it should be in the future.</b>
     content.vb: Public Property StartingTrialNumber As Integer
   overload: Parameters.AnimalConfig.StartingTrialNumber*
 - uid: Parameters.AnimalConfig.StartingBlockNumber
@@ -275,7 +275,7 @@ items:
     parameters: []
     return:
       type: System.Int32
-      description: Property <code>StartingBlockNumber</code> is the number of the first block of the session.
+      description: Property <code>StartingBlockNumber</code> is the number of the first block of the session. <b>At the moment, this parameter is not updated automatically, but it should be in the future.</b>
     content.vb: Public Property StartingBlockNumber As Integer
   overload: Parameters.AnimalConfig.StartingBlockNumber*
 - uid: Parameters.AnimalConfig.ABLList
@@ -306,7 +306,7 @@ items:
     parameters: []
     return:
       type: System.Double[]
-      description: Property <code>StartingBlockNumber</code> is an array containing the possible ABLs to present when <code>DifferentABLs</code> is 1.
+      description: Property <code>ABLList</code> is an array containing the possible ABLs to present when the <code>DifferentABLs</code> parameter from the <code>training.csv</code> file is not 0.
     content.vb: Public Property ABLList As Double()
   overload: Parameters.AnimalConfig.ABLList*
 - uid: Parameters.AnimalConfig.CycleILD
@@ -333,12 +333,12 @@ items:
   namespace: Parameters
   example: []
   syntax:
-    content: public int CycleILD { get; set; }
+    content: public bool CycleILD { get; set; }
     parameters: []
     return:
-      type: System.Int32
-      description: Property <code>CycleILD</code>
-    content.vb: Public Property CycleILD As Integer
+      type: System.Boolean
+      description: If the <code>CycleILD</code> property is false, an ILD value is randomly picked every trial from the array of ILDs. Otherwise, the ILD array is shuffled and the ILD is picked by just following the new array order; when the end of the array is reached, the array is shuffled again and the procedure is repeated.
+    content.vb: Public Property CycleILD As Boolean
   overload: Parameters.AnimalConfig.CycleILD*
 - uid: Parameters.AnimalConfig.Bias
   commentId: P:Parameters.AnimalConfig.Bias
@@ -368,7 +368,7 @@ items:
     parameters: []
     return:
       type: System.Double
-      description: Property <code>Bias</code>
+      description: Property <code>Bias</code> indicates whether the probability of the louder side being left or right is biased or not. If the value is less than 0.5, there's a bigger probability of the louder side being left, if it's greater than 0.5, there's a bigger probability of being right. If it's equal to 0.5, there's no bias. <b>NOT IMPLEMENTED!</b>
     content.vb: Public Property Bias As Double
   overload: Parameters.AnimalConfig.Bias*
 - uid: Parameters.AnimalConfig.MinFT
@@ -399,7 +399,7 @@ items:
     parameters: []
     return:
       type: System.Double
-      description: Property <code>MinFT</code> is the minimum fixation time (ms).
+      description: Property <code>MinFT</code> is the starting value for the constant part of the fixation time (ms). <b>At the moment, this parameter is not updated automatically, but it should be asked whether it should be updated in the future.</b>
     content.vb: Public Property MinFT As Double
   overload: Parameters.AnimalConfig.MinFT*
 - uid: Parameters.AnimalConfig.FTDelta
@@ -492,7 +492,7 @@ items:
     parameters: []
     return:
       type: System.Double
-      description: Property <code>ExpFTMean</code> is the mean value of the random part of the fixation time (ms).
+      description: Property <code>ExpFTMean</code> is the mean value of the random part of the fixation time (ms), which follows an exponential distribution.
     content.vb: Public Property ExpFTMean As Double
   overload: Parameters.AnimalConfig.ExpFTMean*
 - uid: Parameters.AnimalConfig.MinRT
@@ -523,7 +523,7 @@ items:
     parameters: []
     return:
       type: System.Double
-      description: Property <code>MinRT</code> is the minimum amount of time in CNP to wait after the sound presentation starts (s).
+      description: Property <code>MinRT</code> is the minimum amount of time the animal has to wait in the CNP after the sound presentation starts (s). This parameter aims to avoid that the animal "reacts" before the stimulus is presented.
     content.vb: Public Property MinRT As Double
   overload: Parameters.AnimalConfig.MinRT*
 - uid: Parameters.AnimalConfig.RTDelta
@@ -554,7 +554,7 @@ items:
     parameters: []
     return:
       type: System.Double
-      description: Property <code>RTDelta</code> is the increment to make to RT every non-abort trial (s).
+      description: Property <code>RTDelta</code> is the increment to make to RT every non-abort trial (s). <b>Ask if this should be applied to MinRT or MaxRT and why.</b>
     content.vb: Public Property RTDelta As Double
   overload: Parameters.AnimalConfig.RTDelta*
 - uid: Parameters.AnimalConfig.RTTarget
@@ -585,7 +585,7 @@ items:
     parameters: []
     return:
       type: System.Double
-      description: Property <code>RTDelta</code> is the target value for RT (s).
+      description: Property <code>RTDelta</code> is the target value for RT (s). <b>Ask if this should be applied to MinRT or MaxRT and why.</b>
     content.vb: Public Property RTTarget As Double
   overload: Parameters.AnimalConfig.RTTarget*
 - uid: Parameters.AnimalConfig.MaxRT
@@ -616,7 +616,7 @@ items:
     parameters: []
     return:
       type: System.Double
-      description: Property <code>MaxRT</code> is the maximum amount of time in CNP to wait after sound presentation starts (s).
+      description: Property <code>MaxRT</code> is the maximum amount of time the animal has to wait in the CNP after the sound presentation starts (s). <b>It should be related to the duration of the noises present, although currently this is not the case.</b>
     content.vb: Public Property MaxRT As Double
   overload: Parameters.AnimalConfig.MaxRT*
 - uid: Parameters.AnimalConfig.MaxSamplingTime
@@ -647,7 +647,7 @@ items:
     parameters: []
     return:
       type: System.Double[]
-      description: Property <code>MaxSamplingTime</code>
+      description: Property <code>MaxSamplingTime</code><b>NOT IMPLEMENTED!</b>
     content.vb: Public Property MaxSamplingTime As Double()
   overload: Parameters.AnimalConfig.MaxSamplingTime*
 - uid: Parameters.AnimalConfig.MinMT
@@ -678,7 +678,7 @@ items:
     parameters: []
     return:
       type: System.Double
-      description: Property <code>MinMT</code> is the minimum time allowed to move to LNP after leaving CNP (s).
+      description: Property <code>MinMT</code> is the minimum time allowed for the animal to move to one of the LNPs after leaving the CNP (s). This parameter aims to "catch" possible "ghost" pokes (hardware faults).
     content.vb: Public Property MinMT As Double
   overload: Parameters.AnimalConfig.MinMT*
 - uid: Parameters.AnimalConfig.MinLNP
@@ -709,7 +709,7 @@ items:
     parameters: []
     return:
       type: System.Double
-      description: Property <code>MinLNP</code> is the minimum poke duration in LNP (s).
+      description: Property <code>MinLNP</code> is the minimum amount of time the animal has to keep poking the LNP for the reward to be given when the answer is correct (s). <b>At the moment, if LNPTime is less than MinLNP the trial still counts as successful but the animal doesn't get a reward. In the future, this should be considered an abort instead.</b>
     content.vb: Public Property MinLNP As Double
   overload: Parameters.AnimalConfig.MinLNP*
 - uid: Parameters.AnimalConfig.LNPDelta
@@ -1114,6 +1114,17 @@ references:
   name: CycleILD
   nameWithType: AnimalConfig.CycleILD
   fullName: Parameters.AnimalConfig.CycleILD
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
 - uid: Parameters.AnimalConfig.Bias*
   commentId: Overload:Parameters.AnimalConfig.Bias
   href: Parameters.AnimalConfig.html#Parameters_AnimalConfig_Bias

@@ -1,46 +1,45 @@
 ### YamlMime:ManagedReference
 items:
-- uid: Extensions.ReadAnimalJSON
-  commentId: T:Extensions.ReadAnimalJSON
-  id: ReadAnimalJSON
+- uid: Extensions.ReadSetupCSV
+  commentId: T:Extensions.ReadSetupCSV
+  id: ReadSetupCSV
   parent: Extensions
   children:
-  - Extensions.ReadAnimalJSON.FilePath
-  - Extensions.ReadAnimalJSON.Process
-  - Extensions.ReadAnimalJSON.Process``1(System.IObservable{``0})
+  - Extensions.ReadSetupCSV.FilePath
+  - Extensions.ReadSetupCSV.Process
+  - Extensions.ReadSetupCSV.Process``1(System.IObservable{``0})
+  - Extensions.ReadSetupCSV.RowNumber
   langs:
   - csharp
   - vb
-  name: ReadAnimalJSON
-  nameWithType: ReadAnimalJSON
-  fullName: Extensions.ReadAnimalJSON
+  name: ReadSetupCSV
+  nameWithType: ReadSetupCSV
+  fullName: Extensions.ReadSetupCSV
   type: Class
   source:
     remote:
-      path: src/Extensions/AnimalConfig.cs
+      path: src/Extensions/SetupConfig.cs
       branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
-    id: ReadAnimalJSON
-    path: ../src/Extensions/AnimalConfig.cs
-    startLine: 70
+    id: ReadSetupCSV
+    path: ../src/Extensions/SetupConfig.cs
+    startLine: 64
   assemblies:
   - Extensions
   namespace: Extensions
-  summary: Class <code>ReadAnimalJSON</code> contains the logic of the Bonsai node with the same name.
-  example: []
   syntax:
     content: >-
       [Combinator]
 
       [WorkflowElementCategory(ElementCategory.Source)]
 
-      public class ReadAnimalJSON
+      public class ReadSetupCSV
     content.vb: >-
       <Combinator>
 
       <WorkflowElementCategory(ElementCategory.Source)>
 
-      Public Class ReadAnimalJSON
+      Public Class ReadSetupCSV
   inheritance:
   - System.Object
   inheritedMembers:
@@ -60,25 +59,25 @@ items:
     arguments:
     - type: Bonsai.ElementCategory
       value: 0
-- uid: Extensions.ReadAnimalJSON.FilePath
-  commentId: P:Extensions.ReadAnimalJSON.FilePath
+- uid: Extensions.ReadSetupCSV.FilePath
+  commentId: P:Extensions.ReadSetupCSV.FilePath
   id: FilePath
-  parent: Extensions.ReadAnimalJSON
+  parent: Extensions.ReadSetupCSV
   langs:
   - csharp
   - vb
   name: FilePath
-  nameWithType: ReadAnimalJSON.FilePath
-  fullName: Extensions.ReadAnimalJSON.FilePath
+  nameWithType: ReadSetupCSV.FilePath
+  fullName: Extensions.ReadSetupCSV.FilePath
   type: Property
   source:
     remote:
-      path: src/Extensions/AnimalConfig.cs
+      path: src/Extensions/SetupConfig.cs
       branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: FilePath
-    path: ../src/Extensions/AnimalConfig.cs
-    startLine: 75
+    path: ../src/Extensions/SetupConfig.cs
+    startLine: 70
   assemblies:
   - Extensions
   namespace: Extensions
@@ -88,76 +87,99 @@ items:
     return:
       type: System.String
     content.vb: Public Property FilePath As String
-  overload: Extensions.ReadAnimalJSON.FilePath*
-- uid: Extensions.ReadAnimalJSON.Process
-  commentId: M:Extensions.ReadAnimalJSON.Process
+  overload: Extensions.ReadSetupCSV.FilePath*
+- uid: Extensions.ReadSetupCSV.RowNumber
+  commentId: P:Extensions.ReadSetupCSV.RowNumber
+  id: RowNumber
+  parent: Extensions.ReadSetupCSV
+  langs:
+  - csharp
+  - vb
+  name: RowNumber
+  nameWithType: ReadSetupCSV.RowNumber
+  fullName: Extensions.ReadSetupCSV.RowNumber
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/SetupConfig.cs
+      branch: gui
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: RowNumber
+    path: ../src/Extensions/SetupConfig.cs
+    startLine: 73
+  assemblies:
+  - Extensions
+  namespace: Extensions
+  syntax:
+    content: public int RowNumber { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property RowNumber As Integer
+  overload: Extensions.ReadSetupCSV.RowNumber*
+- uid: Extensions.ReadSetupCSV.Process
+  commentId: M:Extensions.ReadSetupCSV.Process
   id: Process
-  parent: Extensions.ReadAnimalJSON
+  parent: Extensions.ReadSetupCSV
   langs:
   - csharp
   - vb
   name: Process()
-  nameWithType: ReadAnimalJSON.Process()
-  fullName: Extensions.ReadAnimalJSON.Process()
+  nameWithType: ReadSetupCSV.Process()
+  fullName: Extensions.ReadSetupCSV.Process()
   type: Method
   source:
     remote:
-      path: src/Extensions/AnimalConfig.cs
+      path: src/Extensions/SetupConfig.cs
       branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
-    path: ../src/Extensions/AnimalConfig.cs
-    startLine: 85
+    path: ../src/Extensions/SetupConfig.cs
+    startLine: 100
   assemblies:
   - Extensions
   namespace: Extensions
-  summary: Reads the animal-specific input parameters needed for the Sound Lateralization Task from a JSON file.
-  example: []
   syntax:
-    content: public IObservable<AnimalConfig> Process()
+    content: public IObservable<SetupConfig> Process()
     return:
-      type: System.IObservable{Parameters.AnimalConfig}
-      description: An observable sequence which sends a single event containing an <code>AnimalConfig</code> instance.
-    content.vb: Public Function Process() As IObservable(Of AnimalConfig)
-  overload: Extensions.ReadAnimalJSON.Process*
-- uid: Extensions.ReadAnimalJSON.Process``1(System.IObservable{``0})
-  commentId: M:Extensions.ReadAnimalJSON.Process``1(System.IObservable{``0})
+      type: System.IObservable{Parameters.SetupConfig}
+    content.vb: Public Function Process() As IObservable(Of SetupConfig)
+  overload: Extensions.ReadSetupCSV.Process*
+- uid: Extensions.ReadSetupCSV.Process``1(System.IObservable{``0})
+  commentId: M:Extensions.ReadSetupCSV.Process``1(System.IObservable{``0})
   id: Process``1(System.IObservable{``0})
-  parent: Extensions.ReadAnimalJSON
+  parent: Extensions.ReadSetupCSV
   langs:
   - csharp
   - vb
   name: Process<TSource>(IObservable<TSource>)
-  nameWithType: ReadAnimalJSON.Process<TSource>(IObservable<TSource>)
-  fullName: Extensions.ReadAnimalJSON.Process<TSource>(System.IObservable<TSource>)
+  nameWithType: ReadSetupCSV.Process<TSource>(IObservable<TSource>)
+  fullName: Extensions.ReadSetupCSV.Process<TSource>(System.IObservable<TSource>)
   type: Method
   source:
     remote:
-      path: src/Extensions/AnimalConfig.cs
+      path: src/Extensions/SetupConfig.cs
       branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
-    path: ../src/Extensions/AnimalConfig.cs
-    startLine: 99
+    path: ../src/Extensions/SetupConfig.cs
+    startLine: 105
   assemblies:
   - Extensions
   namespace: Extensions
-  summary: Reads the animal-specific input parameters needed for the Sound Lateralization Task from a JSON file.
-  example: []
   syntax:
-    content: public IObservable<AnimalConfig> Process<TSource>(IObservable<TSource> source)
+    content: public IObservable<SetupConfig> Process<TSource>(IObservable<TSource> source)
     parameters:
     - id: source
       type: System.IObservable{{TSource}}
     typeParameters:
     - id: TSource
     return:
-      type: System.IObservable{Parameters.AnimalConfig}
-      description: An observable sequence which sends a single event containing an <code>AnimalConfig</code> instance.
-    content.vb: Public Function Process(Of TSource)(source As IObservable(Of TSource)) As IObservable(Of AnimalConfig)
-  overload: Extensions.ReadAnimalJSON.Process*
-  nameWithType.vb: ReadAnimalJSON.Process(Of TSource)(IObservable(Of TSource))
-  fullName.vb: Extensions.ReadAnimalJSON.Process(Of TSource)(System.IObservable(Of TSource))
+      type: System.IObservable{Parameters.SetupConfig}
+    content.vb: Public Function Process(Of TSource)(source As IObservable(Of TSource)) As IObservable(Of SetupConfig)
+  overload: Extensions.ReadSetupCSV.Process*
+  nameWithType.vb: ReadSetupCSV.Process(Of TSource)(IObservable(Of TSource))
+  fullName.vb: Extensions.ReadSetupCSV.Process(Of TSource)(System.IObservable(Of TSource))
   name.vb: Process(Of TSource)(IObservable(Of TSource))
 references:
 - uid: Extensions
@@ -403,12 +425,12 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: Extensions.ReadAnimalJSON.FilePath*
-  commentId: Overload:Extensions.ReadAnimalJSON.FilePath
-  href: Extensions.ReadAnimalJSON.html#Extensions_ReadAnimalJSON_FilePath
+- uid: Extensions.ReadSetupCSV.FilePath*
+  commentId: Overload:Extensions.ReadSetupCSV.FilePath
+  href: Extensions.ReadSetupCSV.html#Extensions_ReadSetupCSV_FilePath
   name: FilePath
-  nameWithType: ReadAnimalJSON.FilePath
-  fullName: Extensions.ReadAnimalJSON.FilePath
+  nameWithType: ReadSetupCSV.FilePath
+  fullName: Extensions.ReadSetupCSV.FilePath
 - uid: System.String
   commentId: T:System.String
   parent: System
@@ -420,32 +442,49 @@ references:
   nameWithType.vb: String
   fullName.vb: String
   name.vb: String
-- uid: Extensions.ReadAnimalJSON.Process*
-  commentId: Overload:Extensions.ReadAnimalJSON.Process
-  href: Extensions.ReadAnimalJSON.html#Extensions_ReadAnimalJSON_Process
+- uid: Extensions.ReadSetupCSV.RowNumber*
+  commentId: Overload:Extensions.ReadSetupCSV.RowNumber
+  href: Extensions.ReadSetupCSV.html#Extensions_ReadSetupCSV_RowNumber
+  name: RowNumber
+  nameWithType: ReadSetupCSV.RowNumber
+  fullName: Extensions.ReadSetupCSV.RowNumber
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Extensions.ReadSetupCSV.Process*
+  commentId: Overload:Extensions.ReadSetupCSV.Process
+  href: Extensions.ReadSetupCSV.html#Extensions_ReadSetupCSV_Process
   name: Process
-  nameWithType: ReadAnimalJSON.Process
-  fullName: Extensions.ReadAnimalJSON.Process
-- uid: System.IObservable{Parameters.AnimalConfig}
-  commentId: T:System.IObservable{Parameters.AnimalConfig}
+  nameWithType: ReadSetupCSV.Process
+  fullName: Extensions.ReadSetupCSV.Process
+- uid: System.IObservable{Parameters.SetupConfig}
+  commentId: T:System.IObservable{Parameters.SetupConfig}
   parent: System
   definition: System.IObservable`1
   href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
-  name: IObservable<AnimalConfig>
-  nameWithType: IObservable<AnimalConfig>
-  fullName: System.IObservable<Parameters.AnimalConfig>
-  nameWithType.vb: IObservable(Of AnimalConfig)
-  fullName.vb: System.IObservable(Of Parameters.AnimalConfig)
-  name.vb: IObservable(Of AnimalConfig)
+  name: IObservable<SetupConfig>
+  nameWithType: IObservable<SetupConfig>
+  fullName: System.IObservable<Parameters.SetupConfig>
+  nameWithType.vb: IObservable(Of SetupConfig)
+  fullName.vb: System.IObservable(Of Parameters.SetupConfig)
+  name.vb: IObservable(Of SetupConfig)
   spec.csharp:
   - uid: System.IObservable`1
     name: IObservable
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
   - name: <
-  - uid: Parameters.AnimalConfig
-    name: AnimalConfig
-    href: Parameters.AnimalConfig.html
+  - uid: Parameters.SetupConfig
+    name: SetupConfig
+    href: Parameters.SetupConfig.html
   - name: '>'
   spec.vb:
   - uid: System.IObservable`1
@@ -455,9 +494,9 @@ references:
   - name: (
   - name: Of
   - name: " "
-  - uid: Parameters.AnimalConfig
-    name: AnimalConfig
-    href: Parameters.AnimalConfig.html
+  - uid: Parameters.SetupConfig
+    name: SetupConfig
+    href: Parameters.SetupConfig.html
   - name: )
 - uid: System.IObservable`1
   commentId: T:System.IObservable`1

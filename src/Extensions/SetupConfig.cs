@@ -15,7 +15,7 @@ namespace Parameters
     /// </summary>
     public class SetupConfig
     {
-        /// <value>Property <c>Setup</c> is the ID of the setup.</value>
+        /// <value>Property <c>Setup</c> is the ID number of the setup.</value>
         public int Setup { get; set; }
         /// <value>Property <c>LowToHighL</c> indicates whether the left poke is a low-to-high (true) or a high-to-low device.</value>
         public bool LowToHighL { get; set; }
@@ -23,27 +23,27 @@ namespace Parameters
         public bool LowToHighCNP { get; set; }
         /// <value>Property <c>LowToHighR</c> indicates whether the right poke is a low-to-high (true) or a high-to-low device.</value>
         public bool LowToHighR { get; set; }
-        /// <value>Property <c>RewardOpenL</c> is the amount of time the left reward valve should be open (ms).</value>
+        /// <value>Property <c>RewardOpenL</c> is the amount of time the left reward valve should be open (ms). This parameter is only relevant when the setup has uses valves instead of SyringePumps for reward delivery (i.e. <c>UsePumps</c> is 0).</value>
         public double RewardOpenL { get; set; }
-        /// <value>Property <c>RewardOpenR</c> is the amount of time the right reward valve should be open (ms).</value>
+        /// <value>Property <c>RewardOpenR</c> is the amount of time the right reward valve should be open (ms). This parameter is only relevant when the setup has uses valves instead of SyringePumps for reward delivery (i.e. <c>UsePumps</c> is 0).</value>
         public double RewardOpenR { get; set; }
-        /// <value>Property <c>RightSlope</c> is the slope of the calibration curve of the right speaker.</value>
+        /// <value>Property <c>RightSlope</c> is the slope of the calibration curve of the right speaker. <b>StC</b></value>
         public double RightSlope { get; set; }
-        /// <value>Property <c>RightIntercept</c> is the intercept of the calibration curve of the right speaker.</value>
+        /// <value>Property <c>RightIntercept</c> is the intercept of the calibration curve of the right speaker. <b>StC</b></value>
         public double RightIntercept { get; set; }
-        /// <value>Property <c>LeftSlope</c> is the slope of the calibration curve of the left speaker.</value>
+        /// <value>Property <c>LeftSlope</c> is the slope of the calibration curve of the left speaker. <b>StC</b></value>
         public double LeftSlope { get; set; }
-        /// <value>Property <c>LeftIntercept</c> is the intercept of the calibration curve of the left speaker.</value>
+        /// <value>Property <c>LeftIntercept</c> is the intercept of the calibration curve of the left speaker. <b>StC</b></value>
         public double LeftIntercept { get; set; }
-        /// <value>Property <c>FlashPeriod</c></value>
+        /// <value>Property <c>BoxLEDPeriod</c> is the period of the blinking of the Box LED (ms).</value>
         public double BoxLEDPeriod { get; set; }
-        /// <value>Property <c>FlashPeriod</c></value>
+        /// <value>Property <c>BoxLEDDutyCycle</c> is a value representing the proportion of time the LED is on when the Box LED is blinking. If it's 0 it means that the LED is always off, if it's 1 it means the LED is always on and, for example, if it's 0.5 it means that the LED is on half of the time and off for the remaining half.</value>
         public double BoxLEDDutyCycle { get; set; }
-        /// <value>Property <c>FlashPeriod</c></value>
+        /// <value>Property <c>PokeLEDPeriod</c> is the period of the blinking of the Central Poke LED (ms).</value>
         public double PokeLEDPeriod { get; set; }
-        /// <value>Property <c>FlashPeriod</c></value>
+        /// <value>Property <c>PokeLEDDutyCycle</c> is a value representing the proportion of time the LED is on when the Central Poke LED is blinking. If it's 0 it means that the LED is always off, if it's 1 it means the LED is always on and, for example, if it's 0.5 it means that the LED is on half of the time and off for the remaining half.</value>
         public double PokeLEDDutyCycle { get; set; }
-        /// <value>Property <c>FlashPeriod</c></value>
+        /// <value>Property <c>UsePumps</c> indicates whether the setup uses valves (false) or Harp SyringePumps (true) for reward delivery. <b>Add configuration parameters for the SyringePumps.</b></value>
         public bool UsePumps { get; set; }
         /// <value>Property <c>SoundDuration</c> is the duration of the sounds loaded to the soundcard (s).</value>
         // public double SoundDuration { get; set; }
@@ -63,12 +63,12 @@ namespace Parameters
 namespace Extensions
 {
     [Combinator]
-    [Description("Generates an instance of the SetupConfig class based on the JSON file containing the task's setup-specific configuration.")]
+    [Description("Generates an instance of the SetupConfig class based on the CSV file containing the task's setup-specific configuration.")]
     [WorkflowElementCategory(ElementCategory.Source)]
     // FIXME: rewrite function to ReadSetupCSV
     public class ReadSetupCSV
     {
-        [Description("The name of the JSON file.")]
+        [Description("The name of the CSV file.")]
         [Editor(DesignTypes.OpenFileNameEditor, DesignTypes.UITypeEditor)]
         public String FilePath { get; set; }
         [Description("The row number which corresponds to the desired training level (settings).")]
@@ -79,7 +79,7 @@ namespace Extensions
         /// Reads a CSV file and outputs one of the rows.
         /// </summary>
         /// <returns>
-        /// A <c>TrainingConfiguration</c> instance corresponding to one of the rows of the CSV file.
+        /// A <c>SetupConfig</c> instance corresponding to one of the rows of the CSV file.
         /// </returns>
         Parameters.SetupConfig CSVtoArray()
         {

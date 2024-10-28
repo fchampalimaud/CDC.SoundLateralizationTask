@@ -1,32 +1,33 @@
 ### YamlMime:ManagedReference
 items:
-- uid: Extensions.ReadAnimalJSON
-  commentId: T:Extensions.ReadAnimalJSON
-  id: ReadAnimalJSON
+- uid: Extensions.ReadTrainingCSV
+  commentId: T:Extensions.ReadTrainingCSV
+  id: ReadTrainingCSV
   parent: Extensions
   children:
-  - Extensions.ReadAnimalJSON.FilePath
-  - Extensions.ReadAnimalJSON.Process
-  - Extensions.ReadAnimalJSON.Process``1(System.IObservable{``0})
+  - Extensions.ReadTrainingCSV.FilePath
+  - Extensions.ReadTrainingCSV.Process
+  - Extensions.ReadTrainingCSV.Process``1(System.IObservable{``0})
+  - Extensions.ReadTrainingCSV.RowNumber
   langs:
   - csharp
   - vb
-  name: ReadAnimalJSON
-  nameWithType: ReadAnimalJSON
-  fullName: Extensions.ReadAnimalJSON
+  name: ReadTrainingCSV
+  nameWithType: ReadTrainingCSV
+  fullName: Extensions.ReadTrainingCSV
   type: Class
   source:
     remote:
-      path: src/Extensions/AnimalConfig.cs
+      path: src/Extensions/TrainingConfig.cs
       branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
-    id: ReadAnimalJSON
-    path: ../src/Extensions/AnimalConfig.cs
-    startLine: 70
+    id: ReadTrainingCSV
+    path: ../src/Extensions/TrainingConfig.cs
+    startLine: 85
   assemblies:
   - Extensions
   namespace: Extensions
-  summary: Class <code>ReadAnimalJSON</code> contains the logic of the Bonsai node with the same name.
+  summary: Class <code>ReadTrainingCSV</code> contains the logic of the Bonsai node with the same name.
   example: []
   syntax:
     content: >-
@@ -34,13 +35,13 @@ items:
 
       [WorkflowElementCategory(ElementCategory.Source)]
 
-      public class ReadAnimalJSON
+      public class ReadTrainingCSV
     content.vb: >-
       <Combinator>
 
       <WorkflowElementCategory(ElementCategory.Source)>
 
-      Public Class ReadAnimalJSON
+      Public Class ReadTrainingCSV
   inheritance:
   - System.Object
   inheritedMembers:
@@ -60,25 +61,25 @@ items:
     arguments:
     - type: Bonsai.ElementCategory
       value: 0
-- uid: Extensions.ReadAnimalJSON.FilePath
-  commentId: P:Extensions.ReadAnimalJSON.FilePath
+- uid: Extensions.ReadTrainingCSV.FilePath
+  commentId: P:Extensions.ReadTrainingCSV.FilePath
   id: FilePath
-  parent: Extensions.ReadAnimalJSON
+  parent: Extensions.ReadTrainingCSV
   langs:
   - csharp
   - vb
   name: FilePath
-  nameWithType: ReadAnimalJSON.FilePath
-  fullName: Extensions.ReadAnimalJSON.FilePath
+  nameWithType: ReadTrainingCSV.FilePath
+  fullName: Extensions.ReadTrainingCSV.FilePath
   type: Property
   source:
     remote:
-      path: src/Extensions/AnimalConfig.cs
+      path: src/Extensions/TrainingConfig.cs
       branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: FilePath
-    path: ../src/Extensions/AnimalConfig.cs
-    startLine: 75
+    path: ../src/Extensions/TrainingConfig.cs
+    startLine: 90
   assemblies:
   - Extensions
   namespace: Extensions
@@ -88,76 +89,106 @@ items:
     return:
       type: System.String
     content.vb: Public Property FilePath As String
-  overload: Extensions.ReadAnimalJSON.FilePath*
-- uid: Extensions.ReadAnimalJSON.Process
-  commentId: M:Extensions.ReadAnimalJSON.Process
+  overload: Extensions.ReadTrainingCSV.FilePath*
+- uid: Extensions.ReadTrainingCSV.RowNumber
+  commentId: P:Extensions.ReadTrainingCSV.RowNumber
+  id: RowNumber
+  parent: Extensions.ReadTrainingCSV
+  langs:
+  - csharp
+  - vb
+  name: RowNumber
+  nameWithType: ReadTrainingCSV.RowNumber
+  fullName: Extensions.ReadTrainingCSV.RowNumber
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/TrainingConfig.cs
+      branch: gui
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: RowNumber
+    path: ../src/Extensions/TrainingConfig.cs
+    startLine: 93
+  assemblies:
+  - Extensions
+  namespace: Extensions
+  syntax:
+    content: public int RowNumber { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property RowNumber As Integer
+  overload: Extensions.ReadTrainingCSV.RowNumber*
+- uid: Extensions.ReadTrainingCSV.Process
+  commentId: M:Extensions.ReadTrainingCSV.Process
   id: Process
-  parent: Extensions.ReadAnimalJSON
+  parent: Extensions.ReadTrainingCSV
   langs:
   - csharp
   - vb
   name: Process()
-  nameWithType: ReadAnimalJSON.Process()
-  fullName: Extensions.ReadAnimalJSON.Process()
+  nameWithType: ReadTrainingCSV.Process()
+  fullName: Extensions.ReadTrainingCSV.Process()
   type: Method
   source:
     remote:
-      path: src/Extensions/AnimalConfig.cs
+      path: src/Extensions/TrainingConfig.cs
       branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
-    path: ../src/Extensions/AnimalConfig.cs
-    startLine: 85
+    path: ../src/Extensions/TrainingConfig.cs
+    startLine: 126
   assemblies:
   - Extensions
   namespace: Extensions
-  summary: Reads the animal-specific input parameters needed for the Sound Lateralization Task from a JSON file.
+  summary: Generates an observable sequence which outputs the training/task-specific parameters. This method is called when the node doesn't have an input data stream.
   example: []
   syntax:
-    content: public IObservable<AnimalConfig> Process()
+    content: public IObservable<Tuple<TrainingConfig, int>> Process()
     return:
-      type: System.IObservable{Parameters.AnimalConfig}
-      description: An observable sequence which sends a single event containing an <code>AnimalConfig</code> instance.
-    content.vb: Public Function Process() As IObservable(Of AnimalConfig)
-  overload: Extensions.ReadAnimalJSON.Process*
-- uid: Extensions.ReadAnimalJSON.Process``1(System.IObservable{``0})
-  commentId: M:Extensions.ReadAnimalJSON.Process``1(System.IObservable{``0})
+      type: System.IObservable{System.Tuple{Parameters.TrainingConfig,System.Int32}}
+      description: An observable sequence which sends a single event containing a <code>TrainingConfiguration</code> instance.
+    content.vb: Public Function Process() As IObservable(Of Tuple(Of TrainingConfig, Integer))
+  overload: Extensions.ReadTrainingCSV.Process*
+- uid: Extensions.ReadTrainingCSV.Process``1(System.IObservable{``0})
+  commentId: M:Extensions.ReadTrainingCSV.Process``1(System.IObservable{``0})
   id: Process``1(System.IObservable{``0})
-  parent: Extensions.ReadAnimalJSON
+  parent: Extensions.ReadTrainingCSV
   langs:
   - csharp
   - vb
   name: Process<TSource>(IObservable<TSource>)
-  nameWithType: ReadAnimalJSON.Process<TSource>(IObservable<TSource>)
-  fullName: Extensions.ReadAnimalJSON.Process<TSource>(System.IObservable<TSource>)
+  nameWithType: ReadTrainingCSV.Process<TSource>(IObservable<TSource>)
+  fullName: Extensions.ReadTrainingCSV.Process<TSource>(System.IObservable<TSource>)
   type: Method
   source:
     remote:
-      path: src/Extensions/AnimalConfig.cs
+      path: src/Extensions/TrainingConfig.cs
       branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
-    path: ../src/Extensions/AnimalConfig.cs
-    startLine: 99
+    path: ../src/Extensions/TrainingConfig.cs
+    startLine: 138
   assemblies:
   - Extensions
   namespace: Extensions
-  summary: Reads the animal-specific input parameters needed for the Sound Lateralization Task from a JSON file.
+  summary: Generates an observable sequence which outputs the training/task-specific parameters. This method is called when the node has an input data stream.
   example: []
   syntax:
-    content: public IObservable<AnimalConfig> Process<TSource>(IObservable<TSource> source)
+    content: public IObservable<Tuple<TrainingConfig, int>> Process<TSource>(IObservable<TSource> source)
     parameters:
     - id: source
       type: System.IObservable{{TSource}}
+      description: the input data stream.
     typeParameters:
     - id: TSource
     return:
-      type: System.IObservable{Parameters.AnimalConfig}
-      description: An observable sequence which sends a single event containing an <code>AnimalConfig</code> instance.
-    content.vb: Public Function Process(Of TSource)(source As IObservable(Of TSource)) As IObservable(Of AnimalConfig)
-  overload: Extensions.ReadAnimalJSON.Process*
-  nameWithType.vb: ReadAnimalJSON.Process(Of TSource)(IObservable(Of TSource))
-  fullName.vb: Extensions.ReadAnimalJSON.Process(Of TSource)(System.IObservable(Of TSource))
+      type: System.IObservable{System.Tuple{Parameters.TrainingConfig,System.Int32}}
+      description: An observable sequence which sends a single event containing a <code>TrainingConfiguration</code> instance.
+    content.vb: Public Function Process(Of TSource)(source As IObservable(Of TSource)) As IObservable(Of Tuple(Of TrainingConfig, Integer))
+  overload: Extensions.ReadTrainingCSV.Process*
+  nameWithType.vb: ReadTrainingCSV.Process(Of TSource)(IObservable(Of TSource))
+  fullName.vb: Extensions.ReadTrainingCSV.Process(Of TSource)(System.IObservable(Of TSource))
   name.vb: Process(Of TSource)(IObservable(Of TSource))
 references:
 - uid: Extensions
@@ -403,12 +434,12 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: Extensions.ReadAnimalJSON.FilePath*
-  commentId: Overload:Extensions.ReadAnimalJSON.FilePath
-  href: Extensions.ReadAnimalJSON.html#Extensions_ReadAnimalJSON_FilePath
+- uid: Extensions.ReadTrainingCSV.FilePath*
+  commentId: Overload:Extensions.ReadTrainingCSV.FilePath
+  href: Extensions.ReadTrainingCSV.html#Extensions_ReadTrainingCSV_FilePath
   name: FilePath
-  nameWithType: ReadAnimalJSON.FilePath
-  fullName: Extensions.ReadAnimalJSON.FilePath
+  nameWithType: ReadTrainingCSV.FilePath
+  fullName: Extensions.ReadTrainingCSV.FilePath
 - uid: System.String
   commentId: T:System.String
   parent: System
@@ -420,32 +451,61 @@ references:
   nameWithType.vb: String
   fullName.vb: String
   name.vb: String
-- uid: Extensions.ReadAnimalJSON.Process*
-  commentId: Overload:Extensions.ReadAnimalJSON.Process
-  href: Extensions.ReadAnimalJSON.html#Extensions_ReadAnimalJSON_Process
+- uid: Extensions.ReadTrainingCSV.RowNumber*
+  commentId: Overload:Extensions.ReadTrainingCSV.RowNumber
+  href: Extensions.ReadTrainingCSV.html#Extensions_ReadTrainingCSV_RowNumber
+  name: RowNumber
+  nameWithType: ReadTrainingCSV.RowNumber
+  fullName: Extensions.ReadTrainingCSV.RowNumber
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Extensions.ReadTrainingCSV.Process*
+  commentId: Overload:Extensions.ReadTrainingCSV.Process
+  href: Extensions.ReadTrainingCSV.html#Extensions_ReadTrainingCSV_Process
   name: Process
-  nameWithType: ReadAnimalJSON.Process
-  fullName: Extensions.ReadAnimalJSON.Process
-- uid: System.IObservable{Parameters.AnimalConfig}
-  commentId: T:System.IObservable{Parameters.AnimalConfig}
+  nameWithType: ReadTrainingCSV.Process
+  fullName: Extensions.ReadTrainingCSV.Process
+- uid: System.IObservable{System.Tuple{Parameters.TrainingConfig,System.Int32}}
+  commentId: T:System.IObservable{System.Tuple{Parameters.TrainingConfig,System.Int32}}
   parent: System
   definition: System.IObservable`1
   href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
-  name: IObservable<AnimalConfig>
-  nameWithType: IObservable<AnimalConfig>
-  fullName: System.IObservable<Parameters.AnimalConfig>
-  nameWithType.vb: IObservable(Of AnimalConfig)
-  fullName.vb: System.IObservable(Of Parameters.AnimalConfig)
-  name.vb: IObservable(Of AnimalConfig)
+  name: IObservable<Tuple<TrainingConfig, int>>
+  nameWithType: IObservable<Tuple<TrainingConfig, int>>
+  fullName: System.IObservable<System.Tuple<Parameters.TrainingConfig, int>>
+  nameWithType.vb: IObservable(Of Tuple(Of TrainingConfig, Integer))
+  fullName.vb: System.IObservable(Of System.Tuple(Of Parameters.TrainingConfig, Integer))
+  name.vb: IObservable(Of Tuple(Of TrainingConfig, Integer))
   spec.csharp:
   - uid: System.IObservable`1
     name: IObservable
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
   - name: <
-  - uid: Parameters.AnimalConfig
-    name: AnimalConfig
-    href: Parameters.AnimalConfig.html
+  - uid: System.Tuple`2
+    name: Tuple
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.tuple-2
+  - name: <
+  - uid: Parameters.TrainingConfig
+    name: TrainingConfig
+    href: Parameters.TrainingConfig.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '>'
   - name: '>'
   spec.vb:
   - uid: System.IObservable`1
@@ -455,9 +515,23 @@ references:
   - name: (
   - name: Of
   - name: " "
-  - uid: Parameters.AnimalConfig
-    name: AnimalConfig
-    href: Parameters.AnimalConfig.html
+  - uid: System.Tuple`2
+    name: Tuple
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.tuple-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Parameters.TrainingConfig
+    name: TrainingConfig
+    href: Parameters.TrainingConfig.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
   - name: )
 - uid: System.IObservable`1
   commentId: T:System.IObservable`1

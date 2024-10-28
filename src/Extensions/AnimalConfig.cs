@@ -16,45 +16,45 @@ namespace Parameters
     {
         /// <value>Property <c>Animal</c> is the ID number of the animal.</value>
         public int Animal { get; set; }
-        /// <value>Property <c>Box</c> is the number of the box where the task was conducted.</value>
+        /// <value>Property <c>Box</c> is the number of the box where the task is going to be conducted.</value>
         public int Box { get; set; }
         /// <value>Property <c>Session</c> is the number of the session.</value>
         public int Session { get; set; }
-        /// <value>Property <c>SessionType</c></value>
+        /// <value>Property <c>SessionType</c> is the number of the session type (for example, the "standard" sound lateralization task might be session type number 1 and a version of the task with optogenetics might be session type number 2). This parameter is purely informative, it doesn't change how the task works by itself.</value>
         public int SessionType { get; set; }
-        /// <value>Property <c>SessionDuration</c> is the duration of the task ("hh:mm:ss").</value>
+        /// <value>Property <c>SessionDuration</c> is the duration of the task (in the format "hh:mm:ss").</value>
         public TimeSpan SessionDuration { get; set; }
-        /// <value>Property <c>StartingTrialNumber</c> is the number of the first trial of the session.</value>
+        /// <value>Property <c>StartingTrialNumber</c> is the number of the first trial of the session. <b>At the moment, this parameter is not updated automatically, but it should be in the future.</b></value>
         public int StartingTrialNumber { get; set; }
-        /// <value>Property <c>StartingBlockNumber</c> is the number of the first block of the session.</value>
+        /// <value>Property <c>StartingBlockNumber</c> is the number of the first block of the session. <b>At the moment, this parameter is not updated automatically, but it should be in the future.</b></value>
         public int StartingBlockNumber { get; set; }
-        /// <value>Property <c>StartingBlockNumber</c> is an array containing the possible ABLs to present when <c>DifferentABLs</c> is 1.</value>
+        /// <value>Property <c>ABLList</c> is an array containing the possible ABLs to present when the <c>DifferentABLs</c> parameter from the <c>training.csv</c> file is not 0.</value>
         public double[] ABLList { get; set; }
-        /// <value>Property <c>CycleILD</c></value>
-        public int CycleILD { get; set; }
-        /// <value>Property <c>Bias</c></value>
+        /// <value>If the <c>CycleILD</c> property is false, an ILD value is randomly picked every trial from the array of ILDs. Otherwise, the ILD array is shuffled and the ILD is picked by just following the new array order; when the end of the array is reached, the array is shuffled again and the procedure is repeated.</value>
+        public bool CycleILD { get; set; }
+        /// <value>Property <c>Bias</c> indicates whether the probability of the louder side being left or right is biased or not. If the value is less than 0.5, there's a bigger probability of the louder side being left, if it's greater than 0.5, there's a bigger probability of being right. If it's equal to 0.5, there's no bias. <b>NOT IMPLEMENTED!</b></value>
         public double Bias { get; set; }
-        /// <value>Property <c>MinFT</c> is the minimum fixation time (ms).</value>
+        /// <value>Property <c>MinFT</c> is the starting value for the constant part of the fixation time (ms). <b>At the moment, this parameter is not updated automatically, but it should be asked whether it should be updated in the future.</b></value>
         public double MinFT{  get; set; }
         /// <value>Property <c>FTDelta</c> is the increment to make to the constant part of the fixation time every non-abort trial (ms).</value>
         public double FTDelta { get; set; }
         /// <value>Property <c>FTTarget</c> is the target value for the constant part of the fixation time (ms).</value>
         public double FTTarget { get; set; }
-        /// <value>Property <c>ExpFTMean</c> is the mean value of the random part of the fixation time (ms).</value>
+        /// <value>Property <c>ExpFTMean</c> is the mean value of the random part of the fixation time (ms), which follows an exponential distribution.</value>
         public double ExpFTMean { get; set; }
-        /// <value>Property <c>MinRT</c> is the minimum amount of time in CNP to wait after the sound presentation starts (s).</value>
+        /// <value>Property <c>MinRT</c> is the minimum amount of time the animal has to wait in the CNP after the sound presentation starts (s). This parameter aims to avoid that the animal "reacts" before the stimulus is presented.</value>
         public double MinRT {  get; set; }
-        /// <value>Property <c>RTDelta</c> is the increment to make to RT every non-abort trial (s).</value>
+        /// <value>Property <c>RTDelta</c> is the increment to make to RT every non-abort trial (s). <b>Ask if this should be applied to MinRT or MaxRT and why.</b></value>
         public double RTDelta { get; set; }
-        /// <value>Property <c>RTDelta</c> is the target value for RT (s).</value>
+        /// <value>Property <c>RTDelta</c> is the target value for RT (s). <b>Ask if this should be applied to MinRT or MaxRT and why.</b></value>
         public double RTTarget { get; set; }
-        /// <value>Property <c>MaxRT</c> is the maximum amount of time in CNP to wait after sound presentation starts (s).</value>
+        /// <value>Property <c>MaxRT</c> is the maximum amount of time the animal has to wait in the CNP after the sound presentation starts (s). <b>It should be related to the duration of the noises present, although currently this is not the case.</b></value>
         public double MaxRT { get; set; }
-        /// <value>Property <c>MaxSamplingTime</c></value>
+        /// <value>Property <c>MaxSamplingTime</c> <b>NOT IMPLEMENTED!</b></value>
         public double[] MaxSamplingTime { get; set; }
-        /// <value>Property <c>MinMT</c> is the minimum time allowed to move to LNP after leaving CNP (s).</value>
+        /// <value>Property <c>MinMT</c> is the minimum time allowed for the animal to move to one of the LNPs after leaving the CNP (s). This parameter aims to "catch" possible "ghost" pokes (hardware faults).</value>
         public double MinMT { get; set; }
-        /// <value>Property <c>MinLNP</c> is the minimum poke duration in LNP (s).</value>
+        /// <value>Property <c>MinLNP</c> is the minimum amount of time the animal has to keep poking the LNP for the reward to be given when the answer is correct (s). <b>At the moment, if LNPTime is less than MinLNP the trial still counts as successful but the animal doesn't get a reward. In the future, this should be considered an abort instead.</b></value>
         public double MinLNP { get; set; }
         /// <value>Property <c>LNPDelta</c> is the increment to make to LNP time every non-abort trial (s).</value>
         public double LNPDelta { get; set; }

@@ -24,29 +24,29 @@ namespace Parameters
         /// <value>Property <c>FixedABL</c> is the ABL value to use when the <c>DifferentABLs</c> property is 0.</value>
         public double FixedABL { get; set; }
         /// <value>Property <c>DifferentABLs</c> is whether to use the ABLs from <c>ABLList</c> (1) or from <c>FixedABL</c> (0).</value>
-        public int DifferentABLs { get; set; }
+        public bool DifferentABLs { get; set; }
         /// <value>Property <c>ABLBlock</c> is whether ABLs change only across blocks (1) or not (0).</value>
-        public int ABLBlock { get; set; }
+        public bool ABLBlock { get; set; }
         /// <value>Property <c>ILDStepSize</c> is the separation between two consecutive |ILD| values.</value>
         public double ILDStepSize { get; set; }
         /// <value>Property <c>ILDSteps</c> is the number of |ILD| values. The final array will contain 2*<c>ILDSteps</c> elements to account for both the positive and the negative ILD values.</value>
         public int ILDSteps { get; set; }
         /// <value>Property <c>UseLog</c> is whether to use logarithmic steps between consecutive ILD values.</value>
-        public int UseLog { get; set; }
+        public bool UseLog { get; set; }
         /// <value>Property <c>LogBase</c> is the base of the logarithm.</value>
         public double LogBase { get; set; }
         /// <value>Property <c>IntendedITI</c> is the intended ITI duration (s).</value>
         public double IntendedITI { get; set; }
         /// <value>Property <c>ITIReset</c> is whether the ITI partially resets if the animal tries to poke in the CNP before it ends.</value>
-        public int ITIReset { get; set; }
+        public bool ITIReset { get; set; }
         /// <value>Property <c>MaxWait</c> is the maximum allowed time to start the trial (s).</value>
         public double MaxWait { get; set; }
         /// <value>Property <c>RandomizeFT</c> is whether to use a random FT value (1) or not (0).</value>
-        public int RandomizeFT { get; set; }
+        public bool RandomizeFT { get; set; }
         /// <value>Property <c>UseRT</c> is whether the sound stops with the animal leaving the CNP.</value>
-        public int UseRT { get; set; }
-        /// <value>Property <c>UseMaxRT</c> is whether there is a MaxRT.</value>
-        public int UseMaxRT { get; set; }
+        public bool UseRT { get; set; }
+        /// <value>Property <c>UseMaxRT</c> is whether there is a MaxRT. <b>Note: I don't know what is supposed to happen when there's no MaxRT.</b></value>
+        public bool UseMaxRT { get; set; }
         /// <value>Property <c>MaxMT</c> is the maximum allowed time to move to the LNP (s).</value>
         public double MaxMT { get; set; }
         /// <value>Property <c>AbortPenalty</c> is the abort penalty time (s).</value>
@@ -55,26 +55,26 @@ namespace Parameters
         public double IncorrectPenalty { get; set; }
         /// <value>Property <c>FixationAbortPenalty</c> is the fixation abort penalty time (s).</value>
         public double FixationAbortPenalty { get; set; }
-        /// <value>Property <c>UsePerformance</c> is whether there is a minimum performance requirement to advance block.</value>
-        public int UsePerformance { get; set; }
+        /// <value>Property <c>UsePerformance</c> is whether there is a minimum performance requirement to advance to the next block.</value>
+        public bool UsePerformance { get; set; }
         /// <value>Property <c>CriticalPerformance</c> is the minimum correct answer ratio required to advance block (if <c>UsePerformance</c> is 1).</value>
         public double CriticalPerformance { get; set; }
-        /// <value>Property <c>MaxAborts</c></value>
+        /// <value>Property <c>MaxAborts</c> <b>NOT IMPLEMENTED!</b></value>
         public int MaxAborts { get; set; }
         /// <value>Property <c>RepeatError</c> is whether the stimulus is repeated after incorrect responses.</value>
         public int RepeatError { get; set; }
         /// <value>Property <c>RepeatAbort</c> is whether the stimulus is repeated after aborts.</value>
         public int RepeatAbort { get; set; }
-        /// <value>Property <c>Speakers</c> is whether the animal is using headphones or not (Headphones = 1, Box Speakers = 0).</value>
-        public int Speakers { get; set; }
-        /// <value>Property <c>AbortLight</c></value>
-        public int AbortLight { get; set; }
-        /// <value>Property <c>ITILight</c></value>
-        public int ITILight { get; set; }
-        /// <value>Property <c>PokeLight</c></value>
-        public int PokeLight { get; set; }
-        /// <value>Property <c>FixLight</c></value>
-        public int FixLight { get; set; }
+        /// <value>Property <c>Speakers</c> is whether the animal is using headphones or not (Headphones = 1, Box Speakers = 0). <b>At the moment, this parameter doesn't modify the behavior of the task. Perhaps in the future, it might be possible to input the calibration curves of both the box speakers and the headphones so that this parameter switches to the correct calibration curves.</b></value>
+        public bool Speakers { get; set; }
+        /// <value>Property <c>AbortLight</c> is whether the Box LED should blink during the abort penalty time (1) or not (0).</value>
+        public bool AbortLight { get; set; }
+        /// <value>Property <c>ITILight</c> is whether the Box LED should turn on during the ITI (1) or not (0).</value>
+        public bool ITILight { get; set; }
+        /// <value>Property <c>PokeLight</c> is whether the CNP LED should turn on when the new trial is ready (1) or not (0).</value>
+        public bool PokeLight { get; set; }
+        /// <value>Property <c>FixLight</c> is whether the CNP LED should blink during the fixation time (1) or not (0).</value>
+        public bool FixLight { get; set; }
     }
 }
 

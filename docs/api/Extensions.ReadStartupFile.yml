@@ -1,32 +1,31 @@
 ### YamlMime:ManagedReference
 items:
-- uid: Extensions.ReadAnimalJSON
-  commentId: T:Extensions.ReadAnimalJSON
-  id: ReadAnimalJSON
+- uid: Extensions.ReadStartupFile
+  commentId: T:Extensions.ReadStartupFile
+  id: ReadStartupFile
   parent: Extensions
   children:
-  - Extensions.ReadAnimalJSON.FilePath
-  - Extensions.ReadAnimalJSON.Process
-  - Extensions.ReadAnimalJSON.Process``1(System.IObservable{``0})
+  - Extensions.ReadStartupFile.FilePath
+  - Extensions.ReadStartupFile.Process
   langs:
   - csharp
   - vb
-  name: ReadAnimalJSON
-  nameWithType: ReadAnimalJSON
-  fullName: Extensions.ReadAnimalJSON
+  name: ReadStartupFile
+  nameWithType: ReadStartupFile
+  fullName: Extensions.ReadStartupFile
   type: Class
   source:
     remote:
-      path: src/Extensions/AnimalConfig.cs
+      path: src/Extensions/ReadStartupFile.cs
       branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
-    id: ReadAnimalJSON
-    path: ../src/Extensions/AnimalConfig.cs
-    startLine: 70
+    id: ReadStartupFile
+    path: ../src/Extensions/ReadStartupFile.cs
+    startLine: 29
   assemblies:
   - Extensions
   namespace: Extensions
-  summary: Class <code>ReadAnimalJSON</code> contains the logic of the Bonsai node with the same name.
+  summary: Class <code>ReadStartupFile</code> contains the logic of the Bonsai node with the same name.
   example: []
   syntax:
     content: >-
@@ -34,13 +33,13 @@ items:
 
       [WorkflowElementCategory(ElementCategory.Source)]
 
-      public class ReadAnimalJSON
+      public class ReadStartupFile
     content.vb: >-
       <Combinator>
 
       <WorkflowElementCategory(ElementCategory.Source)>
 
-      Public Class ReadAnimalJSON
+      Public Class ReadStartupFile
   inheritance:
   - System.Object
   inheritedMembers:
@@ -60,25 +59,25 @@ items:
     arguments:
     - type: Bonsai.ElementCategory
       value: 0
-- uid: Extensions.ReadAnimalJSON.FilePath
-  commentId: P:Extensions.ReadAnimalJSON.FilePath
+- uid: Extensions.ReadStartupFile.FilePath
+  commentId: P:Extensions.ReadStartupFile.FilePath
   id: FilePath
-  parent: Extensions.ReadAnimalJSON
+  parent: Extensions.ReadStartupFile
   langs:
   - csharp
   - vb
   name: FilePath
-  nameWithType: ReadAnimalJSON.FilePath
-  fullName: Extensions.ReadAnimalJSON.FilePath
+  nameWithType: ReadStartupFile.FilePath
+  fullName: Extensions.ReadStartupFile.FilePath
   type: Property
   source:
     remote:
-      path: src/Extensions/AnimalConfig.cs
+      path: src/Extensions/ReadStartupFile.cs
       branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: FilePath
-    path: ../src/Extensions/AnimalConfig.cs
-    startLine: 75
+    path: ../src/Extensions/ReadStartupFile.cs
+    startLine: 34
   assemblies:
   - Extensions
   namespace: Extensions
@@ -88,77 +87,38 @@ items:
     return:
       type: System.String
     content.vb: Public Property FilePath As String
-  overload: Extensions.ReadAnimalJSON.FilePath*
-- uid: Extensions.ReadAnimalJSON.Process
-  commentId: M:Extensions.ReadAnimalJSON.Process
+  overload: Extensions.ReadStartupFile.FilePath*
+- uid: Extensions.ReadStartupFile.Process
+  commentId: M:Extensions.ReadStartupFile.Process
   id: Process
-  parent: Extensions.ReadAnimalJSON
+  parent: Extensions.ReadStartupFile
   langs:
   - csharp
   - vb
   name: Process()
-  nameWithType: ReadAnimalJSON.Process()
-  fullName: Extensions.ReadAnimalJSON.Process()
+  nameWithType: ReadStartupFile.Process()
+  fullName: Extensions.ReadStartupFile.Process()
   type: Method
   source:
     remote:
-      path: src/Extensions/AnimalConfig.cs
+      path: src/Extensions/ReadStartupFile.cs
       branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
-    path: ../src/Extensions/AnimalConfig.cs
-    startLine: 85
+    path: ../src/Extensions/ReadStartupFile.cs
+    startLine: 44
   assemblies:
   - Extensions
   namespace: Extensions
-  summary: Reads the animal-specific input parameters needed for the Sound Lateralization Task from a JSON file.
+  summary: Reads the startup input parameters needed for the Sound Lateralization Task from a JSON file.
   example: []
   syntax:
-    content: public IObservable<AnimalConfig> Process()
+    content: public IObservable<StartupFile> Process()
     return:
-      type: System.IObservable{Parameters.AnimalConfig}
-      description: An observable sequence which sends a single event containing an <code>AnimalConfig</code> instance.
-    content.vb: Public Function Process() As IObservable(Of AnimalConfig)
-  overload: Extensions.ReadAnimalJSON.Process*
-- uid: Extensions.ReadAnimalJSON.Process``1(System.IObservable{``0})
-  commentId: M:Extensions.ReadAnimalJSON.Process``1(System.IObservable{``0})
-  id: Process``1(System.IObservable{``0})
-  parent: Extensions.ReadAnimalJSON
-  langs:
-  - csharp
-  - vb
-  name: Process<TSource>(IObservable<TSource>)
-  nameWithType: ReadAnimalJSON.Process<TSource>(IObservable<TSource>)
-  fullName: Extensions.ReadAnimalJSON.Process<TSource>(System.IObservable<TSource>)
-  type: Method
-  source:
-    remote:
-      path: src/Extensions/AnimalConfig.cs
-      branch: gui
-      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
-    id: Process
-    path: ../src/Extensions/AnimalConfig.cs
-    startLine: 99
-  assemblies:
-  - Extensions
-  namespace: Extensions
-  summary: Reads the animal-specific input parameters needed for the Sound Lateralization Task from a JSON file.
-  example: []
-  syntax:
-    content: public IObservable<AnimalConfig> Process<TSource>(IObservable<TSource> source)
-    parameters:
-    - id: source
-      type: System.IObservable{{TSource}}
-    typeParameters:
-    - id: TSource
-    return:
-      type: System.IObservable{Parameters.AnimalConfig}
-      description: An observable sequence which sends a single event containing an <code>AnimalConfig</code> instance.
-    content.vb: Public Function Process(Of TSource)(source As IObservable(Of TSource)) As IObservable(Of AnimalConfig)
-  overload: Extensions.ReadAnimalJSON.Process*
-  nameWithType.vb: ReadAnimalJSON.Process(Of TSource)(IObservable(Of TSource))
-  fullName.vb: Extensions.ReadAnimalJSON.Process(Of TSource)(System.IObservable(Of TSource))
-  name.vb: Process(Of TSource)(IObservable(Of TSource))
+      type: System.IObservable{Extensions.StartupFile}
+      description: An observable sequence which sends a single event containing a <code>StartupFile</code> instance.
+    content.vb: Public Function Process() As IObservable(Of StartupFile)
+  overload: Extensions.ReadStartupFile.Process*
 references:
 - uid: Extensions
   commentId: N:Extensions
@@ -403,12 +363,12 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: Extensions.ReadAnimalJSON.FilePath*
-  commentId: Overload:Extensions.ReadAnimalJSON.FilePath
-  href: Extensions.ReadAnimalJSON.html#Extensions_ReadAnimalJSON_FilePath
+- uid: Extensions.ReadStartupFile.FilePath*
+  commentId: Overload:Extensions.ReadStartupFile.FilePath
+  href: Extensions.ReadStartupFile.html#Extensions_ReadStartupFile_FilePath
   name: FilePath
-  nameWithType: ReadAnimalJSON.FilePath
-  fullName: Extensions.ReadAnimalJSON.FilePath
+  nameWithType: ReadStartupFile.FilePath
+  fullName: Extensions.ReadStartupFile.FilePath
 - uid: System.String
   commentId: T:System.String
   parent: System
@@ -420,32 +380,32 @@ references:
   nameWithType.vb: String
   fullName.vb: String
   name.vb: String
-- uid: Extensions.ReadAnimalJSON.Process*
-  commentId: Overload:Extensions.ReadAnimalJSON.Process
-  href: Extensions.ReadAnimalJSON.html#Extensions_ReadAnimalJSON_Process
+- uid: Extensions.ReadStartupFile.Process*
+  commentId: Overload:Extensions.ReadStartupFile.Process
+  href: Extensions.ReadStartupFile.html#Extensions_ReadStartupFile_Process
   name: Process
-  nameWithType: ReadAnimalJSON.Process
-  fullName: Extensions.ReadAnimalJSON.Process
-- uid: System.IObservable{Parameters.AnimalConfig}
-  commentId: T:System.IObservable{Parameters.AnimalConfig}
+  nameWithType: ReadStartupFile.Process
+  fullName: Extensions.ReadStartupFile.Process
+- uid: System.IObservable{Extensions.StartupFile}
+  commentId: T:System.IObservable{Extensions.StartupFile}
   parent: System
   definition: System.IObservable`1
   href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
-  name: IObservable<AnimalConfig>
-  nameWithType: IObservable<AnimalConfig>
-  fullName: System.IObservable<Parameters.AnimalConfig>
-  nameWithType.vb: IObservable(Of AnimalConfig)
-  fullName.vb: System.IObservable(Of Parameters.AnimalConfig)
-  name.vb: IObservable(Of AnimalConfig)
+  name: IObservable<StartupFile>
+  nameWithType: IObservable<StartupFile>
+  fullName: System.IObservable<Extensions.StartupFile>
+  nameWithType.vb: IObservable(Of StartupFile)
+  fullName.vb: System.IObservable(Of Extensions.StartupFile)
+  name.vb: IObservable(Of StartupFile)
   spec.csharp:
   - uid: System.IObservable`1
     name: IObservable
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
   - name: <
-  - uid: Parameters.AnimalConfig
-    name: AnimalConfig
-    href: Parameters.AnimalConfig.html
+  - uid: Extensions.StartupFile
+    name: StartupFile
+    href: Extensions.StartupFile.html
   - name: '>'
   spec.vb:
   - uid: System.IObservable`1
@@ -455,9 +415,9 @@ references:
   - name: (
   - name: Of
   - name: " "
-  - uid: Parameters.AnimalConfig
-    name: AnimalConfig
-    href: Parameters.AnimalConfig.html
+  - uid: Extensions.StartupFile
+    name: StartupFile
+    href: Extensions.StartupFile.html
   - name: )
 - uid: System.IObservable`1
   commentId: T:System.IObservable`1
@@ -486,33 +446,4 @@ references:
   - name: Of
   - name: " "
   - name: T
-  - name: )
-- uid: System.IObservable{{TSource}}
-  commentId: T:System.IObservable{``0}
-  parent: System
-  definition: System.IObservable`1
-  href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
-  name: IObservable<TSource>
-  nameWithType: IObservable<TSource>
-  fullName: System.IObservable<TSource>
-  nameWithType.vb: IObservable(Of TSource)
-  fullName.vb: System.IObservable(Of TSource)
-  name.vb: IObservable(Of TSource)
-  spec.csharp:
-  - uid: System.IObservable`1
-    name: IObservable
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
-  - name: <
-  - name: TSource
-  - name: '>'
-  spec.vb:
-  - uid: System.IObservable`1
-    name: IObservable
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
-  - name: (
-  - name: Of
-  - name: " "
-  - name: TSource
   - name: )

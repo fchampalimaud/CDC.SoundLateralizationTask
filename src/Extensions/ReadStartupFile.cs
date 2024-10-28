@@ -10,7 +10,7 @@ using System.IO;
 namespace Extensions
 {
     /// <summary>
-    /// Class <c>StartupFile</c> contains the relevant paths used during the Sound Lateralization Task which are read from the <c>startup.json</c> file..
+    /// Class <c>StartupFile</c> contains the relevant paths used during the Sound Lateralization Task which are read from the <c>startup.json</c> file. This is the only file which is hardcoded both in the Bonsai and in the Python projects, i.e. this file can't be moved from its current location and its name can't be changed. It's not recommended that relative paths are used, but keep in mind that in case one wants to, the relative paths must be relative to the <c>./src</c> (where the <c>.</c> is the root directory of the project).
     /// </summary>
     public class StartupFile
     {

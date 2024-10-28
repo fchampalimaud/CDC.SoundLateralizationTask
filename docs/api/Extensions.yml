@@ -6,10 +6,11 @@ items:
   children:
   - Extensions.GenerateILDArray
   - Extensions.ReadAnimalJSON
-  - Extensions.ReadSetupJSON
-  - Extensions.SelectMasterFolder
+  - Extensions.ReadSetupCSV
+  - Extensions.ReadStartupFile
+  - Extensions.ReadTrainingCSV
   - Extensions.ShuffleArray
-  - Extensions.TrainingCSV
+  - Extensions.StartupFile
   langs:
   - csharp
   - vb
@@ -32,27 +33,33 @@ references:
   name: GenerateILDArray
   nameWithType: GenerateILDArray
   fullName: Extensions.GenerateILDArray
-- uid: Extensions.SelectMasterFolder
-  commentId: T:Extensions.SelectMasterFolder
-  href: Extensions.SelectMasterFolder.html
-  name: SelectMasterFolder
-  nameWithType: SelectMasterFolder
-  fullName: Extensions.SelectMasterFolder
-- uid: Extensions.ReadSetupJSON
-  commentId: T:Extensions.ReadSetupJSON
-  href: Extensions.ReadSetupJSON.html
-  name: ReadSetupJSON
-  nameWithType: ReadSetupJSON
-  fullName: Extensions.ReadSetupJSON
+- uid: Extensions.StartupFile
+  commentId: T:Extensions.StartupFile
+  href: Extensions.StartupFile.html
+  name: StartupFile
+  nameWithType: StartupFile
+  fullName: Extensions.StartupFile
+- uid: Extensions.ReadStartupFile
+  commentId: T:Extensions.ReadStartupFile
+  href: Extensions.ReadStartupFile.html
+  name: ReadStartupFile
+  nameWithType: ReadStartupFile
+  fullName: Extensions.ReadStartupFile
+- uid: Extensions.ReadSetupCSV
+  commentId: T:Extensions.ReadSetupCSV
+  href: Extensions.ReadSetupCSV.html
+  name: ReadSetupCSV
+  nameWithType: ReadSetupCSV
+  fullName: Extensions.ReadSetupCSV
 - uid: Extensions.ShuffleArray
   commentId: T:Extensions.ShuffleArray
   href: Extensions.ShuffleArray.html
   name: ShuffleArray
   nameWithType: ShuffleArray
   fullName: Extensions.ShuffleArray
-- uid: Extensions.TrainingCSV
-  commentId: T:Extensions.TrainingCSV
-  href: Extensions.TrainingCSV.html
-  name: TrainingCSV
-  nameWithType: TrainingCSV
-  fullName: Extensions.TrainingCSV
+- uid: Extensions.ReadTrainingCSV
+  commentId: T:Extensions.ReadTrainingCSV
+  href: Extensions.ReadTrainingCSV.html
+  name: ReadTrainingCSV
+  nameWithType: ReadTrainingCSV
+  fullName: Extensions.ReadTrainingCSV

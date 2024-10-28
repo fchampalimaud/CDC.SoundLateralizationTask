@@ -7,28 +7,19 @@ items:
   children:
   - Parameters.SetupConfig.BoxLEDDutyCycle
   - Parameters.SetupConfig.BoxLEDPeriod
-  - Parameters.SetupConfig.FS
-  - Parameters.SetupConfig.FSDiv
-  - Parameters.SetupConfig.FSSound
-  - Parameters.SetupConfig.IBILight
   - Parameters.SetupConfig.LeftIntercept
   - Parameters.SetupConfig.LeftSlope
   - Parameters.SetupConfig.LowToHighCNP
   - Parameters.SetupConfig.LowToHighL
   - Parameters.SetupConfig.LowToHighR
-  - Parameters.SetupConfig.MaxFreq
-  - Parameters.SetupConfig.MinFreq
-  - Parameters.SetupConfig.PenaltyDurationPress
-  - Parameters.SetupConfig.PenaltyFlashF
-  - Parameters.SetupConfig.PerformAvg
   - Parameters.SetupConfig.PokeLEDDutyCycle
   - Parameters.SetupConfig.PokeLEDPeriod
-  - Parameters.SetupConfig.RampTime
   - Parameters.SetupConfig.RewardOpenL
   - Parameters.SetupConfig.RewardOpenR
   - Parameters.SetupConfig.RightIntercept
   - Parameters.SetupConfig.RightSlope
-  - Parameters.SetupConfig.SoundDuration
+  - Parameters.SetupConfig.Setup
+  - Parameters.SetupConfig.UsePumps
   langs:
   - csharp
   - vb
@@ -43,7 +34,7 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: SetupConfig
     path: ../src/Extensions/SetupConfig.cs
-    startLine: 14
+    startLine: 15
   assemblies:
   - Extensions
   namespace: Parameters
@@ -62,6 +53,37 @@ items:
   - System.Object.GetHashCode
   - System.Object.GetType
   - System.Object.MemberwiseClone
+- uid: Parameters.SetupConfig.Setup
+  commentId: P:Parameters.SetupConfig.Setup
+  id: Setup
+  parent: Parameters.SetupConfig
+  langs:
+  - csharp
+  - vb
+  name: Setup
+  nameWithType: SetupConfig.Setup
+  fullName: Parameters.SetupConfig.Setup
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/SetupConfig.cs
+      branch: gui
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: Setup
+    path: ../src/Extensions/SetupConfig.cs
+    startLine: 18
+  assemblies:
+  - Extensions
+  namespace: Parameters
+  example: []
+  syntax:
+    content: public int Setup { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+      description: Property <code>Setup</code> is the ID number of the setup.
+    content.vb: Public Property Setup As Integer
+  overload: Parameters.SetupConfig.Setup*
 - uid: Parameters.SetupConfig.LowToHighL
   commentId: P:Parameters.SetupConfig.LowToHighL
   id: LowToHighL
@@ -80,7 +102,7 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: LowToHighL
     path: ../src/Extensions/SetupConfig.cs
-    startLine: 17
+    startLine: 20
   assemblies:
   - Extensions
   namespace: Parameters
@@ -111,7 +133,7 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: LowToHighCNP
     path: ../src/Extensions/SetupConfig.cs
-    startLine: 19
+    startLine: 22
   assemblies:
   - Extensions
   namespace: Parameters
@@ -142,7 +164,7 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: LowToHighR
     path: ../src/Extensions/SetupConfig.cs
-    startLine: 21
+    startLine: 24
   assemblies:
   - Extensions
   namespace: Parameters
@@ -173,7 +195,7 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: RewardOpenL
     path: ../src/Extensions/SetupConfig.cs
-    startLine: 23
+    startLine: 26
   assemblies:
   - Extensions
   namespace: Parameters
@@ -183,7 +205,7 @@ items:
     parameters: []
     return:
       type: System.Double
-      description: Property <code>RewardOpenL</code> is the amount of time the left reward valve should be open (ms).
+      description: Property <code>RewardOpenL</code> is the amount of time the left reward valve should be open (ms). This parameter is only relevant when the setup has uses valves instead of SyringePumps for reward delivery (i.e. <code>UsePumps</code> is 0).
     content.vb: Public Property RewardOpenL As Double
   overload: Parameters.SetupConfig.RewardOpenL*
 - uid: Parameters.SetupConfig.RewardOpenR
@@ -204,7 +226,7 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: RewardOpenR
     path: ../src/Extensions/SetupConfig.cs
-    startLine: 25
+    startLine: 28
   assemblies:
   - Extensions
   namespace: Parameters
@@ -214,7 +236,7 @@ items:
     parameters: []
     return:
       type: System.Double
-      description: Property <code>RewardOpenR</code> is the amount of time the right reward valve should be open (ms).
+      description: Property <code>RewardOpenR</code> is the amount of time the right reward valve should be open (ms). This parameter is only relevant when the setup has uses valves instead of SyringePumps for reward delivery (i.e. <code>UsePumps</code> is 0).
     content.vb: Public Property RewardOpenR As Double
   overload: Parameters.SetupConfig.RewardOpenR*
 - uid: Parameters.SetupConfig.RightSlope
@@ -235,7 +257,7 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: RightSlope
     path: ../src/Extensions/SetupConfig.cs
-    startLine: 27
+    startLine: 30
   assemblies:
   - Extensions
   namespace: Parameters
@@ -245,7 +267,7 @@ items:
     parameters: []
     return:
       type: System.Double
-      description: Property <code>RightSlope</code> is the slope of the calibration curve of the right speaker.
+      description: Property <code>RightSlope</code> is the slope of the calibration curve of the right speaker. <b>StC</b>
     content.vb: Public Property RightSlope As Double
   overload: Parameters.SetupConfig.RightSlope*
 - uid: Parameters.SetupConfig.RightIntercept
@@ -266,7 +288,7 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: RightIntercept
     path: ../src/Extensions/SetupConfig.cs
-    startLine: 29
+    startLine: 32
   assemblies:
   - Extensions
   namespace: Parameters
@@ -276,7 +298,7 @@ items:
     parameters: []
     return:
       type: System.Double
-      description: Property <code>RightIntercept</code> is the intercept of the calibration curve of the right speaker.
+      description: Property <code>RightIntercept</code> is the intercept of the calibration curve of the right speaker. <b>StC</b>
     content.vb: Public Property RightIntercept As Double
   overload: Parameters.SetupConfig.RightIntercept*
 - uid: Parameters.SetupConfig.LeftSlope
@@ -297,7 +319,7 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: LeftSlope
     path: ../src/Extensions/SetupConfig.cs
-    startLine: 31
+    startLine: 34
   assemblies:
   - Extensions
   namespace: Parameters
@@ -307,7 +329,7 @@ items:
     parameters: []
     return:
       type: System.Double
-      description: Property <code>LeftSlope</code> is the slope of the calibration curve of the left speaker.
+      description: Property <code>LeftSlope</code> is the slope of the calibration curve of the left speaker. <b>StC</b>
     content.vb: Public Property LeftSlope As Double
   overload: Parameters.SetupConfig.LeftSlope*
 - uid: Parameters.SetupConfig.LeftIntercept
@@ -328,7 +350,7 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: LeftIntercept
     path: ../src/Extensions/SetupConfig.cs
-    startLine: 33
+    startLine: 36
   assemblies:
   - Extensions
   namespace: Parameters
@@ -338,7 +360,7 @@ items:
     parameters: []
     return:
       type: System.Double
-      description: Property <code>LeftIntercept</code> is the intercept of the calibration curve of the left speaker.
+      description: Property <code>LeftIntercept</code> is the intercept of the calibration curve of the left speaker. <b>StC</b>
     content.vb: Public Property LeftIntercept As Double
   overload: Parameters.SetupConfig.LeftIntercept*
 - uid: Parameters.SetupConfig.BoxLEDPeriod
@@ -359,7 +381,7 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: BoxLEDPeriod
     path: ../src/Extensions/SetupConfig.cs
-    startLine: 35
+    startLine: 38
   assemblies:
   - Extensions
   namespace: Parameters
@@ -369,7 +391,7 @@ items:
     parameters: []
     return:
       type: System.Double
-      description: Property <code>FlashPeriod</code>
+      description: Property <code>BoxLEDPeriod</code> is the period of the blinking of the Box LED (ms).
     content.vb: Public Property BoxLEDPeriod As Double
   overload: Parameters.SetupConfig.BoxLEDPeriod*
 - uid: Parameters.SetupConfig.BoxLEDDutyCycle
@@ -390,7 +412,7 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: BoxLEDDutyCycle
     path: ../src/Extensions/SetupConfig.cs
-    startLine: 37
+    startLine: 40
   assemblies:
   - Extensions
   namespace: Parameters
@@ -400,7 +422,7 @@ items:
     parameters: []
     return:
       type: System.Double
-      description: Property <code>FlashPeriod</code>
+      description: Property <code>BoxLEDDutyCycle</code> is a value representing the proportion of time the LED is on when the Box LED is blinking. If it's 0 it means that the LED is always off, if it's 1 it means the LED is always on and, for example, if it's 0.5 it means that the LED is on half of the time and off for the remaining half.
     content.vb: Public Property BoxLEDDutyCycle As Double
   overload: Parameters.SetupConfig.BoxLEDDutyCycle*
 - uid: Parameters.SetupConfig.PokeLEDPeriod
@@ -421,7 +443,7 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: PokeLEDPeriod
     path: ../src/Extensions/SetupConfig.cs
-    startLine: 39
+    startLine: 42
   assemblies:
   - Extensions
   namespace: Parameters
@@ -431,7 +453,7 @@ items:
     parameters: []
     return:
       type: System.Double
-      description: Property <code>FlashPeriod</code>
+      description: Property <code>PokeLEDPeriod</code> is the period of the blinking of the Central Poke LED (ms).
     content.vb: Public Property PokeLEDPeriod As Double
   overload: Parameters.SetupConfig.PokeLEDPeriod*
 - uid: Parameters.SetupConfig.PokeLEDDutyCycle
@@ -452,7 +474,7 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: PokeLEDDutyCycle
     path: ../src/Extensions/SetupConfig.cs
-    startLine: 41
+    startLine: 44
   assemblies:
   - Extensions
   namespace: Parameters
@@ -462,330 +484,40 @@ items:
     parameters: []
     return:
       type: System.Double
-      description: Property <code>FlashPeriod</code>
+      description: Property <code>PokeLEDDutyCycle</code> is a value representing the proportion of time the LED is on when the Central Poke LED is blinking. If it's 0 it means that the LED is always off, if it's 1 it means the LED is always on and, for example, if it's 0.5 it means that the LED is on half of the time and off for the remaining half.
     content.vb: Public Property PokeLEDDutyCycle As Double
   overload: Parameters.SetupConfig.PokeLEDDutyCycle*
-- uid: Parameters.SetupConfig.SoundDuration
-  commentId: P:Parameters.SetupConfig.SoundDuration
-  id: SoundDuration
+- uid: Parameters.SetupConfig.UsePumps
+  commentId: P:Parameters.SetupConfig.UsePumps
+  id: UsePumps
   parent: Parameters.SetupConfig
   langs:
   - csharp
   - vb
-  name: SoundDuration
-  nameWithType: SetupConfig.SoundDuration
-  fullName: Parameters.SetupConfig.SoundDuration
+  name: UsePumps
+  nameWithType: SetupConfig.UsePumps
+  fullName: Parameters.SetupConfig.UsePumps
   type: Property
   source:
     remote:
       path: src/Extensions/SetupConfig.cs
       branch: gui
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
-    id: SoundDuration
-    path: ../src/Extensions/SetupConfig.cs
-    startLine: 43
-  assemblies:
-  - Extensions
-  namespace: Parameters
-  example: []
-  syntax:
-    content: public double SoundDuration { get; set; }
-    parameters: []
-    return:
-      type: System.Double
-      description: Property <code>SoundDuration</code> is the duration of the sounds loaded to the soundcard (s).
-    content.vb: Public Property SoundDuration As Double
-  overload: Parameters.SetupConfig.SoundDuration*
-- uid: Parameters.SetupConfig.PenaltyDurationPress
-  commentId: P:Parameters.SetupConfig.PenaltyDurationPress
-  id: PenaltyDurationPress
-  parent: Parameters.SetupConfig
-  langs:
-  - csharp
-  - vb
-  name: PenaltyDurationPress
-  nameWithType: SetupConfig.PenaltyDurationPress
-  fullName: Parameters.SetupConfig.PenaltyDurationPress
-  type: Property
-  source:
-    remote:
-      path: src/Extensions/SetupConfig.cs
-      branch: gui
-      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
-    id: PenaltyDurationPress
-    path: ../src/Extensions/SetupConfig.cs
-    startLine: 44
-  assemblies:
-  - Extensions
-  namespace: Parameters
-  syntax:
-    content: public double PenaltyDurationPress { get; set; }
-    parameters: []
-    return:
-      type: System.Double
-    content.vb: Public Property PenaltyDurationPress As Double
-  overload: Parameters.SetupConfig.PenaltyDurationPress*
-- uid: Parameters.SetupConfig.PenaltyFlashF
-  commentId: P:Parameters.SetupConfig.PenaltyFlashF
-  id: PenaltyFlashF
-  parent: Parameters.SetupConfig
-  langs:
-  - csharp
-  - vb
-  name: PenaltyFlashF
-  nameWithType: SetupConfig.PenaltyFlashF
-  fullName: Parameters.SetupConfig.PenaltyFlashF
-  type: Property
-  source:
-    remote:
-      path: src/Extensions/SetupConfig.cs
-      branch: gui
-      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
-    id: PenaltyFlashF
-    path: ../src/Extensions/SetupConfig.cs
-    startLine: 45
-  assemblies:
-  - Extensions
-  namespace: Parameters
-  syntax:
-    content: public double PenaltyFlashF { get; set; }
-    parameters: []
-    return:
-      type: System.Double
-    content.vb: Public Property PenaltyFlashF As Double
-  overload: Parameters.SetupConfig.PenaltyFlashF*
-- uid: Parameters.SetupConfig.PerformAvg
-  commentId: P:Parameters.SetupConfig.PerformAvg
-  id: PerformAvg
-  parent: Parameters.SetupConfig
-  langs:
-  - csharp
-  - vb
-  name: PerformAvg
-  nameWithType: SetupConfig.PerformAvg
-  fullName: Parameters.SetupConfig.PerformAvg
-  type: Property
-  source:
-    remote:
-      path: src/Extensions/SetupConfig.cs
-      branch: gui
-      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
-    id: PerformAvg
+    id: UsePumps
     path: ../src/Extensions/SetupConfig.cs
     startLine: 46
   assemblies:
   - Extensions
   namespace: Parameters
+  example: []
   syntax:
-    content: public double PerformAvg { get; set; }
+    content: public bool UsePumps { get; set; }
     parameters: []
     return:
-      type: System.Double
-    content.vb: Public Property PerformAvg As Double
-  overload: Parameters.SetupConfig.PerformAvg*
-- uid: Parameters.SetupConfig.IBILight
-  commentId: P:Parameters.SetupConfig.IBILight
-  id: IBILight
-  parent: Parameters.SetupConfig
-  langs:
-  - csharp
-  - vb
-  name: IBILight
-  nameWithType: SetupConfig.IBILight
-  fullName: Parameters.SetupConfig.IBILight
-  type: Property
-  source:
-    remote:
-      path: src/Extensions/SetupConfig.cs
-      branch: gui
-      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
-    id: IBILight
-    path: ../src/Extensions/SetupConfig.cs
-    startLine: 47
-  assemblies:
-  - Extensions
-  namespace: Parameters
-  syntax:
-    content: public int IBILight { get; set; }
-    parameters: []
-    return:
-      type: System.Int32
-    content.vb: Public Property IBILight As Integer
-  overload: Parameters.SetupConfig.IBILight*
-- uid: Parameters.SetupConfig.FS
-  commentId: P:Parameters.SetupConfig.FS
-  id: FS
-  parent: Parameters.SetupConfig
-  langs:
-  - csharp
-  - vb
-  name: FS
-  nameWithType: SetupConfig.FS
-  fullName: Parameters.SetupConfig.FS
-  type: Property
-  source:
-    remote:
-      path: src/Extensions/SetupConfig.cs
-      branch: gui
-      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
-    id: FS
-    path: ../src/Extensions/SetupConfig.cs
-    startLine: 48
-  assemblies:
-  - Extensions
-  namespace: Parameters
-  syntax:
-    content: public int FS { get; set; }
-    parameters: []
-    return:
-      type: System.Int32
-    content.vb: Public Property FS As Integer
-  overload: Parameters.SetupConfig.FS*
-- uid: Parameters.SetupConfig.FSDiv
-  commentId: P:Parameters.SetupConfig.FSDiv
-  id: FSDiv
-  parent: Parameters.SetupConfig
-  langs:
-  - csharp
-  - vb
-  name: FSDiv
-  nameWithType: SetupConfig.FSDiv
-  fullName: Parameters.SetupConfig.FSDiv
-  type: Property
-  source:
-    remote:
-      path: src/Extensions/SetupConfig.cs
-      branch: gui
-      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
-    id: FSDiv
-    path: ../src/Extensions/SetupConfig.cs
-    startLine: 49
-  assemblies:
-  - Extensions
-  namespace: Parameters
-  syntax:
-    content: public int FSDiv { get; set; }
-    parameters: []
-    return:
-      type: System.Int32
-    content.vb: Public Property FSDiv As Integer
-  overload: Parameters.SetupConfig.FSDiv*
-- uid: Parameters.SetupConfig.FSSound
-  commentId: P:Parameters.SetupConfig.FSSound
-  id: FSSound
-  parent: Parameters.SetupConfig
-  langs:
-  - csharp
-  - vb
-  name: FSSound
-  nameWithType: SetupConfig.FSSound
-  fullName: Parameters.SetupConfig.FSSound
-  type: Property
-  source:
-    remote:
-      path: src/Extensions/SetupConfig.cs
-      branch: gui
-      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
-    id: FSSound
-    path: ../src/Extensions/SetupConfig.cs
-    startLine: 50
-  assemblies:
-  - Extensions
-  namespace: Parameters
-  syntax:
-    content: public int FSSound { get; set; }
-    parameters: []
-    return:
-      type: System.Int32
-    content.vb: Public Property FSSound As Integer
-  overload: Parameters.SetupConfig.FSSound*
-- uid: Parameters.SetupConfig.MinFreq
-  commentId: P:Parameters.SetupConfig.MinFreq
-  id: MinFreq
-  parent: Parameters.SetupConfig
-  langs:
-  - csharp
-  - vb
-  name: MinFreq
-  nameWithType: SetupConfig.MinFreq
-  fullName: Parameters.SetupConfig.MinFreq
-  type: Property
-  source:
-    remote:
-      path: src/Extensions/SetupConfig.cs
-      branch: gui
-      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
-    id: MinFreq
-    path: ../src/Extensions/SetupConfig.cs
-    startLine: 51
-  assemblies:
-  - Extensions
-  namespace: Parameters
-  syntax:
-    content: public int MinFreq { get; set; }
-    parameters: []
-    return:
-      type: System.Int32
-    content.vb: Public Property MinFreq As Integer
-  overload: Parameters.SetupConfig.MinFreq*
-- uid: Parameters.SetupConfig.MaxFreq
-  commentId: P:Parameters.SetupConfig.MaxFreq
-  id: MaxFreq
-  parent: Parameters.SetupConfig
-  langs:
-  - csharp
-  - vb
-  name: MaxFreq
-  nameWithType: SetupConfig.MaxFreq
-  fullName: Parameters.SetupConfig.MaxFreq
-  type: Property
-  source:
-    remote:
-      path: src/Extensions/SetupConfig.cs
-      branch: gui
-      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
-    id: MaxFreq
-    path: ../src/Extensions/SetupConfig.cs
-    startLine: 52
-  assemblies:
-  - Extensions
-  namespace: Parameters
-  syntax:
-    content: public int MaxFreq { get; set; }
-    parameters: []
-    return:
-      type: System.Int32
-    content.vb: Public Property MaxFreq As Integer
-  overload: Parameters.SetupConfig.MaxFreq*
-- uid: Parameters.SetupConfig.RampTime
-  commentId: P:Parameters.SetupConfig.RampTime
-  id: RampTime
-  parent: Parameters.SetupConfig
-  langs:
-  - csharp
-  - vb
-  name: RampTime
-  nameWithType: SetupConfig.RampTime
-  fullName: Parameters.SetupConfig.RampTime
-  type: Property
-  source:
-    remote:
-      path: src/Extensions/SetupConfig.cs
-      branch: gui
-      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
-    id: RampTime
-    path: ../src/Extensions/SetupConfig.cs
-    startLine: 53
-  assemblies:
-  - Extensions
-  namespace: Parameters
-  syntax:
-    content: public double RampTime { get; set; }
-    parameters: []
-    return:
-      type: System.Double
-    content.vb: Public Property RampTime As Double
-  overload: Parameters.SetupConfig.RampTime*
+      type: System.Boolean
+      description: Property <code>UsePumps</code> indicates whether the setup uses valves (false) or Harp SyringePumps (true) for reward delivery. <b>Add configuration parameters for the SyringePumps.</b>
+    content.vb: Public Property UsePumps As Boolean
+  overload: Parameters.SetupConfig.UsePumps*
 references:
 - uid: Parameters
   commentId: N:Parameters
@@ -1030,6 +762,23 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: Parameters.SetupConfig.Setup*
+  commentId: Overload:Parameters.SetupConfig.Setup
+  href: Parameters.SetupConfig.html#Parameters_SetupConfig_Setup
+  name: Setup
+  nameWithType: SetupConfig.Setup
+  fullName: Parameters.SetupConfig.Setup
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
 - uid: Parameters.SetupConfig.LowToHighL*
   commentId: Overload:Parameters.SetupConfig.LowToHighL
   href: Parameters.SetupConfig.html#Parameters_SetupConfig_LowToHighL
@@ -1130,80 +879,9 @@ references:
   name: PokeLEDDutyCycle
   nameWithType: SetupConfig.PokeLEDDutyCycle
   fullName: Parameters.SetupConfig.PokeLEDDutyCycle
-- uid: Parameters.SetupConfig.SoundDuration*
-  commentId: Overload:Parameters.SetupConfig.SoundDuration
-  href: Parameters.SetupConfig.html#Parameters_SetupConfig_SoundDuration
-  name: SoundDuration
-  nameWithType: SetupConfig.SoundDuration
-  fullName: Parameters.SetupConfig.SoundDuration
-- uid: Parameters.SetupConfig.PenaltyDurationPress*
-  commentId: Overload:Parameters.SetupConfig.PenaltyDurationPress
-  href: Parameters.SetupConfig.html#Parameters_SetupConfig_PenaltyDurationPress
-  name: PenaltyDurationPress
-  nameWithType: SetupConfig.PenaltyDurationPress
-  fullName: Parameters.SetupConfig.PenaltyDurationPress
-- uid: Parameters.SetupConfig.PenaltyFlashF*
-  commentId: Overload:Parameters.SetupConfig.PenaltyFlashF
-  href: Parameters.SetupConfig.html#Parameters_SetupConfig_PenaltyFlashF
-  name: PenaltyFlashF
-  nameWithType: SetupConfig.PenaltyFlashF
-  fullName: Parameters.SetupConfig.PenaltyFlashF
-- uid: Parameters.SetupConfig.PerformAvg*
-  commentId: Overload:Parameters.SetupConfig.PerformAvg
-  href: Parameters.SetupConfig.html#Parameters_SetupConfig_PerformAvg
-  name: PerformAvg
-  nameWithType: SetupConfig.PerformAvg
-  fullName: Parameters.SetupConfig.PerformAvg
-- uid: Parameters.SetupConfig.IBILight*
-  commentId: Overload:Parameters.SetupConfig.IBILight
-  href: Parameters.SetupConfig.html#Parameters_SetupConfig_IBILight
-  name: IBILight
-  nameWithType: SetupConfig.IBILight
-  fullName: Parameters.SetupConfig.IBILight
-- uid: System.Int32
-  commentId: T:System.Int32
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int32
-  name: int
-  nameWithType: int
-  fullName: int
-  nameWithType.vb: Integer
-  fullName.vb: Integer
-  name.vb: Integer
-- uid: Parameters.SetupConfig.FS*
-  commentId: Overload:Parameters.SetupConfig.FS
-  href: Parameters.SetupConfig.html#Parameters_SetupConfig_FS
-  name: FS
-  nameWithType: SetupConfig.FS
-  fullName: Parameters.SetupConfig.FS
-- uid: Parameters.SetupConfig.FSDiv*
-  commentId: Overload:Parameters.SetupConfig.FSDiv
-  href: Parameters.SetupConfig.html#Parameters_SetupConfig_FSDiv
-  name: FSDiv
-  nameWithType: SetupConfig.FSDiv
-  fullName: Parameters.SetupConfig.FSDiv
-- uid: Parameters.SetupConfig.FSSound*
-  commentId: Overload:Parameters.SetupConfig.FSSound
-  href: Parameters.SetupConfig.html#Parameters_SetupConfig_FSSound
-  name: FSSound
-  nameWithType: SetupConfig.FSSound
-  fullName: Parameters.SetupConfig.FSSound
-- uid: Parameters.SetupConfig.MinFreq*
-  commentId: Overload:Parameters.SetupConfig.MinFreq
-  href: Parameters.SetupConfig.html#Parameters_SetupConfig_MinFreq
-  name: MinFreq
-  nameWithType: SetupConfig.MinFreq
-  fullName: Parameters.SetupConfig.MinFreq
-- uid: Parameters.SetupConfig.MaxFreq*
-  commentId: Overload:Parameters.SetupConfig.MaxFreq
-  href: Parameters.SetupConfig.html#Parameters_SetupConfig_MaxFreq
-  name: MaxFreq
-  nameWithType: SetupConfig.MaxFreq
-  fullName: Parameters.SetupConfig.MaxFreq
-- uid: Parameters.SetupConfig.RampTime*
-  commentId: Overload:Parameters.SetupConfig.RampTime
-  href: Parameters.SetupConfig.html#Parameters_SetupConfig_RampTime
-  name: RampTime
-  nameWithType: SetupConfig.RampTime
-  fullName: Parameters.SetupConfig.RampTime
+- uid: Parameters.SetupConfig.UsePumps*
+  commentId: Overload:Parameters.SetupConfig.UsePumps
+  href: Parameters.SetupConfig.html#Parameters_SetupConfig_UsePumps
+  name: UsePumps
+  nameWithType: SetupConfig.UsePumps
+  fullName: Parameters.SetupConfig.UsePumps

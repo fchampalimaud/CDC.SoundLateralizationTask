@@ -216,12 +216,12 @@ items:
   namespace: Parameters
   example: []
   syntax:
-    content: public int DifferentABLs { get; set; }
+    content: public bool DifferentABLs { get; set; }
     parameters: []
     return:
-      type: System.Int32
+      type: System.Boolean
       description: Property <code>DifferentABLs</code> is whether to use the ABLs from <code>ABLList</code> (1) or from <code>FixedABL</code> (0).
-    content.vb: Public Property DifferentABLs As Integer
+    content.vb: Public Property DifferentABLs As Boolean
   overload: Parameters.TrainingConfig.DifferentABLs*
 - uid: Parameters.TrainingConfig.ABLBlock
   commentId: P:Parameters.TrainingConfig.ABLBlock
@@ -247,12 +247,12 @@ items:
   namespace: Parameters
   example: []
   syntax:
-    content: public int ABLBlock { get; set; }
+    content: public bool ABLBlock { get; set; }
     parameters: []
     return:
-      type: System.Int32
+      type: System.Boolean
       description: Property <code>ABLBlock</code> is whether ABLs change only across blocks (1) or not (0).
-    content.vb: Public Property ABLBlock As Integer
+    content.vb: Public Property ABLBlock As Boolean
   overload: Parameters.TrainingConfig.ABLBlock*
 - uid: Parameters.TrainingConfig.ILDStepSize
   commentId: P:Parameters.TrainingConfig.ILDStepSize
@@ -340,12 +340,12 @@ items:
   namespace: Parameters
   example: []
   syntax:
-    content: public int UseLog { get; set; }
+    content: public bool UseLog { get; set; }
     parameters: []
     return:
-      type: System.Int32
+      type: System.Boolean
       description: Property <code>UseLog</code> is whether to use logarithmic steps between consecutive ILD values.
-    content.vb: Public Property UseLog As Integer
+    content.vb: Public Property UseLog As Boolean
   overload: Parameters.TrainingConfig.UseLog*
 - uid: Parameters.TrainingConfig.LogBase
   commentId: P:Parameters.TrainingConfig.LogBase
@@ -433,12 +433,12 @@ items:
   namespace: Parameters
   example: []
   syntax:
-    content: public int ITIReset { get; set; }
+    content: public bool ITIReset { get; set; }
     parameters: []
     return:
-      type: System.Int32
+      type: System.Boolean
       description: Property <code>ITIReset</code> is whether the ITI partially resets if the animal tries to poke in the CNP before it ends.
-    content.vb: Public Property ITIReset As Integer
+    content.vb: Public Property ITIReset As Boolean
   overload: Parameters.TrainingConfig.ITIReset*
 - uid: Parameters.TrainingConfig.MaxWait
   commentId: P:Parameters.TrainingConfig.MaxWait
@@ -495,12 +495,12 @@ items:
   namespace: Parameters
   example: []
   syntax:
-    content: public int RandomizeFT { get; set; }
+    content: public bool RandomizeFT { get; set; }
     parameters: []
     return:
-      type: System.Int32
+      type: System.Boolean
       description: Property <code>RandomizeFT</code> is whether to use a random FT value (1) or not (0).
-    content.vb: Public Property RandomizeFT As Integer
+    content.vb: Public Property RandomizeFT As Boolean
   overload: Parameters.TrainingConfig.RandomizeFT*
 - uid: Parameters.TrainingConfig.UseRT
   commentId: P:Parameters.TrainingConfig.UseRT
@@ -526,12 +526,12 @@ items:
   namespace: Parameters
   example: []
   syntax:
-    content: public int UseRT { get; set; }
+    content: public bool UseRT { get; set; }
     parameters: []
     return:
-      type: System.Int32
+      type: System.Boolean
       description: Property <code>UseRT</code> is whether the sound stops with the animal leaving the CNP.
-    content.vb: Public Property UseRT As Integer
+    content.vb: Public Property UseRT As Boolean
   overload: Parameters.TrainingConfig.UseRT*
 - uid: Parameters.TrainingConfig.UseMaxRT
   commentId: P:Parameters.TrainingConfig.UseMaxRT
@@ -557,12 +557,12 @@ items:
   namespace: Parameters
   example: []
   syntax:
-    content: public int UseMaxRT { get; set; }
+    content: public bool UseMaxRT { get; set; }
     parameters: []
     return:
-      type: System.Int32
-      description: Property <code>UseMaxRT</code> is whether there is a MaxRT.
-    content.vb: Public Property UseMaxRT As Integer
+      type: System.Boolean
+      description: "Property <code>UseMaxRT</code> is whether there is a MaxRT. <b>Note: I don't know what is supposed to happen when there's no MaxRT.</b>"
+    content.vb: Public Property UseMaxRT As Boolean
   overload: Parameters.TrainingConfig.UseMaxRT*
 - uid: Parameters.TrainingConfig.MaxMT
   commentId: P:Parameters.TrainingConfig.MaxMT
@@ -712,12 +712,12 @@ items:
   namespace: Parameters
   example: []
   syntax:
-    content: public int UsePerformance { get; set; }
+    content: public bool UsePerformance { get; set; }
     parameters: []
     return:
-      type: System.Int32
-      description: Property <code>UsePerformance</code> is whether there is a minimum performance requirement to advance block.
-    content.vb: Public Property UsePerformance As Integer
+      type: System.Boolean
+      description: Property <code>UsePerformance</code> is whether there is a minimum performance requirement to advance to the next block.
+    content.vb: Public Property UsePerformance As Boolean
   overload: Parameters.TrainingConfig.UsePerformance*
 - uid: Parameters.TrainingConfig.CriticalPerformance
   commentId: P:Parameters.TrainingConfig.CriticalPerformance
@@ -778,7 +778,7 @@ items:
     parameters: []
     return:
       type: System.Int32
-      description: Property <code>MaxAborts</code>
+      description: Property <code>MaxAborts</code><b>NOT IMPLEMENTED!</b>
     content.vb: Public Property MaxAborts As Integer
   overload: Parameters.TrainingConfig.MaxAborts*
 - uid: Parameters.TrainingConfig.RepeatError
@@ -867,12 +867,12 @@ items:
   namespace: Parameters
   example: []
   syntax:
-    content: public int Speakers { get; set; }
+    content: public bool Speakers { get; set; }
     parameters: []
     return:
-      type: System.Int32
-      description: Property <code>Speakers</code> is whether the animal is using headphones or not (Headphones = 1, Box Speakers = 0).
-    content.vb: Public Property Speakers As Integer
+      type: System.Boolean
+      description: Property <code>Speakers</code> is whether the animal is using headphones or not (Headphones = 1, Box Speakers = 0). <b>At the moment, this parameter doesn't modify the behavior of the task. Perhaps in the future, it might be possible to input the calibration curves of both the box speakers and the headphones so that this parameter switches to the correct calibration curves.</b>
+    content.vb: Public Property Speakers As Boolean
   overload: Parameters.TrainingConfig.Speakers*
 - uid: Parameters.TrainingConfig.AbortLight
   commentId: P:Parameters.TrainingConfig.AbortLight
@@ -898,12 +898,12 @@ items:
   namespace: Parameters
   example: []
   syntax:
-    content: public int AbortLight { get; set; }
+    content: public bool AbortLight { get; set; }
     parameters: []
     return:
-      type: System.Int32
-      description: Property <code>AbortLight</code>
-    content.vb: Public Property AbortLight As Integer
+      type: System.Boolean
+      description: Property <code>AbortLight</code> is whether the Box LED should blink during the abort penalty time (1) or not (0).
+    content.vb: Public Property AbortLight As Boolean
   overload: Parameters.TrainingConfig.AbortLight*
 - uid: Parameters.TrainingConfig.ITILight
   commentId: P:Parameters.TrainingConfig.ITILight
@@ -929,12 +929,12 @@ items:
   namespace: Parameters
   example: []
   syntax:
-    content: public int ITILight { get; set; }
+    content: public bool ITILight { get; set; }
     parameters: []
     return:
-      type: System.Int32
-      description: Property <code>ITILight</code>
-    content.vb: Public Property ITILight As Integer
+      type: System.Boolean
+      description: Property <code>ITILight</code> is whether the Box LED should turn on during the ITI (1) or not (0).
+    content.vb: Public Property ITILight As Boolean
   overload: Parameters.TrainingConfig.ITILight*
 - uid: Parameters.TrainingConfig.PokeLight
   commentId: P:Parameters.TrainingConfig.PokeLight
@@ -960,12 +960,12 @@ items:
   namespace: Parameters
   example: []
   syntax:
-    content: public int PokeLight { get; set; }
+    content: public bool PokeLight { get; set; }
     parameters: []
     return:
-      type: System.Int32
-      description: Property <code>PokeLight</code>
-    content.vb: Public Property PokeLight As Integer
+      type: System.Boolean
+      description: Property <code>PokeLight</code> is whether the CNP LED should turn on when the new trial is ready (1) or not (0).
+    content.vb: Public Property PokeLight As Boolean
   overload: Parameters.TrainingConfig.PokeLight*
 - uid: Parameters.TrainingConfig.FixLight
   commentId: P:Parameters.TrainingConfig.FixLight
@@ -991,12 +991,12 @@ items:
   namespace: Parameters
   example: []
   syntax:
-    content: public int FixLight { get; set; }
+    content: public bool FixLight { get; set; }
     parameters: []
     return:
-      type: System.Int32
-      description: Property <code>FixLight</code>
-    content.vb: Public Property FixLight As Integer
+      type: System.Boolean
+      description: Property <code>FixLight</code> is whether the CNP LED should blink during the fixation time (1) or not (0).
+    content.vb: Public Property FixLight As Boolean
   overload: Parameters.TrainingConfig.FixLight*
 references:
 - uid: Parameters
@@ -1294,6 +1294,17 @@ references:
   name: DifferentABLs
   nameWithType: TrainingConfig.DifferentABLs
   fullName: Parameters.TrainingConfig.DifferentABLs
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
 - uid: Parameters.TrainingConfig.ABLBlock*
   commentId: Overload:Parameters.TrainingConfig.ABLBlock
   href: Parameters.TrainingConfig.html#Parameters_TrainingConfig_ABLBlock

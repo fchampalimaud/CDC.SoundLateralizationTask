@@ -7,14 +7,16 @@ items:
     name: GenerateILDArray
   - uid: Extensions.ReadAnimalJSON
     name: ReadAnimalJSON
-  - uid: Extensions.ReadSetupJSON
-    name: ReadSetupJSON
-  - uid: Extensions.SelectMasterFolder
-    name: SelectMasterFolder
+  - uid: Extensions.ReadSetupCSV
+    name: ReadSetupCSV
+  - uid: Extensions.ReadStartupFile
+    name: ReadStartupFile
+  - uid: Extensions.ReadTrainingCSV
+    name: ReadTrainingCSV
   - uid: Extensions.ShuffleArray
     name: ShuffleArray
-  - uid: Extensions.TrainingCSV
-    name: TrainingCSV
+  - uid: Extensions.StartupFile
+    name: StartupFile
 - uid: Parameters
   name: Parameters
   items:
