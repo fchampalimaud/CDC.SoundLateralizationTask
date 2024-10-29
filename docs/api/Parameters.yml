@@ -6,6 +6,7 @@ items:
   children:
   - Parameters.AnimalConfig
   - Parameters.SetupConfig
+  - Parameters.StartupFile
   - Parameters.TrainingConfig
   langs:
   - csharp
@@ -23,6 +24,12 @@ references:
   name: AnimalConfig
   nameWithType: AnimalConfig
   fullName: Parameters.AnimalConfig
+- uid: Parameters.StartupFile
+  commentId: T:Parameters.StartupFile
+  href: Parameters.StartupFile.html
+  name: StartupFile
+  nameWithType: StartupFile
+  fullName: Parameters.StartupFile
 - uid: Parameters.SetupConfig
   commentId: T:Parameters.SetupConfig
   href: Parameters.SetupConfig.html

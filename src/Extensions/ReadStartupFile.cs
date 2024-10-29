@@ -7,7 +7,7 @@ using System.Reactive.Linq;
 using Newtonsoft.Json;
 using System.IO;
 
-namespace Extensions
+namespace Parameters
 {
     /// <summary>
     /// Class <c>StartupFile</c> contains the relevant paths used during the Sound Lateralization Task which are read from the <c>startup.json</c> file. This is the only file which is hardcoded both in the Bonsai and in the Python projects, i.e. this file can't be moved from its current location and its name can't be changed. It's not recommended that relative paths are used, but keep in mind that in case one wants to, the relative paths must be relative to the <c>./src</c> (where the <c>.</c> is the root directory of the project).
@@ -23,7 +23,10 @@ namespace Extensions
         /// <value>Property <c>OutputDir</c> is the path to the output directory.</value>
         public string OutputDir { get; set; }
     }
+}
 
+namespace Extensions
+{
     /// <summary>
     /// Class <c>ReadStartupFile</c> contains the logic of the Bonsai node with the same name.
     /// </summary>
@@ -42,10 +45,10 @@ namespace Extensions
         /// <returns>
         /// An observable sequence which sends a single event containing a <c>StartupFile</c> instance.
         /// </returns>
-        public IObservable<StartupFile> Process()
+        public IObservable<Parameters.StartupFile> Process()
         {
             string fileContent = File.ReadAllText(FilePath);
-            StartupFile startup = JsonConvert.DeserializeObject<StartupFile>(fileContent);
+            Parameters.StartupFile startup = JsonConvert.DeserializeObject<Parameters.StartupFile>(fileContent);
             return Observable.Defer(() => Observable.Return(startup));
         }
     }

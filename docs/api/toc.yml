@@ -15,8 +15,6 @@ items:
     name: ReadTrainingCSV
   - uid: Extensions.ShuffleArray
     name: ShuffleArray
-  - uid: Extensions.StartupFile
-    name: StartupFile
 - uid: Parameters
   name: Parameters
   items:
@@ -24,6 +22,8 @@ items:
     name: AnimalConfig
   - uid: Parameters.SetupConfig
     name: SetupConfig
+  - uid: Parameters.StartupFile
+    name: StartupFile
   - uid: Parameters.TrainingConfig
     name: TrainingConfig
 memberLayout: SamePage

@@ -77,7 +77,7 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: FilePath
     path: ../src/Extensions/SetupConfig.cs
-    startLine: 70
+    startLine: 72
   assemblies:
   - Extensions
   namespace: Extensions
@@ -106,7 +106,7 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: RowNumber
     path: ../src/Extensions/SetupConfig.cs
-    startLine: 73
+    startLine: 75
   assemblies:
   - Extensions
   namespace: Extensions
@@ -135,7 +135,7 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
     path: ../src/Extensions/SetupConfig.cs
-    startLine: 100
+    startLine: 102
   assemblies:
   - Extensions
   namespace: Extensions
@@ -163,7 +163,7 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
     path: ../src/Extensions/SetupConfig.cs
-    startLine: 105
+    startLine: 107
   assemblies:
   - Extensions
   namespace: Extensions

@@ -1,7 +1,5 @@
 - name: Introduction
   href: introduction.md
-- name: User Guide
-  href: user_guide.md
 - name: State Machine
   items: 
     - name: Introduction

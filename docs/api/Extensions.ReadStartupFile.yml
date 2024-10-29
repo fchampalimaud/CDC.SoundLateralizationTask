@@ -21,7 +21,7 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: ReadStartupFile
     path: ../src/Extensions/ReadStartupFile.cs
-    startLine: 29
+    startLine: 32
   assemblies:
   - Extensions
   namespace: Extensions
@@ -77,7 +77,7 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: FilePath
     path: ../src/Extensions/ReadStartupFile.cs
-    startLine: 34
+    startLine: 37
   assemblies:
   - Extensions
   namespace: Extensions
@@ -106,7 +106,7 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
     path: ../src/Extensions/ReadStartupFile.cs
-    startLine: 44
+    startLine: 47
   assemblies:
   - Extensions
   namespace: Extensions
@@ -115,7 +115,7 @@ items:
   syntax:
     content: public IObservable<StartupFile> Process()
     return:
-      type: System.IObservable{Extensions.StartupFile}
+      type: System.IObservable{Parameters.StartupFile}
       description: An observable sequence which sends a single event containing a <code>StartupFile</code> instance.
     content.vb: Public Function Process() As IObservable(Of StartupFile)
   overload: Extensions.ReadStartupFile.Process*
@@ -386,16 +386,16 @@ references:
   name: Process
   nameWithType: ReadStartupFile.Process
   fullName: Extensions.ReadStartupFile.Process
-- uid: System.IObservable{Extensions.StartupFile}
-  commentId: T:System.IObservable{Extensions.StartupFile}
+- uid: System.IObservable{Parameters.StartupFile}
+  commentId: T:System.IObservable{Parameters.StartupFile}
   parent: System
   definition: System.IObservable`1
   href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
   name: IObservable<StartupFile>
   nameWithType: IObservable<StartupFile>
-  fullName: System.IObservable<Extensions.StartupFile>
+  fullName: System.IObservable<Parameters.StartupFile>
   nameWithType.vb: IObservable(Of StartupFile)
-  fullName.vb: System.IObservable(Of Extensions.StartupFile)
+  fullName.vb: System.IObservable(Of Parameters.StartupFile)
   name.vb: IObservable(Of StartupFile)
   spec.csharp:
   - uid: System.IObservable`1
@@ -403,9 +403,9 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
   - name: <
-  - uid: Extensions.StartupFile
+  - uid: Parameters.StartupFile
     name: StartupFile
-    href: Extensions.StartupFile.html
+    href: Parameters.StartupFile.html
   - name: '>'
   spec.vb:
   - uid: System.IObservable`1
@@ -415,9 +415,9 @@ references:
   - name: (
   - name: Of
   - name: " "
-  - uid: Extensions.StartupFile
+  - uid: Parameters.StartupFile
     name: StartupFile
-    href: Extensions.StartupFile.html
+    href: Parameters.StartupFile.html
   - name: )
 - uid: System.IObservable`1
   commentId: T:System.IObservable`1

@@ -10,7 +10,6 @@ items:
   - Extensions.ReadStartupFile
   - Extensions.ReadTrainingCSV
   - Extensions.ShuffleArray
-  - Extensions.StartupFile
   langs:
   - csharp
   - vb
@@ -33,12 +32,6 @@ references:
   name: GenerateILDArray
   nameWithType: GenerateILDArray
   fullName: Extensions.GenerateILDArray
-- uid: Extensions.StartupFile
-  commentId: T:Extensions.StartupFile
-  href: Extensions.StartupFile.html
-  name: StartupFile
-  nameWithType: StartupFile
-  fullName: Extensions.StartupFile
 - uid: Extensions.ReadStartupFile
   commentId: T:Extensions.ReadStartupFile
   href: Extensions.ReadStartupFile.html

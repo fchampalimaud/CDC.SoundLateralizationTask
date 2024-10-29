@@ -1,12 +1,14 @@
-# Harp
+# Harp Boards Setup
 
 This task uses the following Harp boards:
 - 1 Harp Behavior
+- 1 Harp Clock Synchronizer
 - 1 Harp SoundCard
 - 2 Harp Audio Amplifiers
-<!-- - 1 Harp Clock Synchronizer -->
+- 2 Harp SyringePumps (_Optional_)
+- 1 Harp CurrentDriver (_For optogenetics sessions_)
 
-In order to use the Harp Behavior and the Harp SoundCard, the USB drivers and the each board's firmware must be installed. The installer for the USB drivers can be downloaded [here](https://bitbucket.org/fchampalimaud/downloads/downloads/UsbDriver-2.12.26.zip). The [Firmware](#firmware) section contains the instructions for installing each board's firmware.
+In order to use the Harp boards, the USB drivers and the each board's firmware must be installed. The installer for the USB drivers can be downloaded [here](https://bitbucket.org/fchampalimaud/downloads/downloads/UsbDriver-2.12.26.zip). The [Firmware](#firmware) section contains the instructions for installing each board's firmware.
 
 ## Firmware
 For most boards, it's possible to install the corresponding firmware in two different ways. Unfortunately, only one method is available for the Harp SoundCard. Nevertheless, both methods are described below.
@@ -14,6 +16,7 @@ For most boards, it's possible to install the corresponding firmware in two diff
 ### Firmware Download
 1. Go to the [Harp Tech GitHub organization](https://github.com/harp-tech).
 2. Search for the board's repository. The name of the repository follows the format device.[_board_name_] (for example, [device.behavior](https://github.com/harp-tech/device.behavior)).
+    - **Note:** The Harp Audio Amplifier is not considered a device by itself, but a peripheral for the Harp SoundCard, so there isn't a firmware to be installed for this board.
 3. Click on `Releases` and search for the latest firmware release, whose name follows the format fw[_firmware_version_]-harp[_harp_core_version_] (for example, fw2.2-harp1.13).
 4. Download the latest version of the firmware binary corresponding to the hardware version of the board being used. The firmware binary name follows the format [_board_name_]-fw[_firmware_version_]-harp[_harp_core_version_]-hw[_hardware_version_]-ass[_assembly_version_].hex (for example, Behavior-fw3.2-harp1.13-hw2.0-ass0.hex).
     - **Note:** For the Harp SoundCard, an additional firmware binary must be downloaded (the PIC32 firmware).

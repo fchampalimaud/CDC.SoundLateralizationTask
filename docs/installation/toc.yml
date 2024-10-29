@@ -1,4 +1,14 @@
-- name: Bonsai
-  href: bonsai.md
-- name: Harp
+- name: Software Installation
+  href: software.md
+- name: Harp Boards Setup
   href: harp.md
+- name: Calibration Protocols
+  href: calibrations.md
+- name: Camera Setup
+  href: camera.md
+- name: Mechanical Assembly
+  href: mechanical.md
+- name: Task Configuration
+  href: configuration.md
+- name: Running the Task
+  href: running.md

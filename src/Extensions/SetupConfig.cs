@@ -65,7 +65,9 @@ namespace Extensions
     [Combinator]
     [Description("Generates an instance of the SetupConfig class based on the CSV file containing the task's setup-specific configuration.")]
     [WorkflowElementCategory(ElementCategory.Source)]
-    // FIXME: rewrite function to ReadSetupCSV
+    /// <summary>
+    /// Class <c>ReadSetupCSV</c> contains the logic of the Bonsai node with the same name.
+    /// </summary>
     public class ReadSetupCSV
     {
         [Description("The name of the CSV file.")]
