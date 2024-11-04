@@ -19,14 +19,16 @@ items:
   source:
     remote:
       path: src/Extensions/SetupConfig.cs
-      branch: gui
+      branch: bonsai_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: ReadSetupCSV
     path: ../src/Extensions/SetupConfig.cs
-    startLine: 64
+    startLine: 67
   assemblies:
   - Extensions
   namespace: Extensions
+  summary: Class <code>ReadSetupCSV</code> contains the logic of the Bonsai node with the same name.
+  example: []
   syntax:
     content: >-
       [Combinator]
@@ -73,7 +75,7 @@ items:
   source:
     remote:
       path: src/Extensions/SetupConfig.cs
-      branch: gui
+      branch: bonsai_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: FilePath
     path: ../src/Extensions/SetupConfig.cs
@@ -102,7 +104,7 @@ items:
   source:
     remote:
       path: src/Extensions/SetupConfig.cs
-      branch: gui
+      branch: bonsai_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: RowNumber
     path: ../src/Extensions/SetupConfig.cs
@@ -131,7 +133,7 @@ items:
   source:
     remote:
       path: src/Extensions/SetupConfig.cs
-      branch: gui
+      branch: bonsai_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
     path: ../src/Extensions/SetupConfig.cs
@@ -159,7 +161,7 @@ items:
   source:
     remote:
       path: src/Extensions/SetupConfig.cs
-      branch: gui
+      branch: bonsai_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
     path: ../src/Extensions/SetupConfig.cs

@@ -18,7 +18,7 @@ items:
   source:
     remote:
       path: src/Extensions/AnimalConfig.cs
-      branch: gui
+      branch: bonsai_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: ReadAnimalJSON
     path: ../src/Extensions/AnimalConfig.cs
@@ -74,7 +74,7 @@ items:
   source:
     remote:
       path: src/Extensions/AnimalConfig.cs
-      branch: gui
+      branch: bonsai_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: FilePath
     path: ../src/Extensions/AnimalConfig.cs
@@ -103,7 +103,7 @@ items:
   source:
     remote:
       path: src/Extensions/AnimalConfig.cs
-      branch: gui
+      branch: bonsai_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
     path: ../src/Extensions/AnimalConfig.cs
@@ -134,7 +134,7 @@ items:
   source:
     remote:
       path: src/Extensions/AnimalConfig.cs
-      branch: gui
+      branch: bonsai_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
     path: ../src/Extensions/AnimalConfig.cs

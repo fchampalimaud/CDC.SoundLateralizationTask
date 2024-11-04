@@ -38,7 +38,7 @@ items:
   source:
     remote:
       path: src/Extensions/AnimalConfig.cs
-      branch: gui
+      branch: bonsai_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: AnimalConfig
     path: ../src/Extensions/AnimalConfig.cs
@@ -75,7 +75,7 @@ items:
   source:
     remote:
       path: src/Extensions/AnimalConfig.cs
-      branch: gui
+      branch: bonsai_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Animal
     path: ../src/Extensions/AnimalConfig.cs
@@ -106,7 +106,7 @@ items:
   source:
     remote:
       path: src/Extensions/AnimalConfig.cs
-      branch: gui
+      branch: bonsai_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Box
     path: ../src/Extensions/AnimalConfig.cs
@@ -137,7 +137,7 @@ items:
   source:
     remote:
       path: src/Extensions/AnimalConfig.cs
-      branch: gui
+      branch: bonsai_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Session
     path: ../src/Extensions/AnimalConfig.cs
@@ -168,7 +168,7 @@ items:
   source:
     remote:
       path: src/Extensions/AnimalConfig.cs
-      branch: gui
+      branch: bonsai_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: SessionType
     path: ../src/Extensions/AnimalConfig.cs
@@ -199,7 +199,7 @@ items:
   source:
     remote:
       path: src/Extensions/AnimalConfig.cs
-      branch: gui
+      branch: bonsai_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: SessionDuration
     path: ../src/Extensions/AnimalConfig.cs
@@ -230,7 +230,7 @@ items:
   source:
     remote:
       path: src/Extensions/AnimalConfig.cs
-      branch: gui
+      branch: bonsai_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: StartingTrialNumber
     path: ../src/Extensions/AnimalConfig.cs
@@ -261,7 +261,7 @@ items:
   source:
     remote:
       path: src/Extensions/AnimalConfig.cs
-      branch: gui
+      branch: bonsai_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: StartingBlockNumber
     path: ../src/Extensions/AnimalConfig.cs
@@ -292,7 +292,7 @@ items:
   source:
     remote:
       path: src/Extensions/AnimalConfig.cs
-      branch: gui
+      branch: bonsai_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: ABLList
     path: ../src/Extensions/AnimalConfig.cs
@@ -323,7 +323,7 @@ items:
   source:
     remote:
       path: src/Extensions/AnimalConfig.cs
-      branch: gui
+      branch: bonsai_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: CycleILD
     path: ../src/Extensions/AnimalConfig.cs
@@ -354,7 +354,7 @@ items:
   source:
     remote:
       path: src/Extensions/AnimalConfig.cs
-      branch: gui
+      branch: bonsai_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Bias
     path: ../src/Extensions/AnimalConfig.cs
@@ -385,7 +385,7 @@ items:
   source:
     remote:
       path: src/Extensions/AnimalConfig.cs
-      branch: gui
+      branch: bonsai_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: MinFT
     path: ../src/Extensions/AnimalConfig.cs
@@ -416,7 +416,7 @@ items:
   source:
     remote:
       path: src/Extensions/AnimalConfig.cs
-      branch: gui
+      branch: bonsai_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: FTDelta
     path: ../src/Extensions/AnimalConfig.cs
@@ -447,7 +447,7 @@ items:
   source:
     remote:
       path: src/Extensions/AnimalConfig.cs
-      branch: gui
+      branch: bonsai_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: FTTarget
     path: ../src/Extensions/AnimalConfig.cs
@@ -478,7 +478,7 @@ items:
   source:
     remote:
       path: src/Extensions/AnimalConfig.cs
-      branch: gui
+      branch: bonsai_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: ExpFTMean
     path: ../src/Extensions/AnimalConfig.cs
@@ -509,7 +509,7 @@ items:
   source:
     remote:
       path: src/Extensions/AnimalConfig.cs
-      branch: gui
+      branch: bonsai_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: MinRT
     path: ../src/Extensions/AnimalConfig.cs
@@ -540,7 +540,7 @@ items:
   source:
     remote:
       path: src/Extensions/AnimalConfig.cs
-      branch: gui
+      branch: bonsai_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: RTDelta
     path: ../src/Extensions/AnimalConfig.cs
@@ -571,7 +571,7 @@ items:
   source:
     remote:
       path: src/Extensions/AnimalConfig.cs
-      branch: gui
+      branch: bonsai_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: RTTarget
     path: ../src/Extensions/AnimalConfig.cs
@@ -602,7 +602,7 @@ items:
   source:
     remote:
       path: src/Extensions/AnimalConfig.cs
-      branch: gui
+      branch: bonsai_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: MaxRT
     path: ../src/Extensions/AnimalConfig.cs
@@ -633,7 +633,7 @@ items:
   source:
     remote:
       path: src/Extensions/AnimalConfig.cs
-      branch: gui
+      branch: bonsai_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: MaxSamplingTime
     path: ../src/Extensions/AnimalConfig.cs
@@ -664,7 +664,7 @@ items:
   source:
     remote:
       path: src/Extensions/AnimalConfig.cs
-      branch: gui
+      branch: bonsai_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: MinMT
     path: ../src/Extensions/AnimalConfig.cs
@@ -695,7 +695,7 @@ items:
   source:
     remote:
       path: src/Extensions/AnimalConfig.cs
-      branch: gui
+      branch: bonsai_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: MinLNP
     path: ../src/Extensions/AnimalConfig.cs
@@ -726,7 +726,7 @@ items:
   source:
     remote:
       path: src/Extensions/AnimalConfig.cs
-      branch: gui
+      branch: bonsai_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: LNPDelta
     path: ../src/Extensions/AnimalConfig.cs
@@ -757,7 +757,7 @@ items:
   source:
     remote:
       path: src/Extensions/AnimalConfig.cs
-      branch: gui
+      branch: bonsai_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: LNPTarget
     path: ../src/Extensions/AnimalConfig.cs
