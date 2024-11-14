@@ -60,6 +60,24 @@ namespace Parameters
         public double LNPDelta { get; set; }
         /// <value>Property <c>LNPTarget</c> is the target for LNP time (s).</value>
         public double LNPTarget { get; set; }
+        /// <value>Property <c>BaseReward</c> is the amount of reward the animal receives when answers correctly (uL).</value>
+        public double BaseReward { get; set; }
+        /// <value>Property <c>OptoSession</c> is whether the current session is using optogenetics.</value>
+        public bool OptoSession { get; set; }
+        /// <value>Property <c>OptoContinuous</c> is whether the optogenetics session uses a continuous emission of light (true) or if it emits in small pulses with a certain frequency.</value>
+        public bool OptoContinuous { get; set; }
+        /// <value>Property <c>OptoRamp</c> is the ramp time of the LED (ms).</value>
+        public double OptoRamp { get; set; }
+        /// <value>Property <c>OptoTime</c> is the maximum time the LED stays on in a single emission (s). It only works when <c>OptoContinuous</c> is true.</value>
+        public double OptoTime { get; set; }
+        /// <value>Property <c>FixedOpto</c> is whether the optogenetics stimulation/inhibition stops when the animal leaves the CNP (false) or if it only stops after a fixed amount of time.</value>
+        public bool FixedOpto { get; set; }
+        /// <value>Property <c>OptoFrequency</c> is the frequency with which the LED emits pulses of light. It only works when <c>OptoContinuous</c> is false.</value>
+        public double OptoFrequency { get; set; }
+        /// <value>Property <c>OptoPulseDuration</c> is the duration of a single pulse (ms). It only works when <c>OptoContinuous</c> is false.</value>
+        public double OptoPulseDuration { get; set; }
+        /// <value>Property <c>BaseOpto</c> is the amount of time before the sound presentation the optogenetics stimulation/inhibition starts.</value>
+        public double BaseOpto { get; set; }
     }
 }
 

@@ -45,6 +45,14 @@ namespace Parameters
         public double PokeLEDDutyCycle { get; set; }
         /// <value>Property <c>UsePumps</c> indicates whether the setup uses valves (false) or Harp SyringePumps (true) for reward delivery. <b>Add configuration parameters for the SyringePumps.</b></value>
         public bool UsePumps { get; set; }
+        /// <value>Property <c>LeftPumpSlope</c> is the slope of the calibration curve of the left pump (uL[/n_steps]).</value>
+        public double LeftPumpSlope { get; set; }
+        /// <value>Property <c>LeftPumpIntercept</c> is the intercept of the calibration curve of the left pump (uL).</value>
+        public double LeftPumpIntercept { get; set; }
+        /// <value>Property <c>RightPumpSlope</c> is the slope of the calibration curve of the right pump (uL[/n_steps]).</value>
+        public double RightPumpSlope { get; set; }
+        /// <value>Property <c>RightPumpIntercept</c> is the intercept of the calibration curve of the right pump (uL).</value>
+        public double RightPumpIntercept { get; set; }
         /// <value>Property <c>SoundDuration</c> is the duration of the sounds loaded to the soundcard (s).</value>
         // public double SoundDuration { get; set; }
         // public double PenaltyDurationPress { get; set; }

@@ -1,12 +1,12 @@
 {
     "Animal": 1,
     "Box": 0,
-    "Session": 1,
+    "Session": 3,
     "SessionType": 1,
     "SessionDuration": "2:0:0",
     "StartingTrialNumber": 10,
-    "StartingBlockNumber": 1,
-    "StartingTrainingLevel": 1,
+    "StartingBlockNumber": 3,
+    "StartingTrainingLevel": 16,
     "LastTrainingLevel": 16,
     "ABLList": [
         20,
@@ -15,7 +15,7 @@
     ],
     "CycleILD": true,
     "Bias": 0.5,
-    "MinFT": 1000,
+    "MinFT": 99,
     "FTDelta": 0.001,
     "FTTarget": 0.2,
     "ExpFTMean": 0.075,
@@ -27,5 +27,14 @@
     "MinMT": 0.01,
     "MinLNP": 0.01,
     "LNPDelta": 0.001,
-    "LNPTarget": 0.01
+    "LNPTarget": 0.01,
+    "BaseReward": 25,
+    "OptoSession": false,
+    "OptoContinuous": true,
+    "OptoRamp": 50,
+    "OptoTime": 1,
+    "FixedOpto": true,
+    "OptoFrequency": 20,
+    "OptoPulseDuration": 20,
+    "BaseOpto": 50
 }
