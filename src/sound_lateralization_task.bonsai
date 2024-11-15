@@ -5835,7 +5835,7 @@
                     <Selector>LeftPumpIntercept</Selector>
                   </Expression>
                   <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="rx:Zip" />
+                    <Combinator xsi:type="rx:CombineLatest" />
                   </Expression>
                   <Expression xsi:type="scr:ExpressionTransform">
                     <scr:Expression>Convert.ToInt32((Item1 - Item3) / Item2)</scr:Expression>
@@ -5950,7 +5950,7 @@
                     <Selector>RightPumpIntercept</Selector>
                   </Expression>
                   <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="rx:Zip" />
+                    <Combinator xsi:type="rx:CombineLatest" />
                   </Expression>
                   <Expression xsi:type="scr:ExpressionTransform">
                     <scr:Expression>Convert.ToInt32((Item1 - Item3) / Item2)</scr:Expression>
