@@ -34,6 +34,10 @@ namespace Parameters
         public bool CycleILD { get; set; }
         /// <value>Property <c>Bias</c> indicates whether the probability of the louder side being left or right is biased or not. If the value is less than 0.5, there's a bigger probability of the louder side being left, if it's greater than 0.5, there's a bigger probability of being right. If it's equal to 0.5, there's no bias. <b>NOT IMPLEMENTED!</b></value>
         public double Bias { get; set; }
+        public double MinLEDOnset{  get; set; }
+        public double LEDOnsetDelta { get; set; }
+        public double LEDOnsetTarget { get; set; }
+        public double ExpLEDOnset { get; set; }
         /// <value>Property <c>MinFT</c> is the starting value for the constant part of the fixation time (ms). <b>At the moment, this parameter is not updated automatically, but it should be asked whether it should be updated in the future.</b></value>
         public double MinFT{  get; set; }
         /// <value>Property <c>FTDelta</c> is the increment to make to the constant part of the fixation time every non-abort trial (ms).</value>

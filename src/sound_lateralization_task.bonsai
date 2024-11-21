@@ -12,8 +12,8 @@
                  xmlns:p4="clr-namespace:Bonsai.PointGrey;assembly=Bonsai.PointGrey"
                  xmlns:cv="clr-namespace:Bonsai.Vision;assembly=Bonsai.Vision"
                  xmlns:io="clr-namespace:Bonsai.IO;assembly=Bonsai.System"
-                 xmlns:num="clr-namespace:Bonsai.Numerics;assembly=Bonsai.Numerics"
                  xmlns:dsp="clr-namespace:Bonsai.Dsp;assembly=Bonsai.Dsp"
+                 xmlns:num="clr-namespace:Bonsai.Numerics;assembly=Bonsai.Numerics"
                  xmlns:p5="clr-namespace:Extensions;assembly=Extensions"
                  xmlns:osc="clr-namespace:Bonsai.Osc;assembly=Bonsai.Osc"
                  xmlns="https://bonsai-rx.org/2018/workflow">
@@ -3892,6 +3892,117 @@
                     </Workflow>
                   </Expression>
                   <Expression xsi:type="GroupWorkflow">
+                    <Name>BaseLEDOnset</Name>
+                    <Workflow>
+                      <Nodes>
+                        <Expression xsi:type="SubscribeSubject">
+                          <Name>Outcome</Name>
+                        </Expression>
+                        <Expression xsi:type="scr:ExpressionCondition">
+                          <scr:Expression>it &gt; 0</scr:Expression>
+                        </Expression>
+                        <Expression xsi:type="SubscribeSubject">
+                          <Name>BaseLEDOnset</Name>
+                        </Expression>
+                        <Expression xsi:type="SubscribeSubject">
+                          <Name>LEDOnsetDelta</Name>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="rx:CombineLatest" />
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="rx:WithLatestFrom" />
+                        </Expression>
+                        <Expression xsi:type="MemberSelector">
+                          <Selector>Item2</Selector>
+                        </Expression>
+                        <Expression xsi:type="Add" />
+                        <Expression xsi:type="rx:Condition">
+                          <Name>BaseFT &lt;= FTTarget</Name>
+                          <Workflow>
+                            <Nodes>
+                              <Expression xsi:type="WorkflowInput">
+                                <Name>Source1</Name>
+                              </Expression>
+                              <Expression xsi:type="SubscribeSubject">
+                                <Name>LEDOnsetTarget</Name>
+                              </Expression>
+                              <Expression xsi:type="Combinator">
+                                <Combinator xsi:type="rx:Zip" />
+                              </Expression>
+                              <Expression xsi:type="LessThanOrEqual" />
+                              <Expression xsi:type="WorkflowOutput" />
+                            </Nodes>
+                            <Edges>
+                              <Edge From="0" To="2" Label="Source1" />
+                              <Edge From="1" To="2" Label="Source2" />
+                              <Edge From="2" To="3" Label="Source1" />
+                              <Edge From="3" To="4" Label="Source1" />
+                            </Edges>
+                          </Workflow>
+                        </Expression>
+                        <Expression xsi:type="rx:Condition">
+                          <Name>BaseFT &gt; FTTarget</Name>
+                          <Workflow>
+                            <Nodes>
+                              <Expression xsi:type="WorkflowInput">
+                                <Name>Source1</Name>
+                              </Expression>
+                              <Expression xsi:type="SubscribeSubject">
+                                <Name>LEDOnsetTarget</Name>
+                              </Expression>
+                              <Expression xsi:type="Combinator">
+                                <Combinator xsi:type="rx:Zip" />
+                              </Expression>
+                              <Expression xsi:type="GreaterThan" />
+                              <Expression xsi:type="WorkflowOutput" />
+                            </Nodes>
+                            <Edges>
+                              <Edge From="0" To="2" Label="Source1" />
+                              <Edge From="1" To="2" Label="Source2" />
+                              <Edge From="2" To="3" Label="Source1" />
+                              <Edge From="3" To="4" Label="Source1" />
+                            </Edges>
+                          </Workflow>
+                        </Expression>
+                        <Expression xsi:type="SubscribeSubject">
+                          <Name>LEDOnsetTarget</Name>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="rx:WithLatestFrom" />
+                        </Expression>
+                        <Expression xsi:type="MemberSelector">
+                          <Selector>Item2</Selector>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="rx:Merge" />
+                        </Expression>
+                        <Expression xsi:type="MulticastSubject">
+                          <Name>BaseLEDOnset</Name>
+                        </Expression>
+                        <Expression xsi:type="WorkflowOutput" />
+                      </Nodes>
+                      <Edges>
+                        <Edge From="0" To="1" Label="Source1" />
+                        <Edge From="1" To="5" Label="Source1" />
+                        <Edge From="2" To="4" Label="Source1" />
+                        <Edge From="3" To="4" Label="Source2" />
+                        <Edge From="4" To="5" Label="Source2" />
+                        <Edge From="5" To="6" Label="Source1" />
+                        <Edge From="6" To="7" Label="Source1" />
+                        <Edge From="7" To="8" Label="Source1" />
+                        <Edge From="7" To="9" Label="Source1" />
+                        <Edge From="8" To="13" Label="Source1" />
+                        <Edge From="9" To="11" Label="Source1" />
+                        <Edge From="10" To="11" Label="Source2" />
+                        <Edge From="11" To="12" Label="Source1" />
+                        <Edge From="12" To="13" Label="Source2" />
+                        <Edge From="13" To="14" Label="Source1" />
+                        <Edge From="14" To="15" Label="Source1" />
+                      </Edges>
+                    </Workflow>
+                  </Expression>
+                  <Expression xsi:type="GroupWorkflow">
                     <Name>BaseRT</Name>
                     <Workflow>
                       <Nodes>
@@ -6010,65 +6121,63 @@
                 </Edges>
               </Workflow>
             </Expression>
-            <Expression xsi:type="Disable">
-              <Builder xsi:type="GroupWorkflow">
-                <Name>Camera</Name>
-                <Workflow>
-                  <Nodes>
-                    <Expression xsi:type="Combinator">
-                      <Combinator xsi:type="p4:FlyCapture">
-                        <p4:Index>0</p4:Index>
-                        <p4:ColorProcessing>Default</p4:ColorProcessing>
-                      </Combinator>
-                    </Expression>
-                    <Expression xsi:type="MemberSelector">
-                      <Selector>Image</Selector>
-                    </Expression>
-                    <Expression xsi:type="Combinator">
-                      <Combinator xsi:type="cv:Crop">
-                        <cv:RegionOfInterest>
-                          <cv:X>63</cv:X>
-                          <cv:Y>270</cv:Y>
-                          <cv:Width>700</cv:Width>
-                          <cv:Height>500</cv:Height>
-                        </cv:RegionOfInterest>
-                      </Combinator>
-                    </Expression>
-                    <Expression xsi:type="Combinator">
-                      <Combinator xsi:type="cv:VideoWriter">
-                        <cv:FileName>D:\Bonsai Videos\video_.avi</cv:FileName>
-                        <cv:Suffix>Timestamp</cv:Suffix>
-                        <cv:Buffered>true</cv:Buffered>
-                        <cv:Overwrite>false</cv:Overwrite>
-                        <cv:FourCC>FMP4</cv:FourCC>
-                        <cv:FrameRate>100</cv:FrameRate>
-                        <cv:FrameSize>
-                          <cv:Width>0</cv:Width>
-                          <cv:Height>0</cv:Height>
-                        </cv:FrameSize>
-                        <cv:ResizeInterpolation>NearestNeighbor</cv:ResizeInterpolation>
-                      </Combinator>
-                    </Expression>
-                    <Expression xsi:type="MemberSelector">
-                      <Selector>Metadata.embeddedGPIOPinState,Metadata.embeddedFrameCounter,Metadata.embeddedTimeStamp,Metadata.embeddedShutter</Selector>
-                    </Expression>
-                    <Expression xsi:type="io:CsvWriter">
-                      <io:FileName>D:\Bonsai Videos\cam_metadata_.csv</io:FileName>
-                      <io:Append>false</io:Append>
-                      <io:Overwrite>false</io:Overwrite>
-                      <io:Suffix>Timestamp</io:Suffix>
-                      <io:IncludeHeader>false</io:IncludeHeader>
-                    </Expression>
-                  </Nodes>
-                  <Edges>
-                    <Edge From="0" To="1" Label="Source1" />
-                    <Edge From="0" To="4" Label="Source1" />
-                    <Edge From="1" To="2" Label="Source1" />
-                    <Edge From="2" To="3" Label="Source1" />
-                    <Edge From="4" To="5" Label="Source1" />
-                  </Edges>
-                </Workflow>
-              </Builder>
+            <Expression xsi:type="GroupWorkflow">
+              <Name>Camera</Name>
+              <Workflow>
+                <Nodes>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="p4:FlyCapture">
+                      <p4:Index>0</p4:Index>
+                      <p4:ColorProcessing>Default</p4:ColorProcessing>
+                    </Combinator>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Image</Selector>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="cv:Crop">
+                      <cv:RegionOfInterest>
+                        <cv:X>63</cv:X>
+                        <cv:Y>270</cv:Y>
+                        <cv:Width>700</cv:Width>
+                        <cv:Height>500</cv:Height>
+                      </cv:RegionOfInterest>
+                    </Combinator>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="cv:VideoWriter">
+                      <cv:FileName>D:\Bonsai Videos\video_.avi</cv:FileName>
+                      <cv:Suffix>Timestamp</cv:Suffix>
+                      <cv:Buffered>true</cv:Buffered>
+                      <cv:Overwrite>false</cv:Overwrite>
+                      <cv:FourCC>FMP4</cv:FourCC>
+                      <cv:FrameRate>100</cv:FrameRate>
+                      <cv:FrameSize>
+                        <cv:Width>0</cv:Width>
+                        <cv:Height>0</cv:Height>
+                      </cv:FrameSize>
+                      <cv:ResizeInterpolation>NearestNeighbor</cv:ResizeInterpolation>
+                    </Combinator>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Metadata.embeddedGPIOPinState,Metadata.embeddedFrameCounter,Metadata.embeddedTimeStamp,Metadata.embeddedShutter</Selector>
+                  </Expression>
+                  <Expression xsi:type="io:CsvWriter">
+                    <io:FileName>D:\Bonsai Videos\cam_metadata_.csv</io:FileName>
+                    <io:Append>false</io:Append>
+                    <io:Overwrite>false</io:Overwrite>
+                    <io:Suffix>Timestamp</io:Suffix>
+                    <io:IncludeHeader>false</io:IncludeHeader>
+                  </Expression>
+                </Nodes>
+                <Edges>
+                  <Edge From="0" To="1" Label="Source1" />
+                  <Edge From="0" To="4" Label="Source1" />
+                  <Edge From="1" To="2" Label="Source1" />
+                  <Edge From="2" To="3" Label="Source1" />
+                  <Edge From="4" To="5" Label="Source1" />
+                </Edges>
+              </Workflow>
             </Expression>
             <Expression xsi:type="GroupWorkflow">
               <Name>Logging</Name>
@@ -6177,13 +6286,37 @@
                 </Edges>
               </Workflow>
             </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>ExpFTMean</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="dsp:Pow">
+                <dsp:Power>-1</dsp:Power>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="PropertyMapping">
+              <PropertyMappings>
+                <Property Name="Rate" />
+              </PropertyMappings>
+            </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="num:CreateRandom">
                 <num:Seed xsi:nil="true" />
               </Combinator>
             </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="p1:CreateExponential">
+                <p1:Rate>13.333333333333334</p1:Rate>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="rx:BehaviorSubject">
+              <Name>FTDistribution</Name>
+            </Expression>
             <Expression xsi:type="SubscribeSubject">
-              <Name>ExpFTMean</Name>
+              <Name>AnimalSpecificConfigurations</Name>
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>ExpLEDOnset</Selector>
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="dsp:Pow">
@@ -6201,7 +6334,7 @@
               </Combinator>
             </Expression>
             <Expression xsi:type="rx:BehaviorSubject">
-              <Name>FTDistribution</Name>
+              <Name>LEDOnsetDist</Name>
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="num:CreateRandom">
@@ -6352,41 +6485,47 @@
             </Expression>
           </Nodes>
           <Edges>
-            <Edge From="1" To="5" Label="Source1" />
+            <Edge From="1" To="2" Label="Source1" />
             <Edge From="2" To="3" Label="Source1" />
-            <Edge From="3" To="4" Label="Source1" />
+            <Edge From="3" To="5" Label="Source1" />
             <Edge From="4" To="5" Label="Source2" />
+            <Edge From="4" To="11" Label="Source1" />
             <Edge From="5" To="6" Label="Source1" />
             <Edge From="7" To="8" Label="Source1" />
             <Edge From="8" To="9" Label="Source1" />
-            <Edge From="10" To="11" Label="Source1" />
+            <Edge From="9" To="10" Label="Source1" />
+            <Edge From="10" To="11" Label="Source2" />
             <Edge From="11" To="12" Label="Source1" />
-            <Edge From="13" To="20" Label="Source1" />
-            <Edge From="14" To="19" Label="Source1" />
-            <Edge From="15" To="16" Label="Source1" />
+            <Edge From="13" To="14" Label="Source1" />
+            <Edge From="14" To="15" Label="Source1" />
             <Edge From="16" To="17" Label="Source1" />
             <Edge From="17" To="18" Label="Source1" />
-            <Edge From="18" To="19" Label="Source2" />
-            <Edge From="19" To="20" Label="Source2" />
-            <Edge From="20" To="21" Label="Source1" />
+            <Edge From="19" To="26" Label="Source1" />
+            <Edge From="20" To="25" Label="Source1" />
             <Edge From="21" To="22" Label="Source1" />
             <Edge From="22" To="23" Label="Source1" />
-            <Edge From="24" To="29" Label="Source1" />
-            <Edge From="25" To="26" Label="Source1" />
+            <Edge From="23" To="24" Label="Source1" />
+            <Edge From="24" To="25" Label="Source2" />
+            <Edge From="25" To="26" Label="Source2" />
             <Edge From="26" To="27" Label="Source1" />
             <Edge From="27" To="28" Label="Source1" />
-            <Edge From="28" To="29" Label="Source2" />
-            <Edge From="29" To="30" Label="Source1" />
-            <Edge From="31" To="36" Label="Source1" />
-            <Edge From="32" To="36" Label="Source2" />
+            <Edge From="28" To="29" Label="Source1" />
+            <Edge From="30" To="35" Label="Source1" />
+            <Edge From="31" To="32" Label="Source1" />
+            <Edge From="32" To="33" Label="Source1" />
             <Edge From="33" To="34" Label="Source1" />
-            <Edge From="34" To="36" Label="Source3" />
-            <Edge From="35" To="36" Label="Source4" />
-            <Edge From="36" To="37" Label="Source1" />
-            <Edge From="37" To="38" Label="Source1" />
-            <Edge From="38" To="39" Label="Source1" />
-            <Edge From="40" To="41" Label="Source1" />
-            <Edge From="41" To="42" Label="Source1" />
+            <Edge From="34" To="35" Label="Source2" />
+            <Edge From="35" To="36" Label="Source1" />
+            <Edge From="37" To="42" Label="Source1" />
+            <Edge From="38" To="42" Label="Source2" />
+            <Edge From="39" To="40" Label="Source1" />
+            <Edge From="40" To="42" Label="Source3" />
+            <Edge From="41" To="42" Label="Source4" />
+            <Edge From="42" To="43" Label="Source1" />
+            <Edge From="43" To="44" Label="Source1" />
+            <Edge From="44" To="45" Label="Source1" />
+            <Edge From="46" To="47" Label="Source1" />
+            <Edge From="47" To="48" Label="Source1" />
           </Edges>
         </Workflow>
       </Expression>
@@ -6667,6 +6806,33 @@
                     <Name>AnimalSpecificConfigurations</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
+                    <Selector>MinLEDOnset</Selector>
+                  </Expression>
+                  <Expression xsi:type="rx:BehaviorSubject">
+                    <Name>BaseLEDOnset</Name>
+                  </Expression>
+                  <Expression xsi:type="SubscribeSubject">
+                    <Name>AnimalSpecificConfigurations</Name>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>LEDOnsetDelta</Selector>
+                  </Expression>
+                  <Expression xsi:type="rx:BehaviorSubject">
+                    <Name>LEDOnsetDelta</Name>
+                  </Expression>
+                  <Expression xsi:type="SubscribeSubject">
+                    <Name>AnimalSpecificConfigurations</Name>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>LEDOnsetTarget</Selector>
+                  </Expression>
+                  <Expression xsi:type="rx:BehaviorSubject">
+                    <Name>LEDOnsetTarget</Name>
+                  </Expression>
+                  <Expression xsi:type="SubscribeSubject">
+                    <Name>AnimalSpecificConfigurations</Name>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
                     <Selector>MinFT</Selector>
                   </Expression>
                   <Expression xsi:type="rx:BehaviorSubject">
@@ -6821,6 +6987,12 @@
                   <Edge From="66" To="67" Label="Source1" />
                   <Edge From="68" To="69" Label="Source1" />
                   <Edge From="69" To="70" Label="Source1" />
+                  <Edge From="71" To="72" Label="Source1" />
+                  <Edge From="72" To="73" Label="Source1" />
+                  <Edge From="74" To="75" Label="Source1" />
+                  <Edge From="75" To="76" Label="Source1" />
+                  <Edge From="77" To="78" Label="Source1" />
+                  <Edge From="78" To="79" Label="Source1" />
                 </Edges>
               </Workflow>
             </Expression>
@@ -8981,6 +9153,15 @@
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="rx:Merge" />
                         </Expression>
+                        <Expression xsi:type="SubscribeSubject">
+                          <Name>BaseLEDOnset</Name>
+                        </Expression>
+                        <Expression xsi:type="SubscribeSubject">
+                          <Name>LEDOnsetDist</Name>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="p1:Sample" />
+                        </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="rx:Zip" />
                         </Expression>
@@ -9023,26 +9204,29 @@
                         </Expression>
                       </Nodes>
                       <Edges>
-                        <Edge From="0" To="7" Label="Source1" />
+                        <Edge From="0" To="10" Label="Source1" />
                         <Edge From="1" To="2" Label="Source1" />
                         <Edge From="1" To="4" Label="Source1" />
                         <Edge From="2" To="3" Label="Source1" />
                         <Edge From="3" To="6" Label="Source1" />
                         <Edge From="4" To="5" Label="Source1" />
                         <Edge From="5" To="6" Label="Source2" />
-                        <Edge From="6" To="7" Label="Source2" />
-                        <Edge From="7" To="8" Label="Source1" />
+                        <Edge From="6" To="10" Label="Source2" />
+                        <Edge From="7" To="10" Label="Source3" />
                         <Edge From="8" To="9" Label="Source1" />
-                        <Edge From="9" To="10" Label="Source1" />
-                        <Edge From="9" To="14" Label="Source1" />
+                        <Edge From="9" To="10" Label="Source4" />
                         <Edge From="10" To="11" Label="Source1" />
+                        <Edge From="11" To="12" Label="Source1" />
                         <Edge From="12" To="13" Label="Source1" />
-                        <Edge From="13" To="14" Label="Source2" />
-                        <Edge From="14" To="15" Label="Source1" />
+                        <Edge From="12" To="17" Label="Source1" />
+                        <Edge From="13" To="14" Label="Source1" />
                         <Edge From="15" To="16" Label="Source1" />
-                        <Edge From="16" To="17" Label="Source1" />
+                        <Edge From="16" To="17" Label="Source2" />
                         <Edge From="17" To="18" Label="Source1" />
                         <Edge From="18" To="19" Label="Source1" />
+                        <Edge From="19" To="20" Label="Source1" />
+                        <Edge From="20" To="21" Label="Source1" />
+                        <Edge From="21" To="22" Label="Source1" />
                       </Edges>
                     </Workflow>
                   </Expression>
