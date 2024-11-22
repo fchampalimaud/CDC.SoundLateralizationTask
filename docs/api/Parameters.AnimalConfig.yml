@@ -7,20 +7,33 @@ items:
   children:
   - Parameters.AnimalConfig.ABLList
   - Parameters.AnimalConfig.Animal
+  - Parameters.AnimalConfig.BaseOpto
+  - Parameters.AnimalConfig.BaseReward
   - Parameters.AnimalConfig.Bias
   - Parameters.AnimalConfig.Box
   - Parameters.AnimalConfig.CycleILD
   - Parameters.AnimalConfig.ExpFTMean
+  - Parameters.AnimalConfig.ExpLEDOnset
   - Parameters.AnimalConfig.FTDelta
   - Parameters.AnimalConfig.FTTarget
+  - Parameters.AnimalConfig.FixedOpto
+  - Parameters.AnimalConfig.LEDOnsetDelta
+  - Parameters.AnimalConfig.LEDOnsetTarget
   - Parameters.AnimalConfig.LNPDelta
   - Parameters.AnimalConfig.LNPTarget
   - Parameters.AnimalConfig.MaxRT
   - Parameters.AnimalConfig.MaxSamplingTime
   - Parameters.AnimalConfig.MinFT
+  - Parameters.AnimalConfig.MinLEDOnset
   - Parameters.AnimalConfig.MinLNP
   - Parameters.AnimalConfig.MinMT
   - Parameters.AnimalConfig.MinRT
+  - Parameters.AnimalConfig.OptoContinuous
+  - Parameters.AnimalConfig.OptoFrequency
+  - Parameters.AnimalConfig.OptoPulseDuration
+  - Parameters.AnimalConfig.OptoRamp
+  - Parameters.AnimalConfig.OptoSession
+  - Parameters.AnimalConfig.OptoTime
   - Parameters.AnimalConfig.RTDelta
   - Parameters.AnimalConfig.RTTarget
   - Parameters.AnimalConfig.Session
@@ -371,6 +384,122 @@ items:
       description: Property <code>Bias</code> indicates whether the probability of the louder side being left or right is biased or not. If the value is less than 0.5, there's a bigger probability of the louder side being left, if it's greater than 0.5, there's a bigger probability of being right. If it's equal to 0.5, there's no bias. <b>NOT IMPLEMENTED!</b>
     content.vb: Public Property Bias As Double
   overload: Parameters.AnimalConfig.Bias*
+- uid: Parameters.AnimalConfig.MinLEDOnset
+  commentId: P:Parameters.AnimalConfig.MinLEDOnset
+  id: MinLEDOnset
+  parent: Parameters.AnimalConfig
+  langs:
+  - csharp
+  - vb
+  name: MinLEDOnset
+  nameWithType: AnimalConfig.MinLEDOnset
+  fullName: Parameters.AnimalConfig.MinLEDOnset
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/AnimalConfig.cs
+      branch: bonsai_reorganization
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: MinLEDOnset
+    path: ../src/Extensions/AnimalConfig.cs
+    startLine: 36
+  assemblies:
+  - Extensions
+  namespace: Parameters
+  syntax:
+    content: public double MinLEDOnset { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property MinLEDOnset As Double
+  overload: Parameters.AnimalConfig.MinLEDOnset*
+- uid: Parameters.AnimalConfig.LEDOnsetDelta
+  commentId: P:Parameters.AnimalConfig.LEDOnsetDelta
+  id: LEDOnsetDelta
+  parent: Parameters.AnimalConfig
+  langs:
+  - csharp
+  - vb
+  name: LEDOnsetDelta
+  nameWithType: AnimalConfig.LEDOnsetDelta
+  fullName: Parameters.AnimalConfig.LEDOnsetDelta
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/AnimalConfig.cs
+      branch: bonsai_reorganization
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: LEDOnsetDelta
+    path: ../src/Extensions/AnimalConfig.cs
+    startLine: 37
+  assemblies:
+  - Extensions
+  namespace: Parameters
+  syntax:
+    content: public double LEDOnsetDelta { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property LEDOnsetDelta As Double
+  overload: Parameters.AnimalConfig.LEDOnsetDelta*
+- uid: Parameters.AnimalConfig.LEDOnsetTarget
+  commentId: P:Parameters.AnimalConfig.LEDOnsetTarget
+  id: LEDOnsetTarget
+  parent: Parameters.AnimalConfig
+  langs:
+  - csharp
+  - vb
+  name: LEDOnsetTarget
+  nameWithType: AnimalConfig.LEDOnsetTarget
+  fullName: Parameters.AnimalConfig.LEDOnsetTarget
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/AnimalConfig.cs
+      branch: bonsai_reorganization
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: LEDOnsetTarget
+    path: ../src/Extensions/AnimalConfig.cs
+    startLine: 38
+  assemblies:
+  - Extensions
+  namespace: Parameters
+  syntax:
+    content: public double LEDOnsetTarget { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property LEDOnsetTarget As Double
+  overload: Parameters.AnimalConfig.LEDOnsetTarget*
+- uid: Parameters.AnimalConfig.ExpLEDOnset
+  commentId: P:Parameters.AnimalConfig.ExpLEDOnset
+  id: ExpLEDOnset
+  parent: Parameters.AnimalConfig
+  langs:
+  - csharp
+  - vb
+  name: ExpLEDOnset
+  nameWithType: AnimalConfig.ExpLEDOnset
+  fullName: Parameters.AnimalConfig.ExpLEDOnset
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/AnimalConfig.cs
+      branch: bonsai_reorganization
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: ExpLEDOnset
+    path: ../src/Extensions/AnimalConfig.cs
+    startLine: 39
+  assemblies:
+  - Extensions
+  namespace: Parameters
+  syntax:
+    content: public double ExpLEDOnset { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property ExpLEDOnset As Double
+  overload: Parameters.AnimalConfig.ExpLEDOnset*
 - uid: Parameters.AnimalConfig.MinFT
   commentId: P:Parameters.AnimalConfig.MinFT
   id: MinFT
@@ -389,7 +518,7 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: MinFT
     path: ../src/Extensions/AnimalConfig.cs
-    startLine: 37
+    startLine: 41
   assemblies:
   - Extensions
   namespace: Parameters
@@ -420,7 +549,7 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: FTDelta
     path: ../src/Extensions/AnimalConfig.cs
-    startLine: 39
+    startLine: 43
   assemblies:
   - Extensions
   namespace: Parameters
@@ -451,7 +580,7 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: FTTarget
     path: ../src/Extensions/AnimalConfig.cs
-    startLine: 41
+    startLine: 45
   assemblies:
   - Extensions
   namespace: Parameters
@@ -482,7 +611,7 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: ExpFTMean
     path: ../src/Extensions/AnimalConfig.cs
-    startLine: 43
+    startLine: 47
   assemblies:
   - Extensions
   namespace: Parameters
@@ -513,7 +642,7 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: MinRT
     path: ../src/Extensions/AnimalConfig.cs
-    startLine: 45
+    startLine: 49
   assemblies:
   - Extensions
   namespace: Parameters
@@ -544,7 +673,7 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: RTDelta
     path: ../src/Extensions/AnimalConfig.cs
-    startLine: 47
+    startLine: 51
   assemblies:
   - Extensions
   namespace: Parameters
@@ -575,7 +704,7 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: RTTarget
     path: ../src/Extensions/AnimalConfig.cs
-    startLine: 49
+    startLine: 53
   assemblies:
   - Extensions
   namespace: Parameters
@@ -606,7 +735,7 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: MaxRT
     path: ../src/Extensions/AnimalConfig.cs
-    startLine: 51
+    startLine: 55
   assemblies:
   - Extensions
   namespace: Parameters
@@ -637,7 +766,7 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: MaxSamplingTime
     path: ../src/Extensions/AnimalConfig.cs
-    startLine: 53
+    startLine: 57
   assemblies:
   - Extensions
   namespace: Parameters
@@ -668,7 +797,7 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: MinMT
     path: ../src/Extensions/AnimalConfig.cs
-    startLine: 55
+    startLine: 59
   assemblies:
   - Extensions
   namespace: Parameters
@@ -699,7 +828,7 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: MinLNP
     path: ../src/Extensions/AnimalConfig.cs
-    startLine: 57
+    startLine: 61
   assemblies:
   - Extensions
   namespace: Parameters
@@ -730,7 +859,7 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: LNPDelta
     path: ../src/Extensions/AnimalConfig.cs
-    startLine: 59
+    startLine: 63
   assemblies:
   - Extensions
   namespace: Parameters
@@ -761,7 +890,7 @@ items:
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: LNPTarget
     path: ../src/Extensions/AnimalConfig.cs
-    startLine: 61
+    startLine: 65
   assemblies:
   - Extensions
   namespace: Parameters
@@ -774,6 +903,285 @@ items:
       description: Property <code>LNPTarget</code> is the target for LNP time (s).
     content.vb: Public Property LNPTarget As Double
   overload: Parameters.AnimalConfig.LNPTarget*
+- uid: Parameters.AnimalConfig.BaseReward
+  commentId: P:Parameters.AnimalConfig.BaseReward
+  id: BaseReward
+  parent: Parameters.AnimalConfig
+  langs:
+  - csharp
+  - vb
+  name: BaseReward
+  nameWithType: AnimalConfig.BaseReward
+  fullName: Parameters.AnimalConfig.BaseReward
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/AnimalConfig.cs
+      branch: bonsai_reorganization
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: BaseReward
+    path: ../src/Extensions/AnimalConfig.cs
+    startLine: 67
+  assemblies:
+  - Extensions
+  namespace: Parameters
+  example: []
+  syntax:
+    content: public double BaseReward { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+      description: Property <code>BaseReward</code> is the amount of reward the animal receives when answers correctly (uL).
+    content.vb: Public Property BaseReward As Double
+  overload: Parameters.AnimalConfig.BaseReward*
+- uid: Parameters.AnimalConfig.OptoSession
+  commentId: P:Parameters.AnimalConfig.OptoSession
+  id: OptoSession
+  parent: Parameters.AnimalConfig
+  langs:
+  - csharp
+  - vb
+  name: OptoSession
+  nameWithType: AnimalConfig.OptoSession
+  fullName: Parameters.AnimalConfig.OptoSession
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/AnimalConfig.cs
+      branch: bonsai_reorganization
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: OptoSession
+    path: ../src/Extensions/AnimalConfig.cs
+    startLine: 69
+  assemblies:
+  - Extensions
+  namespace: Parameters
+  example: []
+  syntax:
+    content: public bool OptoSession { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+      description: Property <code>OptoSession</code> is whether the current session is using optogenetics.
+    content.vb: Public Property OptoSession As Boolean
+  overload: Parameters.AnimalConfig.OptoSession*
+- uid: Parameters.AnimalConfig.OptoContinuous
+  commentId: P:Parameters.AnimalConfig.OptoContinuous
+  id: OptoContinuous
+  parent: Parameters.AnimalConfig
+  langs:
+  - csharp
+  - vb
+  name: OptoContinuous
+  nameWithType: AnimalConfig.OptoContinuous
+  fullName: Parameters.AnimalConfig.OptoContinuous
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/AnimalConfig.cs
+      branch: bonsai_reorganization
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: OptoContinuous
+    path: ../src/Extensions/AnimalConfig.cs
+    startLine: 71
+  assemblies:
+  - Extensions
+  namespace: Parameters
+  example: []
+  syntax:
+    content: public bool OptoContinuous { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+      description: Property <code>OptoContinuous</code> is whether the optogenetics session uses a continuous emission of light (true) or if it emits in small pulses with a certain frequency.
+    content.vb: Public Property OptoContinuous As Boolean
+  overload: Parameters.AnimalConfig.OptoContinuous*
+- uid: Parameters.AnimalConfig.OptoRamp
+  commentId: P:Parameters.AnimalConfig.OptoRamp
+  id: OptoRamp
+  parent: Parameters.AnimalConfig
+  langs:
+  - csharp
+  - vb
+  name: OptoRamp
+  nameWithType: AnimalConfig.OptoRamp
+  fullName: Parameters.AnimalConfig.OptoRamp
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/AnimalConfig.cs
+      branch: bonsai_reorganization
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: OptoRamp
+    path: ../src/Extensions/AnimalConfig.cs
+    startLine: 73
+  assemblies:
+  - Extensions
+  namespace: Parameters
+  example: []
+  syntax:
+    content: public double OptoRamp { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+      description: Property <code>OptoRamp</code> is the ramp time of the LED (ms).
+    content.vb: Public Property OptoRamp As Double
+  overload: Parameters.AnimalConfig.OptoRamp*
+- uid: Parameters.AnimalConfig.OptoTime
+  commentId: P:Parameters.AnimalConfig.OptoTime
+  id: OptoTime
+  parent: Parameters.AnimalConfig
+  langs:
+  - csharp
+  - vb
+  name: OptoTime
+  nameWithType: AnimalConfig.OptoTime
+  fullName: Parameters.AnimalConfig.OptoTime
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/AnimalConfig.cs
+      branch: bonsai_reorganization
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: OptoTime
+    path: ../src/Extensions/AnimalConfig.cs
+    startLine: 75
+  assemblies:
+  - Extensions
+  namespace: Parameters
+  example: []
+  syntax:
+    content: public double OptoTime { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+      description: Property <code>OptoTime</code> is the maximum time the LED stays on in a single emission (s). It only works when <code>OptoContinuous</code> is true.
+    content.vb: Public Property OptoTime As Double
+  overload: Parameters.AnimalConfig.OptoTime*
+- uid: Parameters.AnimalConfig.FixedOpto
+  commentId: P:Parameters.AnimalConfig.FixedOpto
+  id: FixedOpto
+  parent: Parameters.AnimalConfig
+  langs:
+  - csharp
+  - vb
+  name: FixedOpto
+  nameWithType: AnimalConfig.FixedOpto
+  fullName: Parameters.AnimalConfig.FixedOpto
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/AnimalConfig.cs
+      branch: bonsai_reorganization
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: FixedOpto
+    path: ../src/Extensions/AnimalConfig.cs
+    startLine: 77
+  assemblies:
+  - Extensions
+  namespace: Parameters
+  example: []
+  syntax:
+    content: public bool FixedOpto { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+      description: Property <code>FixedOpto</code> is whether the optogenetics stimulation/inhibition stops when the animal leaves the CNP (false) or if it only stops after a fixed amount of time.
+    content.vb: Public Property FixedOpto As Boolean
+  overload: Parameters.AnimalConfig.FixedOpto*
+- uid: Parameters.AnimalConfig.OptoFrequency
+  commentId: P:Parameters.AnimalConfig.OptoFrequency
+  id: OptoFrequency
+  parent: Parameters.AnimalConfig
+  langs:
+  - csharp
+  - vb
+  name: OptoFrequency
+  nameWithType: AnimalConfig.OptoFrequency
+  fullName: Parameters.AnimalConfig.OptoFrequency
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/AnimalConfig.cs
+      branch: bonsai_reorganization
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: OptoFrequency
+    path: ../src/Extensions/AnimalConfig.cs
+    startLine: 79
+  assemblies:
+  - Extensions
+  namespace: Parameters
+  example: []
+  syntax:
+    content: public double OptoFrequency { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+      description: Property <code>OptoFrequency</code> is the frequency with which the LED emits pulses of light. It only works when <code>OptoContinuous</code> is false.
+    content.vb: Public Property OptoFrequency As Double
+  overload: Parameters.AnimalConfig.OptoFrequency*
+- uid: Parameters.AnimalConfig.OptoPulseDuration
+  commentId: P:Parameters.AnimalConfig.OptoPulseDuration
+  id: OptoPulseDuration
+  parent: Parameters.AnimalConfig
+  langs:
+  - csharp
+  - vb
+  name: OptoPulseDuration
+  nameWithType: AnimalConfig.OptoPulseDuration
+  fullName: Parameters.AnimalConfig.OptoPulseDuration
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/AnimalConfig.cs
+      branch: bonsai_reorganization
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: OptoPulseDuration
+    path: ../src/Extensions/AnimalConfig.cs
+    startLine: 81
+  assemblies:
+  - Extensions
+  namespace: Parameters
+  example: []
+  syntax:
+    content: public double OptoPulseDuration { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+      description: Property <code>OptoPulseDuration</code> is the duration of a single pulse (ms). It only works when <code>OptoContinuous</code> is false.
+    content.vb: Public Property OptoPulseDuration As Double
+  overload: Parameters.AnimalConfig.OptoPulseDuration*
+- uid: Parameters.AnimalConfig.BaseOpto
+  commentId: P:Parameters.AnimalConfig.BaseOpto
+  id: BaseOpto
+  parent: Parameters.AnimalConfig
+  langs:
+  - csharp
+  - vb
+  name: BaseOpto
+  nameWithType: AnimalConfig.BaseOpto
+  fullName: Parameters.AnimalConfig.BaseOpto
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/AnimalConfig.cs
+      branch: bonsai_reorganization
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: BaseOpto
+    path: ../src/Extensions/AnimalConfig.cs
+    startLine: 83
+  assemblies:
+  - Extensions
+  namespace: Parameters
+  example: []
+  syntax:
+    content: public double BaseOpto { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+      description: Property <code>BaseOpto</code> is the amount of time before the sound presentation the optogenetics stimulation/inhibition starts.
+    content.vb: Public Property BaseOpto As Double
+  overload: Parameters.AnimalConfig.BaseOpto*
 references:
 - uid: Parameters
   commentId: N:Parameters
@@ -1142,6 +1550,30 @@ references:
   nameWithType.vb: Double
   fullName.vb: Double
   name.vb: Double
+- uid: Parameters.AnimalConfig.MinLEDOnset*
+  commentId: Overload:Parameters.AnimalConfig.MinLEDOnset
+  href: Parameters.AnimalConfig.html#Parameters_AnimalConfig_MinLEDOnset
+  name: MinLEDOnset
+  nameWithType: AnimalConfig.MinLEDOnset
+  fullName: Parameters.AnimalConfig.MinLEDOnset
+- uid: Parameters.AnimalConfig.LEDOnsetDelta*
+  commentId: Overload:Parameters.AnimalConfig.LEDOnsetDelta
+  href: Parameters.AnimalConfig.html#Parameters_AnimalConfig_LEDOnsetDelta
+  name: LEDOnsetDelta
+  nameWithType: AnimalConfig.LEDOnsetDelta
+  fullName: Parameters.AnimalConfig.LEDOnsetDelta
+- uid: Parameters.AnimalConfig.LEDOnsetTarget*
+  commentId: Overload:Parameters.AnimalConfig.LEDOnsetTarget
+  href: Parameters.AnimalConfig.html#Parameters_AnimalConfig_LEDOnsetTarget
+  name: LEDOnsetTarget
+  nameWithType: AnimalConfig.LEDOnsetTarget
+  fullName: Parameters.AnimalConfig.LEDOnsetTarget
+- uid: Parameters.AnimalConfig.ExpLEDOnset*
+  commentId: Overload:Parameters.AnimalConfig.ExpLEDOnset
+  href: Parameters.AnimalConfig.html#Parameters_AnimalConfig_ExpLEDOnset
+  name: ExpLEDOnset
+  nameWithType: AnimalConfig.ExpLEDOnset
+  fullName: Parameters.AnimalConfig.ExpLEDOnset
 - uid: Parameters.AnimalConfig.MinFT*
   commentId: Overload:Parameters.AnimalConfig.MinFT
   href: Parameters.AnimalConfig.html#Parameters_AnimalConfig_MinFT
@@ -1220,3 +1652,57 @@ references:
   name: LNPTarget
   nameWithType: AnimalConfig.LNPTarget
   fullName: Parameters.AnimalConfig.LNPTarget
+- uid: Parameters.AnimalConfig.BaseReward*
+  commentId: Overload:Parameters.AnimalConfig.BaseReward
+  href: Parameters.AnimalConfig.html#Parameters_AnimalConfig_BaseReward
+  name: BaseReward
+  nameWithType: AnimalConfig.BaseReward
+  fullName: Parameters.AnimalConfig.BaseReward
+- uid: Parameters.AnimalConfig.OptoSession*
+  commentId: Overload:Parameters.AnimalConfig.OptoSession
+  href: Parameters.AnimalConfig.html#Parameters_AnimalConfig_OptoSession
+  name: OptoSession
+  nameWithType: AnimalConfig.OptoSession
+  fullName: Parameters.AnimalConfig.OptoSession
+- uid: Parameters.AnimalConfig.OptoContinuous*
+  commentId: Overload:Parameters.AnimalConfig.OptoContinuous
+  href: Parameters.AnimalConfig.html#Parameters_AnimalConfig_OptoContinuous
+  name: OptoContinuous
+  nameWithType: AnimalConfig.OptoContinuous
+  fullName: Parameters.AnimalConfig.OptoContinuous
+- uid: Parameters.AnimalConfig.OptoRamp*
+  commentId: Overload:Parameters.AnimalConfig.OptoRamp
+  href: Parameters.AnimalConfig.html#Parameters_AnimalConfig_OptoRamp
+  name: OptoRamp
+  nameWithType: AnimalConfig.OptoRamp
+  fullName: Parameters.AnimalConfig.OptoRamp
+- uid: Parameters.AnimalConfig.OptoTime*
+  commentId: Overload:Parameters.AnimalConfig.OptoTime
+  href: Parameters.AnimalConfig.html#Parameters_AnimalConfig_OptoTime
+  name: OptoTime
+  nameWithType: AnimalConfig.OptoTime
+  fullName: Parameters.AnimalConfig.OptoTime
+- uid: Parameters.AnimalConfig.FixedOpto*
+  commentId: Overload:Parameters.AnimalConfig.FixedOpto
+  href: Parameters.AnimalConfig.html#Parameters_AnimalConfig_FixedOpto
+  name: FixedOpto
+  nameWithType: AnimalConfig.FixedOpto
+  fullName: Parameters.AnimalConfig.FixedOpto
+- uid: Parameters.AnimalConfig.OptoFrequency*
+  commentId: Overload:Parameters.AnimalConfig.OptoFrequency
+  href: Parameters.AnimalConfig.html#Parameters_AnimalConfig_OptoFrequency
+  name: OptoFrequency
+  nameWithType: AnimalConfig.OptoFrequency
+  fullName: Parameters.AnimalConfig.OptoFrequency
+- uid: Parameters.AnimalConfig.OptoPulseDuration*
+  commentId: Overload:Parameters.AnimalConfig.OptoPulseDuration
+  href: Parameters.AnimalConfig.html#Parameters_AnimalConfig_OptoPulseDuration
+  name: OptoPulseDuration
+  nameWithType: AnimalConfig.OptoPulseDuration
+  fullName: Parameters.AnimalConfig.OptoPulseDuration
+- uid: Parameters.AnimalConfig.BaseOpto*
+  commentId: Overload:Parameters.AnimalConfig.BaseOpto
+  href: Parameters.AnimalConfig.html#Parameters_AnimalConfig_BaseOpto
+  name: BaseOpto
+  nameWithType: AnimalConfig.BaseOpto
+  fullName: Parameters.AnimalConfig.BaseOpto

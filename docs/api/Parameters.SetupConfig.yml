@@ -8,6 +8,8 @@ items:
   - Parameters.SetupConfig.BoxLEDDutyCycle
   - Parameters.SetupConfig.BoxLEDPeriod
   - Parameters.SetupConfig.LeftIntercept
+  - Parameters.SetupConfig.LeftPumpIntercept
+  - Parameters.SetupConfig.LeftPumpSlope
   - Parameters.SetupConfig.LeftSlope
   - Parameters.SetupConfig.LowToHighCNP
   - Parameters.SetupConfig.LowToHighL
@@ -17,6 +19,8 @@ items:
   - Parameters.SetupConfig.RewardOpenL
   - Parameters.SetupConfig.RewardOpenR
   - Parameters.SetupConfig.RightIntercept
+  - Parameters.SetupConfig.RightPumpIntercept
+  - Parameters.SetupConfig.RightPumpSlope
   - Parameters.SetupConfig.RightSlope
   - Parameters.SetupConfig.Setup
   - Parameters.SetupConfig.UsePumps
@@ -518,6 +522,130 @@ items:
       description: Property <code>UsePumps</code> indicates whether the setup uses valves (false) or Harp SyringePumps (true) for reward delivery. <b>Add configuration parameters for the SyringePumps.</b>
     content.vb: Public Property UsePumps As Boolean
   overload: Parameters.SetupConfig.UsePumps*
+- uid: Parameters.SetupConfig.LeftPumpSlope
+  commentId: P:Parameters.SetupConfig.LeftPumpSlope
+  id: LeftPumpSlope
+  parent: Parameters.SetupConfig
+  langs:
+  - csharp
+  - vb
+  name: LeftPumpSlope
+  nameWithType: SetupConfig.LeftPumpSlope
+  fullName: Parameters.SetupConfig.LeftPumpSlope
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/SetupConfig.cs
+      branch: bonsai_reorganization
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: LeftPumpSlope
+    path: ../src/Extensions/SetupConfig.cs
+    startLine: 48
+  assemblies:
+  - Extensions
+  namespace: Parameters
+  example: []
+  syntax:
+    content: public double LeftPumpSlope { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+      description: Property <code>LeftPumpSlope</code> is the slope of the calibration curve of the left pump (uL[/n_steps]).
+    content.vb: Public Property LeftPumpSlope As Double
+  overload: Parameters.SetupConfig.LeftPumpSlope*
+- uid: Parameters.SetupConfig.LeftPumpIntercept
+  commentId: P:Parameters.SetupConfig.LeftPumpIntercept
+  id: LeftPumpIntercept
+  parent: Parameters.SetupConfig
+  langs:
+  - csharp
+  - vb
+  name: LeftPumpIntercept
+  nameWithType: SetupConfig.LeftPumpIntercept
+  fullName: Parameters.SetupConfig.LeftPumpIntercept
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/SetupConfig.cs
+      branch: bonsai_reorganization
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: LeftPumpIntercept
+    path: ../src/Extensions/SetupConfig.cs
+    startLine: 50
+  assemblies:
+  - Extensions
+  namespace: Parameters
+  example: []
+  syntax:
+    content: public double LeftPumpIntercept { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+      description: Property <code>LeftPumpIntercept</code> is the intercept of the calibration curve of the left pump (uL).
+    content.vb: Public Property LeftPumpIntercept As Double
+  overload: Parameters.SetupConfig.LeftPumpIntercept*
+- uid: Parameters.SetupConfig.RightPumpSlope
+  commentId: P:Parameters.SetupConfig.RightPumpSlope
+  id: RightPumpSlope
+  parent: Parameters.SetupConfig
+  langs:
+  - csharp
+  - vb
+  name: RightPumpSlope
+  nameWithType: SetupConfig.RightPumpSlope
+  fullName: Parameters.SetupConfig.RightPumpSlope
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/SetupConfig.cs
+      branch: bonsai_reorganization
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: RightPumpSlope
+    path: ../src/Extensions/SetupConfig.cs
+    startLine: 52
+  assemblies:
+  - Extensions
+  namespace: Parameters
+  example: []
+  syntax:
+    content: public double RightPumpSlope { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+      description: Property <code>RightPumpSlope</code> is the slope of the calibration curve of the right pump (uL[/n_steps]).
+    content.vb: Public Property RightPumpSlope As Double
+  overload: Parameters.SetupConfig.RightPumpSlope*
+- uid: Parameters.SetupConfig.RightPumpIntercept
+  commentId: P:Parameters.SetupConfig.RightPumpIntercept
+  id: RightPumpIntercept
+  parent: Parameters.SetupConfig
+  langs:
+  - csharp
+  - vb
+  name: RightPumpIntercept
+  nameWithType: SetupConfig.RightPumpIntercept
+  fullName: Parameters.SetupConfig.RightPumpIntercept
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/SetupConfig.cs
+      branch: bonsai_reorganization
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: RightPumpIntercept
+    path: ../src/Extensions/SetupConfig.cs
+    startLine: 54
+  assemblies:
+  - Extensions
+  namespace: Parameters
+  example: []
+  syntax:
+    content: public double RightPumpIntercept { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+      description: Property <code>RightPumpIntercept</code> is the intercept of the calibration curve of the right pump (uL).
+    content.vb: Public Property RightPumpIntercept As Double
+  overload: Parameters.SetupConfig.RightPumpIntercept*
 references:
 - uid: Parameters
   commentId: N:Parameters
@@ -885,3 +1013,27 @@ references:
   name: UsePumps
   nameWithType: SetupConfig.UsePumps
   fullName: Parameters.SetupConfig.UsePumps
+- uid: Parameters.SetupConfig.LeftPumpSlope*
+  commentId: Overload:Parameters.SetupConfig.LeftPumpSlope
+  href: Parameters.SetupConfig.html#Parameters_SetupConfig_LeftPumpSlope
+  name: LeftPumpSlope
+  nameWithType: SetupConfig.LeftPumpSlope
+  fullName: Parameters.SetupConfig.LeftPumpSlope
+- uid: Parameters.SetupConfig.LeftPumpIntercept*
+  commentId: Overload:Parameters.SetupConfig.LeftPumpIntercept
+  href: Parameters.SetupConfig.html#Parameters_SetupConfig_LeftPumpIntercept
+  name: LeftPumpIntercept
+  nameWithType: SetupConfig.LeftPumpIntercept
+  fullName: Parameters.SetupConfig.LeftPumpIntercept
+- uid: Parameters.SetupConfig.RightPumpSlope*
+  commentId: Overload:Parameters.SetupConfig.RightPumpSlope
+  href: Parameters.SetupConfig.html#Parameters_SetupConfig_RightPumpSlope
+  name: RightPumpSlope
+  nameWithType: SetupConfig.RightPumpSlope
+  fullName: Parameters.SetupConfig.RightPumpSlope
+- uid: Parameters.SetupConfig.RightPumpIntercept*
+  commentId: Overload:Parameters.SetupConfig.RightPumpIntercept
+  href: Parameters.SetupConfig.html#Parameters_SetupConfig_RightPumpIntercept
+  name: RightPumpIntercept
+  nameWithType: SetupConfig.RightPumpIntercept
+  fullName: Parameters.SetupConfig.RightPumpIntercept

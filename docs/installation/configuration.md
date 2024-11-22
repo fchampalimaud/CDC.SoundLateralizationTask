@@ -43,3 +43,15 @@ Inside the "main" directory there is a folder for every animal. Inside each anim
 - `X.png` - this file is a print of the Python application window captured at the end of each block. Here, the `X` represents the block number of the day.
 
 **WARNING:** it is recommended that the "main" output directory only contains files saved by the task's software. If there's a need to manually save other files related to the experiment, please do it somewhere else.
+
+# Others (COM ports and some file paths)
+
+Although there was a good effort to put the maximum amount of configuration parameters outside of Bonsai, there are still some things that have to be configured in it, namely:
+- the COM ports for the Harp boards.
+- the paths for the video-related files.
+
+To configure these, follow the steps:
+1. Open bonsai from `./bonsai/Bonsai.exe` and open the project's file.
+2. Double-click on the `Hardware` node. Inside this node, there are 7 different nodes: the first 5 are Harp-related, the sixth is the camera-related and the last one is used to save every Harp message.
+3. Double-click on the Harp-related nodes for the boards being used. Find the respective device node (for example, `Behavior` or `SoundCard`), click on it and change the `PortName` property accordingly on the right panel in Bonsai. To find out which COM port corresponds to the board, install one of the Harp LabVIEW-based GUIs and look for a `List devices` button (or a button with a similar name).
+4. For the video-related files, double-click on the `Camera` Group Workflow node. Then click on the Sink nodes (the purple ones) and change the `FileName` property so that those files are created and saved in the desired paths.
