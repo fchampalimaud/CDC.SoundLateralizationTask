@@ -32,6 +32,7 @@ namespace Parameters
         public double[] ABLList { get; set; }
         /// <value>If the <c>CycleILD</c> property is false, an ILD value is randomly picked every trial from the array of ILDs. Otherwise, the ILD array is shuffled and the ILD is picked by just following the new array order; when the end of the array is reached, the array is shuffled again and the procedure is repeated.</value>
         public bool CycleILD { get; set; }
+        public int[] SoundIndexes { get; set; }
         /// <value>Property <c>Bias</c> indicates whether the probability of the louder side being left or right is biased or not. If the value is less than 0.5, there's a bigger probability of the louder side being left, if it's greater than 0.5, there's a bigger probability of being right. If it's equal to 0.5, there's no bias. <b>NOT IMPLEMENTED!</b></value>
         public double Bias { get; set; }
         public double MinLEDOnset{  get; set; }
@@ -74,14 +75,10 @@ namespace Parameters
         public double OptoRamp { get; set; }
         /// <value>Property <c>OptoTime</c> is the maximum time the LED stays on in a single emission (s). It only works when <c>OptoContinuous</c> is true.</value>
         public double OptoTime { get; set; }
-        /// <value>Property <c>FixedOpto</c> is whether the optogenetics stimulation/inhibition stops when the animal leaves the CNP (false) or if it only stops after a fixed amount of time.</value>
-        public bool FixedOpto { get; set; }
         /// <value>Property <c>OptoFrequency</c> is the frequency with which the LED emits pulses of light. It only works when <c>OptoContinuous</c> is false.</value>
         public double OptoFrequency { get; set; }
         /// <value>Property <c>OptoPulseDuration</c> is the duration of a single pulse (ms). It only works when <c>OptoContinuous</c> is false.</value>
         public double OptoPulseDuration { get; set; }
-        /// <value>Property <c>BaseOpto</c> is the amount of time before the sound presentation the optogenetics stimulation/inhibition starts.</value>
-        public double BaseOpto { get; set; }
     }
 }
 

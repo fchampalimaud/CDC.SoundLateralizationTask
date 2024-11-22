@@ -14,6 +14,7 @@
         60
     ],
     "CycleILD": true,
+    "SoundIndexes": [2],
     "Bias": 0.5,
     "MinLEDOnset": 99,
     "LEDOnsetDelta": 0.001,
@@ -37,8 +38,6 @@
     "OptoContinuous": true,
     "OptoRamp": 50,
     "OptoTime": 1,
-    "FixedOpto": true,
     "OptoFrequency": 20,
-    "OptoPulseDuration": 20,
-    "BaseOpto": 50
+    "OptoPulseDuration": 20
 }

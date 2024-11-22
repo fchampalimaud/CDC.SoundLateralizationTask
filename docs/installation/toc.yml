@@ -1,3 +1,5 @@
+- name: Bill of Materials
+  href: bill_of_materials.md
 - name: Software Installation
   href: software.md
 - name: Harp Boards Setup
