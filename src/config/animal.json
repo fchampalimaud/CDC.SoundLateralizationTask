@@ -1,12 +1,12 @@
 {
-    "Animal": 1,
+    "Animal": 0,
     "Box": 0,
-    "Session": 3,
+    "Session": 1,
     "SessionType": 1,
     "SessionDuration": "2:0:0",
     "StartingTrialNumber": 10,
-    "StartingBlockNumber": 3,
-    "StartingTrainingLevel": 16,
+    "StartingBlockNumber": 1,
+    "StartingTrainingLevel": 1,
     "LastTrainingLevel": 16,
     "ABLList": [
         20,
@@ -14,7 +14,9 @@
         60
     ],
     "CycleILD": true,
-    "SoundIndexes": [2],
+    "SoundIndexes": [
+        2
+    ],
     "Bias": 0.5,
     "MinLEDOnset": 99,
     "LEDOnsetDelta": 0.001,

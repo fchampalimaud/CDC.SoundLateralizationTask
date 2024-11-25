@@ -64,7 +64,7 @@ class Controller:
         self.client = Speaker()
 
         # Creates the message address-callback pairs
-        messages = {"/beginning": self.new_trial, "/plots": self.update_plots, "/block": self.new_block}
+        messages = {"/beginning": self.new_trial, "/plots": self.update_plots, "/block": self.new_block, "/repeaterrors": self.repeat_errors}
 
         # Initializes the OSC server
         self.listener = Listener(messages)
@@ -376,6 +376,12 @@ class Controller:
         Opens and runs the Bonsai task.
         """
         os.system(r"..\\..\\bonsai\\Bonsai.exe ..\\sound_lateralization_task.bonsai --start")
+
+    def repeat_errors(self, address, *args):
+        if args[0] == 0:
+            self.view.buttons[5].color = 'lightgray'
+        else:
+            self.view.buttons[5].color = 'gray'
 
 def get_animal_number():
     """
