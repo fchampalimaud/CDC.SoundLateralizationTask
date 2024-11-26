@@ -41,5 +41,6 @@
     "OptoRamp": 50,
     "OptoTime": 1,
     "OptoFrequency": 20,
-    "OptoPulseDuration": 20
+    "OptoPulseDuration": 20,
+    "AutobiasCorrection": false
 }

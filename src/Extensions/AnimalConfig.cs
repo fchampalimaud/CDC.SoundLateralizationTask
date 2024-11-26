@@ -79,6 +79,7 @@ namespace Parameters
         public double OptoFrequency { get; set; }
         /// <value>Property <c>OptoPulseDuration</c> is the duration of a single pulse (ms). It only works when <c>OptoContinuous</c> is false.</value>
         public double OptoPulseDuration { get; set; }
+        public bool AutobiasCorrection { get; set; }
     }
 }
 
