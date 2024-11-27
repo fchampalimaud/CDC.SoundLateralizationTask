@@ -28,6 +28,8 @@ namespace Parameters
         public int StartingTrialNumber { get; set; }
         /// <value>Property <c>StartingBlockNumber</c> is the number of the first block of the session. <b>At the moment, this parameter is not updated automatically, but it should be in the future.</b></value>
         public int StartingBlockNumber { get; set; }
+        public int StartingTrainingLevel { get; set; }
+        public int LastTrainingLevel { get; set; }
         /// <value>Property <c>ABLList</c> is an array containing the possible ABLs to present when the <c>DifferentABLs</c> parameter from the <c>training.csv</c> file is not 0.</value>
         public double[] ABLList { get; set; }
         /// <value>If the <c>CycleILD</c> property is false, an ILD value is randomly picked every trial from the array of ILDs. Otherwise, the ILD array is shuffled and the ILD is picked by just following the new array order; when the end of the array is reached, the array is shuffled again and the procedure is repeated.</value>

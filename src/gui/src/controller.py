@@ -379,9 +379,9 @@ class Controller:
 
     def repeat_errors(self, address, *args):
         if args[0] == 0:
-            self.view.buttons[5].color = 'lightgray'
+            self.view.buttons[4].color = 'lightgray'
         else:
-            self.view.buttons[5].color = 'gray'
+            self.view.buttons[4].color = 'gray'
 
 def get_animal_number():
     """
