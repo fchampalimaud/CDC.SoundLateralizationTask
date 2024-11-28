@@ -2096,7 +2096,7 @@
                               </Expression>
                               <Expression xsi:type="Index">
                                 <Operand xsi:type="IntProperty">
-                                  <Value>0</Value>
+                                  <Value>1</Value>
                                 </Operand>
                               </Expression>
                               <Expression xsi:type="Combinator">
@@ -2210,7 +2210,7 @@
                               </Expression>
                               <Expression xsi:type="Index">
                                 <Operand xsi:type="IntProperty">
-                                  <Value>0</Value>
+                                  <Value>1</Value>
                                 </Operand>
                               </Expression>
                               <Expression xsi:type="rx:Condition">
@@ -6503,7 +6503,7 @@
                   <Expression xsi:type="p4:CreateMessage">
                     <harp:MessageType>Write</harp:MessageType>
                     <harp:Payload xsi:type="p4:CreateAttenuationLeftPayload">
-                      <p4:AttenuationLeft>76</p4:AttenuationLeft>
+                      <p4:AttenuationLeft>588</p4:AttenuationLeft>
                     </harp:Payload>
                   </Expression>
                   <Expression xsi:type="MulticastSubject">
@@ -6544,7 +6544,7 @@
                   <Expression xsi:type="p4:CreateMessage">
                     <harp:MessageType>Write</harp:MessageType>
                     <harp:Payload xsi:type="p4:CreateAttenuationRightPayload">
-                      <p4:AttenuationRight>577</p4:AttenuationRight>
+                      <p4:AttenuationRight>75</p4:AttenuationRight>
                     </harp:Payload>
                   </Expression>
                   <Expression xsi:type="MulticastSubject">
@@ -7624,7 +7624,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="harp:MessageWriter">
-                      <harp:FileName>./output/Rat000/241127/events.bin</harp:FileName>
+                      <harp:FileName>./output/Rat001/241128/events.bin</harp:FileName>
                       <harp:Suffix>FileCount</harp:Suffix>
                       <harp:Buffered>true</harp:Buffered>
                       <harp:Overwrite>false</harp:Overwrite>
@@ -8874,7 +8874,7 @@
                     </PropertyMappings>
                   </Expression>
                   <Expression xsi:type="io:CsvWriter">
-                    <io:FileName>./output/Rat000/241127/out.csv</io:FileName>
+                    <io:FileName>./output/Rat001/241128/out.csv</io:FileName>
                     <io:Append>true</io:Append>
                     <io:Overwrite>false</io:Overwrite>
                     <io:Suffix>None</io:Suffix>
@@ -10310,7 +10310,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:Timer">
-                      <rx:DueTime>PT0.179S</rx:DueTime>
+                      <rx:DueTime>PT0.187S</rx:DueTime>
                       <rx:Period>PT0S</rx:Period>
                     </Combinator>
                   </Expression>
@@ -10412,7 +10412,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:Delay">
-                      <rx:DueTime>PT0.344S</rx:DueTime>
+                      <rx:DueTime>PT0.037S</rx:DueTime>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="IncludeWorkflow" Path="Extensions\TimestampEvent.bonsai">
@@ -11291,7 +11291,7 @@
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="rx:Delay">
-                            <rx:DueTime>PT0.009S</rx:DueTime>
+                            <rx:DueTime>PT0.01S</rx:DueTime>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="Combinator">
@@ -12380,9 +12380,6 @@
         </Workflow>
       </Expression>
       <Expression xsi:type="Combinator">
-        <Combinator xsi:type="rx:SubscribeWhen" />
-      </Expression>
-      <Expression xsi:type="Combinator">
         <Combinator xsi:type="rx:TakeUntil" />
       </Expression>
       <Expression xsi:type="WorkflowOutput" />
@@ -12416,10 +12413,8 @@
       <Edge From="26" To="27" Label="Source1" />
       <Edge From="27" To="28" Label="Source1" />
       <Edge From="28" To="30" Label="Source1" />
-      <Edge From="28" To="31" Label="Source1" />
       <Edge From="29" To="30" Label="Source2" />
-      <Edge From="30" To="31" Label="Source2" />
-      <Edge From="31" To="32" Label="Source1" />
+      <Edge From="30" To="31" Label="Source1" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>
