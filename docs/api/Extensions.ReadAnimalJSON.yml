@@ -18,11 +18,11 @@ items:
   source:
     remote:
       path: src/Extensions/AnimalConfig.cs
-      branch: bonsai_reorganization
+      branch: develop
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: ReadAnimalJSON
     path: ../src/Extensions/AnimalConfig.cs
-    startLine: 92
+    startLine: 100
   assemblies:
   - Extensions
   namespace: Extensions
@@ -74,11 +74,11 @@ items:
   source:
     remote:
       path: src/Extensions/AnimalConfig.cs
-      branch: bonsai_reorganization
+      branch: develop
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: FilePath
     path: ../src/Extensions/AnimalConfig.cs
-    startLine: 97
+    startLine: 105
   assemblies:
   - Extensions
   namespace: Extensions
@@ -103,11 +103,11 @@ items:
   source:
     remote:
       path: src/Extensions/AnimalConfig.cs
-      branch: bonsai_reorganization
+      branch: develop
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
     path: ../src/Extensions/AnimalConfig.cs
-    startLine: 107
+    startLine: 115
   assemblies:
   - Extensions
   namespace: Extensions
@@ -134,11 +134,11 @@ items:
   source:
     remote:
       path: src/Extensions/AnimalConfig.cs
-      branch: bonsai_reorganization
+      branch: develop
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
     path: ../src/Extensions/AnimalConfig.cs
-    startLine: 121
+    startLine: 129
   assemblies:
   - Extensions
   namespace: Extensions

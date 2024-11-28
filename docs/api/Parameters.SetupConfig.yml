@@ -34,7 +34,7 @@ items:
   source:
     remote:
       path: src/Extensions/SetupConfig.cs
-      branch: bonsai_reorganization
+      branch: develop
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: SetupConfig
     path: ../src/Extensions/SetupConfig.cs
@@ -71,7 +71,7 @@ items:
   source:
     remote:
       path: src/Extensions/SetupConfig.cs
-      branch: bonsai_reorganization
+      branch: develop
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Setup
     path: ../src/Extensions/SetupConfig.cs
@@ -102,7 +102,7 @@ items:
   source:
     remote:
       path: src/Extensions/SetupConfig.cs
-      branch: bonsai_reorganization
+      branch: develop
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: LowToHighL
     path: ../src/Extensions/SetupConfig.cs
@@ -133,7 +133,7 @@ items:
   source:
     remote:
       path: src/Extensions/SetupConfig.cs
-      branch: bonsai_reorganization
+      branch: develop
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: LowToHighCNP
     path: ../src/Extensions/SetupConfig.cs
@@ -164,7 +164,7 @@ items:
   source:
     remote:
       path: src/Extensions/SetupConfig.cs
-      branch: bonsai_reorganization
+      branch: develop
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: LowToHighR
     path: ../src/Extensions/SetupConfig.cs
@@ -195,7 +195,7 @@ items:
   source:
     remote:
       path: src/Extensions/SetupConfig.cs
-      branch: bonsai_reorganization
+      branch: develop
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: RewardOpenL
     path: ../src/Extensions/SetupConfig.cs
@@ -226,7 +226,7 @@ items:
   source:
     remote:
       path: src/Extensions/SetupConfig.cs
-      branch: bonsai_reorganization
+      branch: develop
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: RewardOpenR
     path: ../src/Extensions/SetupConfig.cs
@@ -257,7 +257,7 @@ items:
   source:
     remote:
       path: src/Extensions/SetupConfig.cs
-      branch: bonsai_reorganization
+      branch: develop
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: RightSlope
     path: ../src/Extensions/SetupConfig.cs
@@ -288,7 +288,7 @@ items:
   source:
     remote:
       path: src/Extensions/SetupConfig.cs
-      branch: bonsai_reorganization
+      branch: develop
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: RightIntercept
     path: ../src/Extensions/SetupConfig.cs
@@ -319,7 +319,7 @@ items:
   source:
     remote:
       path: src/Extensions/SetupConfig.cs
-      branch: bonsai_reorganization
+      branch: develop
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: LeftSlope
     path: ../src/Extensions/SetupConfig.cs
@@ -350,7 +350,7 @@ items:
   source:
     remote:
       path: src/Extensions/SetupConfig.cs
-      branch: bonsai_reorganization
+      branch: develop
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: LeftIntercept
     path: ../src/Extensions/SetupConfig.cs
@@ -381,7 +381,7 @@ items:
   source:
     remote:
       path: src/Extensions/SetupConfig.cs
-      branch: bonsai_reorganization
+      branch: develop
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: BoxLEDPeriod
     path: ../src/Extensions/SetupConfig.cs
@@ -412,7 +412,7 @@ items:
   source:
     remote:
       path: src/Extensions/SetupConfig.cs
-      branch: bonsai_reorganization
+      branch: develop
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: BoxLEDDutyCycle
     path: ../src/Extensions/SetupConfig.cs
@@ -443,7 +443,7 @@ items:
   source:
     remote:
       path: src/Extensions/SetupConfig.cs
-      branch: bonsai_reorganization
+      branch: develop
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: PokeLEDPeriod
     path: ../src/Extensions/SetupConfig.cs
@@ -474,7 +474,7 @@ items:
   source:
     remote:
       path: src/Extensions/SetupConfig.cs
-      branch: bonsai_reorganization
+      branch: develop
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: PokeLEDDutyCycle
     path: ../src/Extensions/SetupConfig.cs
@@ -505,7 +505,7 @@ items:
   source:
     remote:
       path: src/Extensions/SetupConfig.cs
-      branch: bonsai_reorganization
+      branch: develop
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: UsePumps
     path: ../src/Extensions/SetupConfig.cs
@@ -536,7 +536,7 @@ items:
   source:
     remote:
       path: src/Extensions/SetupConfig.cs
-      branch: bonsai_reorganization
+      branch: develop
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: LeftPumpSlope
     path: ../src/Extensions/SetupConfig.cs
@@ -567,7 +567,7 @@ items:
   source:
     remote:
       path: src/Extensions/SetupConfig.cs
-      branch: bonsai_reorganization
+      branch: develop
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: LeftPumpIntercept
     path: ../src/Extensions/SetupConfig.cs
@@ -598,7 +598,7 @@ items:
   source:
     remote:
       path: src/Extensions/SetupConfig.cs
-      branch: bonsai_reorganization
+      branch: develop
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: RightPumpSlope
     path: ../src/Extensions/SetupConfig.cs
@@ -629,7 +629,7 @@ items:
   source:
     remote:
       path: src/Extensions/SetupConfig.cs
-      branch: bonsai_reorganization
+      branch: develop
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: RightPumpIntercept
     path: ../src/Extensions/SetupConfig.cs

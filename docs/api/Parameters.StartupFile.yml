@@ -19,7 +19,7 @@ items:
   source:
     remote:
       path: src/Extensions/ReadStartupFile.cs
-      branch: bonsai_reorganization
+      branch: develop
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: StartupFile
     path: ../src/Extensions/ReadStartupFile.cs
@@ -56,7 +56,7 @@ items:
   source:
     remote:
       path: src/Extensions/ReadStartupFile.cs
-      branch: bonsai_reorganization
+      branch: develop
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: SetupFile
     path: ../src/Extensions/ReadStartupFile.cs
@@ -87,7 +87,7 @@ items:
   source:
     remote:
       path: src/Extensions/ReadStartupFile.cs
-      branch: bonsai_reorganization
+      branch: develop
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: TrainingFile
     path: ../src/Extensions/ReadStartupFile.cs
@@ -118,7 +118,7 @@ items:
   source:
     remote:
       path: src/Extensions/ReadStartupFile.cs
-      branch: bonsai_reorganization
+      branch: develop
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: AnimalFile
     path: ../src/Extensions/ReadStartupFile.cs
@@ -149,7 +149,7 @@ items:
   source:
     remote:
       path: src/Extensions/ReadStartupFile.cs
-      branch: bonsai_reorganization
+      branch: develop
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: OutputDir
     path: ../src/Extensions/ReadStartupFile.cs

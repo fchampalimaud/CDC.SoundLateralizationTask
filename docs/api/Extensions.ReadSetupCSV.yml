@@ -19,7 +19,7 @@ items:
   source:
     remote:
       path: src/Extensions/SetupConfig.cs
-      branch: bonsai_reorganization
+      branch: develop
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: ReadSetupCSV
     path: ../src/Extensions/SetupConfig.cs
@@ -75,7 +75,7 @@ items:
   source:
     remote:
       path: src/Extensions/SetupConfig.cs
-      branch: bonsai_reorganization
+      branch: develop
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: FilePath
     path: ../src/Extensions/SetupConfig.cs
@@ -104,7 +104,7 @@ items:
   source:
     remote:
       path: src/Extensions/SetupConfig.cs
-      branch: bonsai_reorganization
+      branch: develop
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: RowNumber
     path: ../src/Extensions/SetupConfig.cs
@@ -133,7 +133,7 @@ items:
   source:
     remote:
       path: src/Extensions/SetupConfig.cs
-      branch: bonsai_reorganization
+      branch: develop
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
     path: ../src/Extensions/SetupConfig.cs
@@ -161,7 +161,7 @@ items:
   source:
     remote:
       path: src/Extensions/SetupConfig.cs
-      branch: bonsai_reorganization
+      branch: develop
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
     path: ../src/Extensions/SetupConfig.cs

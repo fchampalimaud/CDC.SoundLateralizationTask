@@ -28,20 +28,27 @@ namespace Parameters
         public int StartingTrialNumber { get; set; }
         /// <value>Property <c>StartingBlockNumber</c> is the number of the first block of the session. <b>At the moment, this parameter is not updated automatically, but it should be in the future.</b></value>
         public int StartingBlockNumber { get; set; }
+        /// <value>Property <c>StartingTrainingLevel</c> is the initial training level of the current session. This parameter updates according to the input given in the initial prompts.</value>
         public int StartingTrainingLevel { get; set; }
+        /// <value>Property <c>LastTrainingLevel</c> is the last training level the animal is allowed to progress to in the current session.<b>NOT IMPLEMENTED!</b></value>
         public int LastTrainingLevel { get; set; }
         /// <value>Property <c>ABLList</c> is an array containing the possible ABLs to present when the <c>DifferentABLs</c> parameter from the <c>training.csv</c> file is not 0.</value>
         public double[] ABLList { get; set; }
         /// <value>If the <c>CycleILD</c> property is false, an ILD value is randomly picked every trial from the array of ILDs. Otherwise, the ILD array is shuffled and the ILD is picked by just following the new array order; when the end of the array is reached, the array is shuffled again and the procedure is repeated.</value>
         public bool CycleILD { get; set; }
+        /// <value>Property <c>SoundIndexes</c> is the array of indexes where the noises are stored in the Harp SoundCard.</value>
         public int[] SoundIndexes { get; set; }
         /// <value>Property <c>Bias</c> indicates whether the probability of the louder side being left or right is biased or not. If the value is less than 0.5, there's a bigger probability of the louder side being left, if it's greater than 0.5, there's a bigger probability of being right. If it's equal to 0.5, there's no bias. <b>NOT IMPLEMENTED!</b></value>
         public double Bias { get; set; }
+        /// <value>Property <c>MinLEDOnset</c> is the starting value for the constant part of the LED onset time (ms). This parameter works even when <c>OptoContinuous</c> is false to facilitate the comparison between data from optogenetics and non-optogenetics sessions. <b>At the moment, this parameter is not updated automatically.</b></value>
         public double MinLEDOnset{  get; set; }
+        /// <value>Property <c>LEDOnsetDelta</c> is the increment to make to the constant part of the LED onset time every non-abort trial (ms).</value>
         public double LEDOnsetDelta { get; set; }
+        /// <value>Property <c>LEDOnsetTarget</c> is the target value for the constant part of the LED onset time every non-abort trial (ms).</value>
         public double LEDOnsetTarget { get; set; }
+        /// <value>Property <c>ExpLEDOnset</c> is the mean value of the random part of the LED onset time (ms), which follows an exponential distribution.</value>
         public double ExpLEDOnset { get; set; }
-        /// <value>Property <c>MinFT</c> is the starting value for the constant part of the fixation time (ms). <b>At the moment, this parameter is not updated automatically, but it should be asked whether it should be updated in the future.</b></value>
+        /// <value>Property <c>MinFT</c> is the starting value for the constant part of the fixation time (ms). <b>At the moment, this parameter is not updated automatically.</b></value>
         public double MinFT{  get; set; }
         /// <value>Property <c>FTDelta</c> is the increment to make to the constant part of the fixation time every non-abort trial (ms).</value>
         public double FTDelta { get; set; }
@@ -81,6 +88,7 @@ namespace Parameters
         public double OptoFrequency { get; set; }
         /// <value>Property <c>OptoPulseDuration</c> is the duration of a single pulse (ms). It only works when <c>OptoContinuous</c> is false.</value>
         public double OptoPulseDuration { get; set; }
+        /// <value>Property <c>AutobiasCorrection</c> is whether the autobias correction algorithm is active or not. <b>IMPLEMENTED, BUT NOT TESTED YET!</b></value>
         public bool AutobiasCorrection { get; set; }
     }
 }
