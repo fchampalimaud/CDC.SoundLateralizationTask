@@ -1,5 +1,5 @@
 Level,TrialsPerBlock,Level0,FixedABL,DifferentABLs,ABLBlock,ILDStepSize,ILDSteps,UseLog,LogBase,IntendedITI,ITIReset,MaxWait,RandomizeFT,UseRT,UseMaxRT,MaxMT,AbortPenalty,IncorrectPenalty,FixationAbortPenalty,UsePerformance,CriticalPerformance,MaxAborts,RepeatError,RepeatAbort,Speakers,AbortLight,ITILight,PokeLight,FixLight
-1,200,0,25,0,0,50,1,0,2,1,0,180,1,0,1,180,1,1,1,0,0.8,40,1,1,0,1,1,1,1
+1,3,0,25,0,0,50,1,0,2,1,0,180,1,0,1,180,1,1,1,0,0.8,40,1,1,0,1,1,1,1
 2,200,0,25,0,0,50,1,0,2,2,0,30,1,0,1,30,1,3,1,0,0.8,40,1,1,0,1,1,1,1
 3,200,0,25,0,0,50,1,0,2,3,0,30,1,0,1,10,1,10,1,0,0.8,40,1,1,0,1,1,1,1
 4,100,0,25,1,0,50,1,0,2,3,0,10,1,1,1,6,1,10,1,1,0.8,40,0,1,0,1,1,1,1
