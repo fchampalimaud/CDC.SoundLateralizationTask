@@ -2116,7 +2116,7 @@
                                 <Name>Source1</Name>
                               </Expression>
                               <Expression xsi:type="SubscribeSubject">
-                                <Name>AnimalSpecificConfigurations</Name>
+                                <Name>AnimalConfig</Name>
                               </Expression>
                               <Expression xsi:type="MemberSelector">
                                 <Selector>SoundIndexes</Selector>
@@ -2146,6 +2146,11 @@
                               <Expression xsi:type="MulticastSubject">
                                 <Name>SoundIndex</Name>
                               </Expression>
+                              <Expression xsi:type="Combinator">
+                                <Combinator xsi:type="rx:Take">
+                                  <rx:Count>1</rx:Count>
+                                </Combinator>
+                              </Expression>
                               <Expression xsi:type="WorkflowOutput" />
                             </Nodes>
                             <Edges>
@@ -2159,114 +2164,7 @@
                               <Edge From="7" To="8" Label="Source2" />
                               <Edge From="8" To="9" Label="Source1" />
                               <Edge From="9" To="10" Label="Source1" />
-                            </Edges>
-                          </Workflow>
-                        </Expression>
-                        <Expression xsi:type="SubscribeSubject">
-                          <Name>RLS</Name>
-                        </Expression>
-                        <Expression xsi:type="rx:Condition">
-                          <Name>Level0 != 0</Name>
-                          <Workflow>
-                            <Nodes>
-                              <Expression xsi:type="SubscribeSubject">
-                                <Name>Level0</Name>
-                              </Expression>
-                              <Expression xsi:type="NotEqual">
-                                <Operand xsi:type="IntProperty">
-                                  <Value>0</Value>
-                                </Operand>
-                              </Expression>
-                              <Expression xsi:type="WorkflowOutput" />
-                            </Nodes>
-                            <Edges>
-                              <Edge From="0" To="1" Label="Source1" />
-                              <Edge From="1" To="2" Label="Source1" />
-                            </Edges>
-                          </Workflow>
-                        </Expression>
-                        <Expression xsi:type="GroupWorkflow">
-                          <Name>Level0</Name>
-                          <Workflow>
-                            <Nodes>
-                              <Expression xsi:type="WorkflowInput">
-                                <Name>Source1</Name>
-                              </Expression>
-                              <Expression xsi:type="SubscribeSubject">
-                                <Name>SideDistribution</Name>
-                              </Expression>
-                              <Expression xsi:type="Combinator">
-                                <Combinator xsi:type="rx:WithLatestFrom" />
-                              </Expression>
-                              <Expression xsi:type="MemberSelector">
-                                <Selector>Item2</Selector>
-                              </Expression>
-                              <Expression xsi:type="Combinator">
-                                <Combinator xsi:type="p1:Sample" />
-                              </Expression>
-                              <Expression xsi:type="scr:ExpressionCondition">
-                                <scr:Name>IsLeft</scr:Name>
-                                <scr:Expression>it == 0</scr:Expression>
-                              </Expression>
-                              <Expression xsi:type="Combinator">
-                                <Combinator xsi:type="IntProperty">
-                                  <Value>60</Value>
-                                </Combinator>
-                              </Expression>
-                              <Expression xsi:type="MulticastSubject">
-                                <Name>LeftIntensity</Name>
-                              </Expression>
-                              <Expression xsi:type="Combinator">
-                                <Combinator xsi:type="IntProperty">
-                                  <Value>0</Value>
-                                </Combinator>
-                              </Expression>
-                              <Expression xsi:type="MulticastSubject">
-                                <Name>RightIntensity</Name>
-                              </Expression>
-                              <Expression xsi:type="scr:ExpressionCondition">
-                                <scr:Name>IsRight</scr:Name>
-                                <scr:Expression>it != 0</scr:Expression>
-                              </Expression>
-                              <Expression xsi:type="Combinator">
-                                <Combinator xsi:type="IntProperty">
-                                  <Value>0</Value>
-                                </Combinator>
-                              </Expression>
-                              <Expression xsi:type="MulticastSubject">
-                                <Name>LeftIntensity</Name>
-                              </Expression>
-                              <Expression xsi:type="Combinator">
-                                <Combinator xsi:type="IntProperty">
-                                  <Value>60</Value>
-                                </Combinator>
-                              </Expression>
-                              <Expression xsi:type="MulticastSubject">
-                                <Name>RightIntensity</Name>
-                              </Expression>
-                              <Expression xsi:type="Combinator">
-                                <Combinator xsi:type="rx:Merge" />
-                              </Expression>
-                              <Expression xsi:type="WorkflowOutput" />
-                            </Nodes>
-                            <Edges>
-                              <Edge From="0" To="2" Label="Source1" />
-                              <Edge From="1" To="2" Label="Source2" />
-                              <Edge From="2" To="3" Label="Source1" />
-                              <Edge From="3" To="4" Label="Source1" />
-                              <Edge From="4" To="5" Label="Source1" />
-                              <Edge From="4" To="10" Label="Source1" />
-                              <Edge From="5" To="6" Label="Source1" />
-                              <Edge From="6" To="7" Label="Source1" />
-                              <Edge From="7" To="8" Label="Source1" />
-                              <Edge From="8" To="9" Label="Source1" />
-                              <Edge From="9" To="15" Label="Source1" />
                               <Edge From="10" To="11" Label="Source1" />
-                              <Edge From="11" To="12" Label="Source1" />
-                              <Edge From="12" To="13" Label="Source1" />
-                              <Edge From="13" To="14" Label="Source1" />
-                              <Edge From="14" To="15" Label="Source2" />
-                              <Edge From="15" To="16" Label="Source1" />
                             </Edges>
                           </Workflow>
                         </Expression>
@@ -2819,9 +2717,6 @@
                             <Value>0</Value>
                           </Combinator>
                         </Expression>
-                        <Expression xsi:type="Combinator">
-                          <Combinator xsi:type="rx:Merge" />
-                        </Expression>
                         <Expression xsi:type="GroupWorkflow">
                           <Name>LeftOrRight</Name>
                           <Workflow>
@@ -2938,15 +2833,11 @@
                         <Edge From="0" To="1" Label="Source1" />
                         <Edge From="2" To="3" Label="Source1" />
                         <Edge From="4" To="5" Label="Source1" />
-                        <Edge From="5" To="6" Label="Source1" />
-                        <Edge From="6" To="12" Label="Source1" />
+                        <Edge From="5" To="7" Label="Source1" />
+                        <Edge From="6" To="7" Label="Source2" />
                         <Edge From="7" To="8" Label="Source1" />
-                        <Edge From="8" To="10" Label="Source1" />
-                        <Edge From="9" To="10" Label="Source2" />
-                        <Edge From="10" To="11" Label="Source1" />
-                        <Edge From="11" To="12" Label="Source2" />
-                        <Edge From="12" To="13" Label="Source1" />
-                        <Edge From="13" To="14" Label="Source1" />
+                        <Edge From="8" To="9" Label="Source1" />
+                        <Edge From="9" To="10" Label="Source1" />
                       </Edges>
                     </Workflow>
                   </Expression>
@@ -2991,7 +2882,7 @@
                           </Operand>
                         </Expression>
                         <Expression xsi:type="SubscribeSubject">
-                          <Name>AnimalSpecificConfigurations</Name>
+                          <Name>AnimalConfig</Name>
                         </Expression>
                         <Expression xsi:type="MemberSelector">
                           <Selector>OptoSession</Selector>
@@ -3143,7 +3034,7 @@
                           <Name>IntendedLEDOnset</Name>
                         </Expression>
                         <Expression xsi:type="SubscribeSubject">
-                          <Name>AnimalSpecificConfigurations</Name>
+                          <Name>AnimalConfig</Name>
                         </Expression>
                         <Expression xsi:type="MemberSelector">
                           <Selector>ExpLEDOnset</Selector>
@@ -3641,7 +3532,7 @@
                     <Workflow>
                       <Nodes>
                         <Expression xsi:type="SubscribeSubject">
-                          <Name>SetupSpecificConfigurations</Name>
+                          <Name>SetupConfig</Name>
                         </Expression>
                         <Expression xsi:type="MemberSelector">
                           <Selector>UsePumps</Selector>
@@ -3732,7 +3623,7 @@
                     <Workflow>
                       <Nodes>
                         <Expression xsi:type="SubscribeSubject">
-                          <Name>SetupSpecificConfigurations</Name>
+                          <Name>SetupConfig</Name>
                         </Expression>
                         <Expression xsi:type="MemberSelector">
                           <Selector>UsePumps</Selector>
@@ -3767,7 +3658,7 @@
                     <Workflow>
                       <Nodes>
                         <Expression xsi:type="SubscribeSubject">
-                          <Name>SetupSpecificConfigurations</Name>
+                          <Name>SetupConfig</Name>
                         </Expression>
                         <Expression xsi:type="MemberSelector">
                           <Selector>UsePumps</Selector>
@@ -3858,7 +3749,7 @@
                     <Workflow>
                       <Nodes>
                         <Expression xsi:type="SubscribeSubject">
-                          <Name>SetupSpecificConfigurations</Name>
+                          <Name>SetupConfig</Name>
                         </Expression>
                         <Expression xsi:type="MemberSelector">
                           <Selector>UsePumps</Selector>
@@ -3941,7 +3832,7 @@
                     <scr:Expression>it == 1</scr:Expression>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>TrainingConfigurations</Name>
+                    <Name>TrainingConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>IncorrectPenalty</Selector>
@@ -3953,7 +3844,7 @@
                     <scr:Expression>it == -2</scr:Expression>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>TrainingConfigurations</Name>
+                    <Name>TrainingConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>FixationAbortPenalty</Selector>
@@ -3965,7 +3856,7 @@
                     <scr:Expression>it &lt; 0 &amp;&amp; it != -2</scr:Expression>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>TrainingConfigurations</Name>
+                    <Name>TrainingConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>AbortPenalty</Selector>
@@ -4278,7 +4169,7 @@
                     <Workflow>
                       <Nodes>
                         <Expression xsi:type="SubscribeSubject">
-                          <Name>AnimalSpecificConfigurations</Name>
+                          <Name>AnimalConfig</Name>
                         </Expression>
                         <Expression xsi:type="MemberSelector">
                           <Selector>AutobiasCorrection</Selector>
@@ -5900,7 +5791,7 @@
               <Name>Random</Name>
             </Expression>
             <Expression xsi:type="SubscribeSubject">
-              <Name>AnimalSpecificConfigurations</Name>
+              <Name>AnimalConfig</Name>
             </Expression>
             <Expression xsi:type="MemberSelector">
               <Selector>ExpLEDOnset</Selector>
@@ -5939,7 +5830,7 @@
               <Name>Random</Name>
             </Expression>
             <Expression xsi:type="SubscribeSubject">
-              <Name>AnimalSpecificConfigurations</Name>
+              <Name>AnimalConfig</Name>
             </Expression>
             <Expression xsi:type="MemberSelector">
               <Selector>SoundIndexes</Selector>
@@ -6291,46 +6182,11 @@
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="rx:WithLatestFrom" />
                         </Expression>
+                        <Expression xsi:type="rx:DistinctUntilChangedBy">
+                          <rx:KeySelector>Item1</rx:KeySelector>
+                        </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="harp:CreateTimestamped" />
-                        </Expression>
-                        <Expression xsi:type="ExternalizedMapping">
-                          <Property Name="Subject" />
-                        </Expression>
-                        <Expression xsi:type="rx:Condition">
-                          <Workflow>
-                            <Nodes>
-                              <Expression xsi:type="WorkflowInput">
-                                <Name>Source1</Name>
-                              </Expression>
-                              <Expression xsi:type="MemberSelector">
-                                <Selector>Value</Selector>
-                              </Expression>
-                              <Expression xsi:type="ExternalizedMapping">
-                                <Property Name="Name" DisplayName="Subject" />
-                              </Expression>
-                              <Expression xsi:type="SubscribeSubject">
-                                <Name>LeftPoke</Name>
-                              </Expression>
-                              <Expression xsi:type="MemberSelector">
-                                <Selector>Value</Selector>
-                              </Expression>
-                              <Expression xsi:type="Combinator">
-                                <Combinator xsi:type="rx:WithLatestFrom" />
-                              </Expression>
-                              <Expression xsi:type="NotEqual" />
-                              <Expression xsi:type="WorkflowOutput" />
-                            </Nodes>
-                            <Edges>
-                              <Edge From="0" To="1" Label="Source1" />
-                              <Edge From="1" To="5" Label="Source1" />
-                              <Edge From="2" To="3" Label="Source1" />
-                              <Edge From="3" To="4" Label="Source1" />
-                              <Edge From="4" To="5" Label="Source2" />
-                              <Edge From="5" To="6" Label="Source1" />
-                              <Edge From="6" To="7" Label="Source1" />
-                            </Edges>
-                          </Workflow>
                         </Expression>
                         <Expression xsi:type="WorkflowOutput" />
                       </Nodes>
@@ -6348,9 +6204,8 @@
                         <Edge From="8" To="10" Label="Source1" />
                         <Edge From="9" To="10" Label="Source2" />
                         <Edge From="10" To="11" Label="Source1" />
-                        <Edge From="11" To="13" Label="Source1" />
-                        <Edge From="12" To="13" Label="Source2" />
-                        <Edge From="13" To="14" Label="Source1" />
+                        <Edge From="11" To="12" Label="Source1" />
+                        <Edge From="12" To="13" Label="Source1" />
                       </Edges>
                     </Workflow>
                   </Expression>
@@ -6379,7 +6234,7 @@
                           <Workflow>
                             <Nodes>
                               <Expression xsi:type="SubscribeSubject">
-                                <Name>LowToHighCNP</Name>
+                                <Name>LowToHighL</Name>
                               </Expression>
                               <Expression xsi:type="WorkflowOutput" />
                             </Nodes>
@@ -6395,7 +6250,7 @@
                           <Workflow>
                             <Nodes>
                               <Expression xsi:type="SubscribeSubject">
-                                <Name>LowToHighCNP</Name>
+                                <Name>LowToHighL</Name>
                               </Expression>
                               <Expression xsi:type="Equal">
                                 <Operand xsi:type="BooleanProperty">
@@ -6422,46 +6277,11 @@
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="rx:WithLatestFrom" />
                         </Expression>
+                        <Expression xsi:type="rx:DistinctUntilChangedBy">
+                          <rx:KeySelector>Item1</rx:KeySelector>
+                        </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="harp:CreateTimestamped" />
-                        </Expression>
-                        <Expression xsi:type="ExternalizedMapping">
-                          <Property Name="Subject" />
-                        </Expression>
-                        <Expression xsi:type="rx:Condition">
-                          <Workflow>
-                            <Nodes>
-                              <Expression xsi:type="WorkflowInput">
-                                <Name>Source1</Name>
-                              </Expression>
-                              <Expression xsi:type="MemberSelector">
-                                <Selector>Value</Selector>
-                              </Expression>
-                              <Expression xsi:type="ExternalizedMapping">
-                                <Property Name="Name" DisplayName="Subject" />
-                              </Expression>
-                              <Expression xsi:type="SubscribeSubject">
-                                <Name>CenterPoke</Name>
-                              </Expression>
-                              <Expression xsi:type="MemberSelector">
-                                <Selector>Value</Selector>
-                              </Expression>
-                              <Expression xsi:type="Combinator">
-                                <Combinator xsi:type="rx:WithLatestFrom" />
-                              </Expression>
-                              <Expression xsi:type="NotEqual" />
-                              <Expression xsi:type="WorkflowOutput" />
-                            </Nodes>
-                            <Edges>
-                              <Edge From="0" To="1" Label="Source1" />
-                              <Edge From="1" To="5" Label="Source1" />
-                              <Edge From="2" To="3" Label="Source1" />
-                              <Edge From="3" To="4" Label="Source1" />
-                              <Edge From="4" To="5" Label="Source2" />
-                              <Edge From="5" To="6" Label="Source1" />
-                              <Edge From="6" To="7" Label="Source1" />
-                            </Edges>
-                          </Workflow>
                         </Expression>
                         <Expression xsi:type="WorkflowOutput" />
                       </Nodes>
@@ -6479,9 +6299,8 @@
                         <Edge From="8" To="10" Label="Source1" />
                         <Edge From="9" To="10" Label="Source2" />
                         <Edge From="10" To="11" Label="Source1" />
-                        <Edge From="11" To="13" Label="Source1" />
-                        <Edge From="12" To="13" Label="Source2" />
-                        <Edge From="13" To="14" Label="Source1" />
+                        <Edge From="11" To="12" Label="Source1" />
+                        <Edge From="12" To="13" Label="Source1" />
                       </Edges>
                     </Workflow>
                   </Expression>
@@ -6510,7 +6329,7 @@
                           <Workflow>
                             <Nodes>
                               <Expression xsi:type="SubscribeSubject">
-                                <Name>LowToHighR</Name>
+                                <Name>LowToHighL</Name>
                               </Expression>
                               <Expression xsi:type="WorkflowOutput" />
                             </Nodes>
@@ -6526,7 +6345,7 @@
                           <Workflow>
                             <Nodes>
                               <Expression xsi:type="SubscribeSubject">
-                                <Name>LowToHighR</Name>
+                                <Name>LowToHighL</Name>
                               </Expression>
                               <Expression xsi:type="Equal">
                                 <Operand xsi:type="BooleanProperty">
@@ -6553,46 +6372,11 @@
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="rx:WithLatestFrom" />
                         </Expression>
+                        <Expression xsi:type="rx:DistinctUntilChangedBy">
+                          <rx:KeySelector>Item1</rx:KeySelector>
+                        </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="harp:CreateTimestamped" />
-                        </Expression>
-                        <Expression xsi:type="ExternalizedMapping">
-                          <Property Name="Subject" />
-                        </Expression>
-                        <Expression xsi:type="rx:Condition">
-                          <Workflow>
-                            <Nodes>
-                              <Expression xsi:type="WorkflowInput">
-                                <Name>Source1</Name>
-                              </Expression>
-                              <Expression xsi:type="MemberSelector">
-                                <Selector>Value</Selector>
-                              </Expression>
-                              <Expression xsi:type="ExternalizedMapping">
-                                <Property Name="Name" DisplayName="Subject" />
-                              </Expression>
-                              <Expression xsi:type="SubscribeSubject">
-                                <Name>RightPoke</Name>
-                              </Expression>
-                              <Expression xsi:type="MemberSelector">
-                                <Selector>Value</Selector>
-                              </Expression>
-                              <Expression xsi:type="Combinator">
-                                <Combinator xsi:type="rx:WithLatestFrom" />
-                              </Expression>
-                              <Expression xsi:type="NotEqual" />
-                              <Expression xsi:type="WorkflowOutput" />
-                            </Nodes>
-                            <Edges>
-                              <Edge From="0" To="1" Label="Source1" />
-                              <Edge From="1" To="5" Label="Source1" />
-                              <Edge From="2" To="3" Label="Source1" />
-                              <Edge From="3" To="4" Label="Source1" />
-                              <Edge From="4" To="5" Label="Source2" />
-                              <Edge From="5" To="6" Label="Source1" />
-                              <Edge From="6" To="7" Label="Source1" />
-                            </Edges>
-                          </Workflow>
                         </Expression>
                         <Expression xsi:type="WorkflowOutput" />
                       </Nodes>
@@ -6610,9 +6394,8 @@
                         <Edge From="8" To="10" Label="Source1" />
                         <Edge From="9" To="10" Label="Source2" />
                         <Edge From="10" To="11" Label="Source1" />
-                        <Edge From="11" To="13" Label="Source1" />
-                        <Edge From="12" To="13" Label="Source2" />
-                        <Edge From="13" To="14" Label="Source1" />
+                        <Edge From="11" To="12" Label="Source1" />
+                        <Edge From="12" To="13" Label="Source1" />
                       </Edges>
                     </Workflow>
                   </Expression>
@@ -7210,7 +6993,7 @@
                           <Workflow>
                             <Nodes>
                               <Expression xsi:type="SubscribeSubject">
-                                <Name>AnimalSpecificConfigurations</Name>
+                                <Name>AnimalConfig</Name>
                               </Expression>
                               <Expression xsi:type="MemberSelector">
                                 <Selector>OptoContinuous</Selector>
@@ -7250,7 +7033,7 @@
                           <Workflow>
                             <Nodes>
                               <Expression xsi:type="SubscribeSubject">
-                                <Name>AnimalSpecificConfigurations</Name>
+                                <Name>AnimalConfig</Name>
                               </Expression>
                               <Expression xsi:type="MemberSelector">
                                 <Selector>OptoTime</Selector>
@@ -7276,7 +7059,7 @@
                                 </Combinator>
                               </Expression>
                               <Expression xsi:type="SubscribeSubject">
-                                <Name>AnimalSpecificConfigurations</Name>
+                                <Name>AnimalConfig</Name>
                               </Expression>
                               <Expression xsi:type="MemberSelector">
                                 <Selector>OptoFrequency</Selector>
@@ -7394,7 +7177,7 @@
                           <Workflow>
                             <Nodes>
                               <Expression xsi:type="SubscribeSubject">
-                                <Name>AnimalSpecificConfigurations</Name>
+                                <Name>AnimalConfig</Name>
                               </Expression>
                               <Expression xsi:type="MemberSelector">
                                 <Selector>OptoContinuous</Selector>
@@ -7443,7 +7226,7 @@
                                 <Name>CDCommands</Name>
                               </Expression>
                               <Expression xsi:type="SubscribeSubject">
-                                <Name>AnimalSpecificConfigurations</Name>
+                                <Name>AnimalConfig</Name>
                               </Expression>
                               <Expression xsi:type="MemberSelector">
                                 <Selector>OptoTime</Selector>
@@ -7539,7 +7322,7 @@
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>AnimalSpecificConfigurations</Name>
+                    <Name>AnimalConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>OptoSession</Selector>
@@ -7591,7 +7374,7 @@
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>SetupSpecificConfigurations</Name>
+                    <Name>SetupConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>UsePumps</Selector>
@@ -7612,7 +7395,7 @@
                     </harp:Payload>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>AnimalSpecificConfigurations</Name>
+                    <Name>AnimalConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>BaseReward</Selector>
@@ -7625,7 +7408,7 @@
                   </Expression>
                   <Expression xsi:type="Multiply" />
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>SetupSpecificConfigurations</Name>
+                    <Name>SetupConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>LeftPumpSlope</Selector>
@@ -7725,7 +7508,7 @@
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>SetupSpecificConfigurations</Name>
+                    <Name>SetupConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>UsePumps</Selector>
@@ -7746,7 +7529,7 @@
                     </harp:Payload>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>AnimalSpecificConfigurations</Name>
+                    <Name>AnimalConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>BaseReward</Selector>
@@ -7759,7 +7542,7 @@
                   </Expression>
                   <Expression xsi:type="Multiply" />
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>SetupSpecificConfigurations</Name>
+                    <Name>SetupConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>RightPumpSlope</Selector>
@@ -8213,10 +7996,10 @@
                     </Workflow>
                   </Expression>
                   <Expression xsi:type="rx:BehaviorSubject">
-                    <Name>AnimalSpecificConfigurations</Name>
+                    <Name>AnimalConfig</Name>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>AnimalSpecificConfigurations</Name>
+                    <Name>AnimalConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>Animal</Selector>
@@ -8225,7 +8008,7 @@
                     <Name>Animal</Name>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>AnimalSpecificConfigurations</Name>
+                    <Name>AnimalConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>Box</Selector>
@@ -8234,7 +8017,7 @@
                     <Name>Box</Name>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>AnimalSpecificConfigurations</Name>
+                    <Name>AnimalConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>Session</Selector>
@@ -8243,7 +8026,7 @@
                     <Name>Session</Name>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>AnimalSpecificConfigurations</Name>
+                    <Name>AnimalConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>SessionType</Selector>
@@ -8252,7 +8035,7 @@
                     <Name>SessionType</Name>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>AnimalSpecificConfigurations</Name>
+                    <Name>AnimalConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>SessionDuration</Selector>
@@ -8261,7 +8044,7 @@
                     <Name>SessionDuration</Name>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>AnimalSpecificConfigurations</Name>
+                    <Name>AnimalConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>StartingTrialNumber</Selector>
@@ -8275,7 +8058,7 @@
                     <Name>Trial</Name>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>AnimalSpecificConfigurations</Name>
+                    <Name>AnimalConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>StartingBlockNumber</Selector>
@@ -8284,7 +8067,7 @@
                     <Name>Block</Name>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>AnimalSpecificConfigurations</Name>
+                    <Name>AnimalConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>ABLList</Selector>
@@ -8293,7 +8076,7 @@
                     <Name>ABLList</Name>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>AnimalSpecificConfigurations</Name>
+                    <Name>AnimalConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>CycleILD</Selector>
@@ -8302,7 +8085,7 @@
                     <Name>CycleILD</Name>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>AnimalSpecificConfigurations</Name>
+                    <Name>AnimalConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>Bias</Selector>
@@ -8311,7 +8094,7 @@
                     <Name>Bias</Name>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>AnimalSpecificConfigurations</Name>
+                    <Name>AnimalConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>MinLEDOnset</Selector>
@@ -8320,7 +8103,7 @@
                     <Name>BaseLEDOnset</Name>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>AnimalSpecificConfigurations</Name>
+                    <Name>AnimalConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>LEDOnsetDelta</Selector>
@@ -8329,7 +8112,7 @@
                     <Name>LEDOnsetDelta</Name>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>AnimalSpecificConfigurations</Name>
+                    <Name>AnimalConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>LEDOnsetTarget</Selector>
@@ -8338,7 +8121,7 @@
                     <Name>LEDOnsetTarget</Name>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>AnimalSpecificConfigurations</Name>
+                    <Name>AnimalConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>MinFT</Selector>
@@ -8347,7 +8130,7 @@
                     <Name>BaseFT</Name>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>AnimalSpecificConfigurations</Name>
+                    <Name>AnimalConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>FTDelta</Selector>
@@ -8356,7 +8139,7 @@
                     <Name>FTDelta</Name>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>AnimalSpecificConfigurations</Name>
+                    <Name>AnimalConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>FTTarget</Selector>
@@ -8365,7 +8148,7 @@
                     <Name>FTTarget</Name>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>AnimalSpecificConfigurations</Name>
+                    <Name>AnimalConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>ExpFTMean</Selector>
@@ -8374,7 +8157,7 @@
                     <Name>ExpFTMean</Name>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>AnimalSpecificConfigurations</Name>
+                    <Name>AnimalConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>MinRT</Selector>
@@ -8383,7 +8166,7 @@
                     <Name>BaseRT</Name>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>AnimalSpecificConfigurations</Name>
+                    <Name>AnimalConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>RTDelta</Selector>
@@ -8392,7 +8175,7 @@
                     <Name>RTDelta</Name>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>AnimalSpecificConfigurations</Name>
+                    <Name>AnimalConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>RTTarget</Selector>
@@ -8401,7 +8184,7 @@
                     <Name>RTTarget</Name>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>AnimalSpecificConfigurations</Name>
+                    <Name>AnimalConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>MaxRT</Selector>
@@ -8410,7 +8193,7 @@
                     <Name>MaxRT</Name>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>AnimalSpecificConfigurations</Name>
+                    <Name>AnimalConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>MinMT</Selector>
@@ -8419,7 +8202,7 @@
                     <Name>MinMT</Name>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>AnimalSpecificConfigurations</Name>
+                    <Name>AnimalConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>MinLNP</Selector>
@@ -8428,7 +8211,7 @@
                     <Name>IntendedLNP</Name>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>AnimalSpecificConfigurations</Name>
+                    <Name>AnimalConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>LNPDelta</Selector>
@@ -8437,7 +8220,7 @@
                     <Name>LNPDelta</Name>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>AnimalSpecificConfigurations</Name>
+                    <Name>AnimalConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>LNPTarget</Selector>
@@ -8515,7 +8298,7 @@
                     <Name>Source1</Name>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>AnimalSpecificConfigurations</Name>
+                    <Name>AnimalConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>StartingTrainingLevel</Selector>
@@ -8583,7 +8366,7 @@
                     <Selector>Item1</Selector>
                   </Expression>
                   <Expression xsi:type="rx:BehaviorSubject">
-                    <Name>TrainingConfigurations</Name>
+                    <Name>TrainingConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>Item2</Selector>
@@ -8592,7 +8375,7 @@
                     <Name>NumLevels</Name>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>TrainingConfigurations</Name>
+                    <Name>TrainingConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>TrialsPerBlock</Selector>
@@ -8601,7 +8384,7 @@
                     <Name>TrialsPerBlock</Name>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>TrainingConfigurations</Name>
+                    <Name>TrainingConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>Level0</Selector>
@@ -8610,7 +8393,7 @@
                     <Name>Level0</Name>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>TrainingConfigurations</Name>
+                    <Name>TrainingConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>FixedABL</Selector>
@@ -8619,7 +8402,7 @@
                     <Name>FixedABL</Name>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>TrainingConfigurations</Name>
+                    <Name>TrainingConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>DifferentABLs</Selector>
@@ -8628,7 +8411,7 @@
                     <Name>DifferentABLs</Name>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>TrainingConfigurations</Name>
+                    <Name>TrainingConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>ABLBlock</Selector>
@@ -8637,7 +8420,7 @@
                     <Name>ABLBlock</Name>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>TrainingConfigurations</Name>
+                    <Name>TrainingConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>ILDStepSize</Selector>
@@ -8646,7 +8429,7 @@
                     <Name>ILDStepSize</Name>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>TrainingConfigurations</Name>
+                    <Name>TrainingConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>ILDSteps</Selector>
@@ -8655,7 +8438,7 @@
                     <Name>ILDSteps</Name>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>TrainingConfigurations</Name>
+                    <Name>TrainingConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>UseLog</Selector>
@@ -8664,7 +8447,7 @@
                     <Name>UseLog</Name>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>TrainingConfigurations</Name>
+                    <Name>TrainingConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>LogBase</Selector>
@@ -8673,7 +8456,7 @@
                     <Name>LogBase</Name>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>TrainingConfigurations</Name>
+                    <Name>TrainingConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>IntendedITI</Selector>
@@ -8682,7 +8465,7 @@
                     <Name>IntendedITI</Name>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>TrainingConfigurations</Name>
+                    <Name>TrainingConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>ITIReset</Selector>
@@ -8691,7 +8474,7 @@
                     <Name>ITIReset</Name>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>TrainingConfigurations</Name>
+                    <Name>TrainingConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>MaxWait</Selector>
@@ -8700,7 +8483,7 @@
                     <Name>MaxWait</Name>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>TrainingConfigurations</Name>
+                    <Name>TrainingConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>RandomizeFT</Selector>
@@ -8709,7 +8492,7 @@
                     <Name>RandomizeFT</Name>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>TrainingConfigurations</Name>
+                    <Name>TrainingConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>UseRT</Selector>
@@ -8718,7 +8501,7 @@
                     <Name>UseRT</Name>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>TrainingConfigurations</Name>
+                    <Name>TrainingConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>UseMaxRT</Selector>
@@ -8727,7 +8510,7 @@
                     <Name>UseMaxRT</Name>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>TrainingConfigurations</Name>
+                    <Name>TrainingConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>MaxMT</Selector>
@@ -8736,7 +8519,7 @@
                     <Name>MaxMT</Name>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>TrainingConfigurations</Name>
+                    <Name>TrainingConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>UsePerformance</Selector>
@@ -8745,7 +8528,7 @@
                     <Name>UsePerformance</Name>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>TrainingConfigurations</Name>
+                    <Name>TrainingConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>CriticalPerformance</Selector>
@@ -8754,7 +8537,7 @@
                     <Name>CriticalPerformance</Name>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>TrainingConfigurations</Name>
+                    <Name>TrainingConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>RepeatError</Selector>
@@ -8766,7 +8549,7 @@
                     <Name>RepeatError</Name>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>TrainingConfigurations</Name>
+                    <Name>TrainingConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>RepeatAbort</Selector>
@@ -8775,7 +8558,7 @@
                     <Name>RepeatAbort</Name>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>TrainingConfigurations</Name>
+                    <Name>TrainingConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>Speakers</Selector>
@@ -8784,7 +8567,7 @@
                     <Name>Speakers</Name>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>TrainingConfigurations</Name>
+                    <Name>TrainingConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>AbortLight</Selector>
@@ -8793,7 +8576,7 @@
                     <Name>AbortLight</Name>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>TrainingConfigurations</Name>
+                    <Name>TrainingConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>ITILight</Selector>
@@ -8802,7 +8585,7 @@
                     <Name>ITILight</Name>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>TrainingConfigurations</Name>
+                    <Name>TrainingConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>PokeLight</Selector>
@@ -8811,7 +8594,7 @@
                     <Name>PokeLight</Name>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>TrainingConfigurations</Name>
+                    <Name>TrainingConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>FixLight</Selector>
@@ -8947,10 +8730,10 @@
                     </Workflow>
                   </Expression>
                   <Expression xsi:type="rx:BehaviorSubject">
-                    <Name>SetupSpecificConfigurations</Name>
+                    <Name>SetupConfig</Name>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>SetupSpecificConfigurations</Name>
+                    <Name>SetupConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>LowToHighL</Selector>
@@ -8959,7 +8742,7 @@
                     <Name>LowToHighL</Name>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>SetupSpecificConfigurations</Name>
+                    <Name>SetupConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>LowToHighCNP</Selector>
@@ -8968,7 +8751,7 @@
                     <Name>LowToHighCNP</Name>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>SetupSpecificConfigurations</Name>
+                    <Name>SetupConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>LowToHighR</Selector>
@@ -8977,7 +8760,7 @@
                     <Name>LowToHighR</Name>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>SetupSpecificConfigurations</Name>
+                    <Name>SetupConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>RewardOpenL</Selector>
@@ -8986,7 +8769,7 @@
                     <Name>RewardOpenL</Name>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>SetupSpecificConfigurations</Name>
+                    <Name>SetupConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>RewardOpenR</Selector>
@@ -8995,7 +8778,7 @@
                     <Name>RewardOpenR</Name>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>SetupSpecificConfigurations</Name>
+                    <Name>SetupConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>RightSlope</Selector>
@@ -9004,7 +8787,7 @@
                     <Name>RightSlope</Name>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>SetupSpecificConfigurations</Name>
+                    <Name>SetupConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>RightIntercept</Selector>
@@ -9013,7 +8796,7 @@
                     <Name>RightIntercept</Name>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>SetupSpecificConfigurations</Name>
+                    <Name>SetupConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>LeftSlope</Selector>
@@ -9022,7 +8805,7 @@
                     <Name>LeftSlope</Name>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>SetupSpecificConfigurations</Name>
+                    <Name>SetupConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>LeftIntercept</Selector>
@@ -9031,7 +8814,7 @@
                     <Name>LeftIntercept</Name>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>SetupSpecificConfigurations</Name>
+                    <Name>SetupConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>BoxLEDPeriod</Selector>
@@ -9040,7 +8823,7 @@
                     <Name>BoxLEDPeriod</Name>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>SetupSpecificConfigurations</Name>
+                    <Name>SetupConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>BoxLEDDutyCycle</Selector>
@@ -9049,7 +8832,7 @@
                     <Name>BoxLEDDutyCycle</Name>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>SetupSpecificConfigurations</Name>
+                    <Name>SetupConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>PokeLEDPeriod</Selector>
@@ -9058,7 +8841,7 @@
                     <Name>PokeLEDPeriod</Name>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>SetupSpecificConfigurations</Name>
+                    <Name>SetupConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>PokeLEDDutyCycle</Selector>
@@ -9118,7 +8901,7 @@
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>AnimalSpecificConfigurations</Name>
+                    <Name>AnimalConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>Animal</Selector>
@@ -9978,47 +9761,9 @@
             <Expression xsi:type="WorkflowInput">
               <Name>Source1</Name>
             </Expression>
-            <Expression xsi:type="rx:SelectMany">
-              <Name>PrintRequest</Name>
-              <Workflow>
-                <Nodes>
-                  <Expression xsi:type="WorkflowInput">
-                    <Name>Source1</Name>
-                  </Expression>
-                  <Expression xsi:type="ExternalizedMapping">
-                    <Property Name="Value" DisplayName="PrintNumber" />
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="IntProperty">
-                      <Value>0</Value>
-                    </Combinator>
-                  </Expression>
-                  <Expression xsi:type="MulticastSubject">
-                    <Name>PrintNumber</Name>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="rx:Zip" />
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Item1</Selector>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="rx:Take">
-                      <rx:Count>1</rx:Count>
-                    </Combinator>
-                  </Expression>
-                  <Expression xsi:type="WorkflowOutput" />
-                </Nodes>
-                <Edges>
-                  <Edge From="0" To="4" Label="Source1" />
-                  <Edge From="1" To="2" Label="Source1" />
-                  <Edge From="2" To="3" Label="Source1" />
-                  <Edge From="3" To="4" Label="Source2" />
-                  <Edge From="4" To="5" Label="Source1" />
-                  <Edge From="5" To="6" Label="Source1" />
-                  <Edge From="6" To="7" Label="Source1" />
-                </Edges>
-              </Workflow>
+            <Expression xsi:type="IncludeWorkflow" Path="Extensions\PrintRequest.bonsai">
+              <PrintCode>0</PrintCode>
+              <PrintSubjectName>PrintNumber</PrintSubjectName>
             </Expression>
             <Expression xsi:type="GroupWorkflow">
               <Name>ITI</Name>
@@ -10062,47 +9807,9 @@
                   <Expression xsi:type="MulticastSubject">
                     <Name>ITIEnd</Name>
                   </Expression>
-                  <Expression xsi:type="rx:SelectMany">
-                    <Name>PrintRequest</Name>
-                    <Workflow>
-                      <Nodes>
-                        <Expression xsi:type="WorkflowInput">
-                          <Name>Source1</Name>
-                        </Expression>
-                        <Expression xsi:type="ExternalizedMapping">
-                          <Property Name="Value" DisplayName="PrintNumber" />
-                        </Expression>
-                        <Expression xsi:type="Combinator">
-                          <Combinator xsi:type="IntProperty">
-                            <Value>1</Value>
-                          </Combinator>
-                        </Expression>
-                        <Expression xsi:type="MulticastSubject">
-                          <Name>PrintNumber</Name>
-                        </Expression>
-                        <Expression xsi:type="Combinator">
-                          <Combinator xsi:type="rx:Zip" />
-                        </Expression>
-                        <Expression xsi:type="MemberSelector">
-                          <Selector>Item1</Selector>
-                        </Expression>
-                        <Expression xsi:type="Combinator">
-                          <Combinator xsi:type="rx:Take">
-                            <rx:Count>1</rx:Count>
-                          </Combinator>
-                        </Expression>
-                        <Expression xsi:type="WorkflowOutput" />
-                      </Nodes>
-                      <Edges>
-                        <Edge From="0" To="4" Label="Source1" />
-                        <Edge From="1" To="2" Label="Source1" />
-                        <Edge From="2" To="3" Label="Source1" />
-                        <Edge From="3" To="4" Label="Source2" />
-                        <Edge From="4" To="5" Label="Source1" />
-                        <Edge From="5" To="6" Label="Source1" />
-                        <Edge From="6" To="7" Label="Source1" />
-                      </Edges>
-                    </Workflow>
+                  <Expression xsi:type="IncludeWorkflow" Path="Extensions\PrintRequest.bonsai">
+                    <PrintCode>1</PrintCode>
+                    <PrintSubjectName>PrintNumber</PrintSubjectName>
                   </Expression>
                   <Expression xsi:type="WorkflowOutput" />
                 </Nodes>
@@ -11030,7 +10737,7 @@
               </Workflow>
             </Expression>
             <Expression xsi:type="SubscribeSubject">
-              <Name>AnimalSpecificConfigurations</Name>
+              <Name>AnimalConfig</Name>
             </Expression>
             <Expression xsi:type="MemberSelector">
               <Selector>OptoTime</Selector>
@@ -12428,7 +12135,7 @@
               </Workflow>
             </Expression>
             <Expression xsi:type="SubscribeSubject">
-              <Name>AnimalSpecificConfigurations</Name>
+              <Name>AnimalConfig</Name>
             </Expression>
             <Expression xsi:type="MemberSelector">
               <Selector>OptoTime</Selector>
