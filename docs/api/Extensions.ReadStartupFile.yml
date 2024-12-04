@@ -17,7 +17,7 @@ items:
   source:
     remote:
       path: src/Extensions/ReadStartupFile.cs
-      branch: develop
+      branch: freeze_debugging
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: ReadStartupFile
     path: ../src/Extensions/ReadStartupFile.cs
@@ -73,7 +73,7 @@ items:
   source:
     remote:
       path: src/Extensions/ReadStartupFile.cs
-      branch: develop
+      branch: freeze_debugging
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: FilePath
     path: ../src/Extensions/ReadStartupFile.cs
@@ -102,7 +102,7 @@ items:
   source:
     remote:
       path: src/Extensions/ReadStartupFile.cs
-      branch: develop
+      branch: freeze_debugging
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
     path: ../src/Extensions/ReadStartupFile.cs

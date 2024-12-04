@@ -45,7 +45,7 @@ items:
   source:
     remote:
       path: src/Extensions/TrainingConfig.cs
-      branch: develop
+      branch: freeze_debugging
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: TrainingConfig
     path: ../src/Extensions/TrainingConfig.cs
@@ -82,7 +82,7 @@ items:
   source:
     remote:
       path: src/Extensions/TrainingConfig.cs
-      branch: develop
+      branch: freeze_debugging
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Level
     path: ../src/Extensions/TrainingConfig.cs
@@ -113,7 +113,7 @@ items:
   source:
     remote:
       path: src/Extensions/TrainingConfig.cs
-      branch: develop
+      branch: freeze_debugging
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: TrialsPerBlock
     path: ../src/Extensions/TrainingConfig.cs
@@ -144,7 +144,7 @@ items:
   source:
     remote:
       path: src/Extensions/TrainingConfig.cs
-      branch: develop
+      branch: freeze_debugging
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Level0
     path: ../src/Extensions/TrainingConfig.cs
@@ -175,7 +175,7 @@ items:
   source:
     remote:
       path: src/Extensions/TrainingConfig.cs
-      branch: develop
+      branch: freeze_debugging
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: FixedABL
     path: ../src/Extensions/TrainingConfig.cs
@@ -206,7 +206,7 @@ items:
   source:
     remote:
       path: src/Extensions/TrainingConfig.cs
-      branch: develop
+      branch: freeze_debugging
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: DifferentABLs
     path: ../src/Extensions/TrainingConfig.cs
@@ -237,7 +237,7 @@ items:
   source:
     remote:
       path: src/Extensions/TrainingConfig.cs
-      branch: develop
+      branch: freeze_debugging
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: ABLBlock
     path: ../src/Extensions/TrainingConfig.cs
@@ -268,7 +268,7 @@ items:
   source:
     remote:
       path: src/Extensions/TrainingConfig.cs
-      branch: develop
+      branch: freeze_debugging
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: ILDStepSize
     path: ../src/Extensions/TrainingConfig.cs
@@ -299,7 +299,7 @@ items:
   source:
     remote:
       path: src/Extensions/TrainingConfig.cs
-      branch: develop
+      branch: freeze_debugging
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: ILDSteps
     path: ../src/Extensions/TrainingConfig.cs
@@ -330,7 +330,7 @@ items:
   source:
     remote:
       path: src/Extensions/TrainingConfig.cs
-      branch: develop
+      branch: freeze_debugging
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: UseLog
     path: ../src/Extensions/TrainingConfig.cs
@@ -361,7 +361,7 @@ items:
   source:
     remote:
       path: src/Extensions/TrainingConfig.cs
-      branch: develop
+      branch: freeze_debugging
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: LogBase
     path: ../src/Extensions/TrainingConfig.cs
@@ -392,7 +392,7 @@ items:
   source:
     remote:
       path: src/Extensions/TrainingConfig.cs
-      branch: develop
+      branch: freeze_debugging
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: IntendedITI
     path: ../src/Extensions/TrainingConfig.cs
@@ -423,7 +423,7 @@ items:
   source:
     remote:
       path: src/Extensions/TrainingConfig.cs
-      branch: develop
+      branch: freeze_debugging
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: ITIReset
     path: ../src/Extensions/TrainingConfig.cs
@@ -454,7 +454,7 @@ items:
   source:
     remote:
       path: src/Extensions/TrainingConfig.cs
-      branch: develop
+      branch: freeze_debugging
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: MaxWait
     path: ../src/Extensions/TrainingConfig.cs
@@ -485,7 +485,7 @@ items:
   source:
     remote:
       path: src/Extensions/TrainingConfig.cs
-      branch: develop
+      branch: freeze_debugging
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: RandomizeFT
     path: ../src/Extensions/TrainingConfig.cs
@@ -516,7 +516,7 @@ items:
   source:
     remote:
       path: src/Extensions/TrainingConfig.cs
-      branch: develop
+      branch: freeze_debugging
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: UseRT
     path: ../src/Extensions/TrainingConfig.cs
@@ -547,7 +547,7 @@ items:
   source:
     remote:
       path: src/Extensions/TrainingConfig.cs
-      branch: develop
+      branch: freeze_debugging
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: UseMaxRT
     path: ../src/Extensions/TrainingConfig.cs
@@ -578,7 +578,7 @@ items:
   source:
     remote:
       path: src/Extensions/TrainingConfig.cs
-      branch: develop
+      branch: freeze_debugging
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: MaxMT
     path: ../src/Extensions/TrainingConfig.cs
@@ -609,7 +609,7 @@ items:
   source:
     remote:
       path: src/Extensions/TrainingConfig.cs
-      branch: develop
+      branch: freeze_debugging
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: AbortPenalty
     path: ../src/Extensions/TrainingConfig.cs
@@ -640,7 +640,7 @@ items:
   source:
     remote:
       path: src/Extensions/TrainingConfig.cs
-      branch: develop
+      branch: freeze_debugging
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: IncorrectPenalty
     path: ../src/Extensions/TrainingConfig.cs
@@ -671,7 +671,7 @@ items:
   source:
     remote:
       path: src/Extensions/TrainingConfig.cs
-      branch: develop
+      branch: freeze_debugging
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: FixationAbortPenalty
     path: ../src/Extensions/TrainingConfig.cs
@@ -702,7 +702,7 @@ items:
   source:
     remote:
       path: src/Extensions/TrainingConfig.cs
-      branch: develop
+      branch: freeze_debugging
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: UsePerformance
     path: ../src/Extensions/TrainingConfig.cs
@@ -733,7 +733,7 @@ items:
   source:
     remote:
       path: src/Extensions/TrainingConfig.cs
-      branch: develop
+      branch: freeze_debugging
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: CriticalPerformance
     path: ../src/Extensions/TrainingConfig.cs
@@ -764,7 +764,7 @@ items:
   source:
     remote:
       path: src/Extensions/TrainingConfig.cs
-      branch: develop
+      branch: freeze_debugging
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: MaxAborts
     path: ../src/Extensions/TrainingConfig.cs
@@ -795,7 +795,7 @@ items:
   source:
     remote:
       path: src/Extensions/TrainingConfig.cs
-      branch: develop
+      branch: freeze_debugging
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: RepeatError
     path: ../src/Extensions/TrainingConfig.cs
@@ -826,7 +826,7 @@ items:
   source:
     remote:
       path: src/Extensions/TrainingConfig.cs
-      branch: develop
+      branch: freeze_debugging
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: RepeatAbort
     path: ../src/Extensions/TrainingConfig.cs
@@ -857,7 +857,7 @@ items:
   source:
     remote:
       path: src/Extensions/TrainingConfig.cs
-      branch: develop
+      branch: freeze_debugging
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Speakers
     path: ../src/Extensions/TrainingConfig.cs
@@ -888,7 +888,7 @@ items:
   source:
     remote:
       path: src/Extensions/TrainingConfig.cs
-      branch: develop
+      branch: freeze_debugging
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: AbortLight
     path: ../src/Extensions/TrainingConfig.cs
@@ -919,7 +919,7 @@ items:
   source:
     remote:
       path: src/Extensions/TrainingConfig.cs
-      branch: develop
+      branch: freeze_debugging
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: ITILight
     path: ../src/Extensions/TrainingConfig.cs
@@ -950,7 +950,7 @@ items:
   source:
     remote:
       path: src/Extensions/TrainingConfig.cs
-      branch: develop
+      branch: freeze_debugging
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: PokeLight
     path: ../src/Extensions/TrainingConfig.cs
@@ -981,7 +981,7 @@ items:
   source:
     remote:
       path: src/Extensions/TrainingConfig.cs
-      branch: develop
+      branch: freeze_debugging
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: FixLight
     path: ../src/Extensions/TrainingConfig.cs

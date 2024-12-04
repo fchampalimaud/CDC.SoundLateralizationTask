@@ -21,7 +21,7 @@ items:
   source:
     remote:
       path: src/Extensions/GenerateILDArray.cs
-      branch: develop
+      branch: freeze_debugging
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: GenerateILDArray
     path: ../src/Extensions/GenerateILDArray.cs
@@ -77,7 +77,7 @@ items:
   source:
     remote:
       path: src/Extensions/GenerateILDArray.cs
-      branch: develop
+      branch: freeze_debugging
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: NumSteps
     path: ../src/Extensions/GenerateILDArray.cs
@@ -106,7 +106,7 @@ items:
   source:
     remote:
       path: src/Extensions/GenerateILDArray.cs
-      branch: develop
+      branch: freeze_debugging
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: StepSize
     path: ../src/Extensions/GenerateILDArray.cs
@@ -135,7 +135,7 @@ items:
   source:
     remote:
       path: src/Extensions/GenerateILDArray.cs
-      branch: develop
+      branch: freeze_debugging
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: UseLog
     path: ../src/Extensions/GenerateILDArray.cs
@@ -164,7 +164,7 @@ items:
   source:
     remote:
       path: src/Extensions/GenerateILDArray.cs
-      branch: develop
+      branch: freeze_debugging
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: LogBase
     path: ../src/Extensions/GenerateILDArray.cs
@@ -193,7 +193,7 @@ items:
   source:
     remote:
       path: src/Extensions/GenerateILDArray.cs
-      branch: develop
+      branch: freeze_debugging
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
     path: ../src/Extensions/GenerateILDArray.cs
@@ -224,7 +224,7 @@ items:
   source:
     remote:
       path: src/Extensions/GenerateILDArray.cs
-      branch: develop
+      branch: freeze_debugging
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
     path: ../src/Extensions/GenerateILDArray.cs

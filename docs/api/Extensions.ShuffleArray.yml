@@ -16,7 +16,7 @@ items:
   source:
     remote:
       path: src/Extensions/ShuffleArray.cs
-      branch: develop
+      branch: freeze_debugging
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: ShuffleArray
     path: ../src/Extensions/ShuffleArray.cs
@@ -72,7 +72,7 @@ items:
   source:
     remote:
       path: src/Extensions/ShuffleArray.cs
-      branch: develop
+      branch: freeze_debugging
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
     path: ../src/Extensions/ShuffleArray.cs
