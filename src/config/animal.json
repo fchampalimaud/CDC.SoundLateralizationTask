@@ -1,11 +1,11 @@
 {
     "Animal": 0,
     "Box": 0,
-    "Session": 1,
+    "Session": 4,
     "SessionType": 1,
-    "SessionDuration": "2:0:0",
+    "SessionDuration": "0:10:00",
     "StartingTrialNumber": 10,
-    "StartingBlockNumber": 1,
+    "StartingBlockNumber": 4,
     "StartingTrainingLevel": 1,
     "LastTrainingLevel": 16,
     "ABLList": [
@@ -15,11 +15,7 @@
     ],
     "CycleILD": true,
     "SoundIndexes": [
-        2,
-        4,
-        6,
-        8,
-        10
+        2
     ],
     "Bias": 0.5,
     "MinLEDOnset": 5,
@@ -30,9 +26,9 @@
     "FTDelta": 0.5,
     "FTTarget": 100,
     "ExpFTMean": 100,
-    "MinRT": 0.01,
+    "MinRT": 1,
     "RTDelta": 0.001,
-    "RTTarget": 0.15,
+    "RTTarget": 1,
     "MaxRT": 10,
     "MaxSamplingTime": [],
     "MinMT": 0.01,

@@ -2,12 +2,13 @@ from speaker import Speaker
 from listener import Listener
 from view import View
 
-
+import time
 import shutil
 from threading import Thread
 import os
 import json
 from datetime import datetime
+from datetime import timedelta
 import pandas as pd
 import numpy as np
 from matplotlib.ticker import MaxNLocator
@@ -36,6 +37,8 @@ class Controller:
         the thread that launches the Bonsai task.
     """
     def __init__(self):
+        self.starting_time = time.time()
+        
         # Initializes the list containing information regarding the last 10 trials
         self.last_aborts = []
         self.last_right = []
@@ -84,8 +87,12 @@ class Controller:
         self.bonsai_thread = Thread(target=self.bonsai)
         self.bonsai_thread.start()
 
+        self.time_thread = Thread(target=self.elapsed_time)
+        self.time_thread.start()
+
         # Kills the OSC server when the matplotlib figure is closed
-        self.view.fig.canvas.mpl_connect('close_event', self.listener.shutdown)
+        # self.view.fig.canvas.mpl_connect('close_event', self.listener.shutdown)
+        self.view.fig.canvas.mpl_connect('close_event', self.shutdown)
 
         self.view.show()
 
@@ -232,6 +239,19 @@ class Controller:
         # Updates the informative text displayed
         self.generate_text()
         self.view.fig.canvas.draw()
+
+    def elapsed_time(self):
+        self.running = True
+        while self.running:
+            self.information["Time elapsed"] = str(timedelta(seconds = time.time() - self.starting_time))
+            time.sleep(1)
+            # print(self.running)
+            self.generate_text()
+            self.view.fig.canvas.draw()
+
+    def shutdown(self, event):
+        self.listener.shutdown()
+        self.running = False
 
     def update_plots(self, address, *args):
         """
@@ -485,12 +505,13 @@ def get_session_duration():
     Asks the user for duration of the session.
     """
     while True:
-        duration = input("Time of the session (in hh:mm:ss format): ")
         try:
+            minutes = int(input("Time of the session (min): "))
+            duration = str(timedelta(minutes=minutes))
             datetime.strptime(duration, "%H:%M:%S")
             return duration
         except:
-            print("Not a valid input. Please enter the duration in the hh:mm:ss format.")
+            print("Not a valid input. Please enter the duration in minutes.")
 
 def get_latest_file(path: str, animal_number: int):
     folder = path + "/Rat" + str(animal_number).zfill(3)

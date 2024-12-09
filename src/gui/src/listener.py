@@ -31,7 +31,7 @@ class Listener:
         self.server_thread = Thread(target=self.server.serve_forever)
         self.server_thread.start()
 
-    def shutdown(self, event):
+    def shutdown(self, event=None):
         """
         Shutdowns the listener instance (shutdowns the OSC server and the Python thread).
 
