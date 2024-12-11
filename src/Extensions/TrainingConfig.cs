@@ -19,8 +19,6 @@ namespace Parameters
         public int Level { get; set; }
         /// <value>Property <c>TrialsPerBlock</c> is the number of trials that a block of the current level has.</value>
         public int TrialsPerBlock { get; set; }
-        /// <value>Property <c>Level0</c> is whether the current level's protocol follows the level-0 of the task. The level-0 of the task doesn't use ILD values because it consists of playing the sound in only one of the speakers at a time.</value>
-        public int Level0 { get; set; }
         /// <value>Property <c>FixedABL</c> is the ABL value to use when the <c>DifferentABLs</c> property is 0.</value>
         public double FixedABL { get; set; }
         /// <value>Property <c>DifferentABLs</c> is whether to use the ABLs from <c>ABLList</c> (1) or from <c>FixedABL</c> (0).</value>
@@ -41,8 +39,10 @@ namespace Parameters
         public bool ITIReset { get; set; }
         /// <value>Property <c>MaxWait</c> is the maximum allowed time to start the trial (s).</value>
         public double MaxWait { get; set; }
-        /// <value>Property <c>RandomizeFT</c> is whether to use a random FT value (1) or not (0).</value>
-        public bool RandomizeFT { get; set; }
+        /// <value>Property <c>OptoExpMean</c></value>
+        public double OptoExpMean { get; set; }
+        /// <value>Property <c>SoundExpMean</c></value>
+        public double SoundExpMean { get; set; }
         /// <value>Property <c>UseRT</c> is whether the sound stops with the animal leaving the CNP.</value>
         public bool UseRT { get; set; }
         /// <value>Property <c>UseMaxRT</c> is whether there is a MaxRT. <b>Note: I don't know what is supposed to happen when there's no MaxRT.</b></value>

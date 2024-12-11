@@ -162,7 +162,7 @@ class Controller:
                 new_csv.to_csv(rat_path + '/' + datetime.now().strftime('%y%m%d') + "/out.csv", index=False)
         else:
             os.makedirs(rat_path + '/' + datetime.now().strftime('%y%m%d'), exist_ok=True)
-            header = ["Animal", "Session", "SessionType", "Trial", "Block", "TrialsPerBlock", "TrainingLevel", "ABL", "ILD", "Bias", "LeftAmp", "RightAmp", "WaveformL", "WaveformR", "TrialStart", "TrialEnd", "TrialDuration", "IntendedITI", "ITIStart", "ITIEnd", "TimedITI", "MaxWait", "TimeToCNP", "BaseLEDOnset", "ExpLEDOnsetMean", "IntendedLEDOnset", "TimedLEDOnset", "BaseFix", "ExpFixMean", "IntendedFix", "TimedFix", "BaseRT", "MaxRT", "TimedRT", "MaxMT", "TimedMT", "IntendedLNP", "TimedLNP", "ResponsePoke", "Outcome", "RepeatTrial", "BlockPerformance", "BlockAbortRatio", "LEDTrial", "TimedLED", "LEDPowerL", "LEDPowerR", "Box"]
+            header = ["Animal", "Session", "SessionType", "Trial", "Block", "TrialsPerBlock", "TrainingLevel", "ABL", "ILD", "Bias", "LeftAmp", "RightAmp", "WaveformL", "WaveformR", "TrialStart", "TrialEnd", "TrialDuration", "IntendedITI", "ITIStart", "ITIEnd", "TimedITI", "MaxWait", "TimeToCNP", "BaseOptoOnset", "OptoExpMean", "IntendedOptoOnset", "TimedOptoOnset", "BaseSoundOnset", "SoundExpMean", "IntendedSoundOnset", "TimedSoundOnset", "TimedFT", "BaseRT", "MaxRT", "TimedRT", "MaxMT", "TimedMT", "IntendedLNP", "TimedLNP", "ResponsePoke", "Outcome", "RepeatTrial", "BlockPerformance", "BlockAbortRatio", "LEDTrial", "TimedLED", "LEDPowerL", "LEDPowerR", "Box"]
             new_csv = pd.DataFrame(columns=header)
             new_csv.to_csv(rat_path + '/' + datetime.now().strftime('%y%m%d') + "/out.csv", index=False)
 
@@ -229,6 +229,7 @@ class Controller:
         args : list
             the message itself. For the "/beginning" address, the message is composed by: [int trial, float ild, float abl, float fixation_time, float inter_trial_interval].
         """
+        print(address)
         # Updates some entries of the dictionary
         self.information["Trial"] = args[0]
         self.information["ILD"] = args[1]

@@ -46,16 +46,12 @@ namespace Parameters
         public double LEDOnsetDelta { get; set; }
         /// <value>Property <c>LEDOnsetTarget</c> is the target value for the constant part of the LED onset time every non-abort trial (ms).</value>
         public double LEDOnsetTarget { get; set; }
-        /// <value>Property <c>ExpLEDOnset</c> is the mean value of the random part of the LED onset time (ms), which follows an exponential distribution.</value>
-        public double ExpLEDOnset { get; set; }
         /// <value>Property <c>MinFT</c> is the starting value for the constant part of the fixation time (ms). <b>At the moment, this parameter is not updated automatically.</b></value>
         public double MinFT{  get; set; }
         /// <value>Property <c>FTDelta</c> is the increment to make to the constant part of the fixation time every non-abort trial (ms).</value>
         public double FTDelta { get; set; }
         /// <value>Property <c>FTTarget</c> is the target value for the constant part of the fixation time (ms).</value>
         public double FTTarget { get; set; }
-        /// <value>Property <c>ExpFTMean</c> is the mean value of the random part of the fixation time (ms), which follows an exponential distribution.</value>
-        public double ExpFTMean { get; set; }
         /// <value>Property <c>MinRT</c> is the minimum amount of time the animal has to wait in the CNP after the sound presentation starts (s). This parameter aims to avoid that the animal "reacts" before the stimulus is presented.</value>
         public double MinRT {  get; set; }
         /// <value>Property <c>RTDelta</c> is the increment to make to RT every non-abort trial (s). <b>Ask if this should be applied to MinRT or MaxRT and why.</b></value>
