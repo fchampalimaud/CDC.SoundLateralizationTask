@@ -229,7 +229,6 @@ class Controller:
         args : list
             the message itself. For the "/beginning" address, the message is composed by: [int trial, float ild, float abl, float fixation_time, float inter_trial_interval].
         """
-        print(address)
         # Updates some entries of the dictionary
         self.information["Trial"] = args[0]
         self.information["ILD"] = args[1]
