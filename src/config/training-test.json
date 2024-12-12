@@ -1,0 +1,9 @@
+{
+    "$schema": "schemas/training-schema.json",
+    "levels": [
+        {
+            "level": 1,
+            
+        }
+    ]
+}

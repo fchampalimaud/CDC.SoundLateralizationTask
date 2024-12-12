@@ -47,7 +47,7 @@ namespace Parameters
         /// <value>Property <c>LEDOnsetTarget</c> is the target value for the constant part of the LED onset time every non-abort trial (ms).</value>
         public double LEDOnsetTarget { get; set; }
         /// <value>Property <c>MinFT</c> is the starting value for the constant part of the fixation time (ms). <b>At the moment, this parameter is not updated automatically.</b></value>
-        public double MinFT{  get; set; }
+        public double MinFT{ get; set; }
         /// <value>Property <c>FTDelta</c> is the increment to make to the constant part of the fixation time every non-abort trial (ms).</value>
         public double FTDelta { get; set; }
         /// <value>Property <c>FTTarget</c> is the target value for the constant part of the fixation time (ms).</value>

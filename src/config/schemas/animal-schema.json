@@ -1,0 +1,242 @@
+{
+  "definitions": {
+    "FixationTime": {
+      "properties": {
+        "opto_onset_time": {
+          "$ref": "#/definitions/TimeConstrains"
+        },
+        "sound_onset_time": {
+          "$ref": "#/definitions/TimeConstrains"
+        }
+      },
+      "required": [
+        "opto_onset_time",
+        "sound_onset_time"
+      ],
+      "title": "FixationTime",
+      "type": "object"
+    },
+    "Optogenetics": {
+      "properties": {
+        "use_opto": {
+          "title": "Use Opto",
+          "type": "boolean"
+        },
+        "duration": {
+          "minimum": 0.0,
+          "title": "Duration",
+          "type": "number"
+        },
+        "use_pulses": {
+          "title": "Use Pulses",
+          "type": "boolean"
+        },
+        "ramp_time": {
+          "minimum": 0.0,
+          "title": "Ramp Time",
+          "type": "number"
+        },
+        "frequency": {
+          "exclusiveMinimum": 0.0,
+          "title": "Frequency",
+          "type": "number"
+        },
+        "pulse_duration": {
+          "minimum": 0.0,
+          "title": "Pulse Duration",
+          "type": "number"
+        }
+      },
+      "required": [
+        "use_opto",
+        "duration",
+        "use_pulses",
+        "ramp_time",
+        "frequency",
+        "pulse_duration"
+      ],
+      "title": "Optogenetics",
+      "type": "object"
+    },
+    "Session": {
+      "properties": {
+        "number": {
+          "description": "The number of the current session",
+          "title": "Number",
+          "type": "integer"
+        },
+        "duration": {
+          "description": "The duration of the session",
+          "format": "duration",
+          "title": "Duration",
+          "type": "string"
+        },
+        "type": {
+          "description": "The number of the session type",
+          "title": "Type",
+          "type": "integer"
+        },
+        "setup_id": {
+          "description": "ID of the setup where the animal will perform the current session",
+          "title": "Setup Id",
+          "type": "integer"
+        },
+        "starting_trial_number": {
+          "minimum": 1,
+          "title": "Starting Trial Number",
+          "type": "integer"
+        },
+        "starting_block_number": {
+          "minimum": 1,
+          "title": "Starting Block Number",
+          "type": "integer"
+        },
+        "starting_training_level": {
+          "minimum": 1,
+          "title": "Starting Training Level",
+          "type": "integer"
+        },
+        "last_training_level": {
+          "minimum": 1,
+          "title": "Last Training Level",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "number",
+        "duration",
+        "type",
+        "setup_id",
+        "starting_trial_number",
+        "starting_block_number",
+        "starting_training_level",
+        "last_training_level"
+      ],
+      "title": "Session",
+      "type": "object"
+    },
+    "Sound": {
+      "properties": {
+        "abl_list": {
+          "items": {
+            "type": "number"
+          },
+          "title": "Abl List",
+          "type": "array"
+        },
+        "sound_indexes": {
+          "items": {
+            "$ref": "#/definitions/SoundIndex"
+          },
+          "title": "Sound Indexes",
+          "type": "array"
+        },
+        "cycle_ild": {
+          "title": "Cycle Ild",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "abl_list",
+        "sound_indexes",
+        "cycle_ild"
+      ],
+      "title": "Sound",
+      "type": "object"
+    },
+    "SoundIndex": {
+      "properties": {
+        "index": {
+          "maximum": 31,
+          "minimum": 2,
+          "title": "Index",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "index"
+      ],
+      "title": "SoundIndex",
+      "type": "object"
+    },
+    "TimeConstrains": {
+      "properties": {
+        "min_value": {
+          "minimum": 0.0,
+          "title": "Min Value",
+          "type": "number"
+        },
+        "delta": {
+          "minimum": 0.0,
+          "title": "Delta",
+          "type": "number"
+        },
+        "target": {
+          "minimum": 0.0,
+          "title": "Target",
+          "type": "number"
+        }
+      },
+      "required": [
+        "min_value",
+        "delta",
+        "target"
+      ],
+      "title": "TimeConstrains",
+      "type": "object"
+    }
+  },
+  "properties": {
+    "animal_id": {
+      "description": "ID of the animal",
+      "title": "Animal Id",
+      "type": "integer"
+    },
+    "session": {
+      "$ref": "#/definitions/Session"
+    },
+    "sound": {
+      "$ref": "#/definitions/Sound"
+    },
+    "fixation_time": {
+      "$ref": "#/definitions/FixationTime"
+    },
+    "reaction_time": {
+      "$ref": "#/definitions/TimeConstrains"
+    },
+    "max_reaction_time": {
+      "minimum": 0.0,
+      "title": "Max Reaction Time",
+      "type": "number"
+    },
+    "lnp_time": {
+      "$ref": "#/definitions/TimeConstrains"
+    },
+    "base_reward": {
+      "exclusiveMinimum": 0.0,
+      "title": "Base Reward",
+      "type": "number"
+    },
+    "optogenetics": {
+      "$ref": "#/definitions/Optogenetics"
+    },
+    "autobias_correction": {
+      "title": "Autobias Correction",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "animal_id",
+    "session",
+    "sound",
+    "fixation_time",
+    "reaction_time",
+    "max_reaction_time",
+    "lnp_time",
+    "base_reward",
+    "optogenetics",
+    "autobias_correction"
+  ],
+  "title": "Animal",
+  "type": "object"
+}

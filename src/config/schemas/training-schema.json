@@ -1,0 +1,311 @@
+{
+  "definitions": {
+    "ABL": {
+      "properties": {
+        "level_abl": {
+          "minimum": 0.0,
+          "title": "Level Abl",
+          "type": "number"
+        },
+        "use_level_abl": {
+          "title": "Use Level Abl",
+          "type": "boolean"
+        },
+        "change_every_trial": {
+          "title": "Change Every Trial",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "level_abl",
+        "use_level_abl",
+        "change_every_trial"
+      ],
+      "title": "ABL",
+      "type": "object"
+    },
+    "CriticalPerformance": {
+      "properties": {
+        "value": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Value",
+          "type": "number"
+        },
+        "use_performance": {
+          "title": "Use Performance",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "value",
+        "use_performance"
+      ],
+      "title": "CriticalPerformance",
+      "type": "object"
+    },
+    "Cues": {
+      "properties": {
+        "iti_light": {
+          "title": "Iti Light",
+          "type": "boolean"
+        },
+        "poke_light": {
+          "title": "Poke Light",
+          "type": "boolean"
+        },
+        "fixation_light": {
+          "title": "Fixation Light",
+          "type": "boolean"
+        },
+        "penalty_light": {
+          "title": "Penalty Light",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "iti_light",
+        "poke_light",
+        "fixation_light",
+        "penalty_light"
+      ],
+      "title": "Cues",
+      "type": "object"
+    },
+    "FixationTime": {
+      "properties": {
+        "opto_exp_mean": {
+          "minimum": 0.0,
+          "title": "Opto Exp Mean",
+          "type": "number"
+        },
+        "sound_exp_mean": {
+          "minimum": 0.0,
+          "title": "Sound Exp Mean",
+          "type": "number"
+        }
+      },
+      "required": [
+        "opto_exp_mean",
+        "sound_exp_mean"
+      ],
+      "title": "FixationTime",
+      "type": "object"
+    },
+    "ILD": {
+      "properties": {
+        "step_size": {
+          "exclusiveMinimum": 0.0,
+          "title": "Step Size",
+          "type": "number"
+        },
+        "num_steps": {
+          "minimum": 1,
+          "title": "Num Steps",
+          "type": "integer"
+        },
+        "use_log": {
+          "title": "Use Log",
+          "type": "boolean"
+        },
+        "log_base": {
+          "exclusiveMinimum": 0.0,
+          "title": "Log Base",
+          "type": "number"
+        }
+      },
+      "required": [
+        "step_size",
+        "num_steps",
+        "use_log",
+        "log_base"
+      ],
+      "title": "ILD",
+      "type": "object"
+    },
+    "ITI": {
+      "properties": {
+        "value": {
+          "minimum": 0.0,
+          "title": "Value",
+          "type": "number"
+        },
+        "can_reset": {
+          "title": "Can Reset",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "value",
+        "can_reset"
+      ],
+      "title": "ITI",
+      "type": "object"
+    },
+    "Level": {
+      "properties": {
+        "level_id": {
+          "title": "Level Id",
+          "type": "integer"
+        },
+        "trials_per_block": {
+          "minimum": 1,
+          "title": "Trials Per Block",
+          "type": "integer"
+        },
+        "sound": {
+          "$ref": "#/definitions/Sound"
+        },
+        "iti": {
+          "$ref": "#/definitions/ITI"
+        },
+        "max_wait": {
+          "minimum": 0.0,
+          "title": "Max Wait",
+          "type": "number"
+        },
+        "fixation_time": {
+          "$ref": "#/definitions/FixationTime"
+        },
+        "reaction_time": {
+          "$ref": "#/definitions/ReactionTime"
+        },
+        "max_mt": {
+          "title": "Max Mt",
+          "type": "number"
+        },
+        "penalty_times": {
+          "$ref": "#/definitions/PenaltyTimes"
+        },
+        "critical_performance": {
+          "$ref": "#/definitions/CriticalPerformance"
+        },
+        "max_aborts": {
+          "minimum": 1,
+          "title": "Max Aborts",
+          "type": "integer"
+        },
+        "trial_repetition": {
+          "$ref": "#/definitions/TrialRepetition"
+        },
+        "speakers": {
+          "title": "Speakers",
+          "type": "boolean"
+        },
+        "cues": {
+          "$ref": "#/definitions/Cues"
+        }
+      },
+      "required": [
+        "level_id",
+        "trials_per_block",
+        "sound",
+        "iti",
+        "max_wait",
+        "fixation_time",
+        "reaction_time",
+        "max_mt",
+        "penalty_times",
+        "critical_performance",
+        "max_aborts",
+        "trial_repetition",
+        "speakers",
+        "cues"
+      ],
+      "title": "Level",
+      "type": "object"
+    },
+    "PenaltyTimes": {
+      "properties": {
+        "incorrect": {
+          "minimum": 0.0,
+          "title": "Incorrect",
+          "type": "number"
+        },
+        "abort": {
+          "minimum": 0.0,
+          "title": "Abort",
+          "type": "number"
+        },
+        "fixation_abort": {
+          "minimum": 0.0,
+          "title": "Fixation Abort",
+          "type": "number"
+        }
+      },
+      "required": [
+        "incorrect",
+        "abort",
+        "fixation_abort"
+      ],
+      "title": "PenaltyTimes",
+      "type": "object"
+    },
+    "ReactionTime": {
+      "properties": {
+        "turn_sound_off": {
+          "title": "Turn Sound Off",
+          "type": "boolean"
+        },
+        "use_max_rt": {
+          "title": "Use Max Rt",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "turn_sound_off",
+        "use_max_rt"
+      ],
+      "title": "ReactionTime",
+      "type": "object"
+    },
+    "Sound": {
+      "properties": {
+        "abl": {
+          "$ref": "#/definitions/ABL"
+        },
+        "ild": {
+          "$ref": "#/definitions/ILD"
+        }
+      },
+      "required": [
+        "abl",
+        "ild"
+      ],
+      "title": "Sound",
+      "type": "object"
+    },
+    "TrialRepetition": {
+      "properties": {
+        "repeat_errors": {
+          "title": "Repeat Errors",
+          "type": "boolean"
+        },
+        "repeat_aborts": {
+          "title": "Repeat Aborts",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "repeat_errors",
+        "repeat_aborts"
+      ],
+      "title": "TrialRepetition",
+      "type": "object"
+    }
+  },
+  "properties": {
+    "levels": {
+      "items": {
+        "$ref": "#/definitions/Level"
+      },
+      "title": "Levels",
+      "type": "array"
+    }
+  },
+  "required": [
+    "levels"
+  ],
+  "title": "Training",
+  "type": "object"
+}

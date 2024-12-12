@@ -1,0 +1,191 @@
+{
+  "definitions": {
+    "Lights": {
+      "properties": {
+        "box_period": {
+          "minimum": 0.0,
+          "title": "Box Period",
+          "type": "number"
+        },
+        "box_duty_cycle": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Box Duty Cycle",
+          "type": "number"
+        },
+        "poke_period": {
+          "minimum": 0.0,
+          "title": "Poke Period",
+          "type": "number"
+        },
+        "poke_duty_cycle": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Poke Duty Cycle",
+          "type": "number"
+        }
+      },
+      "required": [
+        "box_period",
+        "box_duty_cycle",
+        "poke_period",
+        "poke_duty_cycle"
+      ],
+      "title": "Lights",
+      "type": "object"
+    },
+    "Poke": {
+      "properties": {
+        "low_to_high": {
+          "title": "Low To High",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "low_to_high"
+      ],
+      "title": "Poke",
+      "type": "object"
+    },
+    "Setup": {
+      "properties": {
+        "setup_id": {
+          "title": "Setup Id",
+          "type": "integer"
+        },
+        "left_poke": {
+          "$ref": "#/definitions/Poke"
+        },
+        "center_poke": {
+          "$ref": "#/definitions/Poke"
+        },
+        "right_poke": {
+          "$ref": "#/definitions/Poke"
+        },
+        "speakers": {
+          "$ref": "#/definitions/Speakers"
+        },
+        "lights": {
+          "$ref": "#/definitions/Lights"
+        },
+        "syringe_pumps": {
+          "$ref": "#/definitions/SyringePumps"
+        },
+        "sounds": {
+          "items": {
+            "$ref": "#/definitions/Sound"
+          },
+          "title": "Sounds",
+          "type": "array"
+        }
+      },
+      "required": [
+        "setup_id",
+        "left_poke",
+        "center_poke",
+        "right_poke",
+        "speakers",
+        "lights",
+        "syringe_pumps",
+        "sounds"
+      ],
+      "title": "Setup",
+      "type": "object"
+    },
+    "Sound": {
+      "properties": {
+        "index": {
+          "maximum": 31,
+          "minimum": 2,
+          "title": "Index",
+          "type": "integer"
+        },
+        "duration": {
+          "title": "Duration",
+          "type": "number"
+        }
+      },
+      "required": [
+        "index",
+        "duration"
+      ],
+      "title": "Sound",
+      "type": "object"
+    },
+    "Speakers": {
+      "properties": {
+        "left_slope": {
+          "title": "Left Slope",
+          "type": "number"
+        },
+        "left_intercept": {
+          "title": "Left Intercept",
+          "type": "number"
+        },
+        "right_slope": {
+          "title": "Right Slope",
+          "type": "number"
+        },
+        "right_intercept": {
+          "title": "Right Intercept",
+          "type": "number"
+        }
+      },
+      "required": [
+        "left_slope",
+        "left_intercept",
+        "right_slope",
+        "right_intercept"
+      ],
+      "title": "Speakers",
+      "type": "object"
+    },
+    "SyringePumps": {
+      "properties": {
+        "use_pumps": {
+          "title": "Use Pumps",
+          "type": "boolean"
+        },
+        "left_slope": {
+          "title": "Left Slope",
+          "type": "number"
+        },
+        "left_intercept": {
+          "title": "Left Intercept",
+          "type": "number"
+        },
+        "right_slope": {
+          "title": "Right Slope",
+          "type": "number"
+        },
+        "right_intercept": {
+          "title": "Right Intercept",
+          "type": "number"
+        }
+      },
+      "required": [
+        "use_pumps",
+        "left_slope",
+        "left_intercept",
+        "right_slope",
+        "right_intercept"
+      ],
+      "title": "SyringePumps",
+      "type": "object"
+    }
+  },
+  "properties": {
+    "setups": {
+      "items": {
+        "$ref": "#/definitions/Setup"
+      },
+      "title": "Setups",
+      "type": "array"
+    }
+  },
+  "required": [
+    "setups"
+  ],
+  "title": "SetupList",
+  "type": "object"
+}
