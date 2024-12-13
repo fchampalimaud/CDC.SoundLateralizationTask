@@ -6,7 +6,7 @@
     "SessionDuration": "0:10:00",
     "StartingTrialNumber": 10,
     "StartingBlockNumber": 2,
-    "StartingTrainingLevel": 5,
+    "StartingTrainingLevel": 1,
     "LastTrainingLevel": 10,
     "ABLList": [
         20,
