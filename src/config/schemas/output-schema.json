@@ -1,0 +1,420 @@
+{
+  "definitions": {
+    "Block": {
+      "properties": {
+        "number": {
+          "title": "Number",
+          "type": "integer"
+        },
+        "training_level": {
+          "title": "Training Level",
+          "type": "integer"
+        },
+        "trials_per_block": {
+          "minimum": 1,
+          "title": "Trials Per Block",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "number",
+        "training_level",
+        "trials_per_block"
+      ],
+      "title": "Block",
+      "type": "object"
+    },
+    "FixationTime": {
+      "properties": {
+        "opto_onset_time": {
+          "$ref": "#/definitions/FixationTimeParts"
+        },
+        "sound_onset_time": {
+          "$ref": "#/definitions/FixationTimeParts"
+        }
+      },
+      "required": [
+        "opto_onset_time",
+        "sound_onset_time"
+      ],
+      "title": "FixationTime",
+      "type": "object"
+    },
+    "FixationTimeParts": {
+      "properties": {
+        "base_time": {
+          "minimum": 0.0,
+          "title": "Base Time",
+          "type": "number"
+        },
+        "exp_mean": {
+          "minimum": 0.0,
+          "title": "Exp Mean",
+          "type": "number"
+        },
+        "intended_duration": {
+          "minimum": 0.0,
+          "title": "Intended Duration",
+          "type": "number"
+        },
+        "timed_duration": {
+          "minimum": 0.0,
+          "title": "Timed Duration",
+          "type": "number"
+        }
+      },
+      "required": [
+        "base_time",
+        "exp_mean",
+        "intended_duration",
+        "timed_duration"
+      ],
+      "title": "FixationTimeParts",
+      "type": "object"
+    },
+    "ITI": {
+      "properties": {
+        "intended_duration": {
+          "minimum": 0.0,
+          "title": "Intended Duration",
+          "type": "number"
+        },
+        "start_time": {
+          "minimum": 0.0,
+          "title": "Start Time",
+          "type": "number"
+        },
+        "end_time": {
+          "minimum": 0.0,
+          "title": "End Time",
+          "type": "number"
+        },
+        "timed_duration": {
+          "exclusiveMinimum": 0.0,
+          "title": "Timed Duration",
+          "type": "number"
+        }
+      },
+      "required": [
+        "intended_duration",
+        "start_time",
+        "end_time",
+        "timed_duration"
+      ],
+      "title": "ITI",
+      "type": "object"
+    },
+    "LnpTime": {
+      "properties": {
+        "intended_duration": {
+          "minimum": 0.0,
+          "title": "Intended Duration",
+          "type": "number"
+        },
+        "timed_duration": {
+          "minimum": 0.0,
+          "title": "Timed Duration",
+          "type": "number"
+        }
+      },
+      "required": [
+        "intended_duration",
+        "timed_duration"
+      ],
+      "title": "LnpTime",
+      "type": "object"
+    },
+    "MovementTime": {
+      "properties": {
+        "max_duration": {
+          "minimum": 0.0,
+          "title": "Max Duration",
+          "type": "number"
+        },
+        "timed_duration": {
+          "minimum": 0.0,
+          "title": "Timed Duration",
+          "type": "number"
+        }
+      },
+      "required": [
+        "max_duration",
+        "timed_duration"
+      ],
+      "title": "MovementTime",
+      "type": "object"
+    },
+    "Optogenetics": {
+      "properties": {
+        "opto_trial": {
+          "title": "Opto Trial",
+          "type": "boolean"
+        },
+        "duration": {
+          "minimum": 0.0,
+          "title": "Duration",
+          "type": "number"
+        },
+        "left_power": {
+          "minimum": 0.0,
+          "title": "Left Power",
+          "type": "number"
+        },
+        "right_power": {
+          "minimum": 0.0,
+          "title": "Right Power",
+          "type": "number"
+        }
+      },
+      "required": [
+        "opto_trial",
+        "duration",
+        "left_power",
+        "right_power"
+      ],
+      "title": "Optogenetics",
+      "type": "object"
+    },
+    "Outcome": {
+      "properties": {
+        "response_poke": {
+          "maximum": 1,
+          "minimum": -1,
+          "title": "Response Poke",
+          "type": "integer"
+        },
+        "value": {
+          "maximum": 2,
+          "minimum": -8,
+          "title": "Value",
+          "type": "integer"
+        },
+        "block_performance": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Block Performance",
+          "type": "number"
+        },
+        "block_abort_ratio": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Block Abort Ratio",
+          "type": "number"
+        }
+      },
+      "required": [
+        "response_poke",
+        "value",
+        "block_performance",
+        "block_abort_ratio"
+      ],
+      "title": "Outcome",
+      "type": "object"
+    },
+    "ReactionTime": {
+      "properties": {
+        "base_time": {
+          "minimum": 0.0,
+          "title": "Base Time",
+          "type": "number"
+        },
+        "max_duration": {
+          "minimum": 0.0,
+          "title": "Max Duration",
+          "type": "number"
+        },
+        "timed_duration": {
+          "minimum": 0.0,
+          "title": "Timed Duration",
+          "type": "number"
+        }
+      },
+      "required": [
+        "base_time",
+        "max_duration",
+        "timed_duration"
+      ],
+      "title": "ReactionTime",
+      "type": "object"
+    },
+    "Session": {
+      "properties": {
+        "number": {
+          "description": "The number of the current session",
+          "title": "Number",
+          "type": "integer"
+        },
+        "type": {
+          "description": "The number of the session type",
+          "title": "Type",
+          "type": "integer"
+        },
+        "setup_id": {
+          "description": "ID of the setup where the animal will perform the current session",
+          "title": "Setup Id",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "number",
+        "type",
+        "setup_id"
+      ],
+      "title": "Session",
+      "type": "object"
+    },
+    "Sound": {
+      "properties": {
+        "abl": {
+          "minimum": 0.0,
+          "title": "Abl",
+          "type": "number"
+        },
+        "ild": {
+          "title": "Ild",
+          "type": "number"
+        },
+        "sound_index": {
+          "maximum": 31,
+          "minimum": 2,
+          "title": "Sound Index",
+          "type": "integer"
+        },
+        "left_amplification": {
+          "title": "Left Amplification",
+          "type": "number"
+        },
+        "right_amplification": {
+          "title": "Right Amplification",
+          "type": "number"
+        }
+      },
+      "required": [
+        "abl",
+        "ild",
+        "sound_index",
+        "left_amplification",
+        "right_amplification"
+      ],
+      "title": "Sound",
+      "type": "object"
+    },
+    "TimeToCnp": {
+      "properties": {
+        "timed_value": {
+          "minimum": 0.0,
+          "title": "Timed Value",
+          "type": "number"
+        },
+        "max_duration": {
+          "minimum": 0.0,
+          "title": "Max Duration",
+          "type": "number"
+        }
+      },
+      "required": [
+        "timed_value",
+        "max_duration"
+      ],
+      "title": "TimeToCnp",
+      "type": "object"
+    },
+    "Trial": {
+      "properties": {
+        "number": {
+          "minimum": 1,
+          "title": "Number",
+          "type": "integer"
+        },
+        "start_time": {
+          "minimum": 0.0,
+          "title": "Start Time",
+          "type": "number"
+        },
+        "end_time": {
+          "minimum": 0.0,
+          "title": "End Time",
+          "type": "number"
+        },
+        "duration": {
+          "exclusiveMinimum": 0.0,
+          "title": "Duration",
+          "type": "number"
+        }
+      },
+      "required": [
+        "number",
+        "start_time",
+        "end_time",
+        "duration"
+      ],
+      "title": "Trial",
+      "type": "object"
+    }
+  },
+  "properties": {
+    "animal_id": {
+      "description": "ID of the animal",
+      "title": "Animal Id",
+      "type": "integer"
+    },
+    "trial": {
+      "$ref": "#/definitions/Trial"
+    },
+    "block": {
+      "$ref": "#/definitions/Block"
+    },
+    "session": {
+      "$ref": "#/definitions/Session"
+    },
+    "sound": {
+      "$ref": "#/definitions/Sound"
+    },
+    "iti": {
+      "$ref": "#/definitions/ITI"
+    },
+    "time_to_cnp": {
+      "$ref": "#/definitions/TimeToCnp"
+    },
+    "fixation_time": {
+      "$ref": "#/definitions/FixationTime"
+    },
+    "reaction_time": {
+      "$ref": "#/definitions/ReactionTime"
+    },
+    "movement_time": {
+      "$ref": "#/definitions/MovementTime"
+    },
+    "lnp_time": {
+      "$ref": "#/definitions/LnpTime"
+    },
+    "outcome": {
+      "$ref": "#/definitions/Outcome"
+    },
+    "repeated_trial": {
+      "title": "Repeated Trial",
+      "type": "boolean"
+    },
+    "optogenetics": {
+      "$ref": "#/definitions/Optogenetics"
+    }
+  },
+  "required": [
+    "animal_id",
+    "trial",
+    "block",
+    "session",
+    "sound",
+    "iti",
+    "time_to_cnp",
+    "fixation_time",
+    "reaction_time",
+    "movement_time",
+    "lnp_time",
+    "outcome",
+    "repeated_trial",
+    "optogenetics"
+  ],
+  "title": "Output",
+  "type": "object"
+}
