@@ -456,8 +456,6 @@ namespace Animal
     
         private System.Collections.Generic.List<double> _ablList = new System.Collections.Generic.List<double>();
     
-        private System.Collections.Generic.List<SoundIndex> _soundIndexes = new System.Collections.Generic.List<SoundIndex>();
-    
         private bool _cycleIld;
     
         public Sound()
@@ -467,7 +465,6 @@ namespace Animal
         protected Sound(Sound other)
         {
             _ablList = other._ablList;
-            _soundIndexes = other._soundIndexes;
             _cycleIld = other._cycleIld;
         }
     
@@ -483,21 +480,6 @@ namespace Animal
             set
             {
                 _ablList = value;
-            }
-        }
-    
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        [Newtonsoft.Json.JsonPropertyAttribute("sound_indexes", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="sound_indexes")]
-        public System.Collections.Generic.List<SoundIndex> SoundIndexes
-        {
-            get
-            {
-                return _soundIndexes;
-            }
-            set
-            {
-                _soundIndexes = value;
             }
         }
     
@@ -528,70 +510,7 @@ namespace Animal
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
             stringBuilder.Append("abl_list = " + _ablList + ", ");
-            stringBuilder.Append("sound_indexes = " + _soundIndexes + ", ");
             stringBuilder.Append("cycle_ild = " + _cycleIld);
-            return true;
-        }
-    
-        public override string ToString()
-        {
-            System.Text.StringBuilder stringBuilder = new System.Text.StringBuilder();
-            stringBuilder.Append(GetType().Name);
-            stringBuilder.Append(" { ");
-            if (PrintMembers(stringBuilder))
-            {
-                stringBuilder.Append(" ");
-            }
-            stringBuilder.Append("}");
-            return stringBuilder.ToString();
-        }
-    }
-
-
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
-    [Bonsai.CombinatorAttribute()]
-    [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
-    public partial class SoundIndex
-    {
-    
-        private int _index;
-    
-        public SoundIndex()
-        {
-        }
-    
-        protected SoundIndex(SoundIndex other)
-        {
-            _index = other._index;
-        }
-    
-        [Newtonsoft.Json.JsonPropertyAttribute("index", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="index")]
-        public int Index
-        {
-            get
-            {
-                return _index;
-            }
-            set
-            {
-                _index = value;
-            }
-        }
-    
-        public System.IObservable<SoundIndex> Process()
-        {
-            return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new SoundIndex(this)));
-        }
-    
-        public System.IObservable<SoundIndex> Process<TSource>(System.IObservable<TSource> source)
-        {
-            return System.Reactive.Linq.Observable.Select(source, _ => new SoundIndex(this));
-        }
-    
-        protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
-        {
-            stringBuilder.Append("index = " + _index);
             return true;
         }
     
@@ -726,6 +645,8 @@ namespace Animal
     
         private double _maxReactionTime;
     
+        private double _minMovementTime;
+    
         private TimeConstrains _lnpTime = new TimeConstrains();
     
         private double _baseReward;
@@ -746,6 +667,7 @@ namespace Animal
             _fixationTime = other._fixationTime;
             _reactionTime = other._reactionTime;
             _maxReactionTime = other._maxReactionTime;
+            _minMovementTime = other._minMovementTime;
             _lnpTime = other._lnpTime;
             _baseReward = other._baseReward;
             _optogenetics = other._optogenetics;
@@ -844,6 +766,20 @@ namespace Animal
             }
         }
     
+        [Newtonsoft.Json.JsonPropertyAttribute("min_movement_time", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="min_movement_time")]
+        public double MinMovementTime
+        {
+            get
+            {
+                return _minMovementTime;
+            }
+            set
+            {
+                _minMovementTime = value;
+            }
+        }
+    
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         [Newtonsoft.Json.JsonPropertyAttribute("lnp_time", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="lnp_time")]
@@ -920,6 +856,7 @@ namespace Animal
             stringBuilder.Append("fixation_time = " + _fixationTime + ", ");
             stringBuilder.Append("reaction_time = " + _reactionTime + ", ");
             stringBuilder.Append("max_reaction_time = " + _maxReactionTime + ", ");
+            stringBuilder.Append("min_movement_time = " + _minMovementTime + ", ");
             stringBuilder.Append("lnp_time = " + _lnpTime + ", ");
             stringBuilder.Append("base_reward = " + _baseReward + ", ");
             stringBuilder.Append("optogenetics = " + _optogenetics + ", ");
@@ -977,11 +914,6 @@ namespace Animal
             return Process<Sound>(source);
         }
 
-        public System.IObservable<string> Process(System.IObservable<SoundIndex> source)
-        {
-            return Process<SoundIndex>(source);
-        }
-
         public System.IObservable<string> Process(System.IObservable<TimeConstrains> source)
         {
             return Process<TimeConstrains>(source);
@@ -1005,7 +937,6 @@ namespace Animal
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Optogenetics>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Session>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Sound>))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<SoundIndex>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<TimeConstrains>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Animal>))]
     public partial class DeserializeFromJson : Bonsai.Expressions.SingleArgumentExpressionBuilder
@@ -1076,11 +1007,6 @@ namespace Animal
             return Process<Sound>(source);
         }
 
-        public System.IObservable<string> Process(System.IObservable<SoundIndex> source)
-        {
-            return Process<SoundIndex>(source);
-        }
-
         public System.IObservable<string> Process(System.IObservable<TimeConstrains> source)
         {
             return Process<TimeConstrains>(source);
@@ -1104,7 +1030,6 @@ namespace Animal
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Optogenetics>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Session>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Sound>))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<SoundIndex>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<TimeConstrains>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Animal>))]
     public partial class DeserializeFromYaml : Bonsai.Expressions.SingleArgumentExpressionBuilder

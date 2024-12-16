@@ -124,13 +124,6 @@
           "title": "Abl List",
           "type": "array"
         },
-        "sound_indexes": {
-          "items": {
-            "$ref": "#/definitions/SoundIndex"
-          },
-          "title": "Sound Indexes",
-          "type": "array"
-        },
         "cycle_ild": {
           "title": "Cycle Ild",
           "type": "boolean"
@@ -138,25 +131,9 @@
       },
       "required": [
         "abl_list",
-        "sound_indexes",
         "cycle_ild"
       ],
       "title": "Sound",
-      "type": "object"
-    },
-    "SoundIndex": {
-      "properties": {
-        "index": {
-          "maximum": 31,
-          "minimum": 2,
-          "title": "Index",
-          "type": "integer"
-        }
-      },
-      "required": [
-        "index"
-      ],
-      "title": "SoundIndex",
       "type": "object"
     },
     "TimeConstrains": {
@@ -209,6 +186,11 @@
       "title": "Max Reaction Time",
       "type": "number"
     },
+    "min_movement_time": {
+      "minimum": 0.0,
+      "title": "Min Movement Time",
+      "type": "number"
+    },
     "lnp_time": {
       "$ref": "#/definitions/TimeConstrains"
     },
@@ -232,6 +214,7 @@
     "fixation_time",
     "reaction_time",
     "max_reaction_time",
+    "min_movement_time",
     "lnp_time",
     "base_reward",
     "optogenetics",

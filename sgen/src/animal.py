@@ -60,6 +60,7 @@ class Animal(BaseModel):
     fixation_time: FixationTime = Field()
     reaction_time: ReactionTime = Field()
     max_reaction_time: float = Field(ge=0)
+    min_movement_time: float = Field(ge=0)
     lnp_time: LnpTime = Field()
     base_reward: float = Field(gt=0)
     optogenetics: Optogenetics = Field()

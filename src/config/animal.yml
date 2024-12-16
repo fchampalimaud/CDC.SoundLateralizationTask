@@ -1,5 +1,5 @@
 # yaml-language-server: $schema=schemas/animal-schema.json
-animal_id: 0
+animal_id: 1
 session:
   number: 1
   duration: 00:10:00
@@ -11,34 +11,35 @@ session:
   last_training_level: 10
 sound:
   abl_list:
-    - 0
-  sound_indexes:
-    - index: 2
+    - 20
+    - 40
+    - 50
   cycle_ild: true
 fixation_time:
   opto_onset_time:
-    min_value: 0
-    delta: 0
-    target: 0
+    min_value: 5
+    delta: 0.5
+    target: 100
   sound_onset_time:
-    min_value: 0
-    delta: 0
-    target: 0
+    min_value: 5
+    delta: 0.5
+    target: 100
 reaction_time:
-  min_value: 0
-  delta: 0
-  target: 0
-max_reaction_time: 0
+  min_value: 0.01
+  delta: 0.001
+  target: 0.15
+max_reaction_time: 10
+min_movement_time: 0.01
 lnp_time:
-  min_value: 0
-  delta: 0
-  target: 0
+  min_value: 0.01
+  delta: 0.001
+  target: 0.01
 base_reward: 25
 optogenetics:
   use_opto: false
   duration: 1
   use_pulses: false
-  ramp_time: 0
-  frequency: 1
-  pulse_duration: 0
+  ramp_time: 50
+  frequency: 20
+  pulse_duration: 20
 autobias_correction: false
