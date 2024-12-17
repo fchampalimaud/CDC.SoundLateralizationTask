@@ -41,8 +41,8 @@ class Poke(BaseModel):
 
 
 class Setup(BaseModel):
-    setup_id: int = Field()
-    left_poke: Poke = Field()
+    setup_id: int = Field(description="The ID number of the setup.")
+    left_poke: Poke = Field(description="")
     center_poke: Poke = Field()
     right_poke: Poke = Field()
     speakers: Speakers = Field()
@@ -52,7 +52,7 @@ class Setup(BaseModel):
 
 
 class SetupList(BaseModel):
-    setups: List[Setup] = Field()
+    setups: List[Setup] = Field(description="The list with the parameters for every existent setup.")
 
 
 if __name__ == "__main__":
@@ -69,18 +69,3 @@ if __name__ == "__main__":
         namespace=schema_name,
         serializer=[BonsaiSgenSerializers.JSON, BonsaiSgenSerializers.YAML],
     )
-
-    # experiment_example = Animal(
-    #     animal_id="my_mouse",
-    #     trials=[
-    #         Trial(inter_trial_interval=1.0, reward_amount=1),
-    #         Trial(inter_trial_interval=0.5, reward_amount=0),
-    #     ],
-    # )
-
-    # with open(
-    #     rf"src/json/{_dashed}-example.json",
-    #     "w",
-    #     encoding="utf-8",
-    # ) as f:
-    #     f.write(experiment_example.model_dump_json(indent=2)) 
