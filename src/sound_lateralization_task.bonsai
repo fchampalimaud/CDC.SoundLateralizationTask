@@ -788,7 +788,7 @@
                     <Workflow>
                       <Nodes>
                         <Expression xsi:type="SubscribeSubject">
-                          <Name>TimedSoundOnset</Name>
+                          <Name>TimedFT</Name>
                         </Expression>
                         <Expression xsi:type="GroupWorkflow">
                           <Name>QuantityString</Name>
@@ -3432,6 +3432,28 @@
                   <Expression xsi:type="MulticastSubject">
                     <Name>IntendedOptoOnset</Name>
                   </Expression>
+                  <Expression xsi:type="SubscribeSubject">
+                    <Name>RequestNewTrial</Name>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="DoubleProperty">
+                      <Value>0</Value>
+                    </Combinator>
+                  </Expression>
+                  <Expression xsi:type="MulticastSubject">
+                    <Name>TimedOptoOnset</Name>
+                  </Expression>
+                  <Expression xsi:type="SubscribeSubject">
+                    <Name>RequestNewTrial</Name>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="DoubleProperty">
+                      <Value>0</Value>
+                    </Combinator>
+                  </Expression>
+                  <Expression xsi:type="MulticastSubject">
+                    <Name>TimedSoundOnset</Name>
+                  </Expression>
                 </Nodes>
                 <Edges>
                   <Edge From="0" To="1" Label="Source1" />
@@ -3495,609 +3517,12 @@
                   <Edge From="59" To="60" Label="Source2" />
                   <Edge From="60" To="61" Label="Source1" />
                   <Edge From="61" To="62" Label="Source1" />
+                  <Edge From="63" To="64" Label="Source1" />
+                  <Edge From="64" To="65" Label="Source1" />
+                  <Edge From="66" To="67" Label="Source1" />
+                  <Edge From="67" To="68" Label="Source1" />
                 </Edges>
               </Workflow>
-            </Expression>
-            <Expression xsi:type="Disable">
-              <Builder xsi:type="GroupWorkflow">
-                <Name>SaveTrial</Name>
-                <Workflow>
-                  <Nodes>
-                    <Expression xsi:type="Combinator">
-                      <Combinator xsi:type="DoubleProperty">
-                        <Value>0</Value>
-                      </Combinator>
-                    </Expression>
-                    <Expression xsi:type="Combinator">
-                      <Combinator xsi:type="rx:IgnoreElements" />
-                    </Expression>
-                    <Expression xsi:type="rx:BehaviorSubject">
-                      <Name>SaveTrial</Name>
-                    </Expression>
-                    <Expression xsi:type="SubscribeSubject">
-                      <Name>SaveTrial</Name>
-                    </Expression>
-                    <Expression xsi:type="rx:SelectMany">
-                      <Name>OutputFile</Name>
-                      <Workflow>
-                        <Nodes>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>Box</Name>
-                          </Expression>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>LEDPowerR</Name>
-                          </Expression>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>LEDPowerL</Name>
-                          </Expression>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>TimedLED</Name>
-                          </Expression>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>LEDTrial</Name>
-                          </Expression>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>BlockAbortRatio</Name>
-                          </Expression>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>BlockPerformance</Name>
-                          </Expression>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>RepeatTrial</Name>
-                          </Expression>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>Outcome</Name>
-                          </Expression>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>ResponsePoke</Name>
-                          </Expression>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>TimedLNP</Name>
-                          </Expression>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>IntendedLNP</Name>
-                          </Expression>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>TimedMT</Name>
-                          </Expression>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>MaxMT</Name>
-                          </Expression>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>TimedRT</Name>
-                          </Expression>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>MaxRT</Name>
-                          </Expression>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>BaseRT</Name>
-                          </Expression>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>TimedSoundOnset</Name>
-                          </Expression>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>TimedOptoOnset</Name>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:Zip" />
-                          </Expression>
-                          <Expression xsi:type="Add" />
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>TimedSoundOnset</Name>
-                          </Expression>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>IntendedSoundOnset</Name>
-                          </Expression>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>TrainingConfig</Name>
-                          </Expression>
-                          <Expression xsi:type="MemberSelector">
-                            <Selector>SoundExpMean</Selector>
-                          </Expression>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>BaseSoundOnset</Name>
-                          </Expression>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>TimedOptoOnset</Name>
-                          </Expression>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>IntendedOptoOnset</Name>
-                          </Expression>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>TrainingConfig</Name>
-                          </Expression>
-                          <Expression xsi:type="MemberSelector">
-                            <Selector>OptoExpMean</Selector>
-                          </Expression>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>BaseOptoOnset</Name>
-                          </Expression>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>TimeToCNP</Name>
-                          </Expression>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>MaxWait</Name>
-                          </Expression>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>ITIEnd</Name>
-                          </Expression>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>ITIStart</Name>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:Zip" />
-                          </Expression>
-                          <Expression xsi:type="Subtract" />
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>ITIEnd</Name>
-                          </Expression>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>ITIStart</Name>
-                          </Expression>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>IntendedITI</Name>
-                          </Expression>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>TrialEnd</Name>
-                          </Expression>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>TrialStart</Name>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:Zip" />
-                          </Expression>
-                          <Expression xsi:type="Subtract" />
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>TrialEnd</Name>
-                          </Expression>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>TrialStart</Name>
-                          </Expression>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>WaveformR</Name>
-                          </Expression>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>WaveformL</Name>
-                          </Expression>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>RightAmp</Name>
-                          </Expression>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>LeftAmp</Name>
-                          </Expression>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>Bias</Name>
-                          </Expression>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>ILD</Name>
-                          </Expression>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>ABL</Name>
-                          </Expression>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>TrainingLevel</Name>
-                          </Expression>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>TrainingConfig</Name>
-                          </Expression>
-                          <Expression xsi:type="MemberSelector">
-                            <Selector>TrialsPerBlock</Selector>
-                          </Expression>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>Block</Name>
-                          </Expression>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>Trial</Name>
-                          </Expression>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>SessionType</Name>
-                          </Expression>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>Session</Name>
-                          </Expression>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>Animal</Name>
-                          </Expression>
-                          <Expression xsi:type="scr:ExpressionTransform">
-                            <scr:Expression>Convert.ToDouble(it)</scr:Expression>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:SubscribeWhen" />
-                          </Expression>
-                          <Expression xsi:type="scr:ExpressionTransform">
-                            <scr:Expression>Convert.ToDouble(it)</scr:Expression>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:SubscribeWhen" />
-                          </Expression>
-                          <Expression xsi:type="scr:ExpressionTransform">
-                            <scr:Expression>Convert.ToDouble(it)</scr:Expression>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:SubscribeWhen" />
-                          </Expression>
-                          <Expression xsi:type="scr:ExpressionTransform">
-                            <scr:Expression>Convert.ToDouble(it)</scr:Expression>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:SubscribeWhen" />
-                          </Expression>
-                          <Expression xsi:type="scr:ExpressionTransform">
-                            <scr:Expression>Convert.ToDouble(it)</scr:Expression>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:SubscribeWhen" />
-                          </Expression>
-                          <Expression xsi:type="scr:ExpressionTransform">
-                            <scr:Expression>Convert.ToDouble(it)</scr:Expression>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:SubscribeWhen" />
-                          </Expression>
-                          <Expression xsi:type="scr:ExpressionTransform">
-                            <scr:Expression>Convert.ToDouble(it)</scr:Expression>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:SubscribeWhen" />
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:SubscribeWhen" />
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:SubscribeWhen" />
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:SubscribeWhen" />
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:SubscribeWhen" />
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:SubscribeWhen" />
-                          </Expression>
-                          <Expression xsi:type="scr:ExpressionTransform">
-                            <scr:Expression>Convert.ToDouble(it)</scr:Expression>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:SubscribeWhen" />
-                          </Expression>
-                          <Expression xsi:type="scr:ExpressionTransform">
-                            <scr:Expression>Convert.ToDouble(it)</scr:Expression>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:SubscribeWhen" />
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:SubscribeWhen" />
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:SubscribeWhen" />
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:SubscribeWhen" />
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:SubscribeWhen" />
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:SubscribeWhen" />
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:SubscribeWhen" />
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:SubscribeWhen" />
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:SubscribeWhen" />
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:SubscribeWhen" />
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:SubscribeWhen" />
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:SubscribeWhen" />
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:SubscribeWhen" />
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:SubscribeWhen" />
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:SubscribeWhen" />
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:SubscribeWhen" />
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:SubscribeWhen" />
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:SubscribeWhen" />
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:SubscribeWhen" />
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:SubscribeWhen" />
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:SubscribeWhen" />
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:SubscribeWhen" />
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:SubscribeWhen" />
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:SubscribeWhen" />
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:SubscribeWhen" />
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:SubscribeWhen" />
-                          </Expression>
-                          <Expression xsi:type="scr:ExpressionTransform">
-                            <scr:Expression>Convert.ToDouble(it)</scr:Expression>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:SubscribeWhen" />
-                          </Expression>
-                          <Expression xsi:type="scr:ExpressionTransform">
-                            <scr:Expression>Convert.ToDouble(it)</scr:Expression>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:SubscribeWhen" />
-                          </Expression>
-                          <Expression xsi:type="scr:ExpressionTransform">
-                            <scr:Expression>Convert.ToDouble(it)</scr:Expression>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:SubscribeWhen" />
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:SubscribeWhen" />
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:SubscribeWhen" />
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:SubscribeWhen" />
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:SubscribeWhen" />
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:SubscribeWhen" />
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:SubscribeWhen" />
-                          </Expression>
-                          <Expression xsi:type="scr:ExpressionTransform">
-                            <scr:Expression>Convert.ToDouble(it)</scr:Expression>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:Merge" />
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:Delay">
-                              <rx:DueTime>PT0.001S</rx:DueTime>
-                            </Combinator>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:TakeUntil" />
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:ToArray" />
-                          </Expression>
-                          <Expression xsi:type="MulticastSubject">
-                            <Name>CSV</Name>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="BooleanProperty">
-                              <Value>true</Value>
-                            </Combinator>
-                          </Expression>
-                          <Expression xsi:type="MulticastSubject">
-                            <Name>PlotsMessage</Name>
-                          </Expression>
-                          <Expression xsi:type="WorkflowOutput" />
-                        </Nodes>
-                        <Edges>
-                          <Edge From="0" To="120" Label="Source1" />
-                          <Edge From="1" To="119" Label="Source1" />
-                          <Edge From="2" To="118" Label="Source1" />
-                          <Edge From="3" To="117" Label="Source1" />
-                          <Edge From="4" To="116" Label="Source1" />
-                          <Edge From="5" To="115" Label="Source1" />
-                          <Edge From="6" To="114" Label="Source1" />
-                          <Edge From="7" To="112" Label="Source1" />
-                          <Edge From="8" To="110" Label="Source1" />
-                          <Edge From="9" To="108" Label="Source1" />
-                          <Edge From="10" To="107" Label="Source1" />
-                          <Edge From="11" To="106" Label="Source1" />
-                          <Edge From="12" To="105" Label="Source1" />
-                          <Edge From="13" To="104" Label="Source1" />
-                          <Edge From="14" To="103" Label="Source1" />
-                          <Edge From="15" To="102" Label="Source1" />
-                          <Edge From="16" To="101" Label="Source1" />
-                          <Edge From="17" To="19" Label="Source1" />
-                          <Edge From="18" To="19" Label="Source2" />
-                          <Edge From="19" To="20" Label="Source1" />
-                          <Edge From="20" To="100" Label="Source1" />
-                          <Edge From="21" To="99" Label="Source1" />
-                          <Edge From="22" To="98" Label="Source1" />
-                          <Edge From="23" To="24" Label="Source1" />
-                          <Edge From="24" To="97" Label="Source1" />
-                          <Edge From="25" To="96" Label="Source1" />
-                          <Edge From="26" To="95" Label="Source1" />
-                          <Edge From="27" To="94" Label="Source1" />
-                          <Edge From="28" To="29" Label="Source1" />
-                          <Edge From="29" To="93" Label="Source1" />
-                          <Edge From="30" To="92" Label="Source1" />
-                          <Edge From="31" To="91" Label="Source1" />
-                          <Edge From="32" To="90" Label="Source1" />
-                          <Edge From="33" To="35" Label="Source1" />
-                          <Edge From="34" To="35" Label="Source2" />
-                          <Edge From="35" To="36" Label="Source1" />
-                          <Edge From="36" To="89" Label="Source1" />
-                          <Edge From="37" To="88" Label="Source1" />
-                          <Edge From="38" To="87" Label="Source1" />
-                          <Edge From="39" To="86" Label="Source1" />
-                          <Edge From="40" To="42" Label="Source1" />
-                          <Edge From="41" To="42" Label="Source2" />
-                          <Edge From="42" To="43" Label="Source1" />
-                          <Edge From="43" To="85" Label="Source1" />
-                          <Edge From="44" To="84" Label="Source1" />
-                          <Edge From="45" To="83" Label="Source1" />
-                          <Edge From="46" To="81" Label="Source1" />
-                          <Edge From="47" To="79" Label="Source1" />
-                          <Edge From="48" To="78" Label="Source1" />
-                          <Edge From="49" To="77" Label="Source1" />
-                          <Edge From="50" To="76" Label="Source1" />
-                          <Edge From="51" To="75" Label="Source1" />
-                          <Edge From="52" To="74" Label="Source1" />
-                          <Edge From="53" To="72" Label="Source1" />
-                          <Edge From="54" To="55" Label="Source1" />
-                          <Edge From="55" To="70" Label="Source1" />
-                          <Edge From="56" To="68" Label="Source1" />
-                          <Edge From="57" To="66" Label="Source1" />
-                          <Edge From="58" To="64" Label="Source1" />
-                          <Edge From="59" To="62" Label="Source1" />
-                          <Edge From="60" To="61" Label="Source1" />
-                          <Edge From="61" To="62" Label="Source2" />
-                          <Edge From="61" To="122" Label="Source44" />
-                          <Edge From="62" To="63" Label="Source1" />
-                          <Edge From="63" To="64" Label="Source2" />
-                          <Edge From="63" To="122" Label="Source43" />
-                          <Edge From="64" To="65" Label="Source1" />
-                          <Edge From="65" To="66" Label="Source2" />
-                          <Edge From="65" To="122" Label="Source42" />
-                          <Edge From="66" To="67" Label="Source1" />
-                          <Edge From="67" To="68" Label="Source2" />
-                          <Edge From="67" To="122" Label="Source41" />
-                          <Edge From="68" To="69" Label="Source1" />
-                          <Edge From="69" To="70" Label="Source2" />
-                          <Edge From="69" To="122" Label="Source40" />
-                          <Edge From="70" To="71" Label="Source1" />
-                          <Edge From="71" To="72" Label="Source2" />
-                          <Edge From="71" To="122" Label="Source39" />
-                          <Edge From="72" To="73" Label="Source1" />
-                          <Edge From="73" To="74" Label="Source2" />
-                          <Edge From="73" To="122" Label="Source38" />
-                          <Edge From="74" To="75" Label="Source2" />
-                          <Edge From="74" To="122" Label="Source37" />
-                          <Edge From="75" To="76" Label="Source2" />
-                          <Edge From="75" To="122" Label="Source36" />
-                          <Edge From="76" To="77" Label="Source2" />
-                          <Edge From="76" To="122" Label="Source35" />
-                          <Edge From="77" To="78" Label="Source2" />
-                          <Edge From="77" To="122" Label="Source34" />
-                          <Edge From="78" To="79" Label="Source2" />
-                          <Edge From="78" To="122" Label="Source33" />
-                          <Edge From="79" To="80" Label="Source1" />
-                          <Edge From="80" To="81" Label="Source2" />
-                          <Edge From="80" To="122" Label="Source32" />
-                          <Edge From="81" To="82" Label="Source1" />
-                          <Edge From="82" To="83" Label="Source2" />
-                          <Edge From="82" To="122" Label="Source31" />
-                          <Edge From="83" To="84" Label="Source2" />
-                          <Edge From="83" To="122" Label="Source30" />
-                          <Edge From="84" To="85" Label="Source2" />
-                          <Edge From="84" To="122" Label="Source29" />
-                          <Edge From="85" To="86" Label="Source2" />
-                          <Edge From="85" To="122" Label="Source28" />
-                          <Edge From="86" To="87" Label="Source2" />
-                          <Edge From="86" To="122" Label="Source27" />
-                          <Edge From="87" To="88" Label="Source2" />
-                          <Edge From="87" To="122" Label="Source26" />
-                          <Edge From="88" To="89" Label="Source2" />
-                          <Edge From="88" To="122" Label="Source25" />
-                          <Edge From="89" To="90" Label="Source2" />
-                          <Edge From="89" To="122" Label="Source24" />
-                          <Edge From="90" To="91" Label="Source2" />
-                          <Edge From="90" To="122" Label="Source23" />
-                          <Edge From="91" To="92" Label="Source2" />
-                          <Edge From="91" To="122" Label="Source22" />
-                          <Edge From="92" To="93" Label="Source2" />
-                          <Edge From="92" To="122" Label="Source45" />
-                          <Edge From="93" To="94" Label="Source2" />
-                          <Edge From="93" To="122" Label="Source46" />
-                          <Edge From="94" To="95" Label="Source2" />
-                          <Edge From="94" To="122" Label="Source47" />
-                          <Edge From="95" To="96" Label="Source2" />
-                          <Edge From="95" To="122" Label="Source48" />
-                          <Edge From="96" To="97" Label="Source2" />
-                          <Edge From="96" To="122" Label="Source21" />
-                          <Edge From="97" To="98" Label="Source2" />
-                          <Edge From="97" To="122" Label="Source20" />
-                          <Edge From="98" To="99" Label="Source2" />
-                          <Edge From="98" To="122" Label="Source19" />
-                          <Edge From="99" To="100" Label="Source2" />
-                          <Edge From="99" To="122" Label="Source18" />
-                          <Edge From="100" To="101" Label="Source2" />
-                          <Edge From="100" To="122" Label="Source49" />
-                          <Edge From="101" To="102" Label="Source2" />
-                          <Edge From="101" To="122" Label="Source17" />
-                          <Edge From="102" To="103" Label="Source2" />
-                          <Edge From="102" To="122" Label="Source16" />
-                          <Edge From="103" To="104" Label="Source2" />
-                          <Edge From="103" To="122" Label="Source15" />
-                          <Edge From="104" To="105" Label="Source2" />
-                          <Edge From="104" To="122" Label="Source14" />
-                          <Edge From="105" To="106" Label="Source2" />
-                          <Edge From="105" To="122" Label="Source13" />
-                          <Edge From="106" To="107" Label="Source2" />
-                          <Edge From="106" To="122" Label="Source12" />
-                          <Edge From="107" To="108" Label="Source2" />
-                          <Edge From="107" To="122" Label="Source11" />
-                          <Edge From="108" To="109" Label="Source1" />
-                          <Edge From="109" To="110" Label="Source2" />
-                          <Edge From="109" To="122" Label="Source10" />
-                          <Edge From="110" To="111" Label="Source1" />
-                          <Edge From="111" To="112" Label="Source2" />
-                          <Edge From="111" To="122" Label="Source9" />
-                          <Edge From="112" To="113" Label="Source1" />
-                          <Edge From="113" To="114" Label="Source2" />
-                          <Edge From="113" To="122" Label="Source8" />
-                          <Edge From="114" To="115" Label="Source2" />
-                          <Edge From="114" To="122" Label="Source7" />
-                          <Edge From="115" To="116" Label="Source2" />
-                          <Edge From="115" To="122" Label="Source6" />
-                          <Edge From="116" To="117" Label="Source2" />
-                          <Edge From="116" To="122" Label="Source5" />
-                          <Edge From="117" To="118" Label="Source2" />
-                          <Edge From="117" To="122" Label="Source4" />
-                          <Edge From="118" To="119" Label="Source2" />
-                          <Edge From="118" To="122" Label="Source3" />
-                          <Edge From="119" To="120" Label="Source2" />
-                          <Edge From="119" To="122" Label="Source2" />
-                          <Edge From="120" To="121" Label="Source1" />
-                          <Edge From="121" To="122" Label="Source1" />
-                          <Edge From="121" To="123" Label="Source1" />
-                          <Edge From="122" To="124" Label="Source1" />
-                          <Edge From="123" To="124" Label="Source2" />
-                          <Edge From="124" To="125" Label="Source1" />
-                          <Edge From="125" To="126" Label="Source1" />
-                          <Edge From="126" To="127" Label="Source1" />
-                          <Edge From="127" To="128" Label="Source1" />
-                          <Edge From="128" To="129" Label="Source1" />
-                        </Edges>
-                      </Workflow>
-                    </Expression>
-                  </Nodes>
-                  <Edges>
-                    <Edge From="0" To="1" Label="Source1" />
-                    <Edge From="1" To="2" Label="Source1" />
-                    <Edge From="3" To="4" Label="Source1" />
-                  </Edges>
-                </Workflow>
-              </Builder>
             </Expression>
             <Expression xsi:type="GroupWorkflow">
               <Name>WaterDelivery</Name>
@@ -6327,9 +5752,26 @@
                 <Edges />
               </Workflow>
             </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>TimedOptoOnset</Name>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>TimedSoundOnset</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:CombineLatest" />
+            </Expression>
+            <Expression xsi:type="Add" />
+            <Expression xsi:type="MulticastSubject">
+              <Name>TimedFT</Name>
+            </Expression>
           </Nodes>
           <Edges>
-            <Edge From="7" To="8" Label="Source1" />
+            <Edge From="6" To="7" Label="Source1" />
+            <Edge From="8" To="10" Label="Source1" />
+            <Edge From="9" To="10" Label="Source2" />
+            <Edge From="10" To="11" Label="Source1" />
+            <Edge From="11" To="12" Label="Source1" />
           </Edges>
         </Workflow>
       </Expression>
@@ -7233,7 +6675,7 @@
                   <Expression xsi:type="p5:CreateMessage">
                     <harp:MessageType>Write</harp:MessageType>
                     <harp:Payload xsi:type="p5:CreateAttenuationLeftPayload">
-                      <p5:AttenuationLeft>588</p5:AttenuationLeft>
+                      <p5:AttenuationLeft>76</p5:AttenuationLeft>
                     </harp:Payload>
                   </Expression>
                   <Expression xsi:type="MulticastSubject">
@@ -7280,7 +6722,7 @@
                   <Expression xsi:type="p5:CreateMessage">
                     <harp:MessageType>Write</harp:MessageType>
                     <harp:Payload xsi:type="p5:CreateAttenuationRightPayload">
-                      <p5:AttenuationRight>75</p5:AttenuationRight>
+                      <p5:AttenuationRight>577</p5:AttenuationRight>
                     </harp:Payload>
                   </Expression>
                   <Expression xsi:type="MulticastSubject">
@@ -8411,41 +7853,11 @@
                   <Expression xsi:type="SubscribeSubject">
                     <Name>Trial</Name>
                   </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="IntProperty">
-                      <Value>0</Value>
-                    </Combinator>
-                  </Expression>
-                  <Expression xsi:type="PropertyMapping">
-                    <PropertyMappings>
-                      <Property Name="Number" />
-                    </PropertyMappings>
-                  </Expression>
                   <Expression xsi:type="SubscribeSubject">
                     <Name>TrialStart</Name>
                   </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="DoubleProperty">
-                      <Value>0</Value>
-                    </Combinator>
-                  </Expression>
-                  <Expression xsi:type="PropertyMapping">
-                    <PropertyMappings>
-                      <Property Name="StartTime" />
-                    </PropertyMappings>
-                  </Expression>
                   <Expression xsi:type="SubscribeSubject">
                     <Name>TrialEnd</Name>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="DoubleProperty">
-                      <Value>0</Value>
-                    </Combinator>
-                  </Expression>
-                  <Expression xsi:type="PropertyMapping">
-                    <PropertyMappings>
-                      <Property Name="EndTime" />
-                    </PropertyMappings>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
                     <Name>TrialEnd</Name>
@@ -8457,17 +7869,24 @@
                     <Combinator xsi:type="rx:CombineLatest" />
                   </Expression>
                   <Expression xsi:type="Subtract" />
-                  <Expression xsi:type="PropertyMapping">
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="rx:CombineLatest" />
+                  </Expression>
+                  <Expression xsi:type="InputMapping">
                     <PropertyMappings>
-                      <Property Name="Duration" />
+                      <Property Name="Number" Selector="Item1" />
+                      <Property Name="StartTime" Selector="Item2" />
+                      <Property Name="EndTime" Selector="Item3" />
+                      <Property Name="Duration" Selector="Item4" />
                     </PropertyMappings>
+                    <Selector>it</Selector>
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p10:Trial">
-                      <p10:Number>0</p10:Number>
-                      <p10:StartTime>0</p10:StartTime>
-                      <p10:EndTime>0</p10:EndTime>
-                      <p10:Duration>0</p10:Duration>
+                      <p10:Number>7</p10:Number>
+                      <p10:StartTime>81.073984</p10:StartTime>
+                      <p10:EndTime>80.064</p10:EndTime>
+                      <p10:Duration>-1.0099840000000029</p10:Duration>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
@@ -8478,21 +7897,11 @@
                   <Expression xsi:type="SubscribeSubject">
                     <Name>Block</Name>
                   </Expression>
-                  <Expression xsi:type="PropertyMapping">
-                    <PropertyMappings>
-                      <Property Name="Number" />
-                    </PropertyMappings>
-                  </Expression>
                   <Expression xsi:type="SubscribeSubject">
                     <Name>LevelConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>LevelId</Selector>
-                  </Expression>
-                  <Expression xsi:type="PropertyMapping">
-                    <PropertyMappings>
-                      <Property Name="TrainingLevel" />
-                    </PropertyMappings>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
                     <Name>LevelConfig</Name>
@@ -8500,14 +7909,20 @@
                   <Expression xsi:type="MemberSelector">
                     <Selector>TrialsPerBlock</Selector>
                   </Expression>
-                  <Expression xsi:type="PropertyMapping">
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="rx:CombineLatest" />
+                  </Expression>
+                  <Expression xsi:type="InputMapping">
                     <PropertyMappings>
-                      <Property Name="TrialsPerBlock" />
+                      <Property Name="Number" Selector="Item1" />
+                      <Property Name="TrainingLevel" Selector="Item2" />
+                      <Property Name="TrialsPerBlock" Selector="Item3" />
                     </PropertyMappings>
+                    <Selector>it</Selector>
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p10:Block">
-                      <p10:Number>0</p10:Number>
+                      <p10:Number>1</p10:Number>
                       <p10:TrainingLevel>1</p10:TrainingLevel>
                       <p10:TrialsPerBlock>200</p10:TrialsPerBlock>
                     </Combinator>
@@ -8523,21 +7938,11 @@
                   <Expression xsi:type="MemberSelector">
                     <Selector>Session.Number</Selector>
                   </Expression>
-                  <Expression xsi:type="PropertyMapping">
-                    <PropertyMappings>
-                      <Property Name="Number" />
-                    </PropertyMappings>
-                  </Expression>
                   <Expression xsi:type="SubscribeSubject">
                     <Name>AnimalConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>Session.Type</Selector>
-                  </Expression>
-                  <Expression xsi:type="PropertyMapping">
-                    <PropertyMappings>
-                      <Property Name="Type" />
-                    </PropertyMappings>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
                     <Name>AnimalConfig</Name>
@@ -8545,10 +7950,16 @@
                   <Expression xsi:type="MemberSelector">
                     <Selector>Session.SetupId</Selector>
                   </Expression>
-                  <Expression xsi:type="PropertyMapping">
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="rx:CombineLatest" />
+                  </Expression>
+                  <Expression xsi:type="InputMapping">
                     <PropertyMappings>
-                      <Property Name="SetupId" />
+                      <Property Name="Number" Selector="Item1" />
+                      <Property Name="Type" Selector="Item2" />
+                      <Property Name="SetupId" Selector="Item3" />
                     </PropertyMappings>
+                    <Selector>it</Selector>
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p10:Session">
@@ -8565,50 +7976,38 @@
                   <Expression xsi:type="SubscribeSubject">
                     <Name>ABL</Name>
                   </Expression>
-                  <Expression xsi:type="PropertyMapping">
-                    <PropertyMappings>
-                      <Property Name="Abl" />
-                    </PropertyMappings>
-                  </Expression>
                   <Expression xsi:type="SubscribeSubject">
                     <Name>ILD</Name>
-                  </Expression>
-                  <Expression xsi:type="PropertyMapping">
-                    <PropertyMappings>
-                      <Property Name="Ild" />
-                    </PropertyMappings>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
                     <Name>SoundIndex</Name>
                   </Expression>
-                  <Expression xsi:type="PropertyMapping">
-                    <PropertyMappings>
-                      <Property Name="SoundIndex" />
-                    </PropertyMappings>
-                  </Expression>
                   <Expression xsi:type="SubscribeSubject">
                     <Name>LeftAmp</Name>
-                  </Expression>
-                  <Expression xsi:type="PropertyMapping">
-                    <PropertyMappings>
-                      <Property Name="LeftAmplification" />
-                    </PropertyMappings>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
                     <Name>RightAmp</Name>
                   </Expression>
-                  <Expression xsi:type="PropertyMapping">
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="rx:CombineLatest" />
+                  </Expression>
+                  <Expression xsi:type="InputMapping">
                     <PropertyMappings>
-                      <Property Name="RightAmplification" />
+                      <Property Name="Abl" Selector="Item1" />
+                      <Property Name="Ild" Selector="Item2" />
+                      <Property Name="SoundIndex" Selector="Item3" />
+                      <Property Name="LeftAmplification" Selector="Item4" />
+                      <Property Name="RightAmplification" Selector="Item5" />
                     </PropertyMappings>
+                    <Selector>it</Selector>
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p10:Sound">
-                      <p10:Abl>0</p10:Abl>
-                      <p10:Ild>0</p10:Ild>
-                      <p10:SoundIndex>0</p10:SoundIndex>
-                      <p10:LeftAmplification>0</p10:LeftAmplification>
-                      <p10:RightAmplification>0</p10:RightAmplification>
+                      <p10:Abl>25</p10:Abl>
+                      <p10:Ild>-50</p10:Ild>
+                      <p10:SoundIndex>2</p10:SoundIndex>
+                      <p10:LeftAmplification>7.67056145390481</p10:LeftAmplification>
+                      <p10:RightAmplification>57.792644614534616</p10:RightAmplification>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
@@ -8622,36 +8021,11 @@
                   <Expression xsi:type="MemberSelector">
                     <Selector>Iti.Value</Selector>
                   </Expression>
-                  <Expression xsi:type="PropertyMapping">
-                    <PropertyMappings>
-                      <Property Name="IntendedDuration" />
-                    </PropertyMappings>
-                  </Expression>
                   <Expression xsi:type="SubscribeSubject">
                     <Name>ITIStart</Name>
                   </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="DoubleProperty">
-                      <Value>0</Value>
-                    </Combinator>
-                  </Expression>
-                  <Expression xsi:type="PropertyMapping">
-                    <PropertyMappings>
-                      <Property Name="StartTime" />
-                    </PropertyMappings>
-                  </Expression>
                   <Expression xsi:type="SubscribeSubject">
                     <Name>ITIEnd</Name>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="DoubleProperty">
-                      <Value>0</Value>
-                    </Combinator>
-                  </Expression>
-                  <Expression xsi:type="PropertyMapping">
-                    <PropertyMappings>
-                      <Property Name="EndTime" />
-                    </PropertyMappings>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
                     <Name>ITIEnd</Name>
@@ -8663,17 +8037,24 @@
                     <Combinator xsi:type="rx:CombineLatest" />
                   </Expression>
                   <Expression xsi:type="Subtract" />
-                  <Expression xsi:type="PropertyMapping">
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="rx:CombineLatest" />
+                  </Expression>
+                  <Expression xsi:type="InputMapping">
                     <PropertyMappings>
-                      <Property Name="TimedDuration" />
+                      <Property Name="IntendedDuration" Selector="Item1" />
+                      <Property Name="StartTime" Selector="Item2" />
+                      <Property Name="EndTime" Selector="Item3" />
+                      <Property Name="TimedDuration" Selector="Item4" />
                     </PropertyMappings>
+                    <Selector>it</Selector>
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p10:ITI">
                       <p10:IntendedDuration>1</p10:IntendedDuration>
-                      <p10:StartTime>0</p10:StartTime>
-                      <p10:EndTime>0</p10:EndTime>
-                      <p10:TimedDuration>0</p10:TimedDuration>
+                      <p10:StartTime>80.064992</p10:StartTime>
+                      <p10:EndTime>81.072</p10:EndTime>
+                      <p10:TimedDuration>1.007007999999999</p10:TimedDuration>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
@@ -8684,25 +8065,25 @@
                   <Expression xsi:type="SubscribeSubject">
                     <Name>TimeToCNP</Name>
                   </Expression>
-                  <Expression xsi:type="PropertyMapping">
-                    <PropertyMappings>
-                      <Property Name="TimedValue" />
-                    </PropertyMappings>
-                  </Expression>
                   <Expression xsi:type="SubscribeSubject">
                     <Name>LevelConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>MaxWait</Selector>
                   </Expression>
-                  <Expression xsi:type="PropertyMapping">
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="rx:CombineLatest" />
+                  </Expression>
+                  <Expression xsi:type="InputMapping">
                     <PropertyMappings>
-                      <Property Name="MaxDuration" />
+                      <Property Name="TimedValue" Selector="Item1" />
+                      <Property Name="MaxDuration" Selector="Item2" />
                     </PropertyMappings>
+                    <Selector>it</Selector>
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p10:TimeToCnp">
-                      <p10:TimedValue>0</p10:TimedValue>
+                      <p10:TimedValue>3.0069440000000043</p10:TimedValue>
                       <p10:MaxDuration>180</p10:MaxDuration>
                     </Combinator>
                   </Expression>
@@ -8714,58 +8095,40 @@
                   <Expression xsi:type="SubscribeSubject">
                     <Name>BaseOptoOnset</Name>
                   </Expression>
-                  <Expression xsi:type="PropertyMapping">
-                    <PropertyMappings>
-                      <Property Name="BaseTime" />
-                    </PropertyMappings>
-                  </Expression>
                   <Expression xsi:type="SubscribeSubject">
                     <Name>LevelConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>FixationTime.OptoExpMean</Selector>
                   </Expression>
-                  <Expression xsi:type="PropertyMapping">
-                    <PropertyMappings>
-                      <Property Name="ExpMean" />
-                    </PropertyMappings>
-                  </Expression>
                   <Expression xsi:type="SubscribeSubject">
                     <Name>IntendedOptoOnset</Name>
-                  </Expression>
-                  <Expression xsi:type="PropertyMapping">
-                    <PropertyMappings>
-                      <Property Name="IntendedDuration" />
-                    </PropertyMappings>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
                     <Name>TimedOptoOnset</Name>
                   </Expression>
-                  <Expression xsi:type="PropertyMapping">
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="rx:CombineLatest" />
+                  </Expression>
+                  <Expression xsi:type="InputMapping">
                     <PropertyMappings>
-                      <Property Name="TimedDuration" />
+                      <Property Name="BaseTime" Selector="Item1" />
+                      <Property Name="ExpMean" Selector="Item2" />
+                      <Property Name="IntendedDuration" Selector="Item3" />
+                      <Property Name="TimedDuration" Selector="Item4" />
                     </PropertyMappings>
+                    <Selector>it</Selector>
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p10:FixationTimeParts">
-                      <p10:BaseTime>0</p10:BaseTime>
+                      <p10:BaseTime>7.5</p10:BaseTime>
                       <p10:ExpMean>0</p10:ExpMean>
-                      <p10:IntendedDuration>0</p10:IntendedDuration>
-                      <p10:TimedDuration>0</p10:TimedDuration>
+                      <p10:IntendedDuration>7.5</p10:IntendedDuration>
+                      <p10:TimedDuration>0.01206399999999519</p10:TimedDuration>
                     </Combinator>
-                  </Expression>
-                  <Expression xsi:type="PropertyMapping">
-                    <PropertyMappings>
-                      <Property Name="OptoOnsetTime" />
-                    </PropertyMappings>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
                     <Name>BaseSoundOnset</Name>
-                  </Expression>
-                  <Expression xsi:type="PropertyMapping">
-                    <PropertyMappings>
-                      <Property Name="BaseTime" />
-                    </PropertyMappings>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
                     <Name>LevelConfig</Name>
@@ -8773,39 +8136,41 @@
                   <Expression xsi:type="MemberSelector">
                     <Selector>FixationTime.SoundExpMean</Selector>
                   </Expression>
-                  <Expression xsi:type="PropertyMapping">
-                    <PropertyMappings>
-                      <Property Name="ExpMean" />
-                    </PropertyMappings>
-                  </Expression>
                   <Expression xsi:type="SubscribeSubject">
                     <Name>IntendedSoundOnset</Name>
-                  </Expression>
-                  <Expression xsi:type="PropertyMapping">
-                    <PropertyMappings>
-                      <Property Name="IntendedDuration" />
-                    </PropertyMappings>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
                     <Name>TimedSoundOnset</Name>
                   </Expression>
-                  <Expression xsi:type="PropertyMapping">
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="rx:CombineLatest" />
+                  </Expression>
+                  <Expression xsi:type="InputMapping">
                     <PropertyMappings>
-                      <Property Name="TimedDuration" />
+                      <Property Name="BaseTime" Selector="Item1" />
+                      <Property Name="ExpMean" Selector="Item2" />
+                      <Property Name="IntendedDuration" Selector="Item3" />
+                      <Property Name="TimedDuration" Selector="Item4" />
                     </PropertyMappings>
+                    <Selector>it</Selector>
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p10:FixationTimeParts">
-                      <p10:BaseTime>0</p10:BaseTime>
+                      <p10:BaseTime>7.5</p10:BaseTime>
                       <p10:ExpMean>0</p10:ExpMean>
-                      <p10:IntendedDuration>0</p10:IntendedDuration>
-                      <p10:TimedDuration>0</p10:TimedDuration>
+                      <p10:IntendedDuration>7.5</p10:IntendedDuration>
+                      <p10:TimedDuration>0.010016000000007352</p10:TimedDuration>
                     </Combinator>
                   </Expression>
-                  <Expression xsi:type="PropertyMapping">
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="rx:CombineLatest" />
+                  </Expression>
+                  <Expression xsi:type="InputMapping">
                     <PropertyMappings>
-                      <Property Name="SoundOnsetTime" />
+                      <Property Name="OptoOnsetTime" Selector="Item1" />
+                      <Property Name="SoundOnsetTime" Selector="Item2" />
                     </PropertyMappings>
+                    <Selector>it</Selector>
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p10:FixationTime" />
@@ -8818,35 +8183,31 @@
                   <Expression xsi:type="SubscribeSubject">
                     <Name>BaseRT</Name>
                   </Expression>
-                  <Expression xsi:type="PropertyMapping">
-                    <PropertyMappings>
-                      <Property Name="BaseTime" />
-                    </PropertyMappings>
-                  </Expression>
                   <Expression xsi:type="SubscribeSubject">
                     <Name>AnimalConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
                     <Selector>MaxReactionTime</Selector>
                   </Expression>
-                  <Expression xsi:type="PropertyMapping">
-                    <PropertyMappings>
-                      <Property Name="MaxDuration" />
-                    </PropertyMappings>
-                  </Expression>
                   <Expression xsi:type="SubscribeSubject">
                     <Name>TimedRT</Name>
                   </Expression>
-                  <Expression xsi:type="PropertyMapping">
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="rx:CombineLatest" />
+                  </Expression>
+                  <Expression xsi:type="InputMapping">
                     <PropertyMappings>
-                      <Property Name="TimedDuration" />
+                      <Property Name="BaseTime" Selector="Item1" />
+                      <Property Name="MaxDuration" Selector="Item2" />
+                      <Property Name="TimedDuration" Selector="Item3" />
                     </PropertyMappings>
+                    <Selector>it</Selector>
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p10:ReactionTime">
-                      <p10:BaseTime>0</p10:BaseTime>
+                      <p10:BaseTime>0.015000000000000003</p10:BaseTime>
                       <p10:MaxDuration>10</p10:MaxDuration>
-                      <p10:TimedDuration>0</p10:TimedDuration>
+                      <p10:TimedDuration>2.4159680000000066</p10:TimedDuration>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
@@ -8860,23 +8221,23 @@
                   <Expression xsi:type="MemberSelector">
                     <Selector>MaxMt</Selector>
                   </Expression>
-                  <Expression xsi:type="PropertyMapping">
-                    <PropertyMappings>
-                      <Property Name="MaxDuration" />
-                    </PropertyMappings>
-                  </Expression>
                   <Expression xsi:type="SubscribeSubject">
                     <Name>TimedMT</Name>
                   </Expression>
-                  <Expression xsi:type="PropertyMapping">
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="rx:CombineLatest" />
+                  </Expression>
+                  <Expression xsi:type="InputMapping">
                     <PropertyMappings>
-                      <Property Name="TimedDuration" />
+                      <Property Name="MaxDuration" Selector="Item1" />
+                      <Property Name="TimedDuration" Selector="Item2" />
                     </PropertyMappings>
+                    <Selector>it</Selector>
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p10:MovementTime">
                       <p10:MaxDuration>180</p10:MaxDuration>
-                      <p10:TimedDuration>0</p10:TimedDuration>
+                      <p10:TimedDuration>1.5512959999999936</p10:TimedDuration>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
@@ -8887,23 +8248,23 @@
                   <Expression xsi:type="SubscribeSubject">
                     <Name>IntendedLNP</Name>
                   </Expression>
-                  <Expression xsi:type="PropertyMapping">
-                    <PropertyMappings>
-                      <Property Name="IntendedDuration" />
-                    </PropertyMappings>
-                  </Expression>
                   <Expression xsi:type="SubscribeSubject">
                     <Name>TimedLNP</Name>
                   </Expression>
-                  <Expression xsi:type="PropertyMapping">
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="rx:CombineLatest" />
+                  </Expression>
+                  <Expression xsi:type="InputMapping">
                     <PropertyMappings>
-                      <Property Name="TimedDuration" />
+                      <Property Name="IntendedDuration" Selector="Item1" />
+                      <Property Name="TimedDuration" Selector="Item2" />
                     </PropertyMappings>
+                    <Selector>it</Selector>
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p10:LnpTime">
-                      <p10:IntendedDuration>0</p10:IntendedDuration>
-                      <p10:TimedDuration>0</p10:TimedDuration>
+                      <p10:IntendedDuration>0.01</p10:IntendedDuration>
+                      <p10:TimedDuration>0.020735999999999422</p10:TimedDuration>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
@@ -8914,24 +8275,32 @@
                   <Expression xsi:type="SubscribeSubject">
                     <Name>ResponsePoke</Name>
                   </Expression>
-                  <Expression xsi:type="PropertyMapping">
-                    <PropertyMappings>
-                      <Property Name="ResponsePoke" />
-                    </PropertyMappings>
-                  </Expression>
                   <Expression xsi:type="SubscribeSubject">
                     <Name>Outcome</Name>
                   </Expression>
-                  <Expression xsi:type="PropertyMapping">
+                  <Expression xsi:type="SubscribeSubject">
+                    <Name>BlockPerformance</Name>
+                  </Expression>
+                  <Expression xsi:type="SubscribeSubject">
+                    <Name>BlockAbortRatio</Name>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="rx:CombineLatest" />
+                  </Expression>
+                  <Expression xsi:type="InputMapping">
                     <PropertyMappings>
-                      <Property Name="Value" />
+                      <Property Name="ResponsePoke" Selector="Item1" />
+                      <Property Name="Value" Selector="Item2" />
+                      <Property Name="BlockPerformance" Selector="Item3" />
+                      <Property Name="BlockAbortRatio" Selector="Item4" />
                     </PropertyMappings>
+                    <Selector>it</Selector>
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p10:Outcome">
-                      <p10:ResponsePoke>0</p10:ResponsePoke>
-                      <p10:Value>0</p10:Value>
-                      <p10:BlockPerformance>0</p10:BlockPerformance>
+                      <p10:ResponsePoke>-1</p10:ResponsePoke>
+                      <p10:Value>2</p10:Value>
+                      <p10:BlockPerformance>0.8</p10:BlockPerformance>
                       <p10:BlockAbortRatio>0</p10:BlockAbortRatio>
                     </Combinator>
                   </Expression>
@@ -8953,40 +8322,32 @@
                       <Value>false</Value>
                     </Combinator>
                   </Expression>
-                  <Expression xsi:type="PropertyMapping">
-                    <PropertyMappings>
-                      <Property Name="OptoTrial" />
-                    </PropertyMappings>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="DoubleProperty">
+                      <Value>0</Value>
+                    </Combinator>
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="DoubleProperty">
                       <Value>0</Value>
                     </Combinator>
                   </Expression>
-                  <Expression xsi:type="PropertyMapping">
-                    <PropertyMappings>
-                      <Property Name="Duration" />
-                    </PropertyMappings>
-                  </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="DoubleProperty">
                       <Value>0</Value>
                     </Combinator>
                   </Expression>
-                  <Expression xsi:type="PropertyMapping">
-                    <PropertyMappings>
-                      <Property Name="LeftPower" />
-                    </PropertyMappings>
-                  </Expression>
                   <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="DoubleProperty">
-                      <Value>0</Value>
-                    </Combinator>
+                    <Combinator xsi:type="rx:CombineLatest" />
                   </Expression>
-                  <Expression xsi:type="PropertyMapping">
+                  <Expression xsi:type="InputMapping">
                     <PropertyMappings>
-                      <Property Name="RightPower" />
+                      <Property Name="OptoTrial" Selector="Item1" />
+                      <Property Name="Duration" Selector="Item2" />
+                      <Property Name="LeftPower" Selector="Item3" />
+                      <Property Name="RightPower" Selector="Item4" />
                     </PropertyMappings>
+                    <Selector>it</Selector>
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p10:Optogenetics">
@@ -9019,148 +8380,129 @@
                   </Expression>
                 </Nodes>
                 <Edges>
-                  <Edge From="0" To="140" Label="Source1" />
+                  <Edge From="0" To="121" Label="Source1" />
                   <Edge From="1" To="2" Label="Source1" />
                   <Edge From="2" To="3" Label="Source1" />
-                  <Edge From="3" To="140" Label="Source2" />
-                  <Edge From="4" To="5" Label="Source1" />
-                  <Edge From="5" To="6" Label="Source1" />
-                  <Edge From="6" To="18" Label="Source1" />
-                  <Edge From="7" To="8" Label="Source1" />
-                  <Edge From="8" To="9" Label="Source1" />
-                  <Edge From="9" To="18" Label="Source2" />
-                  <Edge From="10" To="11" Label="Source1" />
+                  <Edge From="3" To="121" Label="Source2" />
+                  <Edge From="4" To="11" Label="Source1" />
+                  <Edge From="5" To="11" Label="Source2" />
+                  <Edge From="6" To="11" Label="Source3" />
+                  <Edge From="7" To="9" Label="Source1" />
+                  <Edge From="8" To="9" Label="Source2" />
+                  <Edge From="9" To="10" Label="Source1" />
+                  <Edge From="10" To="11" Label="Source4" />
                   <Edge From="11" To="12" Label="Source1" />
-                  <Edge From="12" To="18" Label="Source3" />
-                  <Edge From="13" To="15" Label="Source1" />
-                  <Edge From="14" To="15" Label="Source2" />
-                  <Edge From="15" To="16" Label="Source1" />
+                  <Edge From="12" To="13" Label="Source1" />
+                  <Edge From="13" To="14" Label="Source1" />
+                  <Edge From="14" To="121" Label="Source3" />
+                  <Edge From="15" To="20" Label="Source1" />
                   <Edge From="16" To="17" Label="Source1" />
-                  <Edge From="17" To="18" Label="Source4" />
+                  <Edge From="17" To="20" Label="Source2" />
                   <Edge From="18" To="19" Label="Source1" />
-                  <Edge From="19" To="140" Label="Source3" />
+                  <Edge From="19" To="20" Label="Source3" />
                   <Edge From="20" To="21" Label="Source1" />
-                  <Edge From="21" To="28" Label="Source1" />
+                  <Edge From="21" To="22" Label="Source1" />
                   <Edge From="22" To="23" Label="Source1" />
-                  <Edge From="23" To="24" Label="Source1" />
-                  <Edge From="24" To="28" Label="Source2" />
-                  <Edge From="25" To="26" Label="Source1" />
+                  <Edge From="23" To="121" Label="Source4" />
+                  <Edge From="24" To="25" Label="Source1" />
+                  <Edge From="25" To="30" Label="Source1" />
                   <Edge From="26" To="27" Label="Source1" />
-                  <Edge From="27" To="28" Label="Source3" />
+                  <Edge From="27" To="30" Label="Source2" />
                   <Edge From="28" To="29" Label="Source1" />
-                  <Edge From="29" To="140" Label="Source4" />
+                  <Edge From="29" To="30" Label="Source3" />
                   <Edge From="30" To="31" Label="Source1" />
                   <Edge From="31" To="32" Label="Source1" />
-                  <Edge From="32" To="39" Label="Source1" />
-                  <Edge From="33" To="34" Label="Source1" />
-                  <Edge From="34" To="35" Label="Source1" />
+                  <Edge From="32" To="33" Label="Source1" />
+                  <Edge From="33" To="121" Label="Source5" />
+                  <Edge From="34" To="39" Label="Source1" />
                   <Edge From="35" To="39" Label="Source2" />
-                  <Edge From="36" To="37" Label="Source1" />
-                  <Edge From="37" To="38" Label="Source1" />
-                  <Edge From="38" To="39" Label="Source3" />
+                  <Edge From="36" To="39" Label="Source3" />
+                  <Edge From="37" To="39" Label="Source4" />
+                  <Edge From="38" To="39" Label="Source5" />
                   <Edge From="39" To="40" Label="Source1" />
-                  <Edge From="40" To="140" Label="Source5" />
+                  <Edge From="40" To="41" Label="Source1" />
                   <Edge From="41" To="42" Label="Source1" />
-                  <Edge From="42" To="51" Label="Source1" />
+                  <Edge From="42" To="121" Label="Source6" />
                   <Edge From="43" To="44" Label="Source1" />
-                  <Edge From="44" To="51" Label="Source2" />
-                  <Edge From="45" To="46" Label="Source1" />
+                  <Edge From="44" To="51" Label="Source1" />
+                  <Edge From="45" To="51" Label="Source2" />
                   <Edge From="46" To="51" Label="Source3" />
-                  <Edge From="47" To="48" Label="Source1" />
-                  <Edge From="48" To="51" Label="Source4" />
+                  <Edge From="47" To="49" Label="Source1" />
+                  <Edge From="48" To="49" Label="Source2" />
                   <Edge From="49" To="50" Label="Source1" />
-                  <Edge From="50" To="51" Label="Source5" />
+                  <Edge From="50" To="51" Label="Source4" />
                   <Edge From="51" To="52" Label="Source1" />
-                  <Edge From="52" To="140" Label="Source6" />
+                  <Edge From="52" To="53" Label="Source1" />
                   <Edge From="53" To="54" Label="Source1" />
-                  <Edge From="54" To="55" Label="Source1" />
-                  <Edge From="55" To="67" Label="Source1" />
+                  <Edge From="54" To="121" Label="Source7" />
+                  <Edge From="55" To="58" Label="Source1" />
                   <Edge From="56" To="57" Label="Source1" />
-                  <Edge From="57" To="58" Label="Source1" />
-                  <Edge From="58" To="67" Label="Source2" />
+                  <Edge From="57" To="58" Label="Source2" />
+                  <Edge From="58" To="59" Label="Source1" />
                   <Edge From="59" To="60" Label="Source1" />
                   <Edge From="60" To="61" Label="Source1" />
-                  <Edge From="61" To="67" Label="Source3" />
-                  <Edge From="62" To="64" Label="Source1" />
-                  <Edge From="63" To="64" Label="Source2" />
-                  <Edge From="64" To="65" Label="Source1" />
-                  <Edge From="65" To="66" Label="Source1" />
+                  <Edge From="61" To="121" Label="Source8" />
+                  <Edge From="62" To="67" Label="Source1" />
+                  <Edge From="63" To="64" Label="Source1" />
+                  <Edge From="64" To="67" Label="Source2" />
+                  <Edge From="65" To="67" Label="Source3" />
                   <Edge From="66" To="67" Label="Source4" />
                   <Edge From="67" To="68" Label="Source1" />
-                  <Edge From="68" To="140" Label="Source7" />
-                  <Edge From="69" To="70" Label="Source1" />
-                  <Edge From="70" To="74" Label="Source1" />
+                  <Edge From="68" To="69" Label="Source1" />
+                  <Edge From="69" To="78" Label="Source1" />
+                  <Edge From="70" To="75" Label="Source1" />
                   <Edge From="71" To="72" Label="Source1" />
-                  <Edge From="72" To="73" Label="Source1" />
-                  <Edge From="73" To="74" Label="Source2" />
-                  <Edge From="74" To="75" Label="Source1" />
-                  <Edge From="75" To="140" Label="Source8" />
+                  <Edge From="72" To="75" Label="Source2" />
+                  <Edge From="73" To="75" Label="Source3" />
+                  <Edge From="74" To="75" Label="Source4" />
+                  <Edge From="75" To="76" Label="Source1" />
                   <Edge From="76" To="77" Label="Source1" />
-                  <Edge From="77" To="85" Label="Source1" />
+                  <Edge From="77" To="78" Label="Source2" />
                   <Edge From="78" To="79" Label="Source1" />
                   <Edge From="79" To="80" Label="Source1" />
-                  <Edge From="80" To="85" Label="Source2" />
-                  <Edge From="81" To="82" Label="Source1" />
-                  <Edge From="82" To="85" Label="Source3" />
+                  <Edge From="80" To="81" Label="Source1" />
+                  <Edge From="81" To="121" Label="Source9" />
+                  <Edge From="82" To="86" Label="Source1" />
                   <Edge From="83" To="84" Label="Source1" />
-                  <Edge From="84" To="85" Label="Source4" />
-                  <Edge From="85" To="86" Label="Source1" />
-                  <Edge From="86" To="98" Label="Source1" />
+                  <Edge From="84" To="86" Label="Source2" />
+                  <Edge From="85" To="86" Label="Source3" />
+                  <Edge From="86" To="87" Label="Source1" />
                   <Edge From="87" To="88" Label="Source1" />
-                  <Edge From="88" To="96" Label="Source1" />
-                  <Edge From="89" To="90" Label="Source1" />
+                  <Edge From="88" To="89" Label="Source1" />
+                  <Edge From="89" To="121" Label="Source10" />
                   <Edge From="90" To="91" Label="Source1" />
-                  <Edge From="91" To="96" Label="Source2" />
-                  <Edge From="92" To="93" Label="Source1" />
-                  <Edge From="93" To="96" Label="Source3" />
+                  <Edge From="91" To="93" Label="Source1" />
+                  <Edge From="92" To="93" Label="Source2" />
+                  <Edge From="93" To="94" Label="Source1" />
                   <Edge From="94" To="95" Label="Source1" />
-                  <Edge From="95" To="96" Label="Source4" />
-                  <Edge From="96" To="97" Label="Source1" />
-                  <Edge From="97" To="98" Label="Source2" />
-                  <Edge From="98" To="99" Label="Source1" />
-                  <Edge From="99" To="140" Label="Source9" />
+                  <Edge From="95" To="96" Label="Source1" />
+                  <Edge From="96" To="121" Label="Source11" />
+                  <Edge From="97" To="99" Label="Source1" />
+                  <Edge From="98" To="99" Label="Source2" />
+                  <Edge From="99" To="100" Label="Source1" />
                   <Edge From="100" To="101" Label="Source1" />
-                  <Edge From="101" To="107" Label="Source1" />
-                  <Edge From="102" To="103" Label="Source1" />
-                  <Edge From="103" To="104" Label="Source1" />
+                  <Edge From="101" To="102" Label="Source1" />
+                  <Edge From="102" To="121" Label="Source12" />
+                  <Edge From="103" To="107" Label="Source1" />
                   <Edge From="104" To="107" Label="Source2" />
-                  <Edge From="105" To="106" Label="Source1" />
-                  <Edge From="106" To="107" Label="Source3" />
+                  <Edge From="105" To="107" Label="Source3" />
+                  <Edge From="106" To="107" Label="Source4" />
                   <Edge From="107" To="108" Label="Source1" />
-                  <Edge From="108" To="140" Label="Source10" />
+                  <Edge From="108" To="109" Label="Source1" />
                   <Edge From="109" To="110" Label="Source1" />
-                  <Edge From="110" To="111" Label="Source1" />
-                  <Edge From="111" To="114" Label="Source1" />
-                  <Edge From="112" To="113" Label="Source1" />
-                  <Edge From="113" To="114" Label="Source2" />
-                  <Edge From="114" To="115" Label="Source1" />
-                  <Edge From="115" To="140" Label="Source11" />
-                  <Edge From="116" To="117" Label="Source1" />
-                  <Edge From="117" To="120" Label="Source1" />
+                  <Edge From="110" To="121" Label="Source13" />
+                  <Edge From="111" To="112" Label="Source1" />
+                  <Edge From="112" To="121" Label="Source14" />
+                  <Edge From="113" To="117" Label="Source1" />
+                  <Edge From="114" To="117" Label="Source2" />
+                  <Edge From="115" To="117" Label="Source3" />
+                  <Edge From="116" To="117" Label="Source4" />
+                  <Edge From="117" To="118" Label="Source1" />
                   <Edge From="118" To="119" Label="Source1" />
-                  <Edge From="119" To="120" Label="Source2" />
-                  <Edge From="120" To="121" Label="Source1" />
-                  <Edge From="121" To="140" Label="Source12" />
+                  <Edge From="119" To="120" Label="Source1" />
+                  <Edge From="120" To="121" Label="Source15" />
+                  <Edge From="121" To="122" Label="Source1" />
                   <Edge From="122" To="123" Label="Source1" />
-                  <Edge From="123" To="126" Label="Source1" />
-                  <Edge From="124" To="125" Label="Source1" />
-                  <Edge From="125" To="126" Label="Source2" />
-                  <Edge From="126" To="127" Label="Source1" />
-                  <Edge From="127" To="140" Label="Source13" />
-                  <Edge From="128" To="129" Label="Source1" />
-                  <Edge From="129" To="140" Label="Source14" />
-                  <Edge From="130" To="131" Label="Source1" />
-                  <Edge From="131" To="138" Label="Source1" />
-                  <Edge From="132" To="133" Label="Source1" />
-                  <Edge From="133" To="138" Label="Source2" />
-                  <Edge From="134" To="135" Label="Source1" />
-                  <Edge From="135" To="138" Label="Source3" />
-                  <Edge From="136" To="137" Label="Source1" />
-                  <Edge From="137" To="138" Label="Source4" />
-                  <Edge From="138" To="139" Label="Source1" />
-                  <Edge From="139" To="140" Label="Source15" />
-                  <Edge From="140" To="141" Label="Source1" />
-                  <Edge From="141" To="142" Label="Source1" />
                 </Edges>
               </Workflow>
             </Expression>
@@ -9271,68 +8613,52 @@
         <Name>SubjectInitialization</Name>
         <Workflow>
           <Nodes>
-            <Expression xsi:type="GroupWorkflow">
-              <Name>InitializeSubjects</Name>
-              <Workflow>
-                <Nodes>
-                  <Expression xsi:type="p5:CreateMessage">
-                    <harp:MessageType>Write</harp:MessageType>
-                    <harp:Payload xsi:type="p5:CreatePlaySoundOrFrequencyPayload">
-                      <p5:PlaySoundOrFrequency>2</p5:PlaySoundOrFrequency>
-                    </harp:Payload>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="rx:IgnoreElements" />
-                  </Expression>
-                  <Expression xsi:type="rx:BehaviorSubject">
-                    <Name>SoundCardCommands</Name>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="IntProperty">
-                      <Value>0</Value>
-                    </Combinator>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="rx:IgnoreElements" />
-                  </Expression>
-                  <Expression xsi:type="rx:BehaviorSubject">
-                    <Name>PlaySound</Name>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="IntProperty">
-                      <Value>2</Value>
-                    </Combinator>
-                  </Expression>
-                  <Expression xsi:type="rx:BehaviorSubject">
-                    <Name>SoundIndex</Name>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="IntProperty">
-                      <Value>0</Value>
-                    </Combinator>
-                  </Expression>
-                  <Expression xsi:type="rx:BehaviorSubject">
-                    <Name>LeftIntensity</Name>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="IntProperty">
-                      <Value>0</Value>
-                    </Combinator>
-                  </Expression>
-                  <Expression xsi:type="rx:BehaviorSubject">
-                    <Name>RightIntensity</Name>
-                  </Expression>
-                </Nodes>
-                <Edges>
-                  <Edge From="0" To="1" Label="Source1" />
-                  <Edge From="1" To="2" Label="Source1" />
-                  <Edge From="3" To="4" Label="Source1" />
-                  <Edge From="4" To="5" Label="Source1" />
-                  <Edge From="6" To="7" Label="Source1" />
-                  <Edge From="8" To="9" Label="Source1" />
-                  <Edge From="10" To="11" Label="Source1" />
-                </Edges>
-              </Workflow>
+            <Expression xsi:type="p5:CreateMessage">
+              <harp:MessageType>Write</harp:MessageType>
+              <harp:Payload xsi:type="p5:CreatePlaySoundOrFrequencyPayload">
+                <p5:PlaySoundOrFrequency>2</p5:PlaySoundOrFrequency>
+              </harp:Payload>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:IgnoreElements" />
+            </Expression>
+            <Expression xsi:type="rx:BehaviorSubject">
+              <Name>SoundCardCommands</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="IntProperty">
+                <Value>0</Value>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:IgnoreElements" />
+            </Expression>
+            <Expression xsi:type="rx:BehaviorSubject">
+              <Name>PlaySound</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="IntProperty">
+                <Value>2</Value>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="rx:BehaviorSubject">
+              <Name>SoundIndex</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="IntProperty">
+                <Value>0</Value>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="rx:BehaviorSubject">
+              <Name>LeftIntensity</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="IntProperty">
+                <Value>0</Value>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="rx:BehaviorSubject">
+              <Name>RightIntensity</Name>
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="DoubleProperty">
@@ -9724,68 +9050,79 @@
             <Expression xsi:type="rx:BehaviorSubject">
               <Name>IntendedLNP</Name>
             </Expression>
+            <Expression xsi:type="rx:BehaviorSubject">
+              <Name>TimedFT</Name>
+            </Expression>
           </Nodes>
           <Edges>
+            <Edge From="0" To="1" Label="Source1" />
             <Edge From="1" To="2" Label="Source1" />
-            <Edge From="2" To="3" Label="Source1" />
+            <Edge From="3" To="4" Label="Source1" />
             <Edge From="4" To="5" Label="Source1" />
             <Edge From="6" To="7" Label="Source1" />
             <Edge From="8" To="9" Label="Source1" />
             <Edge From="10" To="11" Label="Source1" />
             <Edge From="12" To="13" Label="Source1" />
-            <Edge From="14" To="15" Label="Source1" />
-            <Edge From="16" To="17" Label="Source1" />
-            <Edge From="18" To="19" Label="Source1" />
+            <Edge From="13" To="14" Label="Source1" />
+            <Edge From="15" To="16" Label="Source1" />
+            <Edge From="17" To="18" Label="Source1" />
             <Edge From="19" To="20" Label="Source1" />
             <Edge From="21" To="22" Label="Source1" />
-            <Edge From="22" To="23" Label="Source1" />
             <Edge From="23" To="24" Label="Source1" />
             <Edge From="25" To="26" Label="Source1" />
-            <Edge From="26" To="27" Label="Source1" />
-            <Edge From="28" To="29" Label="Source1" />
+            <Edge From="27" To="28" Label="Source1" />
+            <Edge From="29" To="30" Label="Source1" />
             <Edge From="30" To="31" Label="Source1" />
             <Edge From="32" To="33" Label="Source1" />
             <Edge From="33" To="34" Label="Source1" />
             <Edge From="34" To="35" Label="Source1" />
             <Edge From="36" To="37" Label="Source1" />
-            <Edge From="38" To="39" Label="Source1" />
-            <Edge From="40" To="41" Label="Source1" />
-            <Edge From="42" To="43" Label="Source1" />
+            <Edge From="37" To="38" Label="Source1" />
+            <Edge From="39" To="40" Label="Source1" />
+            <Edge From="41" To="42" Label="Source1" />
+            <Edge From="43" To="44" Label="Source1" />
             <Edge From="44" To="45" Label="Source1" />
-            <Edge From="46" To="47" Label="Source1" />
-            <Edge From="48" To="49" Label="Source1" />
-            <Edge From="50" To="51" Label="Source1" />
+            <Edge From="45" To="46" Label="Source1" />
+            <Edge From="47" To="48" Label="Source1" />
+            <Edge From="49" To="50" Label="Source1" />
             <Edge From="51" To="52" Label="Source1" />
             <Edge From="53" To="54" Label="Source1" />
-            <Edge From="54" To="55" Label="Source1" />
-            <Edge From="56" To="57" Label="Source1" />
-            <Edge From="58" To="59" Label="Source1" />
-            <Edge From="60" To="61" Label="Source1" />
+            <Edge From="55" To="56" Label="Source1" />
+            <Edge From="57" To="58" Label="Source1" />
+            <Edge From="59" To="60" Label="Source1" />
+            <Edge From="61" To="62" Label="Source1" />
             <Edge From="62" To="63" Label="Source1" />
             <Edge From="64" To="65" Label="Source1" />
-            <Edge From="66" To="67" Label="Source1" />
-            <Edge From="68" To="69" Label="Source1" />
-            <Edge From="70" To="71" Label="Source1" />
-            <Edge From="72" To="73" Label="Source1" />
-            <Edge From="74" To="75" Label="Source1" />
+            <Edge From="65" To="66" Label="Source1" />
+            <Edge From="67" To="68" Label="Source1" />
+            <Edge From="69" To="70" Label="Source1" />
+            <Edge From="71" To="72" Label="Source1" />
+            <Edge From="73" To="74" Label="Source1" />
             <Edge From="75" To="76" Label="Source1" />
             <Edge From="77" To="78" Label="Source1" />
             <Edge From="79" To="80" Label="Source1" />
             <Edge From="81" To="82" Label="Source1" />
             <Edge From="83" To="84" Label="Source1" />
             <Edge From="85" To="86" Label="Source1" />
-            <Edge From="87" To="88" Label="Source1" />
-            <Edge From="89" To="90" Label="Source1" />
-            <Edge From="91" To="92" Label="Source1" />
+            <Edge From="86" To="87" Label="Source1" />
+            <Edge From="88" To="89" Label="Source1" />
+            <Edge From="90" To="91" Label="Source1" />
             <Edge From="92" To="93" Label="Source1" />
             <Edge From="94" To="95" Label="Source1" />
-            <Edge From="95" To="96" Label="Source1" />
             <Edge From="96" To="97" Label="Source1" />
-            <Edge From="97" To="98" Label="Source1" />
             <Edge From="98" To="99" Label="Source1" />
-            <Edge From="99" To="100" Label="Source1" />
             <Edge From="100" To="101" Label="Source1" />
-            <Edge From="101" To="102" Label="Source1" />
+            <Edge From="102" To="103" Label="Source1" />
+            <Edge From="103" To="104" Label="Source1" />
+            <Edge From="105" To="106" Label="Source1" />
+            <Edge From="106" To="107" Label="Source1" />
+            <Edge From="107" To="108" Label="Source1" />
+            <Edge From="108" To="109" Label="Source1" />
+            <Edge From="109" To="110" Label="Source1" />
+            <Edge From="110" To="111" Label="Source1" />
+            <Edge From="111" To="112" Label="Source1" />
+            <Edge From="112" To="113" Label="Source1" />
+            <Edge From="113" To="114" Label="Source1" />
           </Edges>
         </Workflow>
       </Expression>
@@ -10878,7 +10215,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:Timer">
-                      <rx:DueTime>PT0.005S</rx:DueTime>
+                      <rx:DueTime>PT0.007S</rx:DueTime>
                       <rx:Period>PT0S</rx:Period>
                     </Combinator>
                   </Expression>
@@ -10994,7 +10331,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:Delay">
-                      <rx:DueTime>PT0.005S</rx:DueTime>
+                      <rx:DueTime>PT0.007S</rx:DueTime>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="IncludeWorkflow" Path="Extensions\TimestampEvent.bonsai">
@@ -11063,7 +10400,7 @@
                   </Expression>
                   <Expression xsi:type="Subtract" />
                   <Expression xsi:type="MulticastSubject">
-                    <Name>TimedSoundOnset</Name>
+                    <Name>TimedFT</Name>
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="IntProperty">
@@ -11897,7 +11234,7 @@
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="rx:Delay">
-                            <rx:DueTime>PT0.01S</rx:DueTime>
+                            <rx:DueTime>PT0.009S</rx:DueTime>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="Combinator">
