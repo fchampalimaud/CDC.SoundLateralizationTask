@@ -10,80 +10,80 @@ from pathlib import Path
 
 
 class Cues(BaseModel):
-    iti_light: bool = Field()
-    poke_light: bool = Field()
-    fixation_light: bool = Field()
-    penalty_light: bool = Field()
+    iti_light: bool = Field(description="Indicates whether the box LED should turn of when the new trial is ready (true) or not (false).")
+    poke_light: bool = Field(description="Indicates whether the central poke LED should turn of when the new trial is ready (true) or not (false).")
+    fixation_light: bool = Field(description="Indicates whether the central poke LED should blink during fixation time (true) or not (false).")
+    penalty_light: bool = Field(description="Indicates whether the box LED should blink during penalty times (true) or not (false).")
 
 
 class TrialRepetition(BaseModel):
-    repeat_errors: bool = Field()
-    repeat_aborts: bool = Field()
+    repeat_errors: bool = Field(description="Indicates whether the stimulus is repeated after incorrect responses.")
+    repeat_aborts: bool = Field(description="Indicates whether the stimulus is repeated after aborts.")
 
 
 class CriticalPerformance(BaseModel):
-    value: float = Field(ge=0, le=1)
-    use_performance: bool = Field()
+    value: float = Field(description="The minimum correct answer ratio required to advance to the next block (if use_performance is true).", ge=0, le=1)
+    use_performance: bool = Field(description="Indicates whether there is a minimum performance requirement to advance to the next block.")
 
 
 class PenaltyTimes(BaseModel):
-    incorrect: float = Field(ge=0)
-    abort: float = Field(ge=0)
-    fixation_abort: float = Field(ge=0)
+    incorrect: float = Field(description="The penalty time to be applied when the animal answers incorrectly.", ge=0)
+    abort: float = Field(description="The penalty time to be applied when the animal aborts a trial (except if it's a fixation abort).", ge=0)
+    fixation_abort: float = Field(description="The penalty time to be applied in case of a fixation abort.", ge=0)
 
 
 class ReactionTime(BaseModel):
-    turn_sound_off: bool = Field()
-    use_max_rt: bool = Field()
+    turn_sound_off: bool = Field(description="Indicates whether the sound should stop playing when the animal leaves the central poke.")
+    use_max_rt: bool = Field(description="Indicates whether there is a maximum reaction time (true) or not (false).")
 
 
 class FixationTime(BaseModel):
-    opto_exp_mean: float = Field(ge=0)
-    sound_exp_mean: float = Field(ge=0)
+    opto_exp_mean: float = Field(description="The mean value of the random part of the optogenetics onset time (ms), which follows an exponential distribution.", ge=0)
+    sound_exp_mean: float = Field(description="The mean value of the random part of the sound onset time (ms), which follows an exponential distribution.", ge=0)
 
 
 class ITI(BaseModel):
-    value: float = Field(ge=0)
-    can_reset: bool = Field()
+    value: float = Field(description="The intended ITI duration (s).", ge=0)
+    can_reset: bool = Field(description="Indicates whether the ITI partially resets if the animal tries to poke in the CNP before it ends.")
 
 
 class ILD(BaseModel):
-    step_size: float = Field(gt=0)
-    num_steps: int = Field(ge=1)
-    use_log: bool = Field()
-    log_base: float = Field(gt=0)
+    step_size: float = Field(description="The separation between two consecutive |ILD| values.", gt=0)
+    num_steps: int = Field(description="The number of |ILD| values. The final array will contain 2 * num_steps elements to account for both the positive and the negative ILD values.", ge=1)
+    use_log: bool = Field(description="Indicates whether to use logarithmic steps between consecutive ILD values.")
+    log_base: float = Field(description="The base of the logarithm.", gt=0)
 
 
 class ABL(BaseModel):
-    level_abl: float = Field(ge=0)
-    use_level_abl: bool = Field()
-    change_every_trial: bool = Field()
+    level_abl: float = Field(description="The ABL value to use when use_level_abl is true (dB).", ge=0)
+    use_level_abl: bool = Field(description="Indicates whether the level_abl should be used (true) or not (false).")
+    change_every_trial: bool = Field(description="Indicates whether the ABL should change every trial (true) or not (false).")
 
 
 class Sound(BaseModel):
-    abl: ABL = Field()
-    ild: ILD = Field()
+    abl: ABL = Field(description="Contains the ABL-related parameters.")
+    ild: ILD = Field(description="Contains the ILD-related parameters.")
 
 
 class Level(BaseModel):
-    level_id: int = Field()
-    trials_per_block: int = Field(ge = 1)
-    sound: Sound = Field()
-    iti: ITI = Field()
-    max_wait: float = Field(ge=0)
-    fixation_time: FixationTime = Field()
-    reaction_time: ReactionTime = Field()
-    max_mt: float = Field()
-    penalty_times: PenaltyTimes = Field()
-    critical_performance: CriticalPerformance = Field()
-    max_aborts: int = Field(ge=1)
-    trial_repetition: TrialRepetition = Field()
-    speakers: bool = Field()
-    cues: Cues = Field()
+    level_id: int = Field(description="The ID number of the training level.")
+    trials_per_block: int = Field(description="The number of trials that a block of the current level has.", ge = 1)
+    sound: Sound = Field(description="Contains the sound-related parameters.")
+    iti: ITI = Field(description="Contains the parameters related to the Inter-trial Interval.")
+    max_wait: float = Field(description="The maximum allowed time to start the trial (s).", ge=0)
+    fixation_time: FixationTime = Field(description="Contains parameters related to the fixation time.")
+    reaction_time: ReactionTime = Field(description="Contains parameters related to the reaction time.")
+    max_mt: float = Field(description="The maximum allowed movement time (s).")
+    penalty_times: PenaltyTimes = Field(description="Contains the penalty times for different ocasions.")
+    critical_performance: CriticalPerformance = Field(description="Contains the critical performance for the animal to progress to the next level and whether this feature is used or not.")
+    max_aborts: int = Field(description="NOT IMPLEMENTED!!", ge=1)
+    trial_repetition: TrialRepetition = Field(description="Contains the conditions for which a certain trial should be repeated.")
+    speakers: bool = Field(description="Indicates whether the animal is using headphones (true) or box speakers (false). At the moment, this parameter doesn't modify the behavior of the task. Perhaps in the future, it might be possible to input the calibration curves of both the box speakers and the headphones so that this parameter switches to the correct calibration curves.")
+    cues: Cues = Field(description="The parameters that control the use (or not) of visual cues during the task.")
 
 
 class Training(BaseModel):
-    levels: List[Level] = Field()
+    levels: List[Level] = Field(description="The list containing the parameters to be used for each training level.")
 
 
 if __name__ == "__main__":
@@ -100,18 +100,3 @@ if __name__ == "__main__":
         namespace=schema_name,
         serializer=[BonsaiSgenSerializers.JSON, BonsaiSgenSerializers.YAML],
     )
-
-    # experiment_example = Animal(
-    #     animal_id="my_mouse",
-    #     trials=[
-    #         Trial(inter_trial_interval=1.0, reward_amount=1),
-    #         Trial(inter_trial_interval=0.5, reward_amount=0),
-    #     ],
-    # )
-
-    # with open(
-    #     rf"src/json/{_dashed}-example.json",
-    #     "w",
-    #     encoding="utf-8",
-    # ) as f:
-    #     f.write(experiment_example.model_dump_json(indent=2))

@@ -50,64 +50,64 @@ SoundOnsetTime = FixationTimeParts
 
 
 class FixationTime(BaseModel):
-    opto_onset_time: OptoOnsetTime = Field()
-    sound_onset_time: SoundOnsetTime = Field()
+    opto_onset_time: OptoOnsetTime = Field(description="Contains the data related to the Optogenetics Onset Time part of the Fixation Time.")
+    sound_onset_time: SoundOnsetTime = Field(description="Contains the data related to the Sound Onset Time part of the Fixation Time.")
 
 
 class TimeToCnp(BaseModel):
-    timed_value: float = Field(ge=0)
-    max_duration: float = Field(ge=0)
+    timed_value: float = Field(description="The time it took for the animal to start the trial (s).", ge=0)
+    max_duration: float = Field(description="The maximum allowed time to start the trial (s).", ge=0)
 
 
 class ITI(BaseModel):
-    intended_duration: float = Field(ge=0)
-    start_time: float = Field(ge=0)
-    end_time: float = Field(ge=0)
-    timed_duration: float = Field(gt=0)
+    intended_duration: float = Field(description="The intended duration of the ITI (s).", ge=0)
+    start_time: float = Field(description="The timestamp at which the trial started (s).", ge=0)
+    end_time: float = Field(description="The timestamp at which the trial ended (s).", ge=0)
+    timed_duration: float = Field(description="The ITI duration (s).", gt=0)
 
 
 class Sound(BaseModel):
-    abl: float = Field(ge=0)
-    ild: float = Field()
-    sound_index: int = Field(ge=2, le=31)
-    left_amplification: float = Field()
-    right_amplification: float = Field()
+    abl: float = Field(description="The trial ABL value (dB).", ge=0)
+    ild: float = Field(description="The trial ILD value (dB).")
+    sound_index: int = Field(description="The index of the sound that played in the trial.", ge=2, le=31)
+    left_amplification: float = Field(description="The amplification applied to the left speaker in the trial.")
+    right_amplification: float = Field(description="The amplification applied to the right speaker in the trial.")
 
 
 class Session(BaseModel):
-    number: int = Field(description="The number of the current session")
-    type: int = Field(description="The number of the session type")
-    setup_id: int = Field(description="ID of the setup where the animal will perform the current session")
+    number: int = Field(description="The number of the current session.")
+    type: int = Field(description="The number of the session type.")
+    setup_id: int = Field(description="The ID number of the setup where the animal will performed the trial.")
 
 
 class Block(BaseModel):
-    number: int = Field()
-    training_level: int = Field()
-    trials_per_block: int = Field(ge=1)
+    number: int = Field(description="The block number.")
+    training_level: int = Field(description="The training level of the current block.")
+    trials_per_block: int = Field(description="The number of trials that the current block is expected to have.", ge=1)
 
 
 class Trial(BaseModel):
-    number: int = Field(ge=1)
-    start_time: float = Field(ge=0)
-    end_time: float = Field(ge=0)
-    duration: float = Field(gt=0)
+    number: int = Field(description="The trial number.", ge=1)
+    start_time: float = Field(description="The timestamp at which the trial started (s).", ge=0)
+    end_time: float = Field(description="The timestamp at which the trial ended (s).", ge=0)
+    duration: float = Field(description="The trial duration (s).", gt=0)
 
 
 class Output(BaseModel):
-    animal_id: int = Field(description="ID of the animal")
-    trial: Trial = Field()
-    block: Block = Field()
-    session: Session = Field()
-    sound: Sound = Field()
-    iti: ITI = Field()
-    time_to_cnp: TimeToCnp = Field()
-    fixation_time: FixationTime = Field()
-    reaction_time: ReactionTime = Field()
-    movement_time: MovementTime = Field()
-    lnp_time: LnpTime = Field()
-    outcome: Outcome = Field()
-    repeated_trial: bool = Field()
-    optogenetics: Optogenetics = Field()
+    animal_id: int = Field(description="The ID number of the animal.")
+    trial: Trial = Field(description="Contains the trial-related data.")
+    block: Block = Field(description="Contains the block-related data.")
+    session: Session = Field(description="Contains the session-related data.")
+    sound: Sound = Field(description="Contains the sound-related data.")
+    iti: ITI = Field(description="Contains the ITI-related data.")
+    time_to_cnp: TimeToCnp = Field(description="Contains the data related to the time to CNP.")
+    fixation_time: FixationTime = Field(description="Contains the data related to the fixation time.")
+    reaction_time: ReactionTime = Field(description="Contains the data related to the reaction time.")
+    movement_time: MovementTime = Field(description="Contains the data related to the movement time.")
+    lnp_time: LnpTime = Field(description="Contains the data related to the LNP time.")
+    outcome: Outcome = Field(description="Contains the data related to the trial outcome.")
+    repeated_trial: bool = Field(description="Indicates whether the current trial is a repetition of the previous trial (true) or not (false).")
+    optogenetics: Optogenetics = Field(description="Contains the data related to optogenetics.")
 
 
 if __name__ == "__main__":
@@ -124,18 +124,3 @@ if __name__ == "__main__":
         namespace=schema_name,
         serializer=[BonsaiSgenSerializers.JSON, BonsaiSgenSerializers.YAML],
     )
-
-    # experiment_example = Animal(
-    #     animal_id="my_mouse",
-    #     trials=[
-    #         Trial(inter_trial_interval=1.0, reward_amount=1),
-    #         Trial(inter_trial_interval=0.5, reward_amount=0),
-    #     ],
-    # )
-
-    # with open(
-    #     rf"src/json/{_dashed}-example.json",
-    #     "w",
-    #     encoding="utf-8",
-    # ) as f:
-    #     f.write(experiment_example.model_dump_json(indent=2))
