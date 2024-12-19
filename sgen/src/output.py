@@ -9,40 +9,40 @@ from pathlib import Path
 
 
 class Optogenetics(BaseModel):
-    opto_trial: bool = Field()
-    duration: float = Field(ge=0)
-    left_power: float = Field(ge=0)
-    right_power: float = Field(ge=0)
+    opto_trial: bool = Field(description="Indicates if optogenetics was used in the current trial.")
+    duration: float = Field(description="The duration of the optogenetics used during the trial (s).", ge=0)
+    left_power: float = Field(description="The power used in the optogenetics protocol for the left side. NOT IMPLEMENTED!!!", ge=0)
+    right_power: float = Field(description="The power used in the optogenetics protocol for the right side. NOT IMPLEMENTED!!!", ge=0)
 
 
 class Outcome(BaseModel):
-    response_poke: int = Field(ge=-1, le=1)
-    value: int = Field(ge=-8, le=2)
-    block_performance: float = Field(ge=0, le=1)
-    block_abort_ratio: float = Field(ge=0, le=1)
+    response_poke: int = Field(description="The answer given by the animal in the current trial.", ge=-1, le=1)
+    value: int = Field(description="The outcome of the current trial.", ge=-8, le=2)
+    block_performance: float = Field(description="The block performance.", ge=0, le=1)
+    block_abort_ratio: float = Field(description="The block abort ratio.", ge=0, le=1)
 
 
 class LnpTime(BaseModel):
-    intended_duration: float = Field(ge=0)
-    timed_duration: float = Field(ge=0)
+    intended_duration: float = Field(description="The minimum allowed LNP time (s).", ge=0)
+    timed_duration: float = Field(description="The timed LNP time (s).", ge=0)
 
 
 class MovementTime(BaseModel):
-    max_duration: float = Field(ge=0)
-    timed_duration: float = Field(ge=0)
+    max_duration: float = Field(description="The maximum allowed movement time (s).", ge=0)
+    timed_duration: float = Field(description="The timed movement time (s).", ge=0)
 
 
 class ReactionTime(BaseModel):
-    base_time: float = Field(ge=0)
-    max_duration: float = Field(ge=0)
-    timed_duration: float = Field(ge=0)
+    base_time: float = Field(description="The minimum allowed reaction time (s).", ge=0)
+    max_duration: float = Field(description="The maximum allowed reaction time (s).", ge=0)
+    timed_duration: float = Field(description="The timed reaction time (s).", ge=0)
 
 
 class FixationTimeParts(BaseModel):
-    base_time: float = Field(ge=0)
-    exp_mean: float = Field(ge=0)
-    intended_duration: float = Field(ge=0)
-    timed_duration: float = Field(ge=0)
+    base_time: float = Field(description="The constant part of the fixation time (ms).", ge=0)
+    exp_mean: float = Field(description="The mean value of the random part of the fixation time (ms), which follows an exponential distribution.", ge=0)
+    intended_duration: float = Field(description="The intended duration for this part of the fixation time (ms).", ge=0)
+    timed_duration: float = Field(description="The timed duration for this part of the fixation time (s).", ge=0)
 
 
 OptoOnsetTime = FixationTimeParts
