@@ -32,8 +32,12 @@ namespace Output
             _trialsPerBlock = other._trialsPerBlock;
         }
     
+        /// <summary>
+        /// The block number.
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("number", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="number")]
+        [System.ComponentModel.DescriptionAttribute("The block number.")]
         public int Number
         {
             get
@@ -46,8 +50,12 @@ namespace Output
             }
         }
     
+        /// <summary>
+        /// The training level of the current block.
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("training_level", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="training_level")]
+        [System.ComponentModel.DescriptionAttribute("The training level of the current block.")]
         public int TrainingLevel
         {
             get
@@ -60,8 +68,12 @@ namespace Output
             }
         }
     
+        /// <summary>
+        /// The number of trials that the current block is expected to have.
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("trials_per_block", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="trials_per_block")]
+        [System.ComponentModel.DescriptionAttribute("The number of trials that the current block is expected to have.")]
         public int TrialsPerBlock
         {
             get
@@ -127,9 +139,14 @@ namespace Output
             _soundOnsetTime = other._soundOnsetTime;
         }
     
+        /// <summary>
+        /// Contains the data related to the Optogenetics Onset Time part of the Fixation Time.
+        /// </summary>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         [Newtonsoft.Json.JsonPropertyAttribute("opto_onset_time", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="opto_onset_time")]
+        [System.ComponentModel.DescriptionAttribute("Contains the data related to the Optogenetics Onset Time part of the Fixation Tim" +
+            "e.")]
         public FixationTimeParts OptoOnsetTime
         {
             get
@@ -142,9 +159,13 @@ namespace Output
             }
         }
     
+        /// <summary>
+        /// Contains the data related to the Sound Onset Time part of the Fixation Time.
+        /// </summary>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         [Newtonsoft.Json.JsonPropertyAttribute("sound_onset_time", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="sound_onset_time")]
+        [System.ComponentModel.DescriptionAttribute("Contains the data related to the Sound Onset Time part of the Fixation Time.")]
         public FixationTimeParts SoundOnsetTime
         {
             get
@@ -215,8 +236,12 @@ namespace Output
             _timedDuration = other._timedDuration;
         }
     
+        /// <summary>
+        /// The constant part of the fixation time (ms).
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("base_time", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="base_time")]
+        [System.ComponentModel.DescriptionAttribute("The constant part of the fixation time (ms).")]
         public double BaseTime
         {
             get
@@ -229,8 +254,13 @@ namespace Output
             }
         }
     
+        /// <summary>
+        /// The mean value of the random part of the fixation time (ms), which follows an exponential distribution.
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("exp_mean", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="exp_mean")]
+        [System.ComponentModel.DescriptionAttribute("The mean value of the random part of the fixation time (ms), which follows an exp" +
+            "onential distribution.")]
         public double ExpMean
         {
             get
@@ -243,8 +273,12 @@ namespace Output
             }
         }
     
+        /// <summary>
+        /// The intended duration for this part of the fixation time (ms).
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("intended_duration", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="intended_duration")]
+        [System.ComponentModel.DescriptionAttribute("The intended duration for this part of the fixation time (ms).")]
         public double IntendedDuration
         {
             get
@@ -257,8 +291,12 @@ namespace Output
             }
         }
     
+        /// <summary>
+        /// The timed duration for this part of the fixation time (s).
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("timed_duration", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="timed_duration")]
+        [System.ComponentModel.DescriptionAttribute("The timed duration for this part of the fixation time (s).")]
         public double TimedDuration
         {
             get
@@ -331,8 +369,12 @@ namespace Output
             _timedDuration = other._timedDuration;
         }
     
+        /// <summary>
+        /// The intended duration of the ITI (s).
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("intended_duration", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="intended_duration")]
+        [System.ComponentModel.DescriptionAttribute("The intended duration of the ITI (s).")]
         public double IntendedDuration
         {
             get
@@ -345,8 +387,12 @@ namespace Output
             }
         }
     
+        /// <summary>
+        /// The timestamp at which the trial started (s).
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("start_time", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="start_time")]
+        [System.ComponentModel.DescriptionAttribute("The timestamp at which the trial started (s).")]
         public double StartTime
         {
             get
@@ -359,8 +405,12 @@ namespace Output
             }
         }
     
+        /// <summary>
+        /// The timestamp at which the trial ended (s).
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("end_time", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="end_time")]
+        [System.ComponentModel.DescriptionAttribute("The timestamp at which the trial ended (s).")]
         public double EndTime
         {
             get
@@ -373,8 +423,12 @@ namespace Output
             }
         }
     
+        /// <summary>
+        /// The ITI duration (s).
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("timed_duration", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="timed_duration")]
+        [System.ComponentModel.DescriptionAttribute("The ITI duration (s).")]
         public double TimedDuration
         {
             get
@@ -441,8 +495,12 @@ namespace Output
             _timedDuration = other._timedDuration;
         }
     
+        /// <summary>
+        /// The minimum allowed LNP time (s).
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("intended_duration", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="intended_duration")]
+        [System.ComponentModel.DescriptionAttribute("The minimum allowed LNP time (s).")]
         public double IntendedDuration
         {
             get
@@ -455,8 +513,12 @@ namespace Output
             }
         }
     
+        /// <summary>
+        /// The timed LNP time (s).
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("timed_duration", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="timed_duration")]
+        [System.ComponentModel.DescriptionAttribute("The timed LNP time (s).")]
         public double TimedDuration
         {
             get
@@ -521,8 +583,12 @@ namespace Output
             _timedDuration = other._timedDuration;
         }
     
+        /// <summary>
+        /// The maximum allowed movement time (s).
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("max_duration", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="max_duration")]
+        [System.ComponentModel.DescriptionAttribute("The maximum allowed movement time (s).")]
         public double MaxDuration
         {
             get
@@ -535,8 +601,12 @@ namespace Output
             }
         }
     
+        /// <summary>
+        /// The timed movement time (s).
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("timed_duration", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="timed_duration")]
+        [System.ComponentModel.DescriptionAttribute("The timed movement time (s).")]
         public double TimedDuration
         {
             get
@@ -607,8 +677,12 @@ namespace Output
             _rightPower = other._rightPower;
         }
     
+        /// <summary>
+        /// Indicates if optogenetics was used in the current trial.
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("opto_trial", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="opto_trial")]
+        [System.ComponentModel.DescriptionAttribute("Indicates if optogenetics was used in the current trial.")]
         public bool OptoTrial
         {
             get
@@ -621,8 +695,12 @@ namespace Output
             }
         }
     
+        /// <summary>
+        /// The duration of the optogenetics used during the trial (s).
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("duration", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="duration")]
+        [System.ComponentModel.DescriptionAttribute("The duration of the optogenetics used during the trial (s).")]
         public double Duration
         {
             get
@@ -635,8 +713,13 @@ namespace Output
             }
         }
     
+        /// <summary>
+        /// The power used in the optogenetics protocol for the left side. NOT IMPLEMENTED!!!
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("left_power", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="left_power")]
+        [System.ComponentModel.DescriptionAttribute("The power used in the optogenetics protocol for the left side. NOT IMPLEMENTED!!!" +
+            "")]
         public double LeftPower
         {
             get
@@ -649,8 +732,13 @@ namespace Output
             }
         }
     
+        /// <summary>
+        /// The power used in the optogenetics protocol for the right side. NOT IMPLEMENTED!!!
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("right_power", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="right_power")]
+        [System.ComponentModel.DescriptionAttribute("The power used in the optogenetics protocol for the right side. NOT IMPLEMENTED!!" +
+            "!")]
         public double RightPower
         {
             get
@@ -723,8 +811,12 @@ namespace Output
             _blockAbortRatio = other._blockAbortRatio;
         }
     
+        /// <summary>
+        /// The answer given by the animal in the current trial.
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("response_poke", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="response_poke")]
+        [System.ComponentModel.DescriptionAttribute("The answer given by the animal in the current trial.")]
         public int ResponsePoke
         {
             get
@@ -737,8 +829,12 @@ namespace Output
             }
         }
     
+        /// <summary>
+        /// The outcome of the current trial.
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("value", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="value")]
+        [System.ComponentModel.DescriptionAttribute("The outcome of the current trial.")]
         public int Value
         {
             get
@@ -751,8 +847,12 @@ namespace Output
             }
         }
     
+        /// <summary>
+        /// The block performance.
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("block_performance", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="block_performance")]
+        [System.ComponentModel.DescriptionAttribute("The block performance.")]
         public double BlockPerformance
         {
             get
@@ -765,8 +865,12 @@ namespace Output
             }
         }
     
+        /// <summary>
+        /// The block abort ratio.
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("block_abort_ratio", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="block_abort_ratio")]
+        [System.ComponentModel.DescriptionAttribute("The block abort ratio.")]
         public double BlockAbortRatio
         {
             get
@@ -836,8 +940,12 @@ namespace Output
             _timedDuration = other._timedDuration;
         }
     
+        /// <summary>
+        /// The minimum allowed reaction time (s).
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("base_time", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="base_time")]
+        [System.ComponentModel.DescriptionAttribute("The minimum allowed reaction time (s).")]
         public double BaseTime
         {
             get
@@ -850,8 +958,12 @@ namespace Output
             }
         }
     
+        /// <summary>
+        /// The maximum allowed reaction time (s).
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("max_duration", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="max_duration")]
+        [System.ComponentModel.DescriptionAttribute("The maximum allowed reaction time (s).")]
         public double MaxDuration
         {
             get
@@ -864,8 +976,12 @@ namespace Output
             }
         }
     
+        /// <summary>
+        /// The timed reaction time (s).
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("timed_duration", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="timed_duration")]
+        [System.ComponentModel.DescriptionAttribute("The timed reaction time (s).")]
         public double TimedDuration
         {
             get
@@ -935,11 +1051,11 @@ namespace Output
         }
     
         /// <summary>
-        /// The number of the current session
+        /// The number of the current session.
         /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("number", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="number")]
-        [System.ComponentModel.DescriptionAttribute("The number of the current session")]
+        [System.ComponentModel.DescriptionAttribute("The number of the current session.")]
         public int Number
         {
             get
@@ -953,11 +1069,11 @@ namespace Output
         }
     
         /// <summary>
-        /// The number of the session type
+        /// The number of the session type.
         /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("type", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="type")]
-        [System.ComponentModel.DescriptionAttribute("The number of the session type")]
+        [System.ComponentModel.DescriptionAttribute("The number of the session type.")]
         public int Type
         {
             get
@@ -971,11 +1087,11 @@ namespace Output
         }
     
         /// <summary>
-        /// ID of the setup where the animal will perform the current session
+        /// The ID number of the setup where the animal will performed the trial.
         /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("setup_id", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="setup_id")]
-        [System.ComponentModel.DescriptionAttribute("ID of the setup where the animal will perform the current session")]
+        [System.ComponentModel.DescriptionAttribute("The ID number of the setup where the animal will performed the trial.")]
         public int SetupId
         {
             get
@@ -1050,8 +1166,12 @@ namespace Output
             _rightAmplification = other._rightAmplification;
         }
     
+        /// <summary>
+        /// The trial ABL value (dB).
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("abl", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="abl")]
+        [System.ComponentModel.DescriptionAttribute("The trial ABL value (dB).")]
         public double Abl
         {
             get
@@ -1064,8 +1184,12 @@ namespace Output
             }
         }
     
+        /// <summary>
+        /// The trial ILD value (dB).
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("ild", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="ild")]
+        [System.ComponentModel.DescriptionAttribute("The trial ILD value (dB).")]
         public double Ild
         {
             get
@@ -1078,8 +1202,12 @@ namespace Output
             }
         }
     
+        /// <summary>
+        /// The index of the sound that played in the trial.
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("sound_index", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="sound_index")]
+        [System.ComponentModel.DescriptionAttribute("The index of the sound that played in the trial.")]
         public int SoundIndex
         {
             get
@@ -1092,8 +1220,12 @@ namespace Output
             }
         }
     
+        /// <summary>
+        /// The amplification applied to the left speaker in the trial.
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("left_amplification", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="left_amplification")]
+        [System.ComponentModel.DescriptionAttribute("The amplification applied to the left speaker in the trial.")]
         public double LeftAmplification
         {
             get
@@ -1106,8 +1238,12 @@ namespace Output
             }
         }
     
+        /// <summary>
+        /// The amplification applied to the right speaker in the trial.
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("right_amplification", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="right_amplification")]
+        [System.ComponentModel.DescriptionAttribute("The amplification applied to the right speaker in the trial.")]
         public double RightAmplification
         {
             get
@@ -1175,8 +1311,12 @@ namespace Output
             _maxDuration = other._maxDuration;
         }
     
+        /// <summary>
+        /// The time it took for the animal to start the trial (s).
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("timed_value", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="timed_value")]
+        [System.ComponentModel.DescriptionAttribute("The time it took for the animal to start the trial (s).")]
         public double TimedValue
         {
             get
@@ -1189,8 +1329,12 @@ namespace Output
             }
         }
     
+        /// <summary>
+        /// The maximum allowed time to start the trial (s).
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("max_duration", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="max_duration")]
+        [System.ComponentModel.DescriptionAttribute("The maximum allowed time to start the trial (s).")]
         public double MaxDuration
         {
             get
@@ -1261,8 +1405,12 @@ namespace Output
             _duration = other._duration;
         }
     
+        /// <summary>
+        /// The trial number.
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("number", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="number")]
+        [System.ComponentModel.DescriptionAttribute("The trial number.")]
         public int Number
         {
             get
@@ -1275,8 +1423,12 @@ namespace Output
             }
         }
     
+        /// <summary>
+        /// The timestamp at which the trial started (s).
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("start_time", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="start_time")]
+        [System.ComponentModel.DescriptionAttribute("The timestamp at which the trial started (s).")]
         public double StartTime
         {
             get
@@ -1289,8 +1441,12 @@ namespace Output
             }
         }
     
+        /// <summary>
+        /// The timestamp at which the trial ended (s).
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("end_time", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="end_time")]
+        [System.ComponentModel.DescriptionAttribute("The timestamp at which the trial ended (s).")]
         public double EndTime
         {
             get
@@ -1303,8 +1459,12 @@ namespace Output
             }
         }
     
+        /// <summary>
+        /// The trial duration (s).
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("duration", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="duration")]
+        [System.ComponentModel.DescriptionAttribute("The trial duration (s).")]
         public double Duration
         {
             get
@@ -1408,11 +1568,11 @@ namespace Output
         }
     
         /// <summary>
-        /// ID of the animal
+        /// The ID number of the animal.
         /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("animal_id", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="animal_id")]
-        [System.ComponentModel.DescriptionAttribute("ID of the animal")]
+        [System.ComponentModel.DescriptionAttribute("The ID number of the animal.")]
         public int AnimalId
         {
             get
@@ -1425,9 +1585,13 @@ namespace Output
             }
         }
     
+        /// <summary>
+        /// Contains the trial-related data.
+        /// </summary>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         [Newtonsoft.Json.JsonPropertyAttribute("trial", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="trial")]
+        [System.ComponentModel.DescriptionAttribute("Contains the trial-related data.")]
         public Trial Trial
         {
             get
@@ -1440,9 +1604,13 @@ namespace Output
             }
         }
     
+        /// <summary>
+        /// Contains the block-related data.
+        /// </summary>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         [Newtonsoft.Json.JsonPropertyAttribute("block", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="block")]
+        [System.ComponentModel.DescriptionAttribute("Contains the block-related data.")]
         public Block Block
         {
             get
@@ -1455,9 +1623,13 @@ namespace Output
             }
         }
     
+        /// <summary>
+        /// Contains the session-related data.
+        /// </summary>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         [Newtonsoft.Json.JsonPropertyAttribute("session", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="session")]
+        [System.ComponentModel.DescriptionAttribute("Contains the session-related data.")]
         public Session Session
         {
             get
@@ -1470,9 +1642,13 @@ namespace Output
             }
         }
     
+        /// <summary>
+        /// Contains the sound-related data.
+        /// </summary>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         [Newtonsoft.Json.JsonPropertyAttribute("sound", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="sound")]
+        [System.ComponentModel.DescriptionAttribute("Contains the sound-related data.")]
         public Sound Sound
         {
             get
@@ -1485,9 +1661,13 @@ namespace Output
             }
         }
     
+        /// <summary>
+        /// Contains the ITI-related data.
+        /// </summary>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         [Newtonsoft.Json.JsonPropertyAttribute("iti", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="iti")]
+        [System.ComponentModel.DescriptionAttribute("Contains the ITI-related data.")]
         public ITI Iti
         {
             get
@@ -1500,9 +1680,13 @@ namespace Output
             }
         }
     
+        /// <summary>
+        /// Contains the data related to the time to CNP.
+        /// </summary>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         [Newtonsoft.Json.JsonPropertyAttribute("time_to_cnp", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="time_to_cnp")]
+        [System.ComponentModel.DescriptionAttribute("Contains the data related to the time to CNP.")]
         public TimeToCnp TimeToCnp
         {
             get
@@ -1515,9 +1699,13 @@ namespace Output
             }
         }
     
+        /// <summary>
+        /// Contains the data related to the fixation time.
+        /// </summary>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         [Newtonsoft.Json.JsonPropertyAttribute("fixation_time", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="fixation_time")]
+        [System.ComponentModel.DescriptionAttribute("Contains the data related to the fixation time.")]
         public FixationTime FixationTime
         {
             get
@@ -1530,9 +1718,13 @@ namespace Output
             }
         }
     
+        /// <summary>
+        /// Contains the data related to the reaction time.
+        /// </summary>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         [Newtonsoft.Json.JsonPropertyAttribute("reaction_time", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="reaction_time")]
+        [System.ComponentModel.DescriptionAttribute("Contains the data related to the reaction time.")]
         public ReactionTime ReactionTime
         {
             get
@@ -1545,9 +1737,13 @@ namespace Output
             }
         }
     
+        /// <summary>
+        /// Contains the data related to the movement time.
+        /// </summary>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         [Newtonsoft.Json.JsonPropertyAttribute("movement_time", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="movement_time")]
+        [System.ComponentModel.DescriptionAttribute("Contains the data related to the movement time.")]
         public MovementTime MovementTime
         {
             get
@@ -1560,9 +1756,13 @@ namespace Output
             }
         }
     
+        /// <summary>
+        /// Contains the data related to the LNP time.
+        /// </summary>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         [Newtonsoft.Json.JsonPropertyAttribute("lnp_time", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="lnp_time")]
+        [System.ComponentModel.DescriptionAttribute("Contains the data related to the LNP time.")]
         public LnpTime LnpTime
         {
             get
@@ -1575,9 +1775,13 @@ namespace Output
             }
         }
     
+        /// <summary>
+        /// Contains the data related to the trial outcome.
+        /// </summary>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         [Newtonsoft.Json.JsonPropertyAttribute("outcome", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="outcome")]
+        [System.ComponentModel.DescriptionAttribute("Contains the data related to the trial outcome.")]
         public Outcome Outcome
         {
             get
@@ -1590,8 +1794,13 @@ namespace Output
             }
         }
     
+        /// <summary>
+        /// Indicates whether the current trial is a repetition of the previous trial (true) or not (false).
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("repeated_trial", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="repeated_trial")]
+        [System.ComponentModel.DescriptionAttribute("Indicates whether the current trial is a repetition of the previous trial (true) " +
+            "or not (false).")]
         public bool RepeatedTrial
         {
             get
@@ -1604,9 +1813,13 @@ namespace Output
             }
         }
     
+        /// <summary>
+        /// Contains the data related to optogenetics.
+        /// </summary>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         [Newtonsoft.Json.JsonPropertyAttribute("optogenetics", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="optogenetics")]
+        [System.ComponentModel.DescriptionAttribute("Contains the data related to optogenetics.")]
         public Optogenetics Optogenetics
         {
             get

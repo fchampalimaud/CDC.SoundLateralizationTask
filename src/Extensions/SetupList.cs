@@ -35,8 +35,12 @@ namespace SetupList
             _pokeDutyCycle = other._pokeDutyCycle;
         }
     
+        /// <summary>
+        /// The period of the blinking of the box LED (ms).
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("box_period", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="box_period")]
+        [System.ComponentModel.DescriptionAttribute("The period of the blinking of the box LED (ms).")]
         public double BoxPeriod
         {
             get
@@ -49,8 +53,12 @@ namespace SetupList
             }
         }
     
+        /// <summary>
+        /// The value representing the proportion of time the LED is on when the box LED is blinking. If it's 0 it means that the LED is always off, if it's 1 it means the LED is always on and, for example, if it's 0.5 it means that the LED is on half of the time and off for the remaining half.
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("box_duty_cycle", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="box_duty_cycle")]
+        [System.ComponentModel.DescriptionAttribute(@"The value representing the proportion of time the LED is on when the box LED is blinking. If it's 0 it means that the LED is always off, if it's 1 it means the LED is always on and, for example, if it's 0.5 it means that the LED is on half of the time and off for the remaining half.")]
         public double BoxDutyCycle
         {
             get
@@ -63,8 +71,12 @@ namespace SetupList
             }
         }
     
+        /// <summary>
+        /// The period of the blinking of the central poke LED (ms).
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("poke_period", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="poke_period")]
+        [System.ComponentModel.DescriptionAttribute("The period of the blinking of the central poke LED (ms).")]
         public double PokePeriod
         {
             get
@@ -77,8 +89,12 @@ namespace SetupList
             }
         }
     
+        /// <summary>
+        /// The value representing the proportion of time the LED is on when the central poke LED is blinking. If it's 0 it means that the LED is always off, if it's 1 it means the LED is always on and, for example, if it's 0.5 it means that the LED is on half of the time and off for the remaining half.
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("poke_duty_cycle", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="poke_duty_cycle")]
+        [System.ComponentModel.DescriptionAttribute(@"The value representing the proportion of time the LED is on when the central poke LED is blinking. If it's 0 it means that the LED is always off, if it's 1 it means the LED is always on and, for example, if it's 0.5 it means that the LED is on half of the time and off for the remaining half.")]
         public double PokeDutyCycle
         {
             get
@@ -142,8 +158,13 @@ namespace SetupList
             _lowToHigh = other._lowToHigh;
         }
     
+        /// <summary>
+        /// Indicates whether the poke is a low-to-high (true) or a high-to-low (false) device.
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("low_to_high", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="low_to_high")]
+        [System.ComponentModel.DescriptionAttribute("Indicates whether the poke is a low-to-high (true) or a high-to-low (false) devic" +
+            "e.")]
         public bool LowToHigh
         {
             get
@@ -209,6 +230,8 @@ namespace SetupList
     
         private System.Collections.Generic.List<Sound> _sounds = new System.Collections.Generic.List<Sound>();
     
+        private bool _useCamera;
+    
         public Setup()
         {
         }
@@ -223,10 +246,15 @@ namespace SetupList
             _lights = other._lights;
             _syringePumps = other._syringePumps;
             _sounds = other._sounds;
+            _useCamera = other._useCamera;
         }
     
+        /// <summary>
+        /// The ID number of the setup.
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("setup_id", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="setup_id")]
+        [System.ComponentModel.DescriptionAttribute("The ID number of the setup.")]
         public int SetupId
         {
             get
@@ -239,9 +267,13 @@ namespace SetupList
             }
         }
     
+        /// <summary>
+        /// Contains parameters related to the left poke.
+        /// </summary>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         [Newtonsoft.Json.JsonPropertyAttribute("left_poke", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="left_poke")]
+        [System.ComponentModel.DescriptionAttribute("Contains parameters related to the left poke.")]
         public Poke LeftPoke
         {
             get
@@ -254,9 +286,13 @@ namespace SetupList
             }
         }
     
+        /// <summary>
+        /// Contains parameters related to the center poke.
+        /// </summary>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         [Newtonsoft.Json.JsonPropertyAttribute("center_poke", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="center_poke")]
+        [System.ComponentModel.DescriptionAttribute("Contains parameters related to the center poke.")]
         public Poke CenterPoke
         {
             get
@@ -269,9 +305,13 @@ namespace SetupList
             }
         }
     
+        /// <summary>
+        /// Contains parameters related to the right poke.
+        /// </summary>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         [Newtonsoft.Json.JsonPropertyAttribute("right_poke", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="right_poke")]
+        [System.ComponentModel.DescriptionAttribute("Contains parameters related to the right poke.")]
         public Poke RightPoke
         {
             get
@@ -284,9 +324,13 @@ namespace SetupList
             }
         }
     
+        /// <summary>
+        /// Contains parameters related to the speakers.
+        /// </summary>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         [Newtonsoft.Json.JsonPropertyAttribute("speakers", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="speakers")]
+        [System.ComponentModel.DescriptionAttribute("Contains parameters related to the speakers.")]
         public Speakers Speakers
         {
             get
@@ -299,9 +343,13 @@ namespace SetupList
             }
         }
     
+        /// <summary>
+        /// Contains parameters related to the box and poke LEDs.
+        /// </summary>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         [Newtonsoft.Json.JsonPropertyAttribute("lights", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="lights")]
+        [System.ComponentModel.DescriptionAttribute("Contains parameters related to the box and poke LEDs.")]
         public Lights Lights
         {
             get
@@ -314,9 +362,13 @@ namespace SetupList
             }
         }
     
+        /// <summary>
+        /// Contains the parameters related to the SyringePumps.
+        /// </summary>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         [Newtonsoft.Json.JsonPropertyAttribute("syringe_pumps", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="syringe_pumps")]
+        [System.ComponentModel.DescriptionAttribute("Contains the parameters related to the SyringePumps.")]
         public SyringePumps SyringePumps
         {
             get
@@ -329,9 +381,13 @@ namespace SetupList
             }
         }
     
+        /// <summary>
+        /// The list with information regarding the sounds uploaded to the Harp SoundCard.
+        /// </summary>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         [Newtonsoft.Json.JsonPropertyAttribute("sounds", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="sounds")]
+        [System.ComponentModel.DescriptionAttribute("The list with information regarding the sounds uploaded to the Harp SoundCard.")]
         public System.Collections.Generic.List<Sound> Sounds
         {
             get
@@ -341,6 +397,24 @@ namespace SetupList
             set
             {
                 _sounds = value;
+            }
+        }
+    
+        /// <summary>
+        /// Indicates whether the setup has a camera (true) or not (false).
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("use_camera", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="use_camera")]
+        [System.ComponentModel.DescriptionAttribute("Indicates whether the setup has a camera (true) or not (false).")]
+        public bool UseCamera
+        {
+            get
+            {
+                return _useCamera;
+            }
+            set
+            {
+                _useCamera = value;
             }
         }
     
@@ -363,7 +437,8 @@ namespace SetupList
             stringBuilder.Append("speakers = " + _speakers + ", ");
             stringBuilder.Append("lights = " + _lights + ", ");
             stringBuilder.Append("syringe_pumps = " + _syringePumps + ", ");
-            stringBuilder.Append("sounds = " + _sounds);
+            stringBuilder.Append("sounds = " + _sounds + ", ");
+            stringBuilder.Append("use_camera = " + _useCamera);
             return true;
         }
     
@@ -402,8 +477,12 @@ namespace SetupList
             _duration = other._duration;
         }
     
+        /// <summary>
+        /// The index number where the noise is stored in the Harp SoundCard.
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("index", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="index")]
+        [System.ComponentModel.DescriptionAttribute("The index number where the noise is stored in the Harp SoundCard.")]
         public int Index
         {
             get
@@ -416,8 +495,12 @@ namespace SetupList
             }
         }
     
+        /// <summary>
+        /// The duration of the noise (s).
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("duration", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="duration")]
+        [System.ComponentModel.DescriptionAttribute("The duration of the noise (s).")]
         public double Duration
         {
             get
@@ -488,8 +571,12 @@ namespace SetupList
             _rightIntercept = other._rightIntercept;
         }
     
+        /// <summary>
+        /// The slope of the calibration curve of the left speaker.
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("left_slope", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="left_slope")]
+        [System.ComponentModel.DescriptionAttribute("The slope of the calibration curve of the left speaker.")]
         public double LeftSlope
         {
             get
@@ -502,8 +589,12 @@ namespace SetupList
             }
         }
     
+        /// <summary>
+        /// The intercept of the calibration curve of the left speaker.
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("left_intercept", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="left_intercept")]
+        [System.ComponentModel.DescriptionAttribute("The intercept of the calibration curve of the left speaker.")]
         public double LeftIntercept
         {
             get
@@ -516,8 +607,12 @@ namespace SetupList
             }
         }
     
+        /// <summary>
+        /// The slope of the calibration curve of the right speaker.
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("right_slope", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="right_slope")]
+        [System.ComponentModel.DescriptionAttribute("The slope of the calibration curve of the right speaker.")]
         public double RightSlope
         {
             get
@@ -530,8 +625,12 @@ namespace SetupList
             }
         }
     
+        /// <summary>
+        /// The intercept of the calibration curve of the right speaker.
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("right_intercept", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="right_intercept")]
+        [System.ComponentModel.DescriptionAttribute("The intercept of the calibration curve of the right speaker.")]
         public double RightIntercept
         {
             get
@@ -607,8 +706,13 @@ namespace SetupList
             _rightIntercept = other._rightIntercept;
         }
     
+        /// <summary>
+        /// Indicates whether the setup uses valves (false) or Harp SyringePumps (true) for reward delivery.
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("use_pumps", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="use_pumps")]
+        [System.ComponentModel.DescriptionAttribute("Indicates whether the setup uses valves (false) or Harp SyringePumps (true) for r" +
+            "eward delivery.")]
         public bool UsePumps
         {
             get
@@ -621,8 +725,12 @@ namespace SetupList
             }
         }
     
+        /// <summary>
+        /// The slope of the calibration curve of the left Harp SyringePump.
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("left_slope", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="left_slope")]
+        [System.ComponentModel.DescriptionAttribute("The slope of the calibration curve of the left Harp SyringePump.")]
         public double LeftSlope
         {
             get
@@ -635,8 +743,12 @@ namespace SetupList
             }
         }
     
+        /// <summary>
+        /// The intercept of the calibration curve of the left Harp SyringePump.
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("left_intercept", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="left_intercept")]
+        [System.ComponentModel.DescriptionAttribute("The intercept of the calibration curve of the left Harp SyringePump.")]
         public double LeftIntercept
         {
             get
@@ -649,8 +761,12 @@ namespace SetupList
             }
         }
     
+        /// <summary>
+        /// The slope of the calibration curve of the right Harp SyringePump.
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("right_slope", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="right_slope")]
+        [System.ComponentModel.DescriptionAttribute("The slope of the calibration curve of the right Harp SyringePump.")]
         public double RightSlope
         {
             get
@@ -663,8 +779,12 @@ namespace SetupList
             }
         }
     
+        /// <summary>
+        /// The intercept of the calibration curve of the right Harp SyringePump.
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("right_intercept", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="right_intercept")]
+        [System.ComponentModel.DescriptionAttribute("The intercept of the calibration curve of the right Harp SyringePump.")]
         public double RightIntercept
         {
             get
@@ -729,9 +849,13 @@ namespace SetupList
             _setups = other._setups;
         }
     
+        /// <summary>
+        /// The list with the parameters for every existent setup.
+        /// </summary>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         [Newtonsoft.Json.JsonPropertyAttribute("setups", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="setups")]
+        [System.ComponentModel.DescriptionAttribute("The list with the parameters for every existent setup.")]
         public System.Collections.Generic.List<Setup> Setups
         {
             get

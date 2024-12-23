@@ -1,0 +1,39 @@
+{
+  "definitions": {
+    "Print": {
+      "properties": {
+        "text": {
+          "description": "The text to be printed.",
+          "title": "Text",
+          "type": "string"
+        },
+        "units": {
+          "description": "The units of the quantity being printed (if necessary).",
+          "title": "Units",
+          "type": "string"
+        }
+      },
+      "required": [
+        "text",
+        "units"
+      ],
+      "title": "Print",
+      "type": "object"
+    }
+  },
+  "properties": {
+    "prints": {
+      "additionalProperties": {
+        "$ref": "#/definitions/Print"
+      },
+      "description": "The dictionary containing all of the task's prints.",
+      "title": "Prints",
+      "type": "object"
+    }
+  },
+  "required": [
+    "prints"
+  ],
+  "title": "PrintDict",
+  "type": "object"
+}

@@ -49,6 +49,7 @@ class Setup(BaseModel):
     lights: Lights = Field(description="Contains parameters related to the box and poke LEDs.")
     syringe_pumps: SyringePumps = Field(description="Contains the parameters related to the SyringePumps.")
     sounds: List[Sound] = Field(description="The list with information regarding the sounds uploaded to the Harp SoundCard.")
+    use_camera: bool = Field(description="Indicates whether the setup has a camera (true) or not (false).")
 
 
 class SetupList(BaseModel):

@@ -29,9 +29,14 @@ namespace Animal
             _soundOnsetTime = other._soundOnsetTime;
         }
     
+        /// <summary>
+        /// Contains parameters related to the Optogenetics Onset Time part of the Fixation Time. The units of each of the parameters is milliseconds.
+        /// </summary>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         [Newtonsoft.Json.JsonPropertyAttribute("opto_onset_time", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="opto_onset_time")]
+        [System.ComponentModel.DescriptionAttribute("Contains parameters related to the Optogenetics Onset Time part of the Fixation T" +
+            "ime. The units of each of the parameters is milliseconds.")]
         public TimeConstrains OptoOnsetTime
         {
             get
@@ -44,9 +49,14 @@ namespace Animal
             }
         }
     
+        /// <summary>
+        /// Contains parameters related to the Sound Onset Time part of the Fixation Time. The units of each of the parameters is milliseconds.
+        /// </summary>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         [Newtonsoft.Json.JsonPropertyAttribute("sound_onset_time", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="sound_onset_time")]
+        [System.ComponentModel.DescriptionAttribute("Contains parameters related to the Sound Onset Time part of the Fixation Time. Th" +
+            "e units of each of the parameters is milliseconds.")]
         public TimeConstrains SoundOnsetTime
         {
             get
@@ -123,8 +133,12 @@ namespace Animal
             _pulseDuration = other._pulseDuration;
         }
     
+        /// <summary>
+        /// Indicates whether optogenetics is used or not.
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("use_opto", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="use_opto")]
+        [System.ComponentModel.DescriptionAttribute("Indicates whether optogenetics is used or not.")]
         public bool UseOpto
         {
             get
@@ -137,8 +151,12 @@ namespace Animal
             }
         }
     
+        /// <summary>
+        /// The duration of the optogenetics stimulation/inhibition protocol (s).
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("duration", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="duration")]
+        [System.ComponentModel.DescriptionAttribute("The duration of the optogenetics stimulation/inhibition protocol (s).")]
         public double Duration
         {
             get
@@ -151,8 +169,13 @@ namespace Animal
             }
         }
     
+        /// <summary>
+        /// Indicates whether the optogenetics protocol uses pulses of light (true) or a continuous emission (false).
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("use_pulses", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="use_pulses")]
+        [System.ComponentModel.DescriptionAttribute("Indicates whether the optogenetics protocol uses pulses of light (true) or a cont" +
+            "inuous emission (false).")]
         public bool UsePulses
         {
             get
@@ -165,8 +188,13 @@ namespace Animal
             }
         }
     
+        /// <summary>
+        /// The duration of the ramp of the optogenetics protocol (ms). It only works when use_pulses is false.
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("ramp_time", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="ramp_time")]
+        [System.ComponentModel.DescriptionAttribute("The duration of the ramp of the optogenetics protocol (ms). It only works when us" +
+            "e_pulses is false.")]
         public double RampTime
         {
             get
@@ -179,8 +207,12 @@ namespace Animal
             }
         }
     
+        /// <summary>
+        /// The frequency of the pulses (Hz). It only works when use_pulses is true.
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("frequency", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="frequency")]
+        [System.ComponentModel.DescriptionAttribute("The frequency of the pulses (Hz). It only works when use_pulses is true.")]
         public double Frequency
         {
             get
@@ -193,8 +225,12 @@ namespace Animal
             }
         }
     
+        /// <summary>
+        /// The duration of a single pulse (ms). It only works when use_pulses is true.
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("pulse_duration", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="pulse_duration")]
+        [System.ComponentModel.DescriptionAttribute("The duration of a single pulse (ms). It only works when use_pulses is true.")]
         public double PulseDuration
         {
             get
@@ -282,11 +318,11 @@ namespace Animal
         }
     
         /// <summary>
-        /// The number of the current session
+        /// The number of the current session.
         /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("number", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="number")]
-        [System.ComponentModel.DescriptionAttribute("The number of the current session")]
+        [System.ComponentModel.DescriptionAttribute("The number of the current session.")]
         public int Number
         {
             get
@@ -300,12 +336,12 @@ namespace Animal
         }
     
         /// <summary>
-        /// The duration of the session
+        /// The duration of the session (in the hh:mm:ss format).
         /// </summary>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         [Newtonsoft.Json.JsonPropertyAttribute("duration", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="duration")]
-        [System.ComponentModel.DescriptionAttribute("The duration of the session")]
+        [System.ComponentModel.DescriptionAttribute("The duration of the session (in the hh:mm:ss format).")]
         public System.TimeSpan Duration
         {
             get
@@ -319,11 +355,11 @@ namespace Animal
         }
     
         /// <summary>
-        /// The number of the session type
+        /// The number of the session type.
         /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("type", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="type")]
-        [System.ComponentModel.DescriptionAttribute("The number of the session type")]
+        [System.ComponentModel.DescriptionAttribute("The number of the session type.")]
         public int Type
         {
             get
@@ -337,11 +373,11 @@ namespace Animal
         }
     
         /// <summary>
-        /// ID of the setup where the animal will perform the current session
+        /// The ID number of the setup where the animal will perform the session.
         /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("setup_id", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="setup_id")]
-        [System.ComponentModel.DescriptionAttribute("ID of the setup where the animal will perform the current session")]
+        [System.ComponentModel.DescriptionAttribute("The ID number of the setup where the animal will perform the session.")]
         public int SetupId
         {
             get
@@ -354,8 +390,12 @@ namespace Animal
             }
         }
     
+        /// <summary>
+        /// The number of the first trial of the session.
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("starting_trial_number", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="starting_trial_number")]
+        [System.ComponentModel.DescriptionAttribute("The number of the first trial of the session.")]
         public int StartingTrialNumber
         {
             get
@@ -368,8 +408,12 @@ namespace Animal
             }
         }
     
+        /// <summary>
+        /// The number of the first block of the session.
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("starting_block_number", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="starting_block_number")]
+        [System.ComponentModel.DescriptionAttribute("The number of the first block of the session.")]
         public int StartingBlockNumber
         {
             get
@@ -382,8 +426,12 @@ namespace Animal
             }
         }
     
+        /// <summary>
+        /// The training level the animal will start in the current session.
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("starting_training_level", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="starting_training_level")]
+        [System.ComponentModel.DescriptionAttribute("The training level the animal will start in the current session.")]
         public int StartingTrainingLevel
         {
             get
@@ -396,8 +444,13 @@ namespace Animal
             }
         }
     
+        /// <summary>
+        /// The last training level the animal is allowed to progress to in the current session.
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("last_training_level", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="last_training_level")]
+        [System.ComponentModel.DescriptionAttribute("The last training level the animal is allowed to progress to in the current sessi" +
+            "on.")]
         public int LastTrainingLevel
         {
             get
@@ -468,9 +521,13 @@ namespace Animal
             _cycleIld = other._cycleIld;
         }
     
+        /// <summary>
+        /// The list of ABL values to be used in the task (dB SPL).
+        /// </summary>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         [Newtonsoft.Json.JsonPropertyAttribute("abl_list", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="abl_list")]
+        [System.ComponentModel.DescriptionAttribute("The list of ABL values to be used in the task (dB SPL).")]
         public System.Collections.Generic.List<double> AblList
         {
             get
@@ -483,8 +540,12 @@ namespace Animal
             }
         }
     
+        /// <summary>
+        /// If true, the ILD array is shuffled and the ILD is picked by just following the new array order; when the end of the array is reached, the array is shuffled again and the procedure is repeated. Otherwise, an ILD value is randomly picked every trial from the array of ILDs.
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("cycle_ild", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="cycle_ild")]
+        [System.ComponentModel.DescriptionAttribute(@"If true, the ILD array is shuffled and the ILD is picked by just following the new array order; when the end of the array is reached, the array is shuffled again and the procedure is repeated. Otherwise, an ILD value is randomly picked every trial from the array of ILDs.")]
         public bool CycleIld
         {
             get
@@ -552,8 +613,12 @@ namespace Animal
             _target = other._target;
         }
     
+        /// <summary>
+        /// The initial base value.
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("min_value", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="min_value")]
+        [System.ComponentModel.DescriptionAttribute("The initial base value.")]
         public double MinValue
         {
             get
@@ -566,8 +631,13 @@ namespace Animal
             }
         }
     
+        /// <summary>
+        /// The increment to the base value every trial a certain condition is met until the target value is reached.
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("delta", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="delta")]
+        [System.ComponentModel.DescriptionAttribute("The increment to the base value every trial a certain condition is met until the " +
+            "target value is reached.")]
         public double Delta
         {
             get
@@ -580,8 +650,12 @@ namespace Animal
             }
         }
     
+        /// <summary>
+        /// The target value.
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("target", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="target")]
+        [System.ComponentModel.DescriptionAttribute("The target value.")]
         public double Target
         {
             get
@@ -675,11 +749,11 @@ namespace Animal
         }
     
         /// <summary>
-        /// ID of the animal
+        /// The ID number of the animal.
         /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("animal_id", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="animal_id")]
-        [System.ComponentModel.DescriptionAttribute("ID of the animal")]
+        [System.ComponentModel.DescriptionAttribute("The ID number of the animal.")]
         public int AnimalId
         {
             get
@@ -692,9 +766,13 @@ namespace Animal
             }
         }
     
+        /// <summary>
+        /// Contains the session-related parameters.
+        /// </summary>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         [Newtonsoft.Json.JsonPropertyAttribute("session", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="session")]
+        [System.ComponentModel.DescriptionAttribute("Contains the session-related parameters.")]
         public Session Session
         {
             get
@@ -707,9 +785,13 @@ namespace Animal
             }
         }
     
+        /// <summary>
+        /// Contains the sound-related parameters.
+        /// </summary>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         [Newtonsoft.Json.JsonPropertyAttribute("sound", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="sound")]
+        [System.ComponentModel.DescriptionAttribute("Contains the sound-related parameters.")]
         public Sound Sound
         {
             get
@@ -722,9 +804,13 @@ namespace Animal
             }
         }
     
+        /// <summary>
+        /// Contains parameters related to the fixation time.
+        /// </summary>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         [Newtonsoft.Json.JsonPropertyAttribute("fixation_time", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="fixation_time")]
+        [System.ComponentModel.DescriptionAttribute("Contains parameters related to the fixation time.")]
         public FixationTime FixationTime
         {
             get
@@ -737,9 +823,14 @@ namespace Animal
             }
         }
     
+        /// <summary>
+        /// Contains parameters related to the reaction time. The units of each of the parameters is seconds.
+        /// </summary>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         [Newtonsoft.Json.JsonPropertyAttribute("reaction_time", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="reaction_time")]
+        [System.ComponentModel.DescriptionAttribute("Contains parameters related to the reaction time. The units of each of the parame" +
+            "ters is seconds.")]
         public TimeConstrains ReactionTime
         {
             get
@@ -752,8 +843,12 @@ namespace Animal
             }
         }
     
+        /// <summary>
+        /// The maximum allowed reaction time (s).
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("max_reaction_time", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="max_reaction_time")]
+        [System.ComponentModel.DescriptionAttribute("The maximum allowed reaction time (s).")]
         public double MaxReactionTime
         {
             get
@@ -766,8 +861,12 @@ namespace Animal
             }
         }
     
+        /// <summary>
+        /// The minimum allowed movement time (s).
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("min_movement_time", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="min_movement_time")]
+        [System.ComponentModel.DescriptionAttribute("The minimum allowed movement time (s).")]
         public double MinMovementTime
         {
             get
@@ -780,9 +879,14 @@ namespace Animal
             }
         }
     
+        /// <summary>
+        /// Contains parameters related to the LNP (Lateral Nose Poke) time. The units of each of the parameters is seconds.
+        /// </summary>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         [Newtonsoft.Json.JsonPropertyAttribute("lnp_time", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="lnp_time")]
+        [System.ComponentModel.DescriptionAttribute("Contains parameters related to the LNP (Lateral Nose Poke) time. The units of eac" +
+            "h of the parameters is seconds.")]
         public TimeConstrains LnpTime
         {
             get
@@ -795,8 +899,12 @@ namespace Animal
             }
         }
     
+        /// <summary>
+        /// The amount of reward delivered to the animal (uL).
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("base_reward", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="base_reward")]
+        [System.ComponentModel.DescriptionAttribute("The amount of reward delivered to the animal (uL).")]
         public double BaseReward
         {
             get
@@ -809,9 +917,13 @@ namespace Animal
             }
         }
     
+        /// <summary>
+        /// Contains the optogenetics-related parameters.
+        /// </summary>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         [Newtonsoft.Json.JsonPropertyAttribute("optogenetics", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="optogenetics")]
+        [System.ComponentModel.DescriptionAttribute("Contains the optogenetics-related parameters.")]
         public Optogenetics Optogenetics
         {
             get
@@ -824,8 +936,12 @@ namespace Animal
             }
         }
     
+        /// <summary>
+        /// Indicates whether autobias correction should be applied or not.
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("autobias_correction", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="autobias_correction")]
+        [System.ComponentModel.DescriptionAttribute("Indicates whether autobias correction should be applied or not.")]
         public bool AutobiasCorrection
         {
             get

@@ -23,9 +23,7 @@
               <Property Name="Value" DisplayName="PrintCode" />
             </Expression>
             <Expression xsi:type="Combinator">
-              <Combinator xsi:type="IntProperty">
-                <Value>1</Value>
-              </Combinator>
+              <Combinator xsi:type="StringProperty" />
             </Expression>
             <Expression xsi:type="ExternalizedMapping">
               <Property Name="Name" DisplayName="PrintSubjectName" />

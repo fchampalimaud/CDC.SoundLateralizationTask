@@ -3,15 +3,18 @@
     "ABL": {
       "properties": {
         "level_abl": {
+          "description": "The ABL value to use when use_level_abl is true (dB).",
           "minimum": 0.0,
           "title": "Level Abl",
           "type": "number"
         },
         "use_level_abl": {
+          "description": "Indicates whether the level_abl should be used (true) or not (false).",
           "title": "Use Level Abl",
           "type": "boolean"
         },
         "change_every_trial": {
+          "description": "Indicates whether the ABL should change every trial (true) or not (false).",
           "title": "Change Every Trial",
           "type": "boolean"
         }
@@ -27,12 +30,14 @@
     "CriticalPerformance": {
       "properties": {
         "value": {
+          "description": "The minimum correct answer ratio required to advance to the next block (if use_performance is true).",
           "maximum": 1.0,
           "minimum": 0.0,
           "title": "Value",
           "type": "number"
         },
         "use_performance": {
+          "description": "Indicates whether there is a minimum performance requirement to advance to the next block.",
           "title": "Use Performance",
           "type": "boolean"
         }
@@ -47,18 +52,22 @@
     "Cues": {
       "properties": {
         "iti_light": {
+          "description": "Indicates whether the box LED should turn of when the new trial is ready (true) or not (false).",
           "title": "Iti Light",
           "type": "boolean"
         },
         "poke_light": {
+          "description": "Indicates whether the central poke LED should turn of when the new trial is ready (true) or not (false).",
           "title": "Poke Light",
           "type": "boolean"
         },
         "fixation_light": {
+          "description": "Indicates whether the central poke LED should blink during fixation time (true) or not (false).",
           "title": "Fixation Light",
           "type": "boolean"
         },
         "penalty_light": {
+          "description": "Indicates whether the box LED should blink during penalty times (true) or not (false).",
           "title": "Penalty Light",
           "type": "boolean"
         }
@@ -75,11 +84,13 @@
     "FixationTime": {
       "properties": {
         "opto_exp_mean": {
+          "description": "The mean value of the random part of the optogenetics onset time (ms), which follows an exponential distribution.",
           "minimum": 0.0,
           "title": "Opto Exp Mean",
           "type": "number"
         },
         "sound_exp_mean": {
+          "description": "The mean value of the random part of the sound onset time (ms), which follows an exponential distribution.",
           "minimum": 0.0,
           "title": "Sound Exp Mean",
           "type": "number"
@@ -95,20 +106,24 @@
     "ILD": {
       "properties": {
         "step_size": {
+          "description": "The separation between two consecutive |ILD| values.",
           "exclusiveMinimum": 0.0,
           "title": "Step Size",
           "type": "number"
         },
         "num_steps": {
+          "description": "The number of |ILD| values. The final array will contain 2 * num_steps elements to account for both the positive and the negative ILD values.",
           "minimum": 1,
           "title": "Num Steps",
           "type": "integer"
         },
         "use_log": {
+          "description": "Indicates whether to use logarithmic steps between consecutive ILD values.",
           "title": "Use Log",
           "type": "boolean"
         },
         "log_base": {
+          "description": "The base of the logarithm.",
           "exclusiveMinimum": 0.0,
           "title": "Log Base",
           "type": "number"
@@ -126,11 +141,13 @@
     "ITI": {
       "properties": {
         "value": {
+          "description": "The intended ITI duration (s).",
           "minimum": 0.0,
           "title": "Value",
           "type": "number"
         },
         "can_reset": {
+          "description": "Indicates whether the ITI partially resets if the animal tries to poke in the CNP before it ends.",
           "title": "Can Reset",
           "type": "boolean"
         }
@@ -145,55 +162,69 @@
     "Level": {
       "properties": {
         "level_id": {
+          "description": "The ID number of the training level.",
           "title": "Level Id",
           "type": "integer"
         },
         "trials_per_block": {
+          "description": "The number of trials that a block of the current level has.",
           "minimum": 1,
           "title": "Trials Per Block",
           "type": "integer"
         },
         "sound": {
-          "$ref": "#/definitions/Sound"
+          "$ref": "#/definitions/Sound",
+          "description": "Contains the sound-related parameters."
         },
         "iti": {
-          "$ref": "#/definitions/ITI"
+          "$ref": "#/definitions/ITI",
+          "description": "Contains the parameters related to the Inter-trial Interval."
         },
         "max_wait": {
+          "description": "The maximum allowed time to start the trial (s).",
           "minimum": 0.0,
           "title": "Max Wait",
           "type": "number"
         },
         "fixation_time": {
-          "$ref": "#/definitions/FixationTime"
+          "$ref": "#/definitions/FixationTime",
+          "description": "Contains parameters related to the fixation time."
         },
         "reaction_time": {
-          "$ref": "#/definitions/ReactionTime"
+          "$ref": "#/definitions/ReactionTime",
+          "description": "Contains parameters related to the reaction time."
         },
         "max_mt": {
+          "description": "The maximum allowed movement time (s).",
           "title": "Max Mt",
           "type": "number"
         },
         "penalty_times": {
-          "$ref": "#/definitions/PenaltyTimes"
+          "$ref": "#/definitions/PenaltyTimes",
+          "description": "Contains the penalty times for different ocasions."
         },
         "critical_performance": {
-          "$ref": "#/definitions/CriticalPerformance"
+          "$ref": "#/definitions/CriticalPerformance",
+          "description": "Contains the critical performance for the animal to progress to the next level and whether this feature is used or not."
         },
         "max_aborts": {
+          "description": "NOT IMPLEMENTED!!",
           "minimum": 1,
           "title": "Max Aborts",
           "type": "integer"
         },
         "trial_repetition": {
-          "$ref": "#/definitions/TrialRepetition"
+          "$ref": "#/definitions/TrialRepetition",
+          "description": "Contains the conditions for which a certain trial should be repeated."
         },
         "speakers": {
+          "description": "Indicates whether the animal is using headphones (true) or box speakers (false). At the moment, this parameter doesn't modify the behavior of the task. Perhaps in the future, it might be possible to input the calibration curves of both the box speakers and the headphones so that this parameter switches to the correct calibration curves.",
           "title": "Speakers",
           "type": "boolean"
         },
         "cues": {
-          "$ref": "#/definitions/Cues"
+          "$ref": "#/definitions/Cues",
+          "description": "The parameters that control the use (or not) of visual cues during the task."
         }
       },
       "required": [
@@ -218,16 +249,19 @@
     "PenaltyTimes": {
       "properties": {
         "incorrect": {
+          "description": "The penalty time to be applied when the animal answers incorrectly.",
           "minimum": 0.0,
           "title": "Incorrect",
           "type": "number"
         },
         "abort": {
+          "description": "The penalty time to be applied when the animal aborts a trial (except if it's a fixation abort).",
           "minimum": 0.0,
           "title": "Abort",
           "type": "number"
         },
         "fixation_abort": {
+          "description": "The penalty time to be applied in case of a fixation abort.",
           "minimum": 0.0,
           "title": "Fixation Abort",
           "type": "number"
@@ -244,10 +278,12 @@
     "ReactionTime": {
       "properties": {
         "turn_sound_off": {
+          "description": "Indicates whether the sound should stop playing when the animal leaves the central poke.",
           "title": "Turn Sound Off",
           "type": "boolean"
         },
         "use_max_rt": {
+          "description": "Indicates whether there is a maximum reaction time (true) or not (false).",
           "title": "Use Max Rt",
           "type": "boolean"
         }
@@ -262,10 +298,12 @@
     "Sound": {
       "properties": {
         "abl": {
-          "$ref": "#/definitions/ABL"
+          "$ref": "#/definitions/ABL",
+          "description": "Contains the ABL-related parameters."
         },
         "ild": {
-          "$ref": "#/definitions/ILD"
+          "$ref": "#/definitions/ILD",
+          "description": "Contains the ILD-related parameters."
         }
       },
       "required": [
@@ -278,10 +316,12 @@
     "TrialRepetition": {
       "properties": {
         "repeat_errors": {
+          "description": "Indicates whether the stimulus is repeated after incorrect responses.",
           "title": "Repeat Errors",
           "type": "boolean"
         },
         "repeat_aborts": {
+          "description": "Indicates whether the stimulus is repeated after aborts.",
           "title": "Repeat Aborts",
           "type": "boolean"
         }
@@ -296,6 +336,7 @@
   },
   "properties": {
     "levels": {
+      "description": "The list containing the parameters to be used for each training level.",
       "items": {
         "$ref": "#/definitions/Level"
       },

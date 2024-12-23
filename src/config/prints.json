@@ -1,0 +1,16 @@
+{
+    "$schema": "schemas/print-dict-schema.json",
+    "prints": {
+        "new_trial": {"text": "=================================================", "units": ""},
+        "iti": {"text": "Timed ITI: ", "units": "s"},
+        "correct_side": {"text": "Trial's correct answer: ", "units": ""},
+        "start_trial": {"text": "The animal can now poke", "units": ""},
+        "fixation": {"text": "The animal is now fixed", "units": ""},
+        "fixation_time": {"text": "Timed FT: ", "units": "s"},
+        "stimulus_presentation": {"text": "Sound playing", "units": ""},
+        "movement_time": {"text": "The animal can now make a decision", "units": ""},
+        "outcome": {"text": "", "units": ""},
+        "penalty_time": {"text": "Penalty time: ", "units": "s"},
+        "reward_delivery": {"text": "Reward given: ", "units": ""}
+    }
+}

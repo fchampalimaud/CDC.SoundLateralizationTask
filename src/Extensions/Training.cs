@@ -32,8 +32,12 @@ namespace Training
             _changeEveryTrial = other._changeEveryTrial;
         }
     
+        /// <summary>
+        /// The ABL value to use when use_level_abl is true (dB).
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("level_abl", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="level_abl")]
+        [System.ComponentModel.DescriptionAttribute("The ABL value to use when use_level_abl is true (dB).")]
         public double LevelAbl
         {
             get
@@ -46,8 +50,12 @@ namespace Training
             }
         }
     
+        /// <summary>
+        /// Indicates whether the level_abl should be used (true) or not (false).
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("use_level_abl", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="use_level_abl")]
+        [System.ComponentModel.DescriptionAttribute("Indicates whether the level_abl should be used (true) or not (false).")]
         public bool UseLevelAbl
         {
             get
@@ -60,8 +68,12 @@ namespace Training
             }
         }
     
+        /// <summary>
+        /// Indicates whether the ABL should change every trial (true) or not (false).
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("change_every_trial", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="change_every_trial")]
+        [System.ComponentModel.DescriptionAttribute("Indicates whether the ABL should change every trial (true) or not (false).")]
         public bool ChangeEveryTrial
         {
             get
@@ -127,8 +139,13 @@ namespace Training
             _usePerformance = other._usePerformance;
         }
     
+        /// <summary>
+        /// The minimum correct answer ratio required to advance to the next block (if use_performance is true).
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("value", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="value")]
+        [System.ComponentModel.DescriptionAttribute("The minimum correct answer ratio required to advance to the next block (if use_pe" +
+            "rformance is true).")]
         public double Value
         {
             get
@@ -141,8 +158,13 @@ namespace Training
             }
         }
     
+        /// <summary>
+        /// Indicates whether there is a minimum performance requirement to advance to the next block.
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("use_performance", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="use_performance")]
+        [System.ComponentModel.DescriptionAttribute("Indicates whether there is a minimum performance requirement to advance to the ne" +
+            "xt block.")]
         public bool UsePerformance
         {
             get
@@ -213,8 +235,13 @@ namespace Training
             _penaltyLight = other._penaltyLight;
         }
     
+        /// <summary>
+        /// Indicates whether the box LED should turn of when the new trial is ready (true) or not (false).
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("iti_light", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="iti_light")]
+        [System.ComponentModel.DescriptionAttribute("Indicates whether the box LED should turn of when the new trial is ready (true) o" +
+            "r not (false).")]
         public bool ItiLight
         {
             get
@@ -227,8 +254,13 @@ namespace Training
             }
         }
     
+        /// <summary>
+        /// Indicates whether the central poke LED should turn of when the new trial is ready (true) or not (false).
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("poke_light", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="poke_light")]
+        [System.ComponentModel.DescriptionAttribute("Indicates whether the central poke LED should turn of when the new trial is ready" +
+            " (true) or not (false).")]
         public bool PokeLight
         {
             get
@@ -241,8 +273,13 @@ namespace Training
             }
         }
     
+        /// <summary>
+        /// Indicates whether the central poke LED should blink during fixation time (true) or not (false).
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("fixation_light", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="fixation_light")]
+        [System.ComponentModel.DescriptionAttribute("Indicates whether the central poke LED should blink during fixation time (true) o" +
+            "r not (false).")]
         public bool FixationLight
         {
             get
@@ -255,8 +292,13 @@ namespace Training
             }
         }
     
+        /// <summary>
+        /// Indicates whether the box LED should blink during penalty times (true) or not (false).
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("penalty_light", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="penalty_light")]
+        [System.ComponentModel.DescriptionAttribute("Indicates whether the box LED should blink during penalty times (true) or not (fa" +
+            "lse).")]
         public bool PenaltyLight
         {
             get
@@ -323,8 +365,13 @@ namespace Training
             _soundExpMean = other._soundExpMean;
         }
     
+        /// <summary>
+        /// The mean value of the random part of the optogenetics onset time (ms), which follows an exponential distribution.
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("opto_exp_mean", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="opto_exp_mean")]
+        [System.ComponentModel.DescriptionAttribute("The mean value of the random part of the optogenetics onset time (ms), which foll" +
+            "ows an exponential distribution.")]
         public double OptoExpMean
         {
             get
@@ -337,8 +384,13 @@ namespace Training
             }
         }
     
+        /// <summary>
+        /// The mean value of the random part of the sound onset time (ms), which follows an exponential distribution.
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("sound_exp_mean", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="sound_exp_mean")]
+        [System.ComponentModel.DescriptionAttribute("The mean value of the random part of the sound onset time (ms), which follows an " +
+            "exponential distribution.")]
         public double SoundExpMean
         {
             get
@@ -409,8 +461,12 @@ namespace Training
             _logBase = other._logBase;
         }
     
+        /// <summary>
+        /// The separation between two consecutive |ILD| values.
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("step_size", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="step_size")]
+        [System.ComponentModel.DescriptionAttribute("The separation between two consecutive |ILD| values.")]
         public double StepSize
         {
             get
@@ -423,8 +479,13 @@ namespace Training
             }
         }
     
+        /// <summary>
+        /// The number of |ILD| values. The final array will contain 2 * num_steps elements to account for both the positive and the negative ILD values.
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("num_steps", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="num_steps")]
+        [System.ComponentModel.DescriptionAttribute("The number of |ILD| values. The final array will contain 2 * num_steps elements t" +
+            "o account for both the positive and the negative ILD values.")]
         public int NumSteps
         {
             get
@@ -437,8 +498,12 @@ namespace Training
             }
         }
     
+        /// <summary>
+        /// Indicates whether to use logarithmic steps between consecutive ILD values.
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("use_log", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="use_log")]
+        [System.ComponentModel.DescriptionAttribute("Indicates whether to use logarithmic steps between consecutive ILD values.")]
         public bool UseLog
         {
             get
@@ -451,8 +516,12 @@ namespace Training
             }
         }
     
+        /// <summary>
+        /// The base of the logarithm.
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("log_base", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="log_base")]
+        [System.ComponentModel.DescriptionAttribute("The base of the logarithm.")]
         public double LogBase
         {
             get
@@ -519,8 +588,12 @@ namespace Training
             _canReset = other._canReset;
         }
     
+        /// <summary>
+        /// The intended ITI duration (s).
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("value", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="value")]
+        [System.ComponentModel.DescriptionAttribute("The intended ITI duration (s).")]
         public double Value
         {
             get
@@ -533,8 +606,13 @@ namespace Training
             }
         }
     
+        /// <summary>
+        /// Indicates whether the ITI partially resets if the animal tries to poke in the CNP before it ends.
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("can_reset", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="can_reset")]
+        [System.ComponentModel.DescriptionAttribute("Indicates whether the ITI partially resets if the animal tries to poke in the CNP" +
+            " before it ends.")]
         public bool CanReset
         {
             get
@@ -635,8 +713,12 @@ namespace Training
             _cues = other._cues;
         }
     
+        /// <summary>
+        /// The ID number of the training level.
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("level_id", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="level_id")]
+        [System.ComponentModel.DescriptionAttribute("The ID number of the training level.")]
         public int LevelId
         {
             get
@@ -649,8 +731,12 @@ namespace Training
             }
         }
     
+        /// <summary>
+        /// The number of trials that a block of the current level has.
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("trials_per_block", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="trials_per_block")]
+        [System.ComponentModel.DescriptionAttribute("The number of trials that a block of the current level has.")]
         public int TrialsPerBlock
         {
             get
@@ -663,9 +749,13 @@ namespace Training
             }
         }
     
+        /// <summary>
+        /// Contains the sound-related parameters.
+        /// </summary>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         [Newtonsoft.Json.JsonPropertyAttribute("sound", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="sound")]
+        [System.ComponentModel.DescriptionAttribute("Contains the sound-related parameters.")]
         public Sound Sound
         {
             get
@@ -678,9 +768,13 @@ namespace Training
             }
         }
     
+        /// <summary>
+        /// Contains the parameters related to the Inter-trial Interval.
+        /// </summary>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         [Newtonsoft.Json.JsonPropertyAttribute("iti", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="iti")]
+        [System.ComponentModel.DescriptionAttribute("Contains the parameters related to the Inter-trial Interval.")]
         public ITI Iti
         {
             get
@@ -693,8 +787,12 @@ namespace Training
             }
         }
     
+        /// <summary>
+        /// The maximum allowed time to start the trial (s).
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("max_wait", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="max_wait")]
+        [System.ComponentModel.DescriptionAttribute("The maximum allowed time to start the trial (s).")]
         public double MaxWait
         {
             get
@@ -707,9 +805,13 @@ namespace Training
             }
         }
     
+        /// <summary>
+        /// Contains parameters related to the fixation time.
+        /// </summary>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         [Newtonsoft.Json.JsonPropertyAttribute("fixation_time", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="fixation_time")]
+        [System.ComponentModel.DescriptionAttribute("Contains parameters related to the fixation time.")]
         public FixationTime FixationTime
         {
             get
@@ -722,9 +824,13 @@ namespace Training
             }
         }
     
+        /// <summary>
+        /// Contains parameters related to the reaction time.
+        /// </summary>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         [Newtonsoft.Json.JsonPropertyAttribute("reaction_time", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="reaction_time")]
+        [System.ComponentModel.DescriptionAttribute("Contains parameters related to the reaction time.")]
         public ReactionTime ReactionTime
         {
             get
@@ -737,8 +843,12 @@ namespace Training
             }
         }
     
+        /// <summary>
+        /// The maximum allowed movement time (s).
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("max_mt", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="max_mt")]
+        [System.ComponentModel.DescriptionAttribute("The maximum allowed movement time (s).")]
         public double MaxMt
         {
             get
@@ -751,9 +861,13 @@ namespace Training
             }
         }
     
+        /// <summary>
+        /// Contains the penalty times for different ocasions.
+        /// </summary>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         [Newtonsoft.Json.JsonPropertyAttribute("penalty_times", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="penalty_times")]
+        [System.ComponentModel.DescriptionAttribute("Contains the penalty times for different ocasions.")]
         public PenaltyTimes PenaltyTimes
         {
             get
@@ -766,9 +880,14 @@ namespace Training
             }
         }
     
+        /// <summary>
+        /// Contains the critical performance for the animal to progress to the next level and whether this feature is used or not.
+        /// </summary>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         [Newtonsoft.Json.JsonPropertyAttribute("critical_performance", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="critical_performance")]
+        [System.ComponentModel.DescriptionAttribute("Contains the critical performance for the animal to progress to the next level an" +
+            "d whether this feature is used or not.")]
         public CriticalPerformance CriticalPerformance
         {
             get
@@ -781,8 +900,12 @@ namespace Training
             }
         }
     
+        /// <summary>
+        /// NOT IMPLEMENTED!!
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("max_aborts", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="max_aborts")]
+        [System.ComponentModel.DescriptionAttribute("NOT IMPLEMENTED!!")]
         public int MaxAborts
         {
             get
@@ -795,9 +918,13 @@ namespace Training
             }
         }
     
+        /// <summary>
+        /// Contains the conditions for which a certain trial should be repeated.
+        /// </summary>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         [Newtonsoft.Json.JsonPropertyAttribute("trial_repetition", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="trial_repetition")]
+        [System.ComponentModel.DescriptionAttribute("Contains the conditions for which a certain trial should be repeated.")]
         public TrialRepetition TrialRepetition
         {
             get
@@ -810,8 +937,12 @@ namespace Training
             }
         }
     
+        /// <summary>
+        /// Indicates whether the animal is using headphones (true) or box speakers (false). At the moment, this parameter doesn't modify the behavior of the task. Perhaps in the future, it might be possible to input the calibration curves of both the box speakers and the headphones so that this parameter switches to the correct calibration curves.
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("speakers", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="speakers")]
+        [System.ComponentModel.DescriptionAttribute(@"Indicates whether the animal is using headphones (true) or box speakers (false). At the moment, this parameter doesn't modify the behavior of the task. Perhaps in the future, it might be possible to input the calibration curves of both the box speakers and the headphones so that this parameter switches to the correct calibration curves.")]
         public bool Speakers
         {
             get
@@ -824,9 +955,13 @@ namespace Training
             }
         }
     
+        /// <summary>
+        /// The parameters that control the use (or not) of visual cues during the task.
+        /// </summary>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         [Newtonsoft.Json.JsonPropertyAttribute("cues", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="cues")]
+        [System.ComponentModel.DescriptionAttribute("The parameters that control the use (or not) of visual cues during the task.")]
         public Cues Cues
         {
             get
@@ -906,8 +1041,12 @@ namespace Training
             _fixationAbort = other._fixationAbort;
         }
     
+        /// <summary>
+        /// The penalty time to be applied when the animal answers incorrectly.
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("incorrect", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="incorrect")]
+        [System.ComponentModel.DescriptionAttribute("The penalty time to be applied when the animal answers incorrectly.")]
         public double Incorrect
         {
             get
@@ -920,8 +1059,13 @@ namespace Training
             }
         }
     
+        /// <summary>
+        /// The penalty time to be applied when the animal aborts a trial (except if it's a fixation abort).
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("abort", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="abort")]
+        [System.ComponentModel.DescriptionAttribute("The penalty time to be applied when the animal aborts a trial (except if it\'s a f" +
+            "ixation abort).")]
         public double Abort
         {
             get
@@ -934,8 +1078,12 @@ namespace Training
             }
         }
     
+        /// <summary>
+        /// The penalty time to be applied in case of a fixation abort.
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("fixation_abort", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="fixation_abort")]
+        [System.ComponentModel.DescriptionAttribute("The penalty time to be applied in case of a fixation abort.")]
         public double FixationAbort
         {
             get
@@ -1001,8 +1149,13 @@ namespace Training
             _useMaxRt = other._useMaxRt;
         }
     
+        /// <summary>
+        /// Indicates whether the sound should stop playing when the animal leaves the central poke.
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("turn_sound_off", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="turn_sound_off")]
+        [System.ComponentModel.DescriptionAttribute("Indicates whether the sound should stop playing when the animal leaves the centra" +
+            "l poke.")]
         public bool TurnSoundOff
         {
             get
@@ -1015,8 +1168,12 @@ namespace Training
             }
         }
     
+        /// <summary>
+        /// Indicates whether there is a maximum reaction time (true) or not (false).
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("use_max_rt", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="use_max_rt")]
+        [System.ComponentModel.DescriptionAttribute("Indicates whether there is a maximum reaction time (true) or not (false).")]
         public bool UseMaxRt
         {
             get
@@ -1081,9 +1238,13 @@ namespace Training
             _ild = other._ild;
         }
     
+        /// <summary>
+        /// Contains the ABL-related parameters.
+        /// </summary>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         [Newtonsoft.Json.JsonPropertyAttribute("abl", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="abl")]
+        [System.ComponentModel.DescriptionAttribute("Contains the ABL-related parameters.")]
         public ABL Abl
         {
             get
@@ -1096,9 +1257,13 @@ namespace Training
             }
         }
     
+        /// <summary>
+        /// Contains the ILD-related parameters.
+        /// </summary>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         [Newtonsoft.Json.JsonPropertyAttribute("ild", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="ild")]
+        [System.ComponentModel.DescriptionAttribute("Contains the ILD-related parameters.")]
         public ILD Ild
         {
             get
@@ -1163,8 +1328,12 @@ namespace Training
             _repeatAborts = other._repeatAborts;
         }
     
+        /// <summary>
+        /// Indicates whether the stimulus is repeated after incorrect responses.
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("repeat_errors", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="repeat_errors")]
+        [System.ComponentModel.DescriptionAttribute("Indicates whether the stimulus is repeated after incorrect responses.")]
         public bool RepeatErrors
         {
             get
@@ -1177,8 +1346,12 @@ namespace Training
             }
         }
     
+        /// <summary>
+        /// Indicates whether the stimulus is repeated after aborts.
+        /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("repeat_aborts", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="repeat_aborts")]
+        [System.ComponentModel.DescriptionAttribute("Indicates whether the stimulus is repeated after aborts.")]
         public bool RepeatAborts
         {
             get
@@ -1240,9 +1413,13 @@ namespace Training
             _levels = other._levels;
         }
     
+        /// <summary>
+        /// The list containing the parameters to be used for each training level.
+        /// </summary>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         [Newtonsoft.Json.JsonPropertyAttribute("levels", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="levels")]
+        [System.ComponentModel.DescriptionAttribute("The list containing the parameters to be used for each training level.")]
         public System.Collections.Generic.List<Level> Levels
         {
             get

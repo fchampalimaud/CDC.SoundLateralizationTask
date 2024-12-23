@@ -3,10 +3,12 @@
     "FixationTime": {
       "properties": {
         "opto_onset_time": {
-          "$ref": "#/definitions/TimeConstrains"
+          "$ref": "#/definitions/TimeConstrains",
+          "description": "Contains parameters related to the Optogenetics Onset Time part of the Fixation Time. The units of each of the parameters is milliseconds."
         },
         "sound_onset_time": {
-          "$ref": "#/definitions/TimeConstrains"
+          "$ref": "#/definitions/TimeConstrains",
+          "description": "Contains parameters related to the Sound Onset Time part of the Fixation Time. The units of each of the parameters is milliseconds."
         }
       },
       "required": [
@@ -19,29 +21,35 @@
     "Optogenetics": {
       "properties": {
         "use_opto": {
+          "description": "Indicates whether optogenetics is used or not.",
           "title": "Use Opto",
           "type": "boolean"
         },
         "duration": {
+          "description": "The duration of the optogenetics stimulation/inhibition protocol (s).",
           "minimum": 0.0,
           "title": "Duration",
           "type": "number"
         },
         "use_pulses": {
+          "description": "Indicates whether the optogenetics protocol uses pulses of light (true) or a continuous emission (false).",
           "title": "Use Pulses",
           "type": "boolean"
         },
         "ramp_time": {
+          "description": "The duration of the ramp of the optogenetics protocol (ms). It only works when use_pulses is false.",
           "minimum": 0.0,
           "title": "Ramp Time",
           "type": "number"
         },
         "frequency": {
+          "description": "The frequency of the pulses (Hz). It only works when use_pulses is true.",
           "exclusiveMinimum": 0.0,
           "title": "Frequency",
           "type": "number"
         },
         "pulse_duration": {
+          "description": "The duration of a single pulse (ms). It only works when use_pulses is true.",
           "minimum": 0.0,
           "title": "Pulse Duration",
           "type": "number"
@@ -61,42 +69,46 @@
     "Session": {
       "properties": {
         "number": {
-          "description": "The number of the current session",
+          "description": "The number of the current session.",
           "title": "Number",
           "type": "integer"
         },
         "duration": {
-          "description": "The duration of the session",
+          "description": "The duration of the session (in the hh:mm:ss format).",
           "format": "duration",
           "title": "Duration",
           "type": "string"
         },
         "type": {
-          "description": "The number of the session type",
+          "description": "The number of the session type.",
           "title": "Type",
           "type": "integer"
         },
         "setup_id": {
-          "description": "ID of the setup where the animal will perform the current session",
+          "description": "The ID number of the setup where the animal will perform the session.",
           "title": "Setup Id",
           "type": "integer"
         },
         "starting_trial_number": {
+          "description": "The number of the first trial of the session.",
           "minimum": 1,
           "title": "Starting Trial Number",
           "type": "integer"
         },
         "starting_block_number": {
+          "description": "The number of the first block of the session.",
           "minimum": 1,
           "title": "Starting Block Number",
           "type": "integer"
         },
         "starting_training_level": {
+          "description": "The training level the animal will start in the current session.",
           "minimum": 1,
           "title": "Starting Training Level",
           "type": "integer"
         },
         "last_training_level": {
+          "description": "The last training level the animal is allowed to progress to in the current session.",
           "minimum": 1,
           "title": "Last Training Level",
           "type": "integer"
@@ -118,6 +130,7 @@
     "Sound": {
       "properties": {
         "abl_list": {
+          "description": "The list of ABL values to be used in the task (dB SPL).",
           "items": {
             "type": "number"
           },
@@ -125,6 +138,7 @@
           "type": "array"
         },
         "cycle_ild": {
+          "description": "If true, the ILD array is shuffled and the ILD is picked by just following the new array order; when the end of the array is reached, the array is shuffled again and the procedure is repeated. Otherwise, an ILD value is randomly picked every trial from the array of ILDs.",
           "title": "Cycle Ild",
           "type": "boolean"
         }
@@ -139,16 +153,19 @@
     "TimeConstrains": {
       "properties": {
         "min_value": {
+          "description": "The initial base value.",
           "minimum": 0.0,
           "title": "Min Value",
           "type": "number"
         },
         "delta": {
+          "description": "The increment to the base value every trial a certain condition is met until the target value is reached.",
           "minimum": 0.0,
           "title": "Delta",
           "type": "number"
         },
         "target": {
+          "description": "The target value.",
           "minimum": 0.0,
           "title": "Target",
           "type": "number"
@@ -165,44 +182,54 @@
   },
   "properties": {
     "animal_id": {
-      "description": "ID of the animal",
+      "description": "The ID number of the animal.",
       "title": "Animal Id",
       "type": "integer"
     },
     "session": {
-      "$ref": "#/definitions/Session"
+      "$ref": "#/definitions/Session",
+      "description": "Contains the session-related parameters."
     },
     "sound": {
-      "$ref": "#/definitions/Sound"
+      "$ref": "#/definitions/Sound",
+      "description": "Contains the sound-related parameters."
     },
     "fixation_time": {
-      "$ref": "#/definitions/FixationTime"
+      "$ref": "#/definitions/FixationTime",
+      "description": "Contains parameters related to the fixation time."
     },
     "reaction_time": {
-      "$ref": "#/definitions/TimeConstrains"
+      "$ref": "#/definitions/TimeConstrains",
+      "description": "Contains parameters related to the reaction time. The units of each of the parameters is seconds."
     },
     "max_reaction_time": {
+      "description": "The maximum allowed reaction time (s).",
       "minimum": 0.0,
       "title": "Max Reaction Time",
       "type": "number"
     },
     "min_movement_time": {
+      "description": "The minimum allowed movement time (s).",
       "minimum": 0.0,
       "title": "Min Movement Time",
       "type": "number"
     },
     "lnp_time": {
-      "$ref": "#/definitions/TimeConstrains"
+      "$ref": "#/definitions/TimeConstrains",
+      "description": "Contains parameters related to the LNP (Lateral Nose Poke) time. The units of each of the parameters is seconds."
     },
     "base_reward": {
+      "description": "The amount of reward delivered to the animal (uL).",
       "exclusiveMinimum": 0.0,
       "title": "Base Reward",
       "type": "number"
     },
     "optogenetics": {
-      "$ref": "#/definitions/Optogenetics"
+      "$ref": "#/definitions/Optogenetics",
+      "description": "Contains the optogenetics-related parameters."
     },
     "autobias_correction": {
+      "description": "Indicates whether autobias correction should be applied or not.",
       "title": "Autobias Correction",
       "type": "boolean"
     }
