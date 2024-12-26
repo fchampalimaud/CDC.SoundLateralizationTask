@@ -7,7 +7,7 @@
         "start_trial": {"text": "The animal can now poke", "units": ""},
         "fixation": {"text": "The animal is now fixed", "units": ""},
         "fixation_time": {"text": "Timed FT: ", "units": "s"},
-        "stimulus_presentation": {"text": "Sound playing", "units": ""},
+        "stimulus": {"text": "Sound playing", "units": ""},
         "movement_time": {"text": "The animal can now make a decision", "units": ""},
         "outcome": {"text": "", "units": ""},
         "penalty_time": {"text": "Penalty time: ", "units": "s"},

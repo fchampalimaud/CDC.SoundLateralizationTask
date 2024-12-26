@@ -98,7 +98,7 @@
       <WindowState>Normal</WindowState>
     </EditorDialogSettings>
   </DialogSettings>
-  <DialogSettings>
+  <DialogSettings xsi:type="WorkflowEditorSettings">
     <Visible>false</Visible>
     <Location>
       <X>0</X>
@@ -109,12 +109,24 @@
       <Height>0</Height>
     </Size>
     <WindowState>Normal</WindowState>
+    <EditorDialogSettings>
+      <Visible>false</Visible>
+      <Location>
+        <X>4</X>
+        <Y>4</Y>
+      </Location>
+      <Size>
+        <Width>1499</Width>
+        <Height>999</Height>
+      </Size>
+      <WindowState>Normal</WindowState>
+    </EditorDialogSettings>
   </DialogSettings>
   <DialogSettings xsi:type="WorkflowEditorSettings">
     <Visible>false</Visible>
     <Location>
-      <X>-829</X>
-      <Y>-17</Y>
+      <X>-860</X>
+      <Y>-15</Y>
     </Location>
     <Size>
       <Width>254</Width>
@@ -125,37 +137,136 @@
     <VisualizerSettings>
       <TableLayoutPanelVisualizer>
         <MashupSettings>
-          <VisualizerTypeName>Bonsai.Gui.LabelVisualizer</VisualizerTypeName>
+          <VisualizerTypeName>Bonsai.Gui.TableLayoutPanelVisualizer</VisualizerTypeName>
           <VisualizerSettings>
-            <LabelVisualizer />
+            <TableLayoutPanelVisualizer>
+              <MashupSettings>
+                <VisualizerTypeName>Bonsai.Gui.LabelVisualizer</VisualizerTypeName>
+                <VisualizerSettings>
+                  <LabelVisualizer />
+                </VisualizerSettings>
+              </MashupSettings>
+              <MashupSettings>
+                <VisualizerTypeName>Bonsai.Gui.LabelVisualizer</VisualizerTypeName>
+                <VisualizerSettings>
+                  <LabelVisualizer />
+                </VisualizerSettings>
+              </MashupSettings>
+              <MashupSettings>
+                <VisualizerTypeName>Bonsai.Gui.LabelVisualizer</VisualizerTypeName>
+                <VisualizerSettings>
+                  <LabelVisualizer />
+                </VisualizerSettings>
+              </MashupSettings>
+              <MashupSettings>
+                <VisualizerTypeName>Bonsai.Gui.LabelVisualizer</VisualizerTypeName>
+                <VisualizerSettings>
+                  <LabelVisualizer />
+                </VisualizerSettings>
+              </MashupSettings>
+              <MashupSettings>
+                <VisualizerTypeName>Bonsai.Gui.LabelVisualizer</VisualizerTypeName>
+                <VisualizerSettings>
+                  <LabelVisualizer />
+                </VisualizerSettings>
+              </MashupSettings>
+              <MashupSettings>
+                <VisualizerTypeName>Bonsai.Gui.LabelVisualizer</VisualizerTypeName>
+                <VisualizerSettings>
+                  <LabelVisualizer />
+                </VisualizerSettings>
+              </MashupSettings>
+              <MashupSettings>
+                <VisualizerTypeName>Bonsai.Gui.LabelVisualizer</VisualizerTypeName>
+                <VisualizerSettings>
+                  <LabelVisualizer />
+                </VisualizerSettings>
+              </MashupSettings>
+              <MashupSettings>
+                <VisualizerTypeName>Bonsai.Gui.LabelVisualizer</VisualizerTypeName>
+                <VisualizerSettings>
+                  <LabelVisualizer />
+                </VisualizerSettings>
+              </MashupSettings>
+              <MashupSettings>
+                <VisualizerTypeName>Bonsai.Gui.LabelVisualizer</VisualizerTypeName>
+                <VisualizerSettings>
+                  <LabelVisualizer />
+                </VisualizerSettings>
+              </MashupSettings>
+              <MashupSettings>
+                <VisualizerTypeName>Bonsai.Gui.LabelVisualizer</VisualizerTypeName>
+                <VisualizerSettings>
+                  <LabelVisualizer />
+                </VisualizerSettings>
+              </MashupSettings>
+              <MashupSettings>
+                <VisualizerTypeName>Bonsai.Gui.LabelVisualizer</VisualizerTypeName>
+                <VisualizerSettings>
+                  <LabelVisualizer />
+                </VisualizerSettings>
+              </MashupSettings>
+              <MashupSettings>
+                <VisualizerTypeName>Bonsai.Gui.LabelVisualizer</VisualizerTypeName>
+                <VisualizerSettings>
+                  <LabelVisualizer />
+                </VisualizerSettings>
+              </MashupSettings>
+            </TableLayoutPanelVisualizer>
           </VisualizerSettings>
         </MashupSettings>
         <MashupSettings>
-          <VisualizerTypeName>Bonsai.Gui.ZedGraph.LineGraphVisualizer</VisualizerTypeName>
+          <VisualizerTypeName>Bonsai.Gui.ZedGraph.GraphPanelVisualizer</VisualizerTypeName>
           <VisualizerSettings>
-            <LineGraphVisualizer>
+            <GraphPanelVisualizer>
+              <Span>0</Span>
               <Capacity>0</Capacity>
-              <XMin>-1</XMin>
+              <XMin>0</XMin>
               <XMax>1</XMax>
-              <YMin>-1</YMin>
-              <YMax>1</YMax>
+              <YMin>0</YMin>
+              <YMax>1.1</YMax>
               <AutoScaleX>true</AutoScaleX>
               <AutoScaleY>true</AutoScaleY>
-            </LineGraphVisualizer>
+              <MashupSettings>
+                <VisualizerTypeName>Bonsai.Gui.ZedGraph.LineGraphOverlay</VisualizerTypeName>
+                <VisualizerSettings>
+                  <LineGraphOverlay />
+                </VisualizerSettings>
+              </MashupSettings>
+              <MashupSettings>
+                <VisualizerTypeName>Bonsai.Gui.ZedGraph.LineGraphOverlay</VisualizerTypeName>
+                <VisualizerSettings>
+                  <LineGraphOverlay />
+                </VisualizerSettings>
+              </MashupSettings>
+              <MashupSettings>
+                <VisualizerTypeName>Bonsai.Gui.ZedGraph.LineGraphOverlay</VisualizerTypeName>
+                <VisualizerSettings>
+                  <LineGraphOverlay />
+                </VisualizerSettings>
+              </MashupSettings>
+            </GraphPanelVisualizer>
           </VisualizerSettings>
         </MashupSettings>
         <MashupSettings>
-          <VisualizerTypeName>Bonsai.Gui.ZedGraph.LineGraphVisualizer</VisualizerTypeName>
+          <VisualizerTypeName>Bonsai.Gui.ZedGraph.GraphPanelVisualizer</VisualizerTypeName>
           <VisualizerSettings>
-            <LineGraphVisualizer>
+            <GraphPanelVisualizer>
+              <Span>0</Span>
               <Capacity>0</Capacity>
-              <XMin>-1</XMin>
+              <XMin>0</XMin>
               <XMax>1</XMax>
-              <YMin>-1</YMin>
-              <YMax>1</YMax>
+              <YMin>0</YMin>
+              <YMax>1.1</YMax>
               <AutoScaleX>true</AutoScaleX>
               <AutoScaleY>true</AutoScaleY>
-            </LineGraphVisualizer>
+              <MashupSettings>
+                <VisualizerTypeName>Bonsai.Gui.ZedGraph.LineGraphOverlay</VisualizerTypeName>
+                <VisualizerSettings>
+                  <LineGraphOverlay />
+                </VisualizerSettings>
+              </MashupSettings>
+            </GraphPanelVisualizer>
           </VisualizerSettings>
         </MashupSettings>
         <MashupSettings>
@@ -165,17 +276,24 @@
           </VisualizerSettings>
         </MashupSettings>
         <MashupSettings>
-          <VisualizerTypeName>Bonsai.Gui.ZedGraph.LineGraphVisualizer</VisualizerTypeName>
+          <VisualizerTypeName>Bonsai.Gui.ZedGraph.GraphPanelVisualizer</VisualizerTypeName>
           <VisualizerSettings>
-            <LineGraphVisualizer>
+            <GraphPanelVisualizer>
+              <Span>0</Span>
               <Capacity>0</Capacity>
-              <XMin>-1</XMin>
+              <XMin>0</XMin>
               <XMax>1</XMax>
-              <YMin>-1</YMin>
-              <YMax>1</YMax>
+              <YMin>0</YMin>
+              <YMax>1.1</YMax>
               <AutoScaleX>true</AutoScaleX>
               <AutoScaleY>true</AutoScaleY>
-            </LineGraphVisualizer>
+              <MashupSettings>
+                <VisualizerTypeName>Bonsai.Gui.ZedGraph.LineGraphOverlay</VisualizerTypeName>
+                <VisualizerSettings>
+                  <LineGraphOverlay />
+                </VisualizerSettings>
+              </MashupSettings>
+            </GraphPanelVisualizer>
           </VisualizerSettings>
         </MashupSettings>
         <MashupSettings>
@@ -193,17 +311,36 @@
           </VisualizerSettings>
         </MashupSettings>
         <MashupSettings>
-          <VisualizerTypeName>Bonsai.Gui.ZedGraph.LineGraphVisualizer</VisualizerTypeName>
+          <VisualizerTypeName>Bonsai.Gui.ZedGraph.GraphPanelVisualizer</VisualizerTypeName>
           <VisualizerSettings>
-            <LineGraphVisualizer>
+            <GraphPanelVisualizer>
+              <Span>0</Span>
               <Capacity>0</Capacity>
-              <XMin>-1</XMin>
+              <XMin>0</XMin>
               <XMax>1</XMax>
-              <YMin>-1</YMin>
-              <YMax>1</YMax>
+              <YMin>0</YMin>
+              <YMax>1.1</YMax>
               <AutoScaleX>true</AutoScaleX>
               <AutoScaleY>true</AutoScaleY>
-            </LineGraphVisualizer>
+              <MashupSettings>
+                <VisualizerTypeName>Bonsai.Gui.ZedGraph.LineGraphOverlay</VisualizerTypeName>
+                <VisualizerSettings>
+                  <LineGraphOverlay />
+                </VisualizerSettings>
+              </MashupSettings>
+              <MashupSettings>
+                <VisualizerTypeName>Bonsai.Gui.ZedGraph.LineGraphOverlay</VisualizerTypeName>
+                <VisualizerSettings>
+                  <LineGraphOverlay />
+                </VisualizerSettings>
+              </MashupSettings>
+              <MashupSettings>
+                <VisualizerTypeName>Bonsai.Gui.ZedGraph.LineGraphOverlay</VisualizerTypeName>
+                <VisualizerSettings>
+                  <LineGraphOverlay />
+                </VisualizerSettings>
+              </MashupSettings>
+            </GraphPanelVisualizer>
           </VisualizerSettings>
         </MashupSettings>
         <MashupSettings>
@@ -213,31 +350,69 @@
           </VisualizerSettings>
         </MashupSettings>
         <MashupSettings>
-          <VisualizerTypeName>Bonsai.Gui.ZedGraph.LineGraphVisualizer</VisualizerTypeName>
+          <VisualizerTypeName>Bonsai.Gui.ZedGraph.GraphPanelVisualizer</VisualizerTypeName>
           <VisualizerSettings>
-            <LineGraphVisualizer>
+            <GraphPanelVisualizer>
+              <Span>0</Span>
               <Capacity>0</Capacity>
-              <XMin>-1</XMin>
+              <XMin>0</XMin>
               <XMax>1</XMax>
-              <YMin>-1</YMin>
-              <YMax>1</YMax>
+              <YMin>0</YMin>
+              <YMax>1.1</YMax>
               <AutoScaleX>true</AutoScaleX>
               <AutoScaleY>true</AutoScaleY>
-            </LineGraphVisualizer>
+              <MashupSettings>
+                <VisualizerTypeName>Bonsai.Gui.ZedGraph.LineGraphOverlay</VisualizerTypeName>
+                <VisualizerSettings>
+                  <LineGraphOverlay />
+                </VisualizerSettings>
+              </MashupSettings>
+              <MashupSettings>
+                <VisualizerTypeName>Bonsai.Gui.ZedGraph.LineGraphOverlay</VisualizerTypeName>
+                <VisualizerSettings>
+                  <LineGraphOverlay />
+                </VisualizerSettings>
+              </MashupSettings>
+              <MashupSettings>
+                <VisualizerTypeName>Bonsai.Gui.ZedGraph.LineGraphOverlay</VisualizerTypeName>
+                <VisualizerSettings>
+                  <LineGraphOverlay />
+                </VisualizerSettings>
+              </MashupSettings>
+            </GraphPanelVisualizer>
           </VisualizerSettings>
         </MashupSettings>
         <MashupSettings>
-          <VisualizerTypeName>Bonsai.Gui.ZedGraph.LineGraphVisualizer</VisualizerTypeName>
+          <VisualizerTypeName>Bonsai.Gui.ZedGraph.GraphPanelVisualizer</VisualizerTypeName>
           <VisualizerSettings>
-            <LineGraphVisualizer>
+            <GraphPanelVisualizer>
+              <Span>0</Span>
               <Capacity>0</Capacity>
-              <XMin>-1</XMin>
+              <XMin>0</XMin>
               <XMax>1</XMax>
-              <YMin>-1</YMin>
-              <YMax>1</YMax>
+              <YMin>0</YMin>
+              <YMax>1.1</YMax>
               <AutoScaleX>true</AutoScaleX>
               <AutoScaleY>true</AutoScaleY>
-            </LineGraphVisualizer>
+              <MashupSettings>
+                <VisualizerTypeName>Bonsai.Gui.ZedGraph.LineGraphOverlay</VisualizerTypeName>
+                <VisualizerSettings>
+                  <LineGraphOverlay />
+                </VisualizerSettings>
+              </MashupSettings>
+              <MashupSettings>
+                <VisualizerTypeName>Bonsai.Gui.ZedGraph.LineGraphOverlay</VisualizerTypeName>
+                <VisualizerSettings>
+                  <LineGraphOverlay />
+                </VisualizerSettings>
+              </MashupSettings>
+              <MashupSettings>
+                <VisualizerTypeName>Bonsai.Gui.ZedGraph.LineGraphOverlay</VisualizerTypeName>
+                <VisualizerSettings>
+                  <LineGraphOverlay />
+                </VisualizerSettings>
+              </MashupSettings>
+            </GraphPanelVisualizer>
           </VisualizerSettings>
         </MashupSettings>
         <MashupSettings>
@@ -324,12 +499,12 @@
     <EditorDialogSettings>
       <Visible>false</Visible>
       <Location>
-        <X>418</X>
-        <Y>468</Y>
+        <X>382</X>
+        <Y>424</Y>
       </Location>
       <Size>
-        <Width>710</Width>
-        <Height>405</Height>
+        <Width>711</Width>
+        <Height>449</Height>
       </Size>
       <WindowState>Normal</WindowState>
     </EditorDialogSettings>
@@ -360,12 +535,12 @@
     <EditorDialogSettings>
       <Visible>false</Visible>
       <Location>
-        <X>280</X>
-        <Y>459</Y>
+        <X>341</X>
+        <Y>482</Y>
       </Location>
       <Size>
-        <Width>634</Width>
-        <Height>424</Height>
+        <Width>632</Width>
+        <Height>404</Height>
       </Size>
       <WindowState>Normal</WindowState>
     </EditorDialogSettings>
@@ -468,12 +643,12 @@
     <EditorDialogSettings>
       <Visible>false</Visible>
       <Location>
-        <X>230</X>
-        <Y>294</Y>
+        <X>251</X>
+        <Y>392</Y>
       </Location>
       <Size>
         <Width>1267</Width>
-        <Height>634</Height>
+        <Height>571</Height>
       </Size>
       <WindowState>Normal</WindowState>
     </EditorDialogSettings>
@@ -504,7 +679,7 @@
     <EditorDialogSettings>
       <Visible>false</Visible>
       <Location>
-        <X>260</X>
+        <X>218</X>
         <Y>419</Y>
       </Location>
       <Size>
@@ -677,7 +852,7 @@
       </Location>
       <Size>
         <Width>1499</Width>
-        <Height>999</Height>
+        <Height>998</Height>
       </Size>
       <WindowState>Normal</WindowState>
     </EditorDialogSettings>
