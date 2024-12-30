@@ -129,6 +129,12 @@
     },
     "Sound": {
       "properties": {
+        "fixed_abl": {
+          "description": "The ABL value to use when use_fixed_abl from the training.json file is true (dB).",
+          "minimum": 0.0,
+          "title": "Fixed Abl",
+          "type": "number"
+        },
         "abl_list": {
           "description": "The list of ABL values to be used in the task (dB SPL).",
           "items": {
@@ -144,6 +150,7 @@
         }
       },
       "required": [
+        "fixed_abl",
         "abl_list",
         "cycle_ild"
       ],

@@ -10,6 +10,7 @@ session:
   starting_training_level: 1
   last_training_level: 10
 sound:
+  fixed_abl: 50
   abl_list:
     - 20
     - 40

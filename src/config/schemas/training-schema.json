@@ -2,15 +2,9 @@
   "definitions": {
     "ABL": {
       "properties": {
-        "level_abl": {
-          "description": "The ABL value to use when use_level_abl is true (dB).",
-          "minimum": 0.0,
-          "title": "Level Abl",
-          "type": "number"
-        },
-        "use_level_abl": {
-          "description": "Indicates whether the level_abl should be used (true) or not (false).",
-          "title": "Use Level Abl",
+        "use_fixed_abl": {
+          "description": "Indicates whether the fixed_abl from the animal.yml file should be used (true) or not (false).",
+          "title": "Use Fixed Abl",
           "type": "boolean"
         },
         "change_every_trial": {
@@ -20,8 +14,7 @@
         }
       },
       "required": [
-        "level_abl",
-        "use_level_abl",
+        "use_fixed_abl",
         "change_every_trial"
       ],
       "title": "ABL",
@@ -105,6 +98,11 @@
     },
     "ILD": {
       "properties": {
+        "special_case": {
+          "description": "The special case is when the real ILD value is the nominal ABL and the real ABL value corresponds to half the nominal ABL. For example, if the nominal ABL value is 50 db SPL, one of the speakers will produce a sound of 50 dB SPL and the other one will produce a sound of 0 dB SPL. This parameter indicates whether this special case is used (true) or not (false).",
+          "title": "Special Case",
+          "type": "boolean"
+        },
         "step_size": {
           "description": "The separation between two consecutive |ILD| values.",
           "exclusiveMinimum": 0.0,
@@ -130,6 +128,7 @@
         }
       },
       "required": [
+        "special_case",
         "step_size",
         "num_steps",
         "use_log",

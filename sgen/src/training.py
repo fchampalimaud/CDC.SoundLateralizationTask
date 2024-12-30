@@ -48,6 +48,7 @@ class ITI(BaseModel):
 
 
 class ILD(BaseModel):
+    special_case: bool = Field(description="The special case is when the real ILD value is the nominal ABL and the real ABL value corresponds to half the nominal ABL. For example, if the nominal ABL value is 50 db SPL, one of the speakers will produce a sound of 50 dB SPL and the other one will produce a sound of 0 dB SPL. This parameter indicates whether this special case is used (true) or not (false).")
     step_size: float = Field(description="The separation between two consecutive |ILD| values.", gt=0)
     num_steps: int = Field(description="The number of |ILD| values. The final array will contain 2 * num_steps elements to account for both the positive and the negative ILD values.", ge=1)
     use_log: bool = Field(description="Indicates whether to use logarithmic steps between consecutive ILD values.")
@@ -55,8 +56,7 @@ class ILD(BaseModel):
 
 
 class ABL(BaseModel):
-    level_abl: float = Field(description="The ABL value to use when use_level_abl is true (dB).", ge=0)
-    use_level_abl: bool = Field(description="Indicates whether the level_abl should be used (true) or not (false).")
+    use_fixed_abl: bool = Field(description="Indicates whether the fixed_abl from the animal.yml file should be used (true) or not (false).")
     change_every_trial: bool = Field(description="Indicates whether the ABL should change every trial (true) or not (false).")
 
 

@@ -507,6 +507,8 @@ namespace Animal
     public partial class Sound
     {
     
+        private double _fixedAbl;
+    
         private System.Collections.Generic.List<double> _ablList = new System.Collections.Generic.List<double>();
     
         private bool _cycleIld;
@@ -517,8 +519,28 @@ namespace Animal
     
         protected Sound(Sound other)
         {
+            _fixedAbl = other._fixedAbl;
             _ablList = other._ablList;
             _cycleIld = other._cycleIld;
+        }
+    
+        /// <summary>
+        /// The ABL value to use when use_fixed_abl from the training.json file is true (dB).
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("fixed_abl", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="fixed_abl")]
+        [System.ComponentModel.DescriptionAttribute("The ABL value to use when use_fixed_abl from the training.json file is true (dB)." +
+            "")]
+        public double FixedAbl
+        {
+            get
+            {
+                return _fixedAbl;
+            }
+            set
+            {
+                _fixedAbl = value;
+            }
         }
     
         /// <summary>
@@ -570,6 +592,7 @@ namespace Animal
     
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
+            stringBuilder.Append("fixed_abl = " + _fixedAbl + ", ");
             stringBuilder.Append("abl_list = " + _ablList + ", ");
             stringBuilder.Append("cycle_ild = " + _cycleIld);
             return true;

@@ -15,9 +15,7 @@ namespace Training
     public partial class ABL
     {
     
-        private double _levelAbl;
-    
-        private bool _useLevelAbl;
+        private bool _useFixedAbl;
     
         private bool _changeEveryTrial;
     
@@ -27,44 +25,26 @@ namespace Training
     
         protected ABL(ABL other)
         {
-            _levelAbl = other._levelAbl;
-            _useLevelAbl = other._useLevelAbl;
+            _useFixedAbl = other._useFixedAbl;
             _changeEveryTrial = other._changeEveryTrial;
         }
     
         /// <summary>
-        /// The ABL value to use when use_level_abl is true (dB).
+        /// Indicates whether the fixed_abl from the animal.yml file should be used (true) or not (false).
         /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("level_abl", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="level_abl")]
-        [System.ComponentModel.DescriptionAttribute("The ABL value to use when use_level_abl is true (dB).")]
-        public double LevelAbl
+        [Newtonsoft.Json.JsonPropertyAttribute("use_fixed_abl", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="use_fixed_abl")]
+        [System.ComponentModel.DescriptionAttribute("Indicates whether the fixed_abl from the animal.yml file should be used (true) or" +
+            " not (false).")]
+        public bool UseFixedAbl
         {
             get
             {
-                return _levelAbl;
+                return _useFixedAbl;
             }
             set
             {
-                _levelAbl = value;
-            }
-        }
-    
-        /// <summary>
-        /// Indicates whether the level_abl should be used (true) or not (false).
-        /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("use_level_abl", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="use_level_abl")]
-        [System.ComponentModel.DescriptionAttribute("Indicates whether the level_abl should be used (true) or not (false).")]
-        public bool UseLevelAbl
-        {
-            get
-            {
-                return _useLevelAbl;
-            }
-            set
-            {
-                _useLevelAbl = value;
+                _useFixedAbl = value;
             }
         }
     
@@ -98,8 +78,7 @@ namespace Training
     
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
-            stringBuilder.Append("level_abl = " + _levelAbl + ", ");
-            stringBuilder.Append("use_level_abl = " + _useLevelAbl + ", ");
+            stringBuilder.Append("use_fixed_abl = " + _useFixedAbl + ", ");
             stringBuilder.Append("change_every_trial = " + _changeEveryTrial);
             return true;
         }
@@ -441,6 +420,8 @@ namespace Training
     public partial class ILD
     {
     
+        private bool _specialCase;
+    
         private double _stepSize;
     
         private int _numSteps;
@@ -455,10 +436,29 @@ namespace Training
     
         protected ILD(ILD other)
         {
+            _specialCase = other._specialCase;
             _stepSize = other._stepSize;
             _numSteps = other._numSteps;
             _useLog = other._useLog;
             _logBase = other._logBase;
+        }
+    
+        /// <summary>
+        /// The special case is when the real ILD value is the nominal ABL and the real ABL value corresponds to half the nominal ABL. For example, if the nominal ABL value is 50 db SPL, one of the speakers will produce a sound of 50 dB SPL and the other one will produce a sound of 0 dB SPL. This parameter indicates whether this special case is used (true) or not (false).
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("special_case", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="special_case")]
+        [System.ComponentModel.DescriptionAttribute(@"The special case is when the real ILD value is the nominal ABL and the real ABL value corresponds to half the nominal ABL. For example, if the nominal ABL value is 50 db SPL, one of the speakers will produce a sound of 50 dB SPL and the other one will produce a sound of 0 dB SPL. This parameter indicates whether this special case is used (true) or not (false).")]
+        public bool SpecialCase
+        {
+            get
+            {
+                return _specialCase;
+            }
+            set
+            {
+                _specialCase = value;
+            }
         }
     
         /// <summary>
@@ -546,6 +546,7 @@ namespace Training
     
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
+            stringBuilder.Append("special_case = " + _specialCase + ", ");
             stringBuilder.Append("step_size = " + _stepSize + ", ");
             stringBuilder.Append("num_steps = " + _numSteps + ", ");
             stringBuilder.Append("use_log = " + _useLog + ", ");

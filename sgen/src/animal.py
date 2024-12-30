@@ -38,6 +38,7 @@ class FixationTime(BaseModel):
 
 
 class Sound(BaseModel):
+    fixed_abl: float = Field(description="The ABL value to use when use_fixed_abl from the training.json file is true (dB).", ge=0)
     abl_list: List[float] = Field(description="The list of ABL values to be used in the task (dB SPL).")
     cycle_ild: bool = Field(description="If true, the ILD array is shuffled and the ILD is picked by just following the new array order; when the end of the array is reached, the array is shuffled again and the procedure is repeated. Otherwise, an ILD value is randomly picked every trial from the array of ILDs.")
 
