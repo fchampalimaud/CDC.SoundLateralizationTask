@@ -2,41 +2,67 @@ import pandas as pd
 import json
 import os
 
-def generate_csv(output_filename: str, read_filename: str):
-    # Open json file
-    with open(read_filename, 'r') as file:
+def generate_csv(input_file: str, output_file: str):
+    """
+    Generates a CSV file from a "fake" JSON file.
+
+    Parameters
+    ----------
+    input_file: str
+        the path to the input file.
+    output_file: str
+        the path to the output file.
+    """
+    # Opens JSON file as text and separates its lines
+    with open(input_file, 'r') as file:
         lines = [line.strip() for line in file]
 
-    # Converts to real "json"
+    # Converts to real JSON
     for i in range(len(lines) - 1):
         lines[i] += ','
     lines.insert(0, '[')
     lines.append(']')
     text = '\n'.join(lines)
 
-    # Loads the real json string
+    # Loads the real JSON string
     data = json.loads(text)
 
-    # Create a DataFrame
+    # Creates a DataFrame
     df = pd.json_normalize(data)
 
-    # Convert DataFrame to CSV
-    df.to_csv(output_filename, index=False)
+    # Converts DataFrame to CSV
+    df.to_csv(output_file, index=False)
 
-def append_json(output_filename: str, read_directory: str):
-    all_data = ""  # List to hold the combined data
+def append_json(input_directory: str, output_file: str):
+    """
+    Appends all of the "fake" JSON files inside the input directory.
 
-    # Walk through the directory
-    for root, dirs, files in os.walk(read_directory):
+    Parameters
+    ----------
+    input_directory: str
+        the path to the input directory.
+    output_file: str
+        the path to the output file.
+    """
+    # Initializes the final string object
+    all_data = "" 
+
+    # Walks through the directory
+    for root, dirs, files in os.walk(input_directory):
         for file in files:
-            if file.endswith('.json'):  # Check if the file is a JSON file
-                file_path = os.path.join(root, file)  # Get the full file path
+            # Checks if the file is a JSON file
+            if file.endswith('.json'): 
+                # Gets the full file path
+                file_path = os.path.join(root, file) 
                 with open(file_path, 'r') as json_file:
                     try:
-                        text = json_file.read()  # Load the JSON data
-                        all_data += text  # Append the data to the list
+                        # Loads the JSON data
+                        text = json_file.read() 
+                        # Appends the data to the string
+                        all_data += text  
                     except json.JSONDecodeError as e:
                         print(f"Error decoding JSON from file {file_path}: {e}")
 
-    with open (output_filename, 'w', encoding='utf-8') as file:
+    # Generates the final "fake" JSON file
+    with open(output_file, 'w', encoding='utf-8') as file:
         file.write(all_data)
