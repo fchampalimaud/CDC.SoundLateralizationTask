@@ -1,0 +1,1680 @@
+### YamlMime:ManagedReference
+items:
+- uid: Output.Output
+  commentId: T:Output.Output
+  id: Output
+  parent: Output
+  children:
+  - Output.Output.#ctor
+  - Output.Output.#ctor(Output.Output)
+  - Output.Output.AnimalId
+  - Output.Output.Block
+  - Output.Output.FixationTime
+  - Output.Output.Iti
+  - Output.Output.LnpTime
+  - Output.Output.MovementTime
+  - Output.Output.Optogenetics
+  - Output.Output.Outcome
+  - Output.Output.PrintMembers(System.Text.StringBuilder)
+  - Output.Output.Process
+  - Output.Output.Process``1(System.IObservable{``0})
+  - Output.Output.ReactionTime
+  - Output.Output.RepeatedTrial
+  - Output.Output.Session
+  - Output.Output.Sound
+  - Output.Output.TimeToCnp
+  - Output.Output.ToString
+  - Output.Output.Trial
+  langs:
+  - csharp
+  - vb
+  name: Output
+  nameWithType: Output
+  fullName: Output.Output
+  type: Class
+  source:
+    remote:
+      path: src/Extensions/Output.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: Output
+    path: ../src/Extensions/Output.cs
+    startLine: 1513
+  assemblies:
+  - Extensions
+  namespace: Output
+  syntax:
+    content: >-
+      [Combinator]
+
+      [WorkflowElementCategory(ElementCategory.Source)]
+
+      public class Output
+    content.vb: >-
+      <Combinator>
+
+      <WorkflowElementCategory(ElementCategory.Source)>
+
+      Public Class Output
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  attributes:
+  - type: Bonsai.CombinatorAttribute
+    ctor: Bonsai.CombinatorAttribute.#ctor
+    arguments: []
+  - type: Bonsai.WorkflowElementCategoryAttribute
+    ctor: Bonsai.WorkflowElementCategoryAttribute.#ctor(Bonsai.ElementCategory)
+    arguments:
+    - type: Bonsai.ElementCategory
+      value: 0
+- uid: Output.Output.#ctor
+  commentId: M:Output.Output.#ctor
+  id: '#ctor'
+  parent: Output.Output
+  langs:
+  - csharp
+  - vb
+  name: Output()
+  nameWithType: Output.Output()
+  fullName: Output.Output.Output()
+  type: Constructor
+  source:
+    remote:
+      path: src/Extensions/Output.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: .ctor
+    path: ../src/Extensions/Output.cs
+    startLine: 1547
+  assemblies:
+  - Extensions
+  namespace: Output
+  syntax:
+    content: public Output()
+    content.vb: Public Sub New()
+  overload: Output.Output.#ctor*
+  nameWithType.vb: Output.New()
+  fullName.vb: Output.Output.New()
+  name.vb: New()
+- uid: Output.Output.#ctor(Output.Output)
+  commentId: M:Output.Output.#ctor(Output.Output)
+  id: '#ctor(Output.Output)'
+  parent: Output.Output
+  langs:
+  - csharp
+  - vb
+  name: Output(Output)
+  nameWithType: Output.Output(Output)
+  fullName: Output.Output.Output(Output.Output)
+  type: Constructor
+  source:
+    remote:
+      path: src/Extensions/Output.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: .ctor
+    path: ../src/Extensions/Output.cs
+    startLine: 1551
+  assemblies:
+  - Extensions
+  namespace: Output
+  syntax:
+    content: protected Output(Output other)
+    parameters:
+    - id: other
+      type: Output.Output
+    content.vb: Protected Sub New(other As Output)
+  overload: Output.Output.#ctor*
+  nameWithType.vb: Output.New(Output)
+  fullName.vb: Output.Output.New(Output.Output)
+  name.vb: New(Output)
+- uid: Output.Output.AnimalId
+  commentId: P:Output.Output.AnimalId
+  id: AnimalId
+  parent: Output.Output
+  langs:
+  - csharp
+  - vb
+  name: AnimalId
+  nameWithType: Output.AnimalId
+  fullName: Output.Output.AnimalId
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/Output.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: AnimalId
+    path: ../src/Extensions/Output.cs
+    startLine: 1572
+  assemblies:
+  - Extensions
+  namespace: Output
+  summary: The ID number of the animal.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("animal_id", Required = Required.Always)]
+
+      [YamlMember(Alias = "animal_id")]
+
+      public int AnimalId { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: >-
+      <JsonProperty("animal_id", Required:=Required.Always)>
+
+      <YamlMember(Alias:="animal_id")>
+
+      Public Property AnimalId As Integer
+  overload: Output.Output.AnimalId*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: animal_id
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: YamlDotNet.Serialization.YamlMemberAttribute
+    ctor: YamlDotNet.Serialization.YamlMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Alias
+      type: System.String
+      value: animal_id
+- uid: Output.Output.Trial
+  commentId: P:Output.Output.Trial
+  id: Trial
+  parent: Output.Output
+  langs:
+  - csharp
+  - vb
+  name: Trial
+  nameWithType: Output.Trial
+  fullName: Output.Output.Trial
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/Output.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: Trial
+    path: ../src/Extensions/Output.cs
+    startLine: 1590
+  assemblies:
+  - Extensions
+  namespace: Output
+  summary: Contains the trial-related data.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("trial", Required = Required.Always)]
+
+      [YamlMember(Alias = "trial")]
+
+      public Trial Trial { get; set; }
+    parameters: []
+    return:
+      type: Output.Trial
+    content.vb: >-
+      <JsonProperty("trial", Required:=Required.Always)>
+
+      <YamlMember(Alias:="trial")>
+
+      Public Property Trial As Trial
+  overload: Output.Output.Trial*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: trial
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: YamlDotNet.Serialization.YamlMemberAttribute
+    ctor: YamlDotNet.Serialization.YamlMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Alias
+      type: System.String
+      value: trial
+- uid: Output.Output.Block
+  commentId: P:Output.Output.Block
+  id: Block
+  parent: Output.Output
+  langs:
+  - csharp
+  - vb
+  name: Block
+  nameWithType: Output.Block
+  fullName: Output.Output.Block
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/Output.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: Block
+    path: ../src/Extensions/Output.cs
+    startLine: 1609
+  assemblies:
+  - Extensions
+  namespace: Output
+  summary: Contains the block-related data.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("block", Required = Required.Always)]
+
+      [YamlMember(Alias = "block")]
+
+      public Block Block { get; set; }
+    parameters: []
+    return:
+      type: Output.Block
+    content.vb: >-
+      <JsonProperty("block", Required:=Required.Always)>
+
+      <YamlMember(Alias:="block")>
+
+      Public Property Block As Block
+  overload: Output.Output.Block*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: block
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: YamlDotNet.Serialization.YamlMemberAttribute
+    ctor: YamlDotNet.Serialization.YamlMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Alias
+      type: System.String
+      value: block
+- uid: Output.Output.Session
+  commentId: P:Output.Output.Session
+  id: Session
+  parent: Output.Output
+  langs:
+  - csharp
+  - vb
+  name: Session
+  nameWithType: Output.Session
+  fullName: Output.Output.Session
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/Output.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: Session
+    path: ../src/Extensions/Output.cs
+    startLine: 1628
+  assemblies:
+  - Extensions
+  namespace: Output
+  summary: Contains the session-related data.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("session", Required = Required.Always)]
+
+      [YamlMember(Alias = "session")]
+
+      public Session Session { get; set; }
+    parameters: []
+    return:
+      type: Output.Session
+    content.vb: >-
+      <JsonProperty("session", Required:=Required.Always)>
+
+      <YamlMember(Alias:="session")>
+
+      Public Property Session As Session
+  overload: Output.Output.Session*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: session
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: YamlDotNet.Serialization.YamlMemberAttribute
+    ctor: YamlDotNet.Serialization.YamlMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Alias
+      type: System.String
+      value: session
+- uid: Output.Output.Sound
+  commentId: P:Output.Output.Sound
+  id: Sound
+  parent: Output.Output
+  langs:
+  - csharp
+  - vb
+  name: Sound
+  nameWithType: Output.Sound
+  fullName: Output.Output.Sound
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/Output.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: Sound
+    path: ../src/Extensions/Output.cs
+    startLine: 1647
+  assemblies:
+  - Extensions
+  namespace: Output
+  summary: Contains the sound-related data.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("sound", Required = Required.Always)]
+
+      [YamlMember(Alias = "sound")]
+
+      public Sound Sound { get; set; }
+    parameters: []
+    return:
+      type: Output.Sound
+    content.vb: >-
+      <JsonProperty("sound", Required:=Required.Always)>
+
+      <YamlMember(Alias:="sound")>
+
+      Public Property Sound As Sound
+  overload: Output.Output.Sound*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: sound
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: YamlDotNet.Serialization.YamlMemberAttribute
+    ctor: YamlDotNet.Serialization.YamlMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Alias
+      type: System.String
+      value: sound
+- uid: Output.Output.Iti
+  commentId: P:Output.Output.Iti
+  id: Iti
+  parent: Output.Output
+  langs:
+  - csharp
+  - vb
+  name: Iti
+  nameWithType: Output.Iti
+  fullName: Output.Output.Iti
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/Output.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: Iti
+    path: ../src/Extensions/Output.cs
+    startLine: 1666
+  assemblies:
+  - Extensions
+  namespace: Output
+  summary: Contains the ITI-related data.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("iti", Required = Required.Always)]
+
+      [YamlMember(Alias = "iti")]
+
+      public ITI Iti { get; set; }
+    parameters: []
+    return:
+      type: Output.ITI
+    content.vb: >-
+      <JsonProperty("iti", Required:=Required.Always)>
+
+      <YamlMember(Alias:="iti")>
+
+      Public Property Iti As ITI
+  overload: Output.Output.Iti*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: iti
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: YamlDotNet.Serialization.YamlMemberAttribute
+    ctor: YamlDotNet.Serialization.YamlMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Alias
+      type: System.String
+      value: iti
+- uid: Output.Output.TimeToCnp
+  commentId: P:Output.Output.TimeToCnp
+  id: TimeToCnp
+  parent: Output.Output
+  langs:
+  - csharp
+  - vb
+  name: TimeToCnp
+  nameWithType: Output.TimeToCnp
+  fullName: Output.Output.TimeToCnp
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/Output.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: TimeToCnp
+    path: ../src/Extensions/Output.cs
+    startLine: 1685
+  assemblies:
+  - Extensions
+  namespace: Output
+  summary: Contains the data related to the time to CNP.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("time_to_cnp", Required = Required.Always)]
+
+      [YamlMember(Alias = "time_to_cnp")]
+
+      public TimeToCnp TimeToCnp { get; set; }
+    parameters: []
+    return:
+      type: Output.TimeToCnp
+    content.vb: >-
+      <JsonProperty("time_to_cnp", Required:=Required.Always)>
+
+      <YamlMember(Alias:="time_to_cnp")>
+
+      Public Property TimeToCnp As TimeToCnp
+  overload: Output.Output.TimeToCnp*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: time_to_cnp
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: YamlDotNet.Serialization.YamlMemberAttribute
+    ctor: YamlDotNet.Serialization.YamlMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Alias
+      type: System.String
+      value: time_to_cnp
+- uid: Output.Output.FixationTime
+  commentId: P:Output.Output.FixationTime
+  id: FixationTime
+  parent: Output.Output
+  langs:
+  - csharp
+  - vb
+  name: FixationTime
+  nameWithType: Output.FixationTime
+  fullName: Output.Output.FixationTime
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/Output.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: FixationTime
+    path: ../src/Extensions/Output.cs
+    startLine: 1704
+  assemblies:
+  - Extensions
+  namespace: Output
+  summary: Contains the data related to the fixation time.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("fixation_time", Required = Required.Always)]
+
+      [YamlMember(Alias = "fixation_time")]
+
+      public FixationTime FixationTime { get; set; }
+    parameters: []
+    return:
+      type: Output.FixationTime
+    content.vb: >-
+      <JsonProperty("fixation_time", Required:=Required.Always)>
+
+      <YamlMember(Alias:="fixation_time")>
+
+      Public Property FixationTime As FixationTime
+  overload: Output.Output.FixationTime*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: fixation_time
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: YamlDotNet.Serialization.YamlMemberAttribute
+    ctor: YamlDotNet.Serialization.YamlMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Alias
+      type: System.String
+      value: fixation_time
+- uid: Output.Output.ReactionTime
+  commentId: P:Output.Output.ReactionTime
+  id: ReactionTime
+  parent: Output.Output
+  langs:
+  - csharp
+  - vb
+  name: ReactionTime
+  nameWithType: Output.ReactionTime
+  fullName: Output.Output.ReactionTime
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/Output.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: ReactionTime
+    path: ../src/Extensions/Output.cs
+    startLine: 1723
+  assemblies:
+  - Extensions
+  namespace: Output
+  summary: Contains the data related to the reaction time.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("reaction_time", Required = Required.Always)]
+
+      [YamlMember(Alias = "reaction_time")]
+
+      public ReactionTime ReactionTime { get; set; }
+    parameters: []
+    return:
+      type: Output.ReactionTime
+    content.vb: >-
+      <JsonProperty("reaction_time", Required:=Required.Always)>
+
+      <YamlMember(Alias:="reaction_time")>
+
+      Public Property ReactionTime As ReactionTime
+  overload: Output.Output.ReactionTime*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: reaction_time
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: YamlDotNet.Serialization.YamlMemberAttribute
+    ctor: YamlDotNet.Serialization.YamlMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Alias
+      type: System.String
+      value: reaction_time
+- uid: Output.Output.MovementTime
+  commentId: P:Output.Output.MovementTime
+  id: MovementTime
+  parent: Output.Output
+  langs:
+  - csharp
+  - vb
+  name: MovementTime
+  nameWithType: Output.MovementTime
+  fullName: Output.Output.MovementTime
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/Output.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: MovementTime
+    path: ../src/Extensions/Output.cs
+    startLine: 1742
+  assemblies:
+  - Extensions
+  namespace: Output
+  summary: Contains the data related to the movement time.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("movement_time", Required = Required.Always)]
+
+      [YamlMember(Alias = "movement_time")]
+
+      public MovementTime MovementTime { get; set; }
+    parameters: []
+    return:
+      type: Output.MovementTime
+    content.vb: >-
+      <JsonProperty("movement_time", Required:=Required.Always)>
+
+      <YamlMember(Alias:="movement_time")>
+
+      Public Property MovementTime As MovementTime
+  overload: Output.Output.MovementTime*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: movement_time
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: YamlDotNet.Serialization.YamlMemberAttribute
+    ctor: YamlDotNet.Serialization.YamlMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Alias
+      type: System.String
+      value: movement_time
+- uid: Output.Output.LnpTime
+  commentId: P:Output.Output.LnpTime
+  id: LnpTime
+  parent: Output.Output
+  langs:
+  - csharp
+  - vb
+  name: LnpTime
+  nameWithType: Output.LnpTime
+  fullName: Output.Output.LnpTime
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/Output.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: LnpTime
+    path: ../src/Extensions/Output.cs
+    startLine: 1761
+  assemblies:
+  - Extensions
+  namespace: Output
+  summary: Contains the data related to the LNP time.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("lnp_time", Required = Required.Always)]
+
+      [YamlMember(Alias = "lnp_time")]
+
+      public LnpTime LnpTime { get; set; }
+    parameters: []
+    return:
+      type: Output.LnpTime
+    content.vb: >-
+      <JsonProperty("lnp_time", Required:=Required.Always)>
+
+      <YamlMember(Alias:="lnp_time")>
+
+      Public Property LnpTime As LnpTime
+  overload: Output.Output.LnpTime*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: lnp_time
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: YamlDotNet.Serialization.YamlMemberAttribute
+    ctor: YamlDotNet.Serialization.YamlMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Alias
+      type: System.String
+      value: lnp_time
+- uid: Output.Output.Outcome
+  commentId: P:Output.Output.Outcome
+  id: Outcome
+  parent: Output.Output
+  langs:
+  - csharp
+  - vb
+  name: Outcome
+  nameWithType: Output.Outcome
+  fullName: Output.Output.Outcome
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/Output.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: Outcome
+    path: ../src/Extensions/Output.cs
+    startLine: 1780
+  assemblies:
+  - Extensions
+  namespace: Output
+  summary: Contains the data related to the trial outcome.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("outcome", Required = Required.Always)]
+
+      [YamlMember(Alias = "outcome")]
+
+      public Outcome Outcome { get; set; }
+    parameters: []
+    return:
+      type: Output.Outcome
+    content.vb: >-
+      <JsonProperty("outcome", Required:=Required.Always)>
+
+      <YamlMember(Alias:="outcome")>
+
+      Public Property Outcome As Outcome
+  overload: Output.Output.Outcome*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: outcome
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: YamlDotNet.Serialization.YamlMemberAttribute
+    ctor: YamlDotNet.Serialization.YamlMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Alias
+      type: System.String
+      value: outcome
+- uid: Output.Output.RepeatedTrial
+  commentId: P:Output.Output.RepeatedTrial
+  id: RepeatedTrial
+  parent: Output.Output
+  langs:
+  - csharp
+  - vb
+  name: RepeatedTrial
+  nameWithType: Output.RepeatedTrial
+  fullName: Output.Output.RepeatedTrial
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/Output.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: RepeatedTrial
+    path: ../src/Extensions/Output.cs
+    startLine: 1799
+  assemblies:
+  - Extensions
+  namespace: Output
+  summary: Indicates whether the current trial is a repetition of the previous trial (true) or not (false).
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("repeated_trial", Required = Required.Always)]
+
+      [YamlMember(Alias = "repeated_trial")]
+
+      public bool RepeatedTrial { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: >-
+      <JsonProperty("repeated_trial", Required:=Required.Always)>
+
+      <YamlMember(Alias:="repeated_trial")>
+
+      Public Property RepeatedTrial As Boolean
+  overload: Output.Output.RepeatedTrial*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: repeated_trial
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: YamlDotNet.Serialization.YamlMemberAttribute
+    ctor: YamlDotNet.Serialization.YamlMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Alias
+      type: System.String
+      value: repeated_trial
+- uid: Output.Output.Optogenetics
+  commentId: P:Output.Output.Optogenetics
+  id: Optogenetics
+  parent: Output.Output
+  langs:
+  - csharp
+  - vb
+  name: Optogenetics
+  nameWithType: Output.Optogenetics
+  fullName: Output.Output.Optogenetics
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/Output.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: Optogenetics
+    path: ../src/Extensions/Output.cs
+    startLine: 1818
+  assemblies:
+  - Extensions
+  namespace: Output
+  summary: Contains the data related to optogenetics.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("optogenetics", Required = Required.Always)]
+
+      [YamlMember(Alias = "optogenetics")]
+
+      public Optogenetics Optogenetics { get; set; }
+    parameters: []
+    return:
+      type: Output.Optogenetics
+    content.vb: >-
+      <JsonProperty("optogenetics", Required:=Required.Always)>
+
+      <YamlMember(Alias:="optogenetics")>
+
+      Public Property Optogenetics As Optogenetics
+  overload: Output.Output.Optogenetics*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: optogenetics
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: YamlDotNet.Serialization.YamlMemberAttribute
+    ctor: YamlDotNet.Serialization.YamlMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Alias
+      type: System.String
+      value: optogenetics
+- uid: Output.Output.Process
+  commentId: M:Output.Output.Process
+  id: Process
+  parent: Output.Output
+  langs:
+  - csharp
+  - vb
+  name: Process()
+  nameWithType: Output.Process()
+  fullName: Output.Output.Process()
+  type: Method
+  source:
+    remote:
+      path: src/Extensions/Output.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: Process
+    path: ../src/Extensions/Output.cs
+    startLine: 1834
+  assemblies:
+  - Extensions
+  namespace: Output
+  syntax:
+    content: public IObservable<Output> Process()
+    return:
+      type: System.IObservable{Output.Output}
+    content.vb: Public Function Process() As IObservable(Of Output)
+  overload: Output.Output.Process*
+- uid: Output.Output.Process``1(System.IObservable{``0})
+  commentId: M:Output.Output.Process``1(System.IObservable{``0})
+  id: Process``1(System.IObservable{``0})
+  parent: Output.Output
+  langs:
+  - csharp
+  - vb
+  name: Process<TSource>(IObservable<TSource>)
+  nameWithType: Output.Process<TSource>(IObservable<TSource>)
+  fullName: Output.Output.Process<TSource>(System.IObservable<TSource>)
+  type: Method
+  source:
+    remote:
+      path: src/Extensions/Output.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: Process
+    path: ../src/Extensions/Output.cs
+    startLine: 1839
+  assemblies:
+  - Extensions
+  namespace: Output
+  syntax:
+    content: public IObservable<Output> Process<TSource>(IObservable<TSource> source)
+    parameters:
+    - id: source
+      type: System.IObservable{{TSource}}
+    typeParameters:
+    - id: TSource
+    return:
+      type: System.IObservable{Output.Output}
+    content.vb: Public Function Process(Of TSource)(source As IObservable(Of TSource)) As IObservable(Of Output)
+  overload: Output.Output.Process*
+  nameWithType.vb: Output.Process(Of TSource)(IObservable(Of TSource))
+  fullName.vb: Output.Output.Process(Of TSource)(System.IObservable(Of TSource))
+  name.vb: Process(Of TSource)(IObservable(Of TSource))
+- uid: Output.Output.PrintMembers(System.Text.StringBuilder)
+  commentId: M:Output.Output.PrintMembers(System.Text.StringBuilder)
+  id: PrintMembers(System.Text.StringBuilder)
+  parent: Output.Output
+  langs:
+  - csharp
+  - vb
+  name: PrintMembers(StringBuilder)
+  nameWithType: Output.PrintMembers(StringBuilder)
+  fullName: Output.Output.PrintMembers(System.Text.StringBuilder)
+  type: Method
+  source:
+    remote:
+      path: src/Extensions/Output.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: PrintMembers
+    path: ../src/Extensions/Output.cs
+    startLine: 1844
+  assemblies:
+  - Extensions
+  namespace: Output
+  syntax:
+    content: protected virtual bool PrintMembers(StringBuilder stringBuilder)
+    parameters:
+    - id: stringBuilder
+      type: System.Text.StringBuilder
+    return:
+      type: System.Boolean
+    content.vb: Protected Overridable Function PrintMembers(stringBuilder As StringBuilder) As Boolean
+  overload: Output.Output.PrintMembers*
+- uid: Output.Output.ToString
+  commentId: M:Output.Output.ToString
+  id: ToString
+  parent: Output.Output
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: Output.ToString()
+  fullName: Output.Output.ToString()
+  type: Method
+  source:
+    remote:
+      path: src/Extensions/Output.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: ToString
+    path: ../src/Extensions/Output.cs
+    startLine: 1863
+  assemblies:
+  - Extensions
+  namespace: Output
+  summary: Returns a string that represents the current object.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: A string that represents the current object.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: Output.Output.ToString*
+references:
+- uid: Output
+  commentId: N:Output
+  href: Output.html
+  name: Output
+  nameWithType: Output
+  fullName: Output
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Output.Output.#ctor*
+  commentId: Overload:Output.Output.#ctor
+  href: Output.Output.html#Output_Output__ctor
+  name: Output
+  nameWithType: Output.Output
+  fullName: Output.Output.Output
+  nameWithType.vb: Output.New
+  fullName.vb: Output.Output.New
+  name.vb: New
+- uid: Output.Output
+  commentId: T:Output.Output
+  parent: Output
+  href: Output.Output.html
+  name: Output
+  nameWithType: Output
+  fullName: Output.Output
+- uid: Output.Output.AnimalId*
+  commentId: Overload:Output.Output.AnimalId
+  href: Output.Output.html#Output_Output_AnimalId
+  name: AnimalId
+  nameWithType: Output.AnimalId
+  fullName: Output.Output.AnimalId
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Output.Output.Trial*
+  commentId: Overload:Output.Output.Trial
+  href: Output.Output.html#Output_Output_Trial
+  name: Trial
+  nameWithType: Output.Trial
+  fullName: Output.Output.Trial
+- uid: Output.Trial
+  commentId: T:Output.Trial
+  parent: Output
+  href: Output.Trial.html
+  name: Trial
+  nameWithType: Trial
+  fullName: Output.Trial
+- uid: Output.Output.Block*
+  commentId: Overload:Output.Output.Block
+  href: Output.Output.html#Output_Output_Block
+  name: Block
+  nameWithType: Output.Block
+  fullName: Output.Output.Block
+- uid: Output.Block
+  commentId: T:Output.Block
+  parent: Output
+  href: Output.Block.html
+  name: Block
+  nameWithType: Block
+  fullName: Output.Block
+- uid: Output.Output.Session*
+  commentId: Overload:Output.Output.Session
+  href: Output.Output.html#Output_Output_Session
+  name: Session
+  nameWithType: Output.Session
+  fullName: Output.Output.Session
+- uid: Output.Session
+  commentId: T:Output.Session
+  parent: Output
+  href: Output.Session.html
+  name: Session
+  nameWithType: Session
+  fullName: Output.Session
+- uid: Output.Output.Sound*
+  commentId: Overload:Output.Output.Sound
+  href: Output.Output.html#Output_Output_Sound
+  name: Sound
+  nameWithType: Output.Sound
+  fullName: Output.Output.Sound
+- uid: Output.Sound
+  commentId: T:Output.Sound
+  parent: Output
+  href: Output.Sound.html
+  name: Sound
+  nameWithType: Sound
+  fullName: Output.Sound
+- uid: Output.Output.Iti*
+  commentId: Overload:Output.Output.Iti
+  href: Output.Output.html#Output_Output_Iti
+  name: Iti
+  nameWithType: Output.Iti
+  fullName: Output.Output.Iti
+- uid: Output.ITI
+  commentId: T:Output.ITI
+  parent: Output
+  href: Output.ITI.html
+  name: ITI
+  nameWithType: ITI
+  fullName: Output.ITI
+- uid: Output.Output.TimeToCnp*
+  commentId: Overload:Output.Output.TimeToCnp
+  href: Output.Output.html#Output_Output_TimeToCnp
+  name: TimeToCnp
+  nameWithType: Output.TimeToCnp
+  fullName: Output.Output.TimeToCnp
+- uid: Output.TimeToCnp
+  commentId: T:Output.TimeToCnp
+  parent: Output
+  href: Output.TimeToCnp.html
+  name: TimeToCnp
+  nameWithType: TimeToCnp
+  fullName: Output.TimeToCnp
+- uid: Output.Output.FixationTime*
+  commentId: Overload:Output.Output.FixationTime
+  href: Output.Output.html#Output_Output_FixationTime
+  name: FixationTime
+  nameWithType: Output.FixationTime
+  fullName: Output.Output.FixationTime
+- uid: Output.FixationTime
+  commentId: T:Output.FixationTime
+  parent: Output
+  href: Output.FixationTime.html
+  name: FixationTime
+  nameWithType: FixationTime
+  fullName: Output.FixationTime
+- uid: Output.Output.ReactionTime*
+  commentId: Overload:Output.Output.ReactionTime
+  href: Output.Output.html#Output_Output_ReactionTime
+  name: ReactionTime
+  nameWithType: Output.ReactionTime
+  fullName: Output.Output.ReactionTime
+- uid: Output.ReactionTime
+  commentId: T:Output.ReactionTime
+  parent: Output
+  href: Output.ReactionTime.html
+  name: ReactionTime
+  nameWithType: ReactionTime
+  fullName: Output.ReactionTime
+- uid: Output.Output.MovementTime*
+  commentId: Overload:Output.Output.MovementTime
+  href: Output.Output.html#Output_Output_MovementTime
+  name: MovementTime
+  nameWithType: Output.MovementTime
+  fullName: Output.Output.MovementTime
+- uid: Output.MovementTime
+  commentId: T:Output.MovementTime
+  parent: Output
+  href: Output.MovementTime.html
+  name: MovementTime
+  nameWithType: MovementTime
+  fullName: Output.MovementTime
+- uid: Output.Output.LnpTime*
+  commentId: Overload:Output.Output.LnpTime
+  href: Output.Output.html#Output_Output_LnpTime
+  name: LnpTime
+  nameWithType: Output.LnpTime
+  fullName: Output.Output.LnpTime
+- uid: Output.LnpTime
+  commentId: T:Output.LnpTime
+  parent: Output
+  href: Output.LnpTime.html
+  name: LnpTime
+  nameWithType: LnpTime
+  fullName: Output.LnpTime
+- uid: Output.Output.Outcome*
+  commentId: Overload:Output.Output.Outcome
+  href: Output.Output.html#Output_Output_Outcome
+  name: Outcome
+  nameWithType: Output.Outcome
+  fullName: Output.Output.Outcome
+- uid: Output.Outcome
+  commentId: T:Output.Outcome
+  parent: Output
+  href: Output.Outcome.html
+  name: Outcome
+  nameWithType: Outcome
+  fullName: Output.Outcome
+- uid: Output.Output.RepeatedTrial*
+  commentId: Overload:Output.Output.RepeatedTrial
+  href: Output.Output.html#Output_Output_RepeatedTrial
+  name: RepeatedTrial
+  nameWithType: Output.RepeatedTrial
+  fullName: Output.Output.RepeatedTrial
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Output.Output.Optogenetics*
+  commentId: Overload:Output.Output.Optogenetics
+  href: Output.Output.html#Output_Output_Optogenetics
+  name: Optogenetics
+  nameWithType: Output.Optogenetics
+  fullName: Output.Output.Optogenetics
+- uid: Output.Optogenetics
+  commentId: T:Output.Optogenetics
+  parent: Output
+  href: Output.Optogenetics.html
+  name: Optogenetics
+  nameWithType: Optogenetics
+  fullName: Output.Optogenetics
+- uid: Output.Output.Process*
+  commentId: Overload:Output.Output.Process
+  href: Output.Output.html#Output_Output_Process
+  name: Process
+  nameWithType: Output.Process
+  fullName: Output.Output.Process
+- uid: System.IObservable{Output.Output}
+  commentId: T:System.IObservable{Output.Output}
+  parent: System
+  definition: System.IObservable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  name: IObservable<Output>
+  nameWithType: IObservable<Output>
+  fullName: System.IObservable<Output.Output>
+  nameWithType.vb: IObservable(Of Output)
+  fullName.vb: System.IObservable(Of Output.Output)
+  name.vb: IObservable(Of Output)
+  spec.csharp:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: <
+  - uid: Output.Output
+    name: Output
+    href: Output.Output.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Output.Output
+    name: Output
+    href: Output.Output.html
+  - name: )
+- uid: System.IObservable`1
+  commentId: T:System.IObservable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  name: IObservable<T>
+  nameWithType: IObservable<T>
+  fullName: System.IObservable<T>
+  nameWithType.vb: IObservable(Of T)
+  fullName.vb: System.IObservable(Of T)
+  name.vb: IObservable(Of T)
+  spec.csharp:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.IObservable{{TSource}}
+  commentId: T:System.IObservable{``0}
+  parent: System
+  definition: System.IObservable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  name: IObservable<TSource>
+  nameWithType: IObservable<TSource>
+  fullName: System.IObservable<TSource>
+  nameWithType.vb: IObservable(Of TSource)
+  fullName.vb: System.IObservable(Of TSource)
+  name.vb: IObservable(Of TSource)
+  spec.csharp:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: <
+  - name: TSource
+  - name: '>'
+  spec.vb:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TSource
+  - name: )
+- uid: Output.Output.PrintMembers*
+  commentId: Overload:Output.Output.PrintMembers
+  href: Output.Output.html#Output_Output_PrintMembers_System_Text_StringBuilder_
+  name: PrintMembers
+  nameWithType: Output.PrintMembers
+  fullName: Output.Output.PrintMembers
+- uid: System.Text.StringBuilder
+  commentId: T:System.Text.StringBuilder
+  parent: System.Text
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.text.stringbuilder
+  name: StringBuilder
+  nameWithType: StringBuilder
+  fullName: System.Text.StringBuilder
+- uid: System.Text
+  commentId: N:System.Text
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Text
+  nameWithType: System.Text
+  fullName: System.Text
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Text
+    name: Text
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Text
+    name: Text
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: Output.Output.ToString*
+  commentId: Overload:Output.Output.ToString
+  href: Output.Output.html#Output_Output_ToString
+  name: ToString
+  nameWithType: Output.ToString
+  fullName: Output.Output.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String

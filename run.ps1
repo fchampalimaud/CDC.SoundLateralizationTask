@@ -1,1 +1,1 @@
-.\bonsai\Bonsai.exe src\sound_lateralization_task.bonsai
+.\bonsai\Bonsai.exe .\src\SoundLateralizationTask.bonsai

@@ -1,0 +1,1214 @@
+### YamlMime:ManagedReference
+items:
+- uid: Animal.Session
+  commentId: T:Animal.Session
+  id: Session
+  parent: Animal
+  children:
+  - Animal.Session.#ctor
+  - Animal.Session.#ctor(Animal.Session)
+  - Animal.Session.Duration
+  - Animal.Session.LastTrainingLevel
+  - Animal.Session.Number
+  - Animal.Session.PrintMembers(System.Text.StringBuilder)
+  - Animal.Session.Process
+  - Animal.Session.Process``1(System.IObservable{``0})
+  - Animal.Session.SetupId
+  - Animal.Session.StartingBlockNumber
+  - Animal.Session.StartingTrainingLevel
+  - Animal.Session.StartingTrialNumber
+  - Animal.Session.ToString
+  - Animal.Session.Type
+  langs:
+  - csharp
+  - vb
+  name: Session
+  nameWithType: Session
+  fullName: Animal.Session
+  type: Class
+  source:
+    remote:
+      path: src/Extensions/Animal.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: Session
+    path: ../src/Extensions/Animal.cs
+    startLine: 281
+  assemblies:
+  - Extensions
+  namespace: Animal
+  syntax:
+    content: >-
+      [Combinator]
+
+      [WorkflowElementCategory(ElementCategory.Source)]
+
+      public class Session
+    content.vb: >-
+      <Combinator>
+
+      <WorkflowElementCategory(ElementCategory.Source)>
+
+      Public Class Session
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  attributes:
+  - type: Bonsai.CombinatorAttribute
+    ctor: Bonsai.CombinatorAttribute.#ctor
+    arguments: []
+  - type: Bonsai.WorkflowElementCategoryAttribute
+    ctor: Bonsai.WorkflowElementCategoryAttribute.#ctor(Bonsai.ElementCategory)
+    arguments:
+    - type: Bonsai.ElementCategory
+      value: 0
+- uid: Animal.Session.#ctor
+  commentId: M:Animal.Session.#ctor
+  id: '#ctor'
+  parent: Animal.Session
+  langs:
+  - csharp
+  - vb
+  name: Session()
+  nameWithType: Session.Session()
+  fullName: Animal.Session.Session()
+  type: Constructor
+  source:
+    remote:
+      path: src/Extensions/Animal.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: .ctor
+    path: ../src/Extensions/Animal.cs
+    startLine: 303
+  assemblies:
+  - Extensions
+  namespace: Animal
+  syntax:
+    content: public Session()
+    content.vb: Public Sub New()
+  overload: Animal.Session.#ctor*
+  nameWithType.vb: Session.New()
+  fullName.vb: Animal.Session.New()
+  name.vb: New()
+- uid: Animal.Session.#ctor(Animal.Session)
+  commentId: M:Animal.Session.#ctor(Animal.Session)
+  id: '#ctor(Animal.Session)'
+  parent: Animal.Session
+  langs:
+  - csharp
+  - vb
+  name: Session(Session)
+  nameWithType: Session.Session(Session)
+  fullName: Animal.Session.Session(Animal.Session)
+  type: Constructor
+  source:
+    remote:
+      path: src/Extensions/Animal.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: .ctor
+    path: ../src/Extensions/Animal.cs
+    startLine: 307
+  assemblies:
+  - Extensions
+  namespace: Animal
+  syntax:
+    content: protected Session(Session other)
+    parameters:
+    - id: other
+      type: Animal.Session
+    content.vb: Protected Sub New(other As Session)
+  overload: Animal.Session.#ctor*
+  nameWithType.vb: Session.New(Session)
+  fullName.vb: Animal.Session.New(Animal.Session)
+  name.vb: New(Session)
+- uid: Animal.Session.Number
+  commentId: P:Animal.Session.Number
+  id: Number
+  parent: Animal.Session
+  langs:
+  - csharp
+  - vb
+  name: Number
+  nameWithType: Session.Number
+  fullName: Animal.Session.Number
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/Animal.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: Number
+    path: ../src/Extensions/Animal.cs
+    startLine: 322
+  assemblies:
+  - Extensions
+  namespace: Animal
+  summary: The number of the current session.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("number", Required = Required.Always)]
+
+      [YamlMember(Alias = "number")]
+
+      public int Number { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: >-
+      <JsonProperty("number", Required:=Required.Always)>
+
+      <YamlMember(Alias:="number")>
+
+      Public Property Number As Integer
+  overload: Animal.Session.Number*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: number
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: YamlDotNet.Serialization.YamlMemberAttribute
+    ctor: YamlDotNet.Serialization.YamlMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Alias
+      type: System.String
+      value: number
+- uid: Animal.Session.Duration
+  commentId: P:Animal.Session.Duration
+  id: Duration
+  parent: Animal.Session
+  langs:
+  - csharp
+  - vb
+  name: Duration
+  nameWithType: Session.Duration
+  fullName: Animal.Session.Duration
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/Animal.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: Duration
+    path: ../src/Extensions/Animal.cs
+    startLine: 340
+  assemblies:
+  - Extensions
+  namespace: Animal
+  summary: The duration of the session (in the hh:mm:ss format).
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("duration", Required = Required.Always)]
+
+      [YamlMember(Alias = "duration")]
+
+      public TimeSpan Duration { get; set; }
+    parameters: []
+    return:
+      type: System.TimeSpan
+    content.vb: >-
+      <JsonProperty("duration", Required:=Required.Always)>
+
+      <YamlMember(Alias:="duration")>
+
+      Public Property Duration As TimeSpan
+  overload: Animal.Session.Duration*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: duration
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: YamlDotNet.Serialization.YamlMemberAttribute
+    ctor: YamlDotNet.Serialization.YamlMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Alias
+      type: System.String
+      value: duration
+- uid: Animal.Session.Type
+  commentId: P:Animal.Session.Type
+  id: Type
+  parent: Animal.Session
+  langs:
+  - csharp
+  - vb
+  name: Type
+  nameWithType: Session.Type
+  fullName: Animal.Session.Type
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/Animal.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: Type
+    path: ../src/Extensions/Animal.cs
+    startLine: 359
+  assemblies:
+  - Extensions
+  namespace: Animal
+  summary: The number of the session type.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("type", Required = Required.Always)]
+
+      [YamlMember(Alias = "type")]
+
+      public int Type { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: >-
+      <JsonProperty("type", Required:=Required.Always)>
+
+      <YamlMember(Alias:="type")>
+
+      Public Property Type As Integer
+  overload: Animal.Session.Type*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: type
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: YamlDotNet.Serialization.YamlMemberAttribute
+    ctor: YamlDotNet.Serialization.YamlMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Alias
+      type: System.String
+      value: type
+- uid: Animal.Session.SetupId
+  commentId: P:Animal.Session.SetupId
+  id: SetupId
+  parent: Animal.Session
+  langs:
+  - csharp
+  - vb
+  name: SetupId
+  nameWithType: Session.SetupId
+  fullName: Animal.Session.SetupId
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/Animal.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: SetupId
+    path: ../src/Extensions/Animal.cs
+    startLine: 377
+  assemblies:
+  - Extensions
+  namespace: Animal
+  summary: The ID number of the setup where the animal will perform the session.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("setup_id", Required = Required.Always)]
+
+      [YamlMember(Alias = "setup_id")]
+
+      public int SetupId { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: >-
+      <JsonProperty("setup_id", Required:=Required.Always)>
+
+      <YamlMember(Alias:="setup_id")>
+
+      Public Property SetupId As Integer
+  overload: Animal.Session.SetupId*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: setup_id
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: YamlDotNet.Serialization.YamlMemberAttribute
+    ctor: YamlDotNet.Serialization.YamlMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Alias
+      type: System.String
+      value: setup_id
+- uid: Animal.Session.StartingTrialNumber
+  commentId: P:Animal.Session.StartingTrialNumber
+  id: StartingTrialNumber
+  parent: Animal.Session
+  langs:
+  - csharp
+  - vb
+  name: StartingTrialNumber
+  nameWithType: Session.StartingTrialNumber
+  fullName: Animal.Session.StartingTrialNumber
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/Animal.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: StartingTrialNumber
+    path: ../src/Extensions/Animal.cs
+    startLine: 395
+  assemblies:
+  - Extensions
+  namespace: Animal
+  summary: The number of the first trial of the session.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("starting_trial_number", Required = Required.Always)]
+
+      [YamlMember(Alias = "starting_trial_number")]
+
+      public int StartingTrialNumber { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: >-
+      <JsonProperty("starting_trial_number", Required:=Required.Always)>
+
+      <YamlMember(Alias:="starting_trial_number")>
+
+      Public Property StartingTrialNumber As Integer
+  overload: Animal.Session.StartingTrialNumber*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: starting_trial_number
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: YamlDotNet.Serialization.YamlMemberAttribute
+    ctor: YamlDotNet.Serialization.YamlMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Alias
+      type: System.String
+      value: starting_trial_number
+- uid: Animal.Session.StartingBlockNumber
+  commentId: P:Animal.Session.StartingBlockNumber
+  id: StartingBlockNumber
+  parent: Animal.Session
+  langs:
+  - csharp
+  - vb
+  name: StartingBlockNumber
+  nameWithType: Session.StartingBlockNumber
+  fullName: Animal.Session.StartingBlockNumber
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/Animal.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: StartingBlockNumber
+    path: ../src/Extensions/Animal.cs
+    startLine: 413
+  assemblies:
+  - Extensions
+  namespace: Animal
+  summary: The number of the first block of the session.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("starting_block_number", Required = Required.Always)]
+
+      [YamlMember(Alias = "starting_block_number")]
+
+      public int StartingBlockNumber { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: >-
+      <JsonProperty("starting_block_number", Required:=Required.Always)>
+
+      <YamlMember(Alias:="starting_block_number")>
+
+      Public Property StartingBlockNumber As Integer
+  overload: Animal.Session.StartingBlockNumber*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: starting_block_number
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: YamlDotNet.Serialization.YamlMemberAttribute
+    ctor: YamlDotNet.Serialization.YamlMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Alias
+      type: System.String
+      value: starting_block_number
+- uid: Animal.Session.StartingTrainingLevel
+  commentId: P:Animal.Session.StartingTrainingLevel
+  id: StartingTrainingLevel
+  parent: Animal.Session
+  langs:
+  - csharp
+  - vb
+  name: StartingTrainingLevel
+  nameWithType: Session.StartingTrainingLevel
+  fullName: Animal.Session.StartingTrainingLevel
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/Animal.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: StartingTrainingLevel
+    path: ../src/Extensions/Animal.cs
+    startLine: 431
+  assemblies:
+  - Extensions
+  namespace: Animal
+  summary: The training level the animal will start in the current session.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("starting_training_level", Required = Required.Always)]
+
+      [YamlMember(Alias = "starting_training_level")]
+
+      public int StartingTrainingLevel { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: >-
+      <JsonProperty("starting_training_level", Required:=Required.Always)>
+
+      <YamlMember(Alias:="starting_training_level")>
+
+      Public Property StartingTrainingLevel As Integer
+  overload: Animal.Session.StartingTrainingLevel*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: starting_training_level
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: YamlDotNet.Serialization.YamlMemberAttribute
+    ctor: YamlDotNet.Serialization.YamlMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Alias
+      type: System.String
+      value: starting_training_level
+- uid: Animal.Session.LastTrainingLevel
+  commentId: P:Animal.Session.LastTrainingLevel
+  id: LastTrainingLevel
+  parent: Animal.Session
+  langs:
+  - csharp
+  - vb
+  name: LastTrainingLevel
+  nameWithType: Session.LastTrainingLevel
+  fullName: Animal.Session.LastTrainingLevel
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/Animal.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: LastTrainingLevel
+    path: ../src/Extensions/Animal.cs
+    startLine: 449
+  assemblies:
+  - Extensions
+  namespace: Animal
+  summary: The last training level the animal is allowed to progress to in the current session.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("last_training_level", Required = Required.Always)]
+
+      [YamlMember(Alias = "last_training_level")]
+
+      public int LastTrainingLevel { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: >-
+      <JsonProperty("last_training_level", Required:=Required.Always)>
+
+      <YamlMember(Alias:="last_training_level")>
+
+      Public Property LastTrainingLevel As Integer
+  overload: Animal.Session.LastTrainingLevel*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: last_training_level
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: YamlDotNet.Serialization.YamlMemberAttribute
+    ctor: YamlDotNet.Serialization.YamlMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Alias
+      type: System.String
+      value: last_training_level
+- uid: Animal.Session.Process
+  commentId: M:Animal.Session.Process
+  id: Process
+  parent: Animal.Session
+  langs:
+  - csharp
+  - vb
+  name: Process()
+  nameWithType: Session.Process()
+  fullName: Animal.Session.Process()
+  type: Method
+  source:
+    remote:
+      path: src/Extensions/Animal.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: Process
+    path: ../src/Extensions/Animal.cs
+    startLine: 465
+  assemblies:
+  - Extensions
+  namespace: Animal
+  syntax:
+    content: public IObservable<Session> Process()
+    return:
+      type: System.IObservable{Animal.Session}
+    content.vb: Public Function Process() As IObservable(Of Session)
+  overload: Animal.Session.Process*
+- uid: Animal.Session.Process``1(System.IObservable{``0})
+  commentId: M:Animal.Session.Process``1(System.IObservable{``0})
+  id: Process``1(System.IObservable{``0})
+  parent: Animal.Session
+  langs:
+  - csharp
+  - vb
+  name: Process<TSource>(IObservable<TSource>)
+  nameWithType: Session.Process<TSource>(IObservable<TSource>)
+  fullName: Animal.Session.Process<TSource>(System.IObservable<TSource>)
+  type: Method
+  source:
+    remote:
+      path: src/Extensions/Animal.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: Process
+    path: ../src/Extensions/Animal.cs
+    startLine: 470
+  assemblies:
+  - Extensions
+  namespace: Animal
+  syntax:
+    content: public IObservable<Session> Process<TSource>(IObservable<TSource> source)
+    parameters:
+    - id: source
+      type: System.IObservable{{TSource}}
+    typeParameters:
+    - id: TSource
+    return:
+      type: System.IObservable{Animal.Session}
+    content.vb: Public Function Process(Of TSource)(source As IObservable(Of TSource)) As IObservable(Of Session)
+  overload: Animal.Session.Process*
+  nameWithType.vb: Session.Process(Of TSource)(IObservable(Of TSource))
+  fullName.vb: Animal.Session.Process(Of TSource)(System.IObservable(Of TSource))
+  name.vb: Process(Of TSource)(IObservable(Of TSource))
+- uid: Animal.Session.PrintMembers(System.Text.StringBuilder)
+  commentId: M:Animal.Session.PrintMembers(System.Text.StringBuilder)
+  id: PrintMembers(System.Text.StringBuilder)
+  parent: Animal.Session
+  langs:
+  - csharp
+  - vb
+  name: PrintMembers(StringBuilder)
+  nameWithType: Session.PrintMembers(StringBuilder)
+  fullName: Animal.Session.PrintMembers(System.Text.StringBuilder)
+  type: Method
+  source:
+    remote:
+      path: src/Extensions/Animal.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: PrintMembers
+    path: ../src/Extensions/Animal.cs
+    startLine: 475
+  assemblies:
+  - Extensions
+  namespace: Animal
+  syntax:
+    content: protected virtual bool PrintMembers(StringBuilder stringBuilder)
+    parameters:
+    - id: stringBuilder
+      type: System.Text.StringBuilder
+    return:
+      type: System.Boolean
+    content.vb: Protected Overridable Function PrintMembers(stringBuilder As StringBuilder) As Boolean
+  overload: Animal.Session.PrintMembers*
+- uid: Animal.Session.ToString
+  commentId: M:Animal.Session.ToString
+  id: ToString
+  parent: Animal.Session
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: Session.ToString()
+  fullName: Animal.Session.ToString()
+  type: Method
+  source:
+    remote:
+      path: src/Extensions/Animal.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: ToString
+    path: ../src/Extensions/Animal.cs
+    startLine: 488
+  assemblies:
+  - Extensions
+  namespace: Animal
+  summary: Returns a string that represents the current object.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: A string that represents the current object.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: Animal.Session.ToString*
+references:
+- uid: Animal
+  commentId: N:Animal
+  href: Animal.html
+  name: Animal
+  nameWithType: Animal
+  fullName: Animal
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Animal.Session.#ctor*
+  commentId: Overload:Animal.Session.#ctor
+  href: Animal.Session.html#Animal_Session__ctor
+  name: Session
+  nameWithType: Session.Session
+  fullName: Animal.Session.Session
+  nameWithType.vb: Session.New
+  fullName.vb: Animal.Session.New
+  name.vb: New
+- uid: Animal.Session
+  commentId: T:Animal.Session
+  parent: Animal
+  href: Animal.Session.html
+  name: Session
+  nameWithType: Session
+  fullName: Animal.Session
+- uid: Animal.Session.Number*
+  commentId: Overload:Animal.Session.Number
+  href: Animal.Session.html#Animal_Session_Number
+  name: Number
+  nameWithType: Session.Number
+  fullName: Animal.Session.Number
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Animal.Session.Duration*
+  commentId: Overload:Animal.Session.Duration
+  href: Animal.Session.html#Animal_Session_Duration
+  name: Duration
+  nameWithType: Session.Duration
+  fullName: Animal.Session.Duration
+- uid: System.TimeSpan
+  commentId: T:System.TimeSpan
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.timespan
+  name: TimeSpan
+  nameWithType: TimeSpan
+  fullName: System.TimeSpan
+- uid: Animal.Session.Type*
+  commentId: Overload:Animal.Session.Type
+  href: Animal.Session.html#Animal_Session_Type
+  name: Type
+  nameWithType: Session.Type
+  fullName: Animal.Session.Type
+- uid: Animal.Session.SetupId*
+  commentId: Overload:Animal.Session.SetupId
+  href: Animal.Session.html#Animal_Session_SetupId
+  name: SetupId
+  nameWithType: Session.SetupId
+  fullName: Animal.Session.SetupId
+- uid: Animal.Session.StartingTrialNumber*
+  commentId: Overload:Animal.Session.StartingTrialNumber
+  href: Animal.Session.html#Animal_Session_StartingTrialNumber
+  name: StartingTrialNumber
+  nameWithType: Session.StartingTrialNumber
+  fullName: Animal.Session.StartingTrialNumber
+- uid: Animal.Session.StartingBlockNumber*
+  commentId: Overload:Animal.Session.StartingBlockNumber
+  href: Animal.Session.html#Animal_Session_StartingBlockNumber
+  name: StartingBlockNumber
+  nameWithType: Session.StartingBlockNumber
+  fullName: Animal.Session.StartingBlockNumber
+- uid: Animal.Session.StartingTrainingLevel*
+  commentId: Overload:Animal.Session.StartingTrainingLevel
+  href: Animal.Session.html#Animal_Session_StartingTrainingLevel
+  name: StartingTrainingLevel
+  nameWithType: Session.StartingTrainingLevel
+  fullName: Animal.Session.StartingTrainingLevel
+- uid: Animal.Session.LastTrainingLevel*
+  commentId: Overload:Animal.Session.LastTrainingLevel
+  href: Animal.Session.html#Animal_Session_LastTrainingLevel
+  name: LastTrainingLevel
+  nameWithType: Session.LastTrainingLevel
+  fullName: Animal.Session.LastTrainingLevel
+- uid: Animal.Session.Process*
+  commentId: Overload:Animal.Session.Process
+  href: Animal.Session.html#Animal_Session_Process
+  name: Process
+  nameWithType: Session.Process
+  fullName: Animal.Session.Process
+- uid: System.IObservable{Animal.Session}
+  commentId: T:System.IObservable{Animal.Session}
+  parent: System
+  definition: System.IObservable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  name: IObservable<Session>
+  nameWithType: IObservable<Session>
+  fullName: System.IObservable<Animal.Session>
+  nameWithType.vb: IObservable(Of Session)
+  fullName.vb: System.IObservable(Of Animal.Session)
+  name.vb: IObservable(Of Session)
+  spec.csharp:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: <
+  - uid: Animal.Session
+    name: Session
+    href: Animal.Session.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Animal.Session
+    name: Session
+    href: Animal.Session.html
+  - name: )
+- uid: System.IObservable`1
+  commentId: T:System.IObservable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  name: IObservable<T>
+  nameWithType: IObservable<T>
+  fullName: System.IObservable<T>
+  nameWithType.vb: IObservable(Of T)
+  fullName.vb: System.IObservable(Of T)
+  name.vb: IObservable(Of T)
+  spec.csharp:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.IObservable{{TSource}}
+  commentId: T:System.IObservable{``0}
+  parent: System
+  definition: System.IObservable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  name: IObservable<TSource>
+  nameWithType: IObservable<TSource>
+  fullName: System.IObservable<TSource>
+  nameWithType.vb: IObservable(Of TSource)
+  fullName.vb: System.IObservable(Of TSource)
+  name.vb: IObservable(Of TSource)
+  spec.csharp:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: <
+  - name: TSource
+  - name: '>'
+  spec.vb:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TSource
+  - name: )
+- uid: Animal.Session.PrintMembers*
+  commentId: Overload:Animal.Session.PrintMembers
+  href: Animal.Session.html#Animal_Session_PrintMembers_System_Text_StringBuilder_
+  name: PrintMembers
+  nameWithType: Session.PrintMembers
+  fullName: Animal.Session.PrintMembers
+- uid: System.Text.StringBuilder
+  commentId: T:System.Text.StringBuilder
+  parent: System.Text
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.text.stringbuilder
+  name: StringBuilder
+  nameWithType: StringBuilder
+  fullName: System.Text.StringBuilder
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.Text
+  commentId: N:System.Text
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Text
+  nameWithType: System.Text
+  fullName: System.Text
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Text
+    name: Text
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Text
+    name: Text
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: Animal.Session.ToString*
+  commentId: Overload:Animal.Session.ToString
+  href: Animal.Session.html#Animal_Session_ToString
+  name: ToString
+  nameWithType: Session.ToString
+  fullName: Animal.Session.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String

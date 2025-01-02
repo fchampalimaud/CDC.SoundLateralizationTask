@@ -1,0 +1,981 @@
+### YamlMime:ManagedReference
+items:
+- uid: Animal.Sound
+  commentId: T:Animal.Sound
+  id: Sound
+  parent: Animal
+  children:
+  - Animal.Sound.#ctor
+  - Animal.Sound.#ctor(Animal.Sound)
+  - Animal.Sound.AblList
+  - Animal.Sound.CycleIld
+  - Animal.Sound.FixedAbl
+  - Animal.Sound.PrintMembers(System.Text.StringBuilder)
+  - Animal.Sound.Process
+  - Animal.Sound.Process``1(System.IObservable{``0})
+  - Animal.Sound.ToString
+  langs:
+  - csharp
+  - vb
+  name: Sound
+  nameWithType: Sound
+  fullName: Animal.Sound
+  type: Class
+  source:
+    remote:
+      path: src/Extensions/Animal.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: Sound
+    path: ../src/Extensions/Animal.cs
+    startLine: 503
+  assemblies:
+  - Extensions
+  namespace: Animal
+  syntax:
+    content: >-
+      [Combinator]
+
+      [WorkflowElementCategory(ElementCategory.Source)]
+
+      public class Sound
+    content.vb: >-
+      <Combinator>
+
+      <WorkflowElementCategory(ElementCategory.Source)>
+
+      Public Class Sound
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  attributes:
+  - type: Bonsai.CombinatorAttribute
+    ctor: Bonsai.CombinatorAttribute.#ctor
+    arguments: []
+  - type: Bonsai.WorkflowElementCategoryAttribute
+    ctor: Bonsai.WorkflowElementCategoryAttribute.#ctor(Bonsai.ElementCategory)
+    arguments:
+    - type: Bonsai.ElementCategory
+      value: 0
+- uid: Animal.Sound.#ctor
+  commentId: M:Animal.Sound.#ctor
+  id: '#ctor'
+  parent: Animal.Sound
+  langs:
+  - csharp
+  - vb
+  name: Sound()
+  nameWithType: Sound.Sound()
+  fullName: Animal.Sound.Sound()
+  type: Constructor
+  source:
+    remote:
+      path: src/Extensions/Animal.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: .ctor
+    path: ../src/Extensions/Animal.cs
+    startLine: 515
+  assemblies:
+  - Extensions
+  namespace: Animal
+  syntax:
+    content: public Sound()
+    content.vb: Public Sub New()
+  overload: Animal.Sound.#ctor*
+  nameWithType.vb: Sound.New()
+  fullName.vb: Animal.Sound.New()
+  name.vb: New()
+- uid: Animal.Sound.#ctor(Animal.Sound)
+  commentId: M:Animal.Sound.#ctor(Animal.Sound)
+  id: '#ctor(Animal.Sound)'
+  parent: Animal.Sound
+  langs:
+  - csharp
+  - vb
+  name: Sound(Sound)
+  nameWithType: Sound.Sound(Sound)
+  fullName: Animal.Sound.Sound(Animal.Sound)
+  type: Constructor
+  source:
+    remote:
+      path: src/Extensions/Animal.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: .ctor
+    path: ../src/Extensions/Animal.cs
+    startLine: 519
+  assemblies:
+  - Extensions
+  namespace: Animal
+  syntax:
+    content: protected Sound(Sound other)
+    parameters:
+    - id: other
+      type: Animal.Sound
+    content.vb: Protected Sub New(other As Sound)
+  overload: Animal.Sound.#ctor*
+  nameWithType.vb: Sound.New(Sound)
+  fullName.vb: Animal.Sound.New(Animal.Sound)
+  name.vb: New(Sound)
+- uid: Animal.Sound.FixedAbl
+  commentId: P:Animal.Sound.FixedAbl
+  id: FixedAbl
+  parent: Animal.Sound
+  langs:
+  - csharp
+  - vb
+  name: FixedAbl
+  nameWithType: Sound.FixedAbl
+  fullName: Animal.Sound.FixedAbl
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/Animal.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: FixedAbl
+    path: ../src/Extensions/Animal.cs
+    startLine: 529
+  assemblies:
+  - Extensions
+  namespace: Animal
+  summary: The ABL value to use when use_fixed_abl from the training.json file is true (dB).
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("fixed_abl", Required = Required.Always)]
+
+      [YamlMember(Alias = "fixed_abl")]
+
+      public double FixedAbl { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: >-
+      <JsonProperty("fixed_abl", Required:=Required.Always)>
+
+      <YamlMember(Alias:="fixed_abl")>
+
+      Public Property FixedAbl As Double
+  overload: Animal.Sound.FixedAbl*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: fixed_abl
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: YamlDotNet.Serialization.YamlMemberAttribute
+    ctor: YamlDotNet.Serialization.YamlMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Alias
+      type: System.String
+      value: fixed_abl
+- uid: Animal.Sound.AblList
+  commentId: P:Animal.Sound.AblList
+  id: AblList
+  parent: Animal.Sound
+  langs:
+  - csharp
+  - vb
+  name: AblList
+  nameWithType: Sound.AblList
+  fullName: Animal.Sound.AblList
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/Animal.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: AblList
+    path: ../src/Extensions/Animal.cs
+    startLine: 548
+  assemblies:
+  - Extensions
+  namespace: Animal
+  summary: The list of ABL values to be used in the task (dB SPL).
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("abl_list", Required = Required.Always)]
+
+      [YamlMember(Alias = "abl_list")]
+
+      public List<double> AblList { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{System.Double}
+    content.vb: >-
+      <JsonProperty("abl_list", Required:=Required.Always)>
+
+      <YamlMember(Alias:="abl_list")>
+
+      Public Property AblList As List(Of Double)
+  overload: Animal.Sound.AblList*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: abl_list
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: YamlDotNet.Serialization.YamlMemberAttribute
+    ctor: YamlDotNet.Serialization.YamlMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Alias
+      type: System.String
+      value: abl_list
+- uid: Animal.Sound.CycleIld
+  commentId: P:Animal.Sound.CycleIld
+  id: CycleIld
+  parent: Animal.Sound
+  langs:
+  - csharp
+  - vb
+  name: CycleIld
+  nameWithType: Sound.CycleIld
+  fullName: Animal.Sound.CycleIld
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/Animal.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: CycleIld
+    path: ../src/Extensions/Animal.cs
+    startLine: 567
+  assemblies:
+  - Extensions
+  namespace: Animal
+  summary: If true, the ILD array is shuffled and the ILD is picked by just following the new array order; when the end of the array is reached, the array is shuffled again and the procedure is repeated. Otherwise, an ILD value is randomly picked every trial from the array of ILDs.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("cycle_ild", Required = Required.Always)]
+
+      [YamlMember(Alias = "cycle_ild")]
+
+      public bool CycleIld { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: >-
+      <JsonProperty("cycle_ild", Required:=Required.Always)>
+
+      <YamlMember(Alias:="cycle_ild")>
+
+      Public Property CycleIld As Boolean
+  overload: Animal.Sound.CycleIld*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: cycle_ild
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: YamlDotNet.Serialization.YamlMemberAttribute
+    ctor: YamlDotNet.Serialization.YamlMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Alias
+      type: System.String
+      value: cycle_ild
+- uid: Animal.Sound.Process
+  commentId: M:Animal.Sound.Process
+  id: Process
+  parent: Animal.Sound
+  langs:
+  - csharp
+  - vb
+  name: Process()
+  nameWithType: Sound.Process()
+  fullName: Animal.Sound.Process()
+  type: Method
+  source:
+    remote:
+      path: src/Extensions/Animal.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: Process
+    path: ../src/Extensions/Animal.cs
+    startLine: 582
+  assemblies:
+  - Extensions
+  namespace: Animal
+  syntax:
+    content: public IObservable<Sound> Process()
+    return:
+      type: System.IObservable{Animal.Sound}
+    content.vb: Public Function Process() As IObservable(Of Sound)
+  overload: Animal.Sound.Process*
+- uid: Animal.Sound.Process``1(System.IObservable{``0})
+  commentId: M:Animal.Sound.Process``1(System.IObservable{``0})
+  id: Process``1(System.IObservable{``0})
+  parent: Animal.Sound
+  langs:
+  - csharp
+  - vb
+  name: Process<TSource>(IObservable<TSource>)
+  nameWithType: Sound.Process<TSource>(IObservable<TSource>)
+  fullName: Animal.Sound.Process<TSource>(System.IObservable<TSource>)
+  type: Method
+  source:
+    remote:
+      path: src/Extensions/Animal.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: Process
+    path: ../src/Extensions/Animal.cs
+    startLine: 587
+  assemblies:
+  - Extensions
+  namespace: Animal
+  syntax:
+    content: public IObservable<Sound> Process<TSource>(IObservable<TSource> source)
+    parameters:
+    - id: source
+      type: System.IObservable{{TSource}}
+    typeParameters:
+    - id: TSource
+    return:
+      type: System.IObservable{Animal.Sound}
+    content.vb: Public Function Process(Of TSource)(source As IObservable(Of TSource)) As IObservable(Of Sound)
+  overload: Animal.Sound.Process*
+  nameWithType.vb: Sound.Process(Of TSource)(IObservable(Of TSource))
+  fullName.vb: Animal.Sound.Process(Of TSource)(System.IObservable(Of TSource))
+  name.vb: Process(Of TSource)(IObservable(Of TSource))
+- uid: Animal.Sound.PrintMembers(System.Text.StringBuilder)
+  commentId: M:Animal.Sound.PrintMembers(System.Text.StringBuilder)
+  id: PrintMembers(System.Text.StringBuilder)
+  parent: Animal.Sound
+  langs:
+  - csharp
+  - vb
+  name: PrintMembers(StringBuilder)
+  nameWithType: Sound.PrintMembers(StringBuilder)
+  fullName: Animal.Sound.PrintMembers(System.Text.StringBuilder)
+  type: Method
+  source:
+    remote:
+      path: src/Extensions/Animal.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: PrintMembers
+    path: ../src/Extensions/Animal.cs
+    startLine: 592
+  assemblies:
+  - Extensions
+  namespace: Animal
+  syntax:
+    content: protected virtual bool PrintMembers(StringBuilder stringBuilder)
+    parameters:
+    - id: stringBuilder
+      type: System.Text.StringBuilder
+    return:
+      type: System.Boolean
+    content.vb: Protected Overridable Function PrintMembers(stringBuilder As StringBuilder) As Boolean
+  overload: Animal.Sound.PrintMembers*
+- uid: Animal.Sound.ToString
+  commentId: M:Animal.Sound.ToString
+  id: ToString
+  parent: Animal.Sound
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: Sound.ToString()
+  fullName: Animal.Sound.ToString()
+  type: Method
+  source:
+    remote:
+      path: src/Extensions/Animal.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: ToString
+    path: ../src/Extensions/Animal.cs
+    startLine: 600
+  assemblies:
+  - Extensions
+  namespace: Animal
+  summary: Returns a string that represents the current object.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: A string that represents the current object.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: Animal.Sound.ToString*
+references:
+- uid: Animal
+  commentId: N:Animal
+  href: Animal.html
+  name: Animal
+  nameWithType: Animal
+  fullName: Animal
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Animal.Sound.#ctor*
+  commentId: Overload:Animal.Sound.#ctor
+  href: Animal.Sound.html#Animal_Sound__ctor
+  name: Sound
+  nameWithType: Sound.Sound
+  fullName: Animal.Sound.Sound
+  nameWithType.vb: Sound.New
+  fullName.vb: Animal.Sound.New
+  name.vb: New
+- uid: Animal.Sound
+  commentId: T:Animal.Sound
+  parent: Animal
+  href: Animal.Sound.html
+  name: Sound
+  nameWithType: Sound
+  fullName: Animal.Sound
+- uid: Animal.Sound.FixedAbl*
+  commentId: Overload:Animal.Sound.FixedAbl
+  href: Animal.Sound.html#Animal_Sound_FixedAbl
+  name: FixedAbl
+  nameWithType: Sound.FixedAbl
+  fullName: Animal.Sound.FixedAbl
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: Animal.Sound.AblList*
+  commentId: Overload:Animal.Sound.AblList
+  href: Animal.Sound.html#Animal_Sound_AblList
+  name: AblList
+  nameWithType: Sound.AblList
+  fullName: Animal.Sound.AblList
+- uid: System.Collections.Generic.List{System.Double}
+  commentId: T:System.Collections.Generic.List{System.Double}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<double>
+  nameWithType: List<double>
+  fullName: System.Collections.Generic.List<double>
+  nameWithType.vb: List(Of Double)
+  fullName.vb: System.Collections.Generic.List(Of Double)
+  name.vb: List(Of Double)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.Double
+    name: double
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Double
+    name: Double
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Animal.Sound.CycleIld*
+  commentId: Overload:Animal.Sound.CycleIld
+  href: Animal.Sound.html#Animal_Sound_CycleIld
+  name: CycleIld
+  nameWithType: Sound.CycleIld
+  fullName: Animal.Sound.CycleIld
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Animal.Sound.Process*
+  commentId: Overload:Animal.Sound.Process
+  href: Animal.Sound.html#Animal_Sound_Process
+  name: Process
+  nameWithType: Sound.Process
+  fullName: Animal.Sound.Process
+- uid: System.IObservable{Animal.Sound}
+  commentId: T:System.IObservable{Animal.Sound}
+  parent: System
+  definition: System.IObservable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  name: IObservable<Sound>
+  nameWithType: IObservable<Sound>
+  fullName: System.IObservable<Animal.Sound>
+  nameWithType.vb: IObservable(Of Sound)
+  fullName.vb: System.IObservable(Of Animal.Sound)
+  name.vb: IObservable(Of Sound)
+  spec.csharp:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: <
+  - uid: Animal.Sound
+    name: Sound
+    href: Animal.Sound.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Animal.Sound
+    name: Sound
+    href: Animal.Sound.html
+  - name: )
+- uid: System.IObservable`1
+  commentId: T:System.IObservable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  name: IObservable<T>
+  nameWithType: IObservable<T>
+  fullName: System.IObservable<T>
+  nameWithType.vb: IObservable(Of T)
+  fullName.vb: System.IObservable(Of T)
+  name.vb: IObservable(Of T)
+  spec.csharp:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.IObservable{{TSource}}
+  commentId: T:System.IObservable{``0}
+  parent: System
+  definition: System.IObservable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  name: IObservable<TSource>
+  nameWithType: IObservable<TSource>
+  fullName: System.IObservable<TSource>
+  nameWithType.vb: IObservable(Of TSource)
+  fullName.vb: System.IObservable(Of TSource)
+  name.vb: IObservable(Of TSource)
+  spec.csharp:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: <
+  - name: TSource
+  - name: '>'
+  spec.vb:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TSource
+  - name: )
+- uid: Animal.Sound.PrintMembers*
+  commentId: Overload:Animal.Sound.PrintMembers
+  href: Animal.Sound.html#Animal_Sound_PrintMembers_System_Text_StringBuilder_
+  name: PrintMembers
+  nameWithType: Sound.PrintMembers
+  fullName: Animal.Sound.PrintMembers
+- uid: System.Text.StringBuilder
+  commentId: T:System.Text.StringBuilder
+  parent: System.Text
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.text.stringbuilder
+  name: StringBuilder
+  nameWithType: StringBuilder
+  fullName: System.Text.StringBuilder
+- uid: System.Text
+  commentId: N:System.Text
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Text
+  nameWithType: System.Text
+  fullName: System.Text
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Text
+    name: Text
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Text
+    name: Text
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: Animal.Sound.ToString*
+  commentId: Overload:Animal.Sound.ToString
+  href: Animal.Sound.html#Animal_Sound_ToString
+  name: ToString
+  nameWithType: Sound.ToString
+  fullName: Animal.Sound.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String

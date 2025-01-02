@@ -1,53 +1,51 @@
 ### YamlMime:ManagedReference
 items:
-- uid: Extensions.GenerateILDArray
-  commentId: T:Extensions.GenerateILDArray
-  id: GenerateILDArray
-  parent: Extensions
+- uid: SetupList.Poke
+  commentId: T:SetupList.Poke
+  id: Poke
+  parent: SetupList
   children:
-  - Extensions.GenerateILDArray.LogBase
-  - Extensions.GenerateILDArray.NumSteps
-  - Extensions.GenerateILDArray.Process
-  - Extensions.GenerateILDArray.Process``1(System.IObservable{``0})
-  - Extensions.GenerateILDArray.StepSize
-  - Extensions.GenerateILDArray.UseLog
+  - SetupList.Poke.#ctor
+  - SetupList.Poke.#ctor(SetupList.Poke)
+  - SetupList.Poke.LowToHigh
+  - SetupList.Poke.PrintMembers(System.Text.StringBuilder)
+  - SetupList.Poke.Process
+  - SetupList.Poke.Process``1(System.IObservable{``0})
+  - SetupList.Poke.ToString
   langs:
   - csharp
   - vb
-  name: GenerateILDArray
-  nameWithType: GenerateILDArray
-  fullName: Extensions.GenerateILDArray
+  name: Poke
+  nameWithType: Poke
+  fullName: SetupList.Poke
   type: Class
   source:
     remote:
-      path: src/Extensions/GenerateILDArray.cs
+      path: src/Extensions/SetupList.cs
       branch: io_files_rework
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
-    id: GenerateILDArray
-    path: ../src/Extensions/GenerateILDArray.cs
-    startLine: 13
+    id: Poke
+    path: ../src/Extensions/SetupList.cs
+    startLine: 143
   assemblies:
   - Extensions
-  namespace: Extensions
-  summary: Class <code>GenerateILDArray</code> contains the logic of the Bonsai node with the same name.
-  example: []
+  namespace: SetupList
   syntax:
     content: >-
       [Combinator]
 
       [WorkflowElementCategory(ElementCategory.Source)]
 
-      public class GenerateILDArray
+      public class Poke
     content.vb: >-
       <Combinator>
 
       <WorkflowElementCategory(ElementCategory.Source)>
 
-      Public Class GenerateILDArray
+      Public Class Poke
   inheritance:
   - System.Object
   inheritedMembers:
-  - System.Object.ToString
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.ReferenceEquals(System.Object,System.Object)
@@ -63,200 +61,259 @@ items:
     arguments:
     - type: Bonsai.ElementCategory
       value: 0
-- uid: Extensions.GenerateILDArray.NumSteps
-  commentId: P:Extensions.GenerateILDArray.NumSteps
-  id: NumSteps
-  parent: Extensions.GenerateILDArray
+- uid: SetupList.Poke.#ctor
+  commentId: M:SetupList.Poke.#ctor
+  id: '#ctor'
+  parent: SetupList.Poke
   langs:
   - csharp
   - vb
-  name: NumSteps
-  nameWithType: GenerateILDArray.NumSteps
-  fullName: Extensions.GenerateILDArray.NumSteps
-  type: Property
+  name: Poke()
+  nameWithType: Poke.Poke()
+  fullName: SetupList.Poke.Poke()
+  type: Constructor
   source:
     remote:
-      path: src/Extensions/GenerateILDArray.cs
+      path: src/Extensions/SetupList.cs
       branch: io_files_rework
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
-    id: NumSteps
-    path: ../src/Extensions/GenerateILDArray.cs
-    startLine: 24
+    id: .ctor
+    path: ../src/Extensions/SetupList.cs
+    startLine: 151
   assemblies:
   - Extensions
-  namespace: Extensions
+  namespace: SetupList
   syntax:
-    content: public int NumSteps { get; set; }
-    parameters: []
-    return:
-      type: System.Int32
-    content.vb: Public Property NumSteps As Integer
-  overload: Extensions.GenerateILDArray.NumSteps*
-- uid: Extensions.GenerateILDArray.StepSize
-  commentId: P:Extensions.GenerateILDArray.StepSize
-  id: StepSize
-  parent: Extensions.GenerateILDArray
+    content: public Poke()
+    content.vb: Public Sub New()
+  overload: SetupList.Poke.#ctor*
+  nameWithType.vb: Poke.New()
+  fullName.vb: SetupList.Poke.New()
+  name.vb: New()
+- uid: SetupList.Poke.#ctor(SetupList.Poke)
+  commentId: M:SetupList.Poke.#ctor(SetupList.Poke)
+  id: '#ctor(SetupList.Poke)'
+  parent: SetupList.Poke
   langs:
   - csharp
   - vb
-  name: StepSize
-  nameWithType: GenerateILDArray.StepSize
-  fullName: Extensions.GenerateILDArray.StepSize
-  type: Property
+  name: Poke(Poke)
+  nameWithType: Poke.Poke(Poke)
+  fullName: SetupList.Poke.Poke(SetupList.Poke)
+  type: Constructor
   source:
     remote:
-      path: src/Extensions/GenerateILDArray.cs
+      path: src/Extensions/SetupList.cs
       branch: io_files_rework
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
-    id: StepSize
-    path: ../src/Extensions/GenerateILDArray.cs
-    startLine: 35
+    id: .ctor
+    path: ../src/Extensions/SetupList.cs
+    startLine: 155
   assemblies:
   - Extensions
-  namespace: Extensions
+  namespace: SetupList
   syntax:
-    content: public double StepSize { get; set; }
-    parameters: []
-    return:
-      type: System.Double
-    content.vb: Public Property StepSize As Double
-  overload: Extensions.GenerateILDArray.StepSize*
-- uid: Extensions.GenerateILDArray.UseLog
-  commentId: P:Extensions.GenerateILDArray.UseLog
-  id: UseLog
-  parent: Extensions.GenerateILDArray
+    content: protected Poke(Poke other)
+    parameters:
+    - id: other
+      type: SetupList.Poke
+    content.vb: Protected Sub New(other As Poke)
+  overload: SetupList.Poke.#ctor*
+  nameWithType.vb: Poke.New(Poke)
+  fullName.vb: SetupList.Poke.New(SetupList.Poke)
+  name.vb: New(Poke)
+- uid: SetupList.Poke.LowToHigh
+  commentId: P:SetupList.Poke.LowToHigh
+  id: LowToHigh
+  parent: SetupList.Poke
   langs:
   - csharp
   - vb
-  name: UseLog
-  nameWithType: GenerateILDArray.UseLog
-  fullName: Extensions.GenerateILDArray.UseLog
+  name: LowToHigh
+  nameWithType: Poke.LowToHigh
+  fullName: SetupList.Poke.LowToHigh
   type: Property
   source:
     remote:
-      path: src/Extensions/GenerateILDArray.cs
+      path: src/Extensions/SetupList.cs
       branch: io_files_rework
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
-    id: UseLog
-    path: ../src/Extensions/GenerateILDArray.cs
-    startLine: 45
+    id: LowToHigh
+    path: ../src/Extensions/SetupList.cs
+    startLine: 163
   assemblies:
   - Extensions
-  namespace: Extensions
+  namespace: SetupList
+  summary: Indicates whether the poke is a low-to-high (true) or a high-to-low (false) device.
+  example: []
   syntax:
-    content: public bool UseLog { get; set; }
+    content: >-
+      [JsonProperty("low_to_high", Required = Required.Always)]
+
+      [YamlMember(Alias = "low_to_high")]
+
+      public bool LowToHigh { get; set; }
     parameters: []
     return:
       type: System.Boolean
-    content.vb: Public Property UseLog As Boolean
-  overload: Extensions.GenerateILDArray.UseLog*
-- uid: Extensions.GenerateILDArray.LogBase
-  commentId: P:Extensions.GenerateILDArray.LogBase
-  id: LogBase
-  parent: Extensions.GenerateILDArray
-  langs:
-  - csharp
-  - vb
-  name: LogBase
-  nameWithType: GenerateILDArray.LogBase
-  fullName: Extensions.GenerateILDArray.LogBase
-  type: Property
-  source:
-    remote:
-      path: src/Extensions/GenerateILDArray.cs
-      branch: io_files_rework
-      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
-    id: LogBase
-    path: ../src/Extensions/GenerateILDArray.cs
-    startLine: 55
-  assemblies:
-  - Extensions
-  namespace: Extensions
-  syntax:
-    content: public double LogBase { get; set; }
-    parameters: []
-    return:
-      type: System.Double
-    content.vb: Public Property LogBase As Double
-  overload: Extensions.GenerateILDArray.LogBase*
-- uid: Extensions.GenerateILDArray.Process
-  commentId: M:Extensions.GenerateILDArray.Process
+    content.vb: >-
+      <JsonProperty("low_to_high", Required:=Required.Always)>
+
+      <YamlMember(Alias:="low_to_high")>
+
+      Public Property LowToHigh As Boolean
+  overload: SetupList.Poke.LowToHigh*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: low_to_high
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: YamlDotNet.Serialization.YamlMemberAttribute
+    ctor: YamlDotNet.Serialization.YamlMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Alias
+      type: System.String
+      value: low_to_high
+- uid: SetupList.Poke.Process
+  commentId: M:SetupList.Poke.Process
   id: Process
-  parent: Extensions.GenerateILDArray
+  parent: SetupList.Poke
   langs:
   - csharp
   - vb
   name: Process()
-  nameWithType: GenerateILDArray.Process()
-  fullName: Extensions.GenerateILDArray.Process()
+  nameWithType: Poke.Process()
+  fullName: SetupList.Poke.Process()
   type: Method
   source:
     remote:
-      path: src/Extensions/GenerateILDArray.cs
+      path: src/Extensions/SetupList.cs
       branch: io_files_rework
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
-    path: ../src/Extensions/GenerateILDArray.cs
-    startLine: 115
+    path: ../src/Extensions/SetupList.cs
+    startLine: 179
   assemblies:
   - Extensions
-  namespace: Extensions
-  summary: Generates an observable sequence which outputs an array of ILDs. This method is called when the node doesn't have an input data stream.
-  example: []
+  namespace: SetupList
   syntax:
-    content: public IObservable<double[]> Process()
+    content: public IObservable<Poke> Process()
     return:
-      type: System.IObservable{System.Double[]}
-      description: An observable sequence which sends a single event containing an array of ILD values.
-    content.vb: Public Function Process() As IObservable(Of Double())
-  overload: Extensions.GenerateILDArray.Process*
-- uid: Extensions.GenerateILDArray.Process``1(System.IObservable{``0})
-  commentId: M:Extensions.GenerateILDArray.Process``1(System.IObservable{``0})
+      type: System.IObservable{SetupList.Poke}
+    content.vb: Public Function Process() As IObservable(Of Poke)
+  overload: SetupList.Poke.Process*
+- uid: SetupList.Poke.Process``1(System.IObservable{``0})
+  commentId: M:SetupList.Poke.Process``1(System.IObservable{``0})
   id: Process``1(System.IObservable{``0})
-  parent: Extensions.GenerateILDArray
+  parent: SetupList.Poke
   langs:
   - csharp
   - vb
   name: Process<TSource>(IObservable<TSource>)
-  nameWithType: GenerateILDArray.Process<TSource>(IObservable<TSource>)
-  fullName: Extensions.GenerateILDArray.Process<TSource>(System.IObservable<TSource>)
+  nameWithType: Poke.Process<TSource>(IObservable<TSource>)
+  fullName: SetupList.Poke.Process<TSource>(System.IObservable<TSource>)
   type: Method
   source:
     remote:
-      path: src/Extensions/GenerateILDArray.cs
+      path: src/Extensions/SetupList.cs
       branch: io_files_rework
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
-    path: ../src/Extensions/GenerateILDArray.cs
-    startLine: 132
+    path: ../src/Extensions/SetupList.cs
+    startLine: 184
   assemblies:
   - Extensions
-  namespace: Extensions
-  summary: Generates an observable sequence which outputs an array of ILDs. This method is called when the node has an input data stream.
-  example: []
+  namespace: SetupList
   syntax:
-    content: public IObservable<double[]> Process<TSource>(IObservable<TSource> source)
+    content: public IObservable<Poke> Process<TSource>(IObservable<TSource> source)
     parameters:
     - id: source
       type: System.IObservable{{TSource}}
-      description: the input data stream.
     typeParameters:
     - id: TSource
     return:
-      type: System.IObservable{System.Double[]}
-      description: An observable sequence which sends a single event containing an array of ILD values.
-    content.vb: Public Function Process(Of TSource)(source As IObservable(Of TSource)) As IObservable(Of Double())
-  overload: Extensions.GenerateILDArray.Process*
-  nameWithType.vb: GenerateILDArray.Process(Of TSource)(IObservable(Of TSource))
-  fullName.vb: Extensions.GenerateILDArray.Process(Of TSource)(System.IObservable(Of TSource))
+      type: System.IObservable{SetupList.Poke}
+    content.vb: Public Function Process(Of TSource)(source As IObservable(Of TSource)) As IObservable(Of Poke)
+  overload: SetupList.Poke.Process*
+  nameWithType.vb: Poke.Process(Of TSource)(IObservable(Of TSource))
+  fullName.vb: SetupList.Poke.Process(Of TSource)(System.IObservable(Of TSource))
   name.vb: Process(Of TSource)(IObservable(Of TSource))
+- uid: SetupList.Poke.PrintMembers(System.Text.StringBuilder)
+  commentId: M:SetupList.Poke.PrintMembers(System.Text.StringBuilder)
+  id: PrintMembers(System.Text.StringBuilder)
+  parent: SetupList.Poke
+  langs:
+  - csharp
+  - vb
+  name: PrintMembers(StringBuilder)
+  nameWithType: Poke.PrintMembers(StringBuilder)
+  fullName: SetupList.Poke.PrintMembers(System.Text.StringBuilder)
+  type: Method
+  source:
+    remote:
+      path: src/Extensions/SetupList.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: PrintMembers
+    path: ../src/Extensions/SetupList.cs
+    startLine: 189
+  assemblies:
+  - Extensions
+  namespace: SetupList
+  syntax:
+    content: protected virtual bool PrintMembers(StringBuilder stringBuilder)
+    parameters:
+    - id: stringBuilder
+      type: System.Text.StringBuilder
+    return:
+      type: System.Boolean
+    content.vb: Protected Overridable Function PrintMembers(stringBuilder As StringBuilder) As Boolean
+  overload: SetupList.Poke.PrintMembers*
+- uid: SetupList.Poke.ToString
+  commentId: M:SetupList.Poke.ToString
+  id: ToString
+  parent: SetupList.Poke
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: Poke.ToString()
+  fullName: SetupList.Poke.ToString()
+  type: Method
+  source:
+    remote:
+      path: src/Extensions/SetupList.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: ToString
+    path: ../src/Extensions/SetupList.cs
+    startLine: 195
+  assemblies:
+  - Extensions
+  namespace: SetupList
+  summary: Returns a string that represents the current object.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: A string that represents the current object.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: SetupList.Poke.ToString*
 references:
-- uid: Extensions
-  commentId: N:Extensions
-  href: Extensions.html
-  name: Extensions
-  nameWithType: Extensions
-  fullName: Extensions
+- uid: SetupList
+  commentId: N:SetupList
+  href: SetupList.html
+  name: SetupList
+  nameWithType: SetupList
+  fullName: SetupList
 - uid: System.Object
   commentId: T:System.Object
   parent: System
@@ -268,30 +325,6 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
   parent: System.Object
@@ -494,46 +527,28 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: Extensions.GenerateILDArray.NumSteps*
-  commentId: Overload:Extensions.GenerateILDArray.NumSteps
-  href: Extensions.GenerateILDArray.html#Extensions_GenerateILDArray_NumSteps
-  name: NumSteps
-  nameWithType: GenerateILDArray.NumSteps
-  fullName: Extensions.GenerateILDArray.NumSteps
-- uid: System.Int32
-  commentId: T:System.Int32
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int32
-  name: int
-  nameWithType: int
-  fullName: int
-  nameWithType.vb: Integer
-  fullName.vb: Integer
-  name.vb: Integer
-- uid: Extensions.GenerateILDArray.StepSize*
-  commentId: Overload:Extensions.GenerateILDArray.StepSize
-  href: Extensions.GenerateILDArray.html#Extensions_GenerateILDArray_StepSize
-  name: StepSize
-  nameWithType: GenerateILDArray.StepSize
-  fullName: Extensions.GenerateILDArray.StepSize
-- uid: System.Double
-  commentId: T:System.Double
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.double
-  name: double
-  nameWithType: double
-  fullName: double
-  nameWithType.vb: Double
-  fullName.vb: Double
-  name.vb: Double
-- uid: Extensions.GenerateILDArray.UseLog*
-  commentId: Overload:Extensions.GenerateILDArray.UseLog
-  href: Extensions.GenerateILDArray.html#Extensions_GenerateILDArray_UseLog
-  name: UseLog
-  nameWithType: GenerateILDArray.UseLog
-  fullName: Extensions.GenerateILDArray.UseLog
+- uid: SetupList.Poke.#ctor*
+  commentId: Overload:SetupList.Poke.#ctor
+  href: SetupList.Poke.html#SetupList_Poke__ctor
+  name: Poke
+  nameWithType: Poke.Poke
+  fullName: SetupList.Poke.Poke
+  nameWithType.vb: Poke.New
+  fullName.vb: SetupList.Poke.New
+  name.vb: New
+- uid: SetupList.Poke
+  commentId: T:SetupList.Poke
+  parent: SetupList
+  href: SetupList.Poke.html
+  name: Poke
+  nameWithType: Poke
+  fullName: SetupList.Poke
+- uid: SetupList.Poke.LowToHigh*
+  commentId: Overload:SetupList.Poke.LowToHigh
+  href: SetupList.Poke.html#SetupList_Poke_LowToHigh
+  name: LowToHigh
+  nameWithType: Poke.LowToHigh
+  fullName: SetupList.Poke.LowToHigh
 - uid: System.Boolean
   commentId: T:System.Boolean
   parent: System
@@ -545,41 +560,32 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
-- uid: Extensions.GenerateILDArray.LogBase*
-  commentId: Overload:Extensions.GenerateILDArray.LogBase
-  href: Extensions.GenerateILDArray.html#Extensions_GenerateILDArray_LogBase
-  name: LogBase
-  nameWithType: GenerateILDArray.LogBase
-  fullName: Extensions.GenerateILDArray.LogBase
-- uid: Extensions.GenerateILDArray.Process*
-  commentId: Overload:Extensions.GenerateILDArray.Process
-  href: Extensions.GenerateILDArray.html#Extensions_GenerateILDArray_Process
+- uid: SetupList.Poke.Process*
+  commentId: Overload:SetupList.Poke.Process
+  href: SetupList.Poke.html#SetupList_Poke_Process
   name: Process
-  nameWithType: GenerateILDArray.Process
-  fullName: Extensions.GenerateILDArray.Process
-- uid: System.IObservable{System.Double[]}
-  commentId: T:System.IObservable{System.Double[]}
+  nameWithType: Poke.Process
+  fullName: SetupList.Poke.Process
+- uid: System.IObservable{SetupList.Poke}
+  commentId: T:System.IObservable{SetupList.Poke}
   parent: System
   definition: System.IObservable`1
   href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
-  name: IObservable<double[]>
-  nameWithType: IObservable<double[]>
-  fullName: System.IObservable<double[]>
-  nameWithType.vb: IObservable(Of Double())
-  fullName.vb: System.IObservable(Of Double())
-  name.vb: IObservable(Of Double())
+  name: IObservable<Poke>
+  nameWithType: IObservable<Poke>
+  fullName: System.IObservable<SetupList.Poke>
+  nameWithType.vb: IObservable(Of Poke)
+  fullName.vb: System.IObservable(Of SetupList.Poke)
+  name.vb: IObservable(Of Poke)
   spec.csharp:
   - uid: System.IObservable`1
     name: IObservable
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
   - name: <
-  - uid: System.Double
-    name: double
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.double
-  - name: '['
-  - name: ']'
+  - uid: SetupList.Poke
+    name: Poke
+    href: SetupList.Poke.html
   - name: '>'
   spec.vb:
   - uid: System.IObservable`1
@@ -589,12 +595,9 @@ references:
   - name: (
   - name: Of
   - name: " "
-  - uid: System.Double
-    name: Double
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.double
-  - name: (
-  - name: )
+  - uid: SetupList.Poke
+    name: Poke
+    href: SetupList.Poke.html
   - name: )
 - uid: System.IObservable`1
   commentId: T:System.IObservable`1
@@ -653,3 +656,85 @@ references:
   - name: " "
   - name: TSource
   - name: )
+- uid: SetupList.Poke.PrintMembers*
+  commentId: Overload:SetupList.Poke.PrintMembers
+  href: SetupList.Poke.html#SetupList_Poke_PrintMembers_System_Text_StringBuilder_
+  name: PrintMembers
+  nameWithType: Poke.PrintMembers
+  fullName: SetupList.Poke.PrintMembers
+- uid: System.Text.StringBuilder
+  commentId: T:System.Text.StringBuilder
+  parent: System.Text
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.text.stringbuilder
+  name: StringBuilder
+  nameWithType: StringBuilder
+  fullName: System.Text.StringBuilder
+- uid: System.Text
+  commentId: N:System.Text
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Text
+  nameWithType: System.Text
+  fullName: System.Text
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Text
+    name: Text
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Text
+    name: Text
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: SetupList.Poke.ToString*
+  commentId: Overload:SetupList.Poke.ToString
+  href: SetupList.Poke.html#SetupList_Poke_ToString
+  name: ToString
+  nameWithType: Poke.ToString
+  fullName: SetupList.Poke.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String

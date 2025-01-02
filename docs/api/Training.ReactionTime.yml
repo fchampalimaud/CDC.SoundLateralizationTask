@@ -1,0 +1,805 @@
+### YamlMime:ManagedReference
+items:
+- uid: Training.ReactionTime
+  commentId: T:Training.ReactionTime
+  id: ReactionTime
+  parent: Training
+  children:
+  - Training.ReactionTime.#ctor
+  - Training.ReactionTime.#ctor(Training.ReactionTime)
+  - Training.ReactionTime.PrintMembers(System.Text.StringBuilder)
+  - Training.ReactionTime.Process
+  - Training.ReactionTime.Process``1(System.IObservable{``0})
+  - Training.ReactionTime.ToString
+  - Training.ReactionTime.TurnSoundOff
+  - Training.ReactionTime.UseMaxRt
+  langs:
+  - csharp
+  - vb
+  name: ReactionTime
+  nameWithType: ReactionTime
+  fullName: Training.ReactionTime
+  type: Class
+  source:
+    remote:
+      path: src/Extensions/Training.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: ReactionTime
+    path: ../src/Extensions/Training.cs
+    startLine: 1132
+  assemblies:
+  - Extensions
+  namespace: Training
+  syntax:
+    content: >-
+      [Combinator]
+
+      [WorkflowElementCategory(ElementCategory.Source)]
+
+      public class ReactionTime
+    content.vb: >-
+      <Combinator>
+
+      <WorkflowElementCategory(ElementCategory.Source)>
+
+      Public Class ReactionTime
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  attributes:
+  - type: Bonsai.CombinatorAttribute
+    ctor: Bonsai.CombinatorAttribute.#ctor
+    arguments: []
+  - type: Bonsai.WorkflowElementCategoryAttribute
+    ctor: Bonsai.WorkflowElementCategoryAttribute.#ctor(Bonsai.ElementCategory)
+    arguments:
+    - type: Bonsai.ElementCategory
+      value: 0
+- uid: Training.ReactionTime.#ctor
+  commentId: M:Training.ReactionTime.#ctor
+  id: '#ctor'
+  parent: Training.ReactionTime
+  langs:
+  - csharp
+  - vb
+  name: ReactionTime()
+  nameWithType: ReactionTime.ReactionTime()
+  fullName: Training.ReactionTime.ReactionTime()
+  type: Constructor
+  source:
+    remote:
+      path: src/Extensions/Training.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: .ctor
+    path: ../src/Extensions/Training.cs
+    startLine: 1142
+  assemblies:
+  - Extensions
+  namespace: Training
+  syntax:
+    content: public ReactionTime()
+    content.vb: Public Sub New()
+  overload: Training.ReactionTime.#ctor*
+  nameWithType.vb: ReactionTime.New()
+  fullName.vb: Training.ReactionTime.New()
+  name.vb: New()
+- uid: Training.ReactionTime.#ctor(Training.ReactionTime)
+  commentId: M:Training.ReactionTime.#ctor(Training.ReactionTime)
+  id: '#ctor(Training.ReactionTime)'
+  parent: Training.ReactionTime
+  langs:
+  - csharp
+  - vb
+  name: ReactionTime(ReactionTime)
+  nameWithType: ReactionTime.ReactionTime(ReactionTime)
+  fullName: Training.ReactionTime.ReactionTime(Training.ReactionTime)
+  type: Constructor
+  source:
+    remote:
+      path: src/Extensions/Training.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: .ctor
+    path: ../src/Extensions/Training.cs
+    startLine: 1146
+  assemblies:
+  - Extensions
+  namespace: Training
+  syntax:
+    content: protected ReactionTime(ReactionTime other)
+    parameters:
+    - id: other
+      type: Training.ReactionTime
+    content.vb: Protected Sub New(other As ReactionTime)
+  overload: Training.ReactionTime.#ctor*
+  nameWithType.vb: ReactionTime.New(ReactionTime)
+  fullName.vb: Training.ReactionTime.New(Training.ReactionTime)
+  name.vb: New(ReactionTime)
+- uid: Training.ReactionTime.TurnSoundOff
+  commentId: P:Training.ReactionTime.TurnSoundOff
+  id: TurnSoundOff
+  parent: Training.ReactionTime
+  langs:
+  - csharp
+  - vb
+  name: TurnSoundOff
+  nameWithType: ReactionTime.TurnSoundOff
+  fullName: Training.ReactionTime.TurnSoundOff
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/Training.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: TurnSoundOff
+    path: ../src/Extensions/Training.cs
+    startLine: 1155
+  assemblies:
+  - Extensions
+  namespace: Training
+  summary: Indicates whether the sound should stop playing when the animal leaves the central poke.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("turn_sound_off", Required = Required.Always)]
+
+      [YamlMember(Alias = "turn_sound_off")]
+
+      public bool TurnSoundOff { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: >-
+      <JsonProperty("turn_sound_off", Required:=Required.Always)>
+
+      <YamlMember(Alias:="turn_sound_off")>
+
+      Public Property TurnSoundOff As Boolean
+  overload: Training.ReactionTime.TurnSoundOff*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: turn_sound_off
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: YamlDotNet.Serialization.YamlMemberAttribute
+    ctor: YamlDotNet.Serialization.YamlMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Alias
+      type: System.String
+      value: turn_sound_off
+- uid: Training.ReactionTime.UseMaxRt
+  commentId: P:Training.ReactionTime.UseMaxRt
+  id: UseMaxRt
+  parent: Training.ReactionTime
+  langs:
+  - csharp
+  - vb
+  name: UseMaxRt
+  nameWithType: ReactionTime.UseMaxRt
+  fullName: Training.ReactionTime.UseMaxRt
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/Training.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: UseMaxRt
+    path: ../src/Extensions/Training.cs
+    startLine: 1174
+  assemblies:
+  - Extensions
+  namespace: Training
+  summary: Indicates whether there is a maximum reaction time (true) or not (false).
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("use_max_rt", Required = Required.Always)]
+
+      [YamlMember(Alias = "use_max_rt")]
+
+      public bool UseMaxRt { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: >-
+      <JsonProperty("use_max_rt", Required:=Required.Always)>
+
+      <YamlMember(Alias:="use_max_rt")>
+
+      Public Property UseMaxRt As Boolean
+  overload: Training.ReactionTime.UseMaxRt*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: use_max_rt
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: YamlDotNet.Serialization.YamlMemberAttribute
+    ctor: YamlDotNet.Serialization.YamlMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Alias
+      type: System.String
+      value: use_max_rt
+- uid: Training.ReactionTime.Process
+  commentId: M:Training.ReactionTime.Process
+  id: Process
+  parent: Training.ReactionTime
+  langs:
+  - csharp
+  - vb
+  name: Process()
+  nameWithType: ReactionTime.Process()
+  fullName: Training.ReactionTime.Process()
+  type: Method
+  source:
+    remote:
+      path: src/Extensions/Training.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: Process
+    path: ../src/Extensions/Training.cs
+    startLine: 1189
+  assemblies:
+  - Extensions
+  namespace: Training
+  syntax:
+    content: public IObservable<ReactionTime> Process()
+    return:
+      type: System.IObservable{Training.ReactionTime}
+    content.vb: Public Function Process() As IObservable(Of ReactionTime)
+  overload: Training.ReactionTime.Process*
+- uid: Training.ReactionTime.Process``1(System.IObservable{``0})
+  commentId: M:Training.ReactionTime.Process``1(System.IObservable{``0})
+  id: Process``1(System.IObservable{``0})
+  parent: Training.ReactionTime
+  langs:
+  - csharp
+  - vb
+  name: Process<TSource>(IObservable<TSource>)
+  nameWithType: ReactionTime.Process<TSource>(IObservable<TSource>)
+  fullName: Training.ReactionTime.Process<TSource>(System.IObservable<TSource>)
+  type: Method
+  source:
+    remote:
+      path: src/Extensions/Training.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: Process
+    path: ../src/Extensions/Training.cs
+    startLine: 1194
+  assemblies:
+  - Extensions
+  namespace: Training
+  syntax:
+    content: public IObservable<ReactionTime> Process<TSource>(IObservable<TSource> source)
+    parameters:
+    - id: source
+      type: System.IObservable{{TSource}}
+    typeParameters:
+    - id: TSource
+    return:
+      type: System.IObservable{Training.ReactionTime}
+    content.vb: Public Function Process(Of TSource)(source As IObservable(Of TSource)) As IObservable(Of ReactionTime)
+  overload: Training.ReactionTime.Process*
+  nameWithType.vb: ReactionTime.Process(Of TSource)(IObservable(Of TSource))
+  fullName.vb: Training.ReactionTime.Process(Of TSource)(System.IObservable(Of TSource))
+  name.vb: Process(Of TSource)(IObservable(Of TSource))
+- uid: Training.ReactionTime.PrintMembers(System.Text.StringBuilder)
+  commentId: M:Training.ReactionTime.PrintMembers(System.Text.StringBuilder)
+  id: PrintMembers(System.Text.StringBuilder)
+  parent: Training.ReactionTime
+  langs:
+  - csharp
+  - vb
+  name: PrintMembers(StringBuilder)
+  nameWithType: ReactionTime.PrintMembers(StringBuilder)
+  fullName: Training.ReactionTime.PrintMembers(System.Text.StringBuilder)
+  type: Method
+  source:
+    remote:
+      path: src/Extensions/Training.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: PrintMembers
+    path: ../src/Extensions/Training.cs
+    startLine: 1199
+  assemblies:
+  - Extensions
+  namespace: Training
+  syntax:
+    content: protected virtual bool PrintMembers(StringBuilder stringBuilder)
+    parameters:
+    - id: stringBuilder
+      type: System.Text.StringBuilder
+    return:
+      type: System.Boolean
+    content.vb: Protected Overridable Function PrintMembers(stringBuilder As StringBuilder) As Boolean
+  overload: Training.ReactionTime.PrintMembers*
+- uid: Training.ReactionTime.ToString
+  commentId: M:Training.ReactionTime.ToString
+  id: ToString
+  parent: Training.ReactionTime
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: ReactionTime.ToString()
+  fullName: Training.ReactionTime.ToString()
+  type: Method
+  source:
+    remote:
+      path: src/Extensions/Training.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: ToString
+    path: ../src/Extensions/Training.cs
+    startLine: 1206
+  assemblies:
+  - Extensions
+  namespace: Training
+  summary: Returns a string that represents the current object.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: A string that represents the current object.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: Training.ReactionTime.ToString*
+references:
+- uid: Training
+  commentId: N:Training
+  href: Training.html
+  name: Training
+  nameWithType: Training
+  fullName: Training
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Training.ReactionTime.#ctor*
+  commentId: Overload:Training.ReactionTime.#ctor
+  href: Training.ReactionTime.html#Training_ReactionTime__ctor
+  name: ReactionTime
+  nameWithType: ReactionTime.ReactionTime
+  fullName: Training.ReactionTime.ReactionTime
+  nameWithType.vb: ReactionTime.New
+  fullName.vb: Training.ReactionTime.New
+  name.vb: New
+- uid: Training.ReactionTime
+  commentId: T:Training.ReactionTime
+  parent: Training
+  href: Training.ReactionTime.html
+  name: ReactionTime
+  nameWithType: ReactionTime
+  fullName: Training.ReactionTime
+- uid: Training.ReactionTime.TurnSoundOff*
+  commentId: Overload:Training.ReactionTime.TurnSoundOff
+  href: Training.ReactionTime.html#Training_ReactionTime_TurnSoundOff
+  name: TurnSoundOff
+  nameWithType: ReactionTime.TurnSoundOff
+  fullName: Training.ReactionTime.TurnSoundOff
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Training.ReactionTime.UseMaxRt*
+  commentId: Overload:Training.ReactionTime.UseMaxRt
+  href: Training.ReactionTime.html#Training_ReactionTime_UseMaxRt
+  name: UseMaxRt
+  nameWithType: ReactionTime.UseMaxRt
+  fullName: Training.ReactionTime.UseMaxRt
+- uid: Training.ReactionTime.Process*
+  commentId: Overload:Training.ReactionTime.Process
+  href: Training.ReactionTime.html#Training_ReactionTime_Process
+  name: Process
+  nameWithType: ReactionTime.Process
+  fullName: Training.ReactionTime.Process
+- uid: System.IObservable{Training.ReactionTime}
+  commentId: T:System.IObservable{Training.ReactionTime}
+  parent: System
+  definition: System.IObservable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  name: IObservable<ReactionTime>
+  nameWithType: IObservable<ReactionTime>
+  fullName: System.IObservable<Training.ReactionTime>
+  nameWithType.vb: IObservable(Of ReactionTime)
+  fullName.vb: System.IObservable(Of Training.ReactionTime)
+  name.vb: IObservable(Of ReactionTime)
+  spec.csharp:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: <
+  - uid: Training.ReactionTime
+    name: ReactionTime
+    href: Training.ReactionTime.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Training.ReactionTime
+    name: ReactionTime
+    href: Training.ReactionTime.html
+  - name: )
+- uid: System.IObservable`1
+  commentId: T:System.IObservable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  name: IObservable<T>
+  nameWithType: IObservable<T>
+  fullName: System.IObservable<T>
+  nameWithType.vb: IObservable(Of T)
+  fullName.vb: System.IObservable(Of T)
+  name.vb: IObservable(Of T)
+  spec.csharp:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.IObservable{{TSource}}
+  commentId: T:System.IObservable{``0}
+  parent: System
+  definition: System.IObservable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  name: IObservable<TSource>
+  nameWithType: IObservable<TSource>
+  fullName: System.IObservable<TSource>
+  nameWithType.vb: IObservable(Of TSource)
+  fullName.vb: System.IObservable(Of TSource)
+  name.vb: IObservable(Of TSource)
+  spec.csharp:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: <
+  - name: TSource
+  - name: '>'
+  spec.vb:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TSource
+  - name: )
+- uid: Training.ReactionTime.PrintMembers*
+  commentId: Overload:Training.ReactionTime.PrintMembers
+  href: Training.ReactionTime.html#Training_ReactionTime_PrintMembers_System_Text_StringBuilder_
+  name: PrintMembers
+  nameWithType: ReactionTime.PrintMembers
+  fullName: Training.ReactionTime.PrintMembers
+- uid: System.Text.StringBuilder
+  commentId: T:System.Text.StringBuilder
+  parent: System.Text
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.text.stringbuilder
+  name: StringBuilder
+  nameWithType: StringBuilder
+  fullName: System.Text.StringBuilder
+- uid: System.Text
+  commentId: N:System.Text
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Text
+  nameWithType: System.Text
+  fullName: System.Text
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Text
+    name: Text
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Text
+    name: Text
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: Training.ReactionTime.ToString*
+  commentId: Overload:Training.ReactionTime.ToString
+  href: Training.ReactionTime.html#Training_ReactionTime_ToString
+  name: ToString
+  nameWithType: ReactionTime.ToString
+  fullName: Training.ReactionTime.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String

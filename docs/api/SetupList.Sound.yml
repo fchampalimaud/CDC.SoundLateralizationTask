@@ -1,53 +1,52 @@
 ### YamlMime:ManagedReference
 items:
-- uid: Extensions.GenerateILDArray
-  commentId: T:Extensions.GenerateILDArray
-  id: GenerateILDArray
-  parent: Extensions
+- uid: SetupList.Sound
+  commentId: T:SetupList.Sound
+  id: Sound
+  parent: SetupList
   children:
-  - Extensions.GenerateILDArray.LogBase
-  - Extensions.GenerateILDArray.NumSteps
-  - Extensions.GenerateILDArray.Process
-  - Extensions.GenerateILDArray.Process``1(System.IObservable{``0})
-  - Extensions.GenerateILDArray.StepSize
-  - Extensions.GenerateILDArray.UseLog
+  - SetupList.Sound.#ctor
+  - SetupList.Sound.#ctor(SetupList.Sound)
+  - SetupList.Sound.Duration
+  - SetupList.Sound.Index
+  - SetupList.Sound.PrintMembers(System.Text.StringBuilder)
+  - SetupList.Sound.Process
+  - SetupList.Sound.Process``1(System.IObservable{``0})
+  - SetupList.Sound.ToString
   langs:
   - csharp
   - vb
-  name: GenerateILDArray
-  nameWithType: GenerateILDArray
-  fullName: Extensions.GenerateILDArray
+  name: Sound
+  nameWithType: Sound
+  fullName: SetupList.Sound
   type: Class
   source:
     remote:
-      path: src/Extensions/GenerateILDArray.cs
+      path: src/Extensions/SetupList.cs
       branch: io_files_rework
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
-    id: GenerateILDArray
-    path: ../src/Extensions/GenerateILDArray.cs
-    startLine: 13
+    id: Sound
+    path: ../src/Extensions/SetupList.cs
+    startLine: 459
   assemblies:
   - Extensions
-  namespace: Extensions
-  summary: Class <code>GenerateILDArray</code> contains the logic of the Bonsai node with the same name.
-  example: []
+  namespace: SetupList
   syntax:
     content: >-
       [Combinator]
 
       [WorkflowElementCategory(ElementCategory.Source)]
 
-      public class GenerateILDArray
+      public class Sound
     content.vb: >-
       <Combinator>
 
       <WorkflowElementCategory(ElementCategory.Source)>
 
-      Public Class GenerateILDArray
+      Public Class Sound
   inheritance:
   - System.Object
   inheritedMembers:
-  - System.Object.ToString
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.ReferenceEquals(System.Object,System.Object)
@@ -63,200 +62,317 @@ items:
     arguments:
     - type: Bonsai.ElementCategory
       value: 0
-- uid: Extensions.GenerateILDArray.NumSteps
-  commentId: P:Extensions.GenerateILDArray.NumSteps
-  id: NumSteps
-  parent: Extensions.GenerateILDArray
+- uid: SetupList.Sound.#ctor
+  commentId: M:SetupList.Sound.#ctor
+  id: '#ctor'
+  parent: SetupList.Sound
   langs:
   - csharp
   - vb
-  name: NumSteps
-  nameWithType: GenerateILDArray.NumSteps
-  fullName: Extensions.GenerateILDArray.NumSteps
+  name: Sound()
+  nameWithType: Sound.Sound()
+  fullName: SetupList.Sound.Sound()
+  type: Constructor
+  source:
+    remote:
+      path: src/Extensions/SetupList.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: .ctor
+    path: ../src/Extensions/SetupList.cs
+    startLine: 469
+  assemblies:
+  - Extensions
+  namespace: SetupList
+  syntax:
+    content: public Sound()
+    content.vb: Public Sub New()
+  overload: SetupList.Sound.#ctor*
+  nameWithType.vb: Sound.New()
+  fullName.vb: SetupList.Sound.New()
+  name.vb: New()
+- uid: SetupList.Sound.#ctor(SetupList.Sound)
+  commentId: M:SetupList.Sound.#ctor(SetupList.Sound)
+  id: '#ctor(SetupList.Sound)'
+  parent: SetupList.Sound
+  langs:
+  - csharp
+  - vb
+  name: Sound(Sound)
+  nameWithType: Sound.Sound(Sound)
+  fullName: SetupList.Sound.Sound(SetupList.Sound)
+  type: Constructor
+  source:
+    remote:
+      path: src/Extensions/SetupList.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: .ctor
+    path: ../src/Extensions/SetupList.cs
+    startLine: 473
+  assemblies:
+  - Extensions
+  namespace: SetupList
+  syntax:
+    content: protected Sound(Sound other)
+    parameters:
+    - id: other
+      type: SetupList.Sound
+    content.vb: Protected Sub New(other As Sound)
+  overload: SetupList.Sound.#ctor*
+  nameWithType.vb: Sound.New(Sound)
+  fullName.vb: SetupList.Sound.New(SetupList.Sound)
+  name.vb: New(Sound)
+- uid: SetupList.Sound.Index
+  commentId: P:SetupList.Sound.Index
+  id: Index
+  parent: SetupList.Sound
+  langs:
+  - csharp
+  - vb
+  name: Index
+  nameWithType: Sound.Index
+  fullName: SetupList.Sound.Index
   type: Property
   source:
     remote:
-      path: src/Extensions/GenerateILDArray.cs
+      path: src/Extensions/SetupList.cs
       branch: io_files_rework
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
-    id: NumSteps
-    path: ../src/Extensions/GenerateILDArray.cs
-    startLine: 24
+    id: Index
+    path: ../src/Extensions/SetupList.cs
+    startLine: 482
   assemblies:
   - Extensions
-  namespace: Extensions
+  namespace: SetupList
+  summary: The index number where the noise is stored in the Harp SoundCard.
+  example: []
   syntax:
-    content: public int NumSteps { get; set; }
+    content: >-
+      [JsonProperty("index", Required = Required.Always)]
+
+      [YamlMember(Alias = "index")]
+
+      public int Index { get; set; }
     parameters: []
     return:
       type: System.Int32
-    content.vb: Public Property NumSteps As Integer
-  overload: Extensions.GenerateILDArray.NumSteps*
-- uid: Extensions.GenerateILDArray.StepSize
-  commentId: P:Extensions.GenerateILDArray.StepSize
-  id: StepSize
-  parent: Extensions.GenerateILDArray
+    content.vb: >-
+      <JsonProperty("index", Required:=Required.Always)>
+
+      <YamlMember(Alias:="index")>
+
+      Public Property Index As Integer
+  overload: SetupList.Sound.Index*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: index
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: YamlDotNet.Serialization.YamlMemberAttribute
+    ctor: YamlDotNet.Serialization.YamlMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Alias
+      type: System.String
+      value: index
+- uid: SetupList.Sound.Duration
+  commentId: P:SetupList.Sound.Duration
+  id: Duration
+  parent: SetupList.Sound
   langs:
   - csharp
   - vb
-  name: StepSize
-  nameWithType: GenerateILDArray.StepSize
-  fullName: Extensions.GenerateILDArray.StepSize
+  name: Duration
+  nameWithType: Sound.Duration
+  fullName: SetupList.Sound.Duration
   type: Property
   source:
     remote:
-      path: src/Extensions/GenerateILDArray.cs
+      path: src/Extensions/SetupList.cs
       branch: io_files_rework
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
-    id: StepSize
-    path: ../src/Extensions/GenerateILDArray.cs
-    startLine: 35
+    id: Duration
+    path: ../src/Extensions/SetupList.cs
+    startLine: 500
   assemblies:
   - Extensions
-  namespace: Extensions
+  namespace: SetupList
+  summary: The duration of the noise (s).
+  example: []
   syntax:
-    content: public double StepSize { get; set; }
+    content: >-
+      [JsonProperty("duration", Required = Required.Always)]
+
+      [YamlMember(Alias = "duration")]
+
+      public double Duration { get; set; }
     parameters: []
     return:
       type: System.Double
-    content.vb: Public Property StepSize As Double
-  overload: Extensions.GenerateILDArray.StepSize*
-- uid: Extensions.GenerateILDArray.UseLog
-  commentId: P:Extensions.GenerateILDArray.UseLog
-  id: UseLog
-  parent: Extensions.GenerateILDArray
-  langs:
-  - csharp
-  - vb
-  name: UseLog
-  nameWithType: GenerateILDArray.UseLog
-  fullName: Extensions.GenerateILDArray.UseLog
-  type: Property
-  source:
-    remote:
-      path: src/Extensions/GenerateILDArray.cs
-      branch: io_files_rework
-      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
-    id: UseLog
-    path: ../src/Extensions/GenerateILDArray.cs
-    startLine: 45
-  assemblies:
-  - Extensions
-  namespace: Extensions
-  syntax:
-    content: public bool UseLog { get; set; }
-    parameters: []
-    return:
-      type: System.Boolean
-    content.vb: Public Property UseLog As Boolean
-  overload: Extensions.GenerateILDArray.UseLog*
-- uid: Extensions.GenerateILDArray.LogBase
-  commentId: P:Extensions.GenerateILDArray.LogBase
-  id: LogBase
-  parent: Extensions.GenerateILDArray
-  langs:
-  - csharp
-  - vb
-  name: LogBase
-  nameWithType: GenerateILDArray.LogBase
-  fullName: Extensions.GenerateILDArray.LogBase
-  type: Property
-  source:
-    remote:
-      path: src/Extensions/GenerateILDArray.cs
-      branch: io_files_rework
-      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
-    id: LogBase
-    path: ../src/Extensions/GenerateILDArray.cs
-    startLine: 55
-  assemblies:
-  - Extensions
-  namespace: Extensions
-  syntax:
-    content: public double LogBase { get; set; }
-    parameters: []
-    return:
-      type: System.Double
-    content.vb: Public Property LogBase As Double
-  overload: Extensions.GenerateILDArray.LogBase*
-- uid: Extensions.GenerateILDArray.Process
-  commentId: M:Extensions.GenerateILDArray.Process
+    content.vb: >-
+      <JsonProperty("duration", Required:=Required.Always)>
+
+      <YamlMember(Alias:="duration")>
+
+      Public Property Duration As Double
+  overload: SetupList.Sound.Duration*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: duration
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: YamlDotNet.Serialization.YamlMemberAttribute
+    ctor: YamlDotNet.Serialization.YamlMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Alias
+      type: System.String
+      value: duration
+- uid: SetupList.Sound.Process
+  commentId: M:SetupList.Sound.Process
   id: Process
-  parent: Extensions.GenerateILDArray
+  parent: SetupList.Sound
   langs:
   - csharp
   - vb
   name: Process()
-  nameWithType: GenerateILDArray.Process()
-  fullName: Extensions.GenerateILDArray.Process()
+  nameWithType: Sound.Process()
+  fullName: SetupList.Sound.Process()
   type: Method
   source:
     remote:
-      path: src/Extensions/GenerateILDArray.cs
+      path: src/Extensions/SetupList.cs
       branch: io_files_rework
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
-    path: ../src/Extensions/GenerateILDArray.cs
-    startLine: 115
+    path: ../src/Extensions/SetupList.cs
+    startLine: 515
   assemblies:
   - Extensions
-  namespace: Extensions
-  summary: Generates an observable sequence which outputs an array of ILDs. This method is called when the node doesn't have an input data stream.
-  example: []
+  namespace: SetupList
   syntax:
-    content: public IObservable<double[]> Process()
+    content: public IObservable<Sound> Process()
     return:
-      type: System.IObservable{System.Double[]}
-      description: An observable sequence which sends a single event containing an array of ILD values.
-    content.vb: Public Function Process() As IObservable(Of Double())
-  overload: Extensions.GenerateILDArray.Process*
-- uid: Extensions.GenerateILDArray.Process``1(System.IObservable{``0})
-  commentId: M:Extensions.GenerateILDArray.Process``1(System.IObservable{``0})
+      type: System.IObservable{SetupList.Sound}
+    content.vb: Public Function Process() As IObservable(Of Sound)
+  overload: SetupList.Sound.Process*
+- uid: SetupList.Sound.Process``1(System.IObservable{``0})
+  commentId: M:SetupList.Sound.Process``1(System.IObservable{``0})
   id: Process``1(System.IObservable{``0})
-  parent: Extensions.GenerateILDArray
+  parent: SetupList.Sound
   langs:
   - csharp
   - vb
   name: Process<TSource>(IObservable<TSource>)
-  nameWithType: GenerateILDArray.Process<TSource>(IObservable<TSource>)
-  fullName: Extensions.GenerateILDArray.Process<TSource>(System.IObservable<TSource>)
+  nameWithType: Sound.Process<TSource>(IObservable<TSource>)
+  fullName: SetupList.Sound.Process<TSource>(System.IObservable<TSource>)
   type: Method
   source:
     remote:
-      path: src/Extensions/GenerateILDArray.cs
+      path: src/Extensions/SetupList.cs
       branch: io_files_rework
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
-    path: ../src/Extensions/GenerateILDArray.cs
-    startLine: 132
+    path: ../src/Extensions/SetupList.cs
+    startLine: 520
   assemblies:
   - Extensions
-  namespace: Extensions
-  summary: Generates an observable sequence which outputs an array of ILDs. This method is called when the node has an input data stream.
-  example: []
+  namespace: SetupList
   syntax:
-    content: public IObservable<double[]> Process<TSource>(IObservable<TSource> source)
+    content: public IObservable<Sound> Process<TSource>(IObservable<TSource> source)
     parameters:
     - id: source
       type: System.IObservable{{TSource}}
-      description: the input data stream.
     typeParameters:
     - id: TSource
     return:
-      type: System.IObservable{System.Double[]}
-      description: An observable sequence which sends a single event containing an array of ILD values.
-    content.vb: Public Function Process(Of TSource)(source As IObservable(Of TSource)) As IObservable(Of Double())
-  overload: Extensions.GenerateILDArray.Process*
-  nameWithType.vb: GenerateILDArray.Process(Of TSource)(IObservable(Of TSource))
-  fullName.vb: Extensions.GenerateILDArray.Process(Of TSource)(System.IObservable(Of TSource))
+      type: System.IObservable{SetupList.Sound}
+    content.vb: Public Function Process(Of TSource)(source As IObservable(Of TSource)) As IObservable(Of Sound)
+  overload: SetupList.Sound.Process*
+  nameWithType.vb: Sound.Process(Of TSource)(IObservable(Of TSource))
+  fullName.vb: SetupList.Sound.Process(Of TSource)(System.IObservable(Of TSource))
   name.vb: Process(Of TSource)(IObservable(Of TSource))
+- uid: SetupList.Sound.PrintMembers(System.Text.StringBuilder)
+  commentId: M:SetupList.Sound.PrintMembers(System.Text.StringBuilder)
+  id: PrintMembers(System.Text.StringBuilder)
+  parent: SetupList.Sound
+  langs:
+  - csharp
+  - vb
+  name: PrintMembers(StringBuilder)
+  nameWithType: Sound.PrintMembers(StringBuilder)
+  fullName: SetupList.Sound.PrintMembers(System.Text.StringBuilder)
+  type: Method
+  source:
+    remote:
+      path: src/Extensions/SetupList.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: PrintMembers
+    path: ../src/Extensions/SetupList.cs
+    startLine: 525
+  assemblies:
+  - Extensions
+  namespace: SetupList
+  syntax:
+    content: protected virtual bool PrintMembers(StringBuilder stringBuilder)
+    parameters:
+    - id: stringBuilder
+      type: System.Text.StringBuilder
+    return:
+      type: System.Boolean
+    content.vb: Protected Overridable Function PrintMembers(stringBuilder As StringBuilder) As Boolean
+  overload: SetupList.Sound.PrintMembers*
+- uid: SetupList.Sound.ToString
+  commentId: M:SetupList.Sound.ToString
+  id: ToString
+  parent: SetupList.Sound
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: Sound.ToString()
+  fullName: SetupList.Sound.ToString()
+  type: Method
+  source:
+    remote:
+      path: src/Extensions/SetupList.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: ToString
+    path: ../src/Extensions/SetupList.cs
+    startLine: 532
+  assemblies:
+  - Extensions
+  namespace: SetupList
+  summary: Returns a string that represents the current object.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: A string that represents the current object.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: SetupList.Sound.ToString*
 references:
-- uid: Extensions
-  commentId: N:Extensions
-  href: Extensions.html
-  name: Extensions
-  nameWithType: Extensions
-  fullName: Extensions
+- uid: SetupList
+  commentId: N:SetupList
+  href: SetupList.html
+  name: SetupList
+  nameWithType: SetupList
+  fullName: SetupList
 - uid: System.Object
   commentId: T:System.Object
   parent: System
@@ -268,30 +384,6 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
   parent: System.Object
@@ -494,12 +586,28 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: Extensions.GenerateILDArray.NumSteps*
-  commentId: Overload:Extensions.GenerateILDArray.NumSteps
-  href: Extensions.GenerateILDArray.html#Extensions_GenerateILDArray_NumSteps
-  name: NumSteps
-  nameWithType: GenerateILDArray.NumSteps
-  fullName: Extensions.GenerateILDArray.NumSteps
+- uid: SetupList.Sound.#ctor*
+  commentId: Overload:SetupList.Sound.#ctor
+  href: SetupList.Sound.html#SetupList_Sound__ctor
+  name: Sound
+  nameWithType: Sound.Sound
+  fullName: SetupList.Sound.Sound
+  nameWithType.vb: Sound.New
+  fullName.vb: SetupList.Sound.New
+  name.vb: New
+- uid: SetupList.Sound
+  commentId: T:SetupList.Sound
+  parent: SetupList
+  href: SetupList.Sound.html
+  name: Sound
+  nameWithType: Sound
+  fullName: SetupList.Sound
+- uid: SetupList.Sound.Index*
+  commentId: Overload:SetupList.Sound.Index
+  href: SetupList.Sound.html#SetupList_Sound_Index
+  name: Index
+  nameWithType: Sound.Index
+  fullName: SetupList.Sound.Index
 - uid: System.Int32
   commentId: T:System.Int32
   parent: System
@@ -511,12 +619,12 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
-- uid: Extensions.GenerateILDArray.StepSize*
-  commentId: Overload:Extensions.GenerateILDArray.StepSize
-  href: Extensions.GenerateILDArray.html#Extensions_GenerateILDArray_StepSize
-  name: StepSize
-  nameWithType: GenerateILDArray.StepSize
-  fullName: Extensions.GenerateILDArray.StepSize
+- uid: SetupList.Sound.Duration*
+  commentId: Overload:SetupList.Sound.Duration
+  href: SetupList.Sound.html#SetupList_Sound_Duration
+  name: Duration
+  nameWithType: Sound.Duration
+  fullName: SetupList.Sound.Duration
 - uid: System.Double
   commentId: T:System.Double
   parent: System
@@ -528,58 +636,32 @@ references:
   nameWithType.vb: Double
   fullName.vb: Double
   name.vb: Double
-- uid: Extensions.GenerateILDArray.UseLog*
-  commentId: Overload:Extensions.GenerateILDArray.UseLog
-  href: Extensions.GenerateILDArray.html#Extensions_GenerateILDArray_UseLog
-  name: UseLog
-  nameWithType: GenerateILDArray.UseLog
-  fullName: Extensions.GenerateILDArray.UseLog
-- uid: System.Boolean
-  commentId: T:System.Boolean
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.boolean
-  name: bool
-  nameWithType: bool
-  fullName: bool
-  nameWithType.vb: Boolean
-  fullName.vb: Boolean
-  name.vb: Boolean
-- uid: Extensions.GenerateILDArray.LogBase*
-  commentId: Overload:Extensions.GenerateILDArray.LogBase
-  href: Extensions.GenerateILDArray.html#Extensions_GenerateILDArray_LogBase
-  name: LogBase
-  nameWithType: GenerateILDArray.LogBase
-  fullName: Extensions.GenerateILDArray.LogBase
-- uid: Extensions.GenerateILDArray.Process*
-  commentId: Overload:Extensions.GenerateILDArray.Process
-  href: Extensions.GenerateILDArray.html#Extensions_GenerateILDArray_Process
+- uid: SetupList.Sound.Process*
+  commentId: Overload:SetupList.Sound.Process
+  href: SetupList.Sound.html#SetupList_Sound_Process
   name: Process
-  nameWithType: GenerateILDArray.Process
-  fullName: Extensions.GenerateILDArray.Process
-- uid: System.IObservable{System.Double[]}
-  commentId: T:System.IObservable{System.Double[]}
+  nameWithType: Sound.Process
+  fullName: SetupList.Sound.Process
+- uid: System.IObservable{SetupList.Sound}
+  commentId: T:System.IObservable{SetupList.Sound}
   parent: System
   definition: System.IObservable`1
   href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
-  name: IObservable<double[]>
-  nameWithType: IObservable<double[]>
-  fullName: System.IObservable<double[]>
-  nameWithType.vb: IObservable(Of Double())
-  fullName.vb: System.IObservable(Of Double())
-  name.vb: IObservable(Of Double())
+  name: IObservable<Sound>
+  nameWithType: IObservable<Sound>
+  fullName: System.IObservable<SetupList.Sound>
+  nameWithType.vb: IObservable(Of Sound)
+  fullName.vb: System.IObservable(Of SetupList.Sound)
+  name.vb: IObservable(Of Sound)
   spec.csharp:
   - uid: System.IObservable`1
     name: IObservable
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
   - name: <
-  - uid: System.Double
-    name: double
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.double
-  - name: '['
-  - name: ']'
+  - uid: SetupList.Sound
+    name: Sound
+    href: SetupList.Sound.html
   - name: '>'
   spec.vb:
   - uid: System.IObservable`1
@@ -589,12 +671,9 @@ references:
   - name: (
   - name: Of
   - name: " "
-  - uid: System.Double
-    name: Double
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.double
-  - name: (
-  - name: )
+  - uid: SetupList.Sound
+    name: Sound
+    href: SetupList.Sound.html
   - name: )
 - uid: System.IObservable`1
   commentId: T:System.IObservable`1
@@ -653,3 +732,96 @@ references:
   - name: " "
   - name: TSource
   - name: )
+- uid: SetupList.Sound.PrintMembers*
+  commentId: Overload:SetupList.Sound.PrintMembers
+  href: SetupList.Sound.html#SetupList_Sound_PrintMembers_System_Text_StringBuilder_
+  name: PrintMembers
+  nameWithType: Sound.PrintMembers
+  fullName: SetupList.Sound.PrintMembers
+- uid: System.Text.StringBuilder
+  commentId: T:System.Text.StringBuilder
+  parent: System.Text
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.text.stringbuilder
+  name: StringBuilder
+  nameWithType: StringBuilder
+  fullName: System.Text.StringBuilder
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.Text
+  commentId: N:System.Text
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Text
+  nameWithType: System.Text
+  fullName: System.Text
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Text
+    name: Text
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Text
+    name: Text
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: SetupList.Sound.ToString*
+  commentId: Overload:SetupList.Sound.ToString
+  href: SetupList.Sound.html#SetupList_Sound_ToString
+  name: ToString
+  nameWithType: Sound.ToString
+  fullName: SetupList.Sound.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String

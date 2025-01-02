@@ -1,49 +1,45 @@
 ### YamlMime:ManagedReference
 items:
-- uid: Extensions.GenerateILDArray
-  commentId: T:Extensions.GenerateILDArray
-  id: GenerateILDArray
-  parent: Extensions
+- uid: PrintDict.SerializeToJson
+  commentId: T:PrintDict.SerializeToJson
+  id: SerializeToJson
+  parent: PrintDict
   children:
-  - Extensions.GenerateILDArray.LogBase
-  - Extensions.GenerateILDArray.NumSteps
-  - Extensions.GenerateILDArray.Process
-  - Extensions.GenerateILDArray.Process``1(System.IObservable{``0})
-  - Extensions.GenerateILDArray.StepSize
-  - Extensions.GenerateILDArray.UseLog
+  - PrintDict.SerializeToJson.Process(System.IObservable{PrintDict.PrintDict})
+  - PrintDict.SerializeToJson.Process(System.IObservable{PrintDict.Print})
   langs:
   - csharp
   - vb
-  name: GenerateILDArray
-  nameWithType: GenerateILDArray
-  fullName: Extensions.GenerateILDArray
+  name: SerializeToJson
+  nameWithType: SerializeToJson
+  fullName: PrintDict.SerializeToJson
   type: Class
   source:
     remote:
-      path: src/Extensions/GenerateILDArray.cs
+      path: src/Extensions/PrintDict.cs
       branch: io_files_rework
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
-    id: GenerateILDArray
-    path: ../src/Extensions/GenerateILDArray.cs
-    startLine: 13
+    id: SerializeToJson
+    path: ../src/Extensions/PrintDict.cs
+    startLine: 169
   assemblies:
   - Extensions
-  namespace: Extensions
-  summary: Class <code>GenerateILDArray</code> contains the logic of the Bonsai node with the same name.
+  namespace: PrintDict
+  summary: Serializes a sequence of data model objects into JSON strings.
   example: []
   syntax:
     content: >-
       [Combinator]
 
-      [WorkflowElementCategory(ElementCategory.Source)]
+      [WorkflowElementCategory(ElementCategory.Transform)]
 
-      public class GenerateILDArray
+      public class SerializeToJson
     content.vb: >-
       <Combinator>
 
-      <WorkflowElementCategory(ElementCategory.Source)>
+      <WorkflowElementCategory(ElementCategory.Transform)>
 
-      Public Class GenerateILDArray
+      Public Class SerializeToJson
   inheritance:
   - System.Object
   inheritedMembers:
@@ -62,201 +58,82 @@ items:
     ctor: Bonsai.WorkflowElementCategoryAttribute.#ctor(Bonsai.ElementCategory)
     arguments:
     - type: Bonsai.ElementCategory
-      value: 0
-- uid: Extensions.GenerateILDArray.NumSteps
-  commentId: P:Extensions.GenerateILDArray.NumSteps
-  id: NumSteps
-  parent: Extensions.GenerateILDArray
+      value: 2
+- uid: PrintDict.SerializeToJson.Process(System.IObservable{PrintDict.Print})
+  commentId: M:PrintDict.SerializeToJson.Process(System.IObservable{PrintDict.Print})
+  id: Process(System.IObservable{PrintDict.Print})
+  parent: PrintDict.SerializeToJson
   langs:
   - csharp
   - vb
-  name: NumSteps
-  nameWithType: GenerateILDArray.NumSteps
-  fullName: Extensions.GenerateILDArray.NumSteps
-  type: Property
-  source:
-    remote:
-      path: src/Extensions/GenerateILDArray.cs
-      branch: io_files_rework
-      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
-    id: NumSteps
-    path: ../src/Extensions/GenerateILDArray.cs
-    startLine: 24
-  assemblies:
-  - Extensions
-  namespace: Extensions
-  syntax:
-    content: public int NumSteps { get; set; }
-    parameters: []
-    return:
-      type: System.Int32
-    content.vb: Public Property NumSteps As Integer
-  overload: Extensions.GenerateILDArray.NumSteps*
-- uid: Extensions.GenerateILDArray.StepSize
-  commentId: P:Extensions.GenerateILDArray.StepSize
-  id: StepSize
-  parent: Extensions.GenerateILDArray
-  langs:
-  - csharp
-  - vb
-  name: StepSize
-  nameWithType: GenerateILDArray.StepSize
-  fullName: Extensions.GenerateILDArray.StepSize
-  type: Property
-  source:
-    remote:
-      path: src/Extensions/GenerateILDArray.cs
-      branch: io_files_rework
-      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
-    id: StepSize
-    path: ../src/Extensions/GenerateILDArray.cs
-    startLine: 35
-  assemblies:
-  - Extensions
-  namespace: Extensions
-  syntax:
-    content: public double StepSize { get; set; }
-    parameters: []
-    return:
-      type: System.Double
-    content.vb: Public Property StepSize As Double
-  overload: Extensions.GenerateILDArray.StepSize*
-- uid: Extensions.GenerateILDArray.UseLog
-  commentId: P:Extensions.GenerateILDArray.UseLog
-  id: UseLog
-  parent: Extensions.GenerateILDArray
-  langs:
-  - csharp
-  - vb
-  name: UseLog
-  nameWithType: GenerateILDArray.UseLog
-  fullName: Extensions.GenerateILDArray.UseLog
-  type: Property
-  source:
-    remote:
-      path: src/Extensions/GenerateILDArray.cs
-      branch: io_files_rework
-      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
-    id: UseLog
-    path: ../src/Extensions/GenerateILDArray.cs
-    startLine: 45
-  assemblies:
-  - Extensions
-  namespace: Extensions
-  syntax:
-    content: public bool UseLog { get; set; }
-    parameters: []
-    return:
-      type: System.Boolean
-    content.vb: Public Property UseLog As Boolean
-  overload: Extensions.GenerateILDArray.UseLog*
-- uid: Extensions.GenerateILDArray.LogBase
-  commentId: P:Extensions.GenerateILDArray.LogBase
-  id: LogBase
-  parent: Extensions.GenerateILDArray
-  langs:
-  - csharp
-  - vb
-  name: LogBase
-  nameWithType: GenerateILDArray.LogBase
-  fullName: Extensions.GenerateILDArray.LogBase
-  type: Property
-  source:
-    remote:
-      path: src/Extensions/GenerateILDArray.cs
-      branch: io_files_rework
-      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
-    id: LogBase
-    path: ../src/Extensions/GenerateILDArray.cs
-    startLine: 55
-  assemblies:
-  - Extensions
-  namespace: Extensions
-  syntax:
-    content: public double LogBase { get; set; }
-    parameters: []
-    return:
-      type: System.Double
-    content.vb: Public Property LogBase As Double
-  overload: Extensions.GenerateILDArray.LogBase*
-- uid: Extensions.GenerateILDArray.Process
-  commentId: M:Extensions.GenerateILDArray.Process
-  id: Process
-  parent: Extensions.GenerateILDArray
-  langs:
-  - csharp
-  - vb
-  name: Process()
-  nameWithType: GenerateILDArray.Process()
-  fullName: Extensions.GenerateILDArray.Process()
+  name: Process(IObservable<Print>)
+  nameWithType: SerializeToJson.Process(IObservable<Print>)
+  fullName: PrintDict.SerializeToJson.Process(System.IObservable<PrintDict.Print>)
   type: Method
   source:
     remote:
-      path: src/Extensions/GenerateILDArray.cs
+      path: src/Extensions/PrintDict.cs
       branch: io_files_rework
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
-    path: ../src/Extensions/GenerateILDArray.cs
-    startLine: 115
+    path: ../src/Extensions/PrintDict.cs
+    startLine: 181
   assemblies:
   - Extensions
-  namespace: Extensions
-  summary: Generates an observable sequence which outputs an array of ILDs. This method is called when the node doesn't have an input data stream.
-  example: []
+  namespace: PrintDict
   syntax:
-    content: public IObservable<double[]> Process()
-    return:
-      type: System.IObservable{System.Double[]}
-      description: An observable sequence which sends a single event containing an array of ILD values.
-    content.vb: Public Function Process() As IObservable(Of Double())
-  overload: Extensions.GenerateILDArray.Process*
-- uid: Extensions.GenerateILDArray.Process``1(System.IObservable{``0})
-  commentId: M:Extensions.GenerateILDArray.Process``1(System.IObservable{``0})
-  id: Process``1(System.IObservable{``0})
-  parent: Extensions.GenerateILDArray
-  langs:
-  - csharp
-  - vb
-  name: Process<TSource>(IObservable<TSource>)
-  nameWithType: GenerateILDArray.Process<TSource>(IObservable<TSource>)
-  fullName: Extensions.GenerateILDArray.Process<TSource>(System.IObservable<TSource>)
-  type: Method
-  source:
-    remote:
-      path: src/Extensions/GenerateILDArray.cs
-      branch: io_files_rework
-      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
-    id: Process
-    path: ../src/Extensions/GenerateILDArray.cs
-    startLine: 132
-  assemblies:
-  - Extensions
-  namespace: Extensions
-  summary: Generates an observable sequence which outputs an array of ILDs. This method is called when the node has an input data stream.
-  example: []
-  syntax:
-    content: public IObservable<double[]> Process<TSource>(IObservable<TSource> source)
+    content: public IObservable<string> Process(IObservable<Print> source)
     parameters:
     - id: source
-      type: System.IObservable{{TSource}}
-      description: the input data stream.
-    typeParameters:
-    - id: TSource
+      type: System.IObservable{PrintDict.Print}
     return:
-      type: System.IObservable{System.Double[]}
-      description: An observable sequence which sends a single event containing an array of ILD values.
-    content.vb: Public Function Process(Of TSource)(source As IObservable(Of TSource)) As IObservable(Of Double())
-  overload: Extensions.GenerateILDArray.Process*
-  nameWithType.vb: GenerateILDArray.Process(Of TSource)(IObservable(Of TSource))
-  fullName.vb: Extensions.GenerateILDArray.Process(Of TSource)(System.IObservable(Of TSource))
-  name.vb: Process(Of TSource)(IObservable(Of TSource))
+      type: System.IObservable{System.String}
+    content.vb: Public Function Process(source As IObservable(Of Print)) As IObservable(Of String)
+  overload: PrintDict.SerializeToJson.Process*
+  nameWithType.vb: SerializeToJson.Process(IObservable(Of Print))
+  fullName.vb: PrintDict.SerializeToJson.Process(System.IObservable(Of PrintDict.Print))
+  name.vb: Process(IObservable(Of Print))
+- uid: PrintDict.SerializeToJson.Process(System.IObservable{PrintDict.PrintDict})
+  commentId: M:PrintDict.SerializeToJson.Process(System.IObservable{PrintDict.PrintDict})
+  id: Process(System.IObservable{PrintDict.PrintDict})
+  parent: PrintDict.SerializeToJson
+  langs:
+  - csharp
+  - vb
+  name: Process(IObservable<PrintDict>)
+  nameWithType: SerializeToJson.Process(IObservable<PrintDict>)
+  fullName: PrintDict.SerializeToJson.Process(System.IObservable<PrintDict.PrintDict>)
+  type: Method
+  source:
+    remote:
+      path: src/Extensions/PrintDict.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: Process
+    path: ../src/Extensions/PrintDict.cs
+    startLine: 186
+  assemblies:
+  - Extensions
+  namespace: PrintDict
+  syntax:
+    content: public IObservable<string> Process(IObservable<PrintDict> source)
+    parameters:
+    - id: source
+      type: System.IObservable{PrintDict.PrintDict}
+    return:
+      type: System.IObservable{System.String}
+    content.vb: Public Function Process(source As IObservable(Of PrintDict)) As IObservable(Of String)
+  overload: PrintDict.SerializeToJson.Process*
+  nameWithType.vb: SerializeToJson.Process(IObservable(Of PrintDict))
+  fullName.vb: PrintDict.SerializeToJson.Process(System.IObservable(Of PrintDict.PrintDict))
+  name.vb: Process(IObservable(Of PrintDict))
 references:
-- uid: Extensions
-  commentId: N:Extensions
-  href: Extensions.html
-  name: Extensions
-  nameWithType: Extensions
-  fullName: Extensions
+- uid: PrintDict
+  commentId: N:PrintDict
+  href: PrintDict.html
+  name: PrintDict
+  nameWithType: PrintDict
+  fullName: PrintDict
 - uid: System.Object
   commentId: T:System.Object
   parent: System
@@ -494,92 +371,32 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: Extensions.GenerateILDArray.NumSteps*
-  commentId: Overload:Extensions.GenerateILDArray.NumSteps
-  href: Extensions.GenerateILDArray.html#Extensions_GenerateILDArray_NumSteps
-  name: NumSteps
-  nameWithType: GenerateILDArray.NumSteps
-  fullName: Extensions.GenerateILDArray.NumSteps
-- uid: System.Int32
-  commentId: T:System.Int32
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int32
-  name: int
-  nameWithType: int
-  fullName: int
-  nameWithType.vb: Integer
-  fullName.vb: Integer
-  name.vb: Integer
-- uid: Extensions.GenerateILDArray.StepSize*
-  commentId: Overload:Extensions.GenerateILDArray.StepSize
-  href: Extensions.GenerateILDArray.html#Extensions_GenerateILDArray_StepSize
-  name: StepSize
-  nameWithType: GenerateILDArray.StepSize
-  fullName: Extensions.GenerateILDArray.StepSize
-- uid: System.Double
-  commentId: T:System.Double
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.double
-  name: double
-  nameWithType: double
-  fullName: double
-  nameWithType.vb: Double
-  fullName.vb: Double
-  name.vb: Double
-- uid: Extensions.GenerateILDArray.UseLog*
-  commentId: Overload:Extensions.GenerateILDArray.UseLog
-  href: Extensions.GenerateILDArray.html#Extensions_GenerateILDArray_UseLog
-  name: UseLog
-  nameWithType: GenerateILDArray.UseLog
-  fullName: Extensions.GenerateILDArray.UseLog
-- uid: System.Boolean
-  commentId: T:System.Boolean
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.boolean
-  name: bool
-  nameWithType: bool
-  fullName: bool
-  nameWithType.vb: Boolean
-  fullName.vb: Boolean
-  name.vb: Boolean
-- uid: Extensions.GenerateILDArray.LogBase*
-  commentId: Overload:Extensions.GenerateILDArray.LogBase
-  href: Extensions.GenerateILDArray.html#Extensions_GenerateILDArray_LogBase
-  name: LogBase
-  nameWithType: GenerateILDArray.LogBase
-  fullName: Extensions.GenerateILDArray.LogBase
-- uid: Extensions.GenerateILDArray.Process*
-  commentId: Overload:Extensions.GenerateILDArray.Process
-  href: Extensions.GenerateILDArray.html#Extensions_GenerateILDArray_Process
+- uid: PrintDict.SerializeToJson.Process*
+  commentId: Overload:PrintDict.SerializeToJson.Process
+  href: PrintDict.SerializeToJson.html#PrintDict_SerializeToJson_Process_System_IObservable_PrintDict_Print__
   name: Process
-  nameWithType: GenerateILDArray.Process
-  fullName: Extensions.GenerateILDArray.Process
-- uid: System.IObservable{System.Double[]}
-  commentId: T:System.IObservable{System.Double[]}
+  nameWithType: SerializeToJson.Process
+  fullName: PrintDict.SerializeToJson.Process
+- uid: System.IObservable{PrintDict.Print}
+  commentId: T:System.IObservable{PrintDict.Print}
   parent: System
   definition: System.IObservable`1
   href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
-  name: IObservable<double[]>
-  nameWithType: IObservable<double[]>
-  fullName: System.IObservable<double[]>
-  nameWithType.vb: IObservable(Of Double())
-  fullName.vb: System.IObservable(Of Double())
-  name.vb: IObservable(Of Double())
+  name: IObservable<Print>
+  nameWithType: IObservable<Print>
+  fullName: System.IObservable<PrintDict.Print>
+  nameWithType.vb: IObservable(Of Print)
+  fullName.vb: System.IObservable(Of PrintDict.Print)
+  name.vb: IObservable(Of Print)
   spec.csharp:
   - uid: System.IObservable`1
     name: IObservable
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
   - name: <
-  - uid: System.Double
-    name: double
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.double
-  - name: '['
-  - name: ']'
+  - uid: PrintDict.Print
+    name: Print
+    href: PrintDict.Print.html
   - name: '>'
   spec.vb:
   - uid: System.IObservable`1
@@ -589,12 +406,44 @@ references:
   - name: (
   - name: Of
   - name: " "
-  - uid: System.Double
-    name: Double
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.double
-  - name: (
+  - uid: PrintDict.Print
+    name: Print
+    href: PrintDict.Print.html
   - name: )
+- uid: System.IObservable{System.String}
+  commentId: T:System.IObservable{System.String}
+  parent: System
+  definition: System.IObservable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  name: IObservable<string>
+  nameWithType: IObservable<string>
+  fullName: System.IObservable<string>
+  nameWithType.vb: IObservable(Of String)
+  fullName.vb: System.IObservable(Of String)
+  name.vb: IObservable(Of String)
+  spec.csharp:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
   - name: )
 - uid: System.IObservable`1
   commentId: T:System.IObservable`1
@@ -624,24 +473,26 @@ references:
   - name: " "
   - name: T
   - name: )
-- uid: System.IObservable{{TSource}}
-  commentId: T:System.IObservable{``0}
+- uid: System.IObservable{PrintDict.PrintDict}
+  commentId: T:System.IObservable{PrintDict.PrintDict}
   parent: System
   definition: System.IObservable`1
   href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
-  name: IObservable<TSource>
-  nameWithType: IObservable<TSource>
-  fullName: System.IObservable<TSource>
-  nameWithType.vb: IObservable(Of TSource)
-  fullName.vb: System.IObservable(Of TSource)
-  name.vb: IObservable(Of TSource)
+  name: IObservable<PrintDict>
+  nameWithType: IObservable<PrintDict>
+  fullName: System.IObservable<PrintDict.PrintDict>
+  nameWithType.vb: IObservable(Of PrintDict)
+  fullName.vb: System.IObservable(Of PrintDict.PrintDict)
+  name.vb: IObservable(Of PrintDict)
   spec.csharp:
   - uid: System.IObservable`1
     name: IObservable
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
   - name: <
-  - name: TSource
+  - uid: PrintDict.PrintDict
+    name: PrintDict
+    href: PrintDict.PrintDict.html
   - name: '>'
   spec.vb:
   - uid: System.IObservable`1
@@ -651,5 +502,7 @@ references:
   - name: (
   - name: Of
   - name: " "
-  - name: TSource
+  - uid: PrintDict.PrintDict
+    name: PrintDict
+    href: PrintDict.PrintDict.html
   - name: )

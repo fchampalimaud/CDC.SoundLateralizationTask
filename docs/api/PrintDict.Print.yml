@@ -1,0 +1,805 @@
+### YamlMime:ManagedReference
+items:
+- uid: PrintDict.Print
+  commentId: T:PrintDict.Print
+  id: Print
+  parent: PrintDict
+  children:
+  - PrintDict.Print.#ctor
+  - PrintDict.Print.#ctor(PrintDict.Print)
+  - PrintDict.Print.PrintMembers(System.Text.StringBuilder)
+  - PrintDict.Print.Process
+  - PrintDict.Print.Process``1(System.IObservable{``0})
+  - PrintDict.Print.Text
+  - PrintDict.Print.ToString
+  - PrintDict.Print.Units
+  langs:
+  - csharp
+  - vb
+  name: Print
+  nameWithType: Print
+  fullName: PrintDict.Print
+  type: Class
+  source:
+    remote:
+      path: src/Extensions/PrintDict.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: Print
+    path: ../src/Extensions/PrintDict.cs
+    startLine: 11
+  assemblies:
+  - Extensions
+  namespace: PrintDict
+  syntax:
+    content: >-
+      [Combinator]
+
+      [WorkflowElementCategory(ElementCategory.Source)]
+
+      public class Print
+    content.vb: >-
+      <Combinator>
+
+      <WorkflowElementCategory(ElementCategory.Source)>
+
+      Public Class Print
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  attributes:
+  - type: Bonsai.CombinatorAttribute
+    ctor: Bonsai.CombinatorAttribute.#ctor
+    arguments: []
+  - type: Bonsai.WorkflowElementCategoryAttribute
+    ctor: Bonsai.WorkflowElementCategoryAttribute.#ctor(Bonsai.ElementCategory)
+    arguments:
+    - type: Bonsai.ElementCategory
+      value: 0
+- uid: PrintDict.Print.#ctor
+  commentId: M:PrintDict.Print.#ctor
+  id: '#ctor'
+  parent: PrintDict.Print
+  langs:
+  - csharp
+  - vb
+  name: Print()
+  nameWithType: Print.Print()
+  fullName: PrintDict.Print.Print()
+  type: Constructor
+  source:
+    remote:
+      path: src/Extensions/PrintDict.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: .ctor
+    path: ../src/Extensions/PrintDict.cs
+    startLine: 21
+  assemblies:
+  - Extensions
+  namespace: PrintDict
+  syntax:
+    content: public Print()
+    content.vb: Public Sub New()
+  overload: PrintDict.Print.#ctor*
+  nameWithType.vb: Print.New()
+  fullName.vb: PrintDict.Print.New()
+  name.vb: New()
+- uid: PrintDict.Print.#ctor(PrintDict.Print)
+  commentId: M:PrintDict.Print.#ctor(PrintDict.Print)
+  id: '#ctor(PrintDict.Print)'
+  parent: PrintDict.Print
+  langs:
+  - csharp
+  - vb
+  name: Print(Print)
+  nameWithType: Print.Print(Print)
+  fullName: PrintDict.Print.Print(PrintDict.Print)
+  type: Constructor
+  source:
+    remote:
+      path: src/Extensions/PrintDict.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: .ctor
+    path: ../src/Extensions/PrintDict.cs
+    startLine: 25
+  assemblies:
+  - Extensions
+  namespace: PrintDict
+  syntax:
+    content: protected Print(Print other)
+    parameters:
+    - id: other
+      type: PrintDict.Print
+    content.vb: Protected Sub New(other As Print)
+  overload: PrintDict.Print.#ctor*
+  nameWithType.vb: Print.New(Print)
+  fullName.vb: PrintDict.Print.New(PrintDict.Print)
+  name.vb: New(Print)
+- uid: PrintDict.Print.Text
+  commentId: P:PrintDict.Print.Text
+  id: Text
+  parent: PrintDict.Print
+  langs:
+  - csharp
+  - vb
+  name: Text
+  nameWithType: Print.Text
+  fullName: PrintDict.Print.Text
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/PrintDict.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: Text
+    path: ../src/Extensions/PrintDict.cs
+    startLine: 34
+  assemblies:
+  - Extensions
+  namespace: PrintDict
+  summary: The text to be printed.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("text", Required = Required.Always)]
+
+      [YamlMember(Alias = "text")]
+
+      public string Text { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("text", Required:=Required.Always)>
+
+      <YamlMember(Alias:="text")>
+
+      Public Property Text As String
+  overload: PrintDict.Print.Text*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: text
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: YamlDotNet.Serialization.YamlMemberAttribute
+    ctor: YamlDotNet.Serialization.YamlMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Alias
+      type: System.String
+      value: text
+- uid: PrintDict.Print.Units
+  commentId: P:PrintDict.Print.Units
+  id: Units
+  parent: PrintDict.Print
+  langs:
+  - csharp
+  - vb
+  name: Units
+  nameWithType: Print.Units
+  fullName: PrintDict.Print.Units
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/PrintDict.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: Units
+    path: ../src/Extensions/PrintDict.cs
+    startLine: 52
+  assemblies:
+  - Extensions
+  namespace: PrintDict
+  summary: The units of the quantity being printed (if necessary).
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("units", Required = Required.Always)]
+
+      [YamlMember(Alias = "units")]
+
+      public string Units { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("units", Required:=Required.Always)>
+
+      <YamlMember(Alias:="units")>
+
+      Public Property Units As String
+  overload: PrintDict.Print.Units*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: units
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: YamlDotNet.Serialization.YamlMemberAttribute
+    ctor: YamlDotNet.Serialization.YamlMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Alias
+      type: System.String
+      value: units
+- uid: PrintDict.Print.Process
+  commentId: M:PrintDict.Print.Process
+  id: Process
+  parent: PrintDict.Print
+  langs:
+  - csharp
+  - vb
+  name: Process()
+  nameWithType: Print.Process()
+  fullName: PrintDict.Print.Process()
+  type: Method
+  source:
+    remote:
+      path: src/Extensions/PrintDict.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: Process
+    path: ../src/Extensions/PrintDict.cs
+    startLine: 67
+  assemblies:
+  - Extensions
+  namespace: PrintDict
+  syntax:
+    content: public IObservable<Print> Process()
+    return:
+      type: System.IObservable{PrintDict.Print}
+    content.vb: Public Function Process() As IObservable(Of Print)
+  overload: PrintDict.Print.Process*
+- uid: PrintDict.Print.Process``1(System.IObservable{``0})
+  commentId: M:PrintDict.Print.Process``1(System.IObservable{``0})
+  id: Process``1(System.IObservable{``0})
+  parent: PrintDict.Print
+  langs:
+  - csharp
+  - vb
+  name: Process<TSource>(IObservable<TSource>)
+  nameWithType: Print.Process<TSource>(IObservable<TSource>)
+  fullName: PrintDict.Print.Process<TSource>(System.IObservable<TSource>)
+  type: Method
+  source:
+    remote:
+      path: src/Extensions/PrintDict.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: Process
+    path: ../src/Extensions/PrintDict.cs
+    startLine: 72
+  assemblies:
+  - Extensions
+  namespace: PrintDict
+  syntax:
+    content: public IObservable<Print> Process<TSource>(IObservable<TSource> source)
+    parameters:
+    - id: source
+      type: System.IObservable{{TSource}}
+    typeParameters:
+    - id: TSource
+    return:
+      type: System.IObservable{PrintDict.Print}
+    content.vb: Public Function Process(Of TSource)(source As IObservable(Of TSource)) As IObservable(Of Print)
+  overload: PrintDict.Print.Process*
+  nameWithType.vb: Print.Process(Of TSource)(IObservable(Of TSource))
+  fullName.vb: PrintDict.Print.Process(Of TSource)(System.IObservable(Of TSource))
+  name.vb: Process(Of TSource)(IObservable(Of TSource))
+- uid: PrintDict.Print.PrintMembers(System.Text.StringBuilder)
+  commentId: M:PrintDict.Print.PrintMembers(System.Text.StringBuilder)
+  id: PrintMembers(System.Text.StringBuilder)
+  parent: PrintDict.Print
+  langs:
+  - csharp
+  - vb
+  name: PrintMembers(StringBuilder)
+  nameWithType: Print.PrintMembers(StringBuilder)
+  fullName: PrintDict.Print.PrintMembers(System.Text.StringBuilder)
+  type: Method
+  source:
+    remote:
+      path: src/Extensions/PrintDict.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: PrintMembers
+    path: ../src/Extensions/PrintDict.cs
+    startLine: 77
+  assemblies:
+  - Extensions
+  namespace: PrintDict
+  syntax:
+    content: protected virtual bool PrintMembers(StringBuilder stringBuilder)
+    parameters:
+    - id: stringBuilder
+      type: System.Text.StringBuilder
+    return:
+      type: System.Boolean
+    content.vb: Protected Overridable Function PrintMembers(stringBuilder As StringBuilder) As Boolean
+  overload: PrintDict.Print.PrintMembers*
+- uid: PrintDict.Print.ToString
+  commentId: M:PrintDict.Print.ToString
+  id: ToString
+  parent: PrintDict.Print
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: Print.ToString()
+  fullName: PrintDict.Print.ToString()
+  type: Method
+  source:
+    remote:
+      path: src/Extensions/PrintDict.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: ToString
+    path: ../src/Extensions/PrintDict.cs
+    startLine: 84
+  assemblies:
+  - Extensions
+  namespace: PrintDict
+  summary: Returns a string that represents the current object.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: A string that represents the current object.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: PrintDict.Print.ToString*
+references:
+- uid: PrintDict
+  commentId: N:PrintDict
+  href: PrintDict.html
+  name: PrintDict
+  nameWithType: PrintDict
+  fullName: PrintDict
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: PrintDict.Print.#ctor*
+  commentId: Overload:PrintDict.Print.#ctor
+  href: PrintDict.Print.html#PrintDict_Print__ctor
+  name: Print
+  nameWithType: Print.Print
+  fullName: PrintDict.Print.Print
+  nameWithType.vb: Print.New
+  fullName.vb: PrintDict.Print.New
+  name.vb: New
+- uid: PrintDict.Print
+  commentId: T:PrintDict.Print
+  parent: PrintDict
+  href: PrintDict.Print.html
+  name: Print
+  nameWithType: Print
+  fullName: PrintDict.Print
+- uid: PrintDict.Print.Text*
+  commentId: Overload:PrintDict.Print.Text
+  href: PrintDict.Print.html#PrintDict_Print_Text
+  name: Text
+  nameWithType: Print.Text
+  fullName: PrintDict.Print.Text
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: PrintDict.Print.Units*
+  commentId: Overload:PrintDict.Print.Units
+  href: PrintDict.Print.html#PrintDict_Print_Units
+  name: Units
+  nameWithType: Print.Units
+  fullName: PrintDict.Print.Units
+- uid: PrintDict.Print.Process*
+  commentId: Overload:PrintDict.Print.Process
+  href: PrintDict.Print.html#PrintDict_Print_Process
+  name: Process
+  nameWithType: Print.Process
+  fullName: PrintDict.Print.Process
+- uid: System.IObservable{PrintDict.Print}
+  commentId: T:System.IObservable{PrintDict.Print}
+  parent: System
+  definition: System.IObservable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  name: IObservable<Print>
+  nameWithType: IObservable<Print>
+  fullName: System.IObservable<PrintDict.Print>
+  nameWithType.vb: IObservable(Of Print)
+  fullName.vb: System.IObservable(Of PrintDict.Print)
+  name.vb: IObservable(Of Print)
+  spec.csharp:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: <
+  - uid: PrintDict.Print
+    name: Print
+    href: PrintDict.Print.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: PrintDict.Print
+    name: Print
+    href: PrintDict.Print.html
+  - name: )
+- uid: System.IObservable`1
+  commentId: T:System.IObservable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  name: IObservable<T>
+  nameWithType: IObservable<T>
+  fullName: System.IObservable<T>
+  nameWithType.vb: IObservable(Of T)
+  fullName.vb: System.IObservable(Of T)
+  name.vb: IObservable(Of T)
+  spec.csharp:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.IObservable{{TSource}}
+  commentId: T:System.IObservable{``0}
+  parent: System
+  definition: System.IObservable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  name: IObservable<TSource>
+  nameWithType: IObservable<TSource>
+  fullName: System.IObservable<TSource>
+  nameWithType.vb: IObservable(Of TSource)
+  fullName.vb: System.IObservable(Of TSource)
+  name.vb: IObservable(Of TSource)
+  spec.csharp:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: <
+  - name: TSource
+  - name: '>'
+  spec.vb:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TSource
+  - name: )
+- uid: PrintDict.Print.PrintMembers*
+  commentId: Overload:PrintDict.Print.PrintMembers
+  href: PrintDict.Print.html#PrintDict_Print_PrintMembers_System_Text_StringBuilder_
+  name: PrintMembers
+  nameWithType: Print.PrintMembers
+  fullName: PrintDict.Print.PrintMembers
+- uid: System.Text.StringBuilder
+  commentId: T:System.Text.StringBuilder
+  parent: System.Text
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.text.stringbuilder
+  name: StringBuilder
+  nameWithType: StringBuilder
+  fullName: System.Text.StringBuilder
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.Text
+  commentId: N:System.Text
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Text
+  nameWithType: System.Text
+  fullName: System.Text
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Text
+    name: Text
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Text
+    name: Text
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: PrintDict.Print.ToString*
+  commentId: Overload:PrintDict.Print.ToString
+  href: PrintDict.Print.html#PrintDict_Print_ToString
+  name: ToString
+  nameWithType: Print.ToString
+  fullName: PrintDict.Print.ToString

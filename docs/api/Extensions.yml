@@ -4,11 +4,9 @@ items:
   commentId: N:Extensions
   id: Extensions
   children:
+  - Extensions.CalculateRatio
   - Extensions.GenerateILDArray
-  - Extensions.ReadAnimalJSON
-  - Extensions.ReadSetupCSV
-  - Extensions.ReadStartupFile
-  - Extensions.ReadTrainingCSV
+  - Extensions.GetOutputDir
   - Extensions.ShuffleArray
   langs:
   - csharp
@@ -20,39 +18,27 @@ items:
   assemblies:
   - Extensions
 references:
-- uid: Extensions.ReadAnimalJSON
-  commentId: T:Extensions.ReadAnimalJSON
-  href: Extensions.ReadAnimalJSON.html
-  name: ReadAnimalJSON
-  nameWithType: ReadAnimalJSON
-  fullName: Extensions.ReadAnimalJSON
+- uid: Extensions.CalculateRatio
+  commentId: T:Extensions.CalculateRatio
+  href: Extensions.CalculateRatio.html
+  name: CalculateRatio
+  nameWithType: CalculateRatio
+  fullName: Extensions.CalculateRatio
 - uid: Extensions.GenerateILDArray
   commentId: T:Extensions.GenerateILDArray
   href: Extensions.GenerateILDArray.html
   name: GenerateILDArray
   nameWithType: GenerateILDArray
   fullName: Extensions.GenerateILDArray
-- uid: Extensions.ReadStartupFile
-  commentId: T:Extensions.ReadStartupFile
-  href: Extensions.ReadStartupFile.html
-  name: ReadStartupFile
-  nameWithType: ReadStartupFile
-  fullName: Extensions.ReadStartupFile
-- uid: Extensions.ReadSetupCSV
-  commentId: T:Extensions.ReadSetupCSV
-  href: Extensions.ReadSetupCSV.html
-  name: ReadSetupCSV
-  nameWithType: ReadSetupCSV
-  fullName: Extensions.ReadSetupCSV
+- uid: Extensions.GetOutputDir
+  commentId: T:Extensions.GetOutputDir
+  href: Extensions.GetOutputDir.html
+  name: GetOutputDir
+  nameWithType: GetOutputDir
+  fullName: Extensions.GetOutputDir
 - uid: Extensions.ShuffleArray
   commentId: T:Extensions.ShuffleArray
   href: Extensions.ShuffleArray.html
   name: ShuffleArray
   nameWithType: ShuffleArray
   fullName: Extensions.ShuffleArray
-- uid: Extensions.ReadTrainingCSV
-  commentId: T:Extensions.ReadTrainingCSV
-  href: Extensions.ReadTrainingCSV.html
-  name: ReadTrainingCSV
-  nameWithType: ReadTrainingCSV
-  fullName: Extensions.ReadTrainingCSV
