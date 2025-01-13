@@ -54,9 +54,9 @@ class ParserGUI(tk.Tk):
         formatted_date = now.strftime("%y%m%d_%H%M%S")
         # Sets output file(s) path
         output_path = "output/" + formatted_date
-        
+
         # Single file case
-        if self.checkbox_var.get == 1:
+        if self.checkbox_var.get() == 1:
             filename = fd.askopenfilename()
         # Directory case
         else:
