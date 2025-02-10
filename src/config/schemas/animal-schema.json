@@ -25,6 +25,13 @@
           "title": "Use Opto",
           "type": "boolean"
         },
+        "voltage": {
+          "description": "The voltage to use in the TTL signal.",
+          "maximum": 5000,
+          "minimum": 0,
+          "title": "Voltage",
+          "type": "integer"
+        },
         "duration": {
           "description": "The duration of the optogenetics stimulation/inhibition protocol (s).",
           "minimum": 0.0,
@@ -53,15 +60,22 @@
           "minimum": 0.0,
           "title": "Pulse Duration",
           "type": "number"
+        },
+        "use_rt": {
+          "description": "Indicates whether the optogenetics stimulation/inhibition should stop when the animal leaves the poke (true) or not (false).",
+          "title": "Use Rt",
+          "type": "boolean"
         }
       },
       "required": [
         "use_opto",
+        "voltage",
         "duration",
         "use_pulses",
         "ramp_time",
         "frequency",
-        "pulse_duration"
+        "pulse_duration",
+        "use_rt"
       ],
       "title": "Optogenetics",
       "type": "object"

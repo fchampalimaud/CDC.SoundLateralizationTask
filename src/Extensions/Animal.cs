@@ -109,6 +109,8 @@ namespace Animal
     
         private bool _useOpto;
     
+        private int _voltage;
+    
         private double _duration;
     
         private bool _usePulses;
@@ -119,6 +121,8 @@ namespace Animal
     
         private double _pulseDuration;
     
+        private bool _useRt;
+    
         public Optogenetics()
         {
         }
@@ -126,11 +130,13 @@ namespace Animal
         protected Optogenetics(Optogenetics other)
         {
             _useOpto = other._useOpto;
+            _voltage = other._voltage;
             _duration = other._duration;
             _usePulses = other._usePulses;
             _rampTime = other._rampTime;
             _frequency = other._frequency;
             _pulseDuration = other._pulseDuration;
+            _useRt = other._useRt;
         }
     
         /// <summary>
@@ -148,6 +154,24 @@ namespace Animal
             set
             {
                 _useOpto = value;
+            }
+        }
+    
+        /// <summary>
+        /// The voltage to use in the TTL signal.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("voltage", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="voltage")]
+        [System.ComponentModel.DescriptionAttribute("The voltage to use in the TTL signal.")]
+        public int Voltage
+        {
+            get
+            {
+                return _voltage;
+            }
+            set
+            {
+                _voltage = value;
             }
         }
     
@@ -243,6 +267,25 @@ namespace Animal
             }
         }
     
+        /// <summary>
+        /// Indicates whether the optogenetics stimulation/inhibition should stop when the animal leaves the poke (true) or not (false).
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("use_rt", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="use_rt")]
+        [System.ComponentModel.DescriptionAttribute("Indicates whether the optogenetics stimulation/inhibition should stop when the an" +
+            "imal leaves the poke (true) or not (false).")]
+        public bool UseRt
+        {
+            get
+            {
+                return _useRt;
+            }
+            set
+            {
+                _useRt = value;
+            }
+        }
+    
         public System.IObservable<Optogenetics> Process()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new Optogenetics(this)));
@@ -256,11 +299,13 @@ namespace Animal
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
             stringBuilder.Append("use_opto = " + _useOpto + ", ");
+            stringBuilder.Append("voltage = " + _voltage + ", ");
             stringBuilder.Append("duration = " + _duration + ", ");
             stringBuilder.Append("use_pulses = " + _usePulses + ", ");
             stringBuilder.Append("ramp_time = " + _rampTime + ", ");
             stringBuilder.Append("frequency = " + _frequency + ", ");
-            stringBuilder.Append("pulse_duration = " + _pulseDuration);
+            stringBuilder.Append("pulse_duration = " + _pulseDuration + ", ");
+            stringBuilder.Append("use_rt = " + _useRt);
             return true;
         }
     

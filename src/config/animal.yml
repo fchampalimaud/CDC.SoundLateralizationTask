@@ -37,10 +37,12 @@ lnp_time:
   target: 0.01
 base_reward: 25
 optogenetics:
-  use_opto: false
-  duration: 1
-  use_pulses: false
+  use_opto: true
+  voltage: 1000
+  duration: 2
+  use_pulses: true
   ramp_time: 50
   frequency: 20
   pulse_duration: 20
+  use_rt: true
 autobias_correction: false
