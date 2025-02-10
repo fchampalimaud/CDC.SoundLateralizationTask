@@ -1,29 +1,151 @@
 ### YamlMime:TableOfContent
 items:
+- uid: Animal
+  name: Animal
+  items:
+  - uid: Animal.Animal
+    name: Animal
+  - uid: Animal.DeserializeFromJson
+    name: DeserializeFromJson
+  - uid: Animal.DeserializeFromYaml
+    name: DeserializeFromYaml
+  - uid: Animal.FixationTime
+    name: FixationTime
+  - uid: Animal.Optogenetics
+    name: Optogenetics
+  - uid: Animal.SerializeToJson
+    name: SerializeToJson
+  - uid: Animal.SerializeToYaml
+    name: SerializeToYaml
+  - uid: Animal.Session
+    name: Session
+  - uid: Animal.Sound
+    name: Sound
+  - uid: Animal.TimeConstrains
+    name: TimeConstrains
 - uid: Extensions
   name: Extensions
   items:
+  - uid: Extensions.CalculateRatio
+    name: CalculateRatio
   - uid: Extensions.GenerateILDArray
     name: GenerateILDArray
-  - uid: Extensions.ReadAnimalJSON
-    name: ReadAnimalJSON
-  - uid: Extensions.ReadSetupCSV
-    name: ReadSetupCSV
-  - uid: Extensions.ReadStartupFile
-    name: ReadStartupFile
-  - uid: Extensions.ReadTrainingCSV
-    name: ReadTrainingCSV
+  - uid: Extensions.GetOutputDir
+    name: GetOutputDir
   - uid: Extensions.ShuffleArray
     name: ShuffleArray
-- uid: Parameters
-  name: Parameters
+- uid: Output
+  name: Output
   items:
-  - uid: Parameters.AnimalConfig
-    name: AnimalConfig
-  - uid: Parameters.SetupConfig
-    name: SetupConfig
-  - uid: Parameters.StartupFile
-    name: StartupFile
-  - uid: Parameters.TrainingConfig
-    name: TrainingConfig
+  - uid: Output.Block
+    name: Block
+  - uid: Output.DeserializeFromJson
+    name: DeserializeFromJson
+  - uid: Output.DeserializeFromYaml
+    name: DeserializeFromYaml
+  - uid: Output.FixationTime
+    name: FixationTime
+  - uid: Output.FixationTimeParts
+    name: FixationTimeParts
+  - uid: Output.ITI
+    name: ITI
+  - uid: Output.LnpTime
+    name: LnpTime
+  - uid: Output.MovementTime
+    name: MovementTime
+  - uid: Output.Optogenetics
+    name: Optogenetics
+  - uid: Output.Outcome
+    name: Outcome
+  - uid: Output.Output
+    name: Output
+  - uid: Output.ReactionTime
+    name: ReactionTime
+  - uid: Output.SerializeToJson
+    name: SerializeToJson
+  - uid: Output.SerializeToYaml
+    name: SerializeToYaml
+  - uid: Output.Session
+    name: Session
+  - uid: Output.Sound
+    name: Sound
+  - uid: Output.TimeToCnp
+    name: TimeToCnp
+  - uid: Output.Trial
+    name: Trial
+- uid: PrintDict
+  name: PrintDict
+  items:
+  - uid: PrintDict.DeserializeFromJson
+    name: DeserializeFromJson
+  - uid: PrintDict.DeserializeFromYaml
+    name: DeserializeFromYaml
+  - uid: PrintDict.Print
+    name: Print
+  - uid: PrintDict.PrintDict
+    name: PrintDict
+  - uid: PrintDict.SerializeToJson
+    name: SerializeToJson
+  - uid: PrintDict.SerializeToYaml
+    name: SerializeToYaml
+- uid: SetupList
+  name: SetupList
+  items:
+  - uid: SetupList.DeserializeFromJson
+    name: DeserializeFromJson
+  - uid: SetupList.DeserializeFromYaml
+    name: DeserializeFromYaml
+  - uid: SetupList.Lights
+    name: Lights
+  - uid: SetupList.Poke
+    name: Poke
+  - uid: SetupList.SerializeToJson
+    name: SerializeToJson
+  - uid: SetupList.SerializeToYaml
+    name: SerializeToYaml
+  - uid: SetupList.Setup
+    name: Setup
+  - uid: SetupList.SetupList
+    name: SetupList
+  - uid: SetupList.Sound
+    name: Sound
+  - uid: SetupList.Speakers
+    name: Speakers
+  - uid: SetupList.SyringePumps
+    name: SyringePumps
+- uid: Training
+  name: Training
+  items:
+  - uid: Training.ABL
+    name: ABL
+  - uid: Training.CriticalPerformance
+    name: CriticalPerformance
+  - uid: Training.Cues
+    name: Cues
+  - uid: Training.DeserializeFromJson
+    name: DeserializeFromJson
+  - uid: Training.DeserializeFromYaml
+    name: DeserializeFromYaml
+  - uid: Training.FixationTime
+    name: FixationTime
+  - uid: Training.ILD
+    name: ILD
+  - uid: Training.ITI
+    name: ITI
+  - uid: Training.Level
+    name: Level
+  - uid: Training.PenaltyTimes
+    name: PenaltyTimes
+  - uid: Training.ReactionTime
+    name: ReactionTime
+  - uid: Training.SerializeToJson
+    name: SerializeToJson
+  - uid: Training.SerializeToYaml
+    name: SerializeToYaml
+  - uid: Training.Sound
+    name: Sound
+  - uid: Training.Training
+    name: Training
+  - uid: Training.TrialRepetition
+    name: TrialRepetition
 memberLayout: SamePage

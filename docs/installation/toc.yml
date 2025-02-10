@@ -8,8 +8,8 @@
   href: calibrations.md
 - name: Camera Setup
   href: camera.md
-- name: Mechanical Assembly
-  href: mechanical.md
+# - name: Mechanical Assembly
+#   href: mechanical.md
 - name: Task Configuration
   href: configuration.md
 - name: Running the Task

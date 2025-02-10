@@ -1,2 +1,1 @@
-cd .\src\gui
-uv run .\src\main.py
+.\bonsai\Bonsai.exe .\src\SoundLateralizationTask.bonsai

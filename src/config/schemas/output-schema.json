@@ -1,0 +1,472 @@
+{
+  "definitions": {
+    "Block": {
+      "properties": {
+        "number": {
+          "description": "The block number.",
+          "title": "Number",
+          "type": "integer"
+        },
+        "training_level": {
+          "description": "The training level of the current block.",
+          "title": "Training Level",
+          "type": "integer"
+        },
+        "trials_per_block": {
+          "description": "The number of trials that the current block is expected to have.",
+          "minimum": 1,
+          "title": "Trials Per Block",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "number",
+        "training_level",
+        "trials_per_block"
+      ],
+      "title": "Block",
+      "type": "object"
+    },
+    "FixationTime": {
+      "properties": {
+        "opto_onset_time": {
+          "$ref": "#/definitions/FixationTimeParts",
+          "description": "Contains the data related to the Optogenetics Onset Time part of the Fixation Time."
+        },
+        "sound_onset_time": {
+          "$ref": "#/definitions/FixationTimeParts",
+          "description": "Contains the data related to the Sound Onset Time part of the Fixation Time."
+        }
+      },
+      "required": [
+        "opto_onset_time",
+        "sound_onset_time"
+      ],
+      "title": "FixationTime",
+      "type": "object"
+    },
+    "FixationTimeParts": {
+      "properties": {
+        "base_time": {
+          "description": "The constant part of the fixation time (ms).",
+          "minimum": 0.0,
+          "title": "Base Time",
+          "type": "number"
+        },
+        "exp_mean": {
+          "description": "The mean value of the random part of the fixation time (ms), which follows an exponential distribution.",
+          "minimum": 0.0,
+          "title": "Exp Mean",
+          "type": "number"
+        },
+        "intended_duration": {
+          "description": "The intended duration for this part of the fixation time (ms).",
+          "minimum": 0.0,
+          "title": "Intended Duration",
+          "type": "number"
+        },
+        "timed_duration": {
+          "description": "The timed duration for this part of the fixation time (s).",
+          "minimum": 0.0,
+          "title": "Timed Duration",
+          "type": "number"
+        }
+      },
+      "required": [
+        "base_time",
+        "exp_mean",
+        "intended_duration",
+        "timed_duration"
+      ],
+      "title": "FixationTimeParts",
+      "type": "object"
+    },
+    "ITI": {
+      "properties": {
+        "intended_duration": {
+          "description": "The intended duration of the ITI (s).",
+          "minimum": 0.0,
+          "title": "Intended Duration",
+          "type": "number"
+        },
+        "start_time": {
+          "description": "The timestamp at which the trial started (s).",
+          "minimum": 0.0,
+          "title": "Start Time",
+          "type": "number"
+        },
+        "end_time": {
+          "description": "The timestamp at which the trial ended (s).",
+          "minimum": 0.0,
+          "title": "End Time",
+          "type": "number"
+        },
+        "timed_duration": {
+          "description": "The ITI duration (s).",
+          "exclusiveMinimum": 0.0,
+          "title": "Timed Duration",
+          "type": "number"
+        }
+      },
+      "required": [
+        "intended_duration",
+        "start_time",
+        "end_time",
+        "timed_duration"
+      ],
+      "title": "ITI",
+      "type": "object"
+    },
+    "LnpTime": {
+      "properties": {
+        "intended_duration": {
+          "description": "The minimum allowed LNP time (s).",
+          "minimum": 0.0,
+          "title": "Intended Duration",
+          "type": "number"
+        },
+        "timed_duration": {
+          "description": "The timed LNP time (s).",
+          "minimum": 0.0,
+          "title": "Timed Duration",
+          "type": "number"
+        }
+      },
+      "required": [
+        "intended_duration",
+        "timed_duration"
+      ],
+      "title": "LnpTime",
+      "type": "object"
+    },
+    "MovementTime": {
+      "properties": {
+        "max_duration": {
+          "description": "The maximum allowed movement time (s).",
+          "minimum": 0.0,
+          "title": "Max Duration",
+          "type": "number"
+        },
+        "timed_duration": {
+          "description": "The timed movement time (s).",
+          "minimum": 0.0,
+          "title": "Timed Duration",
+          "type": "number"
+        }
+      },
+      "required": [
+        "max_duration",
+        "timed_duration"
+      ],
+      "title": "MovementTime",
+      "type": "object"
+    },
+    "Optogenetics": {
+      "properties": {
+        "opto_trial": {
+          "description": "Indicates if optogenetics was used in the current trial.",
+          "title": "Opto Trial",
+          "type": "boolean"
+        },
+        "duration": {
+          "description": "The duration of the optogenetics used during the trial (s).",
+          "minimum": 0.0,
+          "title": "Duration",
+          "type": "number"
+        },
+        "left_power": {
+          "description": "The power used in the optogenetics protocol for the left side. NOT IMPLEMENTED!!!",
+          "minimum": 0.0,
+          "title": "Left Power",
+          "type": "number"
+        },
+        "right_power": {
+          "description": "The power used in the optogenetics protocol for the right side. NOT IMPLEMENTED!!!",
+          "minimum": 0.0,
+          "title": "Right Power",
+          "type": "number"
+        }
+      },
+      "required": [
+        "opto_trial",
+        "duration",
+        "left_power",
+        "right_power"
+      ],
+      "title": "Optogenetics",
+      "type": "object"
+    },
+    "Outcome": {
+      "properties": {
+        "response_poke": {
+          "description": "The answer given by the animal in the current trial.",
+          "maximum": 1,
+          "minimum": -1,
+          "title": "Response Poke",
+          "type": "integer"
+        },
+        "value": {
+          "description": "The outcome of the current trial.",
+          "maximum": 2,
+          "minimum": -8,
+          "title": "Value",
+          "type": "integer"
+        },
+        "block_performance": {
+          "description": "The block performance.",
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Block Performance",
+          "type": "number"
+        },
+        "block_abort_ratio": {
+          "description": "The block abort ratio.",
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Block Abort Ratio",
+          "type": "number"
+        }
+      },
+      "required": [
+        "response_poke",
+        "value",
+        "block_performance",
+        "block_abort_ratio"
+      ],
+      "title": "Outcome",
+      "type": "object"
+    },
+    "ReactionTime": {
+      "properties": {
+        "base_time": {
+          "description": "The minimum allowed reaction time (s).",
+          "minimum": 0.0,
+          "title": "Base Time",
+          "type": "number"
+        },
+        "max_duration": {
+          "description": "The maximum allowed reaction time (s).",
+          "minimum": 0.0,
+          "title": "Max Duration",
+          "type": "number"
+        },
+        "timed_duration": {
+          "description": "The timed reaction time (s).",
+          "minimum": 0.0,
+          "title": "Timed Duration",
+          "type": "number"
+        }
+      },
+      "required": [
+        "base_time",
+        "max_duration",
+        "timed_duration"
+      ],
+      "title": "ReactionTime",
+      "type": "object"
+    },
+    "Session": {
+      "properties": {
+        "number": {
+          "description": "The number of the current session.",
+          "title": "Number",
+          "type": "integer"
+        },
+        "type": {
+          "description": "The number of the session type.",
+          "title": "Type",
+          "type": "integer"
+        },
+        "setup_id": {
+          "description": "The ID number of the setup where the animal will performed the trial.",
+          "title": "Setup Id",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "number",
+        "type",
+        "setup_id"
+      ],
+      "title": "Session",
+      "type": "object"
+    },
+    "Sound": {
+      "properties": {
+        "abl": {
+          "description": "The trial ABL value (dB).",
+          "minimum": 0.0,
+          "title": "Abl",
+          "type": "number"
+        },
+        "ild": {
+          "description": "The trial ILD value (dB).",
+          "title": "Ild",
+          "type": "number"
+        },
+        "sound_index": {
+          "description": "The index of the sound that played in the trial.",
+          "maximum": 31,
+          "minimum": 2,
+          "title": "Sound Index",
+          "type": "integer"
+        },
+        "left_amplification": {
+          "description": "The amplification applied to the left speaker in the trial.",
+          "title": "Left Amplification",
+          "type": "number"
+        },
+        "right_amplification": {
+          "description": "The amplification applied to the right speaker in the trial.",
+          "title": "Right Amplification",
+          "type": "number"
+        }
+      },
+      "required": [
+        "abl",
+        "ild",
+        "sound_index",
+        "left_amplification",
+        "right_amplification"
+      ],
+      "title": "Sound",
+      "type": "object"
+    },
+    "TimeToCnp": {
+      "properties": {
+        "timed_value": {
+          "description": "The time it took for the animal to start the trial (s).",
+          "minimum": 0.0,
+          "title": "Timed Value",
+          "type": "number"
+        },
+        "max_duration": {
+          "description": "The maximum allowed time to start the trial (s).",
+          "minimum": 0.0,
+          "title": "Max Duration",
+          "type": "number"
+        }
+      },
+      "required": [
+        "timed_value",
+        "max_duration"
+      ],
+      "title": "TimeToCnp",
+      "type": "object"
+    },
+    "Trial": {
+      "properties": {
+        "number": {
+          "description": "The trial number.",
+          "minimum": 1,
+          "title": "Number",
+          "type": "integer"
+        },
+        "start_time": {
+          "description": "The timestamp at which the trial started (s).",
+          "minimum": 0.0,
+          "title": "Start Time",
+          "type": "number"
+        },
+        "end_time": {
+          "description": "The timestamp at which the trial ended (s).",
+          "minimum": 0.0,
+          "title": "End Time",
+          "type": "number"
+        },
+        "duration": {
+          "description": "The trial duration (s).",
+          "exclusiveMinimum": 0.0,
+          "title": "Duration",
+          "type": "number"
+        }
+      },
+      "required": [
+        "number",
+        "start_time",
+        "end_time",
+        "duration"
+      ],
+      "title": "Trial",
+      "type": "object"
+    }
+  },
+  "properties": {
+    "animal_id": {
+      "description": "The ID number of the animal.",
+      "title": "Animal Id",
+      "type": "integer"
+    },
+    "trial": {
+      "$ref": "#/definitions/Trial",
+      "description": "Contains the trial-related data."
+    },
+    "block": {
+      "$ref": "#/definitions/Block",
+      "description": "Contains the block-related data."
+    },
+    "session": {
+      "$ref": "#/definitions/Session",
+      "description": "Contains the session-related data."
+    },
+    "sound": {
+      "$ref": "#/definitions/Sound",
+      "description": "Contains the sound-related data."
+    },
+    "iti": {
+      "$ref": "#/definitions/ITI",
+      "description": "Contains the ITI-related data."
+    },
+    "time_to_cnp": {
+      "$ref": "#/definitions/TimeToCnp",
+      "description": "Contains the data related to the time to CNP."
+    },
+    "fixation_time": {
+      "$ref": "#/definitions/FixationTime",
+      "description": "Contains the data related to the fixation time."
+    },
+    "reaction_time": {
+      "$ref": "#/definitions/ReactionTime",
+      "description": "Contains the data related to the reaction time."
+    },
+    "movement_time": {
+      "$ref": "#/definitions/MovementTime",
+      "description": "Contains the data related to the movement time."
+    },
+    "lnp_time": {
+      "$ref": "#/definitions/LnpTime",
+      "description": "Contains the data related to the LNP time."
+    },
+    "outcome": {
+      "$ref": "#/definitions/Outcome",
+      "description": "Contains the data related to the trial outcome."
+    },
+    "repeated_trial": {
+      "description": "Indicates whether the current trial is a repetition of the previous trial (true) or not (false).",
+      "title": "Repeated Trial",
+      "type": "boolean"
+    },
+    "optogenetics": {
+      "$ref": "#/definitions/Optogenetics",
+      "description": "Contains the data related to optogenetics."
+    }
+  },
+  "required": [
+    "animal_id",
+    "trial",
+    "block",
+    "session",
+    "sound",
+    "iti",
+    "time_to_cnp",
+    "fixation_time",
+    "reaction_time",
+    "movement_time",
+    "lnp_time",
+    "outcome",
+    "repeated_trial",
+    "optogenetics"
+  ],
+  "title": "Output",
+  "type": "object"
+}

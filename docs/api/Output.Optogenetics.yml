@@ -1,0 +1,946 @@
+### YamlMime:ManagedReference
+items:
+- uid: Output.Optogenetics
+  commentId: T:Output.Optogenetics
+  id: Optogenetics
+  parent: Output
+  children:
+  - Output.Optogenetics.#ctor
+  - Output.Optogenetics.#ctor(Output.Optogenetics)
+  - Output.Optogenetics.Duration
+  - Output.Optogenetics.LeftPower
+  - Output.Optogenetics.OptoTrial
+  - Output.Optogenetics.PrintMembers(System.Text.StringBuilder)
+  - Output.Optogenetics.Process
+  - Output.Optogenetics.Process``1(System.IObservable{``0})
+  - Output.Optogenetics.RightPower
+  - Output.Optogenetics.ToString
+  langs:
+  - csharp
+  - vb
+  name: Optogenetics
+  nameWithType: Optogenetics
+  fullName: Output.Optogenetics
+  type: Class
+  source:
+    remote:
+      path: src/Extensions/Output.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: Optogenetics
+    path: ../src/Extensions/Output.cs
+    startLine: 653
+  assemblies:
+  - Extensions
+  namespace: Output
+  syntax:
+    content: >-
+      [Combinator]
+
+      [WorkflowElementCategory(ElementCategory.Source)]
+
+      public class Optogenetics
+    content.vb: >-
+      <Combinator>
+
+      <WorkflowElementCategory(ElementCategory.Source)>
+
+      Public Class Optogenetics
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  attributes:
+  - type: Bonsai.CombinatorAttribute
+    ctor: Bonsai.CombinatorAttribute.#ctor
+    arguments: []
+  - type: Bonsai.WorkflowElementCategoryAttribute
+    ctor: Bonsai.WorkflowElementCategoryAttribute.#ctor(Bonsai.ElementCategory)
+    arguments:
+    - type: Bonsai.ElementCategory
+      value: 0
+- uid: Output.Optogenetics.#ctor
+  commentId: M:Output.Optogenetics.#ctor
+  id: '#ctor'
+  parent: Output.Optogenetics
+  langs:
+  - csharp
+  - vb
+  name: Optogenetics()
+  nameWithType: Optogenetics.Optogenetics()
+  fullName: Output.Optogenetics.Optogenetics()
+  type: Constructor
+  source:
+    remote:
+      path: src/Extensions/Output.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: .ctor
+    path: ../src/Extensions/Output.cs
+    startLine: 667
+  assemblies:
+  - Extensions
+  namespace: Output
+  syntax:
+    content: public Optogenetics()
+    content.vb: Public Sub New()
+  overload: Output.Optogenetics.#ctor*
+  nameWithType.vb: Optogenetics.New()
+  fullName.vb: Output.Optogenetics.New()
+  name.vb: New()
+- uid: Output.Optogenetics.#ctor(Output.Optogenetics)
+  commentId: M:Output.Optogenetics.#ctor(Output.Optogenetics)
+  id: '#ctor(Output.Optogenetics)'
+  parent: Output.Optogenetics
+  langs:
+  - csharp
+  - vb
+  name: Optogenetics(Optogenetics)
+  nameWithType: Optogenetics.Optogenetics(Optogenetics)
+  fullName: Output.Optogenetics.Optogenetics(Output.Optogenetics)
+  type: Constructor
+  source:
+    remote:
+      path: src/Extensions/Output.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: .ctor
+    path: ../src/Extensions/Output.cs
+    startLine: 671
+  assemblies:
+  - Extensions
+  namespace: Output
+  syntax:
+    content: protected Optogenetics(Optogenetics other)
+    parameters:
+    - id: other
+      type: Output.Optogenetics
+    content.vb: Protected Sub New(other As Optogenetics)
+  overload: Output.Optogenetics.#ctor*
+  nameWithType.vb: Optogenetics.New(Optogenetics)
+  fullName.vb: Output.Optogenetics.New(Output.Optogenetics)
+  name.vb: New(Optogenetics)
+- uid: Output.Optogenetics.OptoTrial
+  commentId: P:Output.Optogenetics.OptoTrial
+  id: OptoTrial
+  parent: Output.Optogenetics
+  langs:
+  - csharp
+  - vb
+  name: OptoTrial
+  nameWithType: Optogenetics.OptoTrial
+  fullName: Output.Optogenetics.OptoTrial
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/Output.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: OptoTrial
+    path: ../src/Extensions/Output.cs
+    startLine: 682
+  assemblies:
+  - Extensions
+  namespace: Output
+  summary: Indicates if optogenetics was used in the current trial.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("opto_trial", Required = Required.Always)]
+
+      [YamlMember(Alias = "opto_trial")]
+
+      public bool OptoTrial { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: >-
+      <JsonProperty("opto_trial", Required:=Required.Always)>
+
+      <YamlMember(Alias:="opto_trial")>
+
+      Public Property OptoTrial As Boolean
+  overload: Output.Optogenetics.OptoTrial*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: opto_trial
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: YamlDotNet.Serialization.YamlMemberAttribute
+    ctor: YamlDotNet.Serialization.YamlMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Alias
+      type: System.String
+      value: opto_trial
+- uid: Output.Optogenetics.Duration
+  commentId: P:Output.Optogenetics.Duration
+  id: Duration
+  parent: Output.Optogenetics
+  langs:
+  - csharp
+  - vb
+  name: Duration
+  nameWithType: Optogenetics.Duration
+  fullName: Output.Optogenetics.Duration
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/Output.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: Duration
+    path: ../src/Extensions/Output.cs
+    startLine: 700
+  assemblies:
+  - Extensions
+  namespace: Output
+  summary: The duration of the optogenetics used during the trial (s).
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("duration", Required = Required.Always)]
+
+      [YamlMember(Alias = "duration")]
+
+      public double Duration { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: >-
+      <JsonProperty("duration", Required:=Required.Always)>
+
+      <YamlMember(Alias:="duration")>
+
+      Public Property Duration As Double
+  overload: Output.Optogenetics.Duration*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: duration
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: YamlDotNet.Serialization.YamlMemberAttribute
+    ctor: YamlDotNet.Serialization.YamlMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Alias
+      type: System.String
+      value: duration
+- uid: Output.Optogenetics.LeftPower
+  commentId: P:Output.Optogenetics.LeftPower
+  id: LeftPower
+  parent: Output.Optogenetics
+  langs:
+  - csharp
+  - vb
+  name: LeftPower
+  nameWithType: Optogenetics.LeftPower
+  fullName: Output.Optogenetics.LeftPower
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/Output.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: LeftPower
+    path: ../src/Extensions/Output.cs
+    startLine: 718
+  assemblies:
+  - Extensions
+  namespace: Output
+  summary: The power used in the optogenetics protocol for the left side. NOT IMPLEMENTED!!!
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("left_power", Required = Required.Always)]
+
+      [YamlMember(Alias = "left_power")]
+
+      public double LeftPower { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: >-
+      <JsonProperty("left_power", Required:=Required.Always)>
+
+      <YamlMember(Alias:="left_power")>
+
+      Public Property LeftPower As Double
+  overload: Output.Optogenetics.LeftPower*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: left_power
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: YamlDotNet.Serialization.YamlMemberAttribute
+    ctor: YamlDotNet.Serialization.YamlMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Alias
+      type: System.String
+      value: left_power
+- uid: Output.Optogenetics.RightPower
+  commentId: P:Output.Optogenetics.RightPower
+  id: RightPower
+  parent: Output.Optogenetics
+  langs:
+  - csharp
+  - vb
+  name: RightPower
+  nameWithType: Optogenetics.RightPower
+  fullName: Output.Optogenetics.RightPower
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/Output.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: RightPower
+    path: ../src/Extensions/Output.cs
+    startLine: 737
+  assemblies:
+  - Extensions
+  namespace: Output
+  summary: The power used in the optogenetics protocol for the right side. NOT IMPLEMENTED!!!
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("right_power", Required = Required.Always)]
+
+      [YamlMember(Alias = "right_power")]
+
+      public double RightPower { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: >-
+      <JsonProperty("right_power", Required:=Required.Always)>
+
+      <YamlMember(Alias:="right_power")>
+
+      Public Property RightPower As Double
+  overload: Output.Optogenetics.RightPower*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: right_power
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: YamlDotNet.Serialization.YamlMemberAttribute
+    ctor: YamlDotNet.Serialization.YamlMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Alias
+      type: System.String
+      value: right_power
+- uid: Output.Optogenetics.Process
+  commentId: M:Output.Optogenetics.Process
+  id: Process
+  parent: Output.Optogenetics
+  langs:
+  - csharp
+  - vb
+  name: Process()
+  nameWithType: Optogenetics.Process()
+  fullName: Output.Optogenetics.Process()
+  type: Method
+  source:
+    remote:
+      path: src/Extensions/Output.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: Process
+    path: ../src/Extensions/Output.cs
+    startLine: 753
+  assemblies:
+  - Extensions
+  namespace: Output
+  syntax:
+    content: public IObservable<Optogenetics> Process()
+    return:
+      type: System.IObservable{Output.Optogenetics}
+    content.vb: Public Function Process() As IObservable(Of Optogenetics)
+  overload: Output.Optogenetics.Process*
+- uid: Output.Optogenetics.Process``1(System.IObservable{``0})
+  commentId: M:Output.Optogenetics.Process``1(System.IObservable{``0})
+  id: Process``1(System.IObservable{``0})
+  parent: Output.Optogenetics
+  langs:
+  - csharp
+  - vb
+  name: Process<TSource>(IObservable<TSource>)
+  nameWithType: Optogenetics.Process<TSource>(IObservable<TSource>)
+  fullName: Output.Optogenetics.Process<TSource>(System.IObservable<TSource>)
+  type: Method
+  source:
+    remote:
+      path: src/Extensions/Output.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: Process
+    path: ../src/Extensions/Output.cs
+    startLine: 758
+  assemblies:
+  - Extensions
+  namespace: Output
+  syntax:
+    content: public IObservable<Optogenetics> Process<TSource>(IObservable<TSource> source)
+    parameters:
+    - id: source
+      type: System.IObservable{{TSource}}
+    typeParameters:
+    - id: TSource
+    return:
+      type: System.IObservable{Output.Optogenetics}
+    content.vb: Public Function Process(Of TSource)(source As IObservable(Of TSource)) As IObservable(Of Optogenetics)
+  overload: Output.Optogenetics.Process*
+  nameWithType.vb: Optogenetics.Process(Of TSource)(IObservable(Of TSource))
+  fullName.vb: Output.Optogenetics.Process(Of TSource)(System.IObservable(Of TSource))
+  name.vb: Process(Of TSource)(IObservable(Of TSource))
+- uid: Output.Optogenetics.PrintMembers(System.Text.StringBuilder)
+  commentId: M:Output.Optogenetics.PrintMembers(System.Text.StringBuilder)
+  id: PrintMembers(System.Text.StringBuilder)
+  parent: Output.Optogenetics
+  langs:
+  - csharp
+  - vb
+  name: PrintMembers(StringBuilder)
+  nameWithType: Optogenetics.PrintMembers(StringBuilder)
+  fullName: Output.Optogenetics.PrintMembers(System.Text.StringBuilder)
+  type: Method
+  source:
+    remote:
+      path: src/Extensions/Output.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: PrintMembers
+    path: ../src/Extensions/Output.cs
+    startLine: 763
+  assemblies:
+  - Extensions
+  namespace: Output
+  syntax:
+    content: protected virtual bool PrintMembers(StringBuilder stringBuilder)
+    parameters:
+    - id: stringBuilder
+      type: System.Text.StringBuilder
+    return:
+      type: System.Boolean
+    content.vb: Protected Overridable Function PrintMembers(stringBuilder As StringBuilder) As Boolean
+  overload: Output.Optogenetics.PrintMembers*
+- uid: Output.Optogenetics.ToString
+  commentId: M:Output.Optogenetics.ToString
+  id: ToString
+  parent: Output.Optogenetics
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: Optogenetics.ToString()
+  fullName: Output.Optogenetics.ToString()
+  type: Method
+  source:
+    remote:
+      path: src/Extensions/Output.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: ToString
+    path: ../src/Extensions/Output.cs
+    startLine: 772
+  assemblies:
+  - Extensions
+  namespace: Output
+  summary: Returns a string that represents the current object.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: A string that represents the current object.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: Output.Optogenetics.ToString*
+references:
+- uid: Output
+  commentId: N:Output
+  href: Output.html
+  name: Output
+  nameWithType: Output
+  fullName: Output
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Output.Optogenetics.#ctor*
+  commentId: Overload:Output.Optogenetics.#ctor
+  href: Output.Optogenetics.html#Output_Optogenetics__ctor
+  name: Optogenetics
+  nameWithType: Optogenetics.Optogenetics
+  fullName: Output.Optogenetics.Optogenetics
+  nameWithType.vb: Optogenetics.New
+  fullName.vb: Output.Optogenetics.New
+  name.vb: New
+- uid: Output.Optogenetics
+  commentId: T:Output.Optogenetics
+  parent: Output
+  href: Output.Optogenetics.html
+  name: Optogenetics
+  nameWithType: Optogenetics
+  fullName: Output.Optogenetics
+- uid: Output.Optogenetics.OptoTrial*
+  commentId: Overload:Output.Optogenetics.OptoTrial
+  href: Output.Optogenetics.html#Output_Optogenetics_OptoTrial
+  name: OptoTrial
+  nameWithType: Optogenetics.OptoTrial
+  fullName: Output.Optogenetics.OptoTrial
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Output.Optogenetics.Duration*
+  commentId: Overload:Output.Optogenetics.Duration
+  href: Output.Optogenetics.html#Output_Optogenetics_Duration
+  name: Duration
+  nameWithType: Optogenetics.Duration
+  fullName: Output.Optogenetics.Duration
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: Output.Optogenetics.LeftPower*
+  commentId: Overload:Output.Optogenetics.LeftPower
+  href: Output.Optogenetics.html#Output_Optogenetics_LeftPower
+  name: LeftPower
+  nameWithType: Optogenetics.LeftPower
+  fullName: Output.Optogenetics.LeftPower
+- uid: Output.Optogenetics.RightPower*
+  commentId: Overload:Output.Optogenetics.RightPower
+  href: Output.Optogenetics.html#Output_Optogenetics_RightPower
+  name: RightPower
+  nameWithType: Optogenetics.RightPower
+  fullName: Output.Optogenetics.RightPower
+- uid: Output.Optogenetics.Process*
+  commentId: Overload:Output.Optogenetics.Process
+  href: Output.Optogenetics.html#Output_Optogenetics_Process
+  name: Process
+  nameWithType: Optogenetics.Process
+  fullName: Output.Optogenetics.Process
+- uid: System.IObservable{Output.Optogenetics}
+  commentId: T:System.IObservable{Output.Optogenetics}
+  parent: System
+  definition: System.IObservable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  name: IObservable<Optogenetics>
+  nameWithType: IObservable<Optogenetics>
+  fullName: System.IObservable<Output.Optogenetics>
+  nameWithType.vb: IObservable(Of Optogenetics)
+  fullName.vb: System.IObservable(Of Output.Optogenetics)
+  name.vb: IObservable(Of Optogenetics)
+  spec.csharp:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: <
+  - uid: Output.Optogenetics
+    name: Optogenetics
+    href: Output.Optogenetics.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Output.Optogenetics
+    name: Optogenetics
+    href: Output.Optogenetics.html
+  - name: )
+- uid: System.IObservable`1
+  commentId: T:System.IObservable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  name: IObservable<T>
+  nameWithType: IObservable<T>
+  fullName: System.IObservable<T>
+  nameWithType.vb: IObservable(Of T)
+  fullName.vb: System.IObservable(Of T)
+  name.vb: IObservable(Of T)
+  spec.csharp:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.IObservable{{TSource}}
+  commentId: T:System.IObservable{``0}
+  parent: System
+  definition: System.IObservable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  name: IObservable<TSource>
+  nameWithType: IObservable<TSource>
+  fullName: System.IObservable<TSource>
+  nameWithType.vb: IObservable(Of TSource)
+  fullName.vb: System.IObservable(Of TSource)
+  name.vb: IObservable(Of TSource)
+  spec.csharp:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: <
+  - name: TSource
+  - name: '>'
+  spec.vb:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TSource
+  - name: )
+- uid: Output.Optogenetics.PrintMembers*
+  commentId: Overload:Output.Optogenetics.PrintMembers
+  href: Output.Optogenetics.html#Output_Optogenetics_PrintMembers_System_Text_StringBuilder_
+  name: PrintMembers
+  nameWithType: Optogenetics.PrintMembers
+  fullName: Output.Optogenetics.PrintMembers
+- uid: System.Text.StringBuilder
+  commentId: T:System.Text.StringBuilder
+  parent: System.Text
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.text.stringbuilder
+  name: StringBuilder
+  nameWithType: StringBuilder
+  fullName: System.Text.StringBuilder
+- uid: System.Text
+  commentId: N:System.Text
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Text
+  nameWithType: System.Text
+  fullName: System.Text
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Text
+    name: Text
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Text
+    name: Text
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: Output.Optogenetics.ToString*
+  commentId: Overload:Output.Optogenetics.ToString
+  href: Output.Optogenetics.html#Output_Optogenetics_ToString
+  name: ToString
+  nameWithType: Optogenetics.ToString
+  fullName: Output.Optogenetics.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String

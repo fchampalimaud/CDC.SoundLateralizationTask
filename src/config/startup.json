@@ -1,6 +1,0 @@
-{
-    "SetupFile": "./config/setup.csv",
-    "TrainingFile": "./config/training.csv",
-    "AnimalFile": "./config/animal.json",
-    "OutputDir": "./output"
-}

@@ -40,12 +40,12 @@
     <EditorDialogSettings>
       <Visible>false</Visible>
       <Location>
-        <X>436</X>
-        <Y>232</Y>
+        <X>474</X>
+        <Y>418</Y>
       </Location>
       <Size>
-        <Width>636</Width>
-        <Height>370</Height>
+        <Width>594</Width>
+        <Height>357</Height>
       </Size>
       <WindowState>Normal</WindowState>
     </EditorDialogSettings>

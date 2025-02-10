@@ -1,0 +1,946 @@
+### YamlMime:ManagedReference
+items:
+- uid: Output.FixationTimeParts
+  commentId: T:Output.FixationTimeParts
+  id: FixationTimeParts
+  parent: Output
+  children:
+  - Output.FixationTimeParts.#ctor
+  - Output.FixationTimeParts.#ctor(Output.FixationTimeParts)
+  - Output.FixationTimeParts.BaseTime
+  - Output.FixationTimeParts.ExpMean
+  - Output.FixationTimeParts.IntendedDuration
+  - Output.FixationTimeParts.PrintMembers(System.Text.StringBuilder)
+  - Output.FixationTimeParts.Process
+  - Output.FixationTimeParts.Process``1(System.IObservable{``0})
+  - Output.FixationTimeParts.TimedDuration
+  - Output.FixationTimeParts.ToString
+  langs:
+  - csharp
+  - vb
+  name: FixationTimeParts
+  nameWithType: FixationTimeParts
+  fullName: Output.FixationTimeParts
+  type: Class
+  source:
+    remote:
+      path: src/Extensions/Output.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: FixationTimeParts
+    path: ../src/Extensions/Output.cs
+    startLine: 212
+  assemblies:
+  - Extensions
+  namespace: Output
+  syntax:
+    content: >-
+      [Combinator]
+
+      [WorkflowElementCategory(ElementCategory.Source)]
+
+      public class FixationTimeParts
+    content.vb: >-
+      <Combinator>
+
+      <WorkflowElementCategory(ElementCategory.Source)>
+
+      Public Class FixationTimeParts
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  attributes:
+  - type: Bonsai.CombinatorAttribute
+    ctor: Bonsai.CombinatorAttribute.#ctor
+    arguments: []
+  - type: Bonsai.WorkflowElementCategoryAttribute
+    ctor: Bonsai.WorkflowElementCategoryAttribute.#ctor(Bonsai.ElementCategory)
+    arguments:
+    - type: Bonsai.ElementCategory
+      value: 0
+- uid: Output.FixationTimeParts.#ctor
+  commentId: M:Output.FixationTimeParts.#ctor
+  id: '#ctor'
+  parent: Output.FixationTimeParts
+  langs:
+  - csharp
+  - vb
+  name: FixationTimeParts()
+  nameWithType: FixationTimeParts.FixationTimeParts()
+  fullName: Output.FixationTimeParts.FixationTimeParts()
+  type: Constructor
+  source:
+    remote:
+      path: src/Extensions/Output.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: .ctor
+    path: ../src/Extensions/Output.cs
+    startLine: 226
+  assemblies:
+  - Extensions
+  namespace: Output
+  syntax:
+    content: public FixationTimeParts()
+    content.vb: Public Sub New()
+  overload: Output.FixationTimeParts.#ctor*
+  nameWithType.vb: FixationTimeParts.New()
+  fullName.vb: Output.FixationTimeParts.New()
+  name.vb: New()
+- uid: Output.FixationTimeParts.#ctor(Output.FixationTimeParts)
+  commentId: M:Output.FixationTimeParts.#ctor(Output.FixationTimeParts)
+  id: '#ctor(Output.FixationTimeParts)'
+  parent: Output.FixationTimeParts
+  langs:
+  - csharp
+  - vb
+  name: FixationTimeParts(FixationTimeParts)
+  nameWithType: FixationTimeParts.FixationTimeParts(FixationTimeParts)
+  fullName: Output.FixationTimeParts.FixationTimeParts(Output.FixationTimeParts)
+  type: Constructor
+  source:
+    remote:
+      path: src/Extensions/Output.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: .ctor
+    path: ../src/Extensions/Output.cs
+    startLine: 230
+  assemblies:
+  - Extensions
+  namespace: Output
+  syntax:
+    content: protected FixationTimeParts(FixationTimeParts other)
+    parameters:
+    - id: other
+      type: Output.FixationTimeParts
+    content.vb: Protected Sub New(other As FixationTimeParts)
+  overload: Output.FixationTimeParts.#ctor*
+  nameWithType.vb: FixationTimeParts.New(FixationTimeParts)
+  fullName.vb: Output.FixationTimeParts.New(Output.FixationTimeParts)
+  name.vb: New(FixationTimeParts)
+- uid: Output.FixationTimeParts.BaseTime
+  commentId: P:Output.FixationTimeParts.BaseTime
+  id: BaseTime
+  parent: Output.FixationTimeParts
+  langs:
+  - csharp
+  - vb
+  name: BaseTime
+  nameWithType: FixationTimeParts.BaseTime
+  fullName: Output.FixationTimeParts.BaseTime
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/Output.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: BaseTime
+    path: ../src/Extensions/Output.cs
+    startLine: 241
+  assemblies:
+  - Extensions
+  namespace: Output
+  summary: The constant part of the fixation time (ms).
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("base_time", Required = Required.Always)]
+
+      [YamlMember(Alias = "base_time")]
+
+      public double BaseTime { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: >-
+      <JsonProperty("base_time", Required:=Required.Always)>
+
+      <YamlMember(Alias:="base_time")>
+
+      Public Property BaseTime As Double
+  overload: Output.FixationTimeParts.BaseTime*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: base_time
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: YamlDotNet.Serialization.YamlMemberAttribute
+    ctor: YamlDotNet.Serialization.YamlMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Alias
+      type: System.String
+      value: base_time
+- uid: Output.FixationTimeParts.ExpMean
+  commentId: P:Output.FixationTimeParts.ExpMean
+  id: ExpMean
+  parent: Output.FixationTimeParts
+  langs:
+  - csharp
+  - vb
+  name: ExpMean
+  nameWithType: FixationTimeParts.ExpMean
+  fullName: Output.FixationTimeParts.ExpMean
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/Output.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: ExpMean
+    path: ../src/Extensions/Output.cs
+    startLine: 259
+  assemblies:
+  - Extensions
+  namespace: Output
+  summary: The mean value of the random part of the fixation time (ms), which follows an exponential distribution.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("exp_mean", Required = Required.Always)]
+
+      [YamlMember(Alias = "exp_mean")]
+
+      public double ExpMean { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: >-
+      <JsonProperty("exp_mean", Required:=Required.Always)>
+
+      <YamlMember(Alias:="exp_mean")>
+
+      Public Property ExpMean As Double
+  overload: Output.FixationTimeParts.ExpMean*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: exp_mean
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: YamlDotNet.Serialization.YamlMemberAttribute
+    ctor: YamlDotNet.Serialization.YamlMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Alias
+      type: System.String
+      value: exp_mean
+- uid: Output.FixationTimeParts.IntendedDuration
+  commentId: P:Output.FixationTimeParts.IntendedDuration
+  id: IntendedDuration
+  parent: Output.FixationTimeParts
+  langs:
+  - csharp
+  - vb
+  name: IntendedDuration
+  nameWithType: FixationTimeParts.IntendedDuration
+  fullName: Output.FixationTimeParts.IntendedDuration
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/Output.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: IntendedDuration
+    path: ../src/Extensions/Output.cs
+    startLine: 278
+  assemblies:
+  - Extensions
+  namespace: Output
+  summary: The intended duration for this part of the fixation time (ms).
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("intended_duration", Required = Required.Always)]
+
+      [YamlMember(Alias = "intended_duration")]
+
+      public double IntendedDuration { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: >-
+      <JsonProperty("intended_duration", Required:=Required.Always)>
+
+      <YamlMember(Alias:="intended_duration")>
+
+      Public Property IntendedDuration As Double
+  overload: Output.FixationTimeParts.IntendedDuration*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: intended_duration
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: YamlDotNet.Serialization.YamlMemberAttribute
+    ctor: YamlDotNet.Serialization.YamlMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Alias
+      type: System.String
+      value: intended_duration
+- uid: Output.FixationTimeParts.TimedDuration
+  commentId: P:Output.FixationTimeParts.TimedDuration
+  id: TimedDuration
+  parent: Output.FixationTimeParts
+  langs:
+  - csharp
+  - vb
+  name: TimedDuration
+  nameWithType: FixationTimeParts.TimedDuration
+  fullName: Output.FixationTimeParts.TimedDuration
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/Output.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: TimedDuration
+    path: ../src/Extensions/Output.cs
+    startLine: 296
+  assemblies:
+  - Extensions
+  namespace: Output
+  summary: The timed duration for this part of the fixation time (s).
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("timed_duration", Required = Required.Always)]
+
+      [YamlMember(Alias = "timed_duration")]
+
+      public double TimedDuration { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: >-
+      <JsonProperty("timed_duration", Required:=Required.Always)>
+
+      <YamlMember(Alias:="timed_duration")>
+
+      Public Property TimedDuration As Double
+  overload: Output.FixationTimeParts.TimedDuration*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: timed_duration
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: YamlDotNet.Serialization.YamlMemberAttribute
+    ctor: YamlDotNet.Serialization.YamlMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Alias
+      type: System.String
+      value: timed_duration
+- uid: Output.FixationTimeParts.Process
+  commentId: M:Output.FixationTimeParts.Process
+  id: Process
+  parent: Output.FixationTimeParts
+  langs:
+  - csharp
+  - vb
+  name: Process()
+  nameWithType: FixationTimeParts.Process()
+  fullName: Output.FixationTimeParts.Process()
+  type: Method
+  source:
+    remote:
+      path: src/Extensions/Output.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: Process
+    path: ../src/Extensions/Output.cs
+    startLine: 311
+  assemblies:
+  - Extensions
+  namespace: Output
+  syntax:
+    content: public IObservable<FixationTimeParts> Process()
+    return:
+      type: System.IObservable{Output.FixationTimeParts}
+    content.vb: Public Function Process() As IObservable(Of FixationTimeParts)
+  overload: Output.FixationTimeParts.Process*
+- uid: Output.FixationTimeParts.Process``1(System.IObservable{``0})
+  commentId: M:Output.FixationTimeParts.Process``1(System.IObservable{``0})
+  id: Process``1(System.IObservable{``0})
+  parent: Output.FixationTimeParts
+  langs:
+  - csharp
+  - vb
+  name: Process<TSource>(IObservable<TSource>)
+  nameWithType: FixationTimeParts.Process<TSource>(IObservable<TSource>)
+  fullName: Output.FixationTimeParts.Process<TSource>(System.IObservable<TSource>)
+  type: Method
+  source:
+    remote:
+      path: src/Extensions/Output.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: Process
+    path: ../src/Extensions/Output.cs
+    startLine: 316
+  assemblies:
+  - Extensions
+  namespace: Output
+  syntax:
+    content: public IObservable<FixationTimeParts> Process<TSource>(IObservable<TSource> source)
+    parameters:
+    - id: source
+      type: System.IObservable{{TSource}}
+    typeParameters:
+    - id: TSource
+    return:
+      type: System.IObservable{Output.FixationTimeParts}
+    content.vb: Public Function Process(Of TSource)(source As IObservable(Of TSource)) As IObservable(Of FixationTimeParts)
+  overload: Output.FixationTimeParts.Process*
+  nameWithType.vb: FixationTimeParts.Process(Of TSource)(IObservable(Of TSource))
+  fullName.vb: Output.FixationTimeParts.Process(Of TSource)(System.IObservable(Of TSource))
+  name.vb: Process(Of TSource)(IObservable(Of TSource))
+- uid: Output.FixationTimeParts.PrintMembers(System.Text.StringBuilder)
+  commentId: M:Output.FixationTimeParts.PrintMembers(System.Text.StringBuilder)
+  id: PrintMembers(System.Text.StringBuilder)
+  parent: Output.FixationTimeParts
+  langs:
+  - csharp
+  - vb
+  name: PrintMembers(StringBuilder)
+  nameWithType: FixationTimeParts.PrintMembers(StringBuilder)
+  fullName: Output.FixationTimeParts.PrintMembers(System.Text.StringBuilder)
+  type: Method
+  source:
+    remote:
+      path: src/Extensions/Output.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: PrintMembers
+    path: ../src/Extensions/Output.cs
+    startLine: 321
+  assemblies:
+  - Extensions
+  namespace: Output
+  syntax:
+    content: protected virtual bool PrintMembers(StringBuilder stringBuilder)
+    parameters:
+    - id: stringBuilder
+      type: System.Text.StringBuilder
+    return:
+      type: System.Boolean
+    content.vb: Protected Overridable Function PrintMembers(stringBuilder As StringBuilder) As Boolean
+  overload: Output.FixationTimeParts.PrintMembers*
+- uid: Output.FixationTimeParts.ToString
+  commentId: M:Output.FixationTimeParts.ToString
+  id: ToString
+  parent: Output.FixationTimeParts
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: FixationTimeParts.ToString()
+  fullName: Output.FixationTimeParts.ToString()
+  type: Method
+  source:
+    remote:
+      path: src/Extensions/Output.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: ToString
+    path: ../src/Extensions/Output.cs
+    startLine: 330
+  assemblies:
+  - Extensions
+  namespace: Output
+  summary: Returns a string that represents the current object.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: A string that represents the current object.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: Output.FixationTimeParts.ToString*
+references:
+- uid: Output
+  commentId: N:Output
+  href: Output.html
+  name: Output
+  nameWithType: Output
+  fullName: Output
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Output.FixationTimeParts.#ctor*
+  commentId: Overload:Output.FixationTimeParts.#ctor
+  href: Output.FixationTimeParts.html#Output_FixationTimeParts__ctor
+  name: FixationTimeParts
+  nameWithType: FixationTimeParts.FixationTimeParts
+  fullName: Output.FixationTimeParts.FixationTimeParts
+  nameWithType.vb: FixationTimeParts.New
+  fullName.vb: Output.FixationTimeParts.New
+  name.vb: New
+- uid: Output.FixationTimeParts
+  commentId: T:Output.FixationTimeParts
+  parent: Output
+  href: Output.FixationTimeParts.html
+  name: FixationTimeParts
+  nameWithType: FixationTimeParts
+  fullName: Output.FixationTimeParts
+- uid: Output.FixationTimeParts.BaseTime*
+  commentId: Overload:Output.FixationTimeParts.BaseTime
+  href: Output.FixationTimeParts.html#Output_FixationTimeParts_BaseTime
+  name: BaseTime
+  nameWithType: FixationTimeParts.BaseTime
+  fullName: Output.FixationTimeParts.BaseTime
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: Output.FixationTimeParts.ExpMean*
+  commentId: Overload:Output.FixationTimeParts.ExpMean
+  href: Output.FixationTimeParts.html#Output_FixationTimeParts_ExpMean
+  name: ExpMean
+  nameWithType: FixationTimeParts.ExpMean
+  fullName: Output.FixationTimeParts.ExpMean
+- uid: Output.FixationTimeParts.IntendedDuration*
+  commentId: Overload:Output.FixationTimeParts.IntendedDuration
+  href: Output.FixationTimeParts.html#Output_FixationTimeParts_IntendedDuration
+  name: IntendedDuration
+  nameWithType: FixationTimeParts.IntendedDuration
+  fullName: Output.FixationTimeParts.IntendedDuration
+- uid: Output.FixationTimeParts.TimedDuration*
+  commentId: Overload:Output.FixationTimeParts.TimedDuration
+  href: Output.FixationTimeParts.html#Output_FixationTimeParts_TimedDuration
+  name: TimedDuration
+  nameWithType: FixationTimeParts.TimedDuration
+  fullName: Output.FixationTimeParts.TimedDuration
+- uid: Output.FixationTimeParts.Process*
+  commentId: Overload:Output.FixationTimeParts.Process
+  href: Output.FixationTimeParts.html#Output_FixationTimeParts_Process
+  name: Process
+  nameWithType: FixationTimeParts.Process
+  fullName: Output.FixationTimeParts.Process
+- uid: System.IObservable{Output.FixationTimeParts}
+  commentId: T:System.IObservable{Output.FixationTimeParts}
+  parent: System
+  definition: System.IObservable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  name: IObservable<FixationTimeParts>
+  nameWithType: IObservable<FixationTimeParts>
+  fullName: System.IObservable<Output.FixationTimeParts>
+  nameWithType.vb: IObservable(Of FixationTimeParts)
+  fullName.vb: System.IObservable(Of Output.FixationTimeParts)
+  name.vb: IObservable(Of FixationTimeParts)
+  spec.csharp:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: <
+  - uid: Output.FixationTimeParts
+    name: FixationTimeParts
+    href: Output.FixationTimeParts.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Output.FixationTimeParts
+    name: FixationTimeParts
+    href: Output.FixationTimeParts.html
+  - name: )
+- uid: System.IObservable`1
+  commentId: T:System.IObservable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  name: IObservable<T>
+  nameWithType: IObservable<T>
+  fullName: System.IObservable<T>
+  nameWithType.vb: IObservable(Of T)
+  fullName.vb: System.IObservable(Of T)
+  name.vb: IObservable(Of T)
+  spec.csharp:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.IObservable{{TSource}}
+  commentId: T:System.IObservable{``0}
+  parent: System
+  definition: System.IObservable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  name: IObservable<TSource>
+  nameWithType: IObservable<TSource>
+  fullName: System.IObservable<TSource>
+  nameWithType.vb: IObservable(Of TSource)
+  fullName.vb: System.IObservable(Of TSource)
+  name.vb: IObservable(Of TSource)
+  spec.csharp:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: <
+  - name: TSource
+  - name: '>'
+  spec.vb:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TSource
+  - name: )
+- uid: Output.FixationTimeParts.PrintMembers*
+  commentId: Overload:Output.FixationTimeParts.PrintMembers
+  href: Output.FixationTimeParts.html#Output_FixationTimeParts_PrintMembers_System_Text_StringBuilder_
+  name: PrintMembers
+  nameWithType: FixationTimeParts.PrintMembers
+  fullName: Output.FixationTimeParts.PrintMembers
+- uid: System.Text.StringBuilder
+  commentId: T:System.Text.StringBuilder
+  parent: System.Text
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.text.stringbuilder
+  name: StringBuilder
+  nameWithType: StringBuilder
+  fullName: System.Text.StringBuilder
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.Text
+  commentId: N:System.Text
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Text
+  nameWithType: System.Text
+  fullName: System.Text
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Text
+    name: Text
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Text
+    name: Text
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: Output.FixationTimeParts.ToString*
+  commentId: Overload:Output.FixationTimeParts.ToString
+  href: Output.FixationTimeParts.html#Output_FixationTimeParts_ToString
+  name: ToString
+  nameWithType: FixationTimeParts.ToString
+  fullName: Output.FixationTimeParts.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String

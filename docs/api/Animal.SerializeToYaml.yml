@@ -1,0 +1,780 @@
+### YamlMime:ManagedReference
+items:
+- uid: Animal.SerializeToYaml
+  commentId: T:Animal.SerializeToYaml
+  id: SerializeToYaml
+  parent: Animal
+  children:
+  - Animal.SerializeToYaml.Process(System.IObservable{Animal.Animal})
+  - Animal.SerializeToYaml.Process(System.IObservable{Animal.FixationTime})
+  - Animal.SerializeToYaml.Process(System.IObservable{Animal.Optogenetics})
+  - Animal.SerializeToYaml.Process(System.IObservable{Animal.Session})
+  - Animal.SerializeToYaml.Process(System.IObservable{Animal.Sound})
+  - Animal.SerializeToYaml.Process(System.IObservable{Animal.TimeConstrains})
+  langs:
+  - csharp
+  - vb
+  name: SerializeToYaml
+  nameWithType: SerializeToYaml
+  fullName: Animal.SerializeToYaml
+  type: Class
+  source:
+    remote:
+      path: src/Extensions/Animal.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: SerializeToYaml
+    path: ../src/Extensions/Animal.cs
+    startLine: 1111
+  assemblies:
+  - Extensions
+  namespace: Animal
+  summary: Serializes a sequence of data model objects into YAML strings.
+  example: []
+  syntax:
+    content: >-
+      [Combinator]
+
+      [WorkflowElementCategory(ElementCategory.Transform)]
+
+      public class SerializeToYaml
+    content.vb: >-
+      <Combinator>
+
+      <WorkflowElementCategory(ElementCategory.Transform)>
+
+      Public Class SerializeToYaml
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  attributes:
+  - type: Bonsai.CombinatorAttribute
+    ctor: Bonsai.CombinatorAttribute.#ctor
+    arguments: []
+  - type: Bonsai.WorkflowElementCategoryAttribute
+    ctor: Bonsai.WorkflowElementCategoryAttribute.#ctor(Bonsai.ElementCategory)
+    arguments:
+    - type: Bonsai.ElementCategory
+      value: 2
+- uid: Animal.SerializeToYaml.Process(System.IObservable{Animal.FixationTime})
+  commentId: M:Animal.SerializeToYaml.Process(System.IObservable{Animal.FixationTime})
+  id: Process(System.IObservable{Animal.FixationTime})
+  parent: Animal.SerializeToYaml
+  langs:
+  - csharp
+  - vb
+  name: Process(IObservable<FixationTime>)
+  nameWithType: SerializeToYaml.Process(IObservable<FixationTime>)
+  fullName: Animal.SerializeToYaml.Process(System.IObservable<Animal.FixationTime>)
+  type: Method
+  source:
+    remote:
+      path: src/Extensions/Animal.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: Process
+    path: ../src/Extensions/Animal.cs
+    startLine: 1128
+  assemblies:
+  - Extensions
+  namespace: Animal
+  syntax:
+    content: public IObservable<string> Process(IObservable<FixationTime> source)
+    parameters:
+    - id: source
+      type: System.IObservable{Animal.FixationTime}
+    return:
+      type: System.IObservable{System.String}
+    content.vb: Public Function Process(source As IObservable(Of FixationTime)) As IObservable(Of String)
+  overload: Animal.SerializeToYaml.Process*
+  nameWithType.vb: SerializeToYaml.Process(IObservable(Of FixationTime))
+  fullName.vb: Animal.SerializeToYaml.Process(System.IObservable(Of Animal.FixationTime))
+  name.vb: Process(IObservable(Of FixationTime))
+- uid: Animal.SerializeToYaml.Process(System.IObservable{Animal.Optogenetics})
+  commentId: M:Animal.SerializeToYaml.Process(System.IObservable{Animal.Optogenetics})
+  id: Process(System.IObservable{Animal.Optogenetics})
+  parent: Animal.SerializeToYaml
+  langs:
+  - csharp
+  - vb
+  name: Process(IObservable<Optogenetics>)
+  nameWithType: SerializeToYaml.Process(IObservable<Optogenetics>)
+  fullName: Animal.SerializeToYaml.Process(System.IObservable<Animal.Optogenetics>)
+  type: Method
+  source:
+    remote:
+      path: src/Extensions/Animal.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: Process
+    path: ../src/Extensions/Animal.cs
+    startLine: 1133
+  assemblies:
+  - Extensions
+  namespace: Animal
+  syntax:
+    content: public IObservable<string> Process(IObservable<Optogenetics> source)
+    parameters:
+    - id: source
+      type: System.IObservable{Animal.Optogenetics}
+    return:
+      type: System.IObservable{System.String}
+    content.vb: Public Function Process(source As IObservable(Of Optogenetics)) As IObservable(Of String)
+  overload: Animal.SerializeToYaml.Process*
+  nameWithType.vb: SerializeToYaml.Process(IObservable(Of Optogenetics))
+  fullName.vb: Animal.SerializeToYaml.Process(System.IObservable(Of Animal.Optogenetics))
+  name.vb: Process(IObservable(Of Optogenetics))
+- uid: Animal.SerializeToYaml.Process(System.IObservable{Animal.Session})
+  commentId: M:Animal.SerializeToYaml.Process(System.IObservable{Animal.Session})
+  id: Process(System.IObservable{Animal.Session})
+  parent: Animal.SerializeToYaml
+  langs:
+  - csharp
+  - vb
+  name: Process(IObservable<Session>)
+  nameWithType: SerializeToYaml.Process(IObservable<Session>)
+  fullName: Animal.SerializeToYaml.Process(System.IObservable<Animal.Session>)
+  type: Method
+  source:
+    remote:
+      path: src/Extensions/Animal.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: Process
+    path: ../src/Extensions/Animal.cs
+    startLine: 1138
+  assemblies:
+  - Extensions
+  namespace: Animal
+  syntax:
+    content: public IObservable<string> Process(IObservable<Session> source)
+    parameters:
+    - id: source
+      type: System.IObservable{Animal.Session}
+    return:
+      type: System.IObservable{System.String}
+    content.vb: Public Function Process(source As IObservable(Of Session)) As IObservable(Of String)
+  overload: Animal.SerializeToYaml.Process*
+  nameWithType.vb: SerializeToYaml.Process(IObservable(Of Session))
+  fullName.vb: Animal.SerializeToYaml.Process(System.IObservable(Of Animal.Session))
+  name.vb: Process(IObservable(Of Session))
+- uid: Animal.SerializeToYaml.Process(System.IObservable{Animal.Sound})
+  commentId: M:Animal.SerializeToYaml.Process(System.IObservable{Animal.Sound})
+  id: Process(System.IObservable{Animal.Sound})
+  parent: Animal.SerializeToYaml
+  langs:
+  - csharp
+  - vb
+  name: Process(IObservable<Sound>)
+  nameWithType: SerializeToYaml.Process(IObservable<Sound>)
+  fullName: Animal.SerializeToYaml.Process(System.IObservable<Animal.Sound>)
+  type: Method
+  source:
+    remote:
+      path: src/Extensions/Animal.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: Process
+    path: ../src/Extensions/Animal.cs
+    startLine: 1143
+  assemblies:
+  - Extensions
+  namespace: Animal
+  syntax:
+    content: public IObservable<string> Process(IObservable<Sound> source)
+    parameters:
+    - id: source
+      type: System.IObservable{Animal.Sound}
+    return:
+      type: System.IObservable{System.String}
+    content.vb: Public Function Process(source As IObservable(Of Sound)) As IObservable(Of String)
+  overload: Animal.SerializeToYaml.Process*
+  nameWithType.vb: SerializeToYaml.Process(IObservable(Of Sound))
+  fullName.vb: Animal.SerializeToYaml.Process(System.IObservable(Of Animal.Sound))
+  name.vb: Process(IObservable(Of Sound))
+- uid: Animal.SerializeToYaml.Process(System.IObservable{Animal.TimeConstrains})
+  commentId: M:Animal.SerializeToYaml.Process(System.IObservable{Animal.TimeConstrains})
+  id: Process(System.IObservable{Animal.TimeConstrains})
+  parent: Animal.SerializeToYaml
+  langs:
+  - csharp
+  - vb
+  name: Process(IObservable<TimeConstrains>)
+  nameWithType: SerializeToYaml.Process(IObservable<TimeConstrains>)
+  fullName: Animal.SerializeToYaml.Process(System.IObservable<Animal.TimeConstrains>)
+  type: Method
+  source:
+    remote:
+      path: src/Extensions/Animal.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: Process
+    path: ../src/Extensions/Animal.cs
+    startLine: 1148
+  assemblies:
+  - Extensions
+  namespace: Animal
+  syntax:
+    content: public IObservable<string> Process(IObservable<TimeConstrains> source)
+    parameters:
+    - id: source
+      type: System.IObservable{Animal.TimeConstrains}
+    return:
+      type: System.IObservable{System.String}
+    content.vb: Public Function Process(source As IObservable(Of TimeConstrains)) As IObservable(Of String)
+  overload: Animal.SerializeToYaml.Process*
+  nameWithType.vb: SerializeToYaml.Process(IObservable(Of TimeConstrains))
+  fullName.vb: Animal.SerializeToYaml.Process(System.IObservable(Of Animal.TimeConstrains))
+  name.vb: Process(IObservable(Of TimeConstrains))
+- uid: Animal.SerializeToYaml.Process(System.IObservable{Animal.Animal})
+  commentId: M:Animal.SerializeToYaml.Process(System.IObservable{Animal.Animal})
+  id: Process(System.IObservable{Animal.Animal})
+  parent: Animal.SerializeToYaml
+  langs:
+  - csharp
+  - vb
+  name: Process(IObservable<Animal>)
+  nameWithType: SerializeToYaml.Process(IObservable<Animal>)
+  fullName: Animal.SerializeToYaml.Process(System.IObservable<Animal.Animal>)
+  type: Method
+  source:
+    remote:
+      path: src/Extensions/Animal.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: Process
+    path: ../src/Extensions/Animal.cs
+    startLine: 1153
+  assemblies:
+  - Extensions
+  namespace: Animal
+  syntax:
+    content: public IObservable<string> Process(IObservable<Animal> source)
+    parameters:
+    - id: source
+      type: System.IObservable{Animal.Animal}
+    return:
+      type: System.IObservable{System.String}
+    content.vb: Public Function Process(source As IObservable(Of Animal)) As IObservable(Of String)
+  overload: Animal.SerializeToYaml.Process*
+  nameWithType.vb: SerializeToYaml.Process(IObservable(Of Animal))
+  fullName.vb: Animal.SerializeToYaml.Process(System.IObservable(Of Animal.Animal))
+  name.vb: Process(IObservable(Of Animal))
+references:
+- uid: Animal
+  commentId: N:Animal
+  href: Animal.html
+  name: Animal
+  nameWithType: Animal
+  fullName: Animal
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Animal.SerializeToYaml.Process*
+  commentId: Overload:Animal.SerializeToYaml.Process
+  href: Animal.SerializeToYaml.html#Animal_SerializeToYaml_Process_System_IObservable_Animal_FixationTime__
+  name: Process
+  nameWithType: SerializeToYaml.Process
+  fullName: Animal.SerializeToYaml.Process
+- uid: System.IObservable{Animal.FixationTime}
+  commentId: T:System.IObservable{Animal.FixationTime}
+  parent: System
+  definition: System.IObservable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  name: IObservable<FixationTime>
+  nameWithType: IObservable<FixationTime>
+  fullName: System.IObservable<Animal.FixationTime>
+  nameWithType.vb: IObservable(Of FixationTime)
+  fullName.vb: System.IObservable(Of Animal.FixationTime)
+  name.vb: IObservable(Of FixationTime)
+  spec.csharp:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: <
+  - uid: Animal.FixationTime
+    name: FixationTime
+    href: Animal.FixationTime.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Animal.FixationTime
+    name: FixationTime
+    href: Animal.FixationTime.html
+  - name: )
+- uid: System.IObservable{System.String}
+  commentId: T:System.IObservable{System.String}
+  parent: System
+  definition: System.IObservable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  name: IObservable<string>
+  nameWithType: IObservable<string>
+  fullName: System.IObservable<string>
+  nameWithType.vb: IObservable(Of String)
+  fullName.vb: System.IObservable(Of String)
+  name.vb: IObservable(Of String)
+  spec.csharp:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.IObservable`1
+  commentId: T:System.IObservable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  name: IObservable<T>
+  nameWithType: IObservable<T>
+  fullName: System.IObservable<T>
+  nameWithType.vb: IObservable(Of T)
+  fullName.vb: System.IObservable(Of T)
+  name.vb: IObservable(Of T)
+  spec.csharp:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.IObservable{Animal.Optogenetics}
+  commentId: T:System.IObservable{Animal.Optogenetics}
+  parent: System
+  definition: System.IObservable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  name: IObservable<Optogenetics>
+  nameWithType: IObservable<Optogenetics>
+  fullName: System.IObservable<Animal.Optogenetics>
+  nameWithType.vb: IObservable(Of Optogenetics)
+  fullName.vb: System.IObservable(Of Animal.Optogenetics)
+  name.vb: IObservable(Of Optogenetics)
+  spec.csharp:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: <
+  - uid: Animal.Optogenetics
+    name: Optogenetics
+    href: Animal.Optogenetics.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Animal.Optogenetics
+    name: Optogenetics
+    href: Animal.Optogenetics.html
+  - name: )
+- uid: System.IObservable{Animal.Session}
+  commentId: T:System.IObservable{Animal.Session}
+  parent: System
+  definition: System.IObservable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  name: IObservable<Session>
+  nameWithType: IObservable<Session>
+  fullName: System.IObservable<Animal.Session>
+  nameWithType.vb: IObservable(Of Session)
+  fullName.vb: System.IObservable(Of Animal.Session)
+  name.vb: IObservable(Of Session)
+  spec.csharp:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: <
+  - uid: Animal.Session
+    name: Session
+    href: Animal.Session.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Animal.Session
+    name: Session
+    href: Animal.Session.html
+  - name: )
+- uid: System.IObservable{Animal.Sound}
+  commentId: T:System.IObservable{Animal.Sound}
+  parent: System
+  definition: System.IObservable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  name: IObservable<Sound>
+  nameWithType: IObservable<Sound>
+  fullName: System.IObservable<Animal.Sound>
+  nameWithType.vb: IObservable(Of Sound)
+  fullName.vb: System.IObservable(Of Animal.Sound)
+  name.vb: IObservable(Of Sound)
+  spec.csharp:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: <
+  - uid: Animal.Sound
+    name: Sound
+    href: Animal.Sound.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Animal.Sound
+    name: Sound
+    href: Animal.Sound.html
+  - name: )
+- uid: System.IObservable{Animal.TimeConstrains}
+  commentId: T:System.IObservable{Animal.TimeConstrains}
+  parent: System
+  definition: System.IObservable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  name: IObservable<TimeConstrains>
+  nameWithType: IObservable<TimeConstrains>
+  fullName: System.IObservable<Animal.TimeConstrains>
+  nameWithType.vb: IObservable(Of TimeConstrains)
+  fullName.vb: System.IObservable(Of Animal.TimeConstrains)
+  name.vb: IObservable(Of TimeConstrains)
+  spec.csharp:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: <
+  - uid: Animal.TimeConstrains
+    name: TimeConstrains
+    href: Animal.TimeConstrains.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Animal.TimeConstrains
+    name: TimeConstrains
+    href: Animal.TimeConstrains.html
+  - name: )
+- uid: System.IObservable{Animal.Animal}
+  commentId: T:System.IObservable{Animal.Animal}
+  parent: System
+  definition: System.IObservable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  name: IObservable<Animal>
+  nameWithType: IObservable<Animal>
+  fullName: System.IObservable<Animal.Animal>
+  nameWithType.vb: IObservable(Of Animal)
+  fullName.vb: System.IObservable(Of Animal.Animal)
+  name.vb: IObservable(Of Animal)
+  spec.csharp:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: <
+  - uid: Animal.Animal
+    name: Animal
+    href: Animal.Animal.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Animal.Animal
+    name: Animal
+    href: Animal.Animal.html
+  - name: )

@@ -1,0 +1,946 @@
+### YamlMime:ManagedReference
+items:
+- uid: SetupList.Speakers
+  commentId: T:SetupList.Speakers
+  id: Speakers
+  parent: SetupList
+  children:
+  - SetupList.Speakers.#ctor
+  - SetupList.Speakers.#ctor(SetupList.Speakers)
+  - SetupList.Speakers.LeftIntercept
+  - SetupList.Speakers.LeftSlope
+  - SetupList.Speakers.PrintMembers(System.Text.StringBuilder)
+  - SetupList.Speakers.Process
+  - SetupList.Speakers.Process``1(System.IObservable{``0})
+  - SetupList.Speakers.RightIntercept
+  - SetupList.Speakers.RightSlope
+  - SetupList.Speakers.ToString
+  langs:
+  - csharp
+  - vb
+  name: Speakers
+  nameWithType: Speakers
+  fullName: SetupList.Speakers
+  type: Class
+  source:
+    remote:
+      path: src/Extensions/SetupList.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: Speakers
+    path: ../src/Extensions/SetupList.cs
+    startLine: 547
+  assemblies:
+  - Extensions
+  namespace: SetupList
+  syntax:
+    content: >-
+      [Combinator]
+
+      [WorkflowElementCategory(ElementCategory.Source)]
+
+      public class Speakers
+    content.vb: >-
+      <Combinator>
+
+      <WorkflowElementCategory(ElementCategory.Source)>
+
+      Public Class Speakers
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  attributes:
+  - type: Bonsai.CombinatorAttribute
+    ctor: Bonsai.CombinatorAttribute.#ctor
+    arguments: []
+  - type: Bonsai.WorkflowElementCategoryAttribute
+    ctor: Bonsai.WorkflowElementCategoryAttribute.#ctor(Bonsai.ElementCategory)
+    arguments:
+    - type: Bonsai.ElementCategory
+      value: 0
+- uid: SetupList.Speakers.#ctor
+  commentId: M:SetupList.Speakers.#ctor
+  id: '#ctor'
+  parent: SetupList.Speakers
+  langs:
+  - csharp
+  - vb
+  name: Speakers()
+  nameWithType: Speakers.Speakers()
+  fullName: SetupList.Speakers.Speakers()
+  type: Constructor
+  source:
+    remote:
+      path: src/Extensions/SetupList.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: .ctor
+    path: ../src/Extensions/SetupList.cs
+    startLine: 561
+  assemblies:
+  - Extensions
+  namespace: SetupList
+  syntax:
+    content: public Speakers()
+    content.vb: Public Sub New()
+  overload: SetupList.Speakers.#ctor*
+  nameWithType.vb: Speakers.New()
+  fullName.vb: SetupList.Speakers.New()
+  name.vb: New()
+- uid: SetupList.Speakers.#ctor(SetupList.Speakers)
+  commentId: M:SetupList.Speakers.#ctor(SetupList.Speakers)
+  id: '#ctor(SetupList.Speakers)'
+  parent: SetupList.Speakers
+  langs:
+  - csharp
+  - vb
+  name: Speakers(Speakers)
+  nameWithType: Speakers.Speakers(Speakers)
+  fullName: SetupList.Speakers.Speakers(SetupList.Speakers)
+  type: Constructor
+  source:
+    remote:
+      path: src/Extensions/SetupList.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: .ctor
+    path: ../src/Extensions/SetupList.cs
+    startLine: 565
+  assemblies:
+  - Extensions
+  namespace: SetupList
+  syntax:
+    content: protected Speakers(Speakers other)
+    parameters:
+    - id: other
+      type: SetupList.Speakers
+    content.vb: Protected Sub New(other As Speakers)
+  overload: SetupList.Speakers.#ctor*
+  nameWithType.vb: Speakers.New(Speakers)
+  fullName.vb: SetupList.Speakers.New(SetupList.Speakers)
+  name.vb: New(Speakers)
+- uid: SetupList.Speakers.LeftSlope
+  commentId: P:SetupList.Speakers.LeftSlope
+  id: LeftSlope
+  parent: SetupList.Speakers
+  langs:
+  - csharp
+  - vb
+  name: LeftSlope
+  nameWithType: Speakers.LeftSlope
+  fullName: SetupList.Speakers.LeftSlope
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/SetupList.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: LeftSlope
+    path: ../src/Extensions/SetupList.cs
+    startLine: 576
+  assemblies:
+  - Extensions
+  namespace: SetupList
+  summary: The slope of the calibration curve of the left speaker.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("left_slope", Required = Required.Always)]
+
+      [YamlMember(Alias = "left_slope")]
+
+      public double LeftSlope { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: >-
+      <JsonProperty("left_slope", Required:=Required.Always)>
+
+      <YamlMember(Alias:="left_slope")>
+
+      Public Property LeftSlope As Double
+  overload: SetupList.Speakers.LeftSlope*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: left_slope
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: YamlDotNet.Serialization.YamlMemberAttribute
+    ctor: YamlDotNet.Serialization.YamlMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Alias
+      type: System.String
+      value: left_slope
+- uid: SetupList.Speakers.LeftIntercept
+  commentId: P:SetupList.Speakers.LeftIntercept
+  id: LeftIntercept
+  parent: SetupList.Speakers
+  langs:
+  - csharp
+  - vb
+  name: LeftIntercept
+  nameWithType: Speakers.LeftIntercept
+  fullName: SetupList.Speakers.LeftIntercept
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/SetupList.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: LeftIntercept
+    path: ../src/Extensions/SetupList.cs
+    startLine: 594
+  assemblies:
+  - Extensions
+  namespace: SetupList
+  summary: The intercept of the calibration curve of the left speaker.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("left_intercept", Required = Required.Always)]
+
+      [YamlMember(Alias = "left_intercept")]
+
+      public double LeftIntercept { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: >-
+      <JsonProperty("left_intercept", Required:=Required.Always)>
+
+      <YamlMember(Alias:="left_intercept")>
+
+      Public Property LeftIntercept As Double
+  overload: SetupList.Speakers.LeftIntercept*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: left_intercept
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: YamlDotNet.Serialization.YamlMemberAttribute
+    ctor: YamlDotNet.Serialization.YamlMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Alias
+      type: System.String
+      value: left_intercept
+- uid: SetupList.Speakers.RightSlope
+  commentId: P:SetupList.Speakers.RightSlope
+  id: RightSlope
+  parent: SetupList.Speakers
+  langs:
+  - csharp
+  - vb
+  name: RightSlope
+  nameWithType: Speakers.RightSlope
+  fullName: SetupList.Speakers.RightSlope
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/SetupList.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: RightSlope
+    path: ../src/Extensions/SetupList.cs
+    startLine: 612
+  assemblies:
+  - Extensions
+  namespace: SetupList
+  summary: The slope of the calibration curve of the right speaker.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("right_slope", Required = Required.Always)]
+
+      [YamlMember(Alias = "right_slope")]
+
+      public double RightSlope { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: >-
+      <JsonProperty("right_slope", Required:=Required.Always)>
+
+      <YamlMember(Alias:="right_slope")>
+
+      Public Property RightSlope As Double
+  overload: SetupList.Speakers.RightSlope*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: right_slope
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: YamlDotNet.Serialization.YamlMemberAttribute
+    ctor: YamlDotNet.Serialization.YamlMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Alias
+      type: System.String
+      value: right_slope
+- uid: SetupList.Speakers.RightIntercept
+  commentId: P:SetupList.Speakers.RightIntercept
+  id: RightIntercept
+  parent: SetupList.Speakers
+  langs:
+  - csharp
+  - vb
+  name: RightIntercept
+  nameWithType: Speakers.RightIntercept
+  fullName: SetupList.Speakers.RightIntercept
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/SetupList.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: RightIntercept
+    path: ../src/Extensions/SetupList.cs
+    startLine: 630
+  assemblies:
+  - Extensions
+  namespace: SetupList
+  summary: The intercept of the calibration curve of the right speaker.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("right_intercept", Required = Required.Always)]
+
+      [YamlMember(Alias = "right_intercept")]
+
+      public double RightIntercept { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: >-
+      <JsonProperty("right_intercept", Required:=Required.Always)>
+
+      <YamlMember(Alias:="right_intercept")>
+
+      Public Property RightIntercept As Double
+  overload: SetupList.Speakers.RightIntercept*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: right_intercept
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: YamlDotNet.Serialization.YamlMemberAttribute
+    ctor: YamlDotNet.Serialization.YamlMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Alias
+      type: System.String
+      value: right_intercept
+- uid: SetupList.Speakers.Process
+  commentId: M:SetupList.Speakers.Process
+  id: Process
+  parent: SetupList.Speakers
+  langs:
+  - csharp
+  - vb
+  name: Process()
+  nameWithType: Speakers.Process()
+  fullName: SetupList.Speakers.Process()
+  type: Method
+  source:
+    remote:
+      path: src/Extensions/SetupList.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: Process
+    path: ../src/Extensions/SetupList.cs
+    startLine: 645
+  assemblies:
+  - Extensions
+  namespace: SetupList
+  syntax:
+    content: public IObservable<Speakers> Process()
+    return:
+      type: System.IObservable{SetupList.Speakers}
+    content.vb: Public Function Process() As IObservable(Of Speakers)
+  overload: SetupList.Speakers.Process*
+- uid: SetupList.Speakers.Process``1(System.IObservable{``0})
+  commentId: M:SetupList.Speakers.Process``1(System.IObservable{``0})
+  id: Process``1(System.IObservable{``0})
+  parent: SetupList.Speakers
+  langs:
+  - csharp
+  - vb
+  name: Process<TSource>(IObservable<TSource>)
+  nameWithType: Speakers.Process<TSource>(IObservable<TSource>)
+  fullName: SetupList.Speakers.Process<TSource>(System.IObservable<TSource>)
+  type: Method
+  source:
+    remote:
+      path: src/Extensions/SetupList.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: Process
+    path: ../src/Extensions/SetupList.cs
+    startLine: 650
+  assemblies:
+  - Extensions
+  namespace: SetupList
+  syntax:
+    content: public IObservable<Speakers> Process<TSource>(IObservable<TSource> source)
+    parameters:
+    - id: source
+      type: System.IObservable{{TSource}}
+    typeParameters:
+    - id: TSource
+    return:
+      type: System.IObservable{SetupList.Speakers}
+    content.vb: Public Function Process(Of TSource)(source As IObservable(Of TSource)) As IObservable(Of Speakers)
+  overload: SetupList.Speakers.Process*
+  nameWithType.vb: Speakers.Process(Of TSource)(IObservable(Of TSource))
+  fullName.vb: SetupList.Speakers.Process(Of TSource)(System.IObservable(Of TSource))
+  name.vb: Process(Of TSource)(IObservable(Of TSource))
+- uid: SetupList.Speakers.PrintMembers(System.Text.StringBuilder)
+  commentId: M:SetupList.Speakers.PrintMembers(System.Text.StringBuilder)
+  id: PrintMembers(System.Text.StringBuilder)
+  parent: SetupList.Speakers
+  langs:
+  - csharp
+  - vb
+  name: PrintMembers(StringBuilder)
+  nameWithType: Speakers.PrintMembers(StringBuilder)
+  fullName: SetupList.Speakers.PrintMembers(System.Text.StringBuilder)
+  type: Method
+  source:
+    remote:
+      path: src/Extensions/SetupList.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: PrintMembers
+    path: ../src/Extensions/SetupList.cs
+    startLine: 655
+  assemblies:
+  - Extensions
+  namespace: SetupList
+  syntax:
+    content: protected virtual bool PrintMembers(StringBuilder stringBuilder)
+    parameters:
+    - id: stringBuilder
+      type: System.Text.StringBuilder
+    return:
+      type: System.Boolean
+    content.vb: Protected Overridable Function PrintMembers(stringBuilder As StringBuilder) As Boolean
+  overload: SetupList.Speakers.PrintMembers*
+- uid: SetupList.Speakers.ToString
+  commentId: M:SetupList.Speakers.ToString
+  id: ToString
+  parent: SetupList.Speakers
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: Speakers.ToString()
+  fullName: SetupList.Speakers.ToString()
+  type: Method
+  source:
+    remote:
+      path: src/Extensions/SetupList.cs
+      branch: io_files_rework
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: ToString
+    path: ../src/Extensions/SetupList.cs
+    startLine: 664
+  assemblies:
+  - Extensions
+  namespace: SetupList
+  summary: Returns a string that represents the current object.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: A string that represents the current object.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: SetupList.Speakers.ToString*
+references:
+- uid: SetupList
+  commentId: N:SetupList
+  href: SetupList.html
+  name: SetupList
+  nameWithType: SetupList
+  fullName: SetupList
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: SetupList.Speakers.#ctor*
+  commentId: Overload:SetupList.Speakers.#ctor
+  href: SetupList.Speakers.html#SetupList_Speakers__ctor
+  name: Speakers
+  nameWithType: Speakers.Speakers
+  fullName: SetupList.Speakers.Speakers
+  nameWithType.vb: Speakers.New
+  fullName.vb: SetupList.Speakers.New
+  name.vb: New
+- uid: SetupList.Speakers
+  commentId: T:SetupList.Speakers
+  parent: SetupList
+  href: SetupList.Speakers.html
+  name: Speakers
+  nameWithType: Speakers
+  fullName: SetupList.Speakers
+- uid: SetupList.Speakers.LeftSlope*
+  commentId: Overload:SetupList.Speakers.LeftSlope
+  href: SetupList.Speakers.html#SetupList_Speakers_LeftSlope
+  name: LeftSlope
+  nameWithType: Speakers.LeftSlope
+  fullName: SetupList.Speakers.LeftSlope
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: SetupList.Speakers.LeftIntercept*
+  commentId: Overload:SetupList.Speakers.LeftIntercept
+  href: SetupList.Speakers.html#SetupList_Speakers_LeftIntercept
+  name: LeftIntercept
+  nameWithType: Speakers.LeftIntercept
+  fullName: SetupList.Speakers.LeftIntercept
+- uid: SetupList.Speakers.RightSlope*
+  commentId: Overload:SetupList.Speakers.RightSlope
+  href: SetupList.Speakers.html#SetupList_Speakers_RightSlope
+  name: RightSlope
+  nameWithType: Speakers.RightSlope
+  fullName: SetupList.Speakers.RightSlope
+- uid: SetupList.Speakers.RightIntercept*
+  commentId: Overload:SetupList.Speakers.RightIntercept
+  href: SetupList.Speakers.html#SetupList_Speakers_RightIntercept
+  name: RightIntercept
+  nameWithType: Speakers.RightIntercept
+  fullName: SetupList.Speakers.RightIntercept
+- uid: SetupList.Speakers.Process*
+  commentId: Overload:SetupList.Speakers.Process
+  href: SetupList.Speakers.html#SetupList_Speakers_Process
+  name: Process
+  nameWithType: Speakers.Process
+  fullName: SetupList.Speakers.Process
+- uid: System.IObservable{SetupList.Speakers}
+  commentId: T:System.IObservable{SetupList.Speakers}
+  parent: System
+  definition: System.IObservable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  name: IObservable<Speakers>
+  nameWithType: IObservable<Speakers>
+  fullName: System.IObservable<SetupList.Speakers>
+  nameWithType.vb: IObservable(Of Speakers)
+  fullName.vb: System.IObservable(Of SetupList.Speakers)
+  name.vb: IObservable(Of Speakers)
+  spec.csharp:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: <
+  - uid: SetupList.Speakers
+    name: Speakers
+    href: SetupList.Speakers.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SetupList.Speakers
+    name: Speakers
+    href: SetupList.Speakers.html
+  - name: )
+- uid: System.IObservable`1
+  commentId: T:System.IObservable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  name: IObservable<T>
+  nameWithType: IObservable<T>
+  fullName: System.IObservable<T>
+  nameWithType.vb: IObservable(Of T)
+  fullName.vb: System.IObservable(Of T)
+  name.vb: IObservable(Of T)
+  spec.csharp:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.IObservable{{TSource}}
+  commentId: T:System.IObservable{``0}
+  parent: System
+  definition: System.IObservable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  name: IObservable<TSource>
+  nameWithType: IObservable<TSource>
+  fullName: System.IObservable<TSource>
+  nameWithType.vb: IObservable(Of TSource)
+  fullName.vb: System.IObservable(Of TSource)
+  name.vb: IObservable(Of TSource)
+  spec.csharp:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: <
+  - name: TSource
+  - name: '>'
+  spec.vb:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TSource
+  - name: )
+- uid: SetupList.Speakers.PrintMembers*
+  commentId: Overload:SetupList.Speakers.PrintMembers
+  href: SetupList.Speakers.html#SetupList_Speakers_PrintMembers_System_Text_StringBuilder_
+  name: PrintMembers
+  nameWithType: Speakers.PrintMembers
+  fullName: SetupList.Speakers.PrintMembers
+- uid: System.Text.StringBuilder
+  commentId: T:System.Text.StringBuilder
+  parent: System.Text
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.text.stringbuilder
+  name: StringBuilder
+  nameWithType: StringBuilder
+  fullName: System.Text.StringBuilder
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.Text
+  commentId: N:System.Text
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Text
+  nameWithType: System.Text
+  fullName: System.Text
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Text
+    name: Text
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Text
+    name: Text
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: SetupList.Speakers.ToString*
+  commentId: Overload:SetupList.Speakers.ToString
+  href: SetupList.Speakers.html#SetupList_Speakers_ToString
+  name: ToString
+  nameWithType: Speakers.ToString
+  fullName: SetupList.Speakers.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String

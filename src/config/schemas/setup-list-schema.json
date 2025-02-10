@@ -1,0 +1,222 @@
+{
+  "definitions": {
+    "Lights": {
+      "properties": {
+        "box_period": {
+          "description": "The period of the blinking of the box LED (ms).",
+          "minimum": 0.0,
+          "title": "Box Period",
+          "type": "number"
+        },
+        "box_duty_cycle": {
+          "description": "The value representing the proportion of time the LED is on when the box LED is blinking. If it's 0 it means that the LED is always off, if it's 1 it means the LED is always on and, for example, if it's 0.5 it means that the LED is on half of the time and off for the remaining half.",
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Box Duty Cycle",
+          "type": "number"
+        },
+        "poke_period": {
+          "description": "The period of the blinking of the central poke LED (ms).",
+          "minimum": 0.0,
+          "title": "Poke Period",
+          "type": "number"
+        },
+        "poke_duty_cycle": {
+          "description": "The value representing the proportion of time the LED is on when the central poke LED is blinking. If it's 0 it means that the LED is always off, if it's 1 it means the LED is always on and, for example, if it's 0.5 it means that the LED is on half of the time and off for the remaining half.",
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Poke Duty Cycle",
+          "type": "number"
+        }
+      },
+      "required": [
+        "box_period",
+        "box_duty_cycle",
+        "poke_period",
+        "poke_duty_cycle"
+      ],
+      "title": "Lights",
+      "type": "object"
+    },
+    "Poke": {
+      "properties": {
+        "low_to_high": {
+          "description": "Indicates whether the poke is a low-to-high (true) or a high-to-low (false) device.",
+          "title": "Low To High",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "low_to_high"
+      ],
+      "title": "Poke",
+      "type": "object"
+    },
+    "Setup": {
+      "properties": {
+        "setup_id": {
+          "description": "The ID number of the setup.",
+          "title": "Setup Id",
+          "type": "integer"
+        },
+        "left_poke": {
+          "$ref": "#/definitions/Poke",
+          "description": "Contains parameters related to the left poke."
+        },
+        "center_poke": {
+          "$ref": "#/definitions/Poke",
+          "description": "Contains parameters related to the center poke."
+        },
+        "right_poke": {
+          "$ref": "#/definitions/Poke",
+          "description": "Contains parameters related to the right poke."
+        },
+        "speakers": {
+          "$ref": "#/definitions/Speakers",
+          "description": "Contains parameters related to the speakers."
+        },
+        "lights": {
+          "$ref": "#/definitions/Lights",
+          "description": "Contains parameters related to the box and poke LEDs."
+        },
+        "syringe_pumps": {
+          "$ref": "#/definitions/SyringePumps",
+          "description": "Contains the parameters related to the SyringePumps."
+        },
+        "sounds": {
+          "description": "The list with information regarding the sounds uploaded to the Harp SoundCard.",
+          "items": {
+            "$ref": "#/definitions/Sound"
+          },
+          "title": "Sounds",
+          "type": "array"
+        },
+        "use_camera": {
+          "description": "Indicates whether the setup has a camera (true) or not (false).",
+          "title": "Use Camera",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "setup_id",
+        "left_poke",
+        "center_poke",
+        "right_poke",
+        "speakers",
+        "lights",
+        "syringe_pumps",
+        "sounds",
+        "use_camera"
+      ],
+      "title": "Setup",
+      "type": "object"
+    },
+    "Sound": {
+      "properties": {
+        "index": {
+          "description": "The index number where the noise is stored in the Harp SoundCard.",
+          "maximum": 31,
+          "minimum": 2,
+          "title": "Index",
+          "type": "integer"
+        },
+        "duration": {
+          "description": "The duration of the noise (s).",
+          "title": "Duration",
+          "type": "number"
+        }
+      },
+      "required": [
+        "index",
+        "duration"
+      ],
+      "title": "Sound",
+      "type": "object"
+    },
+    "Speakers": {
+      "properties": {
+        "left_slope": {
+          "description": "The slope of the calibration curve of the left speaker.",
+          "title": "Left Slope",
+          "type": "number"
+        },
+        "left_intercept": {
+          "description": "The intercept of the calibration curve of the left speaker.",
+          "title": "Left Intercept",
+          "type": "number"
+        },
+        "right_slope": {
+          "description": "The slope of the calibration curve of the right speaker.",
+          "title": "Right Slope",
+          "type": "number"
+        },
+        "right_intercept": {
+          "description": "The intercept of the calibration curve of the right speaker.",
+          "title": "Right Intercept",
+          "type": "number"
+        }
+      },
+      "required": [
+        "left_slope",
+        "left_intercept",
+        "right_slope",
+        "right_intercept"
+      ],
+      "title": "Speakers",
+      "type": "object"
+    },
+    "SyringePumps": {
+      "properties": {
+        "use_pumps": {
+          "description": "Indicates whether the setup uses valves (false) or Harp SyringePumps (true) for reward delivery.",
+          "title": "Use Pumps",
+          "type": "boolean"
+        },
+        "left_slope": {
+          "description": "The slope of the calibration curve of the left Harp SyringePump.",
+          "title": "Left Slope",
+          "type": "number"
+        },
+        "left_intercept": {
+          "description": "The intercept of the calibration curve of the left Harp SyringePump.",
+          "title": "Left Intercept",
+          "type": "number"
+        },
+        "right_slope": {
+          "description": "The slope of the calibration curve of the right Harp SyringePump.",
+          "title": "Right Slope",
+          "type": "number"
+        },
+        "right_intercept": {
+          "description": "The intercept of the calibration curve of the right Harp SyringePump.",
+          "title": "Right Intercept",
+          "type": "number"
+        }
+      },
+      "required": [
+        "use_pumps",
+        "left_slope",
+        "left_intercept",
+        "right_slope",
+        "right_intercept"
+      ],
+      "title": "SyringePumps",
+      "type": "object"
+    }
+  },
+  "properties": {
+    "setups": {
+      "description": "The list with the parameters for every existent setup.",
+      "items": {
+        "$ref": "#/definitions/Setup"
+      },
+      "title": "Setups",
+      "type": "array"
+    }
+  },
+  "required": [
+    "setups"
+  ],
+  "title": "SetupList",
+  "type": "object"
+}
