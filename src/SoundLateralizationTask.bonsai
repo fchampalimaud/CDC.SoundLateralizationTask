@@ -2079,10 +2079,12 @@
                               <Expression xsi:type="Combinator">
                                 <Combinator xsi:type="rx:Merge" />
                               </Expression>
-                              <Expression xsi:type="Combinator">
-                                <Combinator xsi:type="IntProperty">
-                                  <Value>1</Value>
-                                </Combinator>
+                              <Expression xsi:type="Disable">
+                                <Builder xsi:type="Combinator">
+                                  <Combinator xsi:type="IntProperty">
+                                    <Value>1</Value>
+                                  </Combinator>
+                                </Builder>
                               </Expression>
                               <Expression xsi:type="MulticastSubject">
                                 <Name>OptoTrial</Name>
@@ -3170,10 +3172,12 @@
                   <Expression xsi:type="SubscribeSubject">
                     <Name>LeftRewardSteps</Name>
                   </Expression>
-                  <Expression xsi:type="Multiply">
-                    <Operand xsi:type="IntProperty">
-                      <Value>10</Value>
-                    </Operand>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="Multiply">
+                      <Operand xsi:type="IntProperty">
+                        <Value>10</Value>
+                      </Operand>
+                    </Builder>
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:WithLatestFrom" />
@@ -3307,10 +3311,12 @@
                   <Expression xsi:type="SubscribeSubject">
                     <Name>RightRewardSteps</Name>
                   </Expression>
-                  <Expression xsi:type="Multiply">
-                    <Operand xsi:type="IntProperty">
-                      <Value>10</Value>
-                    </Operand>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="Multiply">
+                      <Operand xsi:type="IntProperty">
+                        <Value>10</Value>
+                      </Operand>
+                    </Builder>
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:WithLatestFrom" />
@@ -5899,7 +5905,7 @@
                   <Expression xsi:type="pump:CreateMessage">
                     <harp:MessageType>Write</harp:MessageType>
                     <harp:Payload xsi:type="pump:CreateProtocolPeriodPayload">
-                      <pump:ProtocolPeriod>10</pump:ProtocolPeriod>
+                      <pump:ProtocolPeriod>1</pump:ProtocolPeriod>
                     </harp:Payload>
                   </Expression>
                   <Expression xsi:type="pump:CreateMessage">
@@ -6043,7 +6049,7 @@
                   <Expression xsi:type="pump:CreateMessage">
                     <harp:MessageType>Write</harp:MessageType>
                     <harp:Payload xsi:type="pump:CreateProtocolPeriodPayload">
-                      <pump:ProtocolPeriod>10</pump:ProtocolPeriod>
+                      <pump:ProtocolPeriod>1</pump:ProtocolPeriod>
                     </harp:Payload>
                   </Expression>
                   <Expression xsi:type="pump:CreateMessage">
