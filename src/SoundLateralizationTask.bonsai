@@ -13458,11 +13458,6 @@
                 </Edges>
               </Workflow>
             </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="IntProperty">
-                <Value>0</Value>
-              </Combinator>
-            </Expression>
             <Expression xsi:type="rx:Condition">
               <Name>UseRT != 0</Name>
               <Workflow>
