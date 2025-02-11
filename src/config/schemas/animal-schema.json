@@ -38,6 +38,13 @@
           "title": "Duration",
           "type": "number"
         },
+        "opto_ratio": {
+          "description": "The ratio of optogenetics trials.",
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Opto Ratio",
+          "type": "number"
+        },
         "use_pulses": {
           "description": "Indicates whether the optogenetics protocol uses pulses of light (true) or a continuous emission (false).",
           "title": "Use Pulses",
@@ -71,6 +78,7 @@
         "use_opto",
         "voltage",
         "duration",
+        "opto_ratio",
         "use_pulses",
         "ramp_time",
         "frequency",

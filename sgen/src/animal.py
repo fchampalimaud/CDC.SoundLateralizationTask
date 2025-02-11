@@ -20,6 +20,9 @@ class Optogenetics(BaseModel):
         description="The duration of the optogenetics stimulation/inhibition protocol (s).",
         ge=0,
     )
+    opto_ratio: float = Field(
+        description="The ratio of optogenetics trials.", ge=0, le=1
+    )
     use_pulses: bool = Field(
         description="Indicates whether the optogenetics protocol uses pulses of light (true) or a continuous emission (false)."
     )

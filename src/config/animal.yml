@@ -40,6 +40,7 @@ optogenetics:
   use_opto: false
   voltage: 1000
   duration: 2
+  opto_ratio: 0.3
   use_pulses: true
   ramp_time: 50
   frequency: 20

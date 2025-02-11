@@ -113,6 +113,8 @@ namespace Animal
     
         private double _duration;
     
+        private double _optoRatio;
+    
         private bool _usePulses;
     
         private double _rampTime;
@@ -132,6 +134,7 @@ namespace Animal
             _useOpto = other._useOpto;
             _voltage = other._voltage;
             _duration = other._duration;
+            _optoRatio = other._optoRatio;
             _usePulses = other._usePulses;
             _rampTime = other._rampTime;
             _frequency = other._frequency;
@@ -190,6 +193,24 @@ namespace Animal
             set
             {
                 _duration = value;
+            }
+        }
+    
+        /// <summary>
+        /// The ratio of optogenetics trials.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("opto_ratio", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="opto_ratio")]
+        [System.ComponentModel.DescriptionAttribute("The ratio of optogenetics trials.")]
+        public double OptoRatio
+        {
+            get
+            {
+                return _optoRatio;
+            }
+            set
+            {
+                _optoRatio = value;
             }
         }
     
@@ -301,6 +322,7 @@ namespace Animal
             stringBuilder.Append("use_opto = " + _useOpto + ", ");
             stringBuilder.Append("voltage = " + _voltage + ", ");
             stringBuilder.Append("duration = " + _duration + ", ");
+            stringBuilder.Append("opto_ratio = " + _optoRatio + ", ");
             stringBuilder.Append("use_pulses = " + _usePulses + ", ");
             stringBuilder.Append("ramp_time = " + _rampTime + ", ");
             stringBuilder.Append("frequency = " + _frequency + ", ");
