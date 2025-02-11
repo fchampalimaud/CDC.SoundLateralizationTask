@@ -1,0 +1,9 @@
+level_id,trials_per_block,max_wait,max_mt,max_aborts,speakers,sound.abl.use_fixed_abl,sound.abl.change_every_trial,sound.ild.special_case,sound.ild.step_size,sound.ild.num_steps,sound.ild.use_log,sound.ild.log_base,iti.value,iti.can_reset,fixation_time.opto_exp_mean,fixation_time.sound_exp_mean,reaction_time.turn_sound_off,reaction_time.use_max_rt,penalty_times.incorrect,penalty_times.abort,penalty_times.fixation_abort,critical_performance.value,critical_performance.use_performance,trial_repetition.repeat_errors,trial_repetition.repeat_aborts,cues.iti_light,cues.poke_light,cues.fixation_light,cues.penalty_light
+1,200,180,180,40,False,True,True,True,50,1,False,2,1,False,0,0,False,True,1,1,1,0.8,False,True,True,True,True,True,True
+1,200,180,180,40,False,True,True,True,50,1,False,2,1,False,0,0,False,True,1,1,1,0.8,False,True,True,True,True,True,True
+1,200,180,180,40,False,True,True,True,50,1,False,2,1,False,0,0,False,True,1,1,1,0.8,False,True,True,True,True,True,True
+1,200,180,180,40,False,True,True,True,50,1,False,2,1,False,0,0,False,True,1,1,1,0.8,False,True,True,True,True,True,True
+1,200,180,180,40,False,True,True,True,50,1,False,2,1,False,0,0,False,True,1,1,1,0.8,False,True,True,True,True,True,True
+1,200,180,180,40,False,True,True,True,50,1,False,2,1,False,0,0,False,True,1,1,1,0.8,False,True,True,True,True,True,True
+1,200,180,180,40,False,True,True,True,50,1,False,2,1,False,0,0,False,True,1,1,1,0.8,False,True,True,True,True,True,True
+1,200,180,180,40,False,True,True,True,50,1,False,2,1,False,0,0,False,True,1,1,1,0.8,False,True,True,True,True,True,True

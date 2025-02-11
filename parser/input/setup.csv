@@ -1,0 +1,2 @@
+setup_id,sounds,use_camera,left_poke.low_to_high,center_poke.low_to_high,right_poke.low_to_high,speakers.left_slope,speakers.left_intercept,speakers.right_slope,speakers.right_intercept,lights.box_period,lights.box_duty_cycle,lights.poke_period,lights.poke_duty_cycle,syringe_pumps.use_pumps,syringe_pumps.left_slope,syringe_pumps.left_intercept,syringe_pumps.right_slope,syringe_pumps.right_intercept
+0,"[{'index': 2, 'duration': 10}]",False,True,True,True,19.555283,57.5,19.898726,57.5,1000,0.5,1000,0.5,False,0.333,-0.0193,0.3349,0.0494
