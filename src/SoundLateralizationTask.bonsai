@@ -2447,7 +2447,7 @@
                                       <Selector>LnpTime.Target</Selector>
                                     </Expression>
                                     <Expression xsi:type="Combinator">
-                                      <Combinator xsi:type="rx:Zip" />
+                                      <Combinator xsi:type="rx:CombineLatest" />
                                     </Expression>
                                     <Expression xsi:type="LessThanOrEqual" />
                                     <Expression xsi:type="WorkflowOutput" />
@@ -2475,7 +2475,7 @@
                                       <Selector>LnpTime.Target</Selector>
                                     </Expression>
                                     <Expression xsi:type="Combinator">
-                                      <Combinator xsi:type="rx:Zip" />
+                                      <Combinator xsi:type="rx:CombineLatest" />
                                     </Expression>
                                     <Expression xsi:type="GreaterThan" />
                                     <Expression xsi:type="WorkflowOutput" />
@@ -2574,7 +2574,7 @@
                                       <Selector>ReactionTime.Target</Selector>
                                     </Expression>
                                     <Expression xsi:type="Combinator">
-                                      <Combinator xsi:type="rx:Zip" />
+                                      <Combinator xsi:type="rx:CombineLatest" />
                                     </Expression>
                                     <Expression xsi:type="LessThanOrEqual" />
                                     <Expression xsi:type="WorkflowOutput" />
@@ -2602,7 +2602,7 @@
                                       <Selector>ReactionTime.Target</Selector>
                                     </Expression>
                                     <Expression xsi:type="Combinator">
-                                      <Combinator xsi:type="rx:Zip" />
+                                      <Combinator xsi:type="rx:CombineLatest" />
                                     </Expression>
                                     <Expression xsi:type="GreaterThan" />
                                     <Expression xsi:type="WorkflowOutput" />
