@@ -2695,7 +2695,7 @@
                                       <Name>SoundOnsetTarget</Name>
                                     </Expression>
                                     <Expression xsi:type="Combinator">
-                                      <Combinator xsi:type="rx:Zip" />
+                                      <Combinator xsi:type="rx:CombineLatest" />
                                     </Expression>
                                     <Expression xsi:type="LessThanOrEqual" />
                                     <Expression xsi:type="WorkflowOutput" />
@@ -2719,7 +2719,7 @@
                                       <Name>SoundOnsetTarget</Name>
                                     </Expression>
                                     <Expression xsi:type="Combinator">
-                                      <Combinator xsi:type="rx:Zip" />
+                                      <Combinator xsi:type="rx:CombineLatest" />
                                     </Expression>
                                     <Expression xsi:type="GreaterThan" />
                                     <Expression xsi:type="WorkflowOutput" />
@@ -2806,7 +2806,7 @@
                                       <Name>OptoOnsetTarget</Name>
                                     </Expression>
                                     <Expression xsi:type="Combinator">
-                                      <Combinator xsi:type="rx:Zip" />
+                                      <Combinator xsi:type="rx:CombineLatest" />
                                     </Expression>
                                     <Expression xsi:type="LessThanOrEqual" />
                                     <Expression xsi:type="WorkflowOutput" />
@@ -2830,7 +2830,7 @@
                                       <Name>OptoOnsetTarget</Name>
                                     </Expression>
                                     <Expression xsi:type="Combinator">
-                                      <Combinator xsi:type="rx:Zip" />
+                                      <Combinator xsi:type="rx:CombineLatest" />
                                     </Expression>
                                     <Expression xsi:type="GreaterThan" />
                                     <Expression xsi:type="WorkflowOutput" />
