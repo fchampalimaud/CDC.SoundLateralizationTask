@@ -12,15 +12,15 @@
                  xmlns:pump="clr-namespace:Harp.SyringePump;assembly=Harp.SyringePump"
                  xmlns:beh="clr-namespace:Harp.Behavior;assembly=Harp.Behavior"
                  xmlns:p4="clr-namespace:;assembly=Extensions"
-                 xmlns:p5="clr-namespace:Bonsai.PointGrey;assembly=Bonsai.PointGrey"
-                 xmlns:p6="clr-namespace:Harp.CurrentDriver;assembly=Harp.CurrentDriver"
-                 xmlns:p7="clr-namespace:Output;assembly=Extensions"
+                 xmlns:spk="clr-namespace:Bonsai.Spinnaker;assembly=Bonsai.Spinnaker"
+                 xmlns:p5="clr-namespace:Harp.CurrentDriver;assembly=Harp.CurrentDriver"
+                 xmlns:p6="clr-namespace:Output;assembly=Extensions"
                  xmlns:cv="clr-namespace:Bonsai.Vision;assembly=Bonsai.Vision"
                  xmlns:io="clr-namespace:Bonsai.IO;assembly=Bonsai.System"
-                 xmlns:p8="clr-namespace:Animal;assembly=Extensions"
-                 xmlns:p9="clr-namespace:Training;assembly=Extensions"
-                 xmlns:p10="clr-namespace:SetupList;assembly=Extensions"
-                 xmlns:p11="clr-namespace:PrintDict;assembly=Extensions"
+                 xmlns:p7="clr-namespace:Animal;assembly=Extensions"
+                 xmlns:p8="clr-namespace:Training;assembly=Extensions"
+                 xmlns:p9="clr-namespace:SetupList;assembly=Extensions"
+                 xmlns:p10="clr-namespace:PrintDict;assembly=Extensions"
                  xmlns:num="clr-namespace:Bonsai.Numerics;assembly=Bonsai.Numerics"
                  xmlns:gui="clr-namespace:Bonsai.Gui;assembly=Bonsai.Gui"
                  xmlns:zg="clr-namespace:Bonsai.Gui.ZedGraph;assembly=Bonsai.Gui.ZedGraph"
@@ -1737,16 +1737,16 @@
                                             <Name>Source1</Name>
                                           </Expression>
                                           <Expression xsi:type="scr:ExpressionTransform">
-                                            <scr:Expression>Item2 - Item1</scr:Expression>
-                                          </Expression>
-                                          <Expression xsi:type="MulticastSubject">
-                                            <Name>LeftIntensity</Name>
-                                          </Expression>
-                                          <Expression xsi:type="scr:ExpressionTransform">
                                             <scr:Expression>Item2 + Item1</scr:Expression>
                                           </Expression>
                                           <Expression xsi:type="MulticastSubject">
                                             <Name>RightIntensity</Name>
+                                          </Expression>
+                                          <Expression xsi:type="scr:ExpressionTransform">
+                                            <scr:Expression>Item2 - Item1</scr:Expression>
+                                          </Expression>
+                                          <Expression xsi:type="MulticastSubject">
+                                            <Name>LeftIntensity</Name>
                                           </Expression>
                                           <Expression xsi:type="Combinator">
                                             <Combinator xsi:type="rx:Zip" />
@@ -5159,9 +5159,9 @@
               <Workflow>
                 <Nodes>
                   <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="p5:FlyCapture">
-                      <p5:Index>0</p5:Index>
-                      <p5:ColorProcessing>Default</p5:ColorProcessing>
+                    <Combinator xsi:type="spk:SpinnakerCapture">
+                      <spk:Index xsi:nil="true" />
+                      <spk:ColorProcessing>Default</spk:ColorProcessing>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="rx:PublishSubject">
@@ -6314,10 +6314,10 @@
                                         <Property Name="Dac0Voltage" />
                                       </PropertyMappings>
                                     </Expression>
-                                    <Expression xsi:type="p6:CreateMessage">
+                                    <Expression xsi:type="p5:CreateMessage">
                                       <harp:MessageType>Write</harp:MessageType>
-                                      <harp:Payload xsi:type="p6:CreateDac0VoltagePayload">
-                                        <p6:Dac0Voltage>1000</p6:Dac0Voltage>
+                                      <harp:Payload xsi:type="p5:CreateDac0VoltagePayload">
+                                        <p5:Dac0Voltage>1000</p5:Dac0Voltage>
                                       </harp:Payload>
                                     </Expression>
                                     <Expression xsi:type="MulticastSubject">
@@ -6343,10 +6343,10 @@
                                         <rx:DueTime>PT0.02S</rx:DueTime>
                                       </Combinator>
                                     </Expression>
-                                    <Expression xsi:type="p6:CreateMessage">
+                                    <Expression xsi:type="p5:CreateMessage">
                                       <harp:MessageType>Write</harp:MessageType>
-                                      <harp:Payload xsi:type="p6:CreateDac0VoltagePayload">
-                                        <p6:Dac0Voltage>0</p6:Dac0Voltage>
+                                      <harp:Payload xsi:type="p5:CreateDac0VoltagePayload">
+                                        <p5:Dac0Voltage>0</p5:Dac0Voltage>
                                       </harp:Payload>
                                     </Expression>
                                     <Expression xsi:type="MulticastSubject">
@@ -6435,10 +6435,10 @@
                                         <Property Name="Dac0Voltage" />
                                       </PropertyMappings>
                                     </Expression>
-                                    <Expression xsi:type="p6:CreateMessage">
+                                    <Expression xsi:type="p5:CreateMessage">
                                       <harp:MessageType>Write</harp:MessageType>
-                                      <harp:Payload xsi:type="p6:CreateDac0VoltagePayload">
-                                        <p6:Dac0Voltage>1000</p6:Dac0Voltage>
+                                      <harp:Payload xsi:type="p5:CreateDac0VoltagePayload">
+                                        <p5:Dac0Voltage>1000</p5:Dac0Voltage>
                                       </harp:Payload>
                                     </Expression>
                                     <Expression xsi:type="MulticastSubject">
@@ -6505,10 +6505,10 @@
                             <rx:DueTime>PT0.005S</rx:DueTime>
                           </Combinator>
                         </Expression>
-                        <Expression xsi:type="p6:CreateMessage">
+                        <Expression xsi:type="p5:CreateMessage">
                           <harp:MessageType>Write</harp:MessageType>
-                          <harp:Payload xsi:type="p6:CreateDac0VoltagePayload">
-                            <p6:Dac0Voltage>0</p6:Dac0Voltage>
+                          <harp:Payload xsi:type="p5:CreateDac0VoltagePayload">
+                            <p5:Dac0Voltage>0</p5:Dac0Voltage>
                           </harp:Payload>
                         </Expression>
                         <Expression xsi:type="MulticastSubject">
@@ -6533,7 +6533,7 @@
                     <Property Name="PortName" />
                   </Expression>
                   <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="p6:Device">
+                    <Combinator xsi:type="p5:Device">
                       <harp:OperationMode>Active</harp:OperationMode>
                       <harp:OperationLed>On</harp:OperationLed>
                       <harp:DumpRegisters>true</harp:DumpRegisters>
@@ -6634,11 +6634,11 @@
                     <Selector>it</Selector>
                   </Expression>
                   <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="p7:Trial">
-                      <p7:Number>633</p7:Number>
-                      <p7:StartTime>14423.529984</p7:StartTime>
-                      <p7:EndTime>14420.514976</p7:EndTime>
-                      <p7:Duration>-3.0150080000003072</p7:Duration>
+                    <Combinator xsi:type="p6:Trial">
+                      <p6:Number>633</p6:Number>
+                      <p6:StartTime>14423.529984</p6:StartTime>
+                      <p6:EndTime>14420.514976</p6:EndTime>
+                      <p6:Duration>-3.0150080000003072</p6:Duration>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
@@ -6673,10 +6673,10 @@
                     <Selector>it</Selector>
                   </Expression>
                   <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="p7:Block">
-                      <p7:Number>4</p7:Number>
-                      <p7:TrainingLevel>4</p7:TrainingLevel>
-                      <p7:TrialsPerBlock>100</p7:TrialsPerBlock>
+                    <Combinator xsi:type="p6:Block">
+                      <p6:Number>4</p6:Number>
+                      <p6:TrainingLevel>4</p6:TrainingLevel>
+                      <p6:TrialsPerBlock>100</p6:TrialsPerBlock>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
@@ -6714,10 +6714,10 @@
                     <Selector>it</Selector>
                   </Expression>
                   <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="p7:Session">
-                      <p7:Number>1</p7:Number>
-                      <p7:Type>1</p7:Type>
-                      <p7:SetupId>0</p7:SetupId>
+                    <Combinator xsi:type="p6:Session">
+                      <p6:Number>1</p6:Number>
+                      <p6:Type>1</p6:Type>
+                      <p6:SetupId>0</p6:SetupId>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
@@ -6754,12 +6754,12 @@
                     <Selector>it</Selector>
                   </Expression>
                   <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="p7:Sound">
-                      <p7:Abl>25</p7:Abl>
-                      <p7:Ild>50</p7:Ild>
-                      <p7:SoundIndex>2</p7:SoundIndex>
-                      <p7:LeftAmplification>58.807637813270205</p7:LeftAmplification>
-                      <p7:RightAmplification>7.5381710366784285</p7:RightAmplification>
+                    <Combinator xsi:type="p6:Sound">
+                      <p6:Abl>25</p6:Abl>
+                      <p6:Ild>50</p6:Ild>
+                      <p6:SoundIndex>2</p6:SoundIndex>
+                      <p6:LeftAmplification>58.807637813270205</p6:LeftAmplification>
+                      <p6:RightAmplification>7.5381710366784285</p6:RightAmplification>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
@@ -6802,11 +6802,11 @@
                     <Selector>it</Selector>
                   </Expression>
                   <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="p7:ITI">
-                      <p7:IntendedDuration>3</p7:IntendedDuration>
-                      <p7:StartTime>14420.516992</p7:StartTime>
-                      <p7:EndTime>14423.528</p7:EndTime>
-                      <p7:TimedDuration>3.0110079999994923</p7:TimedDuration>
+                    <Combinator xsi:type="p6:ITI">
+                      <p6:IntendedDuration>3</p6:IntendedDuration>
+                      <p6:StartTime>14420.516992</p6:StartTime>
+                      <p6:EndTime>14423.528</p6:EndTime>
+                      <p6:TimedDuration>3.0110079999994923</p6:TimedDuration>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
@@ -6834,9 +6834,9 @@
                     <Selector>it</Selector>
                   </Expression>
                   <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="p7:TimeToCnp">
-                      <p7:TimedValue>2.6607679999997345</p7:TimedValue>
-                      <p7:MaxDuration>10</p7:MaxDuration>
+                    <Combinator xsi:type="p6:TimeToCnp">
+                      <p6:TimedValue>2.6607679999997345</p6:TimedValue>
+                      <p6:MaxDuration>10</p6:MaxDuration>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
@@ -6872,11 +6872,11 @@
                     <Selector>it</Selector>
                   </Expression>
                   <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="p7:FixationTimeParts">
-                      <p7:BaseTime>305</p7:BaseTime>
-                      <p7:ExpMean>0</p7:ExpMean>
-                      <p7:IntendedDuration>304.5</p7:IntendedDuration>
-                      <p7:TimedDuration>0.30924799999957031</p7:TimedDuration>
+                    <Combinator xsi:type="p6:FixationTimeParts">
+                      <p6:BaseTime>305</p6:BaseTime>
+                      <p6:ExpMean>0</p6:ExpMean>
+                      <p6:IntendedDuration>304.5</p6:IntendedDuration>
+                      <p6:TimedDuration>0.30924799999957031</p6:TimedDuration>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
@@ -6907,11 +6907,11 @@
                     <Selector>it</Selector>
                   </Expression>
                   <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="p7:FixationTimeParts">
-                      <p7:BaseTime>305</p7:BaseTime>
-                      <p7:ExpMean>0</p7:ExpMean>
-                      <p7:IntendedDuration>304.5</p7:IntendedDuration>
-                      <p7:TimedDuration>0.313984000000346</p7:TimedDuration>
+                    <Combinator xsi:type="p6:FixationTimeParts">
+                      <p6:BaseTime>305</p6:BaseTime>
+                      <p6:ExpMean>0</p6:ExpMean>
+                      <p6:IntendedDuration>304.5</p6:IntendedDuration>
+                      <p6:TimedDuration>0.313984000000346</p6:TimedDuration>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="Combinator">
@@ -6925,7 +6925,7 @@
                     <Selector>it</Selector>
                   </Expression>
                   <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="p7:FixationTime" />
+                    <Combinator xsi:type="p6:FixationTime" />
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
                     <PropertyMappings>
@@ -6956,10 +6956,10 @@
                     <Selector>it</Selector>
                   </Expression>
                   <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="p7:ReactionTime">
-                      <p7:BaseTime>0.01</p7:BaseTime>
-                      <p7:MaxDuration>10</p7:MaxDuration>
-                      <p7:TimedDuration>0.17475199999898905</p7:TimedDuration>
+                    <Combinator xsi:type="p6:ReactionTime">
+                      <p6:BaseTime>0.01</p6:BaseTime>
+                      <p6:MaxDuration>10</p6:MaxDuration>
+                      <p6:TimedDuration>0.17475199999898905</p6:TimedDuration>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
@@ -6987,9 +6987,9 @@
                     <Selector>it</Selector>
                   </Expression>
                   <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="p7:MovementTime">
-                      <p7:MaxDuration>6</p7:MaxDuration>
-                      <p7:TimedDuration>0</p7:TimedDuration>
+                    <Combinator xsi:type="p6:MovementTime">
+                      <p6:MaxDuration>6</p6:MaxDuration>
+                      <p6:TimedDuration>0</p6:TimedDuration>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
@@ -7014,9 +7014,9 @@
                     <Selector>it</Selector>
                   </Expression>
                   <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="p7:LnpTime">
-                      <p7:IntendedDuration>0.01</p7:IntendedDuration>
-                      <p7:TimedDuration>0</p7:TimedDuration>
+                    <Combinator xsi:type="p6:LnpTime">
+                      <p6:IntendedDuration>0.01</p6:IntendedDuration>
+                      <p6:TimedDuration>0</p6:TimedDuration>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
@@ -7049,11 +7049,11 @@
                     <Selector>it</Selector>
                   </Expression>
                   <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="p7:Outcome">
-                      <p7:ResponsePoke>1</p7:ResponsePoke>
-                      <p7:Value>1</p7:Value>
-                      <p7:BlockPerformance>0</p7:BlockPerformance>
-                      <p7:BlockAbortRatio>0</p7:BlockAbortRatio>
+                    <Combinator xsi:type="p6:Outcome">
+                      <p6:ResponsePoke>1</p6:ResponsePoke>
+                      <p6:Value>1</p6:Value>
+                      <p6:BlockPerformance>0</p6:BlockPerformance>
+                      <p6:BlockAbortRatio>0</p6:BlockAbortRatio>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
@@ -7102,11 +7102,11 @@
                     <Selector>it</Selector>
                   </Expression>
                   <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="p7:Optogenetics">
-                      <p7:OptoTrial>false</p7:OptoTrial>
-                      <p7:Duration>0</p7:Duration>
-                      <p7:LeftPower>0</p7:LeftPower>
-                      <p7:RightPower>0</p7:RightPower>
+                    <Combinator xsi:type="p6:Optogenetics">
+                      <p6:OptoTrial>false</p6:OptoTrial>
+                      <p6:Duration>0</p6:Duration>
+                      <p6:LeftPower>0</p6:LeftPower>
+                      <p6:RightPower>0</p6:RightPower>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
@@ -7115,13 +7115,13 @@
                     </PropertyMappings>
                   </Expression>
                   <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="p7:Output">
-                      <p7:AnimalId>1</p7:AnimalId>
-                      <p7:RepeatedTrial>true</p7:RepeatedTrial>
+                    <Combinator xsi:type="p6:Output">
+                      <p6:AnimalId>1</p6:AnimalId>
+                      <p6:RepeatedTrial>true</p6:RepeatedTrial>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="p7:SerializeToJson" />
+                    <Combinator xsi:type="p6:SerializeToJson" />
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
                     <Name>OutputDirPath</Name>
@@ -7356,61 +7356,63 @@
                 </Edges>
               </Workflow>
             </Expression>
-            <Expression xsi:type="GroupWorkflow">
-              <Name>CameraMetadata</Name>
-              <Workflow>
-                <Nodes>
-                  <Expression xsi:type="SubscribeSubject">
-                    <Name>Camera</Name>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Metadata.embeddedGPIOPinState,Metadata.embeddedFrameCounter,Metadata.embeddedTimeStamp,Metadata.embeddedShutter</Selector>
-                  </Expression>
-                  <Expression xsi:type="SubscribeSubject">
-                    <Name>OutputDirPath</Name>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="StringProperty">
-                      <Value>cam_metadata_.csv</Value>
-                    </Combinator>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="rx:Zip" />
-                  </Expression>
-                  <Expression xsi:type="scr:ExpressionTransform">
-                    <scr:Expression>Item1 + Item2</scr:Expression>
-                  </Expression>
-                  <Expression xsi:type="PropertyMapping">
-                    <PropertyMappings>
-                      <Property Name="FileName" />
-                    </PropertyMappings>
-                  </Expression>
-                  <Expression xsi:type="io:CsvWriter">
-                    <io:FileName>output/Rat001/250218/cam_metadata_.csv</io:FileName>
-                    <io:Append>false</io:Append>
-                    <io:Overwrite>false</io:Overwrite>
-                    <io:Suffix>FileCount</io:Suffix>
-                    <io:IncludeHeader>false</io:IncludeHeader>
-                  </Expression>
-                  <Expression xsi:type="SubscribeSubject">
-                    <Name>OutputDirPath</Name>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="rx:SubscribeWhen" />
-                  </Expression>
-                </Nodes>
-                <Edges>
-                  <Edge From="0" To="1" Label="Source1" />
-                  <Edge From="1" To="7" Label="Source1" />
-                  <Edge From="2" To="4" Label="Source1" />
-                  <Edge From="3" To="4" Label="Source2" />
-                  <Edge From="4" To="5" Label="Source1" />
-                  <Edge From="5" To="6" Label="Source1" />
-                  <Edge From="6" To="7" Label="Source2" />
-                  <Edge From="7" To="9" Label="Source1" />
-                  <Edge From="8" To="9" Label="Source2" />
-                </Edges>
-              </Workflow>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="GroupWorkflow">
+                <Name>CameraMetadata</Name>
+                <Workflow>
+                  <Nodes>
+                    <Expression xsi:type="SubscribeSubject">
+                      <Name>Camera</Name>
+                    </Expression>
+                    <Expression xsi:type="MemberSelector">
+                      <Selector>Metadata.embeddedGPIOPinState,Metadata.embeddedFrameCounter,Metadata.embeddedTimeStamp,Metadata.embeddedShutter</Selector>
+                    </Expression>
+                    <Expression xsi:type="SubscribeSubject">
+                      <Name>OutputDirPath</Name>
+                    </Expression>
+                    <Expression xsi:type="Combinator">
+                      <Combinator xsi:type="StringProperty">
+                        <Value>cam_metadata_.csv</Value>
+                      </Combinator>
+                    </Expression>
+                    <Expression xsi:type="Combinator">
+                      <Combinator xsi:type="rx:Zip" />
+                    </Expression>
+                    <Expression xsi:type="scr:ExpressionTransform">
+                      <scr:Expression>Item1 + Item2</scr:Expression>
+                    </Expression>
+                    <Expression xsi:type="PropertyMapping">
+                      <PropertyMappings>
+                        <Property Name="FileName" />
+                      </PropertyMappings>
+                    </Expression>
+                    <Expression xsi:type="io:CsvWriter">
+                      <io:FileName>output/Rat001/250218/cam_metadata_.csv</io:FileName>
+                      <io:Append>false</io:Append>
+                      <io:Overwrite>false</io:Overwrite>
+                      <io:Suffix>FileCount</io:Suffix>
+                      <io:IncludeHeader>false</io:IncludeHeader>
+                    </Expression>
+                    <Expression xsi:type="SubscribeSubject">
+                      <Name>OutputDirPath</Name>
+                    </Expression>
+                    <Expression xsi:type="Combinator">
+                      <Combinator xsi:type="rx:SubscribeWhen" />
+                    </Expression>
+                  </Nodes>
+                  <Edges>
+                    <Edge From="0" To="1" Label="Source1" />
+                    <Edge From="1" To="7" Label="Source1" />
+                    <Edge From="2" To="4" Label="Source1" />
+                    <Edge From="3" To="4" Label="Source2" />
+                    <Edge From="4" To="5" Label="Source1" />
+                    <Edge From="5" To="6" Label="Source1" />
+                    <Edge From="6" To="7" Label="Source2" />
+                    <Edge From="7" To="9" Label="Source1" />
+                    <Edge From="8" To="9" Label="Source2" />
+                  </Edges>
+                </Workflow>
+              </Builder>
             </Expression>
             <Expression xsi:type="GroupWorkflow">
               <Name>Logging</Name>
@@ -7495,7 +7497,7 @@
                     <Name>AnimalConfig</Name>
                   </Expression>
                   <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="p8:SerializeToJson" />
+                    <Combinator xsi:type="p7:SerializeToJson" />
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
                     <Name>OutputDirPath</Name>
@@ -7533,7 +7535,7 @@
                     <Name>TrainingConfig</Name>
                   </Expression>
                   <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="p9:SerializeToJson" />
+                    <Combinator xsi:type="p8:SerializeToJson" />
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
                     <Name>OutputDirPath</Name>
@@ -7571,7 +7573,7 @@
                     <Name>Setups</Name>
                   </Expression>
                   <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="p10:SerializeToJson" />
+                    <Combinator xsi:type="p9:SerializeToJson" />
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
                     <Name>OutputDirPath</Name>
@@ -7817,8 +7819,8 @@
                 <io:Path>config\animal.yml</io:Path>
               </Combinator>
             </Expression>
-            <Expression xsi:type="p8:DeserializeFromYaml">
-              <p8:Type xsi:type="TypeMapping" TypeArguments="p8:Animal" />
+            <Expression xsi:type="p7:DeserializeFromYaml">
+              <p7:Type xsi:type="TypeMapping" TypeArguments="p7:Animal" />
             </Expression>
             <Expression xsi:type="rx:AsyncSubject">
               <Name>AnimalConfig</Name>
@@ -7831,8 +7833,8 @@
                 <io:Path>config\training.json</io:Path>
               </Combinator>
             </Expression>
-            <Expression xsi:type="p9:DeserializeFromJson">
-              <p9:Type xsi:type="TypeMapping" TypeArguments="p9:Training" />
+            <Expression xsi:type="p8:DeserializeFromJson">
+              <p8:Type xsi:type="TypeMapping" TypeArguments="p8:Training" />
             </Expression>
             <Expression xsi:type="rx:AsyncSubject">
               <Name>TrainingConfig</Name>
@@ -7845,8 +7847,8 @@
                 <io:Path>config\setup.json</io:Path>
               </Combinator>
             </Expression>
-            <Expression xsi:type="p10:DeserializeFromJson">
-              <p10:Type xsi:type="TypeMapping" TypeArguments="p10:SetupList" />
+            <Expression xsi:type="p9:DeserializeFromJson">
+              <p9:Type xsi:type="TypeMapping" TypeArguments="p9:SetupList" />
             </Expression>
             <Expression xsi:type="rx:AsyncSubject">
               <Name>Setups</Name>
@@ -7890,8 +7892,8 @@
                 <io:Path>config\prints.json</io:Path>
               </Combinator>
             </Expression>
-            <Expression xsi:type="p11:DeserializeFromJson">
-              <p11:Type xsi:type="TypeMapping" TypeArguments="p11:PrintDict" />
+            <Expression xsi:type="p10:DeserializeFromJson">
+              <p10:Type xsi:type="TypeMapping" TypeArguments="p10:PrintDict" />
             </Expression>
             <Expression xsi:type="rx:AsyncSubject">
               <Name>Prints</Name>
