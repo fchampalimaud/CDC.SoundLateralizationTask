@@ -20,11 +20,11 @@ fixation_time:
   opto_onset_time:
     min_value: 5
     delta: 0.5
-    target: 5
+    target: 100
   sound_onset_time:
     min_value: 5
     delta: 0.5
-    target: 5
+    target: 100
 reaction_time:
   min_value: 0.01
   delta: 0.001
