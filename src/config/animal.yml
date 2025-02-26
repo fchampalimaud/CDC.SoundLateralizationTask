@@ -1,5 +1,5 @@
 # yaml-language-server: $schema=schemas/animal-schema.json
-animal_id: 1
+animal_id: 0
 session:
   number: 1
   duration: 02:00:00
