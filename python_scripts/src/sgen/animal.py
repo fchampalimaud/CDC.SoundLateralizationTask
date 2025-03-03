@@ -2,7 +2,7 @@ from datetime import timedelta
 
 from pydantic import BaseModel, Field
 from typing import List
-from _utils import (
+from sgen._utils import (
     export_schema,
     bonsai_sgen,
     BonsaiSgenSerializers,
@@ -135,7 +135,7 @@ class Animal(BaseModel):
     )
 
 
-if __name__ == "__main__":
+def generate_animal():
     json_schema = export_schema(Animal)
     schema_name = Animal.__name__
     _dashed = pascal_to_snake_case(schema_name).replace("_", "-")

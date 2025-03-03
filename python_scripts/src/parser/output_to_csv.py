@@ -1,5 +1,5 @@
 import os
-from src.generate_csv import generate_csv
+from generate_csv import generate_csv
 
 
 def func(input_directory):

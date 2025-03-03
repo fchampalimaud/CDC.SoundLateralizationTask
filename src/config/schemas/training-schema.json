@@ -42,38 +42,6 @@
       "title": "CriticalPerformance",
       "type": "object"
     },
-    "Cues": {
-      "properties": {
-        "iti_light": {
-          "description": "Indicates whether the box LED should turn of when the new trial is ready (true) or not (false).",
-          "title": "Iti Light",
-          "type": "boolean"
-        },
-        "poke_light": {
-          "description": "Indicates whether the central poke LED should turn of when the new trial is ready (true) or not (false).",
-          "title": "Poke Light",
-          "type": "boolean"
-        },
-        "fixation_light": {
-          "description": "Indicates whether the central poke LED should blink during fixation time (true) or not (false).",
-          "title": "Fixation Light",
-          "type": "boolean"
-        },
-        "penalty_light": {
-          "description": "Indicates whether the box LED should blink during penalty times (true) or not (false).",
-          "title": "Penalty Light",
-          "type": "boolean"
-        }
-      },
-      "required": [
-        "iti_light",
-        "poke_light",
-        "fixation_light",
-        "penalty_light"
-      ],
-      "title": "Cues",
-      "type": "object"
-    },
     "FixationTime": {
       "properties": {
         "opto_exp_mean": {
@@ -220,10 +188,6 @@
           "description": "Indicates whether the animal is using headphones (true) or box speakers (false). At the moment, this parameter doesn't modify the behavior of the task. Perhaps in the future, it might be possible to input the calibration curves of both the box speakers and the headphones so that this parameter switches to the correct calibration curves.",
           "title": "Speakers",
           "type": "boolean"
-        },
-        "cues": {
-          "$ref": "#/definitions/Cues",
-          "description": "The parameters that control the use (or not) of visual cues during the task."
         }
       },
       "required": [
@@ -239,8 +203,7 @@
         "critical_performance",
         "max_aborts",
         "trial_repetition",
-        "speakers",
-        "cues"
+        "speakers"
       ],
       "title": "Level",
       "type": "object"

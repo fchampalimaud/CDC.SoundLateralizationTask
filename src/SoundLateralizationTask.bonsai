@@ -20,7 +20,8 @@
                  xmlns:p7="clr-namespace:Animal;assembly=Extensions"
                  xmlns:p8="clr-namespace:Training;assembly=Extensions"
                  xmlns:p9="clr-namespace:SetupList;assembly=Extensions"
-                 xmlns:p10="clr-namespace:PrintDict;assembly=Extensions"
+                 xmlns:p10="clr-namespace:Config;assembly=Extensions"
+                 xmlns:p11="clr-namespace:PrintDict;assembly=Extensions"
                  xmlns:num="clr-namespace:Bonsai.Numerics;assembly=Bonsai.Numerics"
                  xmlns:gui="clr-namespace:Bonsai.Gui;assembly=Bonsai.Gui"
                  xmlns:zg="clr-namespace:Bonsai.Gui.ZedGraph;assembly=Bonsai.Gui.ZedGraph"
@@ -4676,10 +4677,10 @@
                           <Name>BoxLEDOn</Name>
                         </Expression>
                         <Expression xsi:type="SubscribeSubject">
-                          <Name>LevelConfig</Name>
+                          <Name>SetupConfig</Name>
                         </Expression>
                         <Expression xsi:type="MemberSelector">
-                          <Selector>Cues.ItiLight</Selector>
+                          <Selector>Lights.ItiLight</Selector>
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="rx:WithLatestFrom" />
@@ -4771,10 +4772,10 @@
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="SubscribeSubject">
-                          <Name>LevelConfig</Name>
+                          <Name>SetupConfig</Name>
                         </Expression>
                         <Expression xsi:type="MemberSelector">
-                          <Selector>Cues.PokeLight</Selector>
+                          <Selector>Lights.PokeLight</Selector>
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="rx:WithLatestFrom" />
@@ -4865,10 +4866,10 @@
                           <Workflow>
                             <Nodes>
                               <Expression xsi:type="SubscribeSubject">
-                                <Name>LevelConfig</Name>
+                                <Name>SetupConfig</Name>
                               </Expression>
                               <Expression xsi:type="MemberSelector">
-                                <Selector>Cues.FixationLight</Selector>
+                                <Selector>Lights.FixationLight</Selector>
                               </Expression>
                               <Expression xsi:type="WorkflowOutput" />
                             </Nodes>
@@ -5009,10 +5010,10 @@
                           <Workflow>
                             <Nodes>
                               <Expression xsi:type="SubscribeSubject">
-                                <Name>LevelConfig</Name>
+                                <Name>SetupConfig</Name>
                               </Expression>
                               <Expression xsi:type="MemberSelector">
-                                <Selector>Cues.PenaltyLight</Selector>
+                                <Selector>Lights.PenaltyLight</Selector>
                               </Expression>
                               <Expression xsi:type="WorkflowOutput" />
                             </Nodes>
@@ -5189,8 +5190,16 @@
                 </Edges>
               </Workflow>
             </Expression>
-            <Expression xsi:type="ExternalizedMapping">
-              <Property Name="PortName" DisplayName="BehaviorPortName" />
+            <Expression xsi:type="SubscribeSubject">
+              <Name>Config</Name>
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>BehaviorPort</Selector>
+            </Expression>
+            <Expression xsi:type="PropertyMapping">
+              <PropertyMappings>
+                <Property Name="PortName" />
+              </PropertyMappings>
             </Expression>
             <Expression xsi:type="GroupWorkflow">
               <Name>Behavior</Name>
@@ -5215,6 +5224,12 @@
                   </Expression>
                   <Expression xsi:type="rx:PublishSubject">
                     <Name>BehaviorMessages</Name>
+                  </Expression>
+                  <Expression xsi:type="SubscribeSubject">
+                    <Name>Config</Name>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="rx:SubscribeWhen" />
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
                     <Name>BehaviorMessages</Name>
@@ -5663,39 +5678,49 @@
                   <Edge From="0" To="2" Label="Source1" />
                   <Edge From="1" To="2" Label="Source2" />
                   <Edge From="2" To="3" Label="Source1" />
-                  <Edge From="4" To="5" Label="Source1" />
-                  <Edge From="4" To="8" Label="Source1" />
-                  <Edge From="5" To="6" Label="Source1" />
+                  <Edge From="3" To="5" Label="Source1" />
+                  <Edge From="4" To="5" Label="Source2" />
                   <Edge From="6" To="7" Label="Source1" />
+                  <Edge From="6" To="10" Label="Source1" />
+                  <Edge From="7" To="8" Label="Source1" />
                   <Edge From="8" To="9" Label="Source1" />
-                  <Edge From="8" To="11" Label="Source1" />
-                  <Edge From="8" To="13" Label="Source1" />
-                  <Edge From="9" To="10" Label="Source1" />
+                  <Edge From="10" To="11" Label="Source1" />
+                  <Edge From="10" To="13" Label="Source1" />
+                  <Edge From="10" To="15" Label="Source1" />
                   <Edge From="11" To="12" Label="Source1" />
                   <Edge From="13" To="14" Label="Source1" />
-                  <Edge From="15" To="18" Label="Source1" />
-                  <Edge From="16" To="18" Label="Source2" />
-                  <Edge From="17" To="18" Label="Source3" />
-                  <Edge From="18" To="19" Label="Source1" />
-                  <Edge From="19" To="21" Label="Source1" />
-                  <Edge From="20" To="21" Label="Source2" />
-                  <Edge From="22" To="23" Label="Source1" />
-                  <Edge From="22" To="25" Label="Source1" />
-                  <Edge From="23" To="24" Label="Source1" />
+                  <Edge From="15" To="16" Label="Source1" />
+                  <Edge From="17" To="20" Label="Source1" />
+                  <Edge From="18" To="20" Label="Source2" />
+                  <Edge From="19" To="20" Label="Source3" />
+                  <Edge From="20" To="21" Label="Source1" />
+                  <Edge From="21" To="23" Label="Source1" />
+                  <Edge From="22" To="23" Label="Source2" />
+                  <Edge From="24" To="25" Label="Source1" />
+                  <Edge From="24" To="27" Label="Source1" />
                   <Edge From="25" To="26" Label="Source1" />
-                  <Edge From="26" To="27" Label="Source1" />
                   <Edge From="27" To="28" Label="Source1" />
+                  <Edge From="28" To="29" Label="Source1" />
                   <Edge From="29" To="30" Label="Source1" />
-                  <Edge From="29" To="32" Label="Source1" />
-                  <Edge From="30" To="31" Label="Source1" />
+                  <Edge From="31" To="32" Label="Source1" />
+                  <Edge From="31" To="34" Label="Source1" />
                   <Edge From="32" To="33" Label="Source1" />
-                  <Edge From="33" To="34" Label="Source1" />
                   <Edge From="34" To="35" Label="Source1" />
+                  <Edge From="35" To="36" Label="Source1" />
+                  <Edge From="36" To="37" Label="Source1" />
                 </Edges>
               </Workflow>
             </Expression>
-            <Expression xsi:type="ExternalizedMapping">
-              <Property Name="PortName" DisplayName="SoundCardPortName" />
+            <Expression xsi:type="SubscribeSubject">
+              <Name>Config</Name>
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>SoundcardPort</Selector>
+            </Expression>
+            <Expression xsi:type="PropertyMapping">
+              <PropertyMappings>
+                <Property Name="PortName" />
+              </PropertyMappings>
             </Expression>
             <Expression xsi:type="GroupWorkflow">
               <Name>SoundCard</Name>
@@ -5720,6 +5745,12 @@
                   </Expression>
                   <Expression xsi:type="rx:PublishSubject">
                     <Name>SoundCardMessages</Name>
+                  </Expression>
+                  <Expression xsi:type="SubscribeSubject">
+                    <Name>Config</Name>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="rx:SubscribeWhen" />
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
                     <Name>PlaySound</Name>
@@ -5843,42 +5874,52 @@
                   <Edge From="0" To="2" Label="Source1" />
                   <Edge From="1" To="2" Label="Source2" />
                   <Edge From="2" To="3" Label="Source1" />
-                  <Edge From="4" To="7" Label="Source1" />
-                  <Edge From="5" To="6" Label="Source1" />
-                  <Edge From="6" To="7" Label="Source2" />
-                  <Edge From="7" To="32" Label="Source1" />
-                  <Edge From="8" To="14" Label="Source1" />
-                  <Edge From="9" To="10" Label="Source1" />
-                  <Edge From="10" To="13" Label="Source1" />
+                  <Edge From="3" To="5" Label="Source1" />
+                  <Edge From="4" To="5" Label="Source2" />
+                  <Edge From="6" To="9" Label="Source1" />
+                  <Edge From="7" To="8" Label="Source1" />
+                  <Edge From="8" To="9" Label="Source2" />
+                  <Edge From="9" To="34" Label="Source1" />
+                  <Edge From="10" To="16" Label="Source1" />
                   <Edge From="11" To="12" Label="Source1" />
-                  <Edge From="12" To="13" Label="Source2" />
-                  <Edge From="13" To="14" Label="Source2" />
-                  <Edge From="14" To="15" Label="Source1" />
-                  <Edge From="15" To="16" Label="Source1" />
+                  <Edge From="12" To="15" Label="Source1" />
+                  <Edge From="13" To="14" Label="Source1" />
+                  <Edge From="14" To="15" Label="Source2" />
+                  <Edge From="15" To="16" Label="Source2" />
                   <Edge From="16" To="17" Label="Source1" />
                   <Edge From="17" To="18" Label="Source1" />
                   <Edge From="18" To="19" Label="Source1" />
-                  <Edge From="19" To="32" Label="Source2" />
-                  <Edge From="20" To="26" Label="Source1" />
-                  <Edge From="21" To="22" Label="Source1" />
-                  <Edge From="22" To="25" Label="Source1" />
+                  <Edge From="19" To="20" Label="Source1" />
+                  <Edge From="20" To="21" Label="Source1" />
+                  <Edge From="21" To="34" Label="Source2" />
+                  <Edge From="22" To="28" Label="Source1" />
                   <Edge From="23" To="24" Label="Source1" />
-                  <Edge From="24" To="25" Label="Source2" />
-                  <Edge From="25" To="26" Label="Source2" />
-                  <Edge From="26" To="27" Label="Source1" />
-                  <Edge From="27" To="28" Label="Source1" />
+                  <Edge From="24" To="27" Label="Source1" />
+                  <Edge From="25" To="26" Label="Source1" />
+                  <Edge From="26" To="27" Label="Source2" />
+                  <Edge From="27" To="28" Label="Source2" />
                   <Edge From="28" To="29" Label="Source1" />
                   <Edge From="29" To="30" Label="Source1" />
                   <Edge From="30" To="31" Label="Source1" />
-                  <Edge From="31" To="32" Label="Source3" />
+                  <Edge From="31" To="32" Label="Source1" />
                   <Edge From="32" To="33" Label="Source1" />
-                  <Edge From="33" To="35" Label="Source1" />
-                  <Edge From="34" To="35" Label="Source2" />
+                  <Edge From="33" To="34" Label="Source3" />
+                  <Edge From="34" To="35" Label="Source1" />
+                  <Edge From="35" To="37" Label="Source1" />
+                  <Edge From="36" To="37" Label="Source2" />
                 </Edges>
               </Workflow>
             </Expression>
-            <Expression xsi:type="ExternalizedMapping">
-              <Property Name="PortName" DisplayName="LeftSyringePumpPortName" />
+            <Expression xsi:type="SubscribeSubject">
+              <Name>Config</Name>
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>LeftPumpPort</Selector>
+            </Expression>
+            <Expression xsi:type="PropertyMapping">
+              <PropertyMappings>
+                <Property Name="PortName" />
+              </PropertyMappings>
             </Expression>
             <Expression xsi:type="GroupWorkflow">
               <Name>LeftSyringePump</Name>
@@ -5912,6 +5953,12 @@
                   </Expression>
                   <Expression xsi:type="scr:ExpressionCondition">
                     <scr:Expression>it</scr:Expression>
+                  </Expression>
+                  <Expression xsi:type="SubscribeSubject">
+                    <Name>Config</Name>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="rx:Zip" />
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:SubscribeWhen" />
@@ -5994,35 +6041,45 @@
                   <Edge From="0" To="2" Label="Source1" />
                   <Edge From="1" To="2" Label="Source2" />
                   <Edge From="2" To="3" Label="Source1" />
-                  <Edge From="3" To="7" Label="Source1" />
+                  <Edge From="3" To="9" Label="Source1" />
                   <Edge From="4" To="5" Label="Source1" />
                   <Edge From="5" To="6" Label="Source1" />
-                  <Edge From="6" To="7" Label="Source2" />
-                  <Edge From="8" To="24" Label="Source1" />
-                  <Edge From="9" To="10" Label="Source1" />
-                  <Edge From="10" To="12" Label="Source1" />
-                  <Edge From="11" To="12" Label="Source2" />
-                  <Edge From="12" To="13" Label="Source1" />
-                  <Edge From="13" To="17" Label="Source1" />
+                  <Edge From="6" To="8" Label="Source1" />
+                  <Edge From="7" To="8" Label="Source2" />
+                  <Edge From="8" To="9" Label="Source2" />
+                  <Edge From="10" To="26" Label="Source1" />
+                  <Edge From="11" To="12" Label="Source1" />
+                  <Edge From="12" To="14" Label="Source1" />
+                  <Edge From="13" To="14" Label="Source2" />
                   <Edge From="14" To="15" Label="Source1" />
-                  <Edge From="14" To="16" Label="Source1" />
-                  <Edge From="15" To="17" Label="Source2" />
-                  <Edge From="16" To="17" Label="Source3" />
-                  <Edge From="17" To="18" Label="Source1" />
-                  <Edge From="18" To="19" Label="Source1" />
+                  <Edge From="15" To="19" Label="Source1" />
+                  <Edge From="16" To="17" Label="Source1" />
+                  <Edge From="16" To="18" Label="Source1" />
+                  <Edge From="17" To="19" Label="Source2" />
+                  <Edge From="18" To="19" Label="Source3" />
                   <Edge From="19" To="20" Label="Source1" />
                   <Edge From="20" To="21" Label="Source1" />
-                  <Edge From="21" To="24" Label="Source2" />
-                  <Edge From="22" To="24" Label="Source3" />
-                  <Edge From="23" To="24" Label="Source4" />
-                  <Edge From="24" To="25" Label="Source1" />
-                  <Edge From="25" To="27" Label="Source1" />
-                  <Edge From="26" To="27" Label="Source2" />
+                  <Edge From="21" To="22" Label="Source1" />
+                  <Edge From="22" To="23" Label="Source1" />
+                  <Edge From="23" To="26" Label="Source2" />
+                  <Edge From="24" To="26" Label="Source3" />
+                  <Edge From="25" To="26" Label="Source4" />
+                  <Edge From="26" To="27" Label="Source1" />
+                  <Edge From="27" To="29" Label="Source1" />
+                  <Edge From="28" To="29" Label="Source2" />
                 </Edges>
               </Workflow>
             </Expression>
-            <Expression xsi:type="ExternalizedMapping">
-              <Property Name="PortName" DisplayName="RightSyringePumpPortName" />
+            <Expression xsi:type="SubscribeSubject">
+              <Name>Config</Name>
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>RightPumpPort</Selector>
+            </Expression>
+            <Expression xsi:type="PropertyMapping">
+              <PropertyMappings>
+                <Property Name="PortName" />
+              </PropertyMappings>
             </Expression>
             <Expression xsi:type="GroupWorkflow">
               <Name>RightSyringePump</Name>
@@ -6056,6 +6113,12 @@
                   </Expression>
                   <Expression xsi:type="scr:ExpressionCondition">
                     <scr:Expression>it</scr:Expression>
+                  </Expression>
+                  <Expression xsi:type="SubscribeSubject">
+                    <Name>Config</Name>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="rx:Zip" />
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:SubscribeWhen" />
@@ -6138,35 +6201,45 @@
                   <Edge From="0" To="2" Label="Source1" />
                   <Edge From="1" To="2" Label="Source2" />
                   <Edge From="2" To="3" Label="Source1" />
-                  <Edge From="3" To="7" Label="Source1" />
+                  <Edge From="3" To="9" Label="Source1" />
                   <Edge From="4" To="5" Label="Source1" />
                   <Edge From="5" To="6" Label="Source1" />
-                  <Edge From="6" To="7" Label="Source2" />
-                  <Edge From="8" To="24" Label="Source1" />
-                  <Edge From="9" To="10" Label="Source1" />
-                  <Edge From="10" To="12" Label="Source1" />
-                  <Edge From="11" To="12" Label="Source2" />
-                  <Edge From="12" To="13" Label="Source1" />
-                  <Edge From="13" To="17" Label="Source1" />
+                  <Edge From="6" To="8" Label="Source1" />
+                  <Edge From="7" To="8" Label="Source2" />
+                  <Edge From="8" To="9" Label="Source2" />
+                  <Edge From="10" To="26" Label="Source1" />
+                  <Edge From="11" To="12" Label="Source1" />
+                  <Edge From="12" To="14" Label="Source1" />
+                  <Edge From="13" To="14" Label="Source2" />
                   <Edge From="14" To="15" Label="Source1" />
-                  <Edge From="14" To="16" Label="Source1" />
-                  <Edge From="15" To="17" Label="Source2" />
-                  <Edge From="16" To="17" Label="Source3" />
-                  <Edge From="17" To="18" Label="Source1" />
-                  <Edge From="18" To="19" Label="Source1" />
+                  <Edge From="15" To="19" Label="Source1" />
+                  <Edge From="16" To="17" Label="Source1" />
+                  <Edge From="16" To="18" Label="Source1" />
+                  <Edge From="17" To="19" Label="Source2" />
+                  <Edge From="18" To="19" Label="Source3" />
                   <Edge From="19" To="20" Label="Source1" />
                   <Edge From="20" To="21" Label="Source1" />
-                  <Edge From="21" To="24" Label="Source2" />
-                  <Edge From="22" To="24" Label="Source3" />
-                  <Edge From="23" To="24" Label="Source4" />
-                  <Edge From="24" To="25" Label="Source1" />
-                  <Edge From="25" To="27" Label="Source1" />
-                  <Edge From="26" To="27" Label="Source2" />
+                  <Edge From="21" To="22" Label="Source1" />
+                  <Edge From="22" To="23" Label="Source1" />
+                  <Edge From="23" To="26" Label="Source2" />
+                  <Edge From="24" To="26" Label="Source3" />
+                  <Edge From="25" To="26" Label="Source4" />
+                  <Edge From="26" To="27" Label="Source1" />
+                  <Edge From="27" To="29" Label="Source1" />
+                  <Edge From="28" To="29" Label="Source2" />
                 </Edges>
               </Workflow>
             </Expression>
-            <Expression xsi:type="ExternalizedMapping">
-              <Property Name="PortName" DisplayName="CurrentDriverPortName" />
+            <Expression xsi:type="SubscribeSubject">
+              <Name>Config</Name>
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>CurrentdriverPort</Selector>
+            </Expression>
+            <Expression xsi:type="PropertyMapping">
+              <PropertyMappings>
+                <Property Name="PortName" />
+              </PropertyMappings>
             </Expression>
             <Expression xsi:type="GroupWorkflow">
               <Name>CurrentDriver</Name>
@@ -6555,6 +6628,12 @@
                   <Expression xsi:type="scr:ExpressionCondition">
                     <scr:Expression>it</scr:Expression>
                   </Expression>
+                  <Expression xsi:type="SubscribeSubject">
+                    <Name>Config</Name>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="rx:Zip" />
+                  </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:SubscribeWhen" />
                   </Expression>
@@ -6563,20 +6642,32 @@
                   <Edge From="1" To="3" Label="Source1" />
                   <Edge From="2" To="3" Label="Source2" />
                   <Edge From="3" To="4" Label="Source1" />
-                  <Edge From="4" To="8" Label="Source1" />
+                  <Edge From="4" To="10" Label="Source1" />
                   <Edge From="5" To="6" Label="Source1" />
                   <Edge From="6" To="7" Label="Source1" />
-                  <Edge From="7" To="8" Label="Source2" />
+                  <Edge From="7" To="9" Label="Source1" />
+                  <Edge From="8" To="9" Label="Source2" />
+                  <Edge From="9" To="10" Label="Source2" />
                 </Edges>
               </Workflow>
             </Expression>
           </Nodes>
           <Edges>
             <Edge From="1" To="2" Label="Source1" />
+            <Edge From="2" To="3" Label="Source1" />
             <Edge From="3" To="4" Label="Source1" />
             <Edge From="5" To="6" Label="Source1" />
+            <Edge From="6" To="7" Label="Source1" />
             <Edge From="7" To="8" Label="Source1" />
             <Edge From="9" To="10" Label="Source1" />
+            <Edge From="10" To="11" Label="Source1" />
+            <Edge From="11" To="12" Label="Source1" />
+            <Edge From="13" To="14" Label="Source1" />
+            <Edge From="14" To="15" Label="Source1" />
+            <Edge From="15" To="16" Label="Source1" />
+            <Edge From="17" To="18" Label="Source1" />
+            <Edge From="18" To="19" Label="Source1" />
+            <Edge From="19" To="20" Label="Source1" />
           </Edges>
         </Workflow>
       </Expression>
@@ -7639,8 +7730,16 @@
                 </Edges>
               </Workflow>
             </Expression>
-            <Expression xsi:type="ExternalizedMapping">
-              <Property Name="OutputDirPath" />
+            <Expression xsi:type="SubscribeSubject">
+              <Name>Config</Name>
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>OutputPath</Selector>
+            </Expression>
+            <Expression xsi:type="PropertyMapping">
+              <PropertyMappings>
+                <Property Name="OutputDirPath" />
+              </PropertyMappings>
             </Expression>
             <Expression xsi:type="GroupWorkflow">
               <Name>OutputDirectory</Name>
@@ -7651,7 +7750,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p2:GetOutputDir">
-                      <p2:OutputDirPath>output</p2:OutputDirPath>
+                      <p2:OutputDirPath>..\output</p2:OutputDirPath>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="Combinator">
@@ -7688,9 +7787,19 @@
                 </Edges>
               </Workflow>
             </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>Config</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:SubscribeWhen" />
+            </Expression>
           </Nodes>
           <Edges>
             <Edge From="5" To="6" Label="Source1" />
+            <Edge From="6" To="7" Label="Source1" />
+            <Edge From="7" To="8" Label="Source1" />
+            <Edge From="8" To="10" Label="Source1" />
+            <Edge From="9" To="10" Label="Source2" />
           </Edges>
         </Workflow>
       </Expression>
@@ -7811,12 +7920,31 @@
                 </Edges>
               </Workflow>
             </Expression>
-            <Expression xsi:type="ExternalizedMapping">
-              <Property Name="Path" DisplayName="AnimalPath" />
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="io:ReadAllText">
+                <io:Path>config\config.yml</io:Path>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="p10:DeserializeFromYaml">
+              <p10:Type xsi:type="TypeMapping" TypeArguments="p10:Config" />
+            </Expression>
+            <Expression xsi:type="rx:AsyncSubject">
+              <Name>Config</Name>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>Config</Name>
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>AnimalPath</Selector>
+            </Expression>
+            <Expression xsi:type="PropertyMapping">
+              <PropertyMappings>
+                <Property Name="Path" />
+              </PropertyMappings>
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="io:ReadAllText">
-                <io:Path>config\animal.yml</io:Path>
+                <io:Path>..\config\animal.yml</io:Path>
               </Combinator>
             </Expression>
             <Expression xsi:type="p7:DeserializeFromYaml">
@@ -7825,12 +7953,26 @@
             <Expression xsi:type="rx:AsyncSubject">
               <Name>AnimalConfig</Name>
             </Expression>
-            <Expression xsi:type="ExternalizedMapping">
-              <Property Name="Path" DisplayName="TrainingPath" />
+            <Expression xsi:type="SubscribeSubject">
+              <Name>Config</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:SubscribeWhen" />
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>Config</Name>
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>TrainingPath</Selector>
+            </Expression>
+            <Expression xsi:type="PropertyMapping">
+              <PropertyMappings>
+                <Property Name="Path" />
+              </PropertyMappings>
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="io:ReadAllText">
-                <io:Path>config\training.json</io:Path>
+                <io:Path>..\config\training.json</io:Path>
               </Combinator>
             </Expression>
             <Expression xsi:type="p8:DeserializeFromJson">
@@ -7839,12 +7981,26 @@
             <Expression xsi:type="rx:AsyncSubject">
               <Name>TrainingConfig</Name>
             </Expression>
-            <Expression xsi:type="ExternalizedMapping">
-              <Property Name="Path" DisplayName="SetupPath" />
+            <Expression xsi:type="SubscribeSubject">
+              <Name>Config</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:SubscribeWhen" />
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>Config</Name>
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>SetupPath</Selector>
+            </Expression>
+            <Expression xsi:type="PropertyMapping">
+              <PropertyMappings>
+                <Property Name="Path" />
+              </PropertyMappings>
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="io:ReadAllText">
-                <io:Path>config\setup.json</io:Path>
+                <io:Path>..\config\setup.json</io:Path>
               </Combinator>
             </Expression>
             <Expression xsi:type="p9:DeserializeFromJson">
@@ -7884,16 +8040,19 @@
             <Expression xsi:type="rx:AsyncSubject">
               <Name>SetupConfig</Name>
             </Expression>
-            <Expression xsi:type="ExternalizedMapping">
-              <Property Name="Path" DisplayName="PrintPath" />
+            <Expression xsi:type="SubscribeSubject">
+              <Name>Config</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:SubscribeWhen" />
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="io:ReadAllText">
                 <io:Path>config\prints.json</io:Path>
               </Combinator>
             </Expression>
-            <Expression xsi:type="p10:DeserializeFromJson">
-              <p10:Type xsi:type="TypeMapping" TypeArguments="p10:PrintDict" />
+            <Expression xsi:type="p11:DeserializeFromJson">
+              <p11:Type xsi:type="TypeMapping" TypeArguments="p11:PrintDict" />
             </Expression>
             <Expression xsi:type="rx:AsyncSubject">
               <Name>Prints</Name>
@@ -7942,33 +8101,46 @@
           <Edges>
             <Edge From="1" To="2" Label="Source1" />
             <Edge From="2" To="3" Label="Source1" />
-            <Edge From="3" To="4" Label="Source1" />
+            <Edge From="4" To="5" Label="Source1" />
             <Edge From="5" To="6" Label="Source1" />
             <Edge From="6" To="7" Label="Source1" />
             <Edge From="7" To="8" Label="Source1" />
-            <Edge From="9" To="10" Label="Source1" />
-            <Edge From="10" To="11" Label="Source1" />
-            <Edge From="11" To="12" Label="Source1" />
+            <Edge From="8" To="9" Label="Source1" />
+            <Edge From="9" To="11" Label="Source1" />
+            <Edge From="10" To="11" Label="Source2" />
             <Edge From="12" To="13" Label="Source1" />
-            <Edge From="13" To="16" Label="Source1" />
+            <Edge From="13" To="14" Label="Source1" />
             <Edge From="14" To="15" Label="Source1" />
-            <Edge From="15" To="16" Label="Source2" />
+            <Edge From="15" To="16" Label="Source1" />
             <Edge From="16" To="17" Label="Source1" />
-            <Edge From="17" To="18" Label="Source1" />
-            <Edge From="18" To="19" Label="Source1" />
-            <Edge From="19" To="20" Label="Source1" />
+            <Edge From="17" To="19" Label="Source1" />
+            <Edge From="18" To="19" Label="Source2" />
+            <Edge From="20" To="21" Label="Source1" />
             <Edge From="21" To="22" Label="Source1" />
             <Edge From="22" To="23" Label="Source1" />
             <Edge From="23" To="24" Label="Source1" />
+            <Edge From="24" To="25" Label="Source1" />
             <Edge From="25" To="26" Label="Source1" />
-            <Edge From="26" To="27" Label="Source1" />
-            <Edge From="28" To="29" Label="Source1" />
-            <Edge From="29" To="32" Label="Source1" />
+            <Edge From="26" To="29" Label="Source1" />
+            <Edge From="27" To="28" Label="Source1" />
+            <Edge From="28" To="29" Label="Source2" />
+            <Edge From="29" To="30" Label="Source1" />
             <Edge From="30" To="31" Label="Source1" />
-            <Edge From="31" To="32" Label="Source2" />
+            <Edge From="31" To="32" Label="Source1" />
             <Edge From="32" To="33" Label="Source1" />
-            <Edge From="33" To="34" Label="Source1" />
-            <Edge From="34" To="35" Label="Source1" />
+            <Edge From="33" To="35" Label="Source1" />
+            <Edge From="34" To="35" Label="Source2" />
+            <Edge From="36" To="37" Label="Source1" />
+            <Edge From="37" To="38" Label="Source1" />
+            <Edge From="39" To="40" Label="Source1" />
+            <Edge From="40" To="41" Label="Source1" />
+            <Edge From="42" To="43" Label="Source1" />
+            <Edge From="43" To="46" Label="Source1" />
+            <Edge From="44" To="45" Label="Source1" />
+            <Edge From="45" To="46" Label="Source2" />
+            <Edge From="46" To="47" Label="Source1" />
+            <Edge From="47" To="48" Label="Source1" />
+            <Edge From="48" To="49" Label="Source1" />
           </Edges>
         </Workflow>
       </Expression>

@@ -23,6 +23,14 @@ namespace SetupList
     
         private double _pokeDutyCycle;
     
+        private bool _itiLight;
+    
+        private bool _pokeLight;
+    
+        private bool _fixationLight;
+    
+        private bool _penaltyLight;
+    
         public Lights()
         {
         }
@@ -33,6 +41,10 @@ namespace SetupList
             _boxDutyCycle = other._boxDutyCycle;
             _pokePeriod = other._pokePeriod;
             _pokeDutyCycle = other._pokeDutyCycle;
+            _itiLight = other._itiLight;
+            _pokeLight = other._pokeLight;
+            _fixationLight = other._fixationLight;
+            _penaltyLight = other._penaltyLight;
         }
     
         /// <summary>
@@ -107,6 +119,82 @@ namespace SetupList
             }
         }
     
+        /// <summary>
+        /// Indicates whether the box LED should turn of when the new trial is ready (true) or not (false).
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("iti_light", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="iti_light")]
+        [System.ComponentModel.DescriptionAttribute("Indicates whether the box LED should turn of when the new trial is ready (true) o" +
+            "r not (false).")]
+        public bool ItiLight
+        {
+            get
+            {
+                return _itiLight;
+            }
+            set
+            {
+                _itiLight = value;
+            }
+        }
+    
+        /// <summary>
+        /// Indicates whether the central poke LED should turn of when the new trial is ready (true) or not (false).
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("poke_light", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="poke_light")]
+        [System.ComponentModel.DescriptionAttribute("Indicates whether the central poke LED should turn of when the new trial is ready" +
+            " (true) or not (false).")]
+        public bool PokeLight
+        {
+            get
+            {
+                return _pokeLight;
+            }
+            set
+            {
+                _pokeLight = value;
+            }
+        }
+    
+        /// <summary>
+        /// Indicates whether the central poke LED should blink during fixation time (true) or not (false).
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("fixation_light", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="fixation_light")]
+        [System.ComponentModel.DescriptionAttribute("Indicates whether the central poke LED should blink during fixation time (true) o" +
+            "r not (false).")]
+        public bool FixationLight
+        {
+            get
+            {
+                return _fixationLight;
+            }
+            set
+            {
+                _fixationLight = value;
+            }
+        }
+    
+        /// <summary>
+        /// Indicates whether the box LED should blink during penalty times (true) or not (false).
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("penalty_light", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="penalty_light")]
+        [System.ComponentModel.DescriptionAttribute("Indicates whether the box LED should blink during penalty times (true) or not (fa" +
+            "lse).")]
+        public bool PenaltyLight
+        {
+            get
+            {
+                return _penaltyLight;
+            }
+            set
+            {
+                _penaltyLight = value;
+            }
+        }
+    
         public System.IObservable<Lights> Process()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new Lights(this)));
@@ -122,7 +210,11 @@ namespace SetupList
             stringBuilder.Append("box_period = " + _boxPeriod + ", ");
             stringBuilder.Append("box_duty_cycle = " + _boxDutyCycle + ", ");
             stringBuilder.Append("poke_period = " + _pokePeriod + ", ");
-            stringBuilder.Append("poke_duty_cycle = " + _pokeDutyCycle);
+            stringBuilder.Append("poke_duty_cycle = " + _pokeDutyCycle + ", ");
+            stringBuilder.Append("iti_light = " + _itiLight + ", ");
+            stringBuilder.Append("poke_light = " + _pokeLight + ", ");
+            stringBuilder.Append("fixation_light = " + _fixationLight + ", ");
+            stringBuilder.Append("penalty_light = " + _penaltyLight);
             return true;
         }
     

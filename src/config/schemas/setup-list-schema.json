@@ -27,13 +27,37 @@
           "minimum": 0.0,
           "title": "Poke Duty Cycle",
           "type": "number"
+        },
+        "iti_light": {
+          "description": "Indicates whether the box LED should turn of when the new trial is ready (true) or not (false).",
+          "title": "Iti Light",
+          "type": "boolean"
+        },
+        "poke_light": {
+          "description": "Indicates whether the central poke LED should turn of when the new trial is ready (true) or not (false).",
+          "title": "Poke Light",
+          "type": "boolean"
+        },
+        "fixation_light": {
+          "description": "Indicates whether the central poke LED should blink during fixation time (true) or not (false).",
+          "title": "Fixation Light",
+          "type": "boolean"
+        },
+        "penalty_light": {
+          "description": "Indicates whether the box LED should blink during penalty times (true) or not (false).",
+          "title": "Penalty Light",
+          "type": "boolean"
         }
       },
       "required": [
         "box_period",
         "box_duty_cycle",
         "poke_period",
-        "poke_duty_cycle"
+        "poke_duty_cycle",
+        "iti_light",
+        "poke_light",
+        "fixation_light",
+        "penalty_light"
       ],
       "title": "Lights",
       "type": "object"

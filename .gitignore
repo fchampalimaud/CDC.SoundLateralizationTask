@@ -8,8 +8,7 @@ obj
 
 nuget.config
 /docs/_site
-/src/output
-/parser/output
+output
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

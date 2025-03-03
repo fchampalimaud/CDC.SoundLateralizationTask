@@ -191,142 +191,6 @@ namespace Training
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
     [Bonsai.CombinatorAttribute()]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
-    public partial class Cues
-    {
-    
-        private bool _itiLight;
-    
-        private bool _pokeLight;
-    
-        private bool _fixationLight;
-    
-        private bool _penaltyLight;
-    
-        public Cues()
-        {
-        }
-    
-        protected Cues(Cues other)
-        {
-            _itiLight = other._itiLight;
-            _pokeLight = other._pokeLight;
-            _fixationLight = other._fixationLight;
-            _penaltyLight = other._penaltyLight;
-        }
-    
-        /// <summary>
-        /// Indicates whether the box LED should turn of when the new trial is ready (true) or not (false).
-        /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("iti_light", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="iti_light")]
-        [System.ComponentModel.DescriptionAttribute("Indicates whether the box LED should turn of when the new trial is ready (true) o" +
-            "r not (false).")]
-        public bool ItiLight
-        {
-            get
-            {
-                return _itiLight;
-            }
-            set
-            {
-                _itiLight = value;
-            }
-        }
-    
-        /// <summary>
-        /// Indicates whether the central poke LED should turn of when the new trial is ready (true) or not (false).
-        /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("poke_light", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="poke_light")]
-        [System.ComponentModel.DescriptionAttribute("Indicates whether the central poke LED should turn of when the new trial is ready" +
-            " (true) or not (false).")]
-        public bool PokeLight
-        {
-            get
-            {
-                return _pokeLight;
-            }
-            set
-            {
-                _pokeLight = value;
-            }
-        }
-    
-        /// <summary>
-        /// Indicates whether the central poke LED should blink during fixation time (true) or not (false).
-        /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("fixation_light", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="fixation_light")]
-        [System.ComponentModel.DescriptionAttribute("Indicates whether the central poke LED should blink during fixation time (true) o" +
-            "r not (false).")]
-        public bool FixationLight
-        {
-            get
-            {
-                return _fixationLight;
-            }
-            set
-            {
-                _fixationLight = value;
-            }
-        }
-    
-        /// <summary>
-        /// Indicates whether the box LED should blink during penalty times (true) or not (false).
-        /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("penalty_light", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="penalty_light")]
-        [System.ComponentModel.DescriptionAttribute("Indicates whether the box LED should blink during penalty times (true) or not (fa" +
-            "lse).")]
-        public bool PenaltyLight
-        {
-            get
-            {
-                return _penaltyLight;
-            }
-            set
-            {
-                _penaltyLight = value;
-            }
-        }
-    
-        public System.IObservable<Cues> Process()
-        {
-            return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new Cues(this)));
-        }
-    
-        public System.IObservable<Cues> Process<TSource>(System.IObservable<TSource> source)
-        {
-            return System.Reactive.Linq.Observable.Select(source, _ => new Cues(this));
-        }
-    
-        protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
-        {
-            stringBuilder.Append("iti_light = " + _itiLight + ", ");
-            stringBuilder.Append("poke_light = " + _pokeLight + ", ");
-            stringBuilder.Append("fixation_light = " + _fixationLight + ", ");
-            stringBuilder.Append("penalty_light = " + _penaltyLight);
-            return true;
-        }
-    
-        public override string ToString()
-        {
-            System.Text.StringBuilder stringBuilder = new System.Text.StringBuilder();
-            stringBuilder.Append(GetType().Name);
-            stringBuilder.Append(" { ");
-            if (PrintMembers(stringBuilder))
-            {
-                stringBuilder.Append(" ");
-            }
-            stringBuilder.Append("}");
-            return stringBuilder.ToString();
-        }
-    }
-
-
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
-    [Bonsai.CombinatorAttribute()]
-    [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
     public partial class FixationTime
     {
     
@@ -690,8 +554,6 @@ namespace Training
     
         private bool _speakers;
     
-        private Cues _cues = new Cues();
-    
         public Level()
         {
         }
@@ -711,7 +573,6 @@ namespace Training
             _maxAborts = other._maxAborts;
             _trialRepetition = other._trialRepetition;
             _speakers = other._speakers;
-            _cues = other._cues;
         }
     
         /// <summary>
@@ -956,25 +817,6 @@ namespace Training
             }
         }
     
-        /// <summary>
-        /// The parameters that control the use (or not) of visual cues during the task.
-        /// </summary>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        [Newtonsoft.Json.JsonPropertyAttribute("cues", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="cues")]
-        [System.ComponentModel.DescriptionAttribute("The parameters that control the use (or not) of visual cues during the task.")]
-        public Cues Cues
-        {
-            get
-            {
-                return _cues;
-            }
-            set
-            {
-                _cues = value;
-            }
-        }
-    
         public System.IObservable<Level> Process()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new Level(this)));
@@ -999,8 +841,7 @@ namespace Training
             stringBuilder.Append("critical_performance = " + _criticalPerformance + ", ");
             stringBuilder.Append("max_aborts = " + _maxAborts + ", ");
             stringBuilder.Append("trial_repetition = " + _trialRepetition + ", ");
-            stringBuilder.Append("speakers = " + _speakers + ", ");
-            stringBuilder.Append("cues = " + _cues);
+            stringBuilder.Append("speakers = " + _speakers);
             return true;
         }
     
@@ -1489,11 +1330,6 @@ namespace Training
             return Process<CriticalPerformance>(source);
         }
 
-        public System.IObservable<string> Process(System.IObservable<Cues> source)
-        {
-            return Process<Cues>(source);
-        }
-
         public System.IObservable<string> Process(System.IObservable<FixationTime> source)
         {
             return Process<FixationTime>(source);
@@ -1550,7 +1386,6 @@ namespace Training
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Transform)]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<ABL>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<CriticalPerformance>))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Cues>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<FixationTime>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<ILD>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<ITI>))]
@@ -1618,11 +1453,6 @@ namespace Training
             return Process<CriticalPerformance>(source);
         }
 
-        public System.IObservable<string> Process(System.IObservable<Cues> source)
-        {
-            return Process<Cues>(source);
-        }
-
         public System.IObservable<string> Process(System.IObservable<FixationTime> source)
         {
             return Process<FixationTime>(source);
@@ -1679,7 +1509,6 @@ namespace Training
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Transform)]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<ABL>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<CriticalPerformance>))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Cues>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<FixationTime>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<ILD>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<ITI>))]

@@ -1,6 +1,6 @@
 from pydantic import BaseModel, Field
 from typing import Dict
-from _utils import (
+from sgen._utils import (
     export_schema,
     bonsai_sgen,
     BonsaiSgenSerializers,
@@ -11,14 +11,18 @@ from pathlib import Path
 
 class Print(BaseModel):
     text: str = Field(description="The text to be printed.")
-    units: str = Field(description="The units of the quantity being printed (if necessary).")
+    units: str = Field(
+        description="The units of the quantity being printed (if necessary)."
+    )
 
 
 class PrintDict(BaseModel):
-    prints: Dict[str, Print] = Field(description="The dictionary containing all of the task's prints.")
+    prints: Dict[str, Print] = Field(
+        description="The dictionary containing all of the task's prints."
+    )
 
 
-if __name__ == "__main__":
+def generate_prints():
     json_schema = export_schema(PrintDict)
     schema_name = PrintDict.__name__
     _dashed = pascal_to_snake_case(schema_name).replace("_", "-")
