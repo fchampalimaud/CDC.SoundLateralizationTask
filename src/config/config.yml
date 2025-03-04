@@ -1,0 +1,10 @@
+# yaml-language-server: $schema=schemas/config-schema.json
+animal_path: ''
+behavior_port: COM0
+currentdriver_port: COM0
+left_pump_port: COM0
+output_path: ''
+right_pump_port: COM0
+setup_path: ''
+soundcard_port: COM0
+training_path: ''

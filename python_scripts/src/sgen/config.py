@@ -1,9 +1,6 @@
-from datetime import timedelta
-
 from pydantic import BaseModel, Field
 from pydantic.types import StringConstraints
 from typing_extensions import Annotated
-from typing import List
 from sgen._utils import (
     export_schema,
     bonsai_sgen,

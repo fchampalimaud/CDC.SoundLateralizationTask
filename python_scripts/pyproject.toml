@@ -7,13 +7,20 @@ requires-python = ">=3.12"
 dependencies = [
     "pandas>=2.2.3",
     "pydantic>=2.10.6",
+    "pyharp",
+    "pyserial>=3.5",
+    "pyyaml>=6.0.2",
 ]
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/sgen", "src/parser"]
 
+[tool.uv.sources]
+pyharp = { git = "https://github.com/harp-tech/pyharp.git" }
+
 [project.scripts]
 generate-schemas = "sgen.__main__:main"
+config = "config.__main__:main"
 
 [build-system]
 requires = ["hatchling"]
