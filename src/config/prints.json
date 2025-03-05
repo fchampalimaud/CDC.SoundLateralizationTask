@@ -2,6 +2,7 @@
     "$schema": "schemas/print-dict-schema.json",
     "prints": {
         "new_trial": {"text": "=================================================", "units": ""},
+        "iti_reset": {"text": "ITI Reset", "units": ""},
         "iti": {"text": "Timed ITI: ", "units": "s"},
         "correct_side": {"text": "Trial's correct answer: ", "units": ""},
         "start_trial": {"text": "The animal can now poke", "units": ""},
