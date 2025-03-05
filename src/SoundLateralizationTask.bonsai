@@ -13240,9 +13240,12 @@
                     <Name>TrialStart</Name>
                   </Expression>
                   <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="rx:Zip" />
+                    <Combinator xsi:type="rx:WithLatestFrom" />
                   </Expression>
                   <Expression xsi:type="Subtract" />
+                  <Expression xsi:type="scr:ExpressionCondition">
+                    <scr:Expression>it &gt;= 0</scr:Expression>
+                  </Expression>
                   <Expression xsi:type="MulticastSubject">
                     <Name>TimeToCNP</Name>
                   </Expression>
@@ -13259,6 +13262,7 @@
                   <Edge From="7" To="8" Label="Source1" />
                   <Edge From="8" To="9" Label="Source1" />
                   <Edge From="9" To="10" Label="Source1" />
+                  <Edge From="10" To="11" Label="Source1" />
                 </Edges>
               </Workflow>
             </Expression>
