@@ -32,16 +32,19 @@
     },
     "animal_path": {
       "description": "The path to the animal.yml configuration file.",
+      "pattern": "\\.yml$",
       "title": "Animal Path",
       "type": "string"
     },
     "setup_path": {
       "description": "The path to the setup.json configuration file.",
+      "pattern": "\\.csv$",
       "title": "Setup Path",
       "type": "string"
     },
     "training_path": {
       "description": "The path to the training.yml configuration file.",
+      "pattern": "\\.csv$",
       "title": "Training Path",
       "type": "string"
     },

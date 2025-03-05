@@ -14,3 +14,7 @@ if (!(Test-Path "./Bonsai.exe")) {
     Remove-Item -Path "Bonsai32.exe"
 }
 & .\Bonsai.exe --no-editor
+
+cd ..\python
+
+uv run config

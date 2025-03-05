@@ -2,6 +2,7 @@ import pandas as pd
 import json
 import numpy as np
 from typing import Literal
+import yaml
 
 
 class NpEncoder(json.JSONEncoder):
@@ -61,7 +62,7 @@ def converter(filepath: str, filetype: Literal["setup", "training"]):
         nested_dict = unflatten_json(dictionary)
         lines.append(nested_dict)
 
-    with open("../src/config/" + filetype + "2.json", "w") as f:
+    with open("../src/config/" + filetype + ".json", "w") as f:
         f.write(header + "\n")
         for i in range(len(lines)):
             json_line = json.dumps(lines[i], cls=NpEncoder)
@@ -70,8 +71,3 @@ def converter(filepath: str, filetype: Literal["setup", "training"]):
             else:
                 f.write("        " + json_line + ",\n")
         f.write(footer + "\n")
-
-
-if __name__ == "__main__":
-    converter("./input/setup.csv", "setup")
-    converter("./input/training.csv", "training")

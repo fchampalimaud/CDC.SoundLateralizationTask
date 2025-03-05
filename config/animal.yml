@@ -1,49 +1,49 @@
 # yaml-language-server: $schema=schemas/animal-schema.json
-animal_id: 0
-session:
-  number: 1
-  duration: 02:00:00
-  type: 1
-  setup_id: 0
-  starting_trial_number: 1
-  starting_block_number: 1
-  starting_training_level: 1
-  last_training_level: 10
-sound:
-  fixed_abl: 50
-  abl_list:
-    - 20
-    - 40
-    - 50
-  cycle_ild: true
+animal_id: 1
+autobias_correction: false
+base_reward: 25
 fixation_time:
   opto_onset_time:
-    min_value: 5
     delta: 0.5
+    min_value: 6.0
     target: 100
   sound_onset_time:
-    min_value: 5
     delta: 0.5
+    min_value: 6.0
     target: 100
-reaction_time:
-  min_value: 0.01
+lnp_time:
   delta: 0.001
+  min_value: 0.01
   target: 0.01
 max_reaction_time: 10
 min_movement_time: 0.01
-lnp_time:
-  min_value: 0.01
-  delta: 0.001
-  target: 0.01
-base_reward: 25
 optogenetics:
-  use_opto: false
-  voltage: 1000
   duration: 2
-  opto_ratio: 0.3
-  use_pulses: true
-  ramp_time: 50
   frequency: 20
+  opto_ratio: 0.3
   pulse_duration: 20
+  ramp_time: 50
+  use_opto: false
+  use_pulses: true
   use_rt: true
-autobias_correction: false
+  voltage: 1000
+reaction_time:
+  delta: 0.001
+  min_value: 0.01
+  target: 0.01
+session:
+  duration: 02:00:00
+  last_training_level: 10
+  number: 2
+  setup_id: 0
+  starting_block_number: 2
+  starting_training_level: 1
+  starting_trial_number: 5
+  type: 1
+sound:
+  abl_list:
+  - 20
+  - 40
+  - 50
+  cycle_ild: true
+  fixed_abl: 50

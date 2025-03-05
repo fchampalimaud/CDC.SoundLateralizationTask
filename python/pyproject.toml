@@ -1,5 +1,5 @@
 [project]
-name = "python-scripts"
+name = "python"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
@@ -21,6 +21,8 @@ pyharp = { git = "https://github.com/harp-tech/pyharp.git" }
 [project.scripts]
 generate-schemas = "sgen.__main__:main"
 config = "config.__main__:main"
+startup = "parser.startup_script:startup"
+convert-output = "parser.output_to_csv:convert_output"
 
 [build-system]
 requires = ["hatchling"]

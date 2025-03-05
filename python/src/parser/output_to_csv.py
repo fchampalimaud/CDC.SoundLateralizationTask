@@ -1,13 +1,18 @@
 import os
-from generate_csv import generate_csv
+from parser.generate_csv import generate_csv
+import re
+import yaml
 
 
-def func(input_directory):
+def convert_output():
+    with open("../src/config/config.yml", "r") as file:
+        config = yaml.safe_load(file)
+
     # Walks through the directory
-    for root, dirs, files in os.walk(input_directory):
+    for root, dirs, files in os.walk(config["output_path"]):
         for file in files:
             # Checks if the file is a JSON file
-            if file.endswith(".json"):
+            if re.match(r"^out_\d+\.json$", file):
                 # Gets the full file path
                 file_path = os.path.join(root, file)
                 desired_file = file_path.replace(".json", ".csv")
@@ -16,4 +21,4 @@ def func(input_directory):
 
 
 if __name__ == "__main__":
-    func("../src/output")
+    convert_output()

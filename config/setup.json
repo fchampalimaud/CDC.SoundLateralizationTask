@@ -1,7 +1,0 @@
-{
-    "$schema": "schemas/setup-list-schema.json",
-    "setups": [
-        {"setup_id":0,"left_poke":{"low_to_high":true},"center_poke":{"low_to_high":true},"right_poke":{"low_to_high":true},"speakers":{"left_slope":19.555283,"left_intercept":57.5,"right_slope":19.898726,"right_intercept":57.5},"lights":{"box_period":1000,"box_duty_cycle":0.5,"poke_period":1000,"poke_duty_cycle":0.5},"syringe_pumps":{"use_pumps":false,"left_slope":0.333,"left_intercept":-0.0193,"right_slope":0.3349,"right_intercept":0.0494},"sounds":[{"index":2,"duration":10}],"use_camera":false},
-        {"setup_id":1,"left_poke":{"low_to_high":false},"center_poke":{"low_to_high":false},"right_poke":{"low_to_high":false},"speakers":{"left_slope":19.555283,"left_intercept":57.5,"right_slope":19.898726,"right_intercept":57.5},"lights":{"box_period":1000,"box_duty_cycle":0.5,"poke_period":1000,"poke_duty_cycle":0.5},"syringe_pumps":{"use_pumps":true,"left_slope":0.333,"left_intercept":-0.0193,"right_slope":0.3349,"right_intercept":0.0494},"sounds":[{"index":2,"duration":10},{"index":4,"duration":10},{"index":6,"duration":10},{"index":8,"duration":10},{"index":10,"duration":10}],"use_camera":true}
-    ]
-}

@@ -26,13 +26,13 @@ class Config(BaseModel):
     currentdriver_port: Annotated[str, StringConstraints(pattern=r"^COM\d+$")] = Field(
         description="The COM port of the Harp CurrentDriver."
     )
-    animal_path: str = Field(
+    animal_path: Annotated[str, StringConstraints(pattern=r"\.yml$")] = Field(
         description="The path to the animal.yml configuration file."
     )
-    setup_path: str = Field(
+    setup_path: Annotated[str, StringConstraints(pattern=r"\.csv$")] = Field(
         description="The path to the setup.json configuration file."
     )
-    training_path: str = Field(
+    training_path: Annotated[str, StringConstraints(pattern=r"\.csv$")] = Field(
         description="The path to the training.yml configuration file."
     )
     output_path: str = Field(
