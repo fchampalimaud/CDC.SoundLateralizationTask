@@ -22,7 +22,7 @@ items:
   source:
     remote:
       path: src/Extensions/PrintDict.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: PrintDict
     path: ../src/Extensions/PrintDict.cs
@@ -75,7 +75,7 @@ items:
   source:
     remote:
       path: src/Extensions/PrintDict.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: .ctor
     path: ../src/Extensions/PrintDict.cs
@@ -104,7 +104,7 @@ items:
   source:
     remote:
       path: src/Extensions/PrintDict.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: .ctor
     path: ../src/Extensions/PrintDict.cs
@@ -136,7 +136,7 @@ items:
   source:
     remote:
       path: src/Extensions/PrintDict.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Prints
     path: ../src/Extensions/PrintDict.cs
@@ -194,7 +194,7 @@ items:
   source:
     remote:
       path: src/Extensions/PrintDict.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
     path: ../src/Extensions/PrintDict.cs
@@ -222,7 +222,7 @@ items:
   source:
     remote:
       path: src/Extensions/PrintDict.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
     path: ../src/Extensions/PrintDict.cs
@@ -258,7 +258,7 @@ items:
   source:
     remote:
       path: src/Extensions/PrintDict.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: PrintMembers
     path: ../src/Extensions/PrintDict.cs
@@ -289,7 +289,7 @@ items:
   source:
     remote:
       path: src/Extensions/PrintDict.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: ToString
     path: ../src/Extensions/PrintDict.cs

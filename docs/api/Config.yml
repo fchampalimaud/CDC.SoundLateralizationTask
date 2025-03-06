@@ -1,0 +1,58 @@
+### YamlMime:ManagedReference
+items:
+- uid: Config
+  commentId: N:Config
+  id: Config
+  children:
+  - Config.Config
+  - Config.DeserializeFromJson
+  - Config.DeserializeFromYaml
+  - Config.SerializeToJson
+  - Config.SerializeToYaml
+  langs:
+  - csharp
+  - vb
+  name: Config
+  nameWithType: Config
+  fullName: Config
+  type: Namespace
+  assemblies:
+  - Extensions
+references:
+- uid: Config.Config
+  commentId: T:Config.Config
+  parent: Config
+  href: Config.Config.html
+  name: Config
+  nameWithType: Config
+  fullName: Config.Config
+- uid: Config.SerializeToJson
+  commentId: T:Config.SerializeToJson
+  href: Config.SerializeToJson.html
+  name: SerializeToJson
+  nameWithType: SerializeToJson
+  fullName: Config.SerializeToJson
+- uid: Config.DeserializeFromJson
+  commentId: T:Config.DeserializeFromJson
+  href: Config.DeserializeFromJson.html
+  name: DeserializeFromJson
+  nameWithType: DeserializeFromJson
+  fullName: Config.DeserializeFromJson
+- uid: Config.SerializeToYaml
+  commentId: T:Config.SerializeToYaml
+  href: Config.SerializeToYaml.html
+  name: SerializeToYaml
+  nameWithType: SerializeToYaml
+  fullName: Config.SerializeToYaml
+- uid: Config.DeserializeFromYaml
+  commentId: T:Config.DeserializeFromYaml
+  href: Config.DeserializeFromYaml.html
+  name: DeserializeFromYaml
+  nameWithType: DeserializeFromYaml
+  fullName: Config.DeserializeFromYaml
+- uid: Config
+  commentId: N:Config
+  href: Config.html
+  name: Config
+  nameWithType: Config
+  fullName: Config

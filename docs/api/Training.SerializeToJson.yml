@@ -7,7 +7,6 @@ items:
   children:
   - Training.SerializeToJson.Process(System.IObservable{Training.ABL})
   - Training.SerializeToJson.Process(System.IObservable{Training.CriticalPerformance})
-  - Training.SerializeToJson.Process(System.IObservable{Training.Cues})
   - Training.SerializeToJson.Process(System.IObservable{Training.FixationTime})
   - Training.SerializeToJson.Process(System.IObservable{Training.ILD})
   - Training.SerializeToJson.Process(System.IObservable{Training.ITI})
@@ -27,11 +26,11 @@ items:
   source:
     remote:
       path: src/Extensions/Training.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: SerializeToJson
     path: ../src/Extensions/Training.cs
-    startLine: 1469
+    startLine: 1353
   assemblies:
   - Extensions
   namespace: Training
@@ -83,11 +82,11 @@ items:
   source:
     remote:
       path: src/Extensions/Training.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
     path: ../src/Extensions/Training.cs
-    startLine: 1481
+    startLine: 1365
   assemblies:
   - Extensions
   namespace: Training
@@ -117,11 +116,11 @@ items:
   source:
     remote:
       path: src/Extensions/Training.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
     path: ../src/Extensions/Training.cs
-    startLine: 1486
+    startLine: 1370
   assemblies:
   - Extensions
   namespace: Training
@@ -137,40 +136,6 @@ items:
   nameWithType.vb: SerializeToJson.Process(IObservable(Of CriticalPerformance))
   fullName.vb: Training.SerializeToJson.Process(System.IObservable(Of Training.CriticalPerformance))
   name.vb: Process(IObservable(Of CriticalPerformance))
-- uid: Training.SerializeToJson.Process(System.IObservable{Training.Cues})
-  commentId: M:Training.SerializeToJson.Process(System.IObservable{Training.Cues})
-  id: Process(System.IObservable{Training.Cues})
-  parent: Training.SerializeToJson
-  langs:
-  - csharp
-  - vb
-  name: Process(IObservable<Cues>)
-  nameWithType: SerializeToJson.Process(IObservable<Cues>)
-  fullName: Training.SerializeToJson.Process(System.IObservable<Training.Cues>)
-  type: Method
-  source:
-    remote:
-      path: src/Extensions/Training.cs
-      branch: io_files_rework
-      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
-    id: Process
-    path: ../src/Extensions/Training.cs
-    startLine: 1491
-  assemblies:
-  - Extensions
-  namespace: Training
-  syntax:
-    content: public IObservable<string> Process(IObservable<Cues> source)
-    parameters:
-    - id: source
-      type: System.IObservable{Training.Cues}
-    return:
-      type: System.IObservable{System.String}
-    content.vb: Public Function Process(source As IObservable(Of Cues)) As IObservable(Of String)
-  overload: Training.SerializeToJson.Process*
-  nameWithType.vb: SerializeToJson.Process(IObservable(Of Cues))
-  fullName.vb: Training.SerializeToJson.Process(System.IObservable(Of Training.Cues))
-  name.vb: Process(IObservable(Of Cues))
 - uid: Training.SerializeToJson.Process(System.IObservable{Training.FixationTime})
   commentId: M:Training.SerializeToJson.Process(System.IObservable{Training.FixationTime})
   id: Process(System.IObservable{Training.FixationTime})
@@ -185,11 +150,11 @@ items:
   source:
     remote:
       path: src/Extensions/Training.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
     path: ../src/Extensions/Training.cs
-    startLine: 1496
+    startLine: 1375
   assemblies:
   - Extensions
   namespace: Training
@@ -219,11 +184,11 @@ items:
   source:
     remote:
       path: src/Extensions/Training.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
     path: ../src/Extensions/Training.cs
-    startLine: 1501
+    startLine: 1380
   assemblies:
   - Extensions
   namespace: Training
@@ -253,11 +218,11 @@ items:
   source:
     remote:
       path: src/Extensions/Training.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
     path: ../src/Extensions/Training.cs
-    startLine: 1506
+    startLine: 1385
   assemblies:
   - Extensions
   namespace: Training
@@ -287,11 +252,11 @@ items:
   source:
     remote:
       path: src/Extensions/Training.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
     path: ../src/Extensions/Training.cs
-    startLine: 1511
+    startLine: 1390
   assemblies:
   - Extensions
   namespace: Training
@@ -321,11 +286,11 @@ items:
   source:
     remote:
       path: src/Extensions/Training.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
     path: ../src/Extensions/Training.cs
-    startLine: 1516
+    startLine: 1395
   assemblies:
   - Extensions
   namespace: Training
@@ -355,11 +320,11 @@ items:
   source:
     remote:
       path: src/Extensions/Training.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
     path: ../src/Extensions/Training.cs
-    startLine: 1521
+    startLine: 1400
   assemblies:
   - Extensions
   namespace: Training
@@ -389,11 +354,11 @@ items:
   source:
     remote:
       path: src/Extensions/Training.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
     path: ../src/Extensions/Training.cs
-    startLine: 1526
+    startLine: 1405
   assemblies:
   - Extensions
   namespace: Training
@@ -423,11 +388,11 @@ items:
   source:
     remote:
       path: src/Extensions/Training.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
     path: ../src/Extensions/Training.cs
-    startLine: 1531
+    startLine: 1410
   assemblies:
   - Extensions
   namespace: Training
@@ -457,11 +422,11 @@ items:
   source:
     remote:
       path: src/Extensions/Training.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
     path: ../src/Extensions/Training.cs
-    startLine: 1536
+    startLine: 1415
   assemblies:
   - Extensions
   namespace: Training
@@ -855,39 +820,6 @@ references:
   - uid: Training.CriticalPerformance
     name: CriticalPerformance
     href: Training.CriticalPerformance.html
-  - name: )
-- uid: System.IObservable{Training.Cues}
-  commentId: T:System.IObservable{Training.Cues}
-  parent: System
-  definition: System.IObservable`1
-  href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
-  name: IObservable<Cues>
-  nameWithType: IObservable<Cues>
-  fullName: System.IObservable<Training.Cues>
-  nameWithType.vb: IObservable(Of Cues)
-  fullName.vb: System.IObservable(Of Training.Cues)
-  name.vb: IObservable(Of Cues)
-  spec.csharp:
-  - uid: System.IObservable`1
-    name: IObservable
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
-  - name: <
-  - uid: Training.Cues
-    name: Cues
-    href: Training.Cues.html
-  - name: '>'
-  spec.vb:
-  - uid: System.IObservable`1
-    name: IObservable
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: Training.Cues
-    name: Cues
-    href: Training.Cues.html
   - name: )
 - uid: System.IObservable{Training.FixationTime}
   commentId: T:System.IObservable{Training.FixationTime}

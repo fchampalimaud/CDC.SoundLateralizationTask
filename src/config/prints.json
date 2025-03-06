@@ -7,7 +7,7 @@
         "correct_side": {"text": "Trial's correct answer: ", "units": ""},
         "start_trial": {"text": "The animal can now poke", "units": ""},
         "fixation": {"text": "The animal is now fixed", "units": ""},
-        "fixation_time": {"text": "Timed FT: ", "units": "s"},
+        "fixation_time": {"text": "Timed FT: ", "units": "ms"},
         "stimulus": {"text": "Sound playing", "units": ""},
         "movement_time": {"text": "The animal can now make a decision", "units": ""},
         "outcome": {"text": "", "units": ""},

@@ -83,15 +83,20 @@
           "title": "Num Steps",
           "type": "integer"
         },
-        "use_log": {
-          "description": "Indicates whether to use logarithmic steps between consecutive ILD values.",
-          "title": "Use Log",
-          "type": "boolean"
+        "use_log_or_exp": {
+          "description": "Indicates whether to use logarithmic/exponential steps between consecutive ILD values.",
+          "enum": [
+            "Default",
+            "Log",
+            "Exp"
+          ],
+          "title": "Use Log Or Exp",
+          "type": "string"
         },
-        "log_base": {
-          "description": "The base of the logarithm.",
+        "log_or_exp_base": {
+          "description": "The base of the logarithm/exponential.",
           "exclusiveMinimum": 0.0,
-          "title": "Log Base",
+          "title": "Log Or Exp Base",
           "type": "number"
         }
       },
@@ -99,8 +104,8 @@
         "special_case",
         "step_size",
         "num_steps",
-        "use_log",
-        "log_base"
+        "use_log_or_exp",
+        "log_or_exp_base"
       ],
       "title": "ILD",
       "type": "object"
@@ -244,6 +249,11 @@
           "title": "Turn Sound Off",
           "type": "boolean"
         },
+        "use_min_rt": {
+          "description": "Indicates whether there is a minimum reaction time (true) or not (false).",
+          "title": "Use Min Rt",
+          "type": "boolean"
+        },
         "use_max_rt": {
           "description": "Indicates whether there is a maximum reaction time (true) or not (false).",
           "title": "Use Max Rt",
@@ -252,6 +262,7 @@
       },
       "required": [
         "turn_sound_off",
+        "use_min_rt",
         "use_max_rt"
       ],
       "title": "ReactionTime",

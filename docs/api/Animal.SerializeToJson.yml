@@ -21,11 +21,11 @@ items:
   source:
     remote:
       path: src/Extensions/Animal.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: SerializeToJson
     path: ../src/Extensions/Animal.cs
-    startLine: 1023
+    startLine: 1090
   assemblies:
   - Extensions
   namespace: Animal
@@ -77,11 +77,11 @@ items:
   source:
     remote:
       path: src/Extensions/Animal.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
     path: ../src/Extensions/Animal.cs
-    startLine: 1035
+    startLine: 1102
   assemblies:
   - Extensions
   namespace: Animal
@@ -111,11 +111,11 @@ items:
   source:
     remote:
       path: src/Extensions/Animal.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
     path: ../src/Extensions/Animal.cs
-    startLine: 1040
+    startLine: 1107
   assemblies:
   - Extensions
   namespace: Animal
@@ -145,11 +145,11 @@ items:
   source:
     remote:
       path: src/Extensions/Animal.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
     path: ../src/Extensions/Animal.cs
-    startLine: 1045
+    startLine: 1112
   assemblies:
   - Extensions
   namespace: Animal
@@ -179,11 +179,11 @@ items:
   source:
     remote:
       path: src/Extensions/Animal.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
     path: ../src/Extensions/Animal.cs
-    startLine: 1050
+    startLine: 1117
   assemblies:
   - Extensions
   namespace: Animal
@@ -213,11 +213,11 @@ items:
   source:
     remote:
       path: src/Extensions/Animal.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
     path: ../src/Extensions/Animal.cs
-    startLine: 1055
+    startLine: 1122
   assemblies:
   - Extensions
   namespace: Animal
@@ -247,11 +247,11 @@ items:
   source:
     remote:
       path: src/Extensions/Animal.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
     path: ../src/Extensions/Animal.cs
-    startLine: 1060
+    startLine: 1127
   assemblies:
   - Extensions
   namespace: Animal

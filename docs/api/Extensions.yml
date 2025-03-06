@@ -8,6 +8,7 @@ items:
   - Extensions.GenerateILDArray
   - Extensions.GetOutputDir
   - Extensions.ShuffleArray
+  - Extensions.SuffixPath
   langs:
   - csharp
   - vb
@@ -24,6 +25,12 @@ references:
   name: CalculateRatio
   nameWithType: CalculateRatio
   fullName: Extensions.CalculateRatio
+- uid: Extensions.SuffixPath
+  commentId: T:Extensions.SuffixPath
+  href: Extensions.SuffixPath.html
+  name: SuffixPath
+  nameWithType: SuffixPath
+  fullName: Extensions.SuffixPath
 - uid: Extensions.GenerateILDArray
   commentId: T:Extensions.GenerateILDArray
   href: Extensions.GenerateILDArray.html

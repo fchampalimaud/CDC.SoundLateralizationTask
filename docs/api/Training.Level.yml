@@ -8,7 +8,6 @@ items:
   - Training.Level.#ctor
   - Training.Level.#ctor(Training.Level)
   - Training.Level.CriticalPerformance
-  - Training.Level.Cues
   - Training.Level.FixationTime
   - Training.Level.Iti
   - Training.Level.LevelId
@@ -35,11 +34,11 @@ items:
   source:
     remote:
       path: src/Extensions/Training.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Level
     path: ../src/Extensions/Training.cs
-    startLine: 660
+    startLine: 526
   assemblies:
   - Extensions
   namespace: Training
@@ -88,11 +87,11 @@ items:
   source:
     remote:
       path: src/Extensions/Training.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: .ctor
     path: ../src/Extensions/Training.cs
-    startLine: 694
+    startLine: 558
   assemblies:
   - Extensions
   namespace: Training
@@ -117,11 +116,11 @@ items:
   source:
     remote:
       path: src/Extensions/Training.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: .ctor
     path: ../src/Extensions/Training.cs
-    startLine: 698
+    startLine: 562
   assemblies:
   - Extensions
   namespace: Training
@@ -149,11 +148,11 @@ items:
   source:
     remote:
       path: src/Extensions/Training.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: LevelId
     path: ../src/Extensions/Training.cs
-    startLine: 719
+    startLine: 582
   assemblies:
   - Extensions
   namespace: Training
@@ -207,11 +206,11 @@ items:
   source:
     remote:
       path: src/Extensions/Training.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: TrialsPerBlock
     path: ../src/Extensions/Training.cs
-    startLine: 737
+    startLine: 600
   assemblies:
   - Extensions
   namespace: Training
@@ -265,11 +264,11 @@ items:
   source:
     remote:
       path: src/Extensions/Training.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Sound
     path: ../src/Extensions/Training.cs
-    startLine: 755
+    startLine: 618
   assemblies:
   - Extensions
   namespace: Training
@@ -323,11 +322,11 @@ items:
   source:
     remote:
       path: src/Extensions/Training.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Iti
     path: ../src/Extensions/Training.cs
-    startLine: 774
+    startLine: 637
   assemblies:
   - Extensions
   namespace: Training
@@ -381,11 +380,11 @@ items:
   source:
     remote:
       path: src/Extensions/Training.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: MaxWait
     path: ../src/Extensions/Training.cs
-    startLine: 793
+    startLine: 656
   assemblies:
   - Extensions
   namespace: Training
@@ -439,11 +438,11 @@ items:
   source:
     remote:
       path: src/Extensions/Training.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: FixationTime
     path: ../src/Extensions/Training.cs
-    startLine: 811
+    startLine: 674
   assemblies:
   - Extensions
   namespace: Training
@@ -497,11 +496,11 @@ items:
   source:
     remote:
       path: src/Extensions/Training.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: ReactionTime
     path: ../src/Extensions/Training.cs
-    startLine: 830
+    startLine: 693
   assemblies:
   - Extensions
   namespace: Training
@@ -555,11 +554,11 @@ items:
   source:
     remote:
       path: src/Extensions/Training.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: MaxMt
     path: ../src/Extensions/Training.cs
-    startLine: 849
+    startLine: 712
   assemblies:
   - Extensions
   namespace: Training
@@ -613,11 +612,11 @@ items:
   source:
     remote:
       path: src/Extensions/Training.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: PenaltyTimes
     path: ../src/Extensions/Training.cs
-    startLine: 867
+    startLine: 730
   assemblies:
   - Extensions
   namespace: Training
@@ -671,11 +670,11 @@ items:
   source:
     remote:
       path: src/Extensions/Training.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: CriticalPerformance
     path: ../src/Extensions/Training.cs
-    startLine: 886
+    startLine: 749
   assemblies:
   - Extensions
   namespace: Training
@@ -729,11 +728,11 @@ items:
   source:
     remote:
       path: src/Extensions/Training.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: MaxAborts
     path: ../src/Extensions/Training.cs
-    startLine: 906
+    startLine: 769
   assemblies:
   - Extensions
   namespace: Training
@@ -787,11 +786,11 @@ items:
   source:
     remote:
       path: src/Extensions/Training.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: TrialRepetition
     path: ../src/Extensions/Training.cs
-    startLine: 924
+    startLine: 787
   assemblies:
   - Extensions
   namespace: Training
@@ -845,11 +844,11 @@ items:
   source:
     remote:
       path: src/Extensions/Training.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Speakers
     path: ../src/Extensions/Training.cs
-    startLine: 943
+    startLine: 806
   assemblies:
   - Extensions
   namespace: Training
@@ -889,64 +888,6 @@ items:
     - name: Alias
       type: System.String
       value: speakers
-- uid: Training.Level.Cues
-  commentId: P:Training.Level.Cues
-  id: Cues
-  parent: Training.Level
-  langs:
-  - csharp
-  - vb
-  name: Cues
-  nameWithType: Level.Cues
-  fullName: Training.Level.Cues
-  type: Property
-  source:
-    remote:
-      path: src/Extensions/Training.cs
-      branch: io_files_rework
-      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
-    id: Cues
-    path: ../src/Extensions/Training.cs
-    startLine: 961
-  assemblies:
-  - Extensions
-  namespace: Training
-  summary: The parameters that control the use (or not) of visual cues during the task.
-  example: []
-  syntax:
-    content: >-
-      [JsonProperty("cues", Required = Required.Always)]
-
-      [YamlMember(Alias = "cues")]
-
-      public Cues Cues { get; set; }
-    parameters: []
-    return:
-      type: Training.Cues
-    content.vb: >-
-      <JsonProperty("cues", Required:=Required.Always)>
-
-      <YamlMember(Alias:="cues")>
-
-      Public Property Cues As Cues
-  overload: Training.Level.Cues*
-  attributes:
-  - type: Newtonsoft.Json.JsonPropertyAttribute
-    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
-    arguments:
-    - type: System.String
-      value: cues
-    namedArguments:
-    - name: Required
-      type: Newtonsoft.Json.Required
-      value: 2
-  - type: YamlDotNet.Serialization.YamlMemberAttribute
-    ctor: YamlDotNet.Serialization.YamlMemberAttribute.#ctor
-    arguments: []
-    namedArguments:
-    - name: Alias
-      type: System.String
-      value: cues
 - uid: Training.Level.Process
   commentId: M:Training.Level.Process
   id: Process
@@ -961,11 +902,11 @@ items:
   source:
     remote:
       path: src/Extensions/Training.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
     path: ../src/Extensions/Training.cs
-    startLine: 977
+    startLine: 821
   assemblies:
   - Extensions
   namespace: Training
@@ -989,11 +930,11 @@ items:
   source:
     remote:
       path: src/Extensions/Training.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
     path: ../src/Extensions/Training.cs
-    startLine: 982
+    startLine: 826
   assemblies:
   - Extensions
   namespace: Training
@@ -1025,11 +966,11 @@ items:
   source:
     remote:
       path: src/Extensions/Training.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: PrintMembers
     path: ../src/Extensions/Training.cs
-    startLine: 987
+    startLine: 831
   assemblies:
   - Extensions
   namespace: Training
@@ -1056,11 +997,11 @@ items:
   source:
     remote:
       path: src/Extensions/Training.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: ToString
     path: ../src/Extensions/Training.cs
-    startLine: 1006
+    startLine: 849
   assemblies:
   - Extensions
   namespace: Training
@@ -1470,19 +1411,6 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
-- uid: Training.Level.Cues*
-  commentId: Overload:Training.Level.Cues
-  href: Training.Level.html#Training_Level_Cues
-  name: Cues
-  nameWithType: Level.Cues
-  fullName: Training.Level.Cues
-- uid: Training.Cues
-  commentId: T:Training.Cues
-  parent: Training
-  href: Training.Cues.html
-  name: Cues
-  nameWithType: Cues
-  fullName: Training.Cues
 - uid: Training.Level.Process*
   commentId: Overload:Training.Level.Process
   href: Training.Level.html#Training_Level_Process

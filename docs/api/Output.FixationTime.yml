@@ -7,11 +7,13 @@ items:
   children:
   - Output.FixationTime.#ctor
   - Output.FixationTime.#ctor(Output.FixationTime)
+  - Output.FixationTime.IntendedDuration
   - Output.FixationTime.OptoOnsetTime
   - Output.FixationTime.PrintMembers(System.Text.StringBuilder)
   - Output.FixationTime.Process
   - Output.FixationTime.Process``1(System.IObservable{``0})
   - Output.FixationTime.SoundOnsetTime
+  - Output.FixationTime.TimedDuration
   - Output.FixationTime.ToString
   langs:
   - csharp
@@ -23,7 +25,7 @@ items:
   source:
     remote:
       path: src/Extensions/Output.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: FixationTime
     path: ../src/Extensions/Output.cs
@@ -76,11 +78,11 @@ items:
   source:
     remote:
       path: src/Extensions/Output.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: .ctor
     path: ../src/Extensions/Output.cs
-    startLine: 131
+    startLine: 135
   assemblies:
   - Extensions
   namespace: Output
@@ -105,11 +107,11 @@ items:
   source:
     remote:
       path: src/Extensions/Output.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: .ctor
     path: ../src/Extensions/Output.cs
-    startLine: 135
+    startLine: 139
   assemblies:
   - Extensions
   namespace: Output
@@ -137,11 +139,11 @@ items:
   source:
     remote:
       path: src/Extensions/Output.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: OptoOnsetTime
     path: ../src/Extensions/Output.cs
-    startLine: 144
+    startLine: 150
   assemblies:
   - Extensions
   namespace: Output
@@ -195,11 +197,11 @@ items:
   source:
     remote:
       path: src/Extensions/Output.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: SoundOnsetTime
     path: ../src/Extensions/Output.cs
-    startLine: 164
+    startLine: 170
   assemblies:
   - Extensions
   namespace: Output
@@ -239,6 +241,122 @@ items:
     - name: Alias
       type: System.String
       value: sound_onset_time
+- uid: Output.FixationTime.IntendedDuration
+  commentId: P:Output.FixationTime.IntendedDuration
+  id: IntendedDuration
+  parent: Output.FixationTime
+  langs:
+  - csharp
+  - vb
+  name: IntendedDuration
+  nameWithType: FixationTime.IntendedDuration
+  fullName: Output.FixationTime.IntendedDuration
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/Output.cs
+      branch: python_reorganization
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: IntendedDuration
+    path: ../src/Extensions/Output.cs
+    startLine: 189
+  assemblies:
+  - Extensions
+  namespace: Output
+  summary: The intended duration for the total fixation time (ms).
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("intended_duration", Required = Required.Always)]
+
+      [YamlMember(Alias = "intended_duration")]
+
+      public double IntendedDuration { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: >-
+      <JsonProperty("intended_duration", Required:=Required.Always)>
+
+      <YamlMember(Alias:="intended_duration")>
+
+      Public Property IntendedDuration As Double
+  overload: Output.FixationTime.IntendedDuration*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: intended_duration
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: YamlDotNet.Serialization.YamlMemberAttribute
+    ctor: YamlDotNet.Serialization.YamlMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Alias
+      type: System.String
+      value: intended_duration
+- uid: Output.FixationTime.TimedDuration
+  commentId: P:Output.FixationTime.TimedDuration
+  id: TimedDuration
+  parent: Output.FixationTime
+  langs:
+  - csharp
+  - vb
+  name: TimedDuration
+  nameWithType: FixationTime.TimedDuration
+  fullName: Output.FixationTime.TimedDuration
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/Output.cs
+      branch: python_reorganization
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: TimedDuration
+    path: ../src/Extensions/Output.cs
+    startLine: 207
+  assemblies:
+  - Extensions
+  namespace: Output
+  summary: The timed duration for the total fixation time (ms).
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("timed_duration", Required = Required.Always)]
+
+      [YamlMember(Alias = "timed_duration")]
+
+      public double TimedDuration { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: >-
+      <JsonProperty("timed_duration", Required:=Required.Always)>
+
+      <YamlMember(Alias:="timed_duration")>
+
+      Public Property TimedDuration As Double
+  overload: Output.FixationTime.TimedDuration*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: timed_duration
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: YamlDotNet.Serialization.YamlMemberAttribute
+    ctor: YamlDotNet.Serialization.YamlMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Alias
+      type: System.String
+      value: timed_duration
 - uid: Output.FixationTime.Process
   commentId: M:Output.FixationTime.Process
   id: Process
@@ -253,11 +371,11 @@ items:
   source:
     remote:
       path: src/Extensions/Output.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
     path: ../src/Extensions/Output.cs
-    startLine: 180
+    startLine: 222
   assemblies:
   - Extensions
   namespace: Output
@@ -281,11 +399,11 @@ items:
   source:
     remote:
       path: src/Extensions/Output.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
     path: ../src/Extensions/Output.cs
-    startLine: 185
+    startLine: 227
   assemblies:
   - Extensions
   namespace: Output
@@ -317,11 +435,11 @@ items:
   source:
     remote:
       path: src/Extensions/Output.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: PrintMembers
     path: ../src/Extensions/Output.cs
-    startLine: 190
+    startLine: 232
   assemblies:
   - Extensions
   namespace: Output
@@ -348,11 +466,11 @@ items:
   source:
     remote:
       path: src/Extensions/Output.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: ToString
     path: ../src/Extensions/Output.cs
-    startLine: 197
+    startLine: 241
   assemblies:
   - Extensions
   namespace: Output
@@ -621,6 +739,29 @@ references:
   name: SoundOnsetTime
   nameWithType: FixationTime.SoundOnsetTime
   fullName: Output.FixationTime.SoundOnsetTime
+- uid: Output.FixationTime.IntendedDuration*
+  commentId: Overload:Output.FixationTime.IntendedDuration
+  href: Output.FixationTime.html#Output_FixationTime_IntendedDuration
+  name: IntendedDuration
+  nameWithType: FixationTime.IntendedDuration
+  fullName: Output.FixationTime.IntendedDuration
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: Output.FixationTime.TimedDuration*
+  commentId: Overload:Output.FixationTime.TimedDuration
+  href: Output.FixationTime.html#Output_FixationTime_TimedDuration
+  name: TimedDuration
+  nameWithType: FixationTime.TimedDuration
+  fullName: Output.FixationTime.TimedDuration
 - uid: Output.FixationTime.Process*
   commentId: Overload:Output.FixationTime.Process
   href: Output.FixationTime.html#Output_FixationTime_Process

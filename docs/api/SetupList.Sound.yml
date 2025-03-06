@@ -23,11 +23,11 @@ items:
   source:
     remote:
       path: src/Extensions/SetupList.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Sound
     path: ../src/Extensions/SetupList.cs
-    startLine: 459
+    startLine: 551
   assemblies:
   - Extensions
   namespace: SetupList
@@ -76,11 +76,11 @@ items:
   source:
     remote:
       path: src/Extensions/SetupList.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: .ctor
     path: ../src/Extensions/SetupList.cs
-    startLine: 469
+    startLine: 561
   assemblies:
   - Extensions
   namespace: SetupList
@@ -105,11 +105,11 @@ items:
   source:
     remote:
       path: src/Extensions/SetupList.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: .ctor
     path: ../src/Extensions/SetupList.cs
-    startLine: 473
+    startLine: 565
   assemblies:
   - Extensions
   namespace: SetupList
@@ -137,11 +137,11 @@ items:
   source:
     remote:
       path: src/Extensions/SetupList.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Index
     path: ../src/Extensions/SetupList.cs
-    startLine: 482
+    startLine: 574
   assemblies:
   - Extensions
   namespace: SetupList
@@ -195,11 +195,11 @@ items:
   source:
     remote:
       path: src/Extensions/SetupList.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Duration
     path: ../src/Extensions/SetupList.cs
-    startLine: 500
+    startLine: 592
   assemblies:
   - Extensions
   namespace: SetupList
@@ -253,11 +253,11 @@ items:
   source:
     remote:
       path: src/Extensions/SetupList.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
     path: ../src/Extensions/SetupList.cs
-    startLine: 515
+    startLine: 607
   assemblies:
   - Extensions
   namespace: SetupList
@@ -281,11 +281,11 @@ items:
   source:
     remote:
       path: src/Extensions/SetupList.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
     path: ../src/Extensions/SetupList.cs
-    startLine: 520
+    startLine: 612
   assemblies:
   - Extensions
   namespace: SetupList
@@ -317,11 +317,11 @@ items:
   source:
     remote:
       path: src/Extensions/SetupList.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: PrintMembers
     path: ../src/Extensions/SetupList.cs
-    startLine: 525
+    startLine: 617
   assemblies:
   - Extensions
   namespace: SetupList
@@ -348,11 +348,11 @@ items:
   source:
     remote:
       path: src/Extensions/SetupList.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: ToString
     path: ../src/Extensions/SetupList.cs
-    startLine: 532
+    startLine: 624
   assemblies:
   - Extensions
   namespace: SetupList

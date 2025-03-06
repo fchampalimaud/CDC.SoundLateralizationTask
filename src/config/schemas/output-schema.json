@@ -36,11 +36,25 @@
         "sound_onset_time": {
           "$ref": "#/definitions/FixationTimeParts",
           "description": "Contains the data related to the Sound Onset Time part of the Fixation Time."
+        },
+        "intended_duration": {
+          "description": "The intended duration for the total fixation time (ms).",
+          "minimum": 0.0,
+          "title": "Intended Duration",
+          "type": "number"
+        },
+        "timed_duration": {
+          "description": "The timed duration for the total fixation time (ms).",
+          "minimum": 0.0,
+          "title": "Timed Duration",
+          "type": "number"
         }
       },
       "required": [
         "opto_onset_time",
-        "sound_onset_time"
+        "sound_onset_time",
+        "intended_duration",
+        "timed_duration"
       ],
       "title": "FixationTime",
       "type": "object"
@@ -66,7 +80,7 @@
           "type": "number"
         },
         "timed_duration": {
-          "description": "The timed duration for this part of the fixation time (s).",
+          "description": "The timed duration for this part of the fixation time (ms).",
           "minimum": 0.0,
           "title": "Timed Duration",
           "type": "number"
@@ -368,6 +382,12 @@
           "title": "Start Time",
           "type": "number"
         },
+        "tared_start_time": {
+          "description": "The tared timestamp at which the trial started in which t = 0 is the start time of the first trial of the session (s).",
+          "minimum": 0.0,
+          "title": "Tared Start Time",
+          "type": "number"
+        },
         "end_time": {
           "description": "The timestamp at which the trial ended (s).",
           "minimum": 0.0,
@@ -384,6 +404,7 @@
       "required": [
         "number",
         "start_time",
+        "tared_start_time",
         "end_time",
         "duration"
       ],
@@ -396,6 +417,12 @@
       "description": "The ID number of the animal.",
       "title": "Animal Id",
       "type": "integer"
+    },
+    "version": {
+      "description": "The version of the project used in the session.",
+      "pattern": "\\d+\\.\\d+\\.\\d+",
+      "title": "Version",
+      "type": "string"
     },
     "trial": {
       "$ref": "#/definitions/Trial",
@@ -453,6 +480,7 @@
   },
   "required": [
     "animal_id",
+    "version",
     "trial",
     "block",
     "session",

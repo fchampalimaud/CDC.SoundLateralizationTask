@@ -18,11 +18,11 @@ items:
   source:
     remote:
       path: src/Extensions/Output.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: DeserializeFromJson
     path: ../src/Extensions/Output.cs
-    startLine: 1968
+    startLine: 2057
   assemblies:
   - Extensions
   namespace: Output
@@ -81,11 +81,11 @@ items:
   source:
     remote:
       path: src/Extensions/Output.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: .ctor
     path: ../src/Extensions/Output.cs
-    startLine: 1989
+    startLine: 2078
   assemblies:
   - Extensions
   namespace: Output
@@ -110,11 +110,11 @@ items:
   source:
     remote:
       path: src/Extensions/Output.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Type
     path: ../src/Extensions/Output.cs
-    startLine: 1994
+    startLine: 2083
   assemblies:
   - Extensions
   namespace: Output
@@ -139,11 +139,11 @@ items:
   source:
     remote:
       path: src/Extensions/Output.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Build
     path: ../src/Extensions/Output.cs
-    startLine: 1996
+    startLine: 2085
   assemblies:
   - Extensions
   namespace: Output

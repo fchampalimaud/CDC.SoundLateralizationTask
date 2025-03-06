@@ -24,11 +24,11 @@ items:
   source:
     remote:
       path: src/Extensions/Training.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: PenaltyTimes
     path: ../src/Extensions/Training.cs
-    startLine: 1021
+    startLine: 864
   assemblies:
   - Extensions
   namespace: Training
@@ -77,11 +77,11 @@ items:
   source:
     remote:
       path: src/Extensions/Training.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: .ctor
     path: ../src/Extensions/Training.cs
-    startLine: 1033
+    startLine: 876
   assemblies:
   - Extensions
   namespace: Training
@@ -106,11 +106,11 @@ items:
   source:
     remote:
       path: src/Extensions/Training.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: .ctor
     path: ../src/Extensions/Training.cs
-    startLine: 1037
+    startLine: 880
   assemblies:
   - Extensions
   namespace: Training
@@ -138,11 +138,11 @@ items:
   source:
     remote:
       path: src/Extensions/Training.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Incorrect
     path: ../src/Extensions/Training.cs
-    startLine: 1047
+    startLine: 890
   assemblies:
   - Extensions
   namespace: Training
@@ -196,11 +196,11 @@ items:
   source:
     remote:
       path: src/Extensions/Training.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Abort
     path: ../src/Extensions/Training.cs
-    startLine: 1065
+    startLine: 908
   assemblies:
   - Extensions
   namespace: Training
@@ -254,11 +254,11 @@ items:
   source:
     remote:
       path: src/Extensions/Training.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: FixationAbort
     path: ../src/Extensions/Training.cs
-    startLine: 1084
+    startLine: 927
   assemblies:
   - Extensions
   namespace: Training
@@ -312,11 +312,11 @@ items:
   source:
     remote:
       path: src/Extensions/Training.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
     path: ../src/Extensions/Training.cs
-    startLine: 1099
+    startLine: 942
   assemblies:
   - Extensions
   namespace: Training
@@ -340,11 +340,11 @@ items:
   source:
     remote:
       path: src/Extensions/Training.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
     path: ../src/Extensions/Training.cs
-    startLine: 1104
+    startLine: 947
   assemblies:
   - Extensions
   namespace: Training
@@ -376,11 +376,11 @@ items:
   source:
     remote:
       path: src/Extensions/Training.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: PrintMembers
     path: ../src/Extensions/Training.cs
-    startLine: 1109
+    startLine: 952
   assemblies:
   - Extensions
   namespace: Training
@@ -407,11 +407,11 @@ items:
   source:
     remote:
       path: src/Extensions/Training.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: ToString
     path: ../src/Extensions/Training.cs
-    startLine: 1117
+    startLine: 960
   assemblies:
   - Extensions
   namespace: Training

@@ -23,6 +23,19 @@ items:
     name: Sound
   - uid: Animal.TimeConstrains
     name: TimeConstrains
+- uid: Config
+  name: Config
+  items:
+  - uid: Config.Config
+    name: Config
+  - uid: Config.DeserializeFromJson
+    name: DeserializeFromJson
+  - uid: Config.DeserializeFromYaml
+    name: DeserializeFromYaml
+  - uid: Config.SerializeToJson
+    name: SerializeToJson
+  - uid: Config.SerializeToYaml
+    name: SerializeToYaml
 - uid: Extensions
   name: Extensions
   items:
@@ -34,6 +47,8 @@ items:
     name: GetOutputDir
   - uid: Extensions.ShuffleArray
     name: ShuffleArray
+  - uid: Extensions.SuffixPath
+    name: SuffixPath
 - uid: Output
   name: Output
   items:
@@ -120,8 +135,6 @@ items:
     name: ABL
   - uid: Training.CriticalPerformance
     name: CriticalPerformance
-  - uid: Training.Cues
-    name: Cues
   - uid: Training.DeserializeFromJson
     name: DeserializeFromJson
   - uid: Training.DeserializeFromYaml
@@ -130,6 +143,8 @@ items:
     name: FixationTime
   - uid: Training.ILD
     name: ILD
+  - uid: Training.ILDUseLogOrExp
+    name: ILDUseLogOrExp
   - uid: Training.ITI
     name: ITI
   - uid: Training.Level

@@ -1,45 +1,43 @@
 ### YamlMime:ManagedReference
 items:
-- uid: Extensions.ReadStartupFile
-  commentId: T:Extensions.ReadStartupFile
-  id: ReadStartupFile
+- uid: Extensions.SuffixPath
+  commentId: T:Extensions.SuffixPath
+  id: SuffixPath
   parent: Extensions
   children:
-  - Extensions.ReadStartupFile.FilePath
-  - Extensions.ReadStartupFile.Process
+  - Extensions.SuffixPath.Process(System.IObservable{System.String})
+  - Extensions.SuffixPath.Suffix
   langs:
   - csharp
   - vb
-  name: ReadStartupFile
-  nameWithType: ReadStartupFile
-  fullName: Extensions.ReadStartupFile
+  name: SuffixPath
+  nameWithType: SuffixPath
+  fullName: Extensions.SuffixPath
   type: Class
   source:
     remote:
-      path: src/Extensions/ReadStartupFile.cs
-      branch: freeze_debugging
+      path: src/Extensions/FileCountPath.cs
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
-    id: ReadStartupFile
-    path: ../src/Extensions/ReadStartupFile.cs
-    startLine: 32
+    id: SuffixPath
+    path: ../src/Extensions/FileCountPath.cs
+    startLine: 9
   assemblies:
   - Extensions
   namespace: Extensions
-  summary: Class <code>ReadStartupFile</code> contains the logic of the Bonsai node with the same name.
-  example: []
   syntax:
     content: >-
       [Combinator]
 
-      [WorkflowElementCategory(ElementCategory.Source)]
+      [WorkflowElementCategory(ElementCategory.Transform)]
 
-      public class ReadStartupFile
+      public class SuffixPath
     content.vb: >-
       <Combinator>
 
-      <WorkflowElementCategory(ElementCategory.Source)>
+      <WorkflowElementCategory(ElementCategory.Transform)>
 
-      Public Class ReadStartupFile
+      Public Class SuffixPath
   inheritance:
   - System.Object
   inheritedMembers:
@@ -58,67 +56,70 @@ items:
     ctor: Bonsai.WorkflowElementCategoryAttribute.#ctor(Bonsai.ElementCategory)
     arguments:
     - type: Bonsai.ElementCategory
-      value: 0
-- uid: Extensions.ReadStartupFile.FilePath
-  commentId: P:Extensions.ReadStartupFile.FilePath
-  id: FilePath
-  parent: Extensions.ReadStartupFile
+      value: 2
+- uid: Extensions.SuffixPath.Suffix
+  commentId: P:Extensions.SuffixPath.Suffix
+  id: Suffix
+  parent: Extensions.SuffixPath
   langs:
   - csharp
   - vb
-  name: FilePath
-  nameWithType: ReadStartupFile.FilePath
-  fullName: Extensions.ReadStartupFile.FilePath
+  name: Suffix
+  nameWithType: SuffixPath.Suffix
+  fullName: Extensions.SuffixPath.Suffix
   type: Property
   source:
     remote:
-      path: src/Extensions/ReadStartupFile.cs
-      branch: freeze_debugging
+      path: src/Extensions/FileCountPath.cs
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
-    id: FilePath
-    path: ../src/Extensions/ReadStartupFile.cs
-    startLine: 37
+    id: Suffix
+    path: ../src/Extensions/FileCountPath.cs
+    startLine: 14
   assemblies:
   - Extensions
   namespace: Extensions
   syntax:
-    content: public string FilePath { get; set; }
+    content: public PathSuffix Suffix { get; set; }
     parameters: []
     return:
-      type: System.String
-    content.vb: Public Property FilePath As String
-  overload: Extensions.ReadStartupFile.FilePath*
-- uid: Extensions.ReadStartupFile.Process
-  commentId: M:Extensions.ReadStartupFile.Process
-  id: Process
-  parent: Extensions.ReadStartupFile
+      type: Bonsai.IO.PathSuffix
+    content.vb: Public Property Suffix As PathSuffix
+  overload: Extensions.SuffixPath.Suffix*
+- uid: Extensions.SuffixPath.Process(System.IObservable{System.String})
+  commentId: M:Extensions.SuffixPath.Process(System.IObservable{System.String})
+  id: Process(System.IObservable{System.String})
+  parent: Extensions.SuffixPath
   langs:
   - csharp
   - vb
-  name: Process()
-  nameWithType: ReadStartupFile.Process()
-  fullName: Extensions.ReadStartupFile.Process()
+  name: Process(IObservable<string>)
+  nameWithType: SuffixPath.Process(IObservable<string>)
+  fullName: Extensions.SuffixPath.Process(System.IObservable<string>)
   type: Method
   source:
     remote:
-      path: src/Extensions/ReadStartupFile.cs
-      branch: freeze_debugging
+      path: src/Extensions/FileCountPath.cs
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
-    path: ../src/Extensions/ReadStartupFile.cs
-    startLine: 47
+    path: ../src/Extensions/FileCountPath.cs
+    startLine: 15
   assemblies:
   - Extensions
   namespace: Extensions
-  summary: Reads the startup input parameters needed for the Sound Lateralization Task from a JSON file.
-  example: []
   syntax:
-    content: public IObservable<StartupFile> Process()
+    content: public IObservable<string> Process(IObservable<string> source)
+    parameters:
+    - id: source
+      type: System.IObservable{System.String}
     return:
-      type: System.IObservable{Parameters.StartupFile}
-      description: An observable sequence which sends a single event containing a <code>StartupFile</code> instance.
-    content.vb: Public Function Process() As IObservable(Of StartupFile)
-  overload: Extensions.ReadStartupFile.Process*
+      type: System.IObservable{System.String}
+    content.vb: Public Function Process(source As IObservable(Of String)) As IObservable(Of String)
+  overload: Extensions.SuffixPath.Process*
+  nameWithType.vb: SuffixPath.Process(IObservable(Of String))
+  fullName.vb: Extensions.SuffixPath.Process(System.IObservable(Of String))
+  name.vb: Process(IObservable(Of String))
 references:
 - uid: Extensions
   commentId: N:Extensions
@@ -363,49 +364,68 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: Extensions.ReadStartupFile.FilePath*
-  commentId: Overload:Extensions.ReadStartupFile.FilePath
-  href: Extensions.ReadStartupFile.html#Extensions_ReadStartupFile_FilePath
-  name: FilePath
-  nameWithType: ReadStartupFile.FilePath
-  fullName: Extensions.ReadStartupFile.FilePath
-- uid: System.String
-  commentId: T:System.String
-  parent: System
+- uid: Extensions.SuffixPath.Suffix*
+  commentId: Overload:Extensions.SuffixPath.Suffix
+  href: Extensions.SuffixPath.html#Extensions_SuffixPath_Suffix
+  name: Suffix
+  nameWithType: SuffixPath.Suffix
+  fullName: Extensions.SuffixPath.Suffix
+- uid: Bonsai.IO.PathSuffix
+  commentId: T:Bonsai.IO.PathSuffix
+  parent: Bonsai.IO
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.string
-  name: string
-  nameWithType: string
-  fullName: string
-  nameWithType.vb: String
-  fullName.vb: String
-  name.vb: String
-- uid: Extensions.ReadStartupFile.Process*
-  commentId: Overload:Extensions.ReadStartupFile.Process
-  href: Extensions.ReadStartupFile.html#Extensions_ReadStartupFile_Process
+  name: PathSuffix
+  nameWithType: PathSuffix
+  fullName: Bonsai.IO.PathSuffix
+- uid: Bonsai.IO
+  commentId: N:Bonsai.IO
+  isExternal: true
+  name: Bonsai.IO
+  nameWithType: Bonsai.IO
+  fullName: Bonsai.IO
+  spec.csharp:
+  - uid: Bonsai
+    name: Bonsai
+    isExternal: true
+  - name: .
+  - uid: Bonsai.IO
+    name: IO
+    isExternal: true
+  spec.vb:
+  - uid: Bonsai
+    name: Bonsai
+    isExternal: true
+  - name: .
+  - uid: Bonsai.IO
+    name: IO
+    isExternal: true
+- uid: Extensions.SuffixPath.Process*
+  commentId: Overload:Extensions.SuffixPath.Process
+  href: Extensions.SuffixPath.html#Extensions_SuffixPath_Process_System_IObservable_System_String__
   name: Process
-  nameWithType: ReadStartupFile.Process
-  fullName: Extensions.ReadStartupFile.Process
-- uid: System.IObservable{Parameters.StartupFile}
-  commentId: T:System.IObservable{Parameters.StartupFile}
+  nameWithType: SuffixPath.Process
+  fullName: Extensions.SuffixPath.Process
+- uid: System.IObservable{System.String}
+  commentId: T:System.IObservable{System.String}
   parent: System
   definition: System.IObservable`1
   href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
-  name: IObservable<StartupFile>
-  nameWithType: IObservable<StartupFile>
-  fullName: System.IObservable<Parameters.StartupFile>
-  nameWithType.vb: IObservable(Of StartupFile)
-  fullName.vb: System.IObservable(Of Parameters.StartupFile)
-  name.vb: IObservable(Of StartupFile)
+  name: IObservable<string>
+  nameWithType: IObservable<string>
+  fullName: System.IObservable<string>
+  nameWithType.vb: IObservable(Of String)
+  fullName.vb: System.IObservable(Of String)
+  name.vb: IObservable(Of String)
   spec.csharp:
   - uid: System.IObservable`1
     name: IObservable
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
   - name: <
-  - uid: Parameters.StartupFile
-    name: StartupFile
-    href: Parameters.StartupFile.html
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
   - name: '>'
   spec.vb:
   - uid: System.IObservable`1
@@ -415,9 +435,10 @@ references:
   - name: (
   - name: Of
   - name: " "
-  - uid: Parameters.StartupFile
-    name: StartupFile
-    href: Parameters.StartupFile.html
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
   - name: )
 - uid: System.IObservable`1
   commentId: T:System.IObservable`1

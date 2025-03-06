@@ -1,5 +1,5 @@
 from pydantic import BaseModel, Field
-from typing import List
+from typing import List, Literal
 from sgen._utils import (
     export_schema,
     bonsai_sgen,
@@ -47,6 +47,9 @@ class ReactionTime(BaseModel):
     turn_sound_off: bool = Field(
         description="Indicates whether the sound should stop playing when the animal leaves the central poke."
     )
+    use_min_rt: bool = Field(
+        description="Indicates whether there is a minimum reaction time (true) or not (false)."
+    )
     use_max_rt: bool = Field(
         description="Indicates whether there is a maximum reaction time (true) or not (false)."
     )
@@ -81,10 +84,10 @@ class ILD(BaseModel):
         description="The number of |ILD| values. The final array will contain 2 * num_steps elements to account for both the positive and the negative ILD values.",
         ge=1,
     )
-    use_log: bool = Field(
-        description="Indicates whether to use logarithmic steps between consecutive ILD values."
+    use_log_or_exp: Literal["Default", "Log", "Exp"] = Field(
+        description="Indicates whether to use logarithmic/exponential steps between consecutive ILD values."
     )
-    log_base: float = Field(description="The base of the logarithm.", gt=0)
+    log_or_exp_base: float = Field(description="The base of the logarithm/exponential.", gt=0)
 
 
 class ABL(BaseModel):

@@ -18,8 +18,8 @@ namespace Extensions
     {
         int numsteps;
         double stepsize;
-        bool uselog;
-        double logbase = Math.E;
+        Training.ILDUseLogOrExp uselogorexp;
+        double logorexpbase = Math.E;
         event Action<double[]> ValueChanged;
 
         [Description("The number of |ILD| values. The final array will contain 2*NumSteps elements, since it will contain both positive and negative ILD values.")]
@@ -44,22 +44,22 @@ namespace Extensions
             }
         }
         [Description("Whether to use logarithmic steps between consecutive ILD values.")]
-        public bool UseLog
+        public Training.ILDUseLogOrExp UseLogOrExp
         {
-            get { return uselog; }
+            get { return uselogorexp; }
             set
             {
-                this.uselog = value;
+                this.uselogorexp = value;
                 OnValueChanged(value);
             }
         }
-        [Description("The base of the logarithm.")]
-        public double LogBase
+        [Description("The base of the logarithm/exponential.")]
+        public double LogOrExpBase
         {
-            get { return logbase; }
+            get { return logorexpbase; }
             set
             {
-                this.logbase = value;
+                this.logorexpbase = value;
                 OnValueChanged(value);
             }
         }
@@ -72,7 +72,7 @@ namespace Extensions
         }
 
         /// <summary>
-        /// Generates an array containing the ILD values to be used based on <c>NumSteps</c>, <c>StepSize</c>, <c>UseLog</c> and <c>LogBase</c>.
+        /// Generates an array containing the ILD values to be used based on <c>NumSteps</c>, <c>StepSize</c>, <c>UseLogOrExp</c> and <c>LogOrExpBase</c>.
         /// </summary>
         /// <returns>
         /// An array with 2*<c>NumSteps</c> ILD values.
@@ -82,9 +82,13 @@ namespace Extensions
             double[] ILDs = new double[NumSteps * 2];
             for (int i = 0; i < NumSteps; i++)
             {
-                if (UseLog)
+                if (UseLogOrExp == Training.ILDUseLogOrExp.Log)
                 {
-                    ILDs[i] = -StepSize * Math.Log(1 + NumSteps - i, LogBase);
+                    ILDs[i] = -StepSize * Math.Log(1 + NumSteps - i, LogOrExpBase);
+                }
+                else if (UseLogOrExp == Training.ILDUseLogOrExp.Exp)
+                {
+                    ILDs[i] = - Math.Pow(LogOrExpBase, StepSize * (NumSteps - i));
                 }
                 else
                 {
@@ -94,9 +98,13 @@ namespace Extensions
 
             for (int i = NumSteps; i < NumSteps * 2; i++)
             {
-                if (UseLog)
+                if (UseLogOrExp == Training.ILDUseLogOrExp.Log)
                 {
-                    ILDs[i] = StepSize * Math.Log(1 + i - NumSteps + 1, LogBase);
+                    ILDs[i] = StepSize * Math.Log(1 + i - NumSteps + 1, LogOrExpBase);
+                }
+                else if (UseLogOrExp == Training.ILDUseLogOrExp.Exp)
+                {
+                    ILDs[i] = Math.Pow(LogOrExpBase, StepSize * (i - NumSteps + 1));
                 }
                 else
                 {

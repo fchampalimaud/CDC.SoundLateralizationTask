@@ -1,4 +1,6 @@
 from pydantic import BaseModel, Field
+from pydantic.types import StringConstraints
+from typing_extensions import Annotated
 from sgen._utils import (
     export_schema,
     bonsai_sgen,
@@ -69,7 +71,7 @@ class FixationTimeParts(BaseModel):
         ge=0,
     )
     timed_duration: float = Field(
-        description="The timed duration for this part of the fixation time (s).", ge=0
+        description="The timed duration for this part of the fixation time (ms).", ge=0
     )
 
 
@@ -83,6 +85,13 @@ class FixationTime(BaseModel):
     )
     sound_onset_time: SoundOnsetTime = Field(
         description="Contains the data related to the Sound Onset Time part of the Fixation Time."
+    )
+    intended_duration: float = Field(
+        description="The intended duration for the total fixation time (ms).",
+        ge=0,
+    )
+    timed_duration: float = Field(
+        description="The timed duration for the total fixation time (ms).", ge=0
     )
 
 
@@ -144,6 +153,7 @@ class Trial(BaseModel):
     start_time: float = Field(
         description="The timestamp at which the trial started (s).", ge=0
     )
+    tared_start_time: float = Field(description="The tared timestamp at which the trial started in which t = 0 is the start time of the first trial of the session (s).", ge=0)
     end_time: float = Field(
         description="The timestamp at which the trial ended (s).", ge=0
     )
@@ -152,6 +162,7 @@ class Trial(BaseModel):
 
 class Output(BaseModel):
     animal_id: int = Field(description="The ID number of the animal.")
+    version: Annotated[str, StringConstraints(pattern=r'\d+\.\d+\.\d+')] = Field(description="The version of the project used in the session.")
     trial: Trial = Field(description="Contains the trial-related data.")
     block: Block = Field(description="Contains the block-related data.")
     session: Session = Field(description="Contains the session-related data.")

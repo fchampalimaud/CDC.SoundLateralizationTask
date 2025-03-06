@@ -6,11 +6,11 @@ items:
   children:
   - Training.ABL
   - Training.CriticalPerformance
-  - Training.Cues
   - Training.DeserializeFromJson
   - Training.DeserializeFromYaml
   - Training.FixationTime
   - Training.ILD
+  - Training.ILDUseLogOrExp
   - Training.ITI
   - Training.Level
   - Training.PenaltyTimes
@@ -44,13 +44,6 @@ references:
   name: CriticalPerformance
   nameWithType: CriticalPerformance
   fullName: Training.CriticalPerformance
-- uid: Training.Cues
-  commentId: T:Training.Cues
-  parent: Training
-  href: Training.Cues.html
-  name: Cues
-  nameWithType: Cues
-  fullName: Training.Cues
 - uid: Training.FixationTime
   commentId: T:Training.FixationTime
   parent: Training
@@ -114,6 +107,13 @@ references:
   name: Training
   nameWithType: Training
   fullName: Training.Training
+- uid: Training.ILDUseLogOrExp
+  commentId: T:Training.ILDUseLogOrExp
+  parent: Training
+  href: Training.ILDUseLogOrExp.html
+  name: ILDUseLogOrExp
+  nameWithType: ILDUseLogOrExp
+  fullName: Training.ILDUseLogOrExp
 - uid: Training.SerializeToJson
   commentId: T:Training.SerializeToJson
   href: Training.SerializeToJson.html

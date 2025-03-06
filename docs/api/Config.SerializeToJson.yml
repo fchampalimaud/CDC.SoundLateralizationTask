@@ -1,37 +1,44 @@
 ### YamlMime:ManagedReference
 items:
-- uid: Parameters.StartupFile
-  commentId: T:Parameters.StartupFile
-  id: StartupFile
-  parent: Parameters
+- uid: Config.SerializeToJson
+  commentId: T:Config.SerializeToJson
+  id: SerializeToJson
+  parent: Config
   children:
-  - Parameters.StartupFile.AnimalFile
-  - Parameters.StartupFile.OutputDir
-  - Parameters.StartupFile.SetupFile
-  - Parameters.StartupFile.TrainingFile
+  - Config.SerializeToJson.Process(System.IObservable{Config.Config})
   langs:
   - csharp
   - vb
-  name: StartupFile
-  nameWithType: StartupFile
-  fullName: Parameters.StartupFile
+  name: SerializeToJson
+  nameWithType: SerializeToJson
+  fullName: Config.SerializeToJson
   type: Class
   source:
     remote:
-      path: src/Extensions/ReadStartupFile.cs
-      branch: freeze_debugging
+      path: src/Extensions/Config.cs
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
-    id: StartupFile
-    path: ../src/Extensions/ReadStartupFile.cs
-    startLine: 14
+    id: SerializeToJson
+    path: ../src/Extensions/Config.cs
+    startLine: 256
   assemblies:
   - Extensions
-  namespace: Parameters
-  summary: Class <code>StartupFile</code> contains the relevant paths used during the Sound Lateralization Task which are read from the <code>startup.json</code> file. This is the only file which is hardcoded both in the Bonsai and in the Python projects, i.e. this file can't be moved from its current location and its name can't be changed. It's not recommended that relative paths are used, but keep in mind that in case one wants to, the relative paths must be relative to the <code>./src</code> (where the <code>.</code> is the root directory of the project).
+  namespace: Config
+  summary: Serializes a sequence of data model objects into JSON strings.
   example: []
   syntax:
-    content: public class StartupFile
-    content.vb: Public Class StartupFile
+    content: >-
+      [Combinator]
+
+      [WorkflowElementCategory(ElementCategory.Transform)]
+
+      public class SerializeToJson
+    content.vb: >-
+      <Combinator>
+
+      <WorkflowElementCategory(ElementCategory.Transform)>
+
+      Public Class SerializeToJson
   inheritance:
   - System.Object
   inheritedMembers:
@@ -42,137 +49,56 @@ items:
   - System.Object.GetHashCode
   - System.Object.GetType
   - System.Object.MemberwiseClone
-- uid: Parameters.StartupFile.SetupFile
-  commentId: P:Parameters.StartupFile.SetupFile
-  id: SetupFile
-  parent: Parameters.StartupFile
+  attributes:
+  - type: Bonsai.CombinatorAttribute
+    ctor: Bonsai.CombinatorAttribute.#ctor
+    arguments: []
+  - type: Bonsai.WorkflowElementCategoryAttribute
+    ctor: Bonsai.WorkflowElementCategoryAttribute.#ctor(Bonsai.ElementCategory)
+    arguments:
+    - type: Bonsai.ElementCategory
+      value: 2
+- uid: Config.SerializeToJson.Process(System.IObservable{Config.Config})
+  commentId: M:Config.SerializeToJson.Process(System.IObservable{Config.Config})
+  id: Process(System.IObservable{Config.Config})
+  parent: Config.SerializeToJson
   langs:
   - csharp
   - vb
-  name: SetupFile
-  nameWithType: StartupFile.SetupFile
-  fullName: Parameters.StartupFile.SetupFile
-  type: Property
+  name: Process(IObservable<Config>)
+  nameWithType: SerializeToJson.Process(IObservable<Config>)
+  fullName: Config.SerializeToJson.Process(System.IObservable<Config.Config>)
+  type: Method
   source:
     remote:
-      path: src/Extensions/ReadStartupFile.cs
-      branch: freeze_debugging
+      path: src/Extensions/Config.cs
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
-    id: SetupFile
-    path: ../src/Extensions/ReadStartupFile.cs
-    startLine: 17
+    id: Process
+    path: ../src/Extensions/Config.cs
+    startLine: 268
   assemblies:
   - Extensions
-  namespace: Parameters
-  example: []
+  namespace: Config
   syntax:
-    content: public string SetupFile { get; set; }
-    parameters: []
+    content: public IObservable<string> Process(IObservable<Config> source)
+    parameters:
+    - id: source
+      type: System.IObservable{Config.Config}
     return:
-      type: System.String
-      description: Property <code>SetupFile</code> is the path to the <code>setup.csv</code> file.
-    content.vb: Public Property SetupFile As String
-  overload: Parameters.StartupFile.SetupFile*
-- uid: Parameters.StartupFile.TrainingFile
-  commentId: P:Parameters.StartupFile.TrainingFile
-  id: TrainingFile
-  parent: Parameters.StartupFile
-  langs:
-  - csharp
-  - vb
-  name: TrainingFile
-  nameWithType: StartupFile.TrainingFile
-  fullName: Parameters.StartupFile.TrainingFile
-  type: Property
-  source:
-    remote:
-      path: src/Extensions/ReadStartupFile.cs
-      branch: freeze_debugging
-      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
-    id: TrainingFile
-    path: ../src/Extensions/ReadStartupFile.cs
-    startLine: 19
-  assemblies:
-  - Extensions
-  namespace: Parameters
-  example: []
-  syntax:
-    content: public string TrainingFile { get; set; }
-    parameters: []
-    return:
-      type: System.String
-      description: Property <code>TrainingFile</code> is the path to the <code>training.csv</code> file.
-    content.vb: Public Property TrainingFile As String
-  overload: Parameters.StartupFile.TrainingFile*
-- uid: Parameters.StartupFile.AnimalFile
-  commentId: P:Parameters.StartupFile.AnimalFile
-  id: AnimalFile
-  parent: Parameters.StartupFile
-  langs:
-  - csharp
-  - vb
-  name: AnimalFile
-  nameWithType: StartupFile.AnimalFile
-  fullName: Parameters.StartupFile.AnimalFile
-  type: Property
-  source:
-    remote:
-      path: src/Extensions/ReadStartupFile.cs
-      branch: freeze_debugging
-      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
-    id: AnimalFile
-    path: ../src/Extensions/ReadStartupFile.cs
-    startLine: 21
-  assemblies:
-  - Extensions
-  namespace: Parameters
-  example: []
-  syntax:
-    content: public string AnimalFile { get; set; }
-    parameters: []
-    return:
-      type: System.String
-      description: Property <code>AnimalFile</code> is the path to the <code>animal.json</code> file.
-    content.vb: Public Property AnimalFile As String
-  overload: Parameters.StartupFile.AnimalFile*
-- uid: Parameters.StartupFile.OutputDir
-  commentId: P:Parameters.StartupFile.OutputDir
-  id: OutputDir
-  parent: Parameters.StartupFile
-  langs:
-  - csharp
-  - vb
-  name: OutputDir
-  nameWithType: StartupFile.OutputDir
-  fullName: Parameters.StartupFile.OutputDir
-  type: Property
-  source:
-    remote:
-      path: src/Extensions/ReadStartupFile.cs
-      branch: freeze_debugging
-      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
-    id: OutputDir
-    path: ../src/Extensions/ReadStartupFile.cs
-    startLine: 23
-  assemblies:
-  - Extensions
-  namespace: Parameters
-  example: []
-  syntax:
-    content: public string OutputDir { get; set; }
-    parameters: []
-    return:
-      type: System.String
-      description: Property <code>OutputDir</code> is the path to the output directory.
-    content.vb: Public Property OutputDir As String
-  overload: Parameters.StartupFile.OutputDir*
+      type: System.IObservable{System.String}
+    content.vb: Public Function Process(source As IObservable(Of Config)) As IObservable(Of String)
+  overload: Config.SerializeToJson.Process*
+  nameWithType.vb: SerializeToJson.Process(IObservable(Of Config))
+  fullName.vb: Config.SerializeToJson.Process(System.IObservable(Of Config.Config))
+  name.vb: Process(IObservable(Of Config))
 references:
-- uid: Parameters
-  commentId: N:Parameters
-  href: Parameters.html
-  name: Parameters
-  nameWithType: Parameters
-  fullName: Parameters
+- uid: Config
+  commentId: N:Config
+  href: Config.html
+  name: Config
+  nameWithType: Config
+  fullName: Config
 - uid: System.Object
   commentId: T:System.Object
   parent: System
@@ -410,38 +336,105 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: Parameters.StartupFile.SetupFile*
-  commentId: Overload:Parameters.StartupFile.SetupFile
-  href: Parameters.StartupFile.html#Parameters_StartupFile_SetupFile
-  name: SetupFile
-  nameWithType: StartupFile.SetupFile
-  fullName: Parameters.StartupFile.SetupFile
-- uid: System.String
-  commentId: T:System.String
+- uid: Config.SerializeToJson.Process*
+  commentId: Overload:Config.SerializeToJson.Process
+  href: Config.SerializeToJson.html#Config_SerializeToJson_Process_System_IObservable_Config_Config__
+  name: Process
+  nameWithType: SerializeToJson.Process
+  fullName: Config.SerializeToJson.Process
+- uid: System.IObservable{Config.Config}
+  commentId: T:System.IObservable{Config.Config}
   parent: System
+  definition: System.IObservable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  name: IObservable<Config>
+  nameWithType: IObservable<Config>
+  fullName: System.IObservable<Config.Config>
+  nameWithType.vb: IObservable(Of Config)
+  fullName.vb: System.IObservable(Of Config.Config)
+  name.vb: IObservable(Of Config)
+  spec.csharp:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: <
+  - uid: Config.Config
+    name: Config
+    href: Config.Config.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Config.Config
+    name: Config
+    href: Config.Config.html
+  - name: )
+- uid: System.IObservable{System.String}
+  commentId: T:System.IObservable{System.String}
+  parent: System
+  definition: System.IObservable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  name: IObservable<string>
+  nameWithType: IObservable<string>
+  fullName: System.IObservable<string>
+  nameWithType.vb: IObservable(Of String)
+  fullName.vb: System.IObservable(Of String)
+  name.vb: IObservable(Of String)
+  spec.csharp:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.IObservable`1
+  commentId: T:System.IObservable`1
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.string
-  name: string
-  nameWithType: string
-  fullName: string
-  nameWithType.vb: String
-  fullName.vb: String
-  name.vb: String
-- uid: Parameters.StartupFile.TrainingFile*
-  commentId: Overload:Parameters.StartupFile.TrainingFile
-  href: Parameters.StartupFile.html#Parameters_StartupFile_TrainingFile
-  name: TrainingFile
-  nameWithType: StartupFile.TrainingFile
-  fullName: Parameters.StartupFile.TrainingFile
-- uid: Parameters.StartupFile.AnimalFile*
-  commentId: Overload:Parameters.StartupFile.AnimalFile
-  href: Parameters.StartupFile.html#Parameters_StartupFile_AnimalFile
-  name: AnimalFile
-  nameWithType: StartupFile.AnimalFile
-  fullName: Parameters.StartupFile.AnimalFile
-- uid: Parameters.StartupFile.OutputDir*
-  commentId: Overload:Parameters.StartupFile.OutputDir
-  href: Parameters.StartupFile.html#Parameters_StartupFile_OutputDir
-  name: OutputDir
-  nameWithType: StartupFile.OutputDir
-  fullName: Parameters.StartupFile.OutputDir
+  href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  name: IObservable<T>
+  nameWithType: IObservable<T>
+  fullName: System.IObservable<T>
+  nameWithType.vb: IObservable(Of T)
+  fullName.vb: System.IObservable(Of T)
+  name.vb: IObservable(Of T)
+  spec.csharp:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )

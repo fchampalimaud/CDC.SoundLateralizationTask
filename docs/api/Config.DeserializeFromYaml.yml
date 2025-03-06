@@ -1,42 +1,42 @@
 ### YamlMime:ManagedReference
 items:
-- uid: SetupList.DeserializeFromJson
-  commentId: T:SetupList.DeserializeFromJson
-  id: DeserializeFromJson
-  parent: SetupList
+- uid: Config.DeserializeFromYaml
+  commentId: T:Config.DeserializeFromYaml
+  id: DeserializeFromYaml
+  parent: Config
   children:
-  - SetupList.DeserializeFromJson.#ctor
-  - SetupList.DeserializeFromJson.Build(System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression})
-  - SetupList.DeserializeFromJson.Type
+  - Config.DeserializeFromYaml.#ctor
+  - Config.DeserializeFromYaml.Build(System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression})
+  - Config.DeserializeFromYaml.Type
   langs:
   - csharp
   - vb
-  name: DeserializeFromJson
-  nameWithType: DeserializeFromJson
-  fullName: SetupList.DeserializeFromJson
+  name: DeserializeFromYaml
+  nameWithType: DeserializeFromYaml
+  fullName: Config.DeserializeFromYaml
   type: Class
   source:
     remote:
-      path: src/Extensions/SetupList.cs
+      path: src/Extensions/Config.cs
       branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
-    id: DeserializeFromJson
-    path: ../src/Extensions/SetupList.cs
-    startLine: 1048
+    id: DeserializeFromYaml
+    path: ../src/Extensions/Config.cs
+    startLine: 341
   assemblies:
   - Extensions
-  namespace: SetupList
-  summary: Deserializes a sequence of JSON strings into data model objects.
+  namespace: Config
+  summary: Deserializes a sequence of YAML strings into data model objects.
   example: []
   syntax:
     content: >-
       [WorkflowElementCategory(ElementCategory.Transform)]
 
-      public class DeserializeFromJson : SingleArgumentExpressionBuilder, IExpressionBuilder
+      public class DeserializeFromYaml : SingleArgumentExpressionBuilder, IExpressionBuilder
     content.vb: >-
       <WorkflowElementCategory(ElementCategory.Transform)>
 
-      Public Class DeserializeFromJson Inherits SingleArgumentExpressionBuilder Implements IExpressionBuilder
+      Public Class DeserializeFromYaml Inherits SingleArgumentExpressionBuilder Implements IExpressionBuilder
   inheritance:
   - System.Object
   - Bonsai.Expressions.ExpressionBuilder
@@ -67,86 +67,86 @@ items:
     arguments:
     - type: Bonsai.ElementCategory
       value: 2
-- uid: SetupList.DeserializeFromJson.#ctor
-  commentId: M:SetupList.DeserializeFromJson.#ctor
+- uid: Config.DeserializeFromYaml.#ctor
+  commentId: M:Config.DeserializeFromYaml.#ctor
   id: '#ctor'
-  parent: SetupList.DeserializeFromJson
+  parent: Config.DeserializeFromYaml
   langs:
   - csharp
   - vb
-  name: DeserializeFromJson()
-  nameWithType: DeserializeFromJson.DeserializeFromJson()
-  fullName: SetupList.DeserializeFromJson.DeserializeFromJson()
+  name: DeserializeFromYaml()
+  nameWithType: DeserializeFromYaml.DeserializeFromYaml()
+  fullName: Config.DeserializeFromYaml.DeserializeFromYaml()
   type: Constructor
   source:
     remote:
-      path: src/Extensions/SetupList.cs
+      path: src/Extensions/Config.cs
       branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: .ctor
-    path: ../src/Extensions/SetupList.cs
-    startLine: 1062
+    path: ../src/Extensions/Config.cs
+    startLine: 349
   assemblies:
   - Extensions
-  namespace: SetupList
+  namespace: Config
   syntax:
-    content: public DeserializeFromJson()
+    content: public DeserializeFromYaml()
     content.vb: Public Sub New()
-  overload: SetupList.DeserializeFromJson.#ctor*
-  nameWithType.vb: DeserializeFromJson.New()
-  fullName.vb: SetupList.DeserializeFromJson.New()
+  overload: Config.DeserializeFromYaml.#ctor*
+  nameWithType.vb: DeserializeFromYaml.New()
+  fullName.vb: Config.DeserializeFromYaml.New()
   name.vb: New()
-- uid: SetupList.DeserializeFromJson.Type
-  commentId: P:SetupList.DeserializeFromJson.Type
+- uid: Config.DeserializeFromYaml.Type
+  commentId: P:Config.DeserializeFromYaml.Type
   id: Type
-  parent: SetupList.DeserializeFromJson
+  parent: Config.DeserializeFromYaml
   langs:
   - csharp
   - vb
   name: Type
-  nameWithType: DeserializeFromJson.Type
-  fullName: SetupList.DeserializeFromJson.Type
+  nameWithType: DeserializeFromYaml.Type
+  fullName: Config.DeserializeFromYaml.Type
   type: Property
   source:
     remote:
-      path: src/Extensions/SetupList.cs
+      path: src/Extensions/Config.cs
       branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Type
-    path: ../src/Extensions/SetupList.cs
-    startLine: 1067
+    path: ../src/Extensions/Config.cs
+    startLine: 354
   assemblies:
   - Extensions
-  namespace: SetupList
+  namespace: Config
   syntax:
     content: public TypeMapping Type { get; set; }
     parameters: []
     return:
       type: Bonsai.Expressions.TypeMapping
     content.vb: Public Property Type As TypeMapping
-  overload: SetupList.DeserializeFromJson.Type*
-- uid: SetupList.DeserializeFromJson.Build(System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression})
-  commentId: M:SetupList.DeserializeFromJson.Build(System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression})
+  overload: Config.DeserializeFromYaml.Type*
+- uid: Config.DeserializeFromYaml.Build(System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression})
+  commentId: M:Config.DeserializeFromYaml.Build(System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression})
   id: Build(System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression})
-  parent: SetupList.DeserializeFromJson
+  parent: Config.DeserializeFromYaml
   langs:
   - csharp
   - vb
   name: Build(IEnumerable<Expression>)
-  nameWithType: DeserializeFromJson.Build(IEnumerable<Expression>)
-  fullName: SetupList.DeserializeFromJson.Build(System.Collections.Generic.IEnumerable<System.Linq.Expressions.Expression>)
+  nameWithType: DeserializeFromYaml.Build(IEnumerable<Expression>)
+  fullName: Config.DeserializeFromYaml.Build(System.Collections.Generic.IEnumerable<System.Linq.Expressions.Expression>)
   type: Method
   source:
     remote:
-      path: src/Extensions/SetupList.cs
+      path: src/Extensions/Config.cs
       branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Build
-    path: ../src/Extensions/SetupList.cs
-    startLine: 1069
+    path: ../src/Extensions/Config.cs
+    startLine: 356
   assemblies:
   - Extensions
-  namespace: SetupList
+  namespace: Config
   summary: >-
     Constructs an <xref href="System.Linq.Expressions.Expression" data-throw-if-not-resolved="false"></xref> node from a collection of input
 
@@ -166,17 +166,17 @@ items:
       description: The constructed <xref href="System.Linq.Expressions.Expression" data-throw-if-not-resolved="false"></xref> node.
     content.vb: Public Overrides Function Build(arguments As IEnumerable(Of Expression)) As Expression
   overridden: Bonsai.Expressions.ExpressionBuilder.Build(System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression})
-  overload: SetupList.DeserializeFromJson.Build*
-  nameWithType.vb: DeserializeFromJson.Build(IEnumerable(Of Expression))
-  fullName.vb: SetupList.DeserializeFromJson.Build(System.Collections.Generic.IEnumerable(Of System.Linq.Expressions.Expression))
+  overload: Config.DeserializeFromYaml.Build*
+  nameWithType.vb: DeserializeFromYaml.Build(IEnumerable(Of Expression))
+  fullName.vb: Config.DeserializeFromYaml.Build(System.Collections.Generic.IEnumerable(Of System.Linq.Expressions.Expression))
   name.vb: Build(IEnumerable(Of Expression))
 references:
-- uid: SetupList
-  commentId: N:SetupList
-  href: SetupList.html
-  name: SetupList
-  nameWithType: SetupList
-  fullName: SetupList
+- uid: Config
+  commentId: N:Config
+  href: Config.html
+  name: Config
+  nameWithType: Config
+  fullName: Config
 - uid: System.Object
   commentId: T:System.Object
   parent: System
@@ -759,21 +759,21 @@ references:
   - uid: Bonsai.Expressions
     name: Expressions
     isExternal: true
-- uid: SetupList.DeserializeFromJson.#ctor*
-  commentId: Overload:SetupList.DeserializeFromJson.#ctor
-  href: SetupList.DeserializeFromJson.html#SetupList_DeserializeFromJson__ctor
-  name: DeserializeFromJson
-  nameWithType: DeserializeFromJson.DeserializeFromJson
-  fullName: SetupList.DeserializeFromJson.DeserializeFromJson
-  nameWithType.vb: DeserializeFromJson.New
-  fullName.vb: SetupList.DeserializeFromJson.New
+- uid: Config.DeserializeFromYaml.#ctor*
+  commentId: Overload:Config.DeserializeFromYaml.#ctor
+  href: Config.DeserializeFromYaml.html#Config_DeserializeFromYaml__ctor
+  name: DeserializeFromYaml
+  nameWithType: DeserializeFromYaml.DeserializeFromYaml
+  fullName: Config.DeserializeFromYaml.DeserializeFromYaml
+  nameWithType.vb: DeserializeFromYaml.New
+  fullName.vb: Config.DeserializeFromYaml.New
   name.vb: New
-- uid: SetupList.DeserializeFromJson.Type*
-  commentId: Overload:SetupList.DeserializeFromJson.Type
-  href: SetupList.DeserializeFromJson.html#SetupList_DeserializeFromJson_Type
+- uid: Config.DeserializeFromYaml.Type*
+  commentId: Overload:Config.DeserializeFromYaml.Type
+  href: Config.DeserializeFromYaml.html#Config_DeserializeFromYaml_Type
   name: Type
-  nameWithType: DeserializeFromJson.Type
-  fullName: SetupList.DeserializeFromJson.Type
+  nameWithType: DeserializeFromYaml.Type
+  fullName: Config.DeserializeFromYaml.Type
 - uid: Bonsai.Expressions.TypeMapping
   commentId: T:Bonsai.Expressions.TypeMapping
   parent: Bonsai.Expressions
@@ -834,12 +834,12 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression
   - name: )
   - name: )
-- uid: SetupList.DeserializeFromJson.Build*
-  commentId: Overload:SetupList.DeserializeFromJson.Build
-  href: SetupList.DeserializeFromJson.html#SetupList_DeserializeFromJson_Build_System_Collections_Generic_IEnumerable_System_Linq_Expressions_Expression__
+- uid: Config.DeserializeFromYaml.Build*
+  commentId: Overload:Config.DeserializeFromYaml.Build
+  href: Config.DeserializeFromYaml.html#Config_DeserializeFromYaml_Build_System_Collections_Generic_IEnumerable_System_Linq_Expressions_Expression__
   name: Build
-  nameWithType: DeserializeFromJson.Build
-  fullName: SetupList.DeserializeFromJson.Build
+  nameWithType: DeserializeFromYaml.Build
+  fullName: Config.DeserializeFromYaml.Build
 - uid: System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression}
   commentId: T:System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression}
   parent: System.Collections.Generic

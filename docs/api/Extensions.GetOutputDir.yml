@@ -17,7 +17,7 @@ items:
   source:
     remote:
       path: src/Extensions/GetOutputDir.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: GetOutputDir
     path: ../src/Extensions/GetOutputDir.cs
@@ -71,7 +71,7 @@ items:
   source:
     remote:
       path: src/Extensions/GetOutputDir.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: OutputDirPath
     path: ../src/Extensions/GetOutputDir.cs
@@ -100,7 +100,7 @@ items:
   source:
     remote:
       path: src/Extensions/GetOutputDir.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
     path: ../src/Extensions/GetOutputDir.cs

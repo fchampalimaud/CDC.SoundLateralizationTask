@@ -1,0 +1,213 @@
+### YamlMime:ManagedReference
+items:
+- uid: Training.ILDUseLogOrExp
+  commentId: T:Training.ILDUseLogOrExp
+  id: ILDUseLogOrExp
+  parent: Training
+  children:
+  - Training.ILDUseLogOrExp.Default
+  - Training.ILDUseLogOrExp.Exp
+  - Training.ILDUseLogOrExp.Log
+  langs:
+  - csharp
+  - vb
+  name: ILDUseLogOrExp
+  nameWithType: ILDUseLogOrExp
+  fullName: Training.ILDUseLogOrExp
+  type: Enum
+  source:
+    remote:
+      path: src/Extensions/Training.cs
+      branch: python_reorganization
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: ILDUseLogOrExp
+    path: ../src/Extensions/Training.cs
+    startLine: 1331
+  assemblies:
+  - Extensions
+  namespace: Training
+  syntax:
+    content: >-
+      [JsonConverter(typeof(StringEnumConverter))]
+
+      public enum ILDUseLogOrExp
+    content.vb: >-
+      <JsonConverter(GetType(StringEnumConverter))>
+
+      Public Enum ILDUseLogOrExp
+  attributes:
+  - type: Newtonsoft.Json.JsonConverterAttribute
+    ctor: Newtonsoft.Json.JsonConverterAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: Newtonsoft.Json.Converters.StringEnumConverter
+- uid: Training.ILDUseLogOrExp.Default
+  commentId: F:Training.ILDUseLogOrExp.Default
+  id: Default
+  parent: Training.ILDUseLogOrExp
+  langs:
+  - csharp
+  - vb
+  name: Default
+  nameWithType: ILDUseLogOrExp.Default
+  fullName: Training.ILDUseLogOrExp.Default
+  type: Field
+  source:
+    remote:
+      path: src/Extensions/Training.cs
+      branch: python_reorganization
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: Default
+    path: ../src/Extensions/Training.cs
+    startLine: 1336
+  assemblies:
+  - Extensions
+  namespace: Training
+  syntax:
+    content: >-
+      [EnumMember(Value = "Default")]
+
+      [YamlMember(Alias = "Default")]
+
+      Default = 0
+    return:
+      type: Training.ILDUseLogOrExp
+    content.vb: >-
+      <EnumMember(Value:="Default")>
+
+      <YamlMember(Alias:="Default")>
+
+      Default = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Default
+  - type: YamlDotNet.Serialization.YamlMemberAttribute
+    ctor: YamlDotNet.Serialization.YamlMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Alias
+      type: System.String
+      value: Default
+- uid: Training.ILDUseLogOrExp.Log
+  commentId: F:Training.ILDUseLogOrExp.Log
+  id: Log
+  parent: Training.ILDUseLogOrExp
+  langs:
+  - csharp
+  - vb
+  name: Log
+  nameWithType: ILDUseLogOrExp.Log
+  fullName: Training.ILDUseLogOrExp.Log
+  type: Field
+  source:
+    remote:
+      path: src/Extensions/Training.cs
+      branch: python_reorganization
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: Log
+    path: ../src/Extensions/Training.cs
+    startLine: 1340
+  assemblies:
+  - Extensions
+  namespace: Training
+  syntax:
+    content: >-
+      [EnumMember(Value = "Log")]
+
+      [YamlMember(Alias = "Log")]
+
+      Log = 1
+    return:
+      type: Training.ILDUseLogOrExp
+    content.vb: >-
+      <EnumMember(Value:="Log")>
+
+      <YamlMember(Alias:="Log")>
+
+      Log = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Log
+  - type: YamlDotNet.Serialization.YamlMemberAttribute
+    ctor: YamlDotNet.Serialization.YamlMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Alias
+      type: System.String
+      value: Log
+- uid: Training.ILDUseLogOrExp.Exp
+  commentId: F:Training.ILDUseLogOrExp.Exp
+  id: Exp
+  parent: Training.ILDUseLogOrExp
+  langs:
+  - csharp
+  - vb
+  name: Exp
+  nameWithType: ILDUseLogOrExp.Exp
+  fullName: Training.ILDUseLogOrExp.Exp
+  type: Field
+  source:
+    remote:
+      path: src/Extensions/Training.cs
+      branch: python_reorganization
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: Exp
+    path: ../src/Extensions/Training.cs
+    startLine: 1344
+  assemblies:
+  - Extensions
+  namespace: Training
+  syntax:
+    content: >-
+      [EnumMember(Value = "Exp")]
+
+      [YamlMember(Alias = "Exp")]
+
+      Exp = 2
+    return:
+      type: Training.ILDUseLogOrExp
+    content.vb: >-
+      <EnumMember(Value:="Exp")>
+
+      <YamlMember(Alias:="Exp")>
+
+      Exp = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Exp
+  - type: YamlDotNet.Serialization.YamlMemberAttribute
+    ctor: YamlDotNet.Serialization.YamlMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Alias
+      type: System.String
+      value: Exp
+references:
+- uid: Training
+  commentId: N:Training
+  href: Training.html
+  name: Training
+  nameWithType: Training
+  fullName: Training
+- uid: Training.ILDUseLogOrExp
+  commentId: T:Training.ILDUseLogOrExp
+  parent: Training
+  href: Training.ILDUseLogOrExp.html
+  name: ILDUseLogOrExp
+  nameWithType: ILDUseLogOrExp
+  fullName: Training.ILDUseLogOrExp

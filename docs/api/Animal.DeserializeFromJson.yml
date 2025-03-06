@@ -18,11 +18,11 @@ items:
   source:
     remote:
       path: src/Extensions/Animal.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: DeserializeFromJson
     path: ../src/Extensions/Animal.cs
-    startLine: 1070
+    startLine: 1137
   assemblies:
   - Extensions
   namespace: Animal
@@ -81,11 +81,11 @@ items:
   source:
     remote:
       path: src/Extensions/Animal.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: .ctor
     path: ../src/Extensions/Animal.cs
-    startLine: 1083
+    startLine: 1150
   assemblies:
   - Extensions
   namespace: Animal
@@ -110,11 +110,11 @@ items:
   source:
     remote:
       path: src/Extensions/Animal.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Type
     path: ../src/Extensions/Animal.cs
-    startLine: 1088
+    startLine: 1155
   assemblies:
   - Extensions
   namespace: Animal
@@ -139,11 +139,11 @@ items:
   source:
     remote:
       path: src/Extensions/Animal.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Build
     path: ../src/Extensions/Animal.cs
-    startLine: 1090
+    startLine: 1157
   assemblies:
   - Extensions
   namespace: Animal

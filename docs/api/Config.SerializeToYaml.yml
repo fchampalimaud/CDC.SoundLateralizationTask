@@ -1,47 +1,44 @@
 ### YamlMime:ManagedReference
 items:
-- uid: Extensions.ReadSetupCSV
-  commentId: T:Extensions.ReadSetupCSV
-  id: ReadSetupCSV
-  parent: Extensions
+- uid: Config.SerializeToYaml
+  commentId: T:Config.SerializeToYaml
+  id: SerializeToYaml
+  parent: Config
   children:
-  - Extensions.ReadSetupCSV.FilePath
-  - Extensions.ReadSetupCSV.Process
-  - Extensions.ReadSetupCSV.Process``1(System.IObservable{``0})
-  - Extensions.ReadSetupCSV.RowNumber
+  - Config.SerializeToYaml.Process(System.IObservable{Config.Config})
   langs:
   - csharp
   - vb
-  name: ReadSetupCSV
-  nameWithType: ReadSetupCSV
-  fullName: Extensions.ReadSetupCSV
+  name: SerializeToYaml
+  nameWithType: SerializeToYaml
+  fullName: Config.SerializeToYaml
   type: Class
   source:
     remote:
-      path: src/Extensions/SetupConfig.cs
-      branch: freeze_debugging
+      path: src/Extensions/Config.cs
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
-    id: ReadSetupCSV
-    path: ../src/Extensions/SetupConfig.cs
-    startLine: 75
+    id: SerializeToYaml
+    path: ../src/Extensions/Config.cs
+    startLine: 314
   assemblies:
   - Extensions
-  namespace: Extensions
-  summary: Class <code>ReadSetupCSV</code> contains the logic of the Bonsai node with the same name.
+  namespace: Config
+  summary: Serializes a sequence of data model objects into YAML strings.
   example: []
   syntax:
     content: >-
       [Combinator]
 
-      [WorkflowElementCategory(ElementCategory.Source)]
+      [WorkflowElementCategory(ElementCategory.Transform)]
 
-      public class ReadSetupCSV
+      public class SerializeToYaml
     content.vb: >-
       <Combinator>
 
-      <WorkflowElementCategory(ElementCategory.Source)>
+      <WorkflowElementCategory(ElementCategory.Transform)>
 
-      Public Class ReadSetupCSV
+      Public Class SerializeToYaml
   inheritance:
   - System.Object
   inheritedMembers:
@@ -60,136 +57,48 @@ items:
     ctor: Bonsai.WorkflowElementCategoryAttribute.#ctor(Bonsai.ElementCategory)
     arguments:
     - type: Bonsai.ElementCategory
-      value: 0
-- uid: Extensions.ReadSetupCSV.FilePath
-  commentId: P:Extensions.ReadSetupCSV.FilePath
-  id: FilePath
-  parent: Extensions.ReadSetupCSV
+      value: 2
+- uid: Config.SerializeToYaml.Process(System.IObservable{Config.Config})
+  commentId: M:Config.SerializeToYaml.Process(System.IObservable{Config.Config})
+  id: Process(System.IObservable{Config.Config})
+  parent: Config.SerializeToYaml
   langs:
   - csharp
   - vb
-  name: FilePath
-  nameWithType: ReadSetupCSV.FilePath
-  fullName: Extensions.ReadSetupCSV.FilePath
-  type: Property
-  source:
-    remote:
-      path: src/Extensions/SetupConfig.cs
-      branch: freeze_debugging
-      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
-    id: FilePath
-    path: ../src/Extensions/SetupConfig.cs
-    startLine: 80
-  assemblies:
-  - Extensions
-  namespace: Extensions
-  syntax:
-    content: public string FilePath { get; set; }
-    parameters: []
-    return:
-      type: System.String
-    content.vb: Public Property FilePath As String
-  overload: Extensions.ReadSetupCSV.FilePath*
-- uid: Extensions.ReadSetupCSV.RowNumber
-  commentId: P:Extensions.ReadSetupCSV.RowNumber
-  id: RowNumber
-  parent: Extensions.ReadSetupCSV
-  langs:
-  - csharp
-  - vb
-  name: RowNumber
-  nameWithType: ReadSetupCSV.RowNumber
-  fullName: Extensions.ReadSetupCSV.RowNumber
-  type: Property
-  source:
-    remote:
-      path: src/Extensions/SetupConfig.cs
-      branch: freeze_debugging
-      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
-    id: RowNumber
-    path: ../src/Extensions/SetupConfig.cs
-    startLine: 83
-  assemblies:
-  - Extensions
-  namespace: Extensions
-  syntax:
-    content: public int RowNumber { get; set; }
-    parameters: []
-    return:
-      type: System.Int32
-    content.vb: Public Property RowNumber As Integer
-  overload: Extensions.ReadSetupCSV.RowNumber*
-- uid: Extensions.ReadSetupCSV.Process
-  commentId: M:Extensions.ReadSetupCSV.Process
-  id: Process
-  parent: Extensions.ReadSetupCSV
-  langs:
-  - csharp
-  - vb
-  name: Process()
-  nameWithType: ReadSetupCSV.Process()
-  fullName: Extensions.ReadSetupCSV.Process()
+  name: Process(IObservable<Config>)
+  nameWithType: SerializeToYaml.Process(IObservable<Config>)
+  fullName: Config.SerializeToYaml.Process(System.IObservable<Config.Config>)
   type: Method
   source:
     remote:
-      path: src/Extensions/SetupConfig.cs
-      branch: freeze_debugging
+      path: src/Extensions/Config.cs
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
-    path: ../src/Extensions/SetupConfig.cs
-    startLine: 110
+    path: ../src/Extensions/Config.cs
+    startLine: 331
   assemblies:
   - Extensions
-  namespace: Extensions
+  namespace: Config
   syntax:
-    content: public IObservable<SetupConfig> Process()
-    return:
-      type: System.IObservable{Parameters.SetupConfig}
-    content.vb: Public Function Process() As IObservable(Of SetupConfig)
-  overload: Extensions.ReadSetupCSV.Process*
-- uid: Extensions.ReadSetupCSV.Process``1(System.IObservable{``0})
-  commentId: M:Extensions.ReadSetupCSV.Process``1(System.IObservable{``0})
-  id: Process``1(System.IObservable{``0})
-  parent: Extensions.ReadSetupCSV
-  langs:
-  - csharp
-  - vb
-  name: Process<TSource>(IObservable<TSource>)
-  nameWithType: ReadSetupCSV.Process<TSource>(IObservable<TSource>)
-  fullName: Extensions.ReadSetupCSV.Process<TSource>(System.IObservable<TSource>)
-  type: Method
-  source:
-    remote:
-      path: src/Extensions/SetupConfig.cs
-      branch: freeze_debugging
-      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
-    id: Process
-    path: ../src/Extensions/SetupConfig.cs
-    startLine: 115
-  assemblies:
-  - Extensions
-  namespace: Extensions
-  syntax:
-    content: public IObservable<SetupConfig> Process<TSource>(IObservable<TSource> source)
+    content: public IObservable<string> Process(IObservable<Config> source)
     parameters:
     - id: source
-      type: System.IObservable{{TSource}}
-    typeParameters:
-    - id: TSource
+      type: System.IObservable{Config.Config}
     return:
-      type: System.IObservable{Parameters.SetupConfig}
-    content.vb: Public Function Process(Of TSource)(source As IObservable(Of TSource)) As IObservable(Of SetupConfig)
-  overload: Extensions.ReadSetupCSV.Process*
-  nameWithType.vb: ReadSetupCSV.Process(Of TSource)(IObservable(Of TSource))
-  fullName.vb: Extensions.ReadSetupCSV.Process(Of TSource)(System.IObservable(Of TSource))
-  name.vb: Process(Of TSource)(IObservable(Of TSource))
+      type: System.IObservable{System.String}
+    content.vb: Public Function Process(source As IObservable(Of Config)) As IObservable(Of String)
+  overload: Config.SerializeToYaml.Process*
+  nameWithType.vb: SerializeToYaml.Process(IObservable(Of Config))
+  fullName.vb: Config.SerializeToYaml.Process(System.IObservable(Of Config.Config))
+  name.vb: Process(IObservable(Of Config))
 references:
-- uid: Extensions
-  commentId: N:Extensions
-  href: Extensions.html
-  name: Extensions
-  nameWithType: Extensions
-  fullName: Extensions
+- uid: Config
+  commentId: N:Config
+  href: Config.html
+  name: Config
+  nameWithType: Config
+  fullName: Config
 - uid: System.Object
   commentId: T:System.Object
   parent: System
@@ -427,66 +336,32 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: Extensions.ReadSetupCSV.FilePath*
-  commentId: Overload:Extensions.ReadSetupCSV.FilePath
-  href: Extensions.ReadSetupCSV.html#Extensions_ReadSetupCSV_FilePath
-  name: FilePath
-  nameWithType: ReadSetupCSV.FilePath
-  fullName: Extensions.ReadSetupCSV.FilePath
-- uid: System.String
-  commentId: T:System.String
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.string
-  name: string
-  nameWithType: string
-  fullName: string
-  nameWithType.vb: String
-  fullName.vb: String
-  name.vb: String
-- uid: Extensions.ReadSetupCSV.RowNumber*
-  commentId: Overload:Extensions.ReadSetupCSV.RowNumber
-  href: Extensions.ReadSetupCSV.html#Extensions_ReadSetupCSV_RowNumber
-  name: RowNumber
-  nameWithType: ReadSetupCSV.RowNumber
-  fullName: Extensions.ReadSetupCSV.RowNumber
-- uid: System.Int32
-  commentId: T:System.Int32
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int32
-  name: int
-  nameWithType: int
-  fullName: int
-  nameWithType.vb: Integer
-  fullName.vb: Integer
-  name.vb: Integer
-- uid: Extensions.ReadSetupCSV.Process*
-  commentId: Overload:Extensions.ReadSetupCSV.Process
-  href: Extensions.ReadSetupCSV.html#Extensions_ReadSetupCSV_Process
+- uid: Config.SerializeToYaml.Process*
+  commentId: Overload:Config.SerializeToYaml.Process
+  href: Config.SerializeToYaml.html#Config_SerializeToYaml_Process_System_IObservable_Config_Config__
   name: Process
-  nameWithType: ReadSetupCSV.Process
-  fullName: Extensions.ReadSetupCSV.Process
-- uid: System.IObservable{Parameters.SetupConfig}
-  commentId: T:System.IObservable{Parameters.SetupConfig}
+  nameWithType: SerializeToYaml.Process
+  fullName: Config.SerializeToYaml.Process
+- uid: System.IObservable{Config.Config}
+  commentId: T:System.IObservable{Config.Config}
   parent: System
   definition: System.IObservable`1
   href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
-  name: IObservable<SetupConfig>
-  nameWithType: IObservable<SetupConfig>
-  fullName: System.IObservable<Parameters.SetupConfig>
-  nameWithType.vb: IObservable(Of SetupConfig)
-  fullName.vb: System.IObservable(Of Parameters.SetupConfig)
-  name.vb: IObservable(Of SetupConfig)
+  name: IObservable<Config>
+  nameWithType: IObservable<Config>
+  fullName: System.IObservable<Config.Config>
+  nameWithType.vb: IObservable(Of Config)
+  fullName.vb: System.IObservable(Of Config.Config)
+  name.vb: IObservable(Of Config)
   spec.csharp:
   - uid: System.IObservable`1
     name: IObservable
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
   - name: <
-  - uid: Parameters.SetupConfig
-    name: SetupConfig
-    href: Parameters.SetupConfig.html
+  - uid: Config.Config
+    name: Config
+    href: Config.Config.html
   - name: '>'
   spec.vb:
   - uid: System.IObservable`1
@@ -496,9 +371,44 @@ references:
   - name: (
   - name: Of
   - name: " "
-  - uid: Parameters.SetupConfig
-    name: SetupConfig
-    href: Parameters.SetupConfig.html
+  - uid: Config.Config
+    name: Config
+    href: Config.Config.html
+  - name: )
+- uid: System.IObservable{System.String}
+  commentId: T:System.IObservable{System.String}
+  parent: System
+  definition: System.IObservable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  name: IObservable<string>
+  nameWithType: IObservable<string>
+  fullName: System.IObservable<string>
+  nameWithType.vb: IObservable(Of String)
+  fullName.vb: System.IObservable(Of String)
+  name.vb: IObservable(Of String)
+  spec.csharp:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
   - name: )
 - uid: System.IObservable`1
   commentId: T:System.IObservable`1
@@ -527,33 +437,4 @@ references:
   - name: Of
   - name: " "
   - name: T
-  - name: )
-- uid: System.IObservable{{TSource}}
-  commentId: T:System.IObservable{``0}
-  parent: System
-  definition: System.IObservable`1
-  href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
-  name: IObservable<TSource>
-  nameWithType: IObservable<TSource>
-  fullName: System.IObservable<TSource>
-  nameWithType.vb: IObservable(Of TSource)
-  fullName.vb: System.IObservable(Of TSource)
-  name.vb: IObservable(Of TSource)
-  spec.csharp:
-  - uid: System.IObservable`1
-    name: IObservable
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
-  - name: <
-  - name: TSource
-  - name: '>'
-  spec.vb:
-  - uid: System.IObservable`1
-    name: IObservable
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
-  - name: (
-  - name: Of
-  - name: " "
-  - name: TSource
   - name: )
