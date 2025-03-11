@@ -1,6 +1,7 @@
 from pydantic import BaseModel, Field
 from pydantic.types import StringConstraints
 from typing_extensions import Annotated
+from typing import Literal
 from sgen._utils import (
     export_schema,
     bonsai_sgen,
@@ -17,14 +18,7 @@ class Optogenetics(BaseModel):
     duration: float = Field(
         description="The duration of the optogenetics used during the trial (s).", ge=0
     )
-    left_power: float = Field(
-        description="The power used in the optogenetics protocol for the left side. NOT IMPLEMENTED!!!",
-        ge=0,
-    )
-    right_power: float = Field(
-        description="The power used in the optogenetics protocol for the right side. NOT IMPLEMENTED!!!",
-        ge=0,
-    )
+    mode: Literal["Left", "Right", "Bilateral"] = Field(description="Indicates the optogenetics mode used in the current session.")
 
 
 class Outcome(BaseModel):

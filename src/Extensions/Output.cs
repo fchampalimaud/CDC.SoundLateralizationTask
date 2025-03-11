@@ -705,9 +705,7 @@ namespace Output
     
         private double _duration;
     
-        private double _leftPower;
-    
-        private double _rightPower;
+        private OptogeneticsMode _mode;
     
         public Optogenetics()
         {
@@ -717,8 +715,7 @@ namespace Output
         {
             _optoTrial = other._optoTrial;
             _duration = other._duration;
-            _leftPower = other._leftPower;
-            _rightPower = other._rightPower;
+            _mode = other._mode;
         }
     
         /// <summary>
@@ -758,40 +755,21 @@ namespace Output
         }
     
         /// <summary>
-        /// The power used in the optogenetics protocol for the left side. NOT IMPLEMENTED!!!
+        /// Indicates the optogenetics mode used in the current session.
         /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("left_power", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="left_power")]
-        [System.ComponentModel.DescriptionAttribute("The power used in the optogenetics protocol for the left side. NOT IMPLEMENTED!!!" +
-            "")]
-        public double LeftPower
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [Newtonsoft.Json.JsonPropertyAttribute("mode", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="mode")]
+        [System.ComponentModel.DescriptionAttribute("Indicates the optogenetics mode used in the current session.")]
+        public OptogeneticsMode Mode
         {
             get
             {
-                return _leftPower;
+                return _mode;
             }
             set
             {
-                _leftPower = value;
-            }
-        }
-    
-        /// <summary>
-        /// The power used in the optogenetics protocol for the right side. NOT IMPLEMENTED!!!
-        /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("right_power", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="right_power")]
-        [System.ComponentModel.DescriptionAttribute("The power used in the optogenetics protocol for the right side. NOT IMPLEMENTED!!" +
-            "!")]
-        public double RightPower
-        {
-            get
-            {
-                return _rightPower;
-            }
-            set
-            {
-                _rightPower = value;
+                _mode = value;
             }
         }
     
@@ -809,8 +787,7 @@ namespace Output
         {
             stringBuilder.Append("opto_trial = " + _optoTrial + ", ");
             stringBuilder.Append("duration = " + _duration + ", ");
-            stringBuilder.Append("left_power = " + _leftPower + ", ");
-            stringBuilder.Append("right_power = " + _rightPower);
+            stringBuilder.Append("mode = " + _mode);
             return true;
         }
     
@@ -1962,6 +1939,25 @@ namespace Output
             stringBuilder.Append("}");
             return stringBuilder.ToString();
         }
+    }
+
+
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
+    [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+    public enum OptogeneticsMode
+    {
+    
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="Left")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="Left")]
+        Left = 0,
+    
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="Right")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="Right")]
+        Right = 1,
+    
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="Bilateral")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="Bilateral")]
+        Bilateral = 2,
     }
 
 

@@ -188,24 +188,21 @@
           "title": "Duration",
           "type": "number"
         },
-        "left_power": {
-          "description": "The power used in the optogenetics protocol for the left side. NOT IMPLEMENTED!!!",
-          "minimum": 0.0,
-          "title": "Left Power",
-          "type": "number"
-        },
-        "right_power": {
-          "description": "The power used in the optogenetics protocol for the right side. NOT IMPLEMENTED!!!",
-          "minimum": 0.0,
-          "title": "Right Power",
-          "type": "number"
+        "mode": {
+          "description": "Indicates the optogenetics mode used in the current session.",
+          "enum": [
+            "Left",
+            "Right",
+            "Bilateral"
+          ],
+          "title": "Mode",
+          "type": "string"
         }
       },
       "required": [
         "opto_trial",
         "duration",
-        "left_power",
-        "right_power"
+        "mode"
       ],
       "title": "Optogenetics",
       "type": "object"

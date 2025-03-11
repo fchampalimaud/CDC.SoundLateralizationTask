@@ -125,6 +125,8 @@ namespace Animal
     
         private bool _useRt;
     
+        private OptogeneticsMode _mode;
+    
         public Optogenetics()
         {
         }
@@ -140,6 +142,7 @@ namespace Animal
             _frequency = other._frequency;
             _pulseDuration = other._pulseDuration;
             _useRt = other._useRt;
+            _mode = other._mode;
         }
     
         /// <summary>
@@ -307,6 +310,25 @@ namespace Animal
             }
         }
     
+        /// <summary>
+        /// Indicates the optogenetics mode used in the current session.
+        /// </summary>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [Newtonsoft.Json.JsonPropertyAttribute("mode", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="mode")]
+        [System.ComponentModel.DescriptionAttribute("Indicates the optogenetics mode used in the current session.")]
+        public OptogeneticsMode Mode
+        {
+            get
+            {
+                return _mode;
+            }
+            set
+            {
+                _mode = value;
+            }
+        }
+    
         public System.IObservable<Optogenetics> Process()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new Optogenetics(this)));
@@ -327,7 +349,8 @@ namespace Animal
             stringBuilder.Append("ramp_time = " + _rampTime + ", ");
             stringBuilder.Append("frequency = " + _frequency + ", ");
             stringBuilder.Append("pulse_duration = " + _pulseDuration + ", ");
-            stringBuilder.Append("use_rt = " + _useRt);
+            stringBuilder.Append("use_rt = " + _useRt + ", ");
+            stringBuilder.Append("mode = " + _mode);
             return true;
         }
     
@@ -1082,6 +1105,25 @@ namespace Animal
             stringBuilder.Append("}");
             return stringBuilder.ToString();
         }
+    }
+
+
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
+    [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+    public enum OptogeneticsMode
+    {
+    
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="Left")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="Left")]
+        Left = 0,
+    
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="Right")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="Right")]
+        Right = 1,
+    
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="Bilateral")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="Bilateral")]
+        Bilateral = 2,
     }
 
 

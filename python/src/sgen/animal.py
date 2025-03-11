@@ -1,7 +1,7 @@
 from datetime import timedelta
 
 from pydantic import BaseModel, Field
-from typing import List
+from typing import List, Literal
 from sgen._utils import (
     export_schema,
     bonsai_sgen,
@@ -41,6 +41,7 @@ class Optogenetics(BaseModel):
     use_rt: bool = Field(
         description="Indicates whether the optogenetics stimulation/inhibition should stop when the animal leaves the poke (true) or not (false)."
     )
+    mode: Literal["Left", "Right", "Bilateral"] = Field(description="Indicates the optogenetics mode used in the current session.")
 
 
 class TimeConstrains(BaseModel):

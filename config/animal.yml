@@ -27,6 +27,7 @@ optogenetics:
   use_pulses: true
   use_rt: true
   voltage: 1000
+  mode: Left
 reaction_time:
   delta: 0.001
   min_value: 0.01
@@ -38,7 +39,7 @@ session:
   setup_id: 0
   starting_block_number: 2
   starting_training_level: 1
-  starting_trial_number: 5
+  starting_trial_number: 1
   type: 1
 sound:
   abl_list:
