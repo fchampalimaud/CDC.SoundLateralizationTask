@@ -87,6 +87,12 @@ class Poke(BaseModel):
         description="Indicates whether the poke is a low-to-high (true) or a high-to-low (false) device."
     )
 
+class Camera(BaseModel):
+    use_camera: bool = Field(
+        description="Indicates whether the setup has a camera (true) or not (false)."
+    )
+    frames_per_second: float = Field(description="The number of frames per second of the camera.", gt=0)
+
 
 class Setup(BaseModel):
     setup_id: int = Field(description="The ID number of the setup.")
@@ -109,8 +115,8 @@ class Setup(BaseModel):
     sounds: List[Sound] = Field(
         description="The list with information regarding the sounds uploaded to the Harp SoundCard."
     )
-    use_camera: bool = Field(
-        description="Indicates whether the setup has a camera (true) or not (false)."
+    camera: Camera = Field(
+        description="Contains parameters related to the camera."
     )
 
 

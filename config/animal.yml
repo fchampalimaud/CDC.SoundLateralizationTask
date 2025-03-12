@@ -5,21 +5,22 @@ base_reward: 25
 fixation_time:
   opto_onset_time:
     delta: 0.5
-    min_value: 500
+    min_value: 7.5
     target: 500
   sound_onset_time:
     delta: 0.5
-    min_value: 500
+    min_value: 7.5
     target: 500
 lnp_time:
   delta: 0.001
-  min_value: 1
+  min_value: 0.01
   target: 1
 max_reaction_time: 5
 min_movement_time: 0.01
 optogenetics:
   duration: 2
   frequency: 20
+  mode: Left
   opto_ratio: 0.3
   pulse_duration: 20
   ramp_time: 50
@@ -27,19 +28,18 @@ optogenetics:
   use_pulses: true
   use_rt: true
   voltage: 1000
-  mode: Left
 reaction_time:
   delta: 0.001
-  min_value: 1
+  min_value: 0.0
   target: 1
 session:
   duration: 02:00:00
   last_training_level: 10
-  number: 2
+  number: 3
   setup_id: 0
-  starting_block_number: 2
+  starting_block_number: 3
   starting_training_level: 1
-  starting_trial_number: 1
+  starting_trial_number: 4
   type: 1
 sound:
   abl_list:

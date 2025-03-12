@@ -12,6 +12,94 @@ namespace SetupList
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
     [Bonsai.CombinatorAttribute()]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
+    public partial class Camera
+    {
+    
+        private bool _useCamera;
+    
+        private double _framesPerSecond;
+    
+        public Camera()
+        {
+        }
+    
+        protected Camera(Camera other)
+        {
+            _useCamera = other._useCamera;
+            _framesPerSecond = other._framesPerSecond;
+        }
+    
+        /// <summary>
+        /// Indicates whether the setup has a camera (true) or not (false).
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("use_camera", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="use_camera")]
+        [System.ComponentModel.DescriptionAttribute("Indicates whether the setup has a camera (true) or not (false).")]
+        public bool UseCamera
+        {
+            get
+            {
+                return _useCamera;
+            }
+            set
+            {
+                _useCamera = value;
+            }
+        }
+    
+        /// <summary>
+        /// The number of frames per second of the camera.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("frames_per_second", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="frames_per_second")]
+        [System.ComponentModel.DescriptionAttribute("The number of frames per second of the camera.")]
+        public double FramesPerSecond
+        {
+            get
+            {
+                return _framesPerSecond;
+            }
+            set
+            {
+                _framesPerSecond = value;
+            }
+        }
+    
+        public System.IObservable<Camera> Process()
+        {
+            return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new Camera(this)));
+        }
+    
+        public System.IObservable<Camera> Process<TSource>(System.IObservable<TSource> source)
+        {
+            return System.Reactive.Linq.Observable.Select(source, _ => new Camera(this));
+        }
+    
+        protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
+        {
+            stringBuilder.Append("use_camera = " + _useCamera + ", ");
+            stringBuilder.Append("frames_per_second = " + _framesPerSecond);
+            return true;
+        }
+    
+        public override string ToString()
+        {
+            System.Text.StringBuilder stringBuilder = new System.Text.StringBuilder();
+            stringBuilder.Append(GetType().Name);
+            stringBuilder.Append(" { ");
+            if (PrintMembers(stringBuilder))
+            {
+                stringBuilder.Append(" ");
+            }
+            stringBuilder.Append("}");
+            return stringBuilder.ToString();
+        }
+    }
+
+
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
+    [Bonsai.CombinatorAttribute()]
+    [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
     public partial class Lights
     {
     
@@ -322,7 +410,7 @@ namespace SetupList
     
         private System.Collections.Generic.List<Sound> _sounds = new System.Collections.Generic.List<Sound>();
     
-        private bool _useCamera;
+        private Camera _camera = new Camera();
     
         public Setup()
         {
@@ -338,7 +426,7 @@ namespace SetupList
             _lights = other._lights;
             _syringePumps = other._syringePumps;
             _sounds = other._sounds;
-            _useCamera = other._useCamera;
+            _camera = other._camera;
         }
     
         /// <summary>
@@ -493,20 +581,21 @@ namespace SetupList
         }
     
         /// <summary>
-        /// Indicates whether the setup has a camera (true) or not (false).
+        /// Contains parameters related to the camera.
         /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("use_camera", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="use_camera")]
-        [System.ComponentModel.DescriptionAttribute("Indicates whether the setup has a camera (true) or not (false).")]
-        public bool UseCamera
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [Newtonsoft.Json.JsonPropertyAttribute("camera", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="camera")]
+        [System.ComponentModel.DescriptionAttribute("Contains parameters related to the camera.")]
+        public Camera Camera
         {
             get
             {
-                return _useCamera;
+                return _camera;
             }
             set
             {
-                _useCamera = value;
+                _camera = value;
             }
         }
     
@@ -530,7 +619,7 @@ namespace SetupList
             stringBuilder.Append("lights = " + _lights + ", ");
             stringBuilder.Append("syringe_pumps = " + _syringePumps + ", ");
             stringBuilder.Append("sounds = " + _sounds + ", ");
-            stringBuilder.Append("use_camera = " + _useCamera);
+            stringBuilder.Append("camera = " + _camera);
             return true;
         }
     
@@ -1006,6 +1095,11 @@ namespace SetupList
             return System.Reactive.Linq.Observable.Select(source, value => Newtonsoft.Json.JsonConvert.SerializeObject(value));
         }
 
+        public System.IObservable<string> Process(System.IObservable<Camera> source)
+        {
+            return Process<Camera>(source);
+        }
+
         public System.IObservable<string> Process(System.IObservable<Lights> source)
         {
             return Process<Lights>(source);
@@ -1050,6 +1144,7 @@ namespace SetupList
     [System.ComponentModel.DescriptionAttribute("Deserializes a sequence of JSON strings into data model objects.")]
     [System.ComponentModel.DefaultPropertyAttribute("Type")]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Transform)]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Camera>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Lights>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Poke>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Setup>))]
@@ -1105,6 +1200,11 @@ namespace SetupList
             });
         }
 
+        public System.IObservable<string> Process(System.IObservable<Camera> source)
+        {
+            return Process<Camera>(source);
+        }
+
         public System.IObservable<string> Process(System.IObservable<Lights> source)
         {
             return Process<Lights>(source);
@@ -1149,6 +1249,7 @@ namespace SetupList
     [System.ComponentModel.DescriptionAttribute("Deserializes a sequence of YAML strings into data model objects.")]
     [System.ComponentModel.DefaultPropertyAttribute("Type")]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Transform)]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Camera>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Lights>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Poke>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Setup>))]

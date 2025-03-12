@@ -125,12 +125,12 @@
   <DialogSettings xsi:type="WorkflowEditorSettings">
     <Visible>true</Visible>
     <Location>
-      <X>-1233</X>
-      <Y>219</Y>
+      <X>-1886</X>
+      <Y>105</Y>
     </Location>
     <Size>
-      <Width>1108</Width>
-      <Height>524</Height>
+      <Width>1290</Width>
+      <Height>864</Height>
     </Size>
     <WindowState>Maximized</WindowState>
     <VisualizerTypeName>Bonsai.Gui.TableLayoutPanelVisualizer</VisualizerTypeName>

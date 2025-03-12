@@ -1,5 +1,26 @@
 {
   "definitions": {
+    "Camera": {
+      "properties": {
+        "use_camera": {
+          "description": "Indicates whether the setup has a camera (true) or not (false).",
+          "title": "Use Camera",
+          "type": "boolean"
+        },
+        "frames_per_second": {
+          "description": "The number of frames per second of the camera.",
+          "exclusiveMinimum": 0.0,
+          "title": "Frames Per Second",
+          "type": "number"
+        }
+      },
+      "required": [
+        "use_camera",
+        "frames_per_second"
+      ],
+      "title": "Camera",
+      "type": "object"
+    },
     "Lights": {
       "properties": {
         "box_period": {
@@ -115,10 +136,9 @@
           "title": "Sounds",
           "type": "array"
         },
-        "use_camera": {
-          "description": "Indicates whether the setup has a camera (true) or not (false).",
-          "title": "Use Camera",
-          "type": "boolean"
+        "camera": {
+          "$ref": "#/definitions/Camera",
+          "description": "Contains parameters related to the camera."
         }
       },
       "required": [
@@ -130,7 +150,7 @@
         "lights",
         "syringe_pumps",
         "sounds",
-        "use_camera"
+        "camera"
       ],
       "title": "Setup",
       "type": "object"

@@ -1,10 +1,12 @@
 # yaml-language-server: $schema=schemas/config-schema.json
-animal_path: C:/Users/HSP/Documents/BonsaiWorkflows/CDC.SoundLateralizationTask/config/animal.yml
-behavior_port: COM74
-currentdriver_port: COM0
-left_pump_port: COM0
-output_path: C:/Users/HSP/Documents/BonsaiWorkflows/CDC.SoundLateralizationTask/output
-right_pump_port: COM0
-setup_path: C:/Users/HSP/Documents/BonsaiWorkflows/CDC.SoundLateralizationTask/config/setup.csv
-soundcard_port: COM17
-training_path: C:/Users/HSP/Documents/BonsaiWorkflows/CDC.SoundLateralizationTask/config/training.csv
+paths:
+  animal: C:/Users/HSP/Documents/BonsaiWorkflows/CDC.SoundLateralizationTask/config/animal.yml
+  output: C:/Users/HSP/Documents/BonsaiWorkflows/CDC.SoundLateralizationTask/output
+  setup: C:/Users/HSP/Documents/BonsaiWorkflows/CDC.SoundLateralizationTask/config/setup.csv
+  training: C:/Users/HSP/Documents/BonsaiWorkflows/CDC.SoundLateralizationTask/config/training.csv
+ports:
+  behavior: COM74
+  currentdriver: COM0
+  left_pump: COM0
+  right_pump: COM0
+  soundcard: COM17

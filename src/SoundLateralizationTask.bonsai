@@ -2517,6 +2517,34 @@
                                 <Name>RepeatErrors</Name>
                               </Expression>
                               <Expression xsi:type="WorkflowOutput" />
+                              <Expression xsi:type="Disable">
+                                <Builder xsi:type="SubscribeSubject">
+                                  <Name>RepeatErrorsButton</Name>
+                                </Builder>
+                              </Expression>
+                              <Expression xsi:type="Disable">
+                                <Builder xsi:type="MulticastSubject">
+                                  <Name>RepeatErrors</Name>
+                                </Builder>
+                              </Expression>
+                              <Expression xsi:type="Disable">
+                                <Builder xsi:type="WorkflowOutput" />
+                              </Expression>
+                              <Expression xsi:type="Disable">
+                                <Builder xsi:type="SubscribeSubject">
+                                  <Name>LevelConfig</Name>
+                                </Builder>
+                              </Expression>
+                              <Expression xsi:type="Disable">
+                                <Builder xsi:type="MemberSelector">
+                                  <Selector>TrialRepetition.RepeatErrors</Selector>
+                                </Builder>
+                              </Expression>
+                              <Expression xsi:type="Disable">
+                                <Builder xsi:type="MulticastSubject">
+                                  <Name>RepeatErrorsButtonState</Name>
+                                </Builder>
+                              </Expression>
                             </Nodes>
                             <Edges>
                               <Edge From="0" To="1" Label="Source1" />
@@ -2525,6 +2553,10 @@
                               <Edge From="3" To="4" Label="Source2" />
                               <Edge From="4" To="5" Label="Source1" />
                               <Edge From="5" To="6" Label="Source1" />
+                              <Edge From="7" To="8" Label="Source1" />
+                              <Edge From="8" To="9" Label="Source1" />
+                              <Edge From="10" To="11" Label="Source1" />
+                              <Edge From="11" To="12" Label="Source1" />
                             </Edges>
                           </Workflow>
                         </Expression>
@@ -6284,7 +6316,7 @@
                     <Name>SetupConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
-                    <Selector>UseCamera</Selector>
+                    <Selector>Camera.UseCamera</Selector>
                   </Expression>
                   <Expression xsi:type="scr:ExpressionCondition">
                     <scr:Expression>it</scr:Expression>
@@ -6306,7 +6338,7 @@
               <Name>Config</Name>
             </Expression>
             <Expression xsi:type="MemberSelector">
-              <Selector>BehaviorPort</Selector>
+              <Selector>Ports.Behavior</Selector>
             </Expression>
             <Expression xsi:type="PropertyMapping">
               <PropertyMappings>
@@ -6729,7 +6761,7 @@
               <Name>Config</Name>
             </Expression>
             <Expression xsi:type="MemberSelector">
-              <Selector>SoundcardPort</Selector>
+              <Selector>Ports.Soundcard</Selector>
             </Expression>
             <Expression xsi:type="PropertyMapping">
               <PropertyMappings>
@@ -6928,7 +6960,7 @@
               <Name>Config</Name>
             </Expression>
             <Expression xsi:type="MemberSelector">
-              <Selector>LeftPumpPort</Selector>
+              <Selector>Ports.LeftPump</Selector>
             </Expression>
             <Expression xsi:type="PropertyMapping">
               <PropertyMappings>
@@ -7088,7 +7120,7 @@
               <Name>Config</Name>
             </Expression>
             <Expression xsi:type="MemberSelector">
-              <Selector>RightPumpPort</Selector>
+              <Selector>Ports.RightPump</Selector>
             </Expression>
             <Expression xsi:type="PropertyMapping">
               <PropertyMappings>
@@ -7248,7 +7280,7 @@
               <Name>Config</Name>
             </Expression>
             <Expression xsi:type="MemberSelector">
-              <Selector>CurrentdriverPort</Selector>
+              <Selector>Ports.Currentdriver</Selector>
             </Expression>
             <Expression xsi:type="PropertyMapping">
               <PropertyMappings>
@@ -7575,9 +7607,9 @@
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p6:ITI">
                       <p6:IntendedDuration>1</p6:IntendedDuration>
-                      <p6:StartTime>24394.177984</p6:StartTime>
-                      <p6:EndTime>24395.188992</p6:EndTime>
-                      <p6:TimedDuration>1.0110079999976733</p6:TimedDuration>
+                      <p6:StartTime>29459.282976</p6:StartTime>
+                      <p6:EndTime>29460.297984</p6:EndTime>
+                      <p6:TimedDuration>1.0150080000021262</p6:TimedDuration>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
@@ -8115,6 +8147,17 @@
                       <Property Name="FileName" />
                     </PropertyMappings>
                   </Expression>
+                  <Expression xsi:type="SubscribeSubject">
+                    <Name>SetupConfig</Name>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Camera.FramesPerSecond</Selector>
+                  </Expression>
+                  <Expression xsi:type="PropertyMapping">
+                    <PropertyMappings>
+                      <Property Name="FrameRate" />
+                    </PropertyMappings>
+                  </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="cv:VideoWriter">
                       <cv:FileName>C:/Users/HSP/Documents/BonsaiWorkflows/CDC.SoundLateralizationTask/output/Rat001/250312/video_.avi</cv:FileName>
@@ -8139,14 +8182,17 @@
                 </Nodes>
                 <Edges>
                   <Edge From="0" To="1" Label="Source1" />
-                  <Edge From="1" To="7" Label="Source1" />
+                  <Edge From="1" To="10" Label="Source1" />
                   <Edge From="2" To="4" Label="Source1" />
                   <Edge From="3" To="4" Label="Source2" />
                   <Edge From="4" To="5" Label="Source1" />
                   <Edge From="5" To="6" Label="Source1" />
-                  <Edge From="6" To="7" Label="Source2" />
-                  <Edge From="7" To="9" Label="Source1" />
-                  <Edge From="8" To="9" Label="Source2" />
+                  <Edge From="6" To="10" Label="Source2" />
+                  <Edge From="7" To="8" Label="Source1" />
+                  <Edge From="8" To="9" Label="Source1" />
+                  <Edge From="9" To="10" Label="Source3" />
+                  <Edge From="10" To="12" Label="Source1" />
+                  <Edge From="11" To="12" Label="Source2" />
                 </Edges>
               </Workflow>
             </Expression>
@@ -8193,7 +8239,7 @@
                     <Name>SetupConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
-                    <Selector>UseCamera</Selector>
+                    <Selector>Camera.UseCamera</Selector>
                   </Expression>
                   <Expression xsi:type="scr:ExpressionCondition">
                     <scr:Expression>it</scr:Expression>
@@ -8258,7 +8304,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="harp:MessageWriter">
-                      <harp:FileName>C:\Users\HSP\Documents\BonsaiWorkflows\CDC.SoundLateralizationTask\output\Rat001\250312\events\behavior_191.bin</harp:FileName>
+                      <harp:FileName>C:\Users\HSP\Documents\BonsaiWorkflows\CDC.SoundLateralizationTask\output\Rat001\250312\events\behavior_677.bin</harp:FileName>
                       <harp:Suffix>None</harp:Suffix>
                       <harp:Buffered>true</harp:Buffered>
                       <harp:Overwrite>false</harp:Overwrite>
@@ -8304,7 +8350,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="harp:MessageWriter">
-                      <harp:FileName>C:\Users\HSP\Documents\BonsaiWorkflows\CDC.SoundLateralizationTask\output\Rat001\250312\events\soundcard_115.bin</harp:FileName>
+                      <harp:FileName>C:\Users\HSP\Documents\BonsaiWorkflows\CDC.SoundLateralizationTask\output\Rat001\250312\events\soundcard_445.bin</harp:FileName>
                       <harp:Suffix>None</harp:Suffix>
                       <harp:Buffered>true</harp:Buffered>
                       <harp:Overwrite>false</harp:Overwrite>
@@ -8519,7 +8565,7 @@
                     <Name>Config</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
-                    <Selector>AnimalPath</Selector>
+                    <Selector>Paths.Animal</Selector>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
                     <PropertyMappings>
@@ -8557,7 +8603,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="io:WriteAllText">
-                      <io:Path>C:\Users\HSP\Documents\BonsaiWorkflows\CDC.SoundLateralizationTask\output\Rat001\250312\config\animal_53.yml</io:Path>
+                      <io:Path>C:\Users\HSP\Documents\BonsaiWorkflows\CDC.SoundLateralizationTask\output\Rat001\250312\config\animal_93.yml</io:Path>
                       <io:Overwrite>false</io:Overwrite>
                       <io:Append>false</io:Append>
                     </Combinator>
@@ -8572,7 +8618,7 @@
                     <Name>Config</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
-                    <Selector>SetupPath</Selector>
+                    <Selector>Paths.Setup</Selector>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
                     <PropertyMappings>
@@ -8610,7 +8656,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="io:WriteAllText">
-                      <io:Path>C:\Users\HSP\Documents\BonsaiWorkflows\CDC.SoundLateralizationTask\output\Rat001\250312\config\setup_53.csv</io:Path>
+                      <io:Path>C:\Users\HSP\Documents\BonsaiWorkflows\CDC.SoundLateralizationTask\output\Rat001\250312\config\setup_93.csv</io:Path>
                       <io:Overwrite>false</io:Overwrite>
                       <io:Append>false</io:Append>
                     </Combinator>
@@ -8625,7 +8671,7 @@
                     <Name>Config</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
-                    <Selector>TrainingPath</Selector>
+                    <Selector>Paths.Training</Selector>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
                     <PropertyMappings>
@@ -8663,7 +8709,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="io:WriteAllText">
-                      <io:Path>C:\Users\HSP\Documents\BonsaiWorkflows\CDC.SoundLateralizationTask\output\Rat001\250312\config\training_53.csv</io:Path>
+                      <io:Path>C:\Users\HSP\Documents\BonsaiWorkflows\CDC.SoundLateralizationTask\output\Rat001\250312\config\training_93.csv</io:Path>
                       <io:Overwrite>false</io:Overwrite>
                       <io:Append>false</io:Append>
                     </Combinator>
@@ -8719,7 +8765,7 @@
               <Name>Config</Name>
             </Expression>
             <Expression xsi:type="MemberSelector">
-              <Selector>OutputPath</Selector>
+              <Selector>Paths.Output</Selector>
             </Expression>
             <Expression xsi:type="PropertyMapping">
               <PropertyMappings>
@@ -8998,7 +9044,7 @@
               <Name>Config</Name>
             </Expression>
             <Expression xsi:type="MemberSelector">
-              <Selector>AnimalPath</Selector>
+              <Selector>Paths.Animal</Selector>
             </Expression>
             <Expression xsi:type="PropertyMapping">
               <PropertyMappings>
@@ -9280,11 +9326,19 @@
                 <Value>false</Value>
               </Combinator>
             </Expression>
-            <Expression xsi:type="rx:BehaviorSubject">
-              <Name>RepeatTrial</Name>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:IgnoreElements" />
             </Expression>
             <Expression xsi:type="rx:BehaviorSubject">
               <Name>RepeatErrorsButtonState</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="BooleanProperty">
+                <Value>false</Value>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="rx:BehaviorSubject">
+              <Name>RepeatTrial</Name>
             </Expression>
             <Expression xsi:type="rx:BehaviorSubject">
               <Name>TrialLeftButtonState</Name>
@@ -9724,34 +9778,33 @@
             <Edge From="19" To="20" Label="Source1" />
             <Edge From="21" To="22" Label="Source1" />
             <Edge From="22" To="23" Label="Source1" />
-            <Edge From="23" To="24" Label="Source1" />
             <Edge From="24" To="25" Label="Source1" />
             <Edge From="25" To="26" Label="Source1" />
+            <Edge From="26" To="27" Label="Source1" />
             <Edge From="27" To="28" Label="Source1" />
-            <Edge From="28" To="29" Label="Source1" />
             <Edge From="29" To="30" Label="Source1" />
             <Edge From="30" To="31" Label="Source1" />
             <Edge From="31" To="32" Label="Source1" />
             <Edge From="32" To="33" Label="Source1" />
             <Edge From="33" To="34" Label="Source1" />
+            <Edge From="34" To="35" Label="Source1" />
             <Edge From="35" To="36" Label="Source1" />
-            <Edge From="36" To="37" Label="Source1" />
             <Edge From="37" To="38" Label="Source1" />
             <Edge From="38" To="39" Label="Source1" />
+            <Edge From="39" To="40" Label="Source1" />
             <Edge From="40" To="41" Label="Source1" />
-            <Edge From="41" To="42" Label="Source1" />
             <Edge From="42" To="43" Label="Source1" />
             <Edge From="43" To="44" Label="Source1" />
             <Edge From="44" To="45" Label="Source1" />
             <Edge From="45" To="46" Label="Source1" />
             <Edge From="46" To="47" Label="Source1" />
+            <Edge From="47" To="48" Label="Source1" />
             <Edge From="48" To="49" Label="Source1" />
-            <Edge From="49" To="50" Label="Source1" />
             <Edge From="50" To="51" Label="Source1" />
             <Edge From="51" To="52" Label="Source1" />
             <Edge From="52" To="53" Label="Source1" />
+            <Edge From="53" To="54" Label="Source1" />
             <Edge From="54" To="55" Label="Source1" />
-            <Edge From="55" To="56" Label="Source1" />
             <Edge From="56" To="57" Label="Source1" />
             <Edge From="57" To="58" Label="Source1" />
             <Edge From="58" To="59" Label="Source1" />
@@ -9763,12 +9816,12 @@
             <Edge From="64" To="65" Label="Source1" />
             <Edge From="65" To="66" Label="Source1" />
             <Edge From="66" To="67" Label="Source1" />
+            <Edge From="67" To="68" Label="Source1" />
             <Edge From="68" To="69" Label="Source1" />
             <Edge From="70" To="71" Label="Source1" />
-            <Edge From="71" To="72" Label="Source1" />
             <Edge From="72" To="73" Label="Source1" />
+            <Edge From="73" To="74" Label="Source1" />
             <Edge From="74" To="75" Label="Source1" />
-            <Edge From="75" To="76" Label="Source1" />
             <Edge From="76" To="77" Label="Source1" />
             <Edge From="77" To="78" Label="Source1" />
             <Edge From="78" To="79" Label="Source1" />
@@ -9777,8 +9830,8 @@
             <Edge From="81" To="82" Label="Source1" />
             <Edge From="82" To="83" Label="Source1" />
             <Edge From="83" To="84" Label="Source1" />
+            <Edge From="84" To="85" Label="Source1" />
             <Edge From="85" To="86" Label="Source1" />
-            <Edge From="86" To="87" Label="Source1" />
             <Edge From="87" To="88" Label="Source1" />
             <Edge From="88" To="89" Label="Source1" />
             <Edge From="89" To="90" Label="Source1" />
@@ -9813,6 +9866,8 @@
             <Edge From="118" To="119" Label="Source1" />
             <Edge From="119" To="120" Label="Source1" />
             <Edge From="120" To="121" Label="Source1" />
+            <Edge From="121" To="122" Label="Source1" />
+            <Edge From="122" To="123" Label="Source1" />
           </Edges>
         </Workflow>
       </Expression>
@@ -11882,7 +11937,7 @@
             <Expression xsi:type="gui:LabelBuilder">
               <gui:Enabled>true</gui:Enabled>
               <gui:Visible>true</gui:Visible>
-              <gui:Text>Time Elapsed: 00:00:19</gui:Text>
+              <gui:Text>Time Elapsed: 00:00:03</gui:Text>
             </Expression>
             <Expression xsi:type="VisualizerMapping" />
             <Expression xsi:type="gui:TableLayoutPanelBuilder">
@@ -13869,13 +13924,17 @@
               <Selector>Image</Selector>
             </Expression>
             <Expression xsi:type="VisualizerMapping" />
-            <Expression xsi:type="SubscribeSubject">
-              <Name>TrialLeftButtonState</Name>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="SubscribeSubject">
+                <Name>TrialLeftButtonState</Name>
+              </Builder>
             </Expression>
-            <Expression xsi:type="PropertyMapping">
-              <PropertyMappings>
-                <Property Name="Checked" />
-              </PropertyMappings>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="PropertyMapping">
+                <PropertyMappings>
+                  <Property Name="Checked" />
+                </PropertyMappings>
+              </Builder>
             </Expression>
             <Expression xsi:type="gui:ToggleButtonBuilder">
               <gui:Name>NextTrialLeftButton</gui:Name>
@@ -13888,13 +13947,17 @@
               <Name>TrialLeftButton</Name>
             </Expression>
             <Expression xsi:type="VisualizerMapping" />
-            <Expression xsi:type="SubscribeSubject">
-              <Name>TrialRightButtonState</Name>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="SubscribeSubject">
+                <Name>TrialRightButtonState</Name>
+              </Builder>
             </Expression>
-            <Expression xsi:type="PropertyMapping">
-              <PropertyMappings>
-                <Property Name="Checked" />
-              </PropertyMappings>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="PropertyMapping">
+                <PropertyMappings>
+                  <Property Name="Checked" />
+                </PropertyMappings>
+              </Builder>
             </Expression>
             <Expression xsi:type="gui:ToggleButtonBuilder">
               <gui:Name>NextTrialRightButton</gui:Name>
@@ -13927,16 +13990,22 @@
               <Name>RewardRightButton</Name>
             </Expression>
             <Expression xsi:type="VisualizerMapping" />
-            <Expression xsi:type="SubscribeSubject">
-              <Name>AnimalConfig</Name>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="SubscribeSubject">
+                <Name>AnimalConfig</Name>
+              </Builder>
             </Expression>
-            <Expression xsi:type="MemberSelector">
-              <Selector>Optogenetics.UseOpto</Selector>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="MemberSelector">
+                <Selector>Optogenetics.UseOpto</Selector>
+              </Builder>
             </Expression>
-            <Expression xsi:type="PropertyMapping">
-              <PropertyMappings>
-                <Property Name="Enabled" />
-              </PropertyMappings>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="PropertyMapping">
+                <PropertyMappings>
+                  <Property Name="Enabled" />
+                </PropertyMappings>
+              </Builder>
             </Expression>
             <Expression xsi:type="gui:ButtonBuilder">
               <gui:Name>OptogeneticsButton</gui:Name>
@@ -13965,6 +14034,11 @@
             </Expression>
             <Expression xsi:type="rx:PublishSubject">
               <Name>RepeatErrorsButton</Name>
+            </Expression>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="MulticastSubject">
+                <Name>RepeatErrors</Name>
+              </Builder>
             </Expression>
             <Expression xsi:type="VisualizerMapping" />
             <Expression xsi:type="gui:ButtonBuilder">
@@ -14394,47 +14468,48 @@
             <Edge From="320" To="321" Label="Source1" />
             <Edge From="321" To="322" Label="Source8" />
             <Edge From="322" To="323" Label="Source1" />
-            <Edge From="323" To="363" Label="Source1" />
+            <Edge From="323" To="364" Label="Source1" />
             <Edge From="324" To="325" Label="Source1" />
             <Edge From="325" To="326" Label="Source1" />
-            <Edge From="326" To="361" Label="Source1" />
+            <Edge From="326" To="362" Label="Source1" />
             <Edge From="327" To="328" Label="Source1" />
             <Edge From="328" To="329" Label="Source1" />
             <Edge From="329" To="330" Label="Source1" />
             <Edge From="330" To="331" Label="Source1" />
-            <Edge From="331" To="357" Label="Source1" />
+            <Edge From="331" To="358" Label="Source1" />
             <Edge From="332" To="333" Label="Source1" />
             <Edge From="333" To="334" Label="Source1" />
             <Edge From="334" To="335" Label="Source1" />
             <Edge From="335" To="336" Label="Source1" />
-            <Edge From="336" To="357" Label="Source2" />
+            <Edge From="336" To="358" Label="Source2" />
             <Edge From="337" To="338" Label="Source1" />
             <Edge From="338" To="339" Label="Source1" />
-            <Edge From="339" To="357" Label="Source3" />
+            <Edge From="339" To="358" Label="Source3" />
             <Edge From="340" To="341" Label="Source1" />
             <Edge From="341" To="342" Label="Source1" />
-            <Edge From="342" To="357" Label="Source4" />
+            <Edge From="342" To="358" Label="Source4" />
             <Edge From="343" To="344" Label="Source1" />
             <Edge From="344" To="345" Label="Source1" />
             <Edge From="345" To="346" Label="Source1" />
             <Edge From="346" To="347" Label="Source1" />
             <Edge From="347" To="348" Label="Source1" />
-            <Edge From="348" To="357" Label="Source5" />
+            <Edge From="348" To="358" Label="Source5" />
             <Edge From="349" To="350" Label="Source1" />
             <Edge From="350" To="351" Label="Source1" />
             <Edge From="351" To="352" Label="Source1" />
             <Edge From="352" To="353" Label="Source1" />
-            <Edge From="353" To="357" Label="Source6" />
-            <Edge From="354" To="355" Label="Source1" />
+            <Edge From="353" To="354" Label="Source1" />
+            <Edge From="354" To="358" Label="Source6" />
             <Edge From="355" To="356" Label="Source1" />
-            <Edge From="356" To="357" Label="Source7" />
-            <Edge From="357" To="358" Label="Source1" />
-            <Edge From="358" To="361" Label="Source2" />
-            <Edge From="359" To="360" Label="Source1" />
-            <Edge From="360" To="361" Label="Source3" />
-            <Edge From="361" To="362" Label="Source1" />
-            <Edge From="362" To="363" Label="Source2" />
-            <Edge From="363" To="364" Label="Source1" />
+            <Edge From="356" To="357" Label="Source1" />
+            <Edge From="357" To="358" Label="Source7" />
+            <Edge From="358" To="359" Label="Source1" />
+            <Edge From="359" To="362" Label="Source2" />
+            <Edge From="360" To="361" Label="Source1" />
+            <Edge From="361" To="362" Label="Source3" />
+            <Edge From="362" To="363" Label="Source1" />
+            <Edge From="363" To="364" Label="Source2" />
+            <Edge From="364" To="365" Label="Source1" />
           </Edges>
         </Workflow>
       </Expression>

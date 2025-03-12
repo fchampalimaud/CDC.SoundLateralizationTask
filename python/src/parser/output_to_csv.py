@@ -9,7 +9,7 @@ def convert_output():
         config = yaml.safe_load(file)
 
     # Walks through the directory
-    for root, dirs, files in os.walk(config["output_path"]):
+    for root, dirs, files in os.walk(config["paths"]["output"]):
         for file in files:
             # Checks if the file is a JSON file
             if re.match(r"^out_\d+\.json$", file):

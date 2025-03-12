@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import ttk
 import ctypes
 from config.utils import PortCombobox, PathWidget
-from sgen.config import Config
+from sgen.config import Config, Ports, Paths
 import yaml
 
 myappid = "fchampalimaud.preconfig.alpha"
@@ -80,15 +80,19 @@ class GUI(tk.Tk):
 
     def generate_config(self):
         config = Config(
-            behavior_port=self.ports.behavior.get(),
-            soundcard_port=self.ports.soundcard.get(),
-            left_pump_port=self.ports.left_pump.get(),
-            right_pump_port=self.ports.right_pump.get(),
-            currentdriver_port=self.ports.current_driver.get(),
-            animal_path=self.paths.animal.get(),
-            setup_path=self.paths.setup.get(),
-            training_path=self.paths.training.get(),
-            output_path=self.paths.output.get(),
+            ports=Ports(
+                behavior=self.ports.behavior.get(),
+                soundcard=self.ports.soundcard.get(),
+                left_pump=self.ports.left_pump.get(),
+                right_pump=self.ports.right_pump.get(),
+                currentdriver=self.ports.current_driver.get(),
+            ),
+            paths=Paths(
+                animal=self.paths.animal.get(),
+                setup=self.paths.setup.get(),
+                training=self.paths.training.get(),
+                output=self.paths.output.get(),
+            ),
         )
 
         config_dict = config.model_dump()

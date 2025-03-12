@@ -10,34 +10,42 @@ from sgen._utils import (
 from pathlib import Path
 
 
-class Config(BaseModel):
-    behavior_port: Annotated[str, StringConstraints(pattern=r"^COM\d+$")] = Field(
+class Ports(BaseModel):
+    behavior: Annotated[str, StringConstraints(pattern=r"^COM\d+$")] = Field(
         description="The COM port of the Harp Behavior."
     )
-    soundcard_port: Annotated[str, StringConstraints(pattern=r"^COM\d+$")] = Field(
+    soundcard: Annotated[str, StringConstraints(pattern=r"^COM\d+$")] = Field(
         description="The COM port of the Harp SoundCard."
     )
-    left_pump_port: Annotated[str, StringConstraints(pattern=r"^COM\d+$")] = Field(
+    left_pump: Annotated[str, StringConstraints(pattern=r"^COM\d+$")] = Field(
         description="The COM port of the left Harp SyringePump."
     )
-    right_pump_port: Annotated[str, StringConstraints(pattern=r"^COM\d+$")] = Field(
+    right_pump: Annotated[str, StringConstraints(pattern=r"^COM\d+$")] = Field(
         description="The COM port of the right Harp SyringePump."
     )
-    currentdriver_port: Annotated[str, StringConstraints(pattern=r"^COM\d+$")] = Field(
+    currentdriver: Annotated[str, StringConstraints(pattern=r"^COM\d+$")] = Field(
         description="The COM port of the Harp CurrentDriver."
     )
-    animal_path: Annotated[str, StringConstraints(pattern=r"\.yml$")] = Field(
+
+
+class Paths(BaseModel):
+    animal: Annotated[str, StringConstraints(pattern=r"\.yml$")] = Field(
         description="The path to the animal.yml configuration file."
     )
-    setup_path: Annotated[str, StringConstraints(pattern=r"\.csv$")] = Field(
+    setup: Annotated[str, StringConstraints(pattern=r"\.csv$")] = Field(
         description="The path to the setup.json configuration file."
     )
-    training_path: Annotated[str, StringConstraints(pattern=r"\.csv$")] = Field(
+    training: Annotated[str, StringConstraints(pattern=r"\.csv$")] = Field(
         description="The path to the training.yml configuration file."
     )
-    output_path: str = Field(
+    output: str = Field(
         description="The path to the output directory, where the output date will be saved."
     )
+
+
+class Config(BaseModel):
+    ports: Ports = Field(description="Contains the COM ports for the different Harp boards.")
+    paths: Paths = Field(description="Contains the paths to the configuration files and to the output directory.")
 
 
 def generate_config():

@@ -1,69 +1,97 @@
 {
+  "definitions": {
+    "Paths": {
+      "properties": {
+        "animal": {
+          "description": "The path to the animal.yml configuration file.",
+          "pattern": "\\.yml$",
+          "title": "Animal",
+          "type": "string"
+        },
+        "setup": {
+          "description": "The path to the setup.json configuration file.",
+          "pattern": "\\.csv$",
+          "title": "Setup",
+          "type": "string"
+        },
+        "training": {
+          "description": "The path to the training.yml configuration file.",
+          "pattern": "\\.csv$",
+          "title": "Training",
+          "type": "string"
+        },
+        "output": {
+          "description": "The path to the output directory, where the output date will be saved.",
+          "title": "Output",
+          "type": "string"
+        }
+      },
+      "required": [
+        "animal",
+        "setup",
+        "training",
+        "output"
+      ],
+      "title": "Paths",
+      "type": "object"
+    },
+    "Ports": {
+      "properties": {
+        "behavior": {
+          "description": "The COM port of the Harp Behavior.",
+          "pattern": "^COM\\d+$",
+          "title": "Behavior",
+          "type": "string"
+        },
+        "soundcard": {
+          "description": "The COM port of the Harp SoundCard.",
+          "pattern": "^COM\\d+$",
+          "title": "Soundcard",
+          "type": "string"
+        },
+        "left_pump": {
+          "description": "The COM port of the left Harp SyringePump.",
+          "pattern": "^COM\\d+$",
+          "title": "Left Pump",
+          "type": "string"
+        },
+        "right_pump": {
+          "description": "The COM port of the right Harp SyringePump.",
+          "pattern": "^COM\\d+$",
+          "title": "Right Pump",
+          "type": "string"
+        },
+        "currentdriver": {
+          "description": "The COM port of the Harp CurrentDriver.",
+          "pattern": "^COM\\d+$",
+          "title": "Currentdriver",
+          "type": "string"
+        }
+      },
+      "required": [
+        "behavior",
+        "soundcard",
+        "left_pump",
+        "right_pump",
+        "currentdriver"
+      ],
+      "title": "Ports",
+      "type": "object"
+    }
+  },
   "properties": {
-    "behavior_port": {
-      "description": "The COM port of the Harp Behavior.",
-      "pattern": "^COM\\d+$",
-      "title": "Behavior Port",
-      "type": "string"
+    "ports": {
+      "$ref": "#/definitions/Ports",
+      "description": "Contains the COM ports for the different Harp boards."
     },
-    "soundcard_port": {
-      "description": "The COM port of the Harp SoundCard.",
-      "pattern": "^COM\\d+$",
-      "title": "Soundcard Port",
-      "type": "string"
-    },
-    "left_pump_port": {
-      "description": "The COM port of the left Harp SyringePump.",
-      "pattern": "^COM\\d+$",
-      "title": "Left Pump Port",
-      "type": "string"
-    },
-    "right_pump_port": {
-      "description": "The COM port of the right Harp SyringePump.",
-      "pattern": "^COM\\d+$",
-      "title": "Right Pump Port",
-      "type": "string"
-    },
-    "currentdriver_port": {
-      "description": "The COM port of the Harp CurrentDriver.",
-      "pattern": "^COM\\d+$",
-      "title": "Currentdriver Port",
-      "type": "string"
-    },
-    "animal_path": {
-      "description": "The path to the animal.yml configuration file.",
-      "pattern": "\\.yml$",
-      "title": "Animal Path",
-      "type": "string"
-    },
-    "setup_path": {
-      "description": "The path to the setup.json configuration file.",
-      "pattern": "\\.csv$",
-      "title": "Setup Path",
-      "type": "string"
-    },
-    "training_path": {
-      "description": "The path to the training.yml configuration file.",
-      "pattern": "\\.csv$",
-      "title": "Training Path",
-      "type": "string"
-    },
-    "output_path": {
-      "description": "The path to the output directory, where the output date will be saved.",
-      "title": "Output Path",
-      "type": "string"
+    "paths": {
+      "$ref": "#/definitions/Paths",
+      "description": "Contains the paths to the configuration files and to the output directory."
     }
   },
   "required": [
-    "behavior_port",
-    "soundcard_port",
-    "left_pump_port",
-    "right_pump_port",
-    "currentdriver_port",
-    "animal_path",
-    "setup_path",
-    "training_path",
-    "output_path"
+    "ports",
+    "paths"
   ],
   "title": "Config",
   "type": "object"

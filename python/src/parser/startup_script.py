@@ -9,7 +9,7 @@ def startup():
     with open("../src/config/config.yml", "r") as file:
         config = yaml.safe_load(file)
 
-    with open(config["animal_path"], "r") as file:
+    with open(config["paths"]["animal"], "r") as file:
         animal_config = yaml.safe_load(file)
 
     while True:
@@ -21,7 +21,9 @@ def startup():
             break
 
     if update_lower == "y":
-        animal_dir = config["output_path"] + "/Rat" + f"{animal_config["animal_id"]:03}"
+        animal_dir = (
+            config["paths"]["output"] + "/Rat" + f"{animal_config["animal_id"]:03}"
+        )
         if os.path.isdir(animal_dir):
             entries = os.listdir(animal_dir)
             dirs = [
@@ -66,8 +68,8 @@ def startup():
                 "# yaml-language-server: $schema=schemas/animal-schema.json\n"
                 + yaml.dump(animal_config, default_flow_style=False)
             )
-            with open(config["animal_path"], "w") as file:
+            with open(config["paths"]["animal"], "w") as file:
                 file.write(yaml_string)
 
-    converter(config["setup_path"], "setup")
-    converter(config["training_path"], "training")
+    converter(config["paths"]["setup"], "setup")
+    converter(config["paths"]["training"], "training")

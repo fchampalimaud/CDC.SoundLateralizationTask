@@ -12,26 +12,298 @@ namespace Config
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
     [Bonsai.CombinatorAttribute()]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
+    public partial class Paths
+    {
+    
+        private string _animal;
+    
+        private string _setup;
+    
+        private string _training;
+    
+        private string _output;
+    
+        public Paths()
+        {
+        }
+    
+        protected Paths(Paths other)
+        {
+            _animal = other._animal;
+            _setup = other._setup;
+            _training = other._training;
+            _output = other._output;
+        }
+    
+        /// <summary>
+        /// The path to the animal.yml configuration file.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("animal", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="animal")]
+        [System.ComponentModel.DescriptionAttribute("The path to the animal.yml configuration file.")]
+        public string Animal
+        {
+            get
+            {
+                return _animal;
+            }
+            set
+            {
+                _animal = value;
+            }
+        }
+    
+        /// <summary>
+        /// The path to the setup.json configuration file.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("setup", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="setup")]
+        [System.ComponentModel.DescriptionAttribute("The path to the setup.json configuration file.")]
+        public string Setup
+        {
+            get
+            {
+                return _setup;
+            }
+            set
+            {
+                _setup = value;
+            }
+        }
+    
+        /// <summary>
+        /// The path to the training.yml configuration file.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("training", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="training")]
+        [System.ComponentModel.DescriptionAttribute("The path to the training.yml configuration file.")]
+        public string Training
+        {
+            get
+            {
+                return _training;
+            }
+            set
+            {
+                _training = value;
+            }
+        }
+    
+        /// <summary>
+        /// The path to the output directory, where the output date will be saved.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("output", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="output")]
+        [System.ComponentModel.DescriptionAttribute("The path to the output directory, where the output date will be saved.")]
+        public string Output
+        {
+            get
+            {
+                return _output;
+            }
+            set
+            {
+                _output = value;
+            }
+        }
+    
+        public System.IObservable<Paths> Process()
+        {
+            return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new Paths(this)));
+        }
+    
+        public System.IObservable<Paths> Process<TSource>(System.IObservable<TSource> source)
+        {
+            return System.Reactive.Linq.Observable.Select(source, _ => new Paths(this));
+        }
+    
+        protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
+        {
+            stringBuilder.Append("animal = " + _animal + ", ");
+            stringBuilder.Append("setup = " + _setup + ", ");
+            stringBuilder.Append("training = " + _training + ", ");
+            stringBuilder.Append("output = " + _output);
+            return true;
+        }
+    
+        public override string ToString()
+        {
+            System.Text.StringBuilder stringBuilder = new System.Text.StringBuilder();
+            stringBuilder.Append(GetType().Name);
+            stringBuilder.Append(" { ");
+            if (PrintMembers(stringBuilder))
+            {
+                stringBuilder.Append(" ");
+            }
+            stringBuilder.Append("}");
+            return stringBuilder.ToString();
+        }
+    }
+
+
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
+    [Bonsai.CombinatorAttribute()]
+    [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
+    public partial class Ports
+    {
+    
+        private string _behavior;
+    
+        private string _soundcard;
+    
+        private string _leftPump;
+    
+        private string _rightPump;
+    
+        private string _currentdriver;
+    
+        public Ports()
+        {
+        }
+    
+        protected Ports(Ports other)
+        {
+            _behavior = other._behavior;
+            _soundcard = other._soundcard;
+            _leftPump = other._leftPump;
+            _rightPump = other._rightPump;
+            _currentdriver = other._currentdriver;
+        }
+    
+        /// <summary>
+        /// The COM port of the Harp Behavior.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("behavior", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="behavior")]
+        [System.ComponentModel.DescriptionAttribute("The COM port of the Harp Behavior.")]
+        public string Behavior
+        {
+            get
+            {
+                return _behavior;
+            }
+            set
+            {
+                _behavior = value;
+            }
+        }
+    
+        /// <summary>
+        /// The COM port of the Harp SoundCard.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("soundcard", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="soundcard")]
+        [System.ComponentModel.DescriptionAttribute("The COM port of the Harp SoundCard.")]
+        public string Soundcard
+        {
+            get
+            {
+                return _soundcard;
+            }
+            set
+            {
+                _soundcard = value;
+            }
+        }
+    
+        /// <summary>
+        /// The COM port of the left Harp SyringePump.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("left_pump", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="left_pump")]
+        [System.ComponentModel.DescriptionAttribute("The COM port of the left Harp SyringePump.")]
+        public string LeftPump
+        {
+            get
+            {
+                return _leftPump;
+            }
+            set
+            {
+                _leftPump = value;
+            }
+        }
+    
+        /// <summary>
+        /// The COM port of the right Harp SyringePump.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("right_pump", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="right_pump")]
+        [System.ComponentModel.DescriptionAttribute("The COM port of the right Harp SyringePump.")]
+        public string RightPump
+        {
+            get
+            {
+                return _rightPump;
+            }
+            set
+            {
+                _rightPump = value;
+            }
+        }
+    
+        /// <summary>
+        /// The COM port of the Harp CurrentDriver.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("currentdriver", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="currentdriver")]
+        [System.ComponentModel.DescriptionAttribute("The COM port of the Harp CurrentDriver.")]
+        public string Currentdriver
+        {
+            get
+            {
+                return _currentdriver;
+            }
+            set
+            {
+                _currentdriver = value;
+            }
+        }
+    
+        public System.IObservable<Ports> Process()
+        {
+            return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new Ports(this)));
+        }
+    
+        public System.IObservable<Ports> Process<TSource>(System.IObservable<TSource> source)
+        {
+            return System.Reactive.Linq.Observable.Select(source, _ => new Ports(this));
+        }
+    
+        protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
+        {
+            stringBuilder.Append("behavior = " + _behavior + ", ");
+            stringBuilder.Append("soundcard = " + _soundcard + ", ");
+            stringBuilder.Append("left_pump = " + _leftPump + ", ");
+            stringBuilder.Append("right_pump = " + _rightPump + ", ");
+            stringBuilder.Append("currentdriver = " + _currentdriver);
+            return true;
+        }
+    
+        public override string ToString()
+        {
+            System.Text.StringBuilder stringBuilder = new System.Text.StringBuilder();
+            stringBuilder.Append(GetType().Name);
+            stringBuilder.Append(" { ");
+            if (PrintMembers(stringBuilder))
+            {
+                stringBuilder.Append(" ");
+            }
+            stringBuilder.Append("}");
+            return stringBuilder.ToString();
+        }
+    }
+
+
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
+    [Bonsai.CombinatorAttribute()]
+    [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
     public partial class Config
     {
     
-        private string _behaviorPort;
+        private Ports _ports = new Ports();
     
-        private string _soundcardPort;
-    
-        private string _leftPumpPort;
-    
-        private string _rightPumpPort;
-    
-        private string _currentdriverPort;
-    
-        private string _animalPath;
-    
-        private string _setupPath;
-    
-        private string _trainingPath;
-    
-        private string _outputPath;
+        private Paths _paths = new Paths();
     
         public Config()
         {
@@ -39,176 +311,45 @@ namespace Config
     
         protected Config(Config other)
         {
-            _behaviorPort = other._behaviorPort;
-            _soundcardPort = other._soundcardPort;
-            _leftPumpPort = other._leftPumpPort;
-            _rightPumpPort = other._rightPumpPort;
-            _currentdriverPort = other._currentdriverPort;
-            _animalPath = other._animalPath;
-            _setupPath = other._setupPath;
-            _trainingPath = other._trainingPath;
-            _outputPath = other._outputPath;
+            _ports = other._ports;
+            _paths = other._paths;
         }
     
         /// <summary>
-        /// The COM port of the Harp Behavior.
+        /// Contains the COM ports for the different Harp boards.
         /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("behavior_port", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="behavior_port")]
-        [System.ComponentModel.DescriptionAttribute("The COM port of the Harp Behavior.")]
-        public string BehaviorPort
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [Newtonsoft.Json.JsonPropertyAttribute("ports", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="ports")]
+        [System.ComponentModel.DescriptionAttribute("Contains the COM ports for the different Harp boards.")]
+        public Ports Ports
         {
             get
             {
-                return _behaviorPort;
+                return _ports;
             }
             set
             {
-                _behaviorPort = value;
+                _ports = value;
             }
         }
     
         /// <summary>
-        /// The COM port of the Harp SoundCard.
+        /// Contains the paths to the configuration files and to the output directory.
         /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("soundcard_port", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="soundcard_port")]
-        [System.ComponentModel.DescriptionAttribute("The COM port of the Harp SoundCard.")]
-        public string SoundcardPort
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [Newtonsoft.Json.JsonPropertyAttribute("paths", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="paths")]
+        [System.ComponentModel.DescriptionAttribute("Contains the paths to the configuration files and to the output directory.")]
+        public Paths Paths
         {
             get
             {
-                return _soundcardPort;
+                return _paths;
             }
             set
             {
-                _soundcardPort = value;
-            }
-        }
-    
-        /// <summary>
-        /// The COM port of the left Harp SyringePump.
-        /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("left_pump_port", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="left_pump_port")]
-        [System.ComponentModel.DescriptionAttribute("The COM port of the left Harp SyringePump.")]
-        public string LeftPumpPort
-        {
-            get
-            {
-                return _leftPumpPort;
-            }
-            set
-            {
-                _leftPumpPort = value;
-            }
-        }
-    
-        /// <summary>
-        /// The COM port of the right Harp SyringePump.
-        /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("right_pump_port", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="right_pump_port")]
-        [System.ComponentModel.DescriptionAttribute("The COM port of the right Harp SyringePump.")]
-        public string RightPumpPort
-        {
-            get
-            {
-                return _rightPumpPort;
-            }
-            set
-            {
-                _rightPumpPort = value;
-            }
-        }
-    
-        /// <summary>
-        /// The COM port of the Harp CurrentDriver.
-        /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("currentdriver_port", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="currentdriver_port")]
-        [System.ComponentModel.DescriptionAttribute("The COM port of the Harp CurrentDriver.")]
-        public string CurrentdriverPort
-        {
-            get
-            {
-                return _currentdriverPort;
-            }
-            set
-            {
-                _currentdriverPort = value;
-            }
-        }
-    
-        /// <summary>
-        /// The path to the animal.yml configuration file.
-        /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("animal_path", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="animal_path")]
-        [System.ComponentModel.DescriptionAttribute("The path to the animal.yml configuration file.")]
-        public string AnimalPath
-        {
-            get
-            {
-                return _animalPath;
-            }
-            set
-            {
-                _animalPath = value;
-            }
-        }
-    
-        /// <summary>
-        /// The path to the setup.json configuration file.
-        /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("setup_path", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="setup_path")]
-        [System.ComponentModel.DescriptionAttribute("The path to the setup.json configuration file.")]
-        public string SetupPath
-        {
-            get
-            {
-                return _setupPath;
-            }
-            set
-            {
-                _setupPath = value;
-            }
-        }
-    
-        /// <summary>
-        /// The path to the training.yml configuration file.
-        /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("training_path", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="training_path")]
-        [System.ComponentModel.DescriptionAttribute("The path to the training.yml configuration file.")]
-        public string TrainingPath
-        {
-            get
-            {
-                return _trainingPath;
-            }
-            set
-            {
-                _trainingPath = value;
-            }
-        }
-    
-        /// <summary>
-        /// The path to the output directory, where the output date will be saved.
-        /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("output_path", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="output_path")]
-        [System.ComponentModel.DescriptionAttribute("The path to the output directory, where the output date will be saved.")]
-        public string OutputPath
-        {
-            get
-            {
-                return _outputPath;
-            }
-            set
-            {
-                _outputPath = value;
+                _paths = value;
             }
         }
     
@@ -224,15 +365,8 @@ namespace Config
     
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
-            stringBuilder.Append("behavior_port = " + _behaviorPort + ", ");
-            stringBuilder.Append("soundcard_port = " + _soundcardPort + ", ");
-            stringBuilder.Append("left_pump_port = " + _leftPumpPort + ", ");
-            stringBuilder.Append("right_pump_port = " + _rightPumpPort + ", ");
-            stringBuilder.Append("currentdriver_port = " + _currentdriverPort + ", ");
-            stringBuilder.Append("animal_path = " + _animalPath + ", ");
-            stringBuilder.Append("setup_path = " + _setupPath + ", ");
-            stringBuilder.Append("training_path = " + _trainingPath + ", ");
-            stringBuilder.Append("output_path = " + _outputPath);
+            stringBuilder.Append("ports = " + _ports + ", ");
+            stringBuilder.Append("paths = " + _paths);
             return true;
         }
     
@@ -266,6 +400,16 @@ namespace Config
             return System.Reactive.Linq.Observable.Select(source, value => Newtonsoft.Json.JsonConvert.SerializeObject(value));
         }
 
+        public System.IObservable<string> Process(System.IObservable<Paths> source)
+        {
+            return Process<Paths>(source);
+        }
+
+        public System.IObservable<string> Process(System.IObservable<Ports> source)
+        {
+            return Process<Ports>(source);
+        }
+
         public System.IObservable<string> Process(System.IObservable<Config> source)
         {
             return Process<Config>(source);
@@ -280,6 +424,8 @@ namespace Config
     [System.ComponentModel.DescriptionAttribute("Deserializes a sequence of JSON strings into data model objects.")]
     [System.ComponentModel.DefaultPropertyAttribute("Type")]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Transform)]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Paths>))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Ports>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Config>))]
     public partial class DeserializeFromJson : Bonsai.Expressions.SingleArgumentExpressionBuilder
     {
@@ -329,6 +475,16 @@ namespace Config
             });
         }
 
+        public System.IObservable<string> Process(System.IObservable<Paths> source)
+        {
+            return Process<Paths>(source);
+        }
+
+        public System.IObservable<string> Process(System.IObservable<Ports> source)
+        {
+            return Process<Ports>(source);
+        }
+
         public System.IObservable<string> Process(System.IObservable<Config> source)
         {
             return Process<Config>(source);
@@ -343,6 +499,8 @@ namespace Config
     [System.ComponentModel.DescriptionAttribute("Deserializes a sequence of YAML strings into data model objects.")]
     [System.ComponentModel.DefaultPropertyAttribute("Type")]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Transform)]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Paths>))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Ports>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Config>))]
     public partial class DeserializeFromYaml : Bonsai.Expressions.SingleArgumentExpressionBuilder
     {
