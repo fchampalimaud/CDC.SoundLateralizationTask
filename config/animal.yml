@@ -5,17 +5,17 @@ base_reward: 25
 fixation_time:
   opto_onset_time:
     delta: 0.5
-    min_value: 6.0
-    target: 100
+    min_value: 500
+    target: 500
   sound_onset_time:
     delta: 0.5
-    min_value: 6.0
-    target: 100
+    min_value: 500
+    target: 500
 lnp_time:
   delta: 0.001
-  min_value: 0.01
-  target: 0.01
-max_reaction_time: 10
+  min_value: 1
+  target: 1
+max_reaction_time: 5
 min_movement_time: 0.01
 optogenetics:
   duration: 2
@@ -30,8 +30,8 @@ optogenetics:
   mode: Left
 reaction_time:
   delta: 0.001
-  min_value: 0.01
-  target: 0.01
+  min_value: 1
+  target: 1
 session:
   duration: 02:00:00
   last_training_level: 10
