@@ -12,19 +12,17 @@ def startup():
     with open(config["paths"]["animal"], "r") as file:
         animal_config = yaml.safe_load(file)
 
-    while True:
-        update = input(
-            "Do you want to update animal.yml based on the last session? [y/n] "
-        )
-        update_lower = update.lower()
-        if update_lower == "y" or update_lower == "n":
-            break
+    animal_dir = config["paths"]["output"] + "/Rat" + f"{animal_config["animal_id"]:03}"
+    if os.path.isdir(animal_dir):
+        while True:
+            update = input(
+                "Do you want to update animal.yml based on the last session? [y/n] "
+            )
+            update_lower = update.lower()
+            if update_lower == "y" or update_lower == "n":
+                break
 
-    if update_lower == "y":
-        animal_dir = (
-            config["paths"]["output"] + "/Rat" + f"{animal_config["animal_id"]:03}"
-        )
-        if os.path.isdir(animal_dir):
+        if update_lower == "y":
             entries = os.listdir(animal_dir)
             dirs = [
                 entry
