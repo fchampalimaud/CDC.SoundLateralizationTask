@@ -1,0 +1,29 @@
+[project]
+name = "python"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "pandas>=2.2.3",
+    "pydantic>=2.10.6",
+    "pyharp",
+    "pyserial>=3.5",
+    "pyyaml>=6.0.2",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/sgen", "src/parser"]
+
+[tool.uv.sources]
+pyharp = { git = "https://github.com/harp-tech/pyharp.git" }
+
+[project.scripts]
+generate-schemas = "sgen.__main__:main"
+config = "config.__main__:main"
+startup = "parser.startup_script:startup"
+convert-output = "parser.output_to_csv:convert_output"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

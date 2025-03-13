@@ -25,11 +25,11 @@ items:
   source:
     remote:
       path: src/Extensions/Output.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: ITI
     path: ../src/Extensions/Output.cs
-    startLine: 345
+    startLine: 389
   assemblies:
   - Extensions
   namespace: Output
@@ -78,11 +78,11 @@ items:
   source:
     remote:
       path: src/Extensions/Output.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: .ctor
     path: ../src/Extensions/Output.cs
-    startLine: 359
+    startLine: 403
   assemblies:
   - Extensions
   namespace: Output
@@ -107,11 +107,11 @@ items:
   source:
     remote:
       path: src/Extensions/Output.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: .ctor
     path: ../src/Extensions/Output.cs
-    startLine: 363
+    startLine: 407
   assemblies:
   - Extensions
   namespace: Output
@@ -139,11 +139,11 @@ items:
   source:
     remote:
       path: src/Extensions/Output.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: IntendedDuration
     path: ../src/Extensions/Output.cs
-    startLine: 374
+    startLine: 418
   assemblies:
   - Extensions
   namespace: Output
@@ -197,11 +197,11 @@ items:
   source:
     remote:
       path: src/Extensions/Output.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: StartTime
     path: ../src/Extensions/Output.cs
-    startLine: 392
+    startLine: 436
   assemblies:
   - Extensions
   namespace: Output
@@ -255,11 +255,11 @@ items:
   source:
     remote:
       path: src/Extensions/Output.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: EndTime
     path: ../src/Extensions/Output.cs
-    startLine: 410
+    startLine: 454
   assemblies:
   - Extensions
   namespace: Output
@@ -313,11 +313,11 @@ items:
   source:
     remote:
       path: src/Extensions/Output.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: TimedDuration
     path: ../src/Extensions/Output.cs
-    startLine: 428
+    startLine: 472
   assemblies:
   - Extensions
   namespace: Output
@@ -371,11 +371,11 @@ items:
   source:
     remote:
       path: src/Extensions/Output.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
     path: ../src/Extensions/Output.cs
-    startLine: 443
+    startLine: 487
   assemblies:
   - Extensions
   namespace: Output
@@ -399,11 +399,11 @@ items:
   source:
     remote:
       path: src/Extensions/Output.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
     path: ../src/Extensions/Output.cs
-    startLine: 448
+    startLine: 492
   assemblies:
   - Extensions
   namespace: Output
@@ -435,11 +435,11 @@ items:
   source:
     remote:
       path: src/Extensions/Output.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: PrintMembers
     path: ../src/Extensions/Output.cs
-    startLine: 453
+    startLine: 497
   assemblies:
   - Extensions
   namespace: Output
@@ -466,11 +466,11 @@ items:
   source:
     remote:
       path: src/Extensions/Output.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: ToString
     path: ../src/Extensions/Output.cs
-    startLine: 462
+    startLine: 506
   assemblies:
   - Extensions
   namespace: Output

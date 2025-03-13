@@ -23,11 +23,11 @@ items:
   source:
     remote:
       path: src/Extensions/Output.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: LnpTime
     path: ../src/Extensions/Output.cs
-    startLine: 477
+    startLine: 521
   assemblies:
   - Extensions
   namespace: Output
@@ -76,11 +76,11 @@ items:
   source:
     remote:
       path: src/Extensions/Output.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: .ctor
     path: ../src/Extensions/Output.cs
-    startLine: 487
+    startLine: 531
   assemblies:
   - Extensions
   namespace: Output
@@ -105,11 +105,11 @@ items:
   source:
     remote:
       path: src/Extensions/Output.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: .ctor
     path: ../src/Extensions/Output.cs
-    startLine: 491
+    startLine: 535
   assemblies:
   - Extensions
   namespace: Output
@@ -137,11 +137,11 @@ items:
   source:
     remote:
       path: src/Extensions/Output.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: IntendedDuration
     path: ../src/Extensions/Output.cs
-    startLine: 500
+    startLine: 544
   assemblies:
   - Extensions
   namespace: Output
@@ -195,11 +195,11 @@ items:
   source:
     remote:
       path: src/Extensions/Output.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: TimedDuration
     path: ../src/Extensions/Output.cs
-    startLine: 518
+    startLine: 562
   assemblies:
   - Extensions
   namespace: Output
@@ -253,11 +253,11 @@ items:
   source:
     remote:
       path: src/Extensions/Output.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
     path: ../src/Extensions/Output.cs
-    startLine: 533
+    startLine: 577
   assemblies:
   - Extensions
   namespace: Output
@@ -281,11 +281,11 @@ items:
   source:
     remote:
       path: src/Extensions/Output.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
     path: ../src/Extensions/Output.cs
-    startLine: 538
+    startLine: 582
   assemblies:
   - Extensions
   namespace: Output
@@ -317,11 +317,11 @@ items:
   source:
     remote:
       path: src/Extensions/Output.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: PrintMembers
     path: ../src/Extensions/Output.cs
-    startLine: 543
+    startLine: 587
   assemblies:
   - Extensions
   namespace: Output
@@ -348,11 +348,11 @@ items:
   source:
     remote:
       path: src/Extensions/Output.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: ToString
     path: ../src/Extensions/Output.cs
-    startLine: 550
+    startLine: 594
   assemblies:
   - Extensions
   namespace: Output

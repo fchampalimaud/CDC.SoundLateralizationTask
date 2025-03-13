@@ -13,6 +13,7 @@ items:
   - Training.ReactionTime.ToString
   - Training.ReactionTime.TurnSoundOff
   - Training.ReactionTime.UseMaxRt
+  - Training.ReactionTime.UseMinRt
   langs:
   - csharp
   - vb
@@ -23,11 +24,11 @@ items:
   source:
     remote:
       path: src/Extensions/Training.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: ReactionTime
     path: ../src/Extensions/Training.cs
-    startLine: 1132
+    startLine: 975
   assemblies:
   - Extensions
   namespace: Training
@@ -76,11 +77,11 @@ items:
   source:
     remote:
       path: src/Extensions/Training.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: .ctor
     path: ../src/Extensions/Training.cs
-    startLine: 1142
+    startLine: 987
   assemblies:
   - Extensions
   namespace: Training
@@ -105,11 +106,11 @@ items:
   source:
     remote:
       path: src/Extensions/Training.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: .ctor
     path: ../src/Extensions/Training.cs
-    startLine: 1146
+    startLine: 991
   assemblies:
   - Extensions
   namespace: Training
@@ -137,11 +138,11 @@ items:
   source:
     remote:
       path: src/Extensions/Training.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: TurnSoundOff
     path: ../src/Extensions/Training.cs
-    startLine: 1155
+    startLine: 1001
   assemblies:
   - Extensions
   namespace: Training
@@ -181,6 +182,64 @@ items:
     - name: Alias
       type: System.String
       value: turn_sound_off
+- uid: Training.ReactionTime.UseMinRt
+  commentId: P:Training.ReactionTime.UseMinRt
+  id: UseMinRt
+  parent: Training.ReactionTime
+  langs:
+  - csharp
+  - vb
+  name: UseMinRt
+  nameWithType: ReactionTime.UseMinRt
+  fullName: Training.ReactionTime.UseMinRt
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/Training.cs
+      branch: python_reorganization
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: UseMinRt
+    path: ../src/Extensions/Training.cs
+    startLine: 1020
+  assemblies:
+  - Extensions
+  namespace: Training
+  summary: Indicates whether there is a minimum reaction time (true) or not (false).
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("use_min_rt", Required = Required.Always)]
+
+      [YamlMember(Alias = "use_min_rt")]
+
+      public bool UseMinRt { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: >-
+      <JsonProperty("use_min_rt", Required:=Required.Always)>
+
+      <YamlMember(Alias:="use_min_rt")>
+
+      Public Property UseMinRt As Boolean
+  overload: Training.ReactionTime.UseMinRt*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: use_min_rt
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: YamlDotNet.Serialization.YamlMemberAttribute
+    ctor: YamlDotNet.Serialization.YamlMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Alias
+      type: System.String
+      value: use_min_rt
 - uid: Training.ReactionTime.UseMaxRt
   commentId: P:Training.ReactionTime.UseMaxRt
   id: UseMaxRt
@@ -195,11 +254,11 @@ items:
   source:
     remote:
       path: src/Extensions/Training.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: UseMaxRt
     path: ../src/Extensions/Training.cs
-    startLine: 1174
+    startLine: 1038
   assemblies:
   - Extensions
   namespace: Training
@@ -253,11 +312,11 @@ items:
   source:
     remote:
       path: src/Extensions/Training.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
     path: ../src/Extensions/Training.cs
-    startLine: 1189
+    startLine: 1053
   assemblies:
   - Extensions
   namespace: Training
@@ -281,11 +340,11 @@ items:
   source:
     remote:
       path: src/Extensions/Training.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
     path: ../src/Extensions/Training.cs
-    startLine: 1194
+    startLine: 1058
   assemblies:
   - Extensions
   namespace: Training
@@ -317,11 +376,11 @@ items:
   source:
     remote:
       path: src/Extensions/Training.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: PrintMembers
     path: ../src/Extensions/Training.cs
-    startLine: 1199
+    startLine: 1063
   assemblies:
   - Extensions
   namespace: Training
@@ -348,11 +407,11 @@ items:
   source:
     remote:
       path: src/Extensions/Training.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: ToString
     path: ../src/Extensions/Training.cs
-    startLine: 1206
+    startLine: 1071
   assemblies:
   - Extensions
   namespace: Training
@@ -619,6 +678,12 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
+- uid: Training.ReactionTime.UseMinRt*
+  commentId: Overload:Training.ReactionTime.UseMinRt
+  href: Training.ReactionTime.html#Training_ReactionTime_UseMinRt
+  name: UseMinRt
+  nameWithType: ReactionTime.UseMinRt
+  fullName: Training.ReactionTime.UseMinRt
 - uid: Training.ReactionTime.UseMaxRt*
   commentId: Overload:Training.ReactionTime.UseMaxRt
   href: Training.ReactionTime.html#Training_ReactionTime_UseMaxRt

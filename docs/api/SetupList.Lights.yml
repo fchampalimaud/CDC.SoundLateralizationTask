@@ -9,7 +9,11 @@ items:
   - SetupList.Lights.#ctor(SetupList.Lights)
   - SetupList.Lights.BoxDutyCycle
   - SetupList.Lights.BoxPeriod
+  - SetupList.Lights.FixationLight
+  - SetupList.Lights.ItiLight
+  - SetupList.Lights.PenaltyLight
   - SetupList.Lights.PokeDutyCycle
+  - SetupList.Lights.PokeLight
   - SetupList.Lights.PokePeriod
   - SetupList.Lights.PrintMembers(System.Text.StringBuilder)
   - SetupList.Lights.Process
@@ -25,7 +29,7 @@ items:
   source:
     remote:
       path: src/Extensions/SetupList.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Lights
     path: ../src/Extensions/SetupList.cs
@@ -78,11 +82,11 @@ items:
   source:
     remote:
       path: src/Extensions/SetupList.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: .ctor
     path: ../src/Extensions/SetupList.cs
-    startLine: 25
+    startLine: 33
   assemblies:
   - Extensions
   namespace: SetupList
@@ -107,11 +111,11 @@ items:
   source:
     remote:
       path: src/Extensions/SetupList.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: .ctor
     path: ../src/Extensions/SetupList.cs
-    startLine: 29
+    startLine: 37
   assemblies:
   - Extensions
   namespace: SetupList
@@ -139,11 +143,11 @@ items:
   source:
     remote:
       path: src/Extensions/SetupList.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: BoxPeriod
     path: ../src/Extensions/SetupList.cs
-    startLine: 40
+    startLine: 52
   assemblies:
   - Extensions
   namespace: SetupList
@@ -197,11 +201,11 @@ items:
   source:
     remote:
       path: src/Extensions/SetupList.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: BoxDutyCycle
     path: ../src/Extensions/SetupList.cs
-    startLine: 58
+    startLine: 70
   assemblies:
   - Extensions
   namespace: SetupList
@@ -255,11 +259,11 @@ items:
   source:
     remote:
       path: src/Extensions/SetupList.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: PokePeriod
     path: ../src/Extensions/SetupList.cs
-    startLine: 76
+    startLine: 88
   assemblies:
   - Extensions
   namespace: SetupList
@@ -313,11 +317,11 @@ items:
   source:
     remote:
       path: src/Extensions/SetupList.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: PokeDutyCycle
     path: ../src/Extensions/SetupList.cs
-    startLine: 94
+    startLine: 106
   assemblies:
   - Extensions
   namespace: SetupList
@@ -357,6 +361,238 @@ items:
     - name: Alias
       type: System.String
       value: poke_duty_cycle
+- uid: SetupList.Lights.ItiLight
+  commentId: P:SetupList.Lights.ItiLight
+  id: ItiLight
+  parent: SetupList.Lights
+  langs:
+  - csharp
+  - vb
+  name: ItiLight
+  nameWithType: Lights.ItiLight
+  fullName: SetupList.Lights.ItiLight
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/SetupList.cs
+      branch: python_reorganization
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: ItiLight
+    path: ../src/Extensions/SetupList.cs
+    startLine: 124
+  assemblies:
+  - Extensions
+  namespace: SetupList
+  summary: Indicates whether the box LED should turn of when the new trial is ready (true) or not (false).
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("iti_light", Required = Required.Always)]
+
+      [YamlMember(Alias = "iti_light")]
+
+      public bool ItiLight { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: >-
+      <JsonProperty("iti_light", Required:=Required.Always)>
+
+      <YamlMember(Alias:="iti_light")>
+
+      Public Property ItiLight As Boolean
+  overload: SetupList.Lights.ItiLight*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: iti_light
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: YamlDotNet.Serialization.YamlMemberAttribute
+    ctor: YamlDotNet.Serialization.YamlMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Alias
+      type: System.String
+      value: iti_light
+- uid: SetupList.Lights.PokeLight
+  commentId: P:SetupList.Lights.PokeLight
+  id: PokeLight
+  parent: SetupList.Lights
+  langs:
+  - csharp
+  - vb
+  name: PokeLight
+  nameWithType: Lights.PokeLight
+  fullName: SetupList.Lights.PokeLight
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/SetupList.cs
+      branch: python_reorganization
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: PokeLight
+    path: ../src/Extensions/SetupList.cs
+    startLine: 143
+  assemblies:
+  - Extensions
+  namespace: SetupList
+  summary: Indicates whether the central poke LED should turn of when the new trial is ready (true) or not (false).
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("poke_light", Required = Required.Always)]
+
+      [YamlMember(Alias = "poke_light")]
+
+      public bool PokeLight { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: >-
+      <JsonProperty("poke_light", Required:=Required.Always)>
+
+      <YamlMember(Alias:="poke_light")>
+
+      Public Property PokeLight As Boolean
+  overload: SetupList.Lights.PokeLight*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: poke_light
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: YamlDotNet.Serialization.YamlMemberAttribute
+    ctor: YamlDotNet.Serialization.YamlMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Alias
+      type: System.String
+      value: poke_light
+- uid: SetupList.Lights.FixationLight
+  commentId: P:SetupList.Lights.FixationLight
+  id: FixationLight
+  parent: SetupList.Lights
+  langs:
+  - csharp
+  - vb
+  name: FixationLight
+  nameWithType: Lights.FixationLight
+  fullName: SetupList.Lights.FixationLight
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/SetupList.cs
+      branch: python_reorganization
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: FixationLight
+    path: ../src/Extensions/SetupList.cs
+    startLine: 162
+  assemblies:
+  - Extensions
+  namespace: SetupList
+  summary: Indicates whether the central poke LED should blink during fixation time (true) or not (false).
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("fixation_light", Required = Required.Always)]
+
+      [YamlMember(Alias = "fixation_light")]
+
+      public bool FixationLight { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: >-
+      <JsonProperty("fixation_light", Required:=Required.Always)>
+
+      <YamlMember(Alias:="fixation_light")>
+
+      Public Property FixationLight As Boolean
+  overload: SetupList.Lights.FixationLight*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: fixation_light
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: YamlDotNet.Serialization.YamlMemberAttribute
+    ctor: YamlDotNet.Serialization.YamlMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Alias
+      type: System.String
+      value: fixation_light
+- uid: SetupList.Lights.PenaltyLight
+  commentId: P:SetupList.Lights.PenaltyLight
+  id: PenaltyLight
+  parent: SetupList.Lights
+  langs:
+  - csharp
+  - vb
+  name: PenaltyLight
+  nameWithType: Lights.PenaltyLight
+  fullName: SetupList.Lights.PenaltyLight
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/SetupList.cs
+      branch: python_reorganization
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: PenaltyLight
+    path: ../src/Extensions/SetupList.cs
+    startLine: 181
+  assemblies:
+  - Extensions
+  namespace: SetupList
+  summary: Indicates whether the box LED should blink during penalty times (true) or not (false).
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("penalty_light", Required = Required.Always)]
+
+      [YamlMember(Alias = "penalty_light")]
+
+      public bool PenaltyLight { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: >-
+      <JsonProperty("penalty_light", Required:=Required.Always)>
+
+      <YamlMember(Alias:="penalty_light")>
+
+      Public Property PenaltyLight As Boolean
+  overload: SetupList.Lights.PenaltyLight*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: penalty_light
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: YamlDotNet.Serialization.YamlMemberAttribute
+    ctor: YamlDotNet.Serialization.YamlMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Alias
+      type: System.String
+      value: penalty_light
 - uid: SetupList.Lights.Process
   commentId: M:SetupList.Lights.Process
   id: Process
@@ -371,11 +607,11 @@ items:
   source:
     remote:
       path: src/Extensions/SetupList.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
     path: ../src/Extensions/SetupList.cs
-    startLine: 109
+    startLine: 197
   assemblies:
   - Extensions
   namespace: SetupList
@@ -399,11 +635,11 @@ items:
   source:
     remote:
       path: src/Extensions/SetupList.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
     path: ../src/Extensions/SetupList.cs
-    startLine: 114
+    startLine: 202
   assemblies:
   - Extensions
   namespace: SetupList
@@ -435,11 +671,11 @@ items:
   source:
     remote:
       path: src/Extensions/SetupList.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: PrintMembers
     path: ../src/Extensions/SetupList.cs
-    startLine: 119
+    startLine: 207
   assemblies:
   - Extensions
   namespace: SetupList
@@ -466,11 +702,11 @@ items:
   source:
     remote:
       path: src/Extensions/SetupList.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: ToString
     path: ../src/Extensions/SetupList.cs
-    startLine: 128
+    startLine: 220
   assemblies:
   - Extensions
   namespace: SetupList
@@ -755,6 +991,41 @@ references:
   name: PokeDutyCycle
   nameWithType: Lights.PokeDutyCycle
   fullName: SetupList.Lights.PokeDutyCycle
+- uid: SetupList.Lights.ItiLight*
+  commentId: Overload:SetupList.Lights.ItiLight
+  href: SetupList.Lights.html#SetupList_Lights_ItiLight
+  name: ItiLight
+  nameWithType: Lights.ItiLight
+  fullName: SetupList.Lights.ItiLight
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: SetupList.Lights.PokeLight*
+  commentId: Overload:SetupList.Lights.PokeLight
+  href: SetupList.Lights.html#SetupList_Lights_PokeLight
+  name: PokeLight
+  nameWithType: Lights.PokeLight
+  fullName: SetupList.Lights.PokeLight
+- uid: SetupList.Lights.FixationLight*
+  commentId: Overload:SetupList.Lights.FixationLight
+  href: SetupList.Lights.html#SetupList_Lights_FixationLight
+  name: FixationLight
+  nameWithType: Lights.FixationLight
+  fullName: SetupList.Lights.FixationLight
+- uid: SetupList.Lights.PenaltyLight*
+  commentId: Overload:SetupList.Lights.PenaltyLight
+  href: SetupList.Lights.html#SetupList_Lights_PenaltyLight
+  name: PenaltyLight
+  nameWithType: Lights.PenaltyLight
+  fullName: SetupList.Lights.PenaltyLight
 - uid: SetupList.Lights.Process*
   commentId: Overload:SetupList.Lights.Process
   href: SetupList.Lights.html#SetupList_Lights_Process
@@ -865,17 +1136,6 @@ references:
   name: StringBuilder
   nameWithType: StringBuilder
   fullName: System.Text.StringBuilder
-- uid: System.Boolean
-  commentId: T:System.Boolean
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.boolean
-  name: bool
-  nameWithType: bool
-  fullName: bool
-  nameWithType.vb: Boolean
-  fullName.vb: Boolean
-  name.vb: Boolean
 - uid: System.Text
   commentId: N:System.Text
   isExternal: true

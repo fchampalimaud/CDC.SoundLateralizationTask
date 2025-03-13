@@ -25,6 +25,7 @@ items:
   - Output.Output.TimeToCnp
   - Output.Output.ToString
   - Output.Output.Trial
+  - Output.Output.Version
   langs:
   - csharp
   - vb
@@ -35,11 +36,11 @@ items:
   source:
     remote:
       path: src/Extensions/Output.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Output
     path: ../src/Extensions/Output.cs
-    startLine: 1513
+    startLine: 1580
   assemblies:
   - Extensions
   namespace: Output
@@ -88,11 +89,11 @@ items:
   source:
     remote:
       path: src/Extensions/Output.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: .ctor
     path: ../src/Extensions/Output.cs
-    startLine: 1547
+    startLine: 1616
   assemblies:
   - Extensions
   namespace: Output
@@ -117,11 +118,11 @@ items:
   source:
     remote:
       path: src/Extensions/Output.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: .ctor
     path: ../src/Extensions/Output.cs
-    startLine: 1551
+    startLine: 1620
   assemblies:
   - Extensions
   namespace: Output
@@ -149,11 +150,11 @@ items:
   source:
     remote:
       path: src/Extensions/Output.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: AnimalId
     path: ../src/Extensions/Output.cs
-    startLine: 1572
+    startLine: 1642
   assemblies:
   - Extensions
   namespace: Output
@@ -193,6 +194,64 @@ items:
     - name: Alias
       type: System.String
       value: animal_id
+- uid: Output.Output.Version
+  commentId: P:Output.Output.Version
+  id: Version
+  parent: Output.Output
+  langs:
+  - csharp
+  - vb
+  name: Version
+  nameWithType: Output.Version
+  fullName: Output.Output.Version
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/Output.cs
+      branch: python_reorganization
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: Version
+    path: ../src/Extensions/Output.cs
+    startLine: 1660
+  assemblies:
+  - Extensions
+  namespace: Output
+  summary: The version of the project used in the session.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("version", Required = Required.Always)]
+
+      [YamlMember(Alias = "version")]
+
+      public string Version { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("version", Required:=Required.Always)>
+
+      <YamlMember(Alias:="version")>
+
+      Public Property Version As String
+  overload: Output.Output.Version*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: version
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: YamlDotNet.Serialization.YamlMemberAttribute
+    ctor: YamlDotNet.Serialization.YamlMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Alias
+      type: System.String
+      value: version
 - uid: Output.Output.Trial
   commentId: P:Output.Output.Trial
   id: Trial
@@ -207,11 +266,11 @@ items:
   source:
     remote:
       path: src/Extensions/Output.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Trial
     path: ../src/Extensions/Output.cs
-    startLine: 1590
+    startLine: 1678
   assemblies:
   - Extensions
   namespace: Output
@@ -265,11 +324,11 @@ items:
   source:
     remote:
       path: src/Extensions/Output.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Block
     path: ../src/Extensions/Output.cs
-    startLine: 1609
+    startLine: 1697
   assemblies:
   - Extensions
   namespace: Output
@@ -323,11 +382,11 @@ items:
   source:
     remote:
       path: src/Extensions/Output.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Session
     path: ../src/Extensions/Output.cs
-    startLine: 1628
+    startLine: 1716
   assemblies:
   - Extensions
   namespace: Output
@@ -381,11 +440,11 @@ items:
   source:
     remote:
       path: src/Extensions/Output.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Sound
     path: ../src/Extensions/Output.cs
-    startLine: 1647
+    startLine: 1735
   assemblies:
   - Extensions
   namespace: Output
@@ -439,11 +498,11 @@ items:
   source:
     remote:
       path: src/Extensions/Output.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Iti
     path: ../src/Extensions/Output.cs
-    startLine: 1666
+    startLine: 1754
   assemblies:
   - Extensions
   namespace: Output
@@ -497,11 +556,11 @@ items:
   source:
     remote:
       path: src/Extensions/Output.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: TimeToCnp
     path: ../src/Extensions/Output.cs
-    startLine: 1685
+    startLine: 1773
   assemblies:
   - Extensions
   namespace: Output
@@ -555,11 +614,11 @@ items:
   source:
     remote:
       path: src/Extensions/Output.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: FixationTime
     path: ../src/Extensions/Output.cs
-    startLine: 1704
+    startLine: 1792
   assemblies:
   - Extensions
   namespace: Output
@@ -613,11 +672,11 @@ items:
   source:
     remote:
       path: src/Extensions/Output.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: ReactionTime
     path: ../src/Extensions/Output.cs
-    startLine: 1723
+    startLine: 1811
   assemblies:
   - Extensions
   namespace: Output
@@ -671,11 +730,11 @@ items:
   source:
     remote:
       path: src/Extensions/Output.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: MovementTime
     path: ../src/Extensions/Output.cs
-    startLine: 1742
+    startLine: 1830
   assemblies:
   - Extensions
   namespace: Output
@@ -729,11 +788,11 @@ items:
   source:
     remote:
       path: src/Extensions/Output.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: LnpTime
     path: ../src/Extensions/Output.cs
-    startLine: 1761
+    startLine: 1849
   assemblies:
   - Extensions
   namespace: Output
@@ -787,11 +846,11 @@ items:
   source:
     remote:
       path: src/Extensions/Output.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Outcome
     path: ../src/Extensions/Output.cs
-    startLine: 1780
+    startLine: 1868
   assemblies:
   - Extensions
   namespace: Output
@@ -845,11 +904,11 @@ items:
   source:
     remote:
       path: src/Extensions/Output.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: RepeatedTrial
     path: ../src/Extensions/Output.cs
-    startLine: 1799
+    startLine: 1887
   assemblies:
   - Extensions
   namespace: Output
@@ -903,11 +962,11 @@ items:
   source:
     remote:
       path: src/Extensions/Output.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Optogenetics
     path: ../src/Extensions/Output.cs
-    startLine: 1818
+    startLine: 1906
   assemblies:
   - Extensions
   namespace: Output
@@ -961,11 +1020,11 @@ items:
   source:
     remote:
       path: src/Extensions/Output.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
     path: ../src/Extensions/Output.cs
-    startLine: 1834
+    startLine: 1922
   assemblies:
   - Extensions
   namespace: Output
@@ -989,11 +1048,11 @@ items:
   source:
     remote:
       path: src/Extensions/Output.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
     path: ../src/Extensions/Output.cs
-    startLine: 1839
+    startLine: 1927
   assemblies:
   - Extensions
   namespace: Output
@@ -1025,11 +1084,11 @@ items:
   source:
     remote:
       path: src/Extensions/Output.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: PrintMembers
     path: ../src/Extensions/Output.cs
-    startLine: 1844
+    startLine: 1932
   assemblies:
   - Extensions
   namespace: Output
@@ -1056,11 +1115,11 @@ items:
   source:
     remote:
       path: src/Extensions/Output.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: ToString
     path: ../src/Extensions/Output.cs
-    startLine: 1863
+    startLine: 1952
   assemblies:
   - Extensions
   namespace: Output
@@ -1327,6 +1386,23 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
+- uid: Output.Output.Version*
+  commentId: Overload:Output.Output.Version
+  href: Output.Output.html#Output_Output_Version
+  name: Version
+  nameWithType: Output.Version
+  fullName: Output.Output.Version
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
 - uid: Output.Output.Trial*
   commentId: Overload:Output.Output.Trial
   href: Output.Output.html#Output_Output_Trial
@@ -1667,14 +1743,3 @@ references:
   name: ToString
   nameWithType: Output.ToString
   fullName: Output.Output.ToString
-- uid: System.String
-  commentId: T:System.String
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.string
-  name: string
-  nameWithType: string
-  fullName: string
-  nameWithType.vb: String
-  fullName.vb: String
-  name.vb: String

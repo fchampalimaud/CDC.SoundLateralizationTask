@@ -129,6 +129,10 @@ namespace Output
     
         private FixationTimeParts _soundOnsetTime = new FixationTimeParts();
     
+        private double _intendedDuration;
+    
+        private double _timedDuration;
+    
         public FixationTime()
         {
         }
@@ -137,6 +141,8 @@ namespace Output
         {
             _optoOnsetTime = other._optoOnsetTime;
             _soundOnsetTime = other._soundOnsetTime;
+            _intendedDuration = other._intendedDuration;
+            _timedDuration = other._timedDuration;
         }
     
         /// <summary>
@@ -178,6 +184,42 @@ namespace Output
             }
         }
     
+        /// <summary>
+        /// The intended duration for the total fixation time (ms).
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("intended_duration", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="intended_duration")]
+        [System.ComponentModel.DescriptionAttribute("The intended duration for the total fixation time (ms).")]
+        public double IntendedDuration
+        {
+            get
+            {
+                return _intendedDuration;
+            }
+            set
+            {
+                _intendedDuration = value;
+            }
+        }
+    
+        /// <summary>
+        /// The timed duration for the total fixation time (ms).
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("timed_duration", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="timed_duration")]
+        [System.ComponentModel.DescriptionAttribute("The timed duration for the total fixation time (ms).")]
+        public double TimedDuration
+        {
+            get
+            {
+                return _timedDuration;
+            }
+            set
+            {
+                _timedDuration = value;
+            }
+        }
+    
         public System.IObservable<FixationTime> Process()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new FixationTime(this)));
@@ -191,7 +233,9 @@ namespace Output
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
             stringBuilder.Append("opto_onset_time = " + _optoOnsetTime + ", ");
-            stringBuilder.Append("sound_onset_time = " + _soundOnsetTime);
+            stringBuilder.Append("sound_onset_time = " + _soundOnsetTime + ", ");
+            stringBuilder.Append("intended_duration = " + _intendedDuration + ", ");
+            stringBuilder.Append("timed_duration = " + _timedDuration);
             return true;
         }
     
@@ -292,11 +336,11 @@ namespace Output
         }
     
         /// <summary>
-        /// The timed duration for this part of the fixation time (s).
+        /// The timed duration for this part of the fixation time (ms).
         /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("timed_duration", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="timed_duration")]
-        [System.ComponentModel.DescriptionAttribute("The timed duration for this part of the fixation time (s).")]
+        [System.ComponentModel.DescriptionAttribute("The timed duration for this part of the fixation time (ms).")]
         public double TimedDuration
         {
             get
@@ -661,9 +705,7 @@ namespace Output
     
         private double _duration;
     
-        private double _leftPower;
-    
-        private double _rightPower;
+        private OptogeneticsMode _mode;
     
         public Optogenetics()
         {
@@ -673,8 +715,7 @@ namespace Output
         {
             _optoTrial = other._optoTrial;
             _duration = other._duration;
-            _leftPower = other._leftPower;
-            _rightPower = other._rightPower;
+            _mode = other._mode;
         }
     
         /// <summary>
@@ -714,40 +755,21 @@ namespace Output
         }
     
         /// <summary>
-        /// The power used in the optogenetics protocol for the left side. NOT IMPLEMENTED!!!
+        /// Indicates the optogenetics mode used in the current session.
         /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("left_power", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="left_power")]
-        [System.ComponentModel.DescriptionAttribute("The power used in the optogenetics protocol for the left side. NOT IMPLEMENTED!!!" +
-            "")]
-        public double LeftPower
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [Newtonsoft.Json.JsonPropertyAttribute("mode", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="mode")]
+        [System.ComponentModel.DescriptionAttribute("Indicates the optogenetics mode used in the current session.")]
+        public OptogeneticsMode Mode
         {
             get
             {
-                return _leftPower;
+                return _mode;
             }
             set
             {
-                _leftPower = value;
-            }
-        }
-    
-        /// <summary>
-        /// The power used in the optogenetics protocol for the right side. NOT IMPLEMENTED!!!
-        /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("right_power", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="right_power")]
-        [System.ComponentModel.DescriptionAttribute("The power used in the optogenetics protocol for the right side. NOT IMPLEMENTED!!" +
-            "!")]
-        public double RightPower
-        {
-            get
-            {
-                return _rightPower;
-            }
-            set
-            {
-                _rightPower = value;
+                _mode = value;
             }
         }
     
@@ -765,8 +787,7 @@ namespace Output
         {
             stringBuilder.Append("opto_trial = " + _optoTrial + ", ");
             stringBuilder.Append("duration = " + _duration + ", ");
-            stringBuilder.Append("left_power = " + _leftPower + ", ");
-            stringBuilder.Append("right_power = " + _rightPower);
+            stringBuilder.Append("mode = " + _mode);
             return true;
         }
     
@@ -1389,6 +1410,8 @@ namespace Output
     
         private double _startTime;
     
+        private double _taredStartTime;
+    
         private double _endTime;
     
         private double _duration;
@@ -1401,6 +1424,7 @@ namespace Output
         {
             _number = other._number;
             _startTime = other._startTime;
+            _taredStartTime = other._taredStartTime;
             _endTime = other._endTime;
             _duration = other._duration;
         }
@@ -1438,6 +1462,25 @@ namespace Output
             set
             {
                 _startTime = value;
+            }
+        }
+    
+        /// <summary>
+        /// The tared timestamp at which the trial started in which t = 0 is the start time of the first trial of the session (s).
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("tared_start_time", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="tared_start_time")]
+        [System.ComponentModel.DescriptionAttribute("The tared timestamp at which the trial started in which t = 0 is the start time o" +
+            "f the first trial of the session (s).")]
+        public double TaredStartTime
+        {
+            get
+            {
+                return _taredStartTime;
+            }
+            set
+            {
+                _taredStartTime = value;
             }
         }
     
@@ -1491,6 +1534,7 @@ namespace Output
         {
             stringBuilder.Append("number = " + _number + ", ");
             stringBuilder.Append("start_time = " + _startTime + ", ");
+            stringBuilder.Append("tared_start_time = " + _taredStartTime + ", ");
             stringBuilder.Append("end_time = " + _endTime + ", ");
             stringBuilder.Append("duration = " + _duration);
             return true;
@@ -1518,6 +1562,8 @@ namespace Output
     {
     
         private int _animalId;
+    
+        private string _version;
     
         private Trial _trial = new Trial();
     
@@ -1552,6 +1598,7 @@ namespace Output
         protected Output(Output other)
         {
             _animalId = other._animalId;
+            _version = other._version;
             _trial = other._trial;
             _block = other._block;
             _session = other._session;
@@ -1582,6 +1629,24 @@ namespace Output
             set
             {
                 _animalId = value;
+            }
+        }
+    
+        /// <summary>
+        /// The version of the project used in the session.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("version", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="version")]
+        [System.ComponentModel.DescriptionAttribute("The version of the project used in the session.")]
+        public string Version
+        {
+            get
+            {
+                return _version;
+            }
+            set
+            {
+                _version = value;
             }
         }
     
@@ -1845,6 +1910,7 @@ namespace Output
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
             stringBuilder.Append("animal_id = " + _animalId + ", ");
+            stringBuilder.Append("version = " + _version + ", ");
             stringBuilder.Append("trial = " + _trial + ", ");
             stringBuilder.Append("block = " + _block + ", ");
             stringBuilder.Append("session = " + _session + ", ");
@@ -1873,6 +1939,25 @@ namespace Output
             stringBuilder.Append("}");
             return stringBuilder.ToString();
         }
+    }
+
+
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
+    [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+    public enum OptogeneticsMode
+    {
+    
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="Left")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="Left")]
+        Left = 0,
+    
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="Right")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="Right")]
+        Right = 1,
+    
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="Bilateral")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="Bilateral")]
+        Bilateral = 2,
     }
 
 

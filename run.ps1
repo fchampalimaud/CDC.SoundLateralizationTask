@@ -1,3 +1,6 @@
-.\bonsai\Bonsai.exe .\src\SoundLateralizationTask.bonsai
-cd parser
-uv run main_3.py
+cd python
+uv run startup
+cd ..
+.\bonsai\Bonsai.exe .\src\SoundLateralizationTask.bonsai --start --no-editor
+cd python
+uv run convert-output

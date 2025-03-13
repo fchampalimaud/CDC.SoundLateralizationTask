@@ -7,7 +7,7 @@ items:
   children:
   - Training.ILD.#ctor
   - Training.ILD.#ctor(Training.ILD)
-  - Training.ILD.LogBase
+  - Training.ILD.LogOrExpBase
   - Training.ILD.NumSteps
   - Training.ILD.PrintMembers(System.Text.StringBuilder)
   - Training.ILD.Process
@@ -15,7 +15,7 @@ items:
   - Training.ILD.SpecialCase
   - Training.ILD.StepSize
   - Training.ILD.ToString
-  - Training.ILD.UseLog
+  - Training.ILD.UseLogOrExp
   langs:
   - csharp
   - vb
@@ -26,11 +26,11 @@ items:
   source:
     remote:
       path: src/Extensions/Training.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: ILD
     path: ../src/Extensions/Training.cs
-    startLine: 416
+    startLine: 280
   assemblies:
   - Extensions
   namespace: Training
@@ -79,11 +79,11 @@ items:
   source:
     remote:
       path: src/Extensions/Training.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: .ctor
     path: ../src/Extensions/Training.cs
-    startLine: 432
+    startLine: 296
   assemblies:
   - Extensions
   namespace: Training
@@ -108,11 +108,11 @@ items:
   source:
     remote:
       path: src/Extensions/Training.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: .ctor
     path: ../src/Extensions/Training.cs
-    startLine: 436
+    startLine: 300
   assemblies:
   - Extensions
   namespace: Training
@@ -140,11 +140,11 @@ items:
   source:
     remote:
       path: src/Extensions/Training.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: SpecialCase
     path: ../src/Extensions/Training.cs
-    startLine: 448
+    startLine: 312
   assemblies:
   - Extensions
   namespace: Training
@@ -198,11 +198,11 @@ items:
   source:
     remote:
       path: src/Extensions/Training.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: StepSize
     path: ../src/Extensions/Training.cs
-    startLine: 466
+    startLine: 330
   assemblies:
   - Extensions
   namespace: Training
@@ -256,11 +256,11 @@ items:
   source:
     remote:
       path: src/Extensions/Training.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: NumSteps
     path: ../src/Extensions/Training.cs
-    startLine: 484
+    startLine: 348
   assemblies:
   - Extensions
   namespace: Training
@@ -300,53 +300,53 @@ items:
     - name: Alias
       type: System.String
       value: num_steps
-- uid: Training.ILD.UseLog
-  commentId: P:Training.ILD.UseLog
-  id: UseLog
+- uid: Training.ILD.UseLogOrExp
+  commentId: P:Training.ILD.UseLogOrExp
+  id: UseLogOrExp
   parent: Training.ILD
   langs:
   - csharp
   - vb
-  name: UseLog
-  nameWithType: ILD.UseLog
-  fullName: Training.ILD.UseLog
+  name: UseLogOrExp
+  nameWithType: ILD.UseLogOrExp
+  fullName: Training.ILD.UseLogOrExp
   type: Property
   source:
     remote:
       path: src/Extensions/Training.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
-    id: UseLog
+    id: UseLogOrExp
     path: ../src/Extensions/Training.cs
-    startLine: 503
+    startLine: 367
   assemblies:
   - Extensions
   namespace: Training
-  summary: Indicates whether to use logarithmic steps between consecutive ILD values.
+  summary: Indicates whether to use logarithmic/exponential steps between consecutive ILD values.
   example: []
   syntax:
     content: >-
-      [JsonProperty("use_log", Required = Required.Always)]
+      [JsonProperty("use_log_or_exp", Required = Required.Always)]
 
-      [YamlMember(Alias = "use_log")]
+      [YamlMember(Alias = "use_log_or_exp")]
 
-      public bool UseLog { get; set; }
+      public ILDUseLogOrExp UseLogOrExp { get; set; }
     parameters: []
     return:
-      type: System.Boolean
+      type: Training.ILDUseLogOrExp
     content.vb: >-
-      <JsonProperty("use_log", Required:=Required.Always)>
+      <JsonProperty("use_log_or_exp", Required:=Required.Always)>
 
-      <YamlMember(Alias:="use_log")>
+      <YamlMember(Alias:="use_log_or_exp")>
 
-      Public Property UseLog As Boolean
-  overload: Training.ILD.UseLog*
+      Public Property UseLogOrExp As ILDUseLogOrExp
+  overload: Training.ILD.UseLogOrExp*
   attributes:
   - type: Newtonsoft.Json.JsonPropertyAttribute
     ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
     arguments:
     - type: System.String
-      value: use_log
+      value: use_log_or_exp
     namedArguments:
     - name: Required
       type: Newtonsoft.Json.Required
@@ -357,54 +357,54 @@ items:
     namedArguments:
     - name: Alias
       type: System.String
-      value: use_log
-- uid: Training.ILD.LogBase
-  commentId: P:Training.ILD.LogBase
-  id: LogBase
+      value: use_log_or_exp
+- uid: Training.ILD.LogOrExpBase
+  commentId: P:Training.ILD.LogOrExpBase
+  id: LogOrExpBase
   parent: Training.ILD
   langs:
   - csharp
   - vb
-  name: LogBase
-  nameWithType: ILD.LogBase
-  fullName: Training.ILD.LogBase
+  name: LogOrExpBase
+  nameWithType: ILD.LogOrExpBase
+  fullName: Training.ILD.LogOrExpBase
   type: Property
   source:
     remote:
       path: src/Extensions/Training.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
-    id: LogBase
+    id: LogOrExpBase
     path: ../src/Extensions/Training.cs
-    startLine: 521
+    startLine: 387
   assemblies:
   - Extensions
   namespace: Training
-  summary: The base of the logarithm.
+  summary: The base of the logarithm/exponential.
   example: []
   syntax:
     content: >-
-      [JsonProperty("log_base", Required = Required.Always)]
+      [JsonProperty("log_or_exp_base", Required = Required.Always)]
 
-      [YamlMember(Alias = "log_base")]
+      [YamlMember(Alias = "log_or_exp_base")]
 
-      public double LogBase { get; set; }
+      public double LogOrExpBase { get; set; }
     parameters: []
     return:
       type: System.Double
     content.vb: >-
-      <JsonProperty("log_base", Required:=Required.Always)>
+      <JsonProperty("log_or_exp_base", Required:=Required.Always)>
 
-      <YamlMember(Alias:="log_base")>
+      <YamlMember(Alias:="log_or_exp_base")>
 
-      Public Property LogBase As Double
-  overload: Training.ILD.LogBase*
+      Public Property LogOrExpBase As Double
+  overload: Training.ILD.LogOrExpBase*
   attributes:
   - type: Newtonsoft.Json.JsonPropertyAttribute
     ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
     arguments:
     - type: System.String
-      value: log_base
+      value: log_or_exp_base
     namedArguments:
     - name: Required
       type: Newtonsoft.Json.Required
@@ -415,7 +415,7 @@ items:
     namedArguments:
     - name: Alias
       type: System.String
-      value: log_base
+      value: log_or_exp_base
 - uid: Training.ILD.Process
   commentId: M:Training.ILD.Process
   id: Process
@@ -430,11 +430,11 @@ items:
   source:
     remote:
       path: src/Extensions/Training.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
     path: ../src/Extensions/Training.cs
-    startLine: 536
+    startLine: 402
   assemblies:
   - Extensions
   namespace: Training
@@ -458,11 +458,11 @@ items:
   source:
     remote:
       path: src/Extensions/Training.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
     path: ../src/Extensions/Training.cs
-    startLine: 541
+    startLine: 407
   assemblies:
   - Extensions
   namespace: Training
@@ -494,11 +494,11 @@ items:
   source:
     remote:
       path: src/Extensions/Training.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: PrintMembers
     path: ../src/Extensions/Training.cs
-    startLine: 546
+    startLine: 412
   assemblies:
   - Extensions
   namespace: Training
@@ -525,11 +525,11 @@ items:
   source:
     remote:
       path: src/Extensions/Training.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: ToString
     path: ../src/Extensions/Training.cs
-    startLine: 556
+    startLine: 422
   assemblies:
   - Extensions
   namespace: Training
@@ -830,18 +830,25 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
-- uid: Training.ILD.UseLog*
-  commentId: Overload:Training.ILD.UseLog
-  href: Training.ILD.html#Training_ILD_UseLog
-  name: UseLog
-  nameWithType: ILD.UseLog
-  fullName: Training.ILD.UseLog
-- uid: Training.ILD.LogBase*
-  commentId: Overload:Training.ILD.LogBase
-  href: Training.ILD.html#Training_ILD_LogBase
-  name: LogBase
-  nameWithType: ILD.LogBase
-  fullName: Training.ILD.LogBase
+- uid: Training.ILD.UseLogOrExp*
+  commentId: Overload:Training.ILD.UseLogOrExp
+  href: Training.ILD.html#Training_ILD_UseLogOrExp
+  name: UseLogOrExp
+  nameWithType: ILD.UseLogOrExp
+  fullName: Training.ILD.UseLogOrExp
+- uid: Training.ILDUseLogOrExp
+  commentId: T:Training.ILDUseLogOrExp
+  parent: Training
+  href: Training.ILDUseLogOrExp.html
+  name: ILDUseLogOrExp
+  nameWithType: ILDUseLogOrExp
+  fullName: Training.ILDUseLogOrExp
+- uid: Training.ILD.LogOrExpBase*
+  commentId: Overload:Training.ILD.LogOrExpBase
+  href: Training.ILD.html#Training_ILD_LogOrExpBase
+  name: LogOrExpBase
+  nameWithType: ILD.LogOrExpBase
+  fullName: Training.ILD.LogOrExpBase
 - uid: Training.ILD.Process*
   commentId: Overload:Training.ILD.Process
   href: Training.ILD.html#Training_ILD_Process

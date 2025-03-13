@@ -9,6 +9,7 @@ items:
   - Animal.Optogenetics.#ctor(Animal.Optogenetics)
   - Animal.Optogenetics.Duration
   - Animal.Optogenetics.Frequency
+  - Animal.Optogenetics.OptoRatio
   - Animal.Optogenetics.PrintMembers(System.Text.StringBuilder)
   - Animal.Optogenetics.Process
   - Animal.Optogenetics.Process``1(System.IObservable{``0})
@@ -17,6 +18,8 @@ items:
   - Animal.Optogenetics.ToString
   - Animal.Optogenetics.UseOpto
   - Animal.Optogenetics.UsePulses
+  - Animal.Optogenetics.UseRt
+  - Animal.Optogenetics.Voltage
   langs:
   - csharp
   - vb
@@ -27,7 +30,7 @@ items:
   source:
     remote:
       path: src/Extensions/Animal.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Optogenetics
     path: ../src/Extensions/Animal.cs
@@ -80,11 +83,11 @@ items:
   source:
     remote:
       path: src/Extensions/Animal.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: .ctor
     path: ../src/Extensions/Animal.cs
-    startLine: 121
+    startLine: 127
   assemblies:
   - Extensions
   namespace: Animal
@@ -109,11 +112,11 @@ items:
   source:
     remote:
       path: src/Extensions/Animal.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: .ctor
     path: ../src/Extensions/Animal.cs
-    startLine: 125
+    startLine: 131
   assemblies:
   - Extensions
   namespace: Animal
@@ -141,11 +144,11 @@ items:
   source:
     remote:
       path: src/Extensions/Animal.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: UseOpto
     path: ../src/Extensions/Animal.cs
-    startLine: 138
+    startLine: 147
   assemblies:
   - Extensions
   namespace: Animal
@@ -185,6 +188,64 @@ items:
     - name: Alias
       type: System.String
       value: use_opto
+- uid: Animal.Optogenetics.Voltage
+  commentId: P:Animal.Optogenetics.Voltage
+  id: Voltage
+  parent: Animal.Optogenetics
+  langs:
+  - csharp
+  - vb
+  name: Voltage
+  nameWithType: Optogenetics.Voltage
+  fullName: Animal.Optogenetics.Voltage
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/Animal.cs
+      branch: python_reorganization
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: Voltage
+    path: ../src/Extensions/Animal.cs
+    startLine: 165
+  assemblies:
+  - Extensions
+  namespace: Animal
+  summary: The voltage to use in the TTL signal.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("voltage", Required = Required.Always)]
+
+      [YamlMember(Alias = "voltage")]
+
+      public int Voltage { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: >-
+      <JsonProperty("voltage", Required:=Required.Always)>
+
+      <YamlMember(Alias:="voltage")>
+
+      Public Property Voltage As Integer
+  overload: Animal.Optogenetics.Voltage*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: voltage
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: YamlDotNet.Serialization.YamlMemberAttribute
+    ctor: YamlDotNet.Serialization.YamlMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Alias
+      type: System.String
+      value: voltage
 - uid: Animal.Optogenetics.Duration
   commentId: P:Animal.Optogenetics.Duration
   id: Duration
@@ -199,11 +260,11 @@ items:
   source:
     remote:
       path: src/Extensions/Animal.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Duration
     path: ../src/Extensions/Animal.cs
-    startLine: 156
+    startLine: 183
   assemblies:
   - Extensions
   namespace: Animal
@@ -243,6 +304,64 @@ items:
     - name: Alias
       type: System.String
       value: duration
+- uid: Animal.Optogenetics.OptoRatio
+  commentId: P:Animal.Optogenetics.OptoRatio
+  id: OptoRatio
+  parent: Animal.Optogenetics
+  langs:
+  - csharp
+  - vb
+  name: OptoRatio
+  nameWithType: Optogenetics.OptoRatio
+  fullName: Animal.Optogenetics.OptoRatio
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/Animal.cs
+      branch: python_reorganization
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: OptoRatio
+    path: ../src/Extensions/Animal.cs
+    startLine: 201
+  assemblies:
+  - Extensions
+  namespace: Animal
+  summary: The ratio of optogenetics trials.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("opto_ratio", Required = Required.Always)]
+
+      [YamlMember(Alias = "opto_ratio")]
+
+      public double OptoRatio { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: >-
+      <JsonProperty("opto_ratio", Required:=Required.Always)>
+
+      <YamlMember(Alias:="opto_ratio")>
+
+      Public Property OptoRatio As Double
+  overload: Animal.Optogenetics.OptoRatio*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: opto_ratio
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: YamlDotNet.Serialization.YamlMemberAttribute
+    ctor: YamlDotNet.Serialization.YamlMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Alias
+      type: System.String
+      value: opto_ratio
 - uid: Animal.Optogenetics.UsePulses
   commentId: P:Animal.Optogenetics.UsePulses
   id: UsePulses
@@ -257,11 +376,11 @@ items:
   source:
     remote:
       path: src/Extensions/Animal.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: UsePulses
     path: ../src/Extensions/Animal.cs
-    startLine: 174
+    startLine: 219
   assemblies:
   - Extensions
   namespace: Animal
@@ -315,11 +434,11 @@ items:
   source:
     remote:
       path: src/Extensions/Animal.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: RampTime
     path: ../src/Extensions/Animal.cs
-    startLine: 193
+    startLine: 238
   assemblies:
   - Extensions
   namespace: Animal
@@ -373,11 +492,11 @@ items:
   source:
     remote:
       path: src/Extensions/Animal.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Frequency
     path: ../src/Extensions/Animal.cs
-    startLine: 212
+    startLine: 257
   assemblies:
   - Extensions
   namespace: Animal
@@ -431,11 +550,11 @@ items:
   source:
     remote:
       path: src/Extensions/Animal.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: PulseDuration
     path: ../src/Extensions/Animal.cs
-    startLine: 230
+    startLine: 275
   assemblies:
   - Extensions
   namespace: Animal
@@ -475,6 +594,64 @@ items:
     - name: Alias
       type: System.String
       value: pulse_duration
+- uid: Animal.Optogenetics.UseRt
+  commentId: P:Animal.Optogenetics.UseRt
+  id: UseRt
+  parent: Animal.Optogenetics
+  langs:
+  - csharp
+  - vb
+  name: UseRt
+  nameWithType: Optogenetics.UseRt
+  fullName: Animal.Optogenetics.UseRt
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/Animal.cs
+      branch: python_reorganization
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: UseRt
+    path: ../src/Extensions/Animal.cs
+    startLine: 293
+  assemblies:
+  - Extensions
+  namespace: Animal
+  summary: Indicates whether the optogenetics stimulation/inhibition should stop when the animal leaves the poke (true) or not (false).
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("use_rt", Required = Required.Always)]
+
+      [YamlMember(Alias = "use_rt")]
+
+      public bool UseRt { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: >-
+      <JsonProperty("use_rt", Required:=Required.Always)>
+
+      <YamlMember(Alias:="use_rt")>
+
+      Public Property UseRt As Boolean
+  overload: Animal.Optogenetics.UseRt*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: use_rt
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: YamlDotNet.Serialization.YamlMemberAttribute
+    ctor: YamlDotNet.Serialization.YamlMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Alias
+      type: System.String
+      value: use_rt
 - uid: Animal.Optogenetics.Process
   commentId: M:Animal.Optogenetics.Process
   id: Process
@@ -489,11 +666,11 @@ items:
   source:
     remote:
       path: src/Extensions/Animal.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
     path: ../src/Extensions/Animal.cs
-    startLine: 245
+    startLine: 309
   assemblies:
   - Extensions
   namespace: Animal
@@ -517,11 +694,11 @@ items:
   source:
     remote:
       path: src/Extensions/Animal.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
     path: ../src/Extensions/Animal.cs
-    startLine: 250
+    startLine: 314
   assemblies:
   - Extensions
   namespace: Animal
@@ -553,11 +730,11 @@ items:
   source:
     remote:
       path: src/Extensions/Animal.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: PrintMembers
     path: ../src/Extensions/Animal.cs
-    startLine: 255
+    startLine: 319
   assemblies:
   - Extensions
   namespace: Animal
@@ -584,11 +761,11 @@ items:
   source:
     remote:
       path: src/Extensions/Animal.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: ToString
     path: ../src/Extensions/Animal.cs
-    startLine: 266
+    startLine: 333
   assemblies:
   - Extensions
   namespace: Animal
@@ -855,6 +1032,23 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
+- uid: Animal.Optogenetics.Voltage*
+  commentId: Overload:Animal.Optogenetics.Voltage
+  href: Animal.Optogenetics.html#Animal_Optogenetics_Voltage
+  name: Voltage
+  nameWithType: Optogenetics.Voltage
+  fullName: Animal.Optogenetics.Voltage
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
 - uid: Animal.Optogenetics.Duration*
   commentId: Overload:Animal.Optogenetics.Duration
   href: Animal.Optogenetics.html#Animal_Optogenetics_Duration
@@ -872,6 +1066,12 @@ references:
   nameWithType.vb: Double
   fullName.vb: Double
   name.vb: Double
+- uid: Animal.Optogenetics.OptoRatio*
+  commentId: Overload:Animal.Optogenetics.OptoRatio
+  href: Animal.Optogenetics.html#Animal_Optogenetics_OptoRatio
+  name: OptoRatio
+  nameWithType: Optogenetics.OptoRatio
+  fullName: Animal.Optogenetics.OptoRatio
 - uid: Animal.Optogenetics.UsePulses*
   commentId: Overload:Animal.Optogenetics.UsePulses
   href: Animal.Optogenetics.html#Animal_Optogenetics_UsePulses
@@ -896,6 +1096,12 @@ references:
   name: PulseDuration
   nameWithType: Optogenetics.PulseDuration
   fullName: Animal.Optogenetics.PulseDuration
+- uid: Animal.Optogenetics.UseRt*
+  commentId: Overload:Animal.Optogenetics.UseRt
+  href: Animal.Optogenetics.html#Animal_Optogenetics_UseRt
+  name: UseRt
+  nameWithType: Optogenetics.UseRt
+  fullName: Animal.Optogenetics.UseRt
 - uid: Animal.Optogenetics.Process*
   commentId: Overload:Animal.Optogenetics.Process
   href: Animal.Optogenetics.html#Animal_Optogenetics_Process

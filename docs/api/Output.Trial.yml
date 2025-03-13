@@ -14,6 +14,7 @@ items:
   - Output.Trial.Process
   - Output.Trial.Process``1(System.IObservable{``0})
   - Output.Trial.StartTime
+  - Output.Trial.TaredStartTime
   - Output.Trial.ToString
   langs:
   - csharp
@@ -25,11 +26,11 @@ items:
   source:
     remote:
       path: src/Extensions/Output.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Trial
     path: ../src/Extensions/Output.cs
-    startLine: 1381
+    startLine: 1425
   assemblies:
   - Extensions
   namespace: Output
@@ -78,11 +79,11 @@ items:
   source:
     remote:
       path: src/Extensions/Output.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: .ctor
     path: ../src/Extensions/Output.cs
-    startLine: 1395
+    startLine: 1441
   assemblies:
   - Extensions
   namespace: Output
@@ -107,11 +108,11 @@ items:
   source:
     remote:
       path: src/Extensions/Output.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: .ctor
     path: ../src/Extensions/Output.cs
-    startLine: 1399
+    startLine: 1445
   assemblies:
   - Extensions
   namespace: Output
@@ -139,11 +140,11 @@ items:
   source:
     remote:
       path: src/Extensions/Output.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Number
     path: ../src/Extensions/Output.cs
-    startLine: 1410
+    startLine: 1457
   assemblies:
   - Extensions
   namespace: Output
@@ -197,11 +198,11 @@ items:
   source:
     remote:
       path: src/Extensions/Output.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: StartTime
     path: ../src/Extensions/Output.cs
-    startLine: 1428
+    startLine: 1475
   assemblies:
   - Extensions
   namespace: Output
@@ -241,6 +242,64 @@ items:
     - name: Alias
       type: System.String
       value: start_time
+- uid: Output.Trial.TaredStartTime
+  commentId: P:Output.Trial.TaredStartTime
+  id: TaredStartTime
+  parent: Output.Trial
+  langs:
+  - csharp
+  - vb
+  name: TaredStartTime
+  nameWithType: Trial.TaredStartTime
+  fullName: Output.Trial.TaredStartTime
+  type: Property
+  source:
+    remote:
+      path: src/Extensions/Output.cs
+      branch: python_reorganization
+      repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
+    id: TaredStartTime
+    path: ../src/Extensions/Output.cs
+    startLine: 1493
+  assemblies:
+  - Extensions
+  namespace: Output
+  summary: The tared timestamp at which the trial started in which t = 0 is the start time of the first trial of the session (s).
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("tared_start_time", Required = Required.Always)]
+
+      [YamlMember(Alias = "tared_start_time")]
+
+      public double TaredStartTime { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: >-
+      <JsonProperty("tared_start_time", Required:=Required.Always)>
+
+      <YamlMember(Alias:="tared_start_time")>
+
+      Public Property TaredStartTime As Double
+  overload: Output.Trial.TaredStartTime*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: tared_start_time
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: YamlDotNet.Serialization.YamlMemberAttribute
+    ctor: YamlDotNet.Serialization.YamlMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Alias
+      type: System.String
+      value: tared_start_time
 - uid: Output.Trial.EndTime
   commentId: P:Output.Trial.EndTime
   id: EndTime
@@ -255,11 +314,11 @@ items:
   source:
     remote:
       path: src/Extensions/Output.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: EndTime
     path: ../src/Extensions/Output.cs
-    startLine: 1446
+    startLine: 1512
   assemblies:
   - Extensions
   namespace: Output
@@ -313,11 +372,11 @@ items:
   source:
     remote:
       path: src/Extensions/Output.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Duration
     path: ../src/Extensions/Output.cs
-    startLine: 1464
+    startLine: 1530
   assemblies:
   - Extensions
   namespace: Output
@@ -371,11 +430,11 @@ items:
   source:
     remote:
       path: src/Extensions/Output.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
     path: ../src/Extensions/Output.cs
-    startLine: 1479
+    startLine: 1545
   assemblies:
   - Extensions
   namespace: Output
@@ -399,11 +458,11 @@ items:
   source:
     remote:
       path: src/Extensions/Output.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Process
     path: ../src/Extensions/Output.cs
-    startLine: 1484
+    startLine: 1550
   assemblies:
   - Extensions
   namespace: Output
@@ -435,11 +494,11 @@ items:
   source:
     remote:
       path: src/Extensions/Output.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: PrintMembers
     path: ../src/Extensions/Output.cs
-    startLine: 1489
+    startLine: 1555
   assemblies:
   - Extensions
   namespace: Output
@@ -466,11 +525,11 @@ items:
   source:
     remote:
       path: src/Extensions/Output.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: ToString
     path: ../src/Extensions/Output.cs
-    startLine: 1498
+    startLine: 1565
   assemblies:
   - Extensions
   namespace: Output
@@ -754,6 +813,12 @@ references:
   nameWithType.vb: Double
   fullName.vb: Double
   name.vb: Double
+- uid: Output.Trial.TaredStartTime*
+  commentId: Overload:Output.Trial.TaredStartTime
+  href: Output.Trial.html#Output_Trial_TaredStartTime
+  name: TaredStartTime
+  nameWithType: Trial.TaredStartTime
+  fullName: Output.Trial.TaredStartTime
 - uid: Output.Trial.EndTime*
   commentId: Overload:Output.Trial.EndTime
   href: Output.Trial.html#Output_Trial_EndTime

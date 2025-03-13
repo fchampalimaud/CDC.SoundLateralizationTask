@@ -18,7 +18,7 @@ items:
   source:
     remote:
       path: src/Extensions/PrintDict.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: DeserializeFromYaml
     path: ../src/Extensions/PrintDict.cs
@@ -81,7 +81,7 @@ items:
   source:
     remote:
       path: src/Extensions/PrintDict.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: .ctor
     path: ../src/Extensions/PrintDict.cs
@@ -110,7 +110,7 @@ items:
   source:
     remote:
       path: src/Extensions/PrintDict.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Type
     path: ../src/Extensions/PrintDict.cs
@@ -139,7 +139,7 @@ items:
   source:
     remote:
       path: src/Extensions/PrintDict.cs
-      branch: io_files_rework
+      branch: python_reorganization
       repo: git@github.com:fchampalimaud/CDC.SoundLateralizationTask.git
     id: Build
     path: ../src/Extensions/PrintDict.cs

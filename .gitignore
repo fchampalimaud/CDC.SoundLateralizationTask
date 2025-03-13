@@ -8,8 +8,11 @@ obj
 
 nuget.config
 /docs/_site
-/src/output
-/parser/output
+output
+config/
+src/config/config.yml
+src/config/setup.json
+src/config/training.json
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

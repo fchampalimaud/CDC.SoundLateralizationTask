@@ -1,5 +1,26 @@
 {
   "definitions": {
+    "Camera": {
+      "properties": {
+        "use_camera": {
+          "description": "Indicates whether the setup has a camera (true) or not (false).",
+          "title": "Use Camera",
+          "type": "boolean"
+        },
+        "frames_per_second": {
+          "description": "The number of frames per second of the camera.",
+          "exclusiveMinimum": 0.0,
+          "title": "Frames Per Second",
+          "type": "number"
+        }
+      },
+      "required": [
+        "use_camera",
+        "frames_per_second"
+      ],
+      "title": "Camera",
+      "type": "object"
+    },
     "Lights": {
       "properties": {
         "box_period": {
@@ -27,13 +48,37 @@
           "minimum": 0.0,
           "title": "Poke Duty Cycle",
           "type": "number"
+        },
+        "iti_light": {
+          "description": "Indicates whether the box LED should turn of when the new trial is ready (true) or not (false).",
+          "title": "Iti Light",
+          "type": "boolean"
+        },
+        "poke_light": {
+          "description": "Indicates whether the central poke LED should turn of when the new trial is ready (true) or not (false).",
+          "title": "Poke Light",
+          "type": "boolean"
+        },
+        "fixation_light": {
+          "description": "Indicates whether the central poke LED should blink during fixation time (true) or not (false).",
+          "title": "Fixation Light",
+          "type": "boolean"
+        },
+        "penalty_light": {
+          "description": "Indicates whether the box LED should blink during penalty times (true) or not (false).",
+          "title": "Penalty Light",
+          "type": "boolean"
         }
       },
       "required": [
         "box_period",
         "box_duty_cycle",
         "poke_period",
-        "poke_duty_cycle"
+        "poke_duty_cycle",
+        "iti_light",
+        "poke_light",
+        "fixation_light",
+        "penalty_light"
       ],
       "title": "Lights",
       "type": "object"
@@ -91,10 +136,9 @@
           "title": "Sounds",
           "type": "array"
         },
-        "use_camera": {
-          "description": "Indicates whether the setup has a camera (true) or not (false).",
-          "title": "Use Camera",
-          "type": "boolean"
+        "camera": {
+          "$ref": "#/definitions/Camera",
+          "description": "Contains parameters related to the camera."
         }
       },
       "required": [
@@ -106,7 +150,7 @@
         "lights",
         "syringe_pumps",
         "sounds",
-        "use_camera"
+        "camera"
       ],
       "title": "Setup",
       "type": "object"
