@@ -30,11 +30,11 @@ optogenetics:
   voltage: 1000
 reaction_time:
   delta: 0.001
-  min_value: 0.0
-  target: 1
+  min_value: 0.01
+  target: 0.01
 session:
   duration: 02:00:00
-  last_training_level: 10
+  last_training_level: 2
   number: 3
   setup_id: 0
   starting_block_number: 3
