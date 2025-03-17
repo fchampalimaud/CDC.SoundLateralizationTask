@@ -125,8 +125,8 @@
   <DialogSettings xsi:type="WorkflowEditorSettings">
     <Visible>true</Visible>
     <Location>
-      <X>-1886</X>
-      <Y>105</Y>
+      <X>-1284</X>
+      <Y>-7</Y>
     </Location>
     <Size>
       <Width>1290</Width>
@@ -397,8 +397,8 @@
                     <Capacity>80</Capacity>
                     <XMin>1</XMin>
                     <XMax>5</XMax>
-                    <YMin>0</YMin>
-                    <YMax>0.35</YMax>
+                    <YMin>0.7</YMin>
+                    <YMax>1.4000000000000001</YMax>
                     <AutoScaleX>true</AutoScaleX>
                     <AutoScaleY>true</AutoScaleY>
                     <MashupSettings>
