@@ -325,11 +325,6 @@
                                           <Expression xsi:type="MemberSelector">
                                             <Selector>Levels.Count</Selector>
                                           </Expression>
-                                          <Expression xsi:type="Subtract">
-                                            <Operand xsi:type="IntProperty">
-                                              <Value>1</Value>
-                                            </Operand>
-                                          </Expression>
                                           <Expression xsi:type="SubscribeSubject">
                                             <Name>AnimalConfig</Name>
                                           </Expression>
@@ -349,16 +344,15 @@
                                           <Expression xsi:type="WorkflowOutput" />
                                         </Nodes>
                                         <Edges>
-                                          <Edge From="0" To="8" Label="Source1" />
+                                          <Edge From="0" To="7" Label="Source1" />
                                           <Edge From="1" To="2" Label="Source1" />
-                                          <Edge From="2" To="3" Label="Source1" />
-                                          <Edge From="3" To="6" Label="Source1" />
-                                          <Edge From="4" To="5" Label="Source1" />
-                                          <Edge From="5" To="6" Label="Source2" />
-                                          <Edge From="6" To="7" Label="Source1" />
-                                          <Edge From="7" To="8" Label="Source2" />
+                                          <Edge From="2" To="5" Label="Source1" />
+                                          <Edge From="3" To="4" Label="Source1" />
+                                          <Edge From="4" To="5" Label="Source2" />
+                                          <Edge From="5" To="6" Label="Source1" />
+                                          <Edge From="6" To="7" Label="Source2" />
+                                          <Edge From="7" To="8" Label="Source1" />
                                           <Edge From="8" To="9" Label="Source1" />
-                                          <Edge From="9" To="10" Label="Source1" />
                                         </Edges>
                                       </Workflow>
                                     </Expression>
@@ -1198,7 +1192,7 @@
                                                       </Expression>
                                                       <Expression xsi:type="Index">
                                                         <Operand xsi:type="IntProperty">
-                                                          <Value>2</Value>
+                                                          <Value>1</Value>
                                                         </Operand>
                                                       </Expression>
                                                       <Expression xsi:type="Combinator">
@@ -7456,10 +7450,10 @@
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p6:Trial">
                       <p6:Number>16</p6:Number>
-                      <p6:StartTime>249.881984</p6:StartTime>
-                      <p6:TaredStartTime>19.135999999999996</p6:TaredStartTime>
-                      <p6:EndTime>248.862976</p6:EndTime>
-                      <p6:Duration>-1.0190079999999853</p6:Duration>
+                      <p6:StartTime>614.126976</p6:StartTime>
+                      <p6:TaredStartTime>17.307999999999993</p6:TaredStartTime>
+                      <p6:EndTime>613.100992</p6:EndTime>
+                      <p6:Duration>-1.025983999999994</p6:Duration>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
@@ -7576,8 +7570,8 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p6:Sound">
-                      <p6:Abl>50</p6:Abl>
-                      <p6:Ild>3.1699250014423126</p6:Ild>
+                      <p6:Abl>40</p6:Abl>
+                      <p6:Ild>-4</p6:Ild>
                       <p6:SoundIndex>2</p6:SoundIndex>
                       <p6:LeftAmplification>0</p6:LeftAmplification>
                       <p6:RightAmplification>0</p6:RightAmplification>
@@ -7625,9 +7619,9 @@
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p6:ITI">
                       <p6:IntendedDuration>8</p6:IntendedDuration>
-                      <p6:StartTime>248.873984</p6:StartTime>
-                      <p6:EndTime>249.88</p6:EndTime>
-                      <p6:TimedDuration>1.0060159999999883</p6:TimedDuration>
+                      <p6:StartTime>613.108</p6:StartTime>
+                      <p6:EndTime>614.124992</p6:EndTime>
+                      <p6:TimedDuration>1.0169920000000729</p6:TimedDuration>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
@@ -7696,7 +7690,7 @@
                     <Combinator xsi:type="p6:FixationTimeParts">
                       <p6:BaseTime>12.5</p6:BaseTime>
                       <p6:ExpMean>200</p6:ExpMean>
-                      <p6:IntendedDuration>221.5463387235994</p6:IntendedDuration>
+                      <p6:IntendedDuration>26.474730345658283</p6:IntendedDuration>
                       <p6:TimedDuration>0</p6:TimedDuration>
                     </Combinator>
                   </Expression>
@@ -7731,7 +7725,7 @@
                     <Combinator xsi:type="p6:FixationTimeParts">
                       <p6:BaseTime>12.5</p6:BaseTime>
                       <p6:ExpMean>200</p6:ExpMean>
-                      <p6:IntendedDuration>91.724455575014147</p6:IntendedDuration>
+                      <p6:IntendedDuration>454.64481725309645</p6:IntendedDuration>
                       <p6:TimedDuration>0</p6:TimedDuration>
                     </Combinator>
                   </Expression>
@@ -7762,7 +7756,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p6:FixationTime">
-                      <p6:IntendedDuration>313.27079429861357</p6:IntendedDuration>
+                      <p6:IntendedDuration>481.11954759875471</p6:IntendedDuration>
                       <p6:TimedDuration>0</p6:TimedDuration>
                     </Combinator>
                   </Expression>
@@ -7937,7 +7931,7 @@
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p6:Optogenetics">
                       <p6:OptoTrial>false</p6:OptoTrial>
-                      <p6:Duration>0.948992000000004</p6:Duration>
+                      <p6:Duration>0.92201599999998507</p6:Duration>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
@@ -8322,7 +8316,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="harp:MessageWriter">
-                      <harp:FileName>C:\Users\HSP\Documents\BonsaiWorkflows\CDC.SoundLateralizationTask\output\Rat001\250317\events\behavior_10.bin</harp:FileName>
+                      <harp:FileName>C:\Users\HSP\Documents\BonsaiWorkflows\CDC.SoundLateralizationTask\output\Rat001\250317\events\behavior_18.bin</harp:FileName>
                       <harp:Suffix>None</harp:Suffix>
                       <harp:Buffered>true</harp:Buffered>
                       <harp:Overwrite>false</harp:Overwrite>
@@ -8621,7 +8615,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="io:WriteAllText">
-                      <io:Path>C:\Users\HSP\Documents\BonsaiWorkflows\CDC.SoundLateralizationTask\output\Rat001\250317\config\animal_3.yml</io:Path>
+                      <io:Path>C:\Users\HSP\Documents\BonsaiWorkflows\CDC.SoundLateralizationTask\output\Rat001\250317\config\animal_5.yml</io:Path>
                       <io:Overwrite>false</io:Overwrite>
                       <io:Append>false</io:Append>
                     </Combinator>
@@ -8674,7 +8668,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="io:WriteAllText">
-                      <io:Path>C:\Users\HSP\Documents\BonsaiWorkflows\CDC.SoundLateralizationTask\output\Rat001\250317\config\setup_3.csv</io:Path>
+                      <io:Path>C:\Users\HSP\Documents\BonsaiWorkflows\CDC.SoundLateralizationTask\output\Rat001\250317\config\setup_5.csv</io:Path>
                       <io:Overwrite>false</io:Overwrite>
                       <io:Append>false</io:Append>
                     </Combinator>
@@ -8727,7 +8721,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="io:WriteAllText">
-                      <io:Path>C:\Users\HSP\Documents\BonsaiWorkflows\CDC.SoundLateralizationTask\output\Rat001\250317\config\training_3.csv</io:Path>
+                      <io:Path>C:\Users\HSP\Documents\BonsaiWorkflows\CDC.SoundLateralizationTask\output\Rat001\250317\config\training_5.csv</io:Path>
                       <io:Overwrite>false</io:Overwrite>
                       <io:Append>false</io:Append>
                     </Combinator>
@@ -11664,7 +11658,7 @@
             <Expression xsi:type="gui:LabelBuilder">
               <gui:Enabled>true</gui:Enabled>
               <gui:Visible>true</gui:Visible>
-              <gui:Text>ILD: 3.16992500144231 dB</gui:Text>
+              <gui:Text>ILD: -4 dB</gui:Text>
             </Expression>
             <Expression xsi:type="VisualizerMapping" />
             <Expression xsi:type="Combinator">
@@ -11695,7 +11689,7 @@
             <Expression xsi:type="gui:LabelBuilder">
               <gui:Enabled>true</gui:Enabled>
               <gui:Visible>true</gui:Visible>
-              <gui:Text>ABL: 50 dB</gui:Text>
+              <gui:Text>ABL: 40 dB</gui:Text>
             </Expression>
             <Expression xsi:type="VisualizerMapping" />
             <Expression xsi:type="Combinator">
@@ -11849,7 +11843,7 @@
             <Expression xsi:type="gui:LabelBuilder">
               <gui:Enabled>true</gui:Enabled>
               <gui:Visible>true</gui:Visible>
-              <gui:Text>Current Fixation Time: 313.27 ms</gui:Text>
+              <gui:Text>Current Fixation Time: 481.12 ms</gui:Text>
             </Expression>
             <Expression xsi:type="VisualizerMapping" />
             <Expression xsi:type="Combinator">
@@ -11955,7 +11949,7 @@
             <Expression xsi:type="gui:LabelBuilder">
               <gui:Enabled>true</gui:Enabled>
               <gui:Visible>true</gui:Visible>
-              <gui:Text>Time Elapsed: 00:00:24</gui:Text>
+              <gui:Text>Time Elapsed: 00:00:27</gui:Text>
             </Expression>
             <Expression xsi:type="VisualizerMapping" />
             <Expression xsi:type="gui:TableLayoutPanelBuilder">
@@ -12003,7 +11997,7 @@
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="cv:CreatePoint2d">
                 <cv:X>1</cv:X>
-                <cv:Y>3.1699250014423126</cv:Y>
+                <cv:Y>-4</cv:Y>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -15024,7 +15018,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:Timer">
-                      <rx:DueTime>PT0.07S</rx:DueTime>
+                      <rx:DueTime>PT0.076S</rx:DueTime>
                       <rx:Period>PT0S</rx:Period>
                     </Combinator>
                   </Expression>
@@ -15108,7 +15102,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:Delay">
-                      <rx:DueTime>PT0.128S</rx:DueTime>
+                      <rx:DueTime>PT0.062S</rx:DueTime>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="IncludeWorkflow" Path="Extensions\TimestampEvent.bonsai">
@@ -15942,7 +15936,7 @@
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="rx:Delay">
-                            <rx:DueTime>PT0.009S</rx:DueTime>
+                            <rx:DueTime>PT0.01S</rx:DueTime>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="Combinator">
