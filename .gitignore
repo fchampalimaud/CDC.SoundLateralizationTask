@@ -8,6 +8,7 @@ obj
 
 nuget.config
 /docs/_site
+/docs/api
 output
 config/
 src/config/config.yml
