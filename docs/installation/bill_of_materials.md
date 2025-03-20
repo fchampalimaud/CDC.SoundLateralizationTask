@@ -1,40 +1,45 @@
 # Bill of Materials
 
 ## Harp
+
 ### Boards
-- 1 Harp Behavior
-- 1 Harp SoundCard
-- 2 Harp Audio Amplifiers
-- 1 Harp ClockSynchronizer
-- 2 Harp SyringePumps
-- 1 Harp CurrentDriver (for optogenetics)
+| Item | Description | Amount | Observations |
+|------|-------------|:------:|--------------|
+| Harp Behavior | General-purpose Harp board | 1 | - |
+| Harp SoundCard | Delivers the auditory stimulus | 1 | - |
+| Harp Audio Amplifiers | Amplifies the auditory stimulus | 2 | 1 Harp Audio Amplifier per speaker |
+| Harp ClockSynchronizer | Synchronizes the timestamps from every Harp device | 1 | - |
+| Harp SyringePump | Device used for reward delivery | 2 | - |
+| Harp CurrentDriver | Drives/controls the LED/laser used in optogenetics | 1 | Optional |
 
 ### Peripherals
-- 3 Poke Small v1.1 boards
-- 3 Behavior Poke Port Breakout v1.1
-- 3 long (?) cables with a jack in one end and the needed stripped wires in the other to connect the Poke Board to the Breakout Board
-- 3 RJ cables
-- 5/6* mini USB cables
-- 1 micro USB cable (only needed to upload sounds to the Harp SoundCard - not needed for the task itself)
-- 4 12V Power Supplies
-- 4/3* 2-to-1 cables for the Power Supplies
-- 1* 3/4-to-1 cables for the Power Supplies
-- 2/3* small (?) jack-to-jack cables
-- 2 medium (?) jack-to-jack cables
-- 1 3mm green LED for the central poke
-- 1 5mm white/blue LED for the box
-- 4 cables with banana in one end and stripped wire in the other to connect the speakers to the Harp Audio Amps
-- 2 RCA-RCA cables
 
-* if the Harp CurrentDriver is being used
+| Item | Description | Amount | Part Number | Observations |
+|------|-------------|:------:|:-----------:|--------------|
+| Behavior Poke Port Breakout v1.1 | Makes the ethernet ports pins from the Harp Behavior available | 3 | - | Connects to the Harp Behavior |
+| RJ-to-RJ cables | - | 3 | _TODO_ | Connects the Harp Behavior to the Behavior Poke Port Breakout v1.1 |
+| Poke Small v1.1 | Board with infrared beam to detect animal pokes | 3 | - | Connects to the Behavior Poke Port Breakout v1.1 |
+| 3.5 mm-stereo-audio-jack-to-bare-wires | - | 3 | _TODO_ | Connects the Poke Small v1.1 to the Behavior Poke Port Breakout v1.1 |
+| 5 mm white/blue LED | Placed on the box lid to give cues to the animal | 1 | - | Connects to the LED0 pins of the Harp Behavior |
+| 3 mm green LED | Placed in the central poke to give cues to the animal | 1 | - | Connects to the LED1 pins of the Harp Behavior |
+| RCA-to-RCA cables | - | 2 | _TODO_ | Connects each Harp Audio Amplifier to the Harp SoundCard |
+| Speakers | Deliver the auditory stimulus | 2 | _TODO_ | 1 speaker per Harp Audio Amplifier |
+| Banana Plug | 4 mm Triple Contact Plug | 2 | _TODO_ | Connects the speakers to the Harp Audio Amplifiers |
+| 10 ml Glass Syringe | | 2 | _TODO_ | Used for the Harp SyringePump |
+| 4-way Stopcock | Attaches to the end of the syringe | 2 | _TODO_ | 1 per Harp SyringePump |
+| Nylon Male Luer Fitting | Attaches to one end of the stopcock | 2 | _TODO_ | 1 per Harp SyringePump |
+| Nylon Female Luer Fitting | Attaches to one end of the stopcock | 2 | _TODO_ | 1 per Harp SyringePump |
+| Spouts | Used in reward delivery | 2 | _TODO_ | Glued to the physical lateral pokes
+| Flexible Tubing | Used in reward delivery | 2 | _TODO_ | Connects the spouts to one of the luer fittings (either male or female) |
+| Mini USB cable | - | 5/6* | _TODO_ | Connects the Harp boards to the computer |
+| Micro USB cable | - | 1 | _TODO_ | Used to upload sounds to the Harp SoundCard |
+| 3.5 mm-stereo-audio-jack-to-jack cable | - | 4/5* | _TODO_ | Connects the Harp ClockSynchronizer to every other Harp device |
+| 12V Power Supply** | - | 9/10* | _TODO_ | 1 is used to power the LED strip that illuminates the behavior box, the remaining are used to power the Harp devices
+
+\* if the Harp CurrentDriver is being used
+
+** the number of power supplies can be decreased as explained [here](TODO)
+
+## Camera
 
 ## Others
-- 1/2** PointGrey Cameras (Model FL3-U3-13S2M, though it should be adaptable)
-- 1/2** USB cables for the cameras (these cables MUST be connected to USB 3.0 ports because of performance)
-- 1/2** camera trigger/strobe cables
-- 1 RGB LED strip segment
-- 1 12V Power Supply
-- 2 Spouts
-- 2 Liquid tubes
-
-** in the future
