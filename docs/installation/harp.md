@@ -1,17 +1,12 @@
-# Harp Boards Setup
+# Harp Devices Setup
 
-This task uses the following Harp boards:
-- 1 Harp Behavior
-- 1 Harp Clock Synchronizer
-- 1 Harp SoundCard
-- 2 Harp Audio Amplifiers
-- 2 Harp SyringePumps (_Optional_)
-- 1 Harp CurrentDriver (_For optogenetics sessions_)
+In order to use the Harp devices, the USB drivers and each devices's firmware must be installed. The installer for the USB drivers can be downloaded [here](https://bitbucket.org/fchampalimaud/downloads/downloads/UsbDriver-2.12.26.zip). The [Firmware](#firmware) section contains the instructions for installing each board's firmware.
 
-In order to use the Harp boards, the USB drivers and the each board's firmware must be installed. The installer for the USB drivers can be downloaded [here](https://bitbucket.org/fchampalimaud/downloads/downloads/UsbDriver-2.12.26.zip). The [Firmware](#firmware) section contains the instructions for installing each board's firmware.
+> [!NOTE]
+> The Harp devices are usually delivered with the firmware already installed, but it may be useful to know how to install the firmware (for example: in case a new firmware version that solves a particular bug is released)
 
 ## Firmware
-For most boards, it's possible to install the corresponding firmware in two different ways. Unfortunately, only one method is available for the Harp SoundCard. Nevertheless, both methods are described below.
+For most devices, it's possible to install the corresponding firmware in two different ways.
 
 ### Firmware Download
 1. Go to the [Harp Tech GitHub organization](https://github.com/harp-tech).
@@ -34,6 +29,9 @@ If the Harp Convert to CSV GUI is already installed, skip to step 3. If it's not
 
 ### Via Bonsai
 As explained at the beginning of the [section](#firmware), it is not possible to install the Harp SoundCard firmware through this method. Skip to step 4 if the Bonsai environment is already installed.
+
+> [!CAUTION]
+> It is not possible to use this method to install the firmware of the Harp SoundCard.
 
 1. Install [Bonsai](https://bonsai-rx.org/docs/articles/installation.html).
 2. Open Bonsai and click on `Manage Packages`.

@@ -5,6 +5,13 @@ This bill of materials (BOM) contains **EVERYTHING** needed to build a setup. Fr
 > [!NOTE]
 > This BOM is destined to the people from the Champalimaud Foundation (CF). Nonetheless, the goal is that people outside CF are also able to order everything and build the setup.
 
+> [!WARNING]
+> This BOM specifies the part numbers used by the lab for these setups, but not every component needs to be of a specific part number.
+>
+> The only things that need to be of a specific model are the Harp Devices, the Behavior Poke Port Breakout v1.1, the Poke Small v1.1 and the 12V Power Supplies.
+>
+> It's possible to use a different camera model, but please confirm that the camera can be used in Bonsai (although for some cameras the Bonsai workflow will probably need to be adapted).
+
 ## Harp
 This section contains the setup components that relate to the Harp devices somehow (except for the Camera that has a section of its own).
 
@@ -28,7 +35,7 @@ The Harp devices are assembled by the Hardware and Software Platform, so place a
 ### Peripherals
 For this part of the BOM, a peripheral is considered to be anything that either interacts with the Harp devices or is needed make the different devices work and/or interact with each other.
 
-| Item | Description | Amount | Part Number | Comes with Harp Device | Agendo | Observations |
+| Item | Description | Amount | Part Number | Part of the Harp Device kit | Agendo | Observations |
 |------|-------------|:------:|:-----------:|:----------------------:|:------:|--------------|
 | [Behavior Poke Port Breakout v1.1](https://github.com/harp-tech/peripheral.portbreakout) | Makes the ethernet ports pins from the Harp Behavior available | 3 | - | :x: | :heavy_check_mark: | Connects to the Harp Behavior |
 | [RJ-to-RJ cables](https://www.pcdiga.com/adaptadores-e-cabos/conectividade-de-rede/cabos-de-rede-rj45/cabo-de-rede-ewent-im1037-cat-6-u-utp-slim-100-cobre-1m-branco-im1037-8054392618567) | - | 3 | IM1037 | :x: | :x: | Connects the Harp Behavior to the Behavior Poke Port Breakout v1.1 |
@@ -52,11 +59,43 @@ For this part of the BOM, a peripheral is considered to be anything that either 
 
 \* if the Harp CurrentDriver is being used
 
-** the number of power supplies can be decreased as explained [here](TODO)
+** the number of power supplies can be decreased as explained in the subsection [below](#reducing-the-number-of-power-supplies)
 
 *** the power supply used to power the LED strip that illuminates the behavior box must be ordered separately
 
+#### Reducing the number of power supplies
+From the table above, it's pretty noticeable that a lot of power supplies are required, which takes up a lot of space and power outlets. It's possible to use the same power supply for different devices according to their characteristics. The devices can be grouped in the following way:
+- Harp Behavior, Harp SoundCard and Harp CurrentDriver*
+- V+ of the Harp Audio Amplifiers
+- V- of the Harp Audio Amplifiers
+- Both Harp SyringePumps
+
+From the list above, it's possible to switch the last line from the previous table with the lines from the table below.
+
+| Item | Description | Amount | Part Number | Comes with Harp Device | Agendo | Observations |
+|------|-------------|:------:|:-----------:|:----------------------:|:------:|--------------|
+| [12V Power Supply](https://www.digikey.pt/en/products/detail/xp-power/VER12US120-JA/5726836) | AC/DC Wall Mount Adapter 12V 12W | 5 | VER12US120-JA | :heavy_check_mark:*** | :x: | 1 is used to power the LED strip that illuminates the behavior box, the remaining are used to power the Harp devices |
+| 2-to-1 cables for the 12V power supplies | - | 4/3* | | :x: | :heavy_check_mark:*** | - |
+| 4-to-1 cables for the 12V power supplies | - | 0/1* | | :x: | :heavy_check_mark:*** | - |
+
+\* if the Harp CurrentDriver is being used
+
+## Mechanical Components
+This section contains the mechanical components of the setup that were developed and assembled in-house.
+
+> [!WARNING]
+> The files for the mechanical components are not currently available online and can't also be ordered, so people outside of the Champalimaud Foundation will have to develop and assemble their own.
+
+| Item | Description | Amount | Part Number | Observations |
+|------|-------------|:------:|:-----------:|--------------|
+| Behavior box | - | 1 | - | Made of acrylic |
+| Physical pokes | - | 3 | - | Preferably made of metal, but can also be 3D printed |
+| Speaker holder | - | 2 | - | Preferably made of metal, but can also be 3D printed |
+| Speaker holder pole | Hollow alluminium tube | 2 | - | - |
+| Box LED holder | - | 1 | - | 3D printed |
+
 ## Camera
+This section contains the hardware needed to setup the camera and fix it to the lid of the behavior box. Click [here](camera.md) to go to the camera configuration instructions.
 
 | Item | Description | Amount | Part Number | Observations |
 |------|-------------|:------:|:-----------:|--------------|
@@ -72,27 +111,17 @@ For this part of the BOM, a peripheral is considered to be anything that either 
 | M6 Setscrew | M6 x 1.0 Stainless Steel Setscrew, 16 mm Long, 25 Pack | 1 | SS6MS16 | Connects the Thorlabs post to the Camera |
 
 ## Others
+This section contains the remaining components needed for the setup. None of these components needs to be the exact model present on the list. It just corresponds to the models that have been used by the lab, but feel free to use different ones, as long as they work.
 
 | Item | Description | Amount | Part Number | Observations |
 |------|-------------|:------:|:-----------:|--------------|
-| Behavior box | - | 1 | - | Made of acrylic |
-| Physical pokes | - | 3 | - | Preferably made of metal, but can also be 3D printed |
-| Speaker holder | - | 2 | - | Preferably made of metal, but can also be 3D printed |
-| Speaker holder pole | Hollow alluminium tube | 2 | - | - |
-| Box LED holder | - | 1 | - | 3D printed |
-
-| Item | Description | Amount | Part Number | Observations |
-|------|-------------|:------:|:-----------:|--------------|
-| Computer | | 1 | | |
-| Screen | | 1 | | |
-| HDMI cable | | 1 | | |
-| Keyboard | | 1 | | |
-| Mouse | | 1 | | |
-| USB Hub | | 1 | | |
+| Computer | | 1 | - | - |
+| Screen | - | 1 | - | - |
+| HDMI cable | - | 1 | - | - |
+| Keyboard | - | 1 | - | - |
+| Mouse | - | 1 | - | - |
+| USB Hub | | 1 | | - |
 | Power extension with 6 electrical outlets | Must be appropriate to $90 \degree$ plugs | 1 | | To plug all of the power supplies in a setup | 
 | KVM switch | | - | | Optional: useful in case one wants to use the same screen + mouse + keyboard kit in different computers
-| 12V LED Strip | | 1 | | |
-| 2-to-1 cables for the 12V power supplies | | | | |
-| 4-to-1 cables for the 12V power supplies | | | | |
-| Electrical wire | | | | |
-| Optogenetics Light Source | | | | |
+| 12V LED Strip | | 1 | | - |
+| Optogenetics Light Source | - | - | - | Optional |

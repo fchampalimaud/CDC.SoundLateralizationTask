@@ -2,15 +2,15 @@
   href: bill_of_materials.md
 - name: Software Installation
   href: software.md
-- name: Harp Boards Setup
+- name: Harp Devices Setup
   href: harp.md
 - name: Calibration Protocols
   href: calibrations.md
-- name: Camera Setup
+- name: Camera Configuration
   href: camera.md
-# - name: Mechanical Assembly
-#   href: mechanical.md
 - name: Task Configuration
   href: configuration.md
 - name: Running the Task
   href: running.md
+- name: Known Issues
+  href: known_issues.md
