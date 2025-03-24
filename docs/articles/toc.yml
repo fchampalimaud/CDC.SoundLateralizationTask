@@ -1,16 +1,16 @@
 - name: Introduction
   href: introduction.md
 - name: Inter-trial Interval
-  href: ./state_machine/inter-trial-interval.md
+  href: inter-trial-interval.md
 - name: Start Trial
-  href: ./state_machine/start-trial.md
+  href: start-trial.md
 - name: Fixation Time
-  href: ./state_machine/fixation-time.md
+  href: fixation-time.md
 - name: Stimulus
-  href: ./state_machine/stimulus.md
+  href: stimulus.md
 - name: Choice
-  href: ./state_machine/choice.md
+  href: choice.md
 - name: Reward
-  href: ./state_machine/reward.md
+  href: reward.md
 - name: Abort
-  href: ./state_machine/abort.md
+  href: abort.md
