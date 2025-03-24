@@ -10,6 +10,6 @@ For now, there's no solution to this problem, since a pattern hasn't been found 
 ## Harp SoundCard Crash
 It's not yet known when or why this crash happens, but it's known that it's an issue related to the Harp SoundCard firmware that makes the whole workflow explicitly crash.
 
-_TODO: figure with the crash_
+![SoundCard Crash](../images/soundcard_crash.png)
 
 If the crash shown in the above figure occurs, unplug the Harp SoundCard and plug it again before restarting the workflow.

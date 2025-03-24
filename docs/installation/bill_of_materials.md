@@ -50,7 +50,7 @@ For this part of the BOM, a peripheral is considered to be anything that either 
 | [4-way Stopcock](https://www.fishersci.pt/shop/products/4-way-stopcock/11742683) | Pack of 10 units | 2 | Masterflex 30600-04 | :x: | :x: | Attaches to the end of the syringe (1 per Harp SyringePump) |
 | [Nylon Male Luer Fitting](https://www.fishersci.pt/shop/products/cole-parmer-nylon-male-luer-fitting/11755818?crossRef=mflx45505-31&searchHijack=true&searchTerm=mflx45505-31&searchType=RAPID&matchedCatNo=mflx45505-31) | Pack of 25 units | 2 | Masterflex MFLX45505-31 | :x: | :x: | Attaches to one end of the stopcock (1 per Harp SyringePump) |
 | [Nylon Female Luer Fitting](https://www.fishersci.pt/shop/products/nylon-luer-fitting/11745818) | Pack of 25 units | 2 | Masterflex 45502-00 | :x: | :x: | Attaches to one end of the stopcock (1 per Harp SyringePump) |
-| Spouts | Used in reward delivery | 2 | _TODO_ | :x: | :x: | Glued to the physical lateral pokes
+| [Spouts](https://www.fishersci.com/shop/products/14g-2-sterile-blunt-100pk/NC0353208) | Used in reward delivery | 2 | B14200 100 BULK | :x: | :x: | Used in reward delivery. Glued to the physical lateral pokes |
 | [Flexible Tubing](https://www.fishersci.pt/shop/products/tygon-e-3603-non-dehp-tubing/14861161) | Masterflex Tygon E-3603 Non-DEHP Tubing - 15 meters per unit | 2 | Masterflex 06407-71 | :x: | :x: | Connects the spouts to one of the luer fittings (either male or female) |
 | [Mini USB cable](https://www.tme.com/in/en/details/ak-300130-018-s/usb-cables-and-adapters/digitus/) | - | 5/6* | AK-300130-018-S | :heavy_check_mark: | :x: | Connects the Harp boards to the computer |
 | Micro USB cable | - | 1 | - | :heavy_check_mark: | :x: | Used to upload sounds to the Harp SoundCard |
@@ -99,29 +99,29 @@ This section contains the hardware needed to setup the camera and fix it to the 
 
 | Item | Description | Amount | Part Number | Observations |
 |------|-------------|:------:|:-----------:|--------------|
-| FLIR Camera | | 1 | BFS-U3-16S2M-CS | - |
-| Camera Lens | | 1 | A4Z2812CS-MPIR | - |
-| Camera USB cable | USB-A to Micro-B Straight with Thumbscrews, 3 Meters | 1 | CEI USB3-1-1-2-3M | This cable MUST be connected to a USB 3.0 port for performance |
-| Camera GPIO cable | 6 Pin Female Straight Plug (Hirose HR10A-7P-6S) to Flying Leads, 3 Meters | 1 | CEI MVA-50-3-X-3 | Connects to the Harp Behavior to trigger/monitor the camera frames |
-| Tripod Adapter | BFS 30 mm BFLY CM3 Tripod Adapter | 1 | ACC-01-0003 | Used to fix the camera to the Thorlabs poles in the behavior box |
-| Thorlabs 75mm post | Ø12.7 mm Optical Post, SS, M4 Setscrew, M6 Tap, L = 75 mm | 1 | TR75/M | Connects to the camera |
-| Thorlabs 150mm post | Ø12.7 mm Optical Post, SS, M4 Setscrew, M6 Tap, L = 150 mm  | 1 | TR150/M | Fixes the camera structure to the box lid |
-| Thorlabs post clamp | Rotating Clamp for Ø1/2" Posts, 360° Continuously Adjustable, 5 mm Hex | 1 | SWC/M | Fixes both Thorlabs posts to each other |
+| [FLIR Camera](https://www.digikey.pt/en/products/detail/flir-integrated-imaging-solutions-inc/BFS-U3-16S2M-CS/16528335) | | 1 | BFS-U3-16S2M-CS | - |
+| [Camera Lens](https://www.computar.com/products/a4z2812cs-mpir) | | 1 | A4Z2812CS-MPIR | - |
+| [Camera USB cable](https://machinevisiondirect.com/products/cei-usb3-1-1-2-3m) | USB-A to Micro-B Straight with Thumbscrews, 3 Meters | 1 | CEI USB3-1-1-2-3M | This cable MUST be connected to a USB 3.0 port for performance |
+| [Camera GPIO cable](https://machinevisiondirect.com/es/products/cei-mva-50-3-x-3m) | 6 Pin Female Straight Plug (Hirose HR10A-7P-6S) to Flying Leads, 3 Meters | 1 | CEI MVA-50-3-X-3 | Connects to the Harp Behavior to trigger/monitor the camera frames |
+| [Tripod Adapter](https://www.digikey.pt/en/products/detail/flir-integrated-imaging-solutions-inc/ACC-01-0003/16528253) | BFS 30 mm BFLY CM3 Tripod Adapter | 1 | ACC-01-0003 | Used to fix the camera to the Thorlabs poles in the behavior box |
+| [Thorlabs 75mm post](https://www.thorlabs.com/thorproduct.cfm?partnumber=TR75/M) | Ø12.7 mm Optical Post, SS, M4 Setscrew, M6 Tap, L = 75 mm | 1 | TR75/M | Connects to the camera |
+| [Thorlabs 150mm post](https://www.thorlabs.com/thorproduct.cfm?partnumber=TR150/M) | Ø12.7 mm Optical Post, SS, M4 Setscrew, M6 Tap, L = 150 mm  | 1 | TR150/M | Fixes the camera structure to the box lid |
+| [Thorlabs post clamp](https://www.thorlabs.com/thorproduct.cfm?partnumber=SWC/M) | Rotating Clamp for Ø1/2" Posts, 360° Continuously Adjustable, 5 mm Hex | 1 | SWC/M | Fixes both Thorlabs posts to each other |
 | M6 Screw | 15/16 mm | 1 | | Fixes the longer post to the behavior box lid |
-| M6 Setscrew | M6 x 1.0 Stainless Steel Setscrew, 16 mm Long, 25 Pack | 1 | SS6MS16 | Connects the Thorlabs post to the Camera |
+| [M6 Setscrew](https://www.thorlabs.com/thorproduct.cfm?partnumber=SS6MS16) | M6 x 1.0 Stainless Steel Setscrew, 16 mm Long, 25 Pack | 1 | SS6MS16 | Connects the Thorlabs post to the Camera |
 
 ## Others
 This section contains the remaining components needed for the setup. None of these components needs to be the exact model present on the list. It just corresponds to the models that have been used by the lab, but feel free to use different ones, as long as they work.
 
 | Item | Description | Amount | Part Number | Observations |
 |------|-------------|:------:|:-----------:|--------------|
-| Computer | | 1 | - | - |
+| [Computer](https://www.pccomponentes.pt/mini-pc-blackview-mp100-mini-pc-amd-ryzen-7-5825u-16gb-512gb-ssd) | Mini PC Blackview MP100 Mini PC AMD Ryzen 7 5825U/16GB/512GB SSD  | 1 | MP100(16+512)-BLACK | - |
 | Screen | - | 1 | - | - |
 | HDMI cable | - | 1 | - | - |
 | Keyboard | - | 1 | - | - |
 | Mouse | - | 1 | - | - |
-| USB Hub | | 1 | | - |
+| [USB Hub](https://www.pcdiga.com/adaptadores-e-cabos/conectividade-usb/hubs-usb/hub-usb-3-0-tp-link-uh700-7-portas-c-alimentacao-uh700-6935364010065) | HUB USB 3.0 TP-Link UH700 7 Ports | 1 | P004616 | - |
 | Power extension with 6 electrical outlets | Must be appropriate to $90 \degree$ plugs | 1 | | To plug all of the power supplies in a setup | 
-| KVM switch | | - | | Optional: useful in case one wants to use the same screen + mouse + keyboard kit in different computers
+| [KVM switch](https://www.amazon.es/dp/B0BVMJTLXY/ref=sr_1_2_sspa?crid=6WU6IOXHAZLP&dib=eyJ2IjoiMSJ9.EfBrD9wlGIv0-riV-FMpt72L3A255YeiOZo3vyguBieY8O4F4_1nHK8ls5V9Noa3SfkdZUYzDhWZvhBNNYrla23g3719gx3X6daMLbsfY8nzr8v-qUZnhDC5gLXdy30fHhhCmsD_8lFtFqonJLgOeAIRZw36uTKce0csgpqU3J_SxBvd04xFMewvK1_sl7WVxBGf7pXsR1WmOrAaU1RozUyXWnf7nMbaG92ykg4K2vGxcjPXQgMVDC9ZcE0ZYMbyc0LCv47sImo0EQQlvo4t2EPCG5uHu1-nlVOVF0iMXUA.JC5pA9cScHzf9T-gpyP8p5D4rFot2U_HaLnB1hG5G_8&dib_tag=se&keywords=usb%2Bkvm%2Bswitch&qid=1738754599&sprefix=usb%2Bkvm%2Bswitch%2Caps%2C138&sr=8-2-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1) | | - | | Optional: useful in case one wants to use the same screen + mouse + keyboard kit in different computers
 | 12V LED Strip | | 1 | | - |
 | Optogenetics Light Source | - | - | - | Optional |
