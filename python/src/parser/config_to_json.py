@@ -40,14 +40,14 @@ def converter(filepath: str, filetype: Literal["setup", "training"]):
 
     if filetype == "setup":
         header = """{
-    "$schema": "schemas/setup-list-schema.json",
+    "$schema": "https://raw.githubusercontent.com/fchampalimaud/CDC.SoundLateralizationTask/refs/heads/main/src/config/schemas/setup-list-schema.json",
     "setups": ["""
 
         footer = """    ]
 }"""
     elif filetype == "training":
         header = """{
-    "$schema": "schemas/training-schema.json",
+    "$schema": "https://raw.githubusercontent.com/fchampalimaud/CDC.SoundLateralizationTask/refs/heads/main/src/config/schemas/training-schema.json",
     "levels": ["""
 
         footer = """    ]
