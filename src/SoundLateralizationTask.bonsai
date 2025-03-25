@@ -1192,7 +1192,7 @@
                                                       </Expression>
                                                       <Expression xsi:type="Index">
                                                         <Operand xsi:type="IntProperty">
-                                                          <Value>1</Value>
+                                                          <Value>0</Value>
                                                         </Operand>
                                                       </Expression>
                                                       <Expression xsi:type="Combinator">
@@ -1551,7 +1551,7 @@
                                                 </Expression>
                                                 <Expression xsi:type="Index">
                                                   <Operand xsi:type="IntProperty">
-                                                    <Value>7</Value>
+                                                    <Value>0</Value>
                                                   </Operand>
                                                 </Expression>
                                                 <Expression xsi:type="Combinator">
@@ -3807,8 +3807,8 @@
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p2:GenerateILDArray">
                       <p2:NumSteps>4</p2:NumSteps>
-                      <p2:StepSize>2</p2:StepSize>
-                      <p2:UseLogOrExp>Log</p2:UseLogOrExp>
+                      <p2:StepSize>1</p2:StepSize>
+                      <p2:UseLogOrExp>Exp</p2:UseLogOrExp>
                       <p2:LogOrExpBase>2</p2:LogOrExpBase>
                     </Combinator>
                   </Expression>
@@ -7449,11 +7449,11 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p6:Trial">
-                      <p6:Number>16</p6:Number>
-                      <p6:StartTime>614.126976</p6:StartTime>
-                      <p6:TaredStartTime>17.307999999999993</p6:TaredStartTime>
-                      <p6:EndTime>613.100992</p6:EndTime>
-                      <p6:Duration>-1.025983999999994</p6:Duration>
+                      <p6:Number>10</p6:Number>
+                      <p6:StartTime>469.936992</p6:StartTime>
+                      <p6:TaredStartTime>69.203007999999954</p6:TaredStartTime>
+                      <p6:EndTime>461.806976</p6:EndTime>
+                      <p6:Duration>-8.1300159999999551</p6:Duration>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
@@ -7489,7 +7489,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p6:Block">
-                      <p6:Number>5</p6:Number>
+                      <p6:Number>4</p6:Number>
                       <p6:TrainingLevel>16</p6:TrainingLevel>
                       <p6:TrialsPerBlock>100</p6:TrialsPerBlock>
                     </Combinator>
@@ -7570,8 +7570,8 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p6:Sound">
-                      <p6:Abl>40</p6:Abl>
-                      <p6:Ild>-4</p6:Ild>
+                      <p6:Abl>20</p6:Abl>
+                      <p6:Ild>-8</p6:Ild>
                       <p6:SoundIndex>2</p6:SoundIndex>
                       <p6:LeftAmplification>0</p6:LeftAmplification>
                       <p6:RightAmplification>0</p6:RightAmplification>
@@ -7619,9 +7619,9 @@
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p6:ITI">
                       <p6:IntendedDuration>8</p6:IntendedDuration>
-                      <p6:StartTime>613.108</p6:StartTime>
-                      <p6:EndTime>614.124992</p6:EndTime>
-                      <p6:TimedDuration>1.0169920000000729</p6:TimedDuration>
+                      <p6:StartTime>1847.084</p6:StartTime>
+                      <p6:EndTime>0</p6:EndTime>
+                      <p6:TimedDuration>-1847.084</p6:TimedDuration>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
@@ -7688,9 +7688,9 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p6:FixationTimeParts">
-                      <p6:BaseTime>12.5</p6:BaseTime>
+                      <p6:BaseTime>10</p6:BaseTime>
                       <p6:ExpMean>200</p6:ExpMean>
-                      <p6:IntendedDuration>26.474730345658283</p6:IntendedDuration>
+                      <p6:IntendedDuration>780.35101998386324</p6:IntendedDuration>
                       <p6:TimedDuration>0</p6:TimedDuration>
                     </Combinator>
                   </Expression>
@@ -7723,9 +7723,9 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p6:FixationTimeParts">
-                      <p6:BaseTime>12.5</p6:BaseTime>
+                      <p6:BaseTime>10</p6:BaseTime>
                       <p6:ExpMean>200</p6:ExpMean>
-                      <p6:IntendedDuration>454.64481725309645</p6:IntendedDuration>
+                      <p6:IntendedDuration>70.9506409051082</p6:IntendedDuration>
                       <p6:TimedDuration>0</p6:TimedDuration>
                     </Combinator>
                   </Expression>
@@ -7756,7 +7756,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p6:FixationTime">
-                      <p6:IntendedDuration>481.11954759875471</p6:IntendedDuration>
+                      <p6:IntendedDuration>851.30166088897147</p6:IntendedDuration>
                       <p6:TimedDuration>0</p6:TimedDuration>
                     </Combinator>
                   </Expression>
@@ -7848,7 +7848,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p6:LnpTime">
-                      <p6:IntendedDuration>0.01</p6:IntendedDuration>
+                      <p6:IntendedDuration>0.015</p6:IntendedDuration>
                       <p6:TimedDuration>0</p6:TimedDuration>
                     </Combinator>
                   </Expression>
@@ -7884,9 +7884,9 @@
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p6:Outcome">
                       <p6:ResponsePoke>0</p6:ResponsePoke>
-                      <p6:Value>2</p6:Value>
-                      <p6:BlockPerformance>0</p6:BlockPerformance>
-                      <p6:BlockAbortRatio>0</p6:BlockAbortRatio>
+                      <p6:Value>-1</p6:Value>
+                      <p6:BlockPerformance>NaN</p6:BlockPerformance>
+                      <p6:BlockAbortRatio>0.5</p6:BlockAbortRatio>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
@@ -7931,7 +7931,7 @@
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p6:Optogenetics">
                       <p6:OptoTrial>false</p6:OptoTrial>
-                      <p6:Duration>0.92201599999998507</p6:Duration>
+                      <p6:Duration>0</p6:Duration>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
@@ -7970,7 +7970,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p4:JsonWriter">
-                      <p4:Path>C:/Users/HSP/Documents/BonsaiWorkflows/CDC.SoundLateralizationTask/output/Rat001/250317/out_.json</p4:Path>
+                      <p4:Path>C:/Users/HSP/Documents/BonsaiWorkflows/CDC.SoundLateralizationTask/output/Rat001/250325/out_.json</p4:Path>
                       <p4:Suffix>FileCount</p4:Suffix>
                       <p4:Overwrite>false</p4:Overwrite>
                     </Combinator>
@@ -8172,7 +8172,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="cv:VideoWriter">
-                      <cv:FileName>C:/Users/HSP/Documents/BonsaiWorkflows/CDC.SoundLateralizationTask/output/Rat001/250317/video_.avi</cv:FileName>
+                      <cv:FileName>C:/Users/HSP/Documents/BonsaiWorkflows/CDC.SoundLateralizationTask/output/Rat001/250325/video_.avi</cv:FileName>
                       <cv:Suffix>FileCount</cv:Suffix>
                       <cv:Buffered>true</cv:Buffered>
                       <cv:Overwrite>false</cv:Overwrite>
@@ -8316,7 +8316,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="harp:MessageWriter">
-                      <harp:FileName>C:\Users\HSP\Documents\BonsaiWorkflows\CDC.SoundLateralizationTask\output\Rat001\250317\events\behavior_18.bin</harp:FileName>
+                      <harp:FileName>C:\Users\HSP\Documents\BonsaiWorkflows\CDC.SoundLateralizationTask\output\Rat001\250325\events\behavior_25.bin</harp:FileName>
                       <harp:Suffix>None</harp:Suffix>
                       <harp:Buffered>true</harp:Buffered>
                       <harp:Overwrite>false</harp:Overwrite>
@@ -8362,7 +8362,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="harp:MessageWriter">
-                      <harp:FileName>C:\Users\HSP\Documents\BonsaiWorkflows\CDC.SoundLateralizationTask\output\Rat001\250317\events\soundcard_0.bin</harp:FileName>
+                      <harp:FileName>C:\Users\HSP\Documents\BonsaiWorkflows\CDC.SoundLateralizationTask\output\Rat001\250325\events\soundcard_0.bin</harp:FileName>
                       <harp:Suffix>None</harp:Suffix>
                       <harp:Buffered>true</harp:Buffered>
                       <harp:Overwrite>false</harp:Overwrite>
@@ -8408,7 +8408,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="harp:MessageWriter">
-                      <harp:FileName>C:\Users\HSP\Documents\BonsaiWorkflows\CDC.SoundLateralizationTask\output\Rat001\250317\events\left_pump_0.bin</harp:FileName>
+                      <harp:FileName>C:\Users\HSP\Documents\BonsaiWorkflows\CDC.SoundLateralizationTask\output\Rat001\250325\events\left_pump_0.bin</harp:FileName>
                       <harp:Suffix>None</harp:Suffix>
                       <harp:Buffered>true</harp:Buffered>
                       <harp:Overwrite>false</harp:Overwrite>
@@ -8454,7 +8454,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="harp:MessageWriter">
-                      <harp:FileName>C:\Users\HSP\Documents\BonsaiWorkflows\CDC.SoundLateralizationTask\output\Rat001\250317\events\right_pump_0.bin</harp:FileName>
+                      <harp:FileName>C:\Users\HSP\Documents\BonsaiWorkflows\CDC.SoundLateralizationTask\output\Rat001\250325\events\right_pump_0.bin</harp:FileName>
                       <harp:Suffix>None</harp:Suffix>
                       <harp:Buffered>true</harp:Buffered>
                       <harp:Overwrite>false</harp:Overwrite>
@@ -8500,7 +8500,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="harp:MessageWriter">
-                      <harp:FileName>C:\Users\HSP\Documents\BonsaiWorkflows\CDC.SoundLateralizationTask\output\Rat001\250317\events\current_driver_0.bin</harp:FileName>
+                      <harp:FileName>C:\Users\HSP\Documents\BonsaiWorkflows\CDC.SoundLateralizationTask\output\Rat001\250325\events\current_driver_0.bin</harp:FileName>
                       <harp:Suffix>None</harp:Suffix>
                       <harp:Buffered>true</harp:Buffered>
                       <harp:Overwrite>false</harp:Overwrite>
@@ -8615,7 +8615,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="io:WriteAllText">
-                      <io:Path>C:\Users\HSP\Documents\BonsaiWorkflows\CDC.SoundLateralizationTask\output\Rat001\250317\config\animal_5.yml</io:Path>
+                      <io:Path>C:\Users\HSP\Documents\BonsaiWorkflows\CDC.SoundLateralizationTask\output\Rat001\250325\config\animal_11.yml</io:Path>
                       <io:Overwrite>false</io:Overwrite>
                       <io:Append>false</io:Append>
                     </Combinator>
@@ -8668,7 +8668,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="io:WriteAllText">
-                      <io:Path>C:\Users\HSP\Documents\BonsaiWorkflows\CDC.SoundLateralizationTask\output\Rat001\250317\config\setup_5.csv</io:Path>
+                      <io:Path>C:\Users\HSP\Documents\BonsaiWorkflows\CDC.SoundLateralizationTask\output\Rat001\250325\config\setup_11.csv</io:Path>
                       <io:Overwrite>false</io:Overwrite>
                       <io:Append>false</io:Append>
                     </Combinator>
@@ -8721,7 +8721,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="io:WriteAllText">
-                      <io:Path>C:\Users\HSP\Documents\BonsaiWorkflows\CDC.SoundLateralizationTask\output\Rat001\250317\config\training_5.csv</io:Path>
+                      <io:Path>C:\Users\HSP\Documents\BonsaiWorkflows\CDC.SoundLateralizationTask\output\Rat001\250325\config\training_9.csv</io:Path>
                       <io:Overwrite>false</io:Overwrite>
                       <io:Append>false</io:Append>
                     </Combinator>
@@ -11627,7 +11627,7 @@
             <Expression xsi:type="gui:LabelBuilder">
               <gui:Enabled>true</gui:Enabled>
               <gui:Visible>true</gui:Visible>
-              <gui:Text>Block: 5</gui:Text>
+              <gui:Text>Block: 4</gui:Text>
             </Expression>
             <Expression xsi:type="VisualizerMapping" />
             <Expression xsi:type="Combinator">
@@ -11658,7 +11658,7 @@
             <Expression xsi:type="gui:LabelBuilder">
               <gui:Enabled>true</gui:Enabled>
               <gui:Visible>true</gui:Visible>
-              <gui:Text>ILD: -4 dB</gui:Text>
+              <gui:Text>ILD: -8 dB</gui:Text>
             </Expression>
             <Expression xsi:type="VisualizerMapping" />
             <Expression xsi:type="Combinator">
@@ -11689,7 +11689,7 @@
             <Expression xsi:type="gui:LabelBuilder">
               <gui:Enabled>true</gui:Enabled>
               <gui:Visible>true</gui:Visible>
-              <gui:Text>ABL: 40 dB</gui:Text>
+              <gui:Text>ABL: 20 dB</gui:Text>
             </Expression>
             <Expression xsi:type="VisualizerMapping" />
             <Expression xsi:type="Combinator">
@@ -11760,7 +11760,7 @@
             <Expression xsi:type="gui:LabelBuilder">
               <gui:Enabled>true</gui:Enabled>
               <gui:Visible>true</gui:Visible>
-              <gui:Text>Current Performance: 100.00 %</gui:Text>
+              <gui:Text>Current Performance: NaN %</gui:Text>
             </Expression>
             <Expression xsi:type="VisualizerMapping" />
             <Expression xsi:type="Combinator">
@@ -11805,7 +11805,7 @@
             <Expression xsi:type="gui:LabelBuilder">
               <gui:Enabled>true</gui:Enabled>
               <gui:Visible>true</gui:Visible>
-              <gui:Text>Current Abort Rate: 0.00 %</gui:Text>
+              <gui:Text>Current Abort Rate: 100.00 %</gui:Text>
             </Expression>
             <Expression xsi:type="VisualizerMapping" />
             <Expression xsi:type="Combinator">
@@ -11843,7 +11843,7 @@
             <Expression xsi:type="gui:LabelBuilder">
               <gui:Enabled>true</gui:Enabled>
               <gui:Visible>true</gui:Visible>
-              <gui:Text>Current Fixation Time: 481.12 ms</gui:Text>
+              <gui:Text>Current Fixation Time: 851.30 ms</gui:Text>
             </Expression>
             <Expression xsi:type="VisualizerMapping" />
             <Expression xsi:type="Combinator">
@@ -11949,7 +11949,7 @@
             <Expression xsi:type="gui:LabelBuilder">
               <gui:Enabled>true</gui:Enabled>
               <gui:Visible>true</gui:Visible>
-              <gui:Text>Time Elapsed: 00:00:27</gui:Text>
+              <gui:Text>Time Elapsed: 00:00:06</gui:Text>
             </Expression>
             <Expression xsi:type="VisualizerMapping" />
             <Expression xsi:type="gui:TableLayoutPanelBuilder">
@@ -11997,7 +11997,7 @@
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="cv:CreatePoint2d">
                 <cv:X>1</cv:X>
-                <cv:Y>-4</cv:Y>
+                <cv:Y>-8</cv:Y>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -12151,8 +12151,8 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="cv:CreatePoint">
-                <cv:X>1</cv:X>
-                <cv:Y>2</cv:Y>
+                <cv:X>2</cv:X>
+                <cv:Y>-1</cv:Y>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -12734,7 +12734,7 @@
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="cv:CreatePoint2d">
                 <cv:X>1</cv:X>
-                <cv:Y>0</cv:Y>
+                <cv:Y>NaN</cv:Y>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -12784,7 +12784,7 @@
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="cv:CreatePoint2d">
                 <cv:X>1</cv:X>
-                <cv:Y>1</cv:Y>
+                <cv:Y>NaN</cv:Y>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -12834,7 +12834,7 @@
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="cv:CreatePoint2d">
                 <cv:X>1</cv:X>
-                <cv:Y>0</cv:Y>
+                <cv:Y>NaN</cv:Y>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">

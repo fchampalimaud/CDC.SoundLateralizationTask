@@ -88,7 +88,7 @@ namespace Extensions
                 }
                 else if (UseLogOrExp == Training.ILDUseLogOrExp.Exp)
                 {
-                    ILDs[i] = - Math.Pow(LogOrExpBase, StepSize * (NumSteps - i));
+                    ILDs[i] = - Math.Pow(LogOrExpBase, StepSize * (NumSteps - 1 - i));
                 }
                 else
                 {
@@ -104,7 +104,7 @@ namespace Extensions
                 }
                 else if (UseLogOrExp == Training.ILDUseLogOrExp.Exp)
                 {
-                    ILDs[i] = Math.Pow(LogOrExpBase, StepSize * (i - NumSteps + 1));
+                    ILDs[i] = Math.Pow(LogOrExpBase, StepSize * (i - NumSteps));
                 }
                 else
                 {
