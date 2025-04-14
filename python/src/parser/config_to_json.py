@@ -1,8 +1,8 @@
-import pandas as pd
 import json
-import numpy as np
 from typing import Literal
-import yaml
+
+import numpy as np
+import pandas as pd
 
 
 class NpEncoder(json.JSONEncoder):
@@ -19,7 +19,14 @@ class NpEncoder(json.JSONEncoder):
 
 
 def unflatten_json(json_dict: dict):
-    """Unflatten a JSON dictionary object, with keys like 'a.b.c'"""
+    """
+    Unflattens a JSON dictionary object, with keys like 'a.b.c'.
+
+    Parameters
+    ----------
+    json_dict : dict
+        the dictionary containing the JSON object.
+    """
     result_dict = {}
 
     for k, v in json_dict.items():
@@ -35,9 +42,20 @@ def unflatten_json(json_dict: dict):
 
 
 def converter(filepath: str, filetype: Literal["setup", "training"]):
+    """
+    Converts a CSV config file into a JSON file so that Bonsai is able to read it.
+
+    Parameters
+    ----------
+    filepath : str
+        the path to the file being converted.
+    filetype : Literal["setup", "training"]
+        indicates whether the file being converted is the setup.csv or training.csv.
+    """
     df = pd.read_csv(filepath)
     headers = df.columns.tolist()
 
+    # Add the respective header to the JSON file
     if filetype == "setup":
         header = """{
     "$schema": "https://raw.githubusercontent.com/fchampalimaud/CDC.SoundLateralizationTask/refs/heads/main/src/config/schemas/setup-list-schema.json",
@@ -62,6 +80,7 @@ def converter(filepath: str, filetype: Literal["setup", "training"]):
         nested_dict = unflatten_json(dictionary)
         lines.append(nested_dict)
 
+    # Save the JSON file
     with open("../src/config/" + filetype + ".json", "w") as f:
         f.write(header + "\n")
         for i in range(len(lines)):
