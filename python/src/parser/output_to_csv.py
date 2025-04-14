@@ -1,24 +1,33 @@
 import os
-from parser.generate_csv import generate_csv
-import re
+from parser.generate_csv import append_json, generate_csv
+
 import yaml
 
 
 def convert_output():
+    """
+    Converts the output files from one day (which should correspond to a session) for an animal into a single CSV file.
+    """
+    # Open config.yml file
     with open("../src/config/config.yml", "r") as file:
         config = yaml.safe_load(file)
 
-    # Walks through the directory
-    for root, dirs, files in os.walk(config["paths"]["output"]):
-        for file in files:
-            # Checks if the file is a JSON file
-            if re.match(r"^out_\d+\.json$", file):
-                # Gets the full file path
-                file_path = os.path.join(root, file)
-                desired_file = file_path.replace(".json", ".csv")
-                if not os.path.isfile(desired_file):
-                    generate_csv(file_path, desired_file)
+    # Open animal.yml file
+    with open(config["paths"]["animal"], "r") as file:
+        animal_config = yaml.safe_load(file)
 
+    # Get the animal output directory
+    animal_dir = config["paths"]["output"] + "/Rat" + f"{animal_config["animal_id"]:03}"
 
-if __name__ == "__main__":
-    convert_output()
+    # Get the directory from last session
+    entries = os.listdir(animal_dir)
+    dirs = [
+        entry for entry in entries if os.path.isdir(os.path.join(animal_dir, entry))
+    ]
+    dir_path = os.path.join(animal_dir, dirs[-1], "outs")
+
+    # Concatenate the data from every output JSON file in the last session directory
+    all_data = append_json(dir_path)
+
+    # Generate the out.csv file from the JSON structure
+    generate_csv(all_data, os.path.join(animal_dir, dirs[-1], "out.csv"))
