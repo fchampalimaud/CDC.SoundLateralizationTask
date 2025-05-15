@@ -6,7 +6,7 @@ using System.Reactive.Linq;
 using System.Threading;
 using Bonsai;
 
-namespace Extensions
+namespace CF
 {
     /// <summary>
     /// Class <c>GenerateILDArray</c> contains the logic of the Bonsai node with the same name.

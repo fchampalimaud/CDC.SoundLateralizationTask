@@ -231,8 +231,8 @@
                   <GraphPanelVisualizer>
                     <Span>0</Span>
                     <Capacity>80</Capacity>
-                    <XMin>0</XMin>
-                    <XMax>6</XMax>
+                    <XMin>1</XMin>
+                    <XMax>5</XMax>
                     <YMin>-60</YMin>
                     <YMax>60</YMax>
                     <AutoScaleX>true</AutoScaleX>
@@ -264,8 +264,8 @@
                   <GraphPanelVisualizer>
                     <Span>0</Span>
                     <Capacity>80</Capacity>
-                    <XMin>0</XMin>
-                    <XMax>6</XMax>
+                    <XMin>1</XMin>
+                    <XMax>5</XMax>
                     <YMin>-9</YMin>
                     <YMax>3</YMax>
                     <AutoScaleX>true</AutoScaleX>
@@ -351,8 +351,8 @@
                   <GraphPanelVisualizer>
                     <Span>0</Span>
                     <Capacity>80</Capacity>
-                    <XMin>0</XMin>
-                    <XMax>6</XMax>
+                    <XMin>1</XMin>
+                    <XMax>5</XMax>
                     <YMin>0</YMin>
                     <YMax>1.1</YMax>
                     <AutoScaleX>true</AutoScaleX>
@@ -395,10 +395,10 @@
                   <GraphPanelVisualizer>
                     <Span>0</Span>
                     <Capacity>80</Capacity>
-                    <XMin>0</XMin>
-                    <XMax>6</XMax>
-                    <YMin>0.4</YMin>
-                    <YMax>1.3000000000000003</YMax>
+                    <XMin>1</XMin>
+                    <XMax>5</XMax>
+                    <YMin>1.9</YMin>
+                    <YMax>2.5000000000000004</YMax>
                     <AutoScaleX>true</AutoScaleX>
                     <AutoScaleY>true</AutoScaleY>
                     <MashupSettings>

@@ -3,7 +3,7 @@ using System;
 using System.ComponentModel;
 using System.Reactive.Linq;
 
-namespace Extensions
+namespace CF
 {
     [Combinator]
     [Description("")]

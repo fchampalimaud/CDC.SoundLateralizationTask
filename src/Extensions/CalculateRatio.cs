@@ -3,9 +3,8 @@ using System.ComponentModel;
 using System.Linq;
 using System.Reactive.Linq;
 using Bonsai;
-using PrintDict;
 
-namespace Extensions
+namespace CF
 {
     [Combinator]
     [Description("Shuffles the input array.")]

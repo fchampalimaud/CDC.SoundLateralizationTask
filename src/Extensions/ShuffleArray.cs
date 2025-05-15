@@ -4,7 +4,7 @@ using System.Linq;
 using System.Reactive.Linq;
 using Bonsai;
 
-namespace Extensions
+namespace CF
 {
     /// <summary>
     /// Class <c>ShuffleArray</c> contains the logic of the Bonsai node with the same name.
