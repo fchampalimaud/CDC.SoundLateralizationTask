@@ -48,13 +48,20 @@
           "minimum": 0.0,
           "title": "Timed Duration",
           "type": "number"
+        },
+        "total_duration": {
+          "description": "The total fixation time corresponds to the sum of the fixation time with the reaction time (ms).",
+          "minimum": 0.0,
+          "title": "Total Duration",
+          "type": "number"
         }
       },
       "required": [
         "opto_onset_time",
         "sound_onset_time",
         "intended_duration",
-        "timed_duration"
+        "timed_duration",
+        "total_duration"
       ],
       "title": "FixationTime",
       "type": "object"
@@ -197,12 +204,27 @@
           ],
           "title": "Mode",
           "type": "string"
+        },
+        "voltage": {
+          "description": "The voltage to use in the TTL signal.",
+          "maximum": 5000.0,
+          "minimum": 0.0,
+          "title": "Voltage",
+          "type": "number"
+        },
+        "power": {
+          "description": "The power with which the animal is stimulated.",
+          "minimum": 0.0,
+          "title": "Power",
+          "type": "number"
         }
       },
       "required": [
         "opto_trial",
         "duration",
-        "mode"
+        "mode",
+        "voltage",
+        "power"
       ],
       "title": "Optogenetics",
       "type": "object"
@@ -216,12 +238,28 @@
           "title": "Response Poke",
           "type": "integer"
         },
-        "value": {
-          "description": "The outcome of the current trial.",
-          "maximum": 2,
-          "minimum": -8,
-          "title": "Value",
+        "success": {
+          "description": "Indicates whether the animal answered correctly (1), incorrectly (-1) or whether the trial was aborted (0).",
+          "maximum": 1,
+          "minimum": -1,
+          "title": "Success",
           "type": "integer"
+        },
+        "abort_type": {
+          "description": "Indicates the type of abort that happened in the trial.",
+          "enum": [
+            "",
+            "CNP",
+            "Fixation",
+            "RT+",
+            "RT-",
+            "MT+",
+            "MT-",
+            "LNP",
+            "IO"
+          ],
+          "title": "Abort Type",
+          "type": "string"
         },
         "block_performance": {
           "description": "The block performance.",
@@ -240,11 +278,41 @@
       },
       "required": [
         "response_poke",
-        "value",
+        "success",
+        "abort_type",
         "block_performance",
         "block_abort_ratio"
       ],
       "title": "Outcome",
+      "type": "object"
+    },
+    "PenaltyTimes": {
+      "properties": {
+        "incorrect": {
+          "description": "The penalty time to be applied when the animal answers incorrectly.",
+          "minimum": 0.0,
+          "title": "Incorrect",
+          "type": "number"
+        },
+        "abort": {
+          "description": "The penalty time to be applied when the animal aborts a trial (except if it's a fixation abort).",
+          "minimum": 0.0,
+          "title": "Abort",
+          "type": "number"
+        },
+        "fixation_abort": {
+          "description": "The penalty time to be applied in case of a fixation abort.",
+          "minimum": 0.0,
+          "title": "Fixation Abort",
+          "type": "number"
+        }
+      },
+      "required": [
+        "incorrect",
+        "abort",
+        "fixation_abort"
+      ],
+      "title": "PenaltyTimes",
       "type": "object"
     },
     "ReactionTime": {
@@ -263,7 +331,6 @@
         },
         "timed_duration": {
           "description": "The timed reaction time (s).",
-          "minimum": 0.0,
           "title": "Timed Duration",
           "type": "number"
         }
@@ -274,6 +341,28 @@
         "timed_duration"
       ],
       "title": "ReactionTime",
+      "type": "object"
+    },
+    "Reward": {
+      "properties": {
+        "left": {
+          "description": "The amount of reward to be delivered in case the left poke is the correct answer.",
+          "exclusiveMinimum": 0.0,
+          "title": "Left",
+          "type": "number"
+        },
+        "right": {
+          "description": "The amount of reward to be delivered in case the right poke is the correct answer.",
+          "exclusiveMinimum": 0.0,
+          "title": "Right",
+          "type": "number"
+        }
+      },
+      "required": [
+        "left",
+        "right"
+      ],
+      "title": "Reward",
       "type": "object"
     },
     "Session": {
@@ -288,16 +377,16 @@
           "title": "Type",
           "type": "integer"
         },
-        "setup_id": {
+        "box": {
           "description": "The ID number of the setup where the animal will performed the trial.",
-          "title": "Setup Id",
+          "title": "Box",
           "type": "integer"
         }
       },
       "required": [
         "number",
         "type",
-        "setup_id"
+        "box"
       ],
       "title": "Session",
       "type": "object"
@@ -322,14 +411,14 @@
           "title": "Sound Index",
           "type": "integer"
         },
-        "left_amplification": {
+        "left_amp": {
           "description": "The amplification applied to the left speaker in the trial.",
-          "title": "Left Amplification",
+          "title": "Left Amp",
           "type": "number"
         },
-        "right_amplification": {
+        "right_amp": {
           "description": "The amplification applied to the right speaker in the trial.",
-          "title": "Right Amplification",
+          "title": "Right Amp",
           "type": "number"
         }
       },
@@ -337,8 +426,8 @@
         "abl",
         "ild",
         "sound_index",
-        "left_amplification",
-        "right_amplification"
+        "left_amp",
+        "right_amp"
       ],
       "title": "Sound",
       "type": "object"
@@ -373,8 +462,20 @@
           "title": "Number",
           "type": "integer"
         },
+        "computer_start_time": {
+          "default": "The timestamp at which the trial started in computer time.",
+          "format": "date-time",
+          "title": "Computer Start Time",
+          "type": "string"
+        },
+        "computer_end_time": {
+          "default": "The timestamp at which the trial ended in computer time.",
+          "format": "date-time",
+          "title": "Computer End Time",
+          "type": "string"
+        },
         "start_time": {
-          "description": "The timestamp at which the trial started (s).",
+          "description": "The timestamp at which the trial started in Harp time (s).",
           "minimum": 0.0,
           "title": "Start Time",
           "type": "number"
@@ -386,13 +487,13 @@
           "type": "number"
         },
         "end_time": {
-          "description": "The timestamp at which the trial ended (s).",
+          "description": "The timestamp at which the trial ended in Harp time (s).",
           "minimum": 0.0,
           "title": "End Time",
           "type": "number"
         },
         "duration": {
-          "description": "The trial duration (s).",
+          "description": "The trial duration in Harp time (s).",
           "exclusiveMinimum": 0.0,
           "title": "Duration",
           "type": "number"
@@ -411,9 +512,20 @@
   },
   "properties": {
     "animal_id": {
-      "description": "The ID number of the animal.",
+      "description": "The ID of the animal.",
+      "pattern": "^[A-Z]{2,6}\\d{4}$",
       "title": "Animal Id",
-      "type": "integer"
+      "type": "string"
+    },
+    "batch": {
+      "description": "The batch to which the current animal belongs to.",
+      "title": "Batch",
+      "type": "string"
+    },
+    "experimenter": {
+      "description": "The person who trained the animal in the current session.",
+      "title": "Experimenter",
+      "type": "string"
     },
     "version": {
       "description": "The version of the project used in the session.",
@@ -465,6 +577,14 @@
       "$ref": "#/definitions/Outcome",
       "description": "Contains the data related to the trial outcome."
     },
+    "penalty_times": {
+      "$ref": "#/definitions/PenaltyTimes",
+      "description": "Contains the penalty times for different ocasions."
+    },
+    "reward": {
+      "$ref": "#/definitions/Reward",
+      "description": "Contains the reward to be delivered for each side in case they are the correct answer."
+    },
     "repeated_trial": {
       "description": "Indicates whether the current trial is a repetition of the previous trial (true) or not (false).",
       "title": "Repeated Trial",
@@ -477,6 +597,8 @@
   },
   "required": [
     "animal_id",
+    "batch",
+    "experimenter",
     "version",
     "trial",
     "block",
@@ -489,6 +611,8 @@
     "movement_time",
     "lnp_time",
     "outcome",
+    "penalty_times",
+    "reward",
     "repeated_trial",
     "optogenetics"
   ],

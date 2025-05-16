@@ -133,6 +133,8 @@ namespace Output
     
         private double _timedDuration;
     
+        private double _totalDuration;
+    
         public FixationTime()
         {
         }
@@ -143,6 +145,7 @@ namespace Output
             _soundOnsetTime = other._soundOnsetTime;
             _intendedDuration = other._intendedDuration;
             _timedDuration = other._timedDuration;
+            _totalDuration = other._totalDuration;
         }
     
         /// <summary>
@@ -220,6 +223,25 @@ namespace Output
             }
         }
     
+        /// <summary>
+        /// The total fixation time corresponds to the sum of the fixation time with the reaction time (ms).
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("total_duration", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="total_duration")]
+        [System.ComponentModel.DescriptionAttribute("The total fixation time corresponds to the sum of the fixation time with the reac" +
+            "tion time (ms).")]
+        public double TotalDuration
+        {
+            get
+            {
+                return _totalDuration;
+            }
+            set
+            {
+                _totalDuration = value;
+            }
+        }
+    
         public System.IObservable<FixationTime> Process()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new FixationTime(this)));
@@ -235,7 +257,8 @@ namespace Output
             stringBuilder.Append("opto_onset_time = " + _optoOnsetTime + ", ");
             stringBuilder.Append("sound_onset_time = " + _soundOnsetTime + ", ");
             stringBuilder.Append("intended_duration = " + _intendedDuration + ", ");
-            stringBuilder.Append("timed_duration = " + _timedDuration);
+            stringBuilder.Append("timed_duration = " + _timedDuration + ", ");
+            stringBuilder.Append("total_duration = " + _totalDuration);
             return true;
         }
     
@@ -707,6 +730,10 @@ namespace Output
     
         private OptogeneticsMode _mode;
     
+        private double _voltage;
+    
+        private double _power;
+    
         public Optogenetics()
         {
         }
@@ -716,6 +743,8 @@ namespace Output
             _optoTrial = other._optoTrial;
             _duration = other._duration;
             _mode = other._mode;
+            _voltage = other._voltage;
+            _power = other._power;
         }
     
         /// <summary>
@@ -773,6 +802,42 @@ namespace Output
             }
         }
     
+        /// <summary>
+        /// The voltage to use in the TTL signal.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("voltage", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="voltage")]
+        [System.ComponentModel.DescriptionAttribute("The voltage to use in the TTL signal.")]
+        public double Voltage
+        {
+            get
+            {
+                return _voltage;
+            }
+            set
+            {
+                _voltage = value;
+            }
+        }
+    
+        /// <summary>
+        /// The power with which the animal is stimulated.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("power", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="power")]
+        [System.ComponentModel.DescriptionAttribute("The power with which the animal is stimulated.")]
+        public double Power
+        {
+            get
+            {
+                return _power;
+            }
+            set
+            {
+                _power = value;
+            }
+        }
+    
         public System.IObservable<Optogenetics> Process()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new Optogenetics(this)));
@@ -787,7 +852,9 @@ namespace Output
         {
             stringBuilder.Append("opto_trial = " + _optoTrial + ", ");
             stringBuilder.Append("duration = " + _duration + ", ");
-            stringBuilder.Append("mode = " + _mode);
+            stringBuilder.Append("mode = " + _mode + ", ");
+            stringBuilder.Append("voltage = " + _voltage + ", ");
+            stringBuilder.Append("power = " + _power);
             return true;
         }
     
@@ -814,7 +881,9 @@ namespace Output
     
         private int _responsePoke;
     
-        private int _value;
+        private int _success;
+    
+        private OutcomeAbortType _abortType;
     
         private double _blockPerformance;
     
@@ -827,7 +896,8 @@ namespace Output
         protected Outcome(Outcome other)
         {
             _responsePoke = other._responsePoke;
-            _value = other._value;
+            _success = other._success;
+            _abortType = other._abortType;
             _blockPerformance = other._blockPerformance;
             _blockAbortRatio = other._blockAbortRatio;
         }
@@ -851,20 +921,40 @@ namespace Output
         }
     
         /// <summary>
-        /// The outcome of the current trial.
+        /// Indicates whether the animal answered correctly (1), incorrectly (-1) or whether the trial was aborted (0).
         /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("value", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="value")]
-        [System.ComponentModel.DescriptionAttribute("The outcome of the current trial.")]
-        public int Value
+        [Newtonsoft.Json.JsonPropertyAttribute("success", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="success")]
+        [System.ComponentModel.DescriptionAttribute("Indicates whether the animal answered correctly (1), incorrectly (-1) or whether " +
+            "the trial was aborted (0).")]
+        public int Success
         {
             get
             {
-                return _value;
+                return _success;
             }
             set
             {
-                _value = value;
+                _success = value;
+            }
+        }
+    
+        /// <summary>
+        /// Indicates the type of abort that happened in the trial.
+        /// </summary>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [Newtonsoft.Json.JsonPropertyAttribute("abort_type", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="abort_type")]
+        [System.ComponentModel.DescriptionAttribute("Indicates the type of abort that happened in the trial.")]
+        public OutcomeAbortType AbortType
+        {
+            get
+            {
+                return _abortType;
+            }
+            set
+            {
+                _abortType = value;
             }
         }
     
@@ -917,9 +1007,121 @@ namespace Output
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
             stringBuilder.Append("response_poke = " + _responsePoke + ", ");
-            stringBuilder.Append("value = " + _value + ", ");
+            stringBuilder.Append("success = " + _success + ", ");
+            stringBuilder.Append("abort_type = " + _abortType + ", ");
             stringBuilder.Append("block_performance = " + _blockPerformance + ", ");
             stringBuilder.Append("block_abort_ratio = " + _blockAbortRatio);
+            return true;
+        }
+    
+        public override string ToString()
+        {
+            System.Text.StringBuilder stringBuilder = new System.Text.StringBuilder();
+            stringBuilder.Append(GetType().Name);
+            stringBuilder.Append(" { ");
+            if (PrintMembers(stringBuilder))
+            {
+                stringBuilder.Append(" ");
+            }
+            stringBuilder.Append("}");
+            return stringBuilder.ToString();
+        }
+    }
+
+
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
+    [Bonsai.CombinatorAttribute()]
+    [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
+    public partial class PenaltyTimes
+    {
+    
+        private double _incorrect;
+    
+        private double _abort;
+    
+        private double _fixationAbort;
+    
+        public PenaltyTimes()
+        {
+        }
+    
+        protected PenaltyTimes(PenaltyTimes other)
+        {
+            _incorrect = other._incorrect;
+            _abort = other._abort;
+            _fixationAbort = other._fixationAbort;
+        }
+    
+        /// <summary>
+        /// The penalty time to be applied when the animal answers incorrectly.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("incorrect", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="incorrect")]
+        [System.ComponentModel.DescriptionAttribute("The penalty time to be applied when the animal answers incorrectly.")]
+        public double Incorrect
+        {
+            get
+            {
+                return _incorrect;
+            }
+            set
+            {
+                _incorrect = value;
+            }
+        }
+    
+        /// <summary>
+        /// The penalty time to be applied when the animal aborts a trial (except if it's a fixation abort).
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("abort", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="abort")]
+        [System.ComponentModel.DescriptionAttribute("The penalty time to be applied when the animal aborts a trial (except if it\'s a f" +
+            "ixation abort).")]
+        public double Abort
+        {
+            get
+            {
+                return _abort;
+            }
+            set
+            {
+                _abort = value;
+            }
+        }
+    
+        /// <summary>
+        /// The penalty time to be applied in case of a fixation abort.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("fixation_abort", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="fixation_abort")]
+        [System.ComponentModel.DescriptionAttribute("The penalty time to be applied in case of a fixation abort.")]
+        public double FixationAbort
+        {
+            get
+            {
+                return _fixationAbort;
+            }
+            set
+            {
+                _fixationAbort = value;
+            }
+        }
+    
+        public System.IObservable<PenaltyTimes> Process()
+        {
+            return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new PenaltyTimes(this)));
+        }
+    
+        public System.IObservable<PenaltyTimes> Process<TSource>(System.IObservable<TSource> source)
+        {
+            return System.Reactive.Linq.Observable.Select(source, _ => new PenaltyTimes(this));
+        }
+    
+        protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
+        {
+            stringBuilder.Append("incorrect = " + _incorrect + ", ");
+            stringBuilder.Append("abort = " + _abort + ", ");
+            stringBuilder.Append("fixation_abort = " + _fixationAbort);
             return true;
         }
     
@@ -1051,6 +1253,96 @@ namespace Output
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
     [Bonsai.CombinatorAttribute()]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
+    public partial class Reward
+    {
+    
+        private double _left;
+    
+        private double _right;
+    
+        public Reward()
+        {
+        }
+    
+        protected Reward(Reward other)
+        {
+            _left = other._left;
+            _right = other._right;
+        }
+    
+        /// <summary>
+        /// The amount of reward to be delivered in case the left poke is the correct answer.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("left", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="left")]
+        [System.ComponentModel.DescriptionAttribute("The amount of reward to be delivered in case the left poke is the correct answer." +
+            "")]
+        public double Left
+        {
+            get
+            {
+                return _left;
+            }
+            set
+            {
+                _left = value;
+            }
+        }
+    
+        /// <summary>
+        /// The amount of reward to be delivered in case the right poke is the correct answer.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("right", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="right")]
+        [System.ComponentModel.DescriptionAttribute("The amount of reward to be delivered in case the right poke is the correct answer" +
+            ".")]
+        public double Right
+        {
+            get
+            {
+                return _right;
+            }
+            set
+            {
+                _right = value;
+            }
+        }
+    
+        public System.IObservable<Reward> Process()
+        {
+            return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new Reward(this)));
+        }
+    
+        public System.IObservable<Reward> Process<TSource>(System.IObservable<TSource> source)
+        {
+            return System.Reactive.Linq.Observable.Select(source, _ => new Reward(this));
+        }
+    
+        protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
+        {
+            stringBuilder.Append("left = " + _left + ", ");
+            stringBuilder.Append("right = " + _right);
+            return true;
+        }
+    
+        public override string ToString()
+        {
+            System.Text.StringBuilder stringBuilder = new System.Text.StringBuilder();
+            stringBuilder.Append(GetType().Name);
+            stringBuilder.Append(" { ");
+            if (PrintMembers(stringBuilder))
+            {
+                stringBuilder.Append(" ");
+            }
+            stringBuilder.Append("}");
+            return stringBuilder.ToString();
+        }
+    }
+
+
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
+    [Bonsai.CombinatorAttribute()]
+    [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
     public partial class Session
     {
     
@@ -1058,7 +1350,7 @@ namespace Output
     
         private int _type;
     
-        private int _setupId;
+        private int _box;
     
         public Session()
         {
@@ -1068,7 +1360,7 @@ namespace Output
         {
             _number = other._number;
             _type = other._type;
-            _setupId = other._setupId;
+            _box = other._box;
         }
     
         /// <summary>
@@ -1110,18 +1402,18 @@ namespace Output
         /// <summary>
         /// The ID number of the setup where the animal will performed the trial.
         /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("setup_id", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="setup_id")]
+        [Newtonsoft.Json.JsonPropertyAttribute("box", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="box")]
         [System.ComponentModel.DescriptionAttribute("The ID number of the setup where the animal will performed the trial.")]
-        public int SetupId
+        public int Box
         {
             get
             {
-                return _setupId;
+                return _box;
             }
             set
             {
-                _setupId = value;
+                _box = value;
             }
         }
     
@@ -1139,7 +1431,7 @@ namespace Output
         {
             stringBuilder.Append("number = " + _number + ", ");
             stringBuilder.Append("type = " + _type + ", ");
-            stringBuilder.Append("setup_id = " + _setupId);
+            stringBuilder.Append("box = " + _box);
             return true;
         }
     
@@ -1170,9 +1462,9 @@ namespace Output
     
         private int _soundIndex;
     
-        private double _leftAmplification;
+        private double _leftAmp;
     
-        private double _rightAmplification;
+        private double _rightAmp;
     
         public Sound()
         {
@@ -1183,8 +1475,8 @@ namespace Output
             _abl = other._abl;
             _ild = other._ild;
             _soundIndex = other._soundIndex;
-            _leftAmplification = other._leftAmplification;
-            _rightAmplification = other._rightAmplification;
+            _leftAmp = other._leftAmp;
+            _rightAmp = other._rightAmp;
         }
     
         /// <summary>
@@ -1244,36 +1536,36 @@ namespace Output
         /// <summary>
         /// The amplification applied to the left speaker in the trial.
         /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("left_amplification", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="left_amplification")]
+        [Newtonsoft.Json.JsonPropertyAttribute("left_amp", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="left_amp")]
         [System.ComponentModel.DescriptionAttribute("The amplification applied to the left speaker in the trial.")]
-        public double LeftAmplification
+        public double LeftAmp
         {
             get
             {
-                return _leftAmplification;
+                return _leftAmp;
             }
             set
             {
-                _leftAmplification = value;
+                _leftAmp = value;
             }
         }
     
         /// <summary>
         /// The amplification applied to the right speaker in the trial.
         /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("right_amplification", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="right_amplification")]
+        [Newtonsoft.Json.JsonPropertyAttribute("right_amp", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="right_amp")]
         [System.ComponentModel.DescriptionAttribute("The amplification applied to the right speaker in the trial.")]
-        public double RightAmplification
+        public double RightAmp
         {
             get
             {
-                return _rightAmplification;
+                return _rightAmp;
             }
             set
             {
-                _rightAmplification = value;
+                _rightAmp = value;
             }
         }
     
@@ -1292,8 +1584,8 @@ namespace Output
             stringBuilder.Append("abl = " + _abl + ", ");
             stringBuilder.Append("ild = " + _ild + ", ");
             stringBuilder.Append("sound_index = " + _soundIndex + ", ");
-            stringBuilder.Append("left_amplification = " + _leftAmplification + ", ");
-            stringBuilder.Append("right_amplification = " + _rightAmplification);
+            stringBuilder.Append("left_amp = " + _leftAmp + ", ");
+            stringBuilder.Append("right_amp = " + _rightAmp);
             return true;
         }
     
@@ -1408,6 +1700,10 @@ namespace Output
     
         private int _number;
     
+        private System.DateTimeOffset _computerStartTime;
+    
+        private System.DateTimeOffset _computerEndTime;
+    
         private double _startTime;
     
         private double _taredStartTime;
@@ -1423,6 +1719,8 @@ namespace Output
         protected Trial(Trial other)
         {
             _number = other._number;
+            _computerStartTime = other._computerStartTime;
+            _computerEndTime = other._computerEndTime;
             _startTime = other._startTime;
             _taredStartTime = other._taredStartTime;
             _endTime = other._endTime;
@@ -1447,12 +1745,42 @@ namespace Output
             }
         }
     
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [Newtonsoft.Json.JsonPropertyAttribute("computer_start_time")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="computer_start_time")]
+        public System.DateTimeOffset ComputerStartTime
+        {
+            get
+            {
+                return _computerStartTime;
+            }
+            set
+            {
+                _computerStartTime = value;
+            }
+        }
+    
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [Newtonsoft.Json.JsonPropertyAttribute("computer_end_time")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="computer_end_time")]
+        public System.DateTimeOffset ComputerEndTime
+        {
+            get
+            {
+                return _computerEndTime;
+            }
+            set
+            {
+                _computerEndTime = value;
+            }
+        }
+    
         /// <summary>
-        /// The timestamp at which the trial started (s).
+        /// The timestamp at which the trial started in Harp time (s).
         /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("start_time", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="start_time")]
-        [System.ComponentModel.DescriptionAttribute("The timestamp at which the trial started (s).")]
+        [System.ComponentModel.DescriptionAttribute("The timestamp at which the trial started in Harp time (s).")]
         public double StartTime
         {
             get
@@ -1485,11 +1813,11 @@ namespace Output
         }
     
         /// <summary>
-        /// The timestamp at which the trial ended (s).
+        /// The timestamp at which the trial ended in Harp time (s).
         /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("end_time", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="end_time")]
-        [System.ComponentModel.DescriptionAttribute("The timestamp at which the trial ended (s).")]
+        [System.ComponentModel.DescriptionAttribute("The timestamp at which the trial ended in Harp time (s).")]
         public double EndTime
         {
             get
@@ -1503,11 +1831,11 @@ namespace Output
         }
     
         /// <summary>
-        /// The trial duration (s).
+        /// The trial duration in Harp time (s).
         /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("duration", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="duration")]
-        [System.ComponentModel.DescriptionAttribute("The trial duration (s).")]
+        [System.ComponentModel.DescriptionAttribute("The trial duration in Harp time (s).")]
         public double Duration
         {
             get
@@ -1533,6 +1861,8 @@ namespace Output
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
             stringBuilder.Append("number = " + _number + ", ");
+            stringBuilder.Append("computer_start_time = " + _computerStartTime + ", ");
+            stringBuilder.Append("computer_end_time = " + _computerEndTime + ", ");
             stringBuilder.Append("start_time = " + _startTime + ", ");
             stringBuilder.Append("tared_start_time = " + _taredStartTime + ", ");
             stringBuilder.Append("end_time = " + _endTime + ", ");
@@ -1561,7 +1891,11 @@ namespace Output
     public partial class Output
     {
     
-        private int _animalId;
+        private string _animalId;
+    
+        private string _batch;
+    
+        private string _experimenter;
     
         private string _version;
     
@@ -1587,6 +1921,10 @@ namespace Output
     
         private Outcome _outcome = new Outcome();
     
+        private PenaltyTimes _penaltyTimes = new PenaltyTimes();
+    
+        private Reward _reward = new Reward();
+    
         private bool _repeatedTrial;
     
         private Optogenetics _optogenetics = new Optogenetics();
@@ -1598,6 +1936,8 @@ namespace Output
         protected Output(Output other)
         {
             _animalId = other._animalId;
+            _batch = other._batch;
+            _experimenter = other._experimenter;
             _version = other._version;
             _trial = other._trial;
             _block = other._block;
@@ -1610,17 +1950,19 @@ namespace Output
             _movementTime = other._movementTime;
             _lnpTime = other._lnpTime;
             _outcome = other._outcome;
+            _penaltyTimes = other._penaltyTimes;
+            _reward = other._reward;
             _repeatedTrial = other._repeatedTrial;
             _optogenetics = other._optogenetics;
         }
     
         /// <summary>
-        /// The ID number of the animal.
+        /// The ID of the animal.
         /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("animal_id", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="animal_id")]
-        [System.ComponentModel.DescriptionAttribute("The ID number of the animal.")]
-        public int AnimalId
+        [System.ComponentModel.DescriptionAttribute("The ID of the animal.")]
+        public string AnimalId
         {
             get
             {
@@ -1629,6 +1971,42 @@ namespace Output
             set
             {
                 _animalId = value;
+            }
+        }
+    
+        /// <summary>
+        /// The batch to which the current animal belongs to.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("batch", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="batch")]
+        [System.ComponentModel.DescriptionAttribute("The batch to which the current animal belongs to.")]
+        public string Batch
+        {
+            get
+            {
+                return _batch;
+            }
+            set
+            {
+                _batch = value;
+            }
+        }
+    
+        /// <summary>
+        /// The person who trained the animal in the current session.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("experimenter", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="experimenter")]
+        [System.ComponentModel.DescriptionAttribute("The person who trained the animal in the current session.")]
+        public string Experimenter
+        {
+            get
+            {
+                return _experimenter;
+            }
+            set
+            {
+                _experimenter = value;
             }
         }
     
@@ -1860,6 +2238,45 @@ namespace Output
         }
     
         /// <summary>
+        /// Contains the penalty times for different ocasions.
+        /// </summary>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [Newtonsoft.Json.JsonPropertyAttribute("penalty_times", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="penalty_times")]
+        [System.ComponentModel.DescriptionAttribute("Contains the penalty times for different ocasions.")]
+        public PenaltyTimes PenaltyTimes
+        {
+            get
+            {
+                return _penaltyTimes;
+            }
+            set
+            {
+                _penaltyTimes = value;
+            }
+        }
+    
+        /// <summary>
+        /// Contains the reward to be delivered for each side in case they are the correct answer.
+        /// </summary>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [Newtonsoft.Json.JsonPropertyAttribute("reward", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="reward")]
+        [System.ComponentModel.DescriptionAttribute("Contains the reward to be delivered for each side in case they are the correct an" +
+            "swer.")]
+        public Reward Reward
+        {
+            get
+            {
+                return _reward;
+            }
+            set
+            {
+                _reward = value;
+            }
+        }
+    
+        /// <summary>
         /// Indicates whether the current trial is a repetition of the previous trial (true) or not (false).
         /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("repeated_trial", Required=Newtonsoft.Json.Required.Always)]
@@ -1910,6 +2327,8 @@ namespace Output
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
             stringBuilder.Append("animal_id = " + _animalId + ", ");
+            stringBuilder.Append("batch = " + _batch + ", ");
+            stringBuilder.Append("experimenter = " + _experimenter + ", ");
             stringBuilder.Append("version = " + _version + ", ");
             stringBuilder.Append("trial = " + _trial + ", ");
             stringBuilder.Append("block = " + _block + ", ");
@@ -1922,6 +2341,8 @@ namespace Output
             stringBuilder.Append("movement_time = " + _movementTime + ", ");
             stringBuilder.Append("lnp_time = " + _lnpTime + ", ");
             stringBuilder.Append("outcome = " + _outcome + ", ");
+            stringBuilder.Append("penalty_times = " + _penaltyTimes + ", ");
+            stringBuilder.Append("reward = " + _reward + ", ");
             stringBuilder.Append("repeated_trial = " + _repeatedTrial + ", ");
             stringBuilder.Append("optogenetics = " + _optogenetics);
             return true;
@@ -1958,6 +2379,49 @@ namespace Output
         [System.Runtime.Serialization.EnumMemberAttribute(Value="Bilateral")]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="Bilateral")]
         Bilateral = 2,
+    }
+
+
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
+    [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+    public enum OutcomeAbortType
+    {
+    
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="")]
+        Empty = 0,
+    
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="CNP")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="CNP")]
+        CNP = 1,
+    
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="Fixation")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="Fixation")]
+        Fixation = 2,
+    
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="RT+")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="RT+")]
+        RTPlus = 3,
+    
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="RT-")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="RT-")]
+        RTMinus = 4,
+    
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="MT+")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="MT+")]
+        MTPlus = 5,
+    
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="MT-")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="MT-")]
+        MTMinus = 6,
+    
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="LNP")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="LNP")]
+        LNP = 7,
+    
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="IO")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="IO")]
+        IO = 8,
     }
 
 
@@ -2016,9 +2480,19 @@ namespace Output
             return Process<Outcome>(source);
         }
 
+        public System.IObservable<string> Process(System.IObservable<PenaltyTimes> source)
+        {
+            return Process<PenaltyTimes>(source);
+        }
+
         public System.IObservable<string> Process(System.IObservable<ReactionTime> source)
         {
             return Process<ReactionTime>(source);
+        }
+
+        public System.IObservable<string> Process(System.IObservable<Reward> source)
+        {
+            return Process<Reward>(source);
         }
 
         public System.IObservable<string> Process(System.IObservable<Session> source)
@@ -2063,7 +2537,9 @@ namespace Output
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<MovementTime>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Optogenetics>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Outcome>))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<PenaltyTimes>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<ReactionTime>))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Reward>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Session>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Sound>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<TimeToCnp>))]
@@ -2157,9 +2633,19 @@ namespace Output
             return Process<Outcome>(source);
         }
 
+        public System.IObservable<string> Process(System.IObservable<PenaltyTimes> source)
+        {
+            return Process<PenaltyTimes>(source);
+        }
+
         public System.IObservable<string> Process(System.IObservable<ReactionTime> source)
         {
             return Process<ReactionTime>(source);
+        }
+
+        public System.IObservable<string> Process(System.IObservable<Reward> source)
+        {
+            return Process<Reward>(source);
         }
 
         public System.IObservable<string> Process(System.IObservable<Session> source)
@@ -2204,7 +2690,9 @@ namespace Output
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<MovementTime>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Optogenetics>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Outcome>))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<PenaltyTimes>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<ReactionTime>))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Reward>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Session>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Sound>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<TimeToCnp>))]

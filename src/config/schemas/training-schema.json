@@ -66,9 +66,9 @@
     },
     "ILD": {
       "properties": {
-        "special_case": {
-          "description": "The special case is when the real ILD value is the nominal ABL and the real ABL value corresponds to half the nominal ABL. For example, if the nominal ABL value is 50 db SPL, one of the speakers will produce a sound of 50 dB SPL and the other one will produce a sound of 0 dB SPL. This parameter indicates whether this special case is used (true) or not (false).",
-          "title": "Special Case",
+        "fully_lateralized": {
+          "description": "In the fully lateralized variation of the task, the real ILD value corresponds to the input ABL and the real ABL value corresponds to half of it. For example, if the input ABL value is 50 db SPL, one of the speakers will produce a sound of 50 dB SPL and the other one will produce a sound of 0 dB SPL. This parameter indicates whether to apply the fully lateralized variation of the task (true) or not (false).",
+          "title": "Fully Lateralized",
           "type": "boolean"
         },
         "step_size": {
@@ -101,7 +101,7 @@
         }
       },
       "required": [
-        "special_case",
+        "fully_lateralized",
         "step_size",
         "num_steps",
         "use_log_or_exp",

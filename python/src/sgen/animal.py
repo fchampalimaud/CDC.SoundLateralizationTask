@@ -1,20 +1,26 @@
 from datetime import timedelta
+from pathlib import Path
+from typing import List, Literal
 
 from pydantic import BaseModel, Field
-from typing import List, Literal
+from pydantic.types import StringConstraints
+from typing_extensions import Annotated
+
 from sgen._utils import (
-    export_schema,
-    bonsai_sgen,
     BonsaiSgenSerializers,
+    bonsai_sgen,
+    export_schema,
     pascal_to_snake_case,
 )
-from pathlib import Path
 
 
 class Optogenetics(BaseModel):
     use_opto: bool = Field(description="Indicates whether optogenetics is used or not.")
-    voltage: int = Field(
+    voltage: float = Field(
         description="The voltage to use in the TTL signal.", ge=0, le=5000
+    )
+    power: float = Field(
+        description="The power with which the animal is stimulated.", ge=0
     )
     duration: float = Field(
         description="The duration of the optogenetics stimulation/inhibition protocol (s).",
@@ -26,9 +32,12 @@ class Optogenetics(BaseModel):
     use_pulses: bool = Field(
         description="Indicates whether the optogenetics protocol uses pulses of light (true) or a continuous emission (false)."
     )
-    ramp_time: float = Field(
+    ramp_mode: Literal["Rise", "Fall", "Both"] = Field(
+        description="Indicates the optogenetics mode used in the current session."
+    )
+    ramp_time: int = Field(
         description="The duration of the ramp of the optogenetics protocol (ms). It only works when use_pulses is false.",
-        ge=0,
+        gt=0,
     )
     frequency: float = Field(
         description="The frequency of the pulses (Hz). It only works when use_pulses is true.",
@@ -41,7 +50,9 @@ class Optogenetics(BaseModel):
     use_rt: bool = Field(
         description="Indicates whether the optogenetics stimulation/inhibition should stop when the animal leaves the poke (true) or not (false)."
     )
-    mode: Literal["Left", "Right", "Bilateral"] = Field(description="Indicates the optogenetics mode used in the current session.")
+    mode: Literal["Left", "Right", "Bilateral"] = Field(
+        description="Indicates the optogenetics mode used in the current session."
+    )
 
 
 class TimeConstrains(BaseModel):
@@ -83,11 +94,14 @@ class Sound(BaseModel):
 
 class Session(BaseModel):
     number: int = Field(description="The number of the current session.")
+    experimenter: str = Field(
+        description="The person who trained the animal in the current session."
+    )
     duration: timedelta = Field(
         description="The duration of the session (in the hh:mm:ss format)."
     )
     type: int = Field(description="The number of the session type.")
-    setup_id: int = Field(
+    box: int = Field(
         description="The ID number of the setup where the animal will perform the session."
     )
     starting_trial_number: int = Field(
@@ -107,7 +121,10 @@ class Session(BaseModel):
 
 
 class Animal(BaseModel):
-    animal_id: int = Field(description="The ID number of the animal.")
+    animal_id: Annotated[str, StringConstraints(pattern=r"^[A-Z]{2,6}\d{4}$")] = Field(
+        description="The ID of the animal."
+    )
+    batch: str = Field(description="The batch to which the current animal belongs to.")
     session: Session = Field(description="Contains the session-related parameters.")
     sound: Sound = Field(description="Contains the sound-related parameters.")
     fixation_time: FixationTime = Field(

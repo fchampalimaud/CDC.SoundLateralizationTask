@@ -284,7 +284,7 @@ namespace Training
     public partial class ILD
     {
     
-        private bool _specialCase;
+        private bool _fullyLateralized;
     
         private double _stepSize;
     
@@ -300,7 +300,7 @@ namespace Training
     
         protected ILD(ILD other)
         {
-            _specialCase = other._specialCase;
+            _fullyLateralized = other._fullyLateralized;
             _stepSize = other._stepSize;
             _numSteps = other._numSteps;
             _useLogOrExp = other._useLogOrExp;
@@ -308,20 +308,20 @@ namespace Training
         }
     
         /// <summary>
-        /// The special case is when the real ILD value is the nominal ABL and the real ABL value corresponds to half the nominal ABL. For example, if the nominal ABL value is 50 db SPL, one of the speakers will produce a sound of 50 dB SPL and the other one will produce a sound of 0 dB SPL. This parameter indicates whether this special case is used (true) or not (false).
+        /// In the fully lateralized variation of the task, the real ILD value corresponds to the input ABL and the real ABL value corresponds to half of it. For example, if the input ABL value is 50 db SPL, one of the speakers will produce a sound of 50 dB SPL and the other one will produce a sound of 0 dB SPL. This parameter indicates whether to apply the fully lateralized variation of the task (true) or not (false).
         /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("special_case", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="special_case")]
-        [System.ComponentModel.DescriptionAttribute(@"The special case is when the real ILD value is the nominal ABL and the real ABL value corresponds to half the nominal ABL. For example, if the nominal ABL value is 50 db SPL, one of the speakers will produce a sound of 50 dB SPL and the other one will produce a sound of 0 dB SPL. This parameter indicates whether this special case is used (true) or not (false).")]
-        public bool SpecialCase
+        [Newtonsoft.Json.JsonPropertyAttribute("fully_lateralized", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="fully_lateralized")]
+        [System.ComponentModel.DescriptionAttribute(@"In the fully lateralized variation of the task, the real ILD value corresponds to the input ABL and the real ABL value corresponds to half of it. For example, if the input ABL value is 50 db SPL, one of the speakers will produce a sound of 50 dB SPL and the other one will produce a sound of 0 dB SPL. This parameter indicates whether to apply the fully lateralized variation of the task (true) or not (false).")]
+        public bool FullyLateralized
         {
             get
             {
-                return _specialCase;
+                return _fullyLateralized;
             }
             set
             {
-                _specialCase = value;
+                _fullyLateralized = value;
             }
         }
     
@@ -412,7 +412,7 @@ namespace Training
     
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
-            stringBuilder.Append("special_case = " + _specialCase + ", ");
+            stringBuilder.Append("fully_lateralized = " + _fullyLateralized + ", ");
             stringBuilder.Append("step_size = " + _stepSize + ", ");
             stringBuilder.Append("num_steps = " + _numSteps + ", ");
             stringBuilder.Append("use_log_or_exp = " + _useLogOrExp + ", ");

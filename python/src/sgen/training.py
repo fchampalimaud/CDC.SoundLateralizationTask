@@ -1,12 +1,14 @@
-from pydantic import BaseModel, Field
+from pathlib import Path
 from typing import List, Literal
+
+from pydantic import BaseModel, Field
+
 from sgen._utils import (
-    export_schema,
-    bonsai_sgen,
     BonsaiSgenSerializers,
+    bonsai_sgen,
+    export_schema,
     pascal_to_snake_case,
 )
-from pathlib import Path
 
 
 class TrialRepetition(BaseModel):
@@ -74,8 +76,8 @@ class ITI(BaseModel):
 
 
 class ILD(BaseModel):
-    special_case: bool = Field(
-        description="The special case is when the real ILD value is the nominal ABL and the real ABL value corresponds to half the nominal ABL. For example, if the nominal ABL value is 50 db SPL, one of the speakers will produce a sound of 50 dB SPL and the other one will produce a sound of 0 dB SPL. This parameter indicates whether this special case is used (true) or not (false)."
+    fully_lateralized: bool = Field(
+        description="In the fully lateralized variation of the task, the real ILD value corresponds to the input ABL and the real ABL value corresponds to half of it. For example, if the input ABL value is 50 db SPL, one of the speakers will produce a sound of 50 dB SPL and the other one will produce a sound of 0 dB SPL. This parameter indicates whether to apply the fully lateralized variation of the task (true) or not (false)."
     )
     step_size: float = Field(
         description="The separation between two consecutive |ILD| values.", gt=0
@@ -87,7 +89,9 @@ class ILD(BaseModel):
     use_log_or_exp: Literal["Default", "Log", "Exp"] = Field(
         description="Indicates whether to use logarithmic/exponential steps between consecutive ILD values."
     )
-    log_or_exp_base: float = Field(description="The base of the logarithm/exponential.", gt=0)
+    log_or_exp_base: float = Field(
+        description="The base of the logarithm/exponential.", gt=0
+    )
 
 
 class ABL(BaseModel):

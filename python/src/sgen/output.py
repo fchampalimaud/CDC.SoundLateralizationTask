@@ -1,14 +1,17 @@
+from pathlib import Path
+from typing import Literal
+
 from pydantic import BaseModel, Field
 from pydantic.types import StringConstraints
+from pydantic_extra_types.pendulum_dt import DateTime
 from typing_extensions import Annotated
-from typing import Literal
+
 from sgen._utils import (
-    export_schema,
-    bonsai_sgen,
     BonsaiSgenSerializers,
+    bonsai_sgen,
+    export_schema,
     pascal_to_snake_case,
 )
-from pathlib import Path
 
 
 class Optogenetics(BaseModel):
@@ -18,14 +21,29 @@ class Optogenetics(BaseModel):
     duration: float = Field(
         description="The duration of the optogenetics used during the trial (s).", ge=0
     )
-    mode: Literal["Left", "Right", "Bilateral"] = Field(description="Indicates the optogenetics mode used in the current session.")
+    mode: Literal["Left", "Right", "Bilateral"] = Field(
+        description="Indicates the optogenetics mode used in the current session."
+    )
+    voltage: float = Field(
+        description="The voltage to use in the TTL signal.", ge=0, le=5000
+    )
+    power: float = Field(
+        description="The power with which the animal is stimulated.", ge=0
+    )
 
 
 class Outcome(BaseModel):
     response_poke: int = Field(
         description="The answer given by the animal in the current trial.", ge=-1, le=1
     )
-    value: int = Field(description="The outcome of the current trial.", ge=-8, le=2)
+    success: int = Field(
+        description="Indicates whether the animal answered correctly (1), incorrectly (-1) or whether the trial was aborted (0).",
+        ge=-1,
+        le=1,
+    )
+    abort_type: Literal[
+        "", "CNP", "Fixation", "RT+", "RT-", "MT+", "MT-", "LNP", "IO"
+    ] = Field(description="Indicates the type of abort that happened in the trial.")
     block_performance: float = Field(description="The block performance.", ge=0, le=1)
     block_abort_ratio: float = Field(description="The block abort ratio.", ge=0, le=1)
 
@@ -49,7 +67,7 @@ class ReactionTime(BaseModel):
     max_duration: float = Field(
         description="The maximum allowed reaction time (s).", ge=0
     )
-    timed_duration: float = Field(description="The timed reaction time (s).", ge=0)
+    timed_duration: float = Field(description="The timed reaction time (s).")
 
 
 class FixationTimeParts(BaseModel):
@@ -87,6 +105,10 @@ class FixationTime(BaseModel):
     timed_duration: float = Field(
         description="The timed duration for the total fixation time (ms).", ge=0
     )
+    total_duration: float = Field(
+        description="The total fixation time corresponds to the sum of the fixation time with the reaction time (ms).",
+        ge=0,
+    )
 
 
 class TimeToCnp(BaseModel):
@@ -117,10 +139,10 @@ class Sound(BaseModel):
     sound_index: int = Field(
         description="The index of the sound that played in the trial.", ge=2, le=31
     )
-    left_amplification: float = Field(
+    left_amp: float = Field(
         description="The amplification applied to the left speaker in the trial."
     )
-    right_amplification: float = Field(
+    right_amp: float = Field(
         description="The amplification applied to the right speaker in the trial."
     )
 
@@ -128,7 +150,7 @@ class Sound(BaseModel):
 class Session(BaseModel):
     number: int = Field(description="The number of the current session.")
     type: int = Field(description="The number of the session type.")
-    setup_id: int = Field(
+    box: int = Field(
         description="The ID number of the setup where the animal will performed the trial."
     )
 
@@ -144,19 +166,61 @@ class Block(BaseModel):
 
 class Trial(BaseModel):
     number: int = Field(description="The trial number.", ge=1)
+    computer_start_time: DateTime = Field(
+        "The timestamp at which the trial started in computer time."
+    )
+    computer_end_time: DateTime = Field(
+        "The timestamp at which the trial ended in computer time."
+    )
     start_time: float = Field(
-        description="The timestamp at which the trial started (s).", ge=0
+        description="The timestamp at which the trial started in Harp time (s).", ge=0
     )
-    tared_start_time: float = Field(description="The tared timestamp at which the trial started in which t = 0 is the start time of the first trial of the session (s).", ge=0)
+    tared_start_time: float = Field(
+        description="The tared timestamp at which the trial started in which t = 0 is the start time of the first trial of the session (s).",
+        ge=0,
+    )
     end_time: float = Field(
-        description="The timestamp at which the trial ended (s).", ge=0
+        description="The timestamp at which the trial ended in Harp time (s).", ge=0
     )
-    duration: float = Field(description="The trial duration (s).", gt=0)
+    duration: float = Field(description="The trial duration in Harp time (s).", gt=0)
+
+
+class PenaltyTimes(BaseModel):
+    incorrect: float = Field(
+        description="The penalty time to be applied when the animal answers incorrectly.",
+        ge=0,
+    )
+    abort: float = Field(
+        description="The penalty time to be applied when the animal aborts a trial (except if it's a fixation abort).",
+        ge=0,
+    )
+    fixation_abort: float = Field(
+        description="The penalty time to be applied in case of a fixation abort.", ge=0
+    )
+
+
+class Reward(BaseModel):
+    left: float = Field(
+        description="The amount of reward to be delivered in case the left poke is the correct answer.",
+        gt=0,
+    )
+    right: float = Field(
+        description="The amount of reward to be delivered in case the right poke is the correct answer.",
+        gt=0,
+    )
 
 
 class Output(BaseModel):
-    animal_id: int = Field(description="The ID number of the animal.")
-    version: Annotated[str, StringConstraints(pattern=r'\d+\.\d+\.\d+')] = Field(description="The version of the project used in the session.")
+    animal_id: Annotated[str, StringConstraints(pattern=r"^[A-Z]{2,6}\d{4}$")] = Field(
+        description="The ID of the animal."
+    )
+    batch: str = Field(description="The batch to which the current animal belongs to.")
+    experimenter: str = Field(
+        description="The person who trained the animal in the current session."
+    )
+    version: Annotated[str, StringConstraints(pattern=r"\d+\.\d+\.\d+")] = Field(
+        description="The version of the project used in the session."
+    )
     trial: Trial = Field(description="Contains the trial-related data.")
     block: Block = Field(description="Contains the block-related data.")
     session: Session = Field(description="Contains the session-related data.")
@@ -177,6 +241,12 @@ class Output(BaseModel):
     lnp_time: LnpTime = Field(description="Contains the data related to the LNP time.")
     outcome: Outcome = Field(
         description="Contains the data related to the trial outcome."
+    )
+    penalty_times: PenaltyTimes = Field(
+        description="Contains the penalty times for different ocasions."
+    )
+    reward: Reward = Field(
+        description="Contains the reward to be delivered for each side in case they are the correct answer."
     )
     repeated_trial: bool = Field(
         description="Indicates whether the current trial is a repetition of the previous trial (true) or not (false)."

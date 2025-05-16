@@ -27,10 +27,16 @@
         },
         "voltage": {
           "description": "The voltage to use in the TTL signal.",
-          "maximum": 5000,
-          "minimum": 0,
+          "maximum": 5000.0,
+          "minimum": 0.0,
           "title": "Voltage",
-          "type": "integer"
+          "type": "number"
+        },
+        "power": {
+          "description": "The power with which the animal is stimulated.",
+          "minimum": 0.0,
+          "title": "Power",
+          "type": "number"
         },
         "duration": {
           "description": "The duration of the optogenetics stimulation/inhibition protocol (s).",
@@ -50,11 +56,21 @@
           "title": "Use Pulses",
           "type": "boolean"
         },
+        "ramp_mode": {
+          "description": "Indicates the optogenetics mode used in the current session.",
+          "enum": [
+            "Rise",
+            "Fall",
+            "Both"
+          ],
+          "title": "Ramp Mode",
+          "type": "string"
+        },
         "ramp_time": {
           "description": "The duration of the ramp of the optogenetics protocol (ms). It only works when use_pulses is false.",
-          "minimum": 0.0,
+          "exclusiveMinimum": 0,
           "title": "Ramp Time",
-          "type": "number"
+          "type": "integer"
         },
         "frequency": {
           "description": "The frequency of the pulses (Hz). It only works when use_pulses is true.",
@@ -87,9 +103,11 @@
       "required": [
         "use_opto",
         "voltage",
+        "power",
         "duration",
         "opto_ratio",
         "use_pulses",
+        "ramp_mode",
         "ramp_time",
         "frequency",
         "pulse_duration",
@@ -106,6 +124,11 @@
           "title": "Number",
           "type": "integer"
         },
+        "experimenter": {
+          "description": "The person who trained the animal in the current session.",
+          "title": "Experimenter",
+          "type": "string"
+        },
         "duration": {
           "description": "The duration of the session (in the hh:mm:ss format).",
           "format": "duration",
@@ -117,9 +140,9 @@
           "title": "Type",
           "type": "integer"
         },
-        "setup_id": {
+        "box": {
           "description": "The ID number of the setup where the animal will perform the session.",
-          "title": "Setup Id",
+          "title": "Box",
           "type": "integer"
         },
         "starting_trial_number": {
@@ -149,9 +172,10 @@
       },
       "required": [
         "number",
+        "experimenter",
         "duration",
         "type",
-        "setup_id",
+        "box",
         "starting_trial_number",
         "starting_block_number",
         "starting_training_level",
@@ -222,9 +246,15 @@
   },
   "properties": {
     "animal_id": {
-      "description": "The ID number of the animal.",
+      "description": "The ID of the animal.",
+      "pattern": "^[A-Z]{2,6}\\d{4}$",
       "title": "Animal Id",
-      "type": "integer"
+      "type": "string"
+    },
+    "batch": {
+      "description": "The batch to which the current animal belongs to.",
+      "title": "Batch",
+      "type": "string"
     },
     "session": {
       "$ref": "#/definitions/Session",
@@ -276,6 +306,7 @@
   },
   "required": [
     "animal_id",
+    "batch",
     "session",
     "sound",
     "fixation_time",

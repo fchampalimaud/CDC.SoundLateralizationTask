@@ -109,7 +109,9 @@ namespace Animal
     
         private bool _useOpto;
     
-        private int _voltage;
+        private double _voltage;
+    
+        private double _power;
     
         private double _duration;
     
@@ -117,7 +119,9 @@ namespace Animal
     
         private bool _usePulses;
     
-        private double _rampTime;
+        private OptogeneticsRampMode _rampMode;
+    
+        private int _rampTime;
     
         private double _frequency;
     
@@ -135,9 +139,11 @@ namespace Animal
         {
             _useOpto = other._useOpto;
             _voltage = other._voltage;
+            _power = other._power;
             _duration = other._duration;
             _optoRatio = other._optoRatio;
             _usePulses = other._usePulses;
+            _rampMode = other._rampMode;
             _rampTime = other._rampTime;
             _frequency = other._frequency;
             _pulseDuration = other._pulseDuration;
@@ -169,7 +175,7 @@ namespace Animal
         [Newtonsoft.Json.JsonPropertyAttribute("voltage", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="voltage")]
         [System.ComponentModel.DescriptionAttribute("The voltage to use in the TTL signal.")]
-        public int Voltage
+        public double Voltage
         {
             get
             {
@@ -178,6 +184,24 @@ namespace Animal
             set
             {
                 _voltage = value;
+            }
+        }
+    
+        /// <summary>
+        /// The power with which the animal is stimulated.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("power", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="power")]
+        [System.ComponentModel.DescriptionAttribute("The power with which the animal is stimulated.")]
+        public double Power
+        {
+            get
+            {
+                return _power;
+            }
+            set
+            {
+                _power = value;
             }
         }
     
@@ -237,13 +261,32 @@ namespace Animal
         }
     
         /// <summary>
+        /// Indicates the optogenetics mode used in the current session.
+        /// </summary>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [Newtonsoft.Json.JsonPropertyAttribute("ramp_mode", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="ramp_mode")]
+        [System.ComponentModel.DescriptionAttribute("Indicates the optogenetics mode used in the current session.")]
+        public OptogeneticsRampMode RampMode
+        {
+            get
+            {
+                return _rampMode;
+            }
+            set
+            {
+                _rampMode = value;
+            }
+        }
+    
+        /// <summary>
         /// The duration of the ramp of the optogenetics protocol (ms). It only works when use_pulses is false.
         /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("ramp_time", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="ramp_time")]
         [System.ComponentModel.DescriptionAttribute("The duration of the ramp of the optogenetics protocol (ms). It only works when us" +
             "e_pulses is false.")]
-        public double RampTime
+        public int RampTime
         {
             get
             {
@@ -343,9 +386,11 @@ namespace Animal
         {
             stringBuilder.Append("use_opto = " + _useOpto + ", ");
             stringBuilder.Append("voltage = " + _voltage + ", ");
+            stringBuilder.Append("power = " + _power + ", ");
             stringBuilder.Append("duration = " + _duration + ", ");
             stringBuilder.Append("opto_ratio = " + _optoRatio + ", ");
             stringBuilder.Append("use_pulses = " + _usePulses + ", ");
+            stringBuilder.Append("ramp_mode = " + _rampMode + ", ");
             stringBuilder.Append("ramp_time = " + _rampTime + ", ");
             stringBuilder.Append("frequency = " + _frequency + ", ");
             stringBuilder.Append("pulse_duration = " + _pulseDuration + ", ");
@@ -377,11 +422,13 @@ namespace Animal
     
         private int _number;
     
+        private string _experimenter;
+    
         private System.TimeSpan _duration;
     
         private int _type;
     
-        private int _setupId;
+        private int _box;
     
         private int _startingTrialNumber;
     
@@ -398,9 +445,10 @@ namespace Animal
         protected Session(Session other)
         {
             _number = other._number;
+            _experimenter = other._experimenter;
             _duration = other._duration;
             _type = other._type;
-            _setupId = other._setupId;
+            _box = other._box;
             _startingTrialNumber = other._startingTrialNumber;
             _startingBlockNumber = other._startingBlockNumber;
             _startingTrainingLevel = other._startingTrainingLevel;
@@ -422,6 +470,24 @@ namespace Animal
             set
             {
                 _number = value;
+            }
+        }
+    
+        /// <summary>
+        /// The person who trained the animal in the current session.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("experimenter", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="experimenter")]
+        [System.ComponentModel.DescriptionAttribute("The person who trained the animal in the current session.")]
+        public string Experimenter
+        {
+            get
+            {
+                return _experimenter;
+            }
+            set
+            {
+                _experimenter = value;
             }
         }
     
@@ -465,18 +531,18 @@ namespace Animal
         /// <summary>
         /// The ID number of the setup where the animal will perform the session.
         /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("setup_id", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="setup_id")]
+        [Newtonsoft.Json.JsonPropertyAttribute("box", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="box")]
         [System.ComponentModel.DescriptionAttribute("The ID number of the setup where the animal will perform the session.")]
-        public int SetupId
+        public int Box
         {
             get
             {
-                return _setupId;
+                return _box;
             }
             set
             {
-                _setupId = value;
+                _box = value;
             }
         }
     
@@ -566,9 +632,10 @@ namespace Animal
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
             stringBuilder.Append("number = " + _number + ", ");
+            stringBuilder.Append("experimenter = " + _experimenter + ", ");
             stringBuilder.Append("duration = " + _duration + ", ");
             stringBuilder.Append("type = " + _type + ", ");
-            stringBuilder.Append("setup_id = " + _setupId + ", ");
+            stringBuilder.Append("box = " + _box + ", ");
             stringBuilder.Append("starting_trial_number = " + _startingTrialNumber + ", ");
             stringBuilder.Append("starting_block_number = " + _startingBlockNumber + ", ");
             stringBuilder.Append("starting_training_level = " + _startingTrainingLevel + ", ");
@@ -820,7 +887,9 @@ namespace Animal
     public partial class Animal
     {
     
-        private int _animalId;
+        private string _animalId;
+    
+        private string _batch;
     
         private Session _session = new Session();
     
@@ -849,6 +918,7 @@ namespace Animal
         protected Animal(Animal other)
         {
             _animalId = other._animalId;
+            _batch = other._batch;
             _session = other._session;
             _sound = other._sound;
             _fixationTime = other._fixationTime;
@@ -862,12 +932,12 @@ namespace Animal
         }
     
         /// <summary>
-        /// The ID number of the animal.
+        /// The ID of the animal.
         /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("animal_id", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="animal_id")]
-        [System.ComponentModel.DescriptionAttribute("The ID number of the animal.")]
-        public int AnimalId
+        [System.ComponentModel.DescriptionAttribute("The ID of the animal.")]
+        public string AnimalId
         {
             get
             {
@@ -876,6 +946,24 @@ namespace Animal
             set
             {
                 _animalId = value;
+            }
+        }
+    
+        /// <summary>
+        /// The batch to which the current animal belongs to.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("batch", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="batch")]
+        [System.ComponentModel.DescriptionAttribute("The batch to which the current animal belongs to.")]
+        public string Batch
+        {
+            get
+            {
+                return _batch;
+            }
+            set
+            {
+                _batch = value;
             }
         }
     
@@ -1080,6 +1168,7 @@ namespace Animal
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
             stringBuilder.Append("animal_id = " + _animalId + ", ");
+            stringBuilder.Append("batch = " + _batch + ", ");
             stringBuilder.Append("session = " + _session + ", ");
             stringBuilder.Append("sound = " + _sound + ", ");
             stringBuilder.Append("fixation_time = " + _fixationTime + ", ");
@@ -1105,6 +1194,25 @@ namespace Animal
             stringBuilder.Append("}");
             return stringBuilder.ToString();
         }
+    }
+
+
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
+    [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+    public enum OptogeneticsRampMode
+    {
+    
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="Rise")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="Rise")]
+        Rise = 0,
+    
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="Fall")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="Fall")]
+        Fall = 1,
+    
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="Both")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="Both")]
+        Both = 2,
     }
 
 
