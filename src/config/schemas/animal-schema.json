@@ -18,13 +18,8 @@
       "title": "FixationTime",
       "type": "object"
     },
-    "Optogenetics": {
+    "OptoLED": {
       "properties": {
-        "use_opto": {
-          "description": "Indicates whether optogenetics is used or not.",
-          "title": "Use Opto",
-          "type": "boolean"
-        },
         "voltage": {
           "description": "The voltage to use in the TTL signal.",
           "maximum": 5000.0,
@@ -37,6 +32,63 @@
           "minimum": 0.0,
           "title": "Power",
           "type": "number"
+        },
+        "mode": {
+          "description": "Indicates whether the LED port is being used to control an external LED via TTL or if it's controlling a LED directly with the current sources.",
+          "enum": [
+            "TTL",
+            "Current"
+          ],
+          "title": "Mode",
+          "type": "string"
+        },
+        "use_pulses": {
+          "description": "Indicates whether the optogenetics protocol uses pulses of light (true) or a continuous emission (false).",
+          "title": "Use Pulses",
+          "type": "boolean"
+        },
+        "frequency": {
+          "description": "The frequency of the pulses (Hz). It only works when use_pulses is true.",
+          "maximum": 255,
+          "minimum": 1,
+          "title": "Frequency",
+          "type": "integer"
+        },
+        "duty_cycle": {
+          "description": "The duty cycle of the pulses (%). It only works when use_pulses is true.",
+          "maximum": 100,
+          "minimum": 0,
+          "title": "Duty Cycle",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "voltage",
+        "power",
+        "mode",
+        "use_pulses",
+        "frequency",
+        "duty_cycle"
+      ],
+      "title": "OptoLED",
+      "type": "object"
+    },
+    "Optogenetics": {
+      "properties": {
+        "use_opto": {
+          "description": "Indicates whether optogenetics is used or not.",
+          "title": "Use Opto",
+          "type": "boolean"
+        },
+        "mode": {
+          "description": "Indicates the optogenetics mode used in the current session.",
+          "enum": [
+            "Left",
+            "Right",
+            "Bilateral"
+          ],
+          "title": "Mode",
+          "type": "string"
         },
         "duration": {
           "description": "The duration of the optogenetics stimulation/inhibition protocol (s).",
@@ -51,14 +103,15 @@
           "title": "Opto Ratio",
           "type": "number"
         },
-        "use_pulses": {
-          "description": "Indicates whether the optogenetics protocol uses pulses of light (true) or a continuous emission (false).",
-          "title": "Use Pulses",
+        "use_rt": {
+          "description": "Indicates whether the optogenetics stimulation/inhibition should stop when the animal leaves the poke (true) or not (false).",
+          "title": "Use Rt",
           "type": "boolean"
         },
         "ramp_mode": {
-          "description": "Indicates the optogenetics mode used in the current session.",
+          "description": "Indicates the ramp mode used in the optogenetics protocol. It only works if the LED is not configured to use pulses.",
           "enum": [
+            "None",
             "Rise",
             "Fall",
             "Both"
@@ -68,51 +121,29 @@
         },
         "ramp_time": {
           "description": "The duration of the ramp of the optogenetics protocol (ms). It only works when use_pulses is false.",
-          "exclusiveMinimum": 0,
+          "minimum": 1,
           "title": "Ramp Time",
           "type": "integer"
         },
-        "frequency": {
-          "description": "The frequency of the pulses (Hz). It only works when use_pulses is true.",
-          "exclusiveMinimum": 0.0,
-          "title": "Frequency",
-          "type": "number"
+        "led0": {
+          "$ref": "#/definitions/OptoLED",
+          "description": "The optogenetics protocol that LED 0 executes."
         },
-        "pulse_duration": {
-          "description": "The duration of a single pulse (ms). It only works when use_pulses is true.",
-          "minimum": 0.0,
-          "title": "Pulse Duration",
-          "type": "number"
-        },
-        "use_rt": {
-          "description": "Indicates whether the optogenetics stimulation/inhibition should stop when the animal leaves the poke (true) or not (false).",
-          "title": "Use Rt",
-          "type": "boolean"
-        },
-        "mode": {
-          "description": "Indicates the optogenetics mode used in the current session.",
-          "enum": [
-            "Left",
-            "Right",
-            "Bilateral"
-          ],
-          "title": "Mode",
-          "type": "string"
+        "led1": {
+          "$ref": "#/definitions/OptoLED",
+          "description": "The optogenetics protocol that LED 1 executes."
         }
       },
       "required": [
         "use_opto",
-        "voltage",
-        "power",
+        "mode",
         "duration",
         "opto_ratio",
-        "use_pulses",
+        "use_rt",
         "ramp_mode",
         "ramp_time",
-        "frequency",
-        "pulse_duration",
-        "use_rt",
-        "mode"
+        "led0",
+        "led1"
       ],
       "title": "Optogenetics",
       "type": "object"

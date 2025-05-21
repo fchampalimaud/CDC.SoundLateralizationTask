@@ -14,13 +14,35 @@ from sgen._utils import (
 )
 
 
-class Optogenetics(BaseModel):
-    use_opto: bool = Field(description="Indicates whether optogenetics is used or not.")
+class OptoLED(BaseModel):
     voltage: float = Field(
         description="The voltage to use in the TTL signal.", ge=0, le=5000
     )
     power: float = Field(
         description="The power with which the animal is stimulated.", ge=0
+    )
+    mode: Literal["TTL", "Current"] = Field(
+        description="Indicates whether the LED port is being used to control an external LED via TTL or if it's controlling a LED directly with the current sources."
+    )
+    use_pulses: bool = Field(
+        description="Indicates whether the optogenetics protocol uses pulses of light (true) or a continuous emission (false)."
+    )
+    frequency: int = Field(
+        description="The frequency of the pulses (Hz). It only works when use_pulses is true.",
+        ge=1,
+        le=255,
+    )
+    duty_cycle: int = Field(
+        description="The duty cycle of the pulses (%). It only works when use_pulses is true.",
+        ge=0,
+        le=100,
+    )
+
+
+class Optogenetics(BaseModel):
+    use_opto: bool = Field(description="Indicates whether optogenetics is used or not.")
+    mode: Literal["Left", "Right", "Bilateral"] = Field(
+        description="Indicates the optogenetics mode used in the current session."
     )
     duration: float = Field(
         description="The duration of the optogenetics stimulation/inhibition protocol (s).",
@@ -29,30 +51,18 @@ class Optogenetics(BaseModel):
     opto_ratio: float = Field(
         description="The ratio of optogenetics trials.", ge=0, le=1
     )
-    use_pulses: bool = Field(
-        description="Indicates whether the optogenetics protocol uses pulses of light (true) or a continuous emission (false)."
-    )
-    ramp_mode: Literal["Rise", "Fall", "Both"] = Field(
-        description="Indicates the optogenetics mode used in the current session."
-    )
-    ramp_time: int = Field(
-        description="The duration of the ramp of the optogenetics protocol (ms). It only works when use_pulses is false.",
-        gt=0,
-    )
-    frequency: float = Field(
-        description="The frequency of the pulses (Hz). It only works when use_pulses is true.",
-        gt=0,
-    )
-    pulse_duration: float = Field(
-        description="The duration of a single pulse (ms). It only works when use_pulses is true.",
-        ge=0,
-    )
     use_rt: bool = Field(
         description="Indicates whether the optogenetics stimulation/inhibition should stop when the animal leaves the poke (true) or not (false)."
     )
-    mode: Literal["Left", "Right", "Bilateral"] = Field(
-        description="Indicates the optogenetics mode used in the current session."
+    ramp_mode: Literal["None", "Rise", "Fall", "Both"] = Field(
+        description="Indicates the ramp mode used in the optogenetics protocol. It only works if the LED is not configured to use pulses."
     )
+    ramp_time: int = Field(
+        description="The duration of the ramp of the optogenetics protocol (ms). It only works when use_pulses is false.",
+        ge=1,
+    )
+    led0: OptoLED = Field(description="The optogenetics protocol that LED 0 executes.")
+    led1: OptoLED = Field(description="The optogenetics protocol that LED 1 executes.")
 
 
 class TimeConstrains(BaseModel):
