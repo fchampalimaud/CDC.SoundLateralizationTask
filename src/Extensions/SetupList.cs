@@ -105,11 +105,7 @@ namespace SetupList
     
         private double _boxPeriod;
     
-        private double _boxDutyCycle;
-    
         private double _pokePeriod;
-    
-        private double _pokeDutyCycle;
     
         private bool _itiLight;
     
@@ -126,9 +122,7 @@ namespace SetupList
         protected Lights(Lights other)
         {
             _boxPeriod = other._boxPeriod;
-            _boxDutyCycle = other._boxDutyCycle;
             _pokePeriod = other._pokePeriod;
-            _pokeDutyCycle = other._pokeDutyCycle;
             _itiLight = other._itiLight;
             _pokeLight = other._pokeLight;
             _fixationLight = other._fixationLight;
@@ -154,24 +148,6 @@ namespace SetupList
         }
     
         /// <summary>
-        /// The value representing the proportion of time the LED is on when the box LED is blinking. If it's 0 it means that the LED is always off, if it's 1 it means the LED is always on and, for example, if it's 0.5 it means that the LED is on half of the time and off for the remaining half.
-        /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("box_duty_cycle", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="box_duty_cycle")]
-        [System.ComponentModel.DescriptionAttribute(@"The value representing the proportion of time the LED is on when the box LED is blinking. If it's 0 it means that the LED is always off, if it's 1 it means the LED is always on and, for example, if it's 0.5 it means that the LED is on half of the time and off for the remaining half.")]
-        public double BoxDutyCycle
-        {
-            get
-            {
-                return _boxDutyCycle;
-            }
-            set
-            {
-                _boxDutyCycle = value;
-            }
-        }
-    
-        /// <summary>
         /// The period of the blinking of the central poke LED (ms).
         /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("poke_period", Required=Newtonsoft.Json.Required.Always)]
@@ -186,24 +162,6 @@ namespace SetupList
             set
             {
                 _pokePeriod = value;
-            }
-        }
-    
-        /// <summary>
-        /// The value representing the proportion of time the LED is on when the central poke LED is blinking. If it's 0 it means that the LED is always off, if it's 1 it means the LED is always on and, for example, if it's 0.5 it means that the LED is on half of the time and off for the remaining half.
-        /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("poke_duty_cycle", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="poke_duty_cycle")]
-        [System.ComponentModel.DescriptionAttribute(@"The value representing the proportion of time the LED is on when the central poke LED is blinking. If it's 0 it means that the LED is always off, if it's 1 it means the LED is always on and, for example, if it's 0.5 it means that the LED is on half of the time and off for the remaining half.")]
-        public double PokeDutyCycle
-        {
-            get
-            {
-                return _pokeDutyCycle;
-            }
-            set
-            {
-                _pokeDutyCycle = value;
             }
         }
     
@@ -296,9 +254,7 @@ namespace SetupList
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
             stringBuilder.Append("box_period = " + _boxPeriod + ", ");
-            stringBuilder.Append("box_duty_cycle = " + _boxDutyCycle + ", ");
             stringBuilder.Append("poke_period = " + _pokePeriod + ", ");
-            stringBuilder.Append("poke_duty_cycle = " + _pokeDutyCycle + ", ");
             stringBuilder.Append("iti_light = " + _itiLight + ", ");
             stringBuilder.Append("poke_light = " + _pokeLight + ", ");
             stringBuilder.Append("fixation_light = " + _fixationLight + ", ");

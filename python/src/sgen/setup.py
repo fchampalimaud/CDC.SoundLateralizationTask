@@ -1,12 +1,14 @@
-from pydantic import BaseModel, Field
+from pathlib import Path
 from typing import List
+
+from pydantic import BaseModel, Field
+
 from sgen._utils import (
-    export_schema,
-    bonsai_sgen,
     BonsaiSgenSerializers,
+    bonsai_sgen,
+    export_schema,
     pascal_to_snake_case,
 )
-from pathlib import Path
 
 
 class Sound(BaseModel):
@@ -40,18 +42,8 @@ class Lights(BaseModel):
     box_period: float = Field(
         description="The period of the blinking of the box LED (ms).", ge=0
     )
-    box_duty_cycle: float = Field(
-        description="The value representing the proportion of time the LED is on when the box LED is blinking. If it's 0 it means that the LED is always off, if it's 1 it means the LED is always on and, for example, if it's 0.5 it means that the LED is on half of the time and off for the remaining half.",
-        ge=0,
-        le=1,
-    )
     poke_period: float = Field(
         description="The period of the blinking of the central poke LED (ms).", ge=0
-    )
-    poke_duty_cycle: float = Field(
-        description="The value representing the proportion of time the LED is on when the central poke LED is blinking. If it's 0 it means that the LED is always off, if it's 1 it means the LED is always on and, for example, if it's 0.5 it means that the LED is on half of the time and off for the remaining half.",
-        ge=0,
-        le=1,
     )
     iti_light: bool = Field(
         description="Indicates whether the box LED should turn of when the new trial is ready (true) or not (false)."
@@ -87,11 +79,14 @@ class Poke(BaseModel):
         description="Indicates whether the poke is a low-to-high (true) or a high-to-low (false) device."
     )
 
+
 class Camera(BaseModel):
     use_camera: bool = Field(
         description="Indicates whether the setup has a camera (true) or not (false)."
     )
-    frames_per_second: float = Field(description="The number of frames per second of the camera.", gt=0)
+    frames_per_second: float = Field(
+        description="The number of frames per second of the camera.", gt=0
+    )
 
 
 class Setup(BaseModel):
@@ -115,9 +110,7 @@ class Setup(BaseModel):
     sounds: List[Sound] = Field(
         description="The list with information regarding the sounds uploaded to the Harp SoundCard."
     )
-    camera: Camera = Field(
-        description="Contains parameters related to the camera."
-    )
+    camera: Camera = Field(description="Contains parameters related to the camera.")
 
 
 class SetupList(BaseModel):
