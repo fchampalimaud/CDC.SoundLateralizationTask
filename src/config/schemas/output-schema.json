@@ -205,17 +205,30 @@
           "title": "Mode",
           "type": "string"
         },
-        "voltage": {
+        "led0_voltage": {
           "description": "The voltage to use in the TTL signal.",
           "maximum": 5000.0,
           "minimum": 0.0,
-          "title": "Voltage",
+          "title": "Led0 Voltage",
           "type": "number"
         },
-        "power": {
+        "led0_power": {
           "description": "The power with which the animal is stimulated.",
           "minimum": 0.0,
-          "title": "Power",
+          "title": "Led0 Power",
+          "type": "number"
+        },
+        "led1_voltage": {
+          "description": "The voltage to use in the TTL signal.",
+          "maximum": 5000.0,
+          "minimum": 0.0,
+          "title": "Led1 Voltage",
+          "type": "number"
+        },
+        "led1_power": {
+          "description": "The power with which the animal is stimulated.",
+          "minimum": 0.0,
+          "title": "Led1 Power",
           "type": "number"
         }
       },
@@ -223,8 +236,10 @@
         "opto_trial",
         "duration",
         "mode",
-        "voltage",
-        "power"
+        "led0_voltage",
+        "led0_power",
+        "led1_voltage",
+        "led1_power"
       ],
       "title": "Optogenetics",
       "type": "object"

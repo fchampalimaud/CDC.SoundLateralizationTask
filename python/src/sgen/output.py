@@ -24,10 +24,16 @@ class Optogenetics(BaseModel):
     mode: Literal["Left", "Right", "Bilateral"] = Field(
         description="Indicates the optogenetics mode used in the current session."
     )
-    voltage: float = Field(
+    led0_voltage: float = Field(
         description="The voltage to use in the TTL signal.", ge=0, le=5000
     )
-    power: float = Field(
+    led0_power: float = Field(
+        description="The power with which the animal is stimulated.", ge=0
+    )
+    led1_voltage: float = Field(
+        description="The voltage to use in the TTL signal.", ge=0, le=5000
+    )
+    led1_power: float = Field(
         description="The power with which the animal is stimulated.", ge=0
     )
 

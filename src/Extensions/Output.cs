@@ -730,9 +730,13 @@ namespace Output
     
         private OptogeneticsMode _mode;
     
-        private double _voltage;
+        private double _led0Voltage;
     
-        private double _power;
+        private double _led0Power;
+    
+        private double _led1Voltage;
+    
+        private double _led1Power;
     
         public Optogenetics()
         {
@@ -743,8 +747,10 @@ namespace Output
             _optoTrial = other._optoTrial;
             _duration = other._duration;
             _mode = other._mode;
-            _voltage = other._voltage;
-            _power = other._power;
+            _led0Voltage = other._led0Voltage;
+            _led0Power = other._led0Power;
+            _led1Voltage = other._led1Voltage;
+            _led1Power = other._led1Power;
         }
     
         /// <summary>
@@ -805,36 +811,72 @@ namespace Output
         /// <summary>
         /// The voltage to use in the TTL signal.
         /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("voltage", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="voltage")]
+        [Newtonsoft.Json.JsonPropertyAttribute("led0_voltage", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="led0_voltage")]
         [System.ComponentModel.DescriptionAttribute("The voltage to use in the TTL signal.")]
-        public double Voltage
+        public double Led0Voltage
         {
             get
             {
-                return _voltage;
+                return _led0Voltage;
             }
             set
             {
-                _voltage = value;
+                _led0Voltage = value;
             }
         }
     
         /// <summary>
         /// The power with which the animal is stimulated.
         /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("power", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="power")]
+        [Newtonsoft.Json.JsonPropertyAttribute("led0_power", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="led0_power")]
         [System.ComponentModel.DescriptionAttribute("The power with which the animal is stimulated.")]
-        public double Power
+        public double Led0Power
         {
             get
             {
-                return _power;
+                return _led0Power;
             }
             set
             {
-                _power = value;
+                _led0Power = value;
+            }
+        }
+    
+        /// <summary>
+        /// The voltage to use in the TTL signal.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("led1_voltage", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="led1_voltage")]
+        [System.ComponentModel.DescriptionAttribute("The voltage to use in the TTL signal.")]
+        public double Led1Voltage
+        {
+            get
+            {
+                return _led1Voltage;
+            }
+            set
+            {
+                _led1Voltage = value;
+            }
+        }
+    
+        /// <summary>
+        /// The power with which the animal is stimulated.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("led1_power", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="led1_power")]
+        [System.ComponentModel.DescriptionAttribute("The power with which the animal is stimulated.")]
+        public double Led1Power
+        {
+            get
+            {
+                return _led1Power;
+            }
+            set
+            {
+                _led1Power = value;
             }
         }
     
@@ -853,8 +895,10 @@ namespace Output
             stringBuilder.Append("opto_trial = " + _optoTrial + ", ");
             stringBuilder.Append("duration = " + _duration + ", ");
             stringBuilder.Append("mode = " + _mode + ", ");
-            stringBuilder.Append("voltage = " + _voltage + ", ");
-            stringBuilder.Append("power = " + _power);
+            stringBuilder.Append("led0_voltage = " + _led0Voltage + ", ");
+            stringBuilder.Append("led0_power = " + _led0Power + ", ");
+            stringBuilder.Append("led1_voltage = " + _led1Voltage + ", ");
+            stringBuilder.Append("led1_power = " + _led1Power);
             return true;
         }
     
