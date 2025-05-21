@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Reactive.Linq;
-using System.Threading;
 using Bonsai;
 
 namespace CF
@@ -18,8 +16,8 @@ namespace CF
     {
         int numsteps;
         double stepsize;
-        Training.ILDUseLogOrExp uselogorexp;
-        double logorexpbase = Math.E;
+        bool uselog;
+        double logbase = Math.E;
         event Action<double[]> ValueChanged;
 
         [Description("The number of |ILD| values. The final array will contain 2*NumSteps elements, since it will contain both positive and negative ILD values.")]
@@ -44,22 +42,22 @@ namespace CF
             }
         }
         [Description("Whether to use logarithmic steps between consecutive ILD values.")]
-        public Training.ILDUseLogOrExp UseLogOrExp
+        public bool UseLog
         {
-            get { return uselogorexp; }
+            get { return uselog; }
             set
             {
-                this.uselogorexp = value;
+                this.uselog = value;
                 OnValueChanged(value);
             }
         }
         [Description("The base of the logarithm/exponential.")]
-        public double LogOrExpBase
+        public double LogBase
         {
-            get { return logorexpbase; }
+            get { return logbase; }
             set
             {
-                this.logorexpbase = value;
+                this.logbase = value;
                 OnValueChanged(value);
             }
         }
@@ -72,7 +70,7 @@ namespace CF
         }
 
         /// <summary>
-        /// Generates an array containing the ILD values to be used based on <c>NumSteps</c>, <c>StepSize</c>, <c>UseLogOrExp</c> and <c>LogOrExpBase</c>.
+        /// Generates an array containing the ILD values to be used based on <c>NumSteps</c>, <c>StepSize</c>, <c>UseLog</c> and <c>LogBase</c>.
         /// </summary>
         /// <returns>
         /// An array with 2*<c>NumSteps</c> ILD values.
@@ -82,13 +80,9 @@ namespace CF
             double[] ILDs = new double[NumSteps * 2];
             for (int i = 0; i < NumSteps; i++)
             {
-                if (UseLogOrExp == Training.ILDUseLogOrExp.Log)
+                if (UseLog == true)
                 {
-                    ILDs[i] = -StepSize * Math.Log(1 + NumSteps - i, LogOrExpBase);
-                }
-                else if (UseLogOrExp == Training.ILDUseLogOrExp.Exp)
-                {
-                    ILDs[i] = - Math.Pow(LogOrExpBase, StepSize * (NumSteps - 1 - i));
+                    ILDs[i] = - Math.Pow(LogBase, StepSize * (NumSteps - 1 - i));
                 }
                 else
                 {
@@ -98,13 +92,9 @@ namespace CF
 
             for (int i = NumSteps; i < NumSteps * 2; i++)
             {
-                if (UseLogOrExp == Training.ILDUseLogOrExp.Log)
+                if (UseLog == true)
                 {
-                    ILDs[i] = StepSize * Math.Log(1 + i - NumSteps + 1, LogOrExpBase);
-                }
-                else if (UseLogOrExp == Training.ILDUseLogOrExp.Exp)
-                {
-                    ILDs[i] = Math.Pow(LogOrExpBase, StepSize * (i - NumSteps));
+                    ILDs[i] = Math.Pow(LogBase, StepSize * (i - NumSteps));
                 }
                 else
                 {

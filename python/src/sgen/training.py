@@ -1,5 +1,5 @@
 from pathlib import Path
-from typing import List, Literal
+from typing import List
 
 from pydantic import BaseModel, Field
 
@@ -86,12 +86,10 @@ class ILD(BaseModel):
         description="The number of |ILD| values. The final array will contain 2 * num_steps elements to account for both the positive and the negative ILD values.",
         ge=1,
     )
-    use_log_or_exp: Literal["Default", "Log", "Exp"] = Field(
-        description="Indicates whether to use logarithmic/exponential steps between consecutive ILD values."
+    use_log: bool = Field(
+        description="Indicates whether to use logarithmic steps between consecutive ILD values."
     )
-    log_or_exp_base: float = Field(
-        description="The base of the logarithm/exponential.", gt=0
-    )
+    log_base: float = Field(description="The base of the logarithm/exponential.", gt=0)
 
 
 class ABL(BaseModel):

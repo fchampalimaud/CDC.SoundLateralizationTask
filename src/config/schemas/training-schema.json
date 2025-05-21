@@ -83,20 +83,15 @@
           "title": "Num Steps",
           "type": "integer"
         },
-        "use_log_or_exp": {
-          "description": "Indicates whether to use logarithmic/exponential steps between consecutive ILD values.",
-          "enum": [
-            "Default",
-            "Log",
-            "Exp"
-          ],
-          "title": "Use Log Or Exp",
-          "type": "string"
+        "use_log": {
+          "description": "Indicates whether to use logarithmic steps between consecutive ILD values.",
+          "title": "Use Log",
+          "type": "boolean"
         },
-        "log_or_exp_base": {
+        "log_base": {
           "description": "The base of the logarithm/exponential.",
           "exclusiveMinimum": 0.0,
-          "title": "Log Or Exp Base",
+          "title": "Log Base",
           "type": "number"
         }
       },
@@ -104,8 +99,8 @@
         "fully_lateralized",
         "step_size",
         "num_steps",
-        "use_log_or_exp",
-        "log_or_exp_base"
+        "use_log",
+        "log_base"
       ],
       "title": "ILD",
       "type": "object"

@@ -290,9 +290,9 @@ namespace Training
     
         private int _numSteps;
     
-        private ILDUseLogOrExp _useLogOrExp;
+        private bool _useLog;
     
-        private double _logOrExpBase;
+        private double _logBase;
     
         public ILD()
         {
@@ -303,8 +303,8 @@ namespace Training
             _fullyLateralized = other._fullyLateralized;
             _stepSize = other._stepSize;
             _numSteps = other._numSteps;
-            _useLogOrExp = other._useLogOrExp;
-            _logOrExpBase = other._logOrExpBase;
+            _useLog = other._useLog;
+            _logBase = other._logBase;
         }
     
         /// <summary>
@@ -363,40 +363,38 @@ namespace Training
         }
     
         /// <summary>
-        /// Indicates whether to use logarithmic/exponential steps between consecutive ILD values.
+        /// Indicates whether to use logarithmic steps between consecutive ILD values.
         /// </summary>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        [Newtonsoft.Json.JsonPropertyAttribute("use_log_or_exp", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="use_log_or_exp")]
-        [System.ComponentModel.DescriptionAttribute("Indicates whether to use logarithmic/exponential steps between consecutive ILD va" +
-            "lues.")]
-        public ILDUseLogOrExp UseLogOrExp
+        [Newtonsoft.Json.JsonPropertyAttribute("use_log", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="use_log")]
+        [System.ComponentModel.DescriptionAttribute("Indicates whether to use logarithmic steps between consecutive ILD values.")]
+        public bool UseLog
         {
             get
             {
-                return _useLogOrExp;
+                return _useLog;
             }
             set
             {
-                _useLogOrExp = value;
+                _useLog = value;
             }
         }
     
         /// <summary>
         /// The base of the logarithm/exponential.
         /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("log_or_exp_base", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="log_or_exp_base")]
+        [Newtonsoft.Json.JsonPropertyAttribute("log_base", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="log_base")]
         [System.ComponentModel.DescriptionAttribute("The base of the logarithm/exponential.")]
-        public double LogOrExpBase
+        public double LogBase
         {
             get
             {
-                return _logOrExpBase;
+                return _logBase;
             }
             set
             {
-                _logOrExpBase = value;
+                _logBase = value;
             }
         }
     
@@ -415,8 +413,8 @@ namespace Training
             stringBuilder.Append("fully_lateralized = " + _fullyLateralized + ", ");
             stringBuilder.Append("step_size = " + _stepSize + ", ");
             stringBuilder.Append("num_steps = " + _numSteps + ", ");
-            stringBuilder.Append("use_log_or_exp = " + _useLogOrExp + ", ");
-            stringBuilder.Append("log_or_exp_base = " + _logOrExpBase);
+            stringBuilder.Append("use_log = " + _useLog + ", ");
+            stringBuilder.Append("log_base = " + _logBase);
             return true;
         }
     
@@ -1326,25 +1324,6 @@ namespace Training
             stringBuilder.Append("}");
             return stringBuilder.ToString();
         }
-    }
-
-
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
-    [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-    public enum ILDUseLogOrExp
-    {
-    
-        [System.Runtime.Serialization.EnumMemberAttribute(Value="Default")]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="Default")]
-        Default = 0,
-    
-        [System.Runtime.Serialization.EnumMemberAttribute(Value="Log")]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="Log")]
-        Log = 1,
-    
-        [System.Runtime.Serialization.EnumMemberAttribute(Value="Exp")]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="Exp")]
-        Exp = 2,
     }
 
 
