@@ -97,8 +97,12 @@ class Sound(BaseModel):
     abl_list: List[float] = Field(
         description="The list of ABL values to be used in the task (dB SPL)."
     )
-    cycle_ild: bool = Field(
-        description="If true, the ILD array is shuffled and the ILD is picked by just following the new array order; when the end of the array is reached, the array is shuffled again and the procedure is repeated. Otherwise, an ILD value is randomly picked every trial from the array of ILDs."
+    pseudo_random_side: bool = Field(
+        description="Indicates whether the correct side is picked pseudo-randomly (true) or randomly (false). If it's picked pseudo-randomly, a shuffled array with equal amounts of -1's (left) and 1's (right) of size 2 * `max_side` is created and it's cycled through - a new shuffled array is generated when the end of the array is reached."
+    )
+    max_side: int = Field(
+        description="The maximum amount of elements representing the left or right side in the pseudo-random array for when the side is picked pseudo-randomly.",
+        gt=0,
     )
 
 

@@ -783,7 +783,9 @@ namespace Animal
     
         private System.Collections.Generic.List<double> _ablList = new System.Collections.Generic.List<double>();
     
-        private bool _cycleIld;
+        private bool _pseudoRandomSide;
+    
+        private int _maxSide;
     
         public Sound()
         {
@@ -793,7 +795,8 @@ namespace Animal
         {
             _fixedAbl = other._fixedAbl;
             _ablList = other._ablList;
-            _cycleIld = other._cycleIld;
+            _pseudoRandomSide = other._pseudoRandomSide;
+            _maxSide = other._maxSide;
         }
     
         /// <summary>
@@ -835,20 +838,39 @@ namespace Animal
         }
     
         /// <summary>
-        /// If true, the ILD array is shuffled and the ILD is picked by just following the new array order; when the end of the array is reached, the array is shuffled again and the procedure is repeated. Otherwise, an ILD value is randomly picked every trial from the array of ILDs.
+        /// Indicates whether the correct side is picked pseudo-randomly (true) or randomly (false). If it's picked pseudo-randomly, a shuffled array with equal amounts of -1's (left) and 1's (right) of size 2 * `max_side` is created and it's cycled through - a new shuffled array is generated when the end of the array is reached.
         /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("cycle_ild", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="cycle_ild")]
-        [System.ComponentModel.DescriptionAttribute(@"If true, the ILD array is shuffled and the ILD is picked by just following the new array order; when the end of the array is reached, the array is shuffled again and the procedure is repeated. Otherwise, an ILD value is randomly picked every trial from the array of ILDs.")]
-        public bool CycleIld
+        [Newtonsoft.Json.JsonPropertyAttribute("pseudo_random_side", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="pseudo_random_side")]
+        [System.ComponentModel.DescriptionAttribute(@"Indicates whether the correct side is picked pseudo-randomly (true) or randomly (false). If it's picked pseudo-randomly, a shuffled array with equal amounts of -1's (left) and 1's (right) of size 2 * `max_side` is created and it's cycled through - a new shuffled array is generated when the end of the array is reached.")]
+        public bool PseudoRandomSide
         {
             get
             {
-                return _cycleIld;
+                return _pseudoRandomSide;
             }
             set
             {
-                _cycleIld = value;
+                _pseudoRandomSide = value;
+            }
+        }
+    
+        /// <summary>
+        /// The maximum amount of elements representing the left or right side in the pseudo-random array for when the side is picked pseudo-randomly.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("max_side", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="max_side")]
+        [System.ComponentModel.DescriptionAttribute("The maximum amount of elements representing the left or right side in the pseudo-" +
+            "random array for when the side is picked pseudo-randomly.")]
+        public int MaxSide
+        {
+            get
+            {
+                return _maxSide;
+            }
+            set
+            {
+                _maxSide = value;
             }
         }
     
@@ -866,7 +888,8 @@ namespace Animal
         {
             stringBuilder.Append("fixed_abl = " + _fixedAbl + ", ");
             stringBuilder.Append("abl_list = " + _ablList + ", ");
-            stringBuilder.Append("cycle_ild = " + _cycleIld);
+            stringBuilder.Append("pseudo_random_side = " + _pseudoRandomSide + ", ");
+            stringBuilder.Append("max_side = " + _maxSide);
             return true;
         }
     

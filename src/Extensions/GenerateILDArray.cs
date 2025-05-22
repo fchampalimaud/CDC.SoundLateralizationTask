@@ -73,32 +73,20 @@ namespace CF
         /// Generates an array containing the ILD values to be used based on <c>NumSteps</c>, <c>StepSize</c>, <c>UseLog</c> and <c>LogBase</c>.
         /// </summary>
         /// <returns>
-        /// An array with 2*<c>NumSteps</c> ILD values.
+        /// An array with <c>NumSteps</c> ILD values.
         /// </returns>
         double[] ILDArray()
         {
-            double[] ILDs = new double[NumSteps * 2];
+            double[] ILDs = new double[NumSteps];
             for (int i = 0; i < NumSteps; i++)
             {
                 if (UseLog == true)
                 {
-                    ILDs[i] = - Math.Pow(LogBase, StepSize * (NumSteps - 1 - i));
+                    ILDs[i] = Math.Pow(LogBase, StepSize * i);
                 }
                 else
                 {
-                    ILDs[i] = -StepSize * (NumSteps - i);
-                }
-            }
-
-            for (int i = NumSteps; i < NumSteps * 2; i++)
-            {
-                if (UseLog == true)
-                {
-                    ILDs[i] = Math.Pow(LogBase, StepSize * (i - NumSteps));
-                }
-                else
-                {
-                    ILDs[i] = StepSize * (i - NumSteps + 1);
+                    ILDs[i] = StepSize * (i + 1);
                 }
             }
 
