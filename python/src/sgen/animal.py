@@ -14,6 +14,30 @@ from sgen._utils import (
 )
 
 
+class AutobiasCorrection(BaseModel):
+    use_correction: bool = Field(
+        description="Indicates whether the autobias correction feature should be used or not."
+    )
+    window: int = Field(
+        description="The amount of trials to consider to calculate the animal bias.",
+        gt=0,
+    )
+    cutoff_bias: float = Field(
+        description="The minimum |bias| value from which the side rewards start to be corrected.",
+        ge=0,
+        le=1,
+    )
+    performance_threshold: float = Field(
+        description="The minimum performance value for which the side rewards are not corrected.",
+        ge=0,
+        le=1,
+    )
+    slope_multiplier: float = Field(
+        description="A multiplying factor to the slope of the increasing reward amount side (corresponds to the non-biased side).",
+        gt=0,
+    )
+
+
 class OptoLED(BaseModel):
     voltage: float = Field(
         description="The voltage to use in the TTL signal.", ge=0, le=5000
@@ -162,8 +186,8 @@ class Animal(BaseModel):
     optogenetics: Optogenetics = Field(
         description="Contains the optogenetics-related parameters."
     )
-    autobias_correction: bool = Field(
-        description="Indicates whether autobias correction should be applied or not."
+    autobias_correction: AutobiasCorrection = Field(
+        description="Contains parameters related to the autobias correction algorithm."
     )
 
 

@@ -1,5 +1,49 @@
 {
   "definitions": {
+    "AutobiasCorrection": {
+      "properties": {
+        "use_correction": {
+          "description": "Indicates whether the autobias correction feature should be used or not.",
+          "title": "Use Correction",
+          "type": "boolean"
+        },
+        "window": {
+          "description": "The amount of trials to consider to calculate the animal bias.",
+          "exclusiveMinimum": 0,
+          "title": "Window",
+          "type": "integer"
+        },
+        "cutoff_bias": {
+          "description": "The minimum |bias| value from which the side rewards start to be corrected.",
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Cutoff Bias",
+          "type": "number"
+        },
+        "performance_threshold": {
+          "description": "The minimum performance value for which the side rewards are not corrected.",
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Performance Threshold",
+          "type": "number"
+        },
+        "slope_multiplier": {
+          "description": "A multiplying factor to the slope of the increasing reward amount side (corresponds to the non-biased side).",
+          "exclusiveMinimum": 0.0,
+          "title": "Slope Multiplier",
+          "type": "number"
+        }
+      },
+      "required": [
+        "use_correction",
+        "window",
+        "cutoff_bias",
+        "performance_threshold",
+        "slope_multiplier"
+      ],
+      "title": "AutobiasCorrection",
+      "type": "object"
+    },
     "FixationTime": {
       "properties": {
         "opto_onset_time": {
@@ -337,9 +381,8 @@
       "description": "Contains the optogenetics-related parameters."
     },
     "autobias_correction": {
-      "description": "Indicates whether autobias correction should be applied or not.",
-      "title": "Autobias Correction",
-      "type": "boolean"
+      "$ref": "#/definitions/AutobiasCorrection",
+      "description": "Contains parameters related to the autobias correction algorithm."
     }
   },
   "required": [

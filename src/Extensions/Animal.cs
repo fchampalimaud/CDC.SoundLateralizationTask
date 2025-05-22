@@ -12,6 +12,161 @@ namespace Animal
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
     [Bonsai.CombinatorAttribute()]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
+    public partial class AutobiasCorrection
+    {
+    
+        private bool _useCorrection;
+    
+        private int _window;
+    
+        private double _cutoffBias;
+    
+        private double _performanceThreshold;
+    
+        private double _slopeMultiplier;
+    
+        public AutobiasCorrection()
+        {
+        }
+    
+        protected AutobiasCorrection(AutobiasCorrection other)
+        {
+            _useCorrection = other._useCorrection;
+            _window = other._window;
+            _cutoffBias = other._cutoffBias;
+            _performanceThreshold = other._performanceThreshold;
+            _slopeMultiplier = other._slopeMultiplier;
+        }
+    
+        /// <summary>
+        /// Indicates whether the autobias correction feature should be used or not.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("use_correction", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="use_correction")]
+        [System.ComponentModel.DescriptionAttribute("Indicates whether the autobias correction feature should be used or not.")]
+        public bool UseCorrection
+        {
+            get
+            {
+                return _useCorrection;
+            }
+            set
+            {
+                _useCorrection = value;
+            }
+        }
+    
+        /// <summary>
+        /// The amount of trials to consider to calculate the animal bias.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("window", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="window")]
+        [System.ComponentModel.DescriptionAttribute("The amount of trials to consider to calculate the animal bias.")]
+        public int Window
+        {
+            get
+            {
+                return _window;
+            }
+            set
+            {
+                _window = value;
+            }
+        }
+    
+        /// <summary>
+        /// The minimum |bias| value from which the side rewards start to be corrected.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("cutoff_bias", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="cutoff_bias")]
+        [System.ComponentModel.DescriptionAttribute("The minimum |bias| value from which the side rewards start to be corrected.")]
+        public double CutoffBias
+        {
+            get
+            {
+                return _cutoffBias;
+            }
+            set
+            {
+                _cutoffBias = value;
+            }
+        }
+    
+        /// <summary>
+        /// The minimum performance value for which the side rewards are not corrected.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("performance_threshold", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="performance_threshold")]
+        [System.ComponentModel.DescriptionAttribute("The minimum performance value for which the side rewards are not corrected.")]
+        public double PerformanceThreshold
+        {
+            get
+            {
+                return _performanceThreshold;
+            }
+            set
+            {
+                _performanceThreshold = value;
+            }
+        }
+    
+        /// <summary>
+        /// A multiplying factor to the slope of the increasing reward amount side (corresponds to the non-biased side).
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("slope_multiplier", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="slope_multiplier")]
+        [System.ComponentModel.DescriptionAttribute("A multiplying factor to the slope of the increasing reward amount side (correspon" +
+            "ds to the non-biased side).")]
+        public double SlopeMultiplier
+        {
+            get
+            {
+                return _slopeMultiplier;
+            }
+            set
+            {
+                _slopeMultiplier = value;
+            }
+        }
+    
+        public System.IObservable<AutobiasCorrection> Process()
+        {
+            return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new AutobiasCorrection(this)));
+        }
+    
+        public System.IObservable<AutobiasCorrection> Process<TSource>(System.IObservable<TSource> source)
+        {
+            return System.Reactive.Linq.Observable.Select(source, _ => new AutobiasCorrection(this));
+        }
+    
+        protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
+        {
+            stringBuilder.Append("use_correction = " + _useCorrection + ", ");
+            stringBuilder.Append("window = " + _window + ", ");
+            stringBuilder.Append("cutoff_bias = " + _cutoffBias + ", ");
+            stringBuilder.Append("performance_threshold = " + _performanceThreshold + ", ");
+            stringBuilder.Append("slope_multiplier = " + _slopeMultiplier);
+            return true;
+        }
+    
+        public override string ToString()
+        {
+            System.Text.StringBuilder stringBuilder = new System.Text.StringBuilder();
+            stringBuilder.Append(GetType().Name);
+            stringBuilder.Append(" { ");
+            if (PrintMembers(stringBuilder))
+            {
+                stringBuilder.Append(" ");
+            }
+            stringBuilder.Append("}");
+            return stringBuilder.ToString();
+        }
+    }
+
+
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
+    [Bonsai.CombinatorAttribute()]
+    [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
     public partial class FixationTime
     {
     
@@ -1047,7 +1202,7 @@ namespace Animal
     
         private Optogenetics _optogenetics = new Optogenetics();
     
-        private bool _autobiasCorrection;
+        private AutobiasCorrection _autobiasCorrection = new AutobiasCorrection();
     
         public Animal()
         {
@@ -1276,12 +1431,13 @@ namespace Animal
         }
     
         /// <summary>
-        /// Indicates whether autobias correction should be applied or not.
+        /// Contains parameters related to the autobias correction algorithm.
         /// </summary>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
         [Newtonsoft.Json.JsonPropertyAttribute("autobias_correction", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="autobias_correction")]
-        [System.ComponentModel.DescriptionAttribute("Indicates whether autobias correction should be applied or not.")]
-        public bool AutobiasCorrection
+        [System.ComponentModel.DescriptionAttribute("Contains parameters related to the autobias correction algorithm.")]
+        public AutobiasCorrection AutobiasCorrection
         {
             get
             {
@@ -1407,6 +1563,11 @@ namespace Animal
             return System.Reactive.Linq.Observable.Select(source, value => Newtonsoft.Json.JsonConvert.SerializeObject(value));
         }
 
+        public System.IObservable<string> Process(System.IObservable<AutobiasCorrection> source)
+        {
+            return Process<AutobiasCorrection>(source);
+        }
+
         public System.IObservable<string> Process(System.IObservable<FixationTime> source)
         {
             return Process<FixationTime>(source);
@@ -1451,6 +1612,7 @@ namespace Animal
     [System.ComponentModel.DescriptionAttribute("Deserializes a sequence of JSON strings into data model objects.")]
     [System.ComponentModel.DefaultPropertyAttribute("Type")]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Transform)]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<AutobiasCorrection>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<FixationTime>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<OptoLED>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Optogenetics>))]
@@ -1506,6 +1668,11 @@ namespace Animal
             });
         }
 
+        public System.IObservable<string> Process(System.IObservable<AutobiasCorrection> source)
+        {
+            return Process<AutobiasCorrection>(source);
+        }
+
         public System.IObservable<string> Process(System.IObservable<FixationTime> source)
         {
             return Process<FixationTime>(source);
@@ -1550,6 +1717,7 @@ namespace Animal
     [System.ComponentModel.DescriptionAttribute("Deserializes a sequence of YAML strings into data model objects.")]
     [System.ComponentModel.DefaultPropertyAttribute("Type")]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Transform)]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<AutobiasCorrection>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<FixationTime>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<OptoLED>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Optogenetics>))]
