@@ -1,7 +1,8 @@
 from pathlib import Path
-from typing import List
+from typing import Annotated, List, Literal
 
 from pydantic import BaseModel, Field
+from pydantic.types import StringConstraints
 
 from sgen._utils import (
     BonsaiSgenSerializers,
@@ -86,6 +87,12 @@ class Camera(BaseModel):
     )
     frames_per_second: float = Field(
         description="The number of frames per second of the camera.", gt=0
+    )
+    resolution: Annotated[str, StringConstraints(pattern=r"^\d{3,4}x\d{3,4}$")] = Field(
+        description="The resolution with which the camera is recording the video."
+    )
+    codec: Literal["h264", "h264_amf"] = Field(
+        description="The codec used to save the video with FFMPEG."
     )
 
 

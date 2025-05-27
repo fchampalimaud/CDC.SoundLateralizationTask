@@ -12,11 +12,28 @@
           "exclusiveMinimum": 0.0,
           "title": "Frames Per Second",
           "type": "number"
+        },
+        "resolution": {
+          "description": "The resolution with which the camera is recording the video.",
+          "pattern": "^\\d{3,4}x\\d{3,4}$",
+          "title": "Resolution",
+          "type": "string"
+        },
+        "codec": {
+          "description": "The codec used to save the video with FFMPEG.",
+          "enum": [
+            "h264",
+            "h264_amf"
+          ],
+          "title": "Codec",
+          "type": "string"
         }
       },
       "required": [
         "use_camera",
-        "frames_per_second"
+        "frames_per_second",
+        "resolution",
+        "codec"
       ],
       "title": "Camera",
       "type": "object"

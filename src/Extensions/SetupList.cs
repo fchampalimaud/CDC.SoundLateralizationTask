@@ -19,6 +19,10 @@ namespace SetupList
     
         private double _framesPerSecond;
     
+        private string _resolution;
+    
+        private CameraCodec _codec;
+    
         public Camera()
         {
         }
@@ -27,6 +31,8 @@ namespace SetupList
         {
             _useCamera = other._useCamera;
             _framesPerSecond = other._framesPerSecond;
+            _resolution = other._resolution;
+            _codec = other._codec;
         }
     
         /// <summary>
@@ -65,6 +71,43 @@ namespace SetupList
             }
         }
     
+        /// <summary>
+        /// The resolution with which the camera is recording the video.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("resolution", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="resolution")]
+        [System.ComponentModel.DescriptionAttribute("The resolution with which the camera is recording the video.")]
+        public string Resolution
+        {
+            get
+            {
+                return _resolution;
+            }
+            set
+            {
+                _resolution = value;
+            }
+        }
+    
+        /// <summary>
+        /// The codec used to save the video with FFMPEG.
+        /// </summary>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [Newtonsoft.Json.JsonPropertyAttribute("codec", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="codec")]
+        [System.ComponentModel.DescriptionAttribute("The codec used to save the video with FFMPEG.")]
+        public CameraCodec Codec
+        {
+            get
+            {
+                return _codec;
+            }
+            set
+            {
+                _codec = value;
+            }
+        }
+    
         public System.IObservable<Camera> Process()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new Camera(this)));
@@ -78,7 +121,9 @@ namespace SetupList
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
             stringBuilder.Append("use_camera = " + _useCamera + ", ");
-            stringBuilder.Append("frames_per_second = " + _framesPerSecond);
+            stringBuilder.Append("frames_per_second = " + _framesPerSecond + ", ");
+            stringBuilder.Append("resolution = " + _resolution + ", ");
+            stringBuilder.Append("codec = " + _codec);
             return true;
         }
     
@@ -1033,6 +1078,21 @@ namespace SetupList
             stringBuilder.Append("}");
             return stringBuilder.ToString();
         }
+    }
+
+
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
+    [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+    public enum CameraCodec
+    {
+    
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="h264")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="h264")]
+        H264 = 0,
+    
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="h264_amf")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="h264_amf")]
+        H264Amf = 1,
     }
 
 
