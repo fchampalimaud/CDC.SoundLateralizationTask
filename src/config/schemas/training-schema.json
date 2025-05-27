@@ -78,7 +78,7 @@
           "type": "number"
         },
         "num_steps": {
-          "description": "The number of |ILD| values. The final array will contain 2 * num_steps elements to account for both the positive and the negative ILD values.",
+          "description": "The number of |ILD| values.",
           "minimum": 1,
           "title": "Num Steps",
           "type": "integer"
@@ -89,7 +89,7 @@
           "type": "boolean"
         },
         "log_base": {
-          "description": "The base of the logarithm/exponential.",
+          "description": "The base of the logarithm.",
           "exclusiveMinimum": 0.0,
           "title": "Log Base",
           "type": "number"

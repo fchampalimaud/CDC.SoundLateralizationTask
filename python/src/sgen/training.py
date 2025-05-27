@@ -83,13 +83,13 @@ class ILD(BaseModel):
         description="The separation between two consecutive |ILD| values.", gt=0
     )
     num_steps: int = Field(
-        description="The number of |ILD| values. The final array will contain 2 * num_steps elements to account for both the positive and the negative ILD values.",
+        description="The number of |ILD| values.",
         ge=1,
     )
     use_log: bool = Field(
         description="Indicates whether to use logarithmic steps between consecutive ILD values."
     )
-    log_base: float = Field(description="The base of the logarithm/exponential.", gt=0)
+    log_base: float = Field(description="The base of the logarithm.", gt=0)
 
 
 class ABL(BaseModel):

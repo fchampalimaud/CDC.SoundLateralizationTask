@@ -344,12 +344,11 @@ namespace Training
         }
     
         /// <summary>
-        /// The number of |ILD| values. The final array will contain 2 * num_steps elements to account for both the positive and the negative ILD values.
+        /// The number of |ILD| values.
         /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("num_steps", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="num_steps")]
-        [System.ComponentModel.DescriptionAttribute("The number of |ILD| values. The final array will contain 2 * num_steps elements t" +
-            "o account for both the positive and the negative ILD values.")]
+        [System.ComponentModel.DescriptionAttribute("The number of |ILD| values.")]
         public int NumSteps
         {
             get
@@ -381,11 +380,11 @@ namespace Training
         }
     
         /// <summary>
-        /// The base of the logarithm/exponential.
+        /// The base of the logarithm.
         /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("log_base", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="log_base")]
-        [System.ComponentModel.DescriptionAttribute("The base of the logarithm/exponential.")]
+        [System.ComponentModel.DescriptionAttribute("The base of the logarithm.")]
         public double LogBase
         {
             get
