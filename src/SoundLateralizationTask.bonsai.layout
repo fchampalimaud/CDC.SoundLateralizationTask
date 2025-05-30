@@ -117,7 +117,7 @@
       </Location>
       <Size>
         <Width>1499</Width>
-        <Height>999</Height>
+        <Height>998</Height>
       </Size>
       <WindowState>Normal</WindowState>
     </EditorDialogSettings>
@@ -125,12 +125,12 @@
   <DialogSettings xsi:type="WorkflowEditorSettings">
     <Visible>true</Visible>
     <Location>
-      <X>-1284</X>
-      <Y>-7</Y>
+      <X>-1177</X>
+      <Y>-24</Y>
     </Location>
     <Size>
-      <Width>1290</Width>
-      <Height>864</Height>
+      <Width>1001</Width>
+      <Height>991</Height>
     </Size>
     <WindowState>Maximized</WindowState>
     <VisualizerTypeName>Bonsai.Gui.TableLayoutPanelVisualizer</VisualizerTypeName>
@@ -222,6 +222,12 @@
                         <LabelVisualizer />
                       </VisualizerSettings>
                     </MashupSettings>
+                    <MashupSettings>
+                      <VisualizerTypeName>Bonsai.Gui.LabelVisualizer</VisualizerTypeName>
+                      <VisualizerSettings>
+                        <LabelVisualizer />
+                      </VisualizerSettings>
+                    </MashupSettings>
                   </TableLayoutPanelVisualizer>
                 </VisualizerSettings>
               </MashupSettings>
@@ -231,8 +237,8 @@
                   <GraphPanelVisualizer>
                     <Span>0</Span>
                     <Capacity>80</Capacity>
-                    <XMin>74</XMin>
-                    <XMax>77</XMax>
+                    <XMin>70</XMin>
+                    <XMax>78</XMax>
                     <YMin>-60</YMin>
                     <YMax>60</YMax>
                     <AutoScaleX>true</AutoScaleX>
@@ -264,8 +270,8 @@
                   <GraphPanelVisualizer>
                     <Span>0</Span>
                     <Capacity>80</Capacity>
-                    <XMin>74</XMin>
-                    <XMax>77</XMax>
+                    <XMin>70</XMin>
+                    <XMax>78</XMax>
                     <YMin>-9</YMin>
                     <YMax>3</YMax>
                     <AutoScaleX>true</AutoScaleX>
@@ -351,10 +357,10 @@
                   <GraphPanelVisualizer>
                     <Span>0</Span>
                     <Capacity>80</Capacity>
-                    <XMin>74</XMin>
-                    <XMax>77</XMax>
+                    <XMin>70</XMin>
+                    <XMax>78</XMax>
                     <YMin>0</YMin>
-                    <YMax>0.7</YMax>
+                    <YMax>1.1</YMax>
                     <AutoScaleX>true</AutoScaleX>
                     <AutoScaleY>true</AutoScaleY>
                     <MashupSettings>
@@ -395,10 +401,10 @@
                   <GraphPanelVisualizer>
                     <Span>0</Span>
                     <Capacity>80</Capacity>
-                    <XMin>74</XMin>
-                    <XMax>77</XMax>
-                    <YMin>1.25</YMin>
-                    <YMax>1.5000000000000002</YMax>
+                    <XMin>70</XMin>
+                    <XMax>78</XMax>
+                    <YMin>1.0799999999999998</YMin>
+                    <YMax>1.22</YMax>
                     <AutoScaleX>true</AutoScaleX>
                     <AutoScaleY>true</AutoScaleY>
                     <MashupSettings>
@@ -582,12 +588,12 @@
     <EditorDialogSettings>
       <Visible>false</Visible>
       <Location>
-        <X>236</X>
-        <Y>504</Y>
+        <X>244</X>
+        <Y>700</Y>
       </Location>
       <Size>
         <Width>992</Width>
-        <Height>565</Height>
+        <Height>350</Height>
       </Size>
       <WindowState>Normal</WindowState>
     </EditorDialogSettings>
@@ -887,7 +893,7 @@
       </Location>
       <Size>
         <Width>1499</Width>
-        <Height>999</Height>
+        <Height>998</Height>
       </Size>
       <WindowState>Normal</WindowState>
     </EditorDialogSettings>
