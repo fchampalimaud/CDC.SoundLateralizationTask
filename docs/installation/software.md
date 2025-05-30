@@ -13,9 +13,22 @@ To install the task's software, follow the steps:
 
 ## Additional Software
 
+### Spinnaker Drivers
+
 In order to use the FLIR camera to record the sessions, the [Spinnaker drivers](https://flir.netx.net/file/asset/54630/original/attachment) MUST be installed as well. It's mandatory that the computer has the version 1.29.0.5 of the drivers installed, since the version supported by Spinnaker Bonsai Package. After opening the installer, follow the steps below:
 1. Click on `Next`. Then, accept the terms and click on `Next` again.
 2. Select `Application Development` and click on `Next`.
 3. Deselect `GigE Driver` and click on `Next`.
 4. Deselect the `I will use GigE Cameras.` checkbox and click on `Next`.
 5. Finally, click on `Install`.
+
+
+### FFmpeg
+
+The task's code makes use of the FFmpeg software to save the video recordings in the disk, because it allows the video to be recorded with higher framerates, without loss of image quality and by making a better use of the computer's resources than the native `VideoWriter` Bonsai node.
+
+FFmpeg can be installed with WinGet by running the following command in the Terminal:
+
+```
+winget install Gyan.FFmpeg
+```
