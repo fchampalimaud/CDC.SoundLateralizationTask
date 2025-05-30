@@ -1967,6 +1967,8 @@ namespace Output
     
         private PenaltyTimes _penaltyTimes = new PenaltyTimes();
     
+        private double _bias;
+    
         private Reward _reward = new Reward();
     
         private bool _repeatedTrial;
@@ -1995,6 +1997,7 @@ namespace Output
             _lnpTime = other._lnpTime;
             _outcome = other._outcome;
             _penaltyTimes = other._penaltyTimes;
+            _bias = other._bias;
             _reward = other._reward;
             _repeatedTrial = other._repeatedTrial;
             _optogenetics = other._optogenetics;
@@ -2301,6 +2304,25 @@ namespace Output
         }
     
         /// <summary>
+        /// Indicates the bias of the animal in the last n trials, where negative bias is a bias towards the left side and positive bias is a bias towards the right side.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("bias", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="bias")]
+        [System.ComponentModel.DescriptionAttribute("Indicates the bias of the animal in the last n trials, where negative bias is a b" +
+            "ias towards the left side and positive bias is a bias towards the right side.")]
+        public double Bias
+        {
+            get
+            {
+                return _bias;
+            }
+            set
+            {
+                _bias = value;
+            }
+        }
+    
+        /// <summary>
         /// Contains the reward to be delivered for each side in case they are the correct answer.
         /// </summary>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
@@ -2386,6 +2408,7 @@ namespace Output
             stringBuilder.Append("lnp_time = " + _lnpTime + ", ");
             stringBuilder.Append("outcome = " + _outcome + ", ");
             stringBuilder.Append("penalty_times = " + _penaltyTimes + ", ");
+            stringBuilder.Append("bias = " + _bias + ", ");
             stringBuilder.Append("reward = " + _reward + ", ");
             stringBuilder.Append("repeated_trial = " + _repeatedTrial + ", ");
             stringBuilder.Append("optogenetics = " + _optogenetics);

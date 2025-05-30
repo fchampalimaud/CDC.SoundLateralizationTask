@@ -596,6 +596,13 @@
       "$ref": "#/definitions/PenaltyTimes",
       "description": "Contains the penalty times for different ocasions."
     },
+    "bias": {
+      "description": "Indicates the bias of the animal in the last n trials, where negative bias is a bias towards the left side and positive bias is a bias towards the right side.",
+      "maximum": 1.0,
+      "minimum": -1.0,
+      "title": "Bias",
+      "type": "number"
+    },
     "reward": {
       "$ref": "#/definitions/Reward",
       "description": "Contains the reward to be delivered for each side in case they are the correct answer."
@@ -627,6 +634,7 @@
     "lnp_time",
     "outcome",
     "penalty_times",
+    "bias",
     "reward",
     "repeated_trial",
     "optogenetics"

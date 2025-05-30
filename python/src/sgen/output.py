@@ -251,6 +251,11 @@ class Output(BaseModel):
     penalty_times: PenaltyTimes = Field(
         description="Contains the penalty times for different ocasions."
     )
+    bias: float = Field(
+        description="Indicates the bias of the animal in the last n trials, where negative bias is a bias towards the left side and positive bias is a bias towards the right side.",
+        ge=-1,
+        le=1,
+    )
     reward: Reward = Field(
         description="Contains the reward to be delivered for each side in case they are the correct answer."
     )
