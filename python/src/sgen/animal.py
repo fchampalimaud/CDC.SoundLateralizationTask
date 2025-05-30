@@ -131,7 +131,7 @@ class Sound(BaseModel):
 
 
 class Session(BaseModel):
-    number: int = Field(description="The number of the current session.")
+    number: int = Field(description="The number of the current session.", gt=0)
     experimenter: str = Field(
         description="The person who trained the animal in the current session."
     )
@@ -140,7 +140,8 @@ class Session(BaseModel):
     )
     type: int = Field(description="The number of the session type.")
     box: int = Field(
-        description="The ID number of the setup where the animal will perform the session."
+        description="The ID number of the setup where the animal will perform the session.",
+        ge=0,
     )
     starting_trial_number: int = Field(
         description="The number of the first trial of the session.", ge=1

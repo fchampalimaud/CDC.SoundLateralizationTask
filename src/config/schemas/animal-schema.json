@@ -196,6 +196,7 @@
       "properties": {
         "number": {
           "description": "The number of the current session.",
+          "exclusiveMinimum": 0,
           "title": "Number",
           "type": "integer"
         },
@@ -217,6 +218,7 @@
         },
         "box": {
           "description": "The ID number of the setup where the animal will perform the session.",
+          "minimum": 0,
           "title": "Box",
           "type": "integer"
         },
