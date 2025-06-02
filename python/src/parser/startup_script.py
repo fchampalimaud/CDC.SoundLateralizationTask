@@ -98,7 +98,13 @@ def startup():
         animal_config = yaml.safe_load(file)
 
     # Possible path to the current animal output directory
-    animal_dir = config["paths"]["output"] + "/" + f"{animal_config["animal_id"]:03}"
+    animal_dir = (
+        config["paths"]["output"]
+        + "/"
+        + animal_config["batch"]
+        + "/"
+        + animal_config["animal_id"]
+    )
 
     # If the animal output directory exists
     if os.path.isdir(animal_dir):
