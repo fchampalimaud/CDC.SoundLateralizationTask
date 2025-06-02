@@ -15,6 +15,93 @@ if (!(Test-Path "./Bonsai.exe")) {
 }
 & .\Bonsai.exe --no-editor
 
-cd ..\python
+cd ..
 
+# Checks if the output directory already exists
+if (!(Test-Path ".\config")) { 
+    New-Item -ItemType Directory -Path "config" 
+}
+
+# Define repository owner and name
+$repoOwner = "fchampalimaud"
+$repoName = "CDC.SoundLateralizationTask"
+$assetName = "animal.yml"  # Replace with the name of the specific file you want to download
+
+# Get the latest release information
+$apiUrl = "https://api.github.com/repos/$repoOwner/$repoName/releases/latest"
+$releaseInfo = Invoke-RestMethod -Uri $apiUrl
+
+# Find the specific asset
+$asset = $releaseInfo.assets | Where-Object { $_.name -eq $assetName }
+
+if ($asset) {
+    # Get the URL of the specific asset
+    $assetUrl = $asset.browser_download_url
+
+    # Check if the file already exists
+    $outputFile = "config/$assetName"
+    if (-Not (Test-Path -Path $outputFile)) {
+        # Download the specific asset
+        Invoke-WebRequest -Uri $assetUrl -OutFile $outputFile
+        Write-Output "Downloaded $assetName to $outputFile"
+    } else {
+        Write-Output "$assetName already exists. Skipping download."
+    }
+} else {
+    Write-Output "Asset $assetName not found in the latest release."
+}
+
+$assetName = "setup.csv"  # Replace with the name of the specific file you want to download
+
+# Get the latest release information
+$apiUrl = "https://api.github.com/repos/$repoOwner/$repoName/releases/latest"
+$releaseInfo = Invoke-RestMethod -Uri $apiUrl
+
+# Find the specific asset
+$asset = $releaseInfo.assets | Where-Object { $_.name -eq $assetName }
+
+if ($asset) {
+    # Get the URL of the specific asset
+    $assetUrl = $asset.browser_download_url
+
+    # Check if the file already exists
+    $outputFile = "config/$assetName"
+    if (-Not (Test-Path -Path $outputFile)) {
+        # Download the specific asset
+        Invoke-WebRequest -Uri $assetUrl -OutFile $outputFile
+        Write-Output "Downloaded $assetName to $outputFile"
+    } else {
+        Write-Output "$assetName already exists. Skipping download."
+    }
+} else {
+    Write-Output "Asset $assetName not found in the latest release."
+}
+
+$assetName = "training.csv"  # Replace with the name of the specific file you want to download
+
+# Get the latest release information
+$apiUrl = "https://api.github.com/repos/$repoOwner/$repoName/releases/latest"
+$releaseInfo = Invoke-RestMethod -Uri $apiUrl
+
+# Find the specific asset
+$asset = $releaseInfo.assets | Where-Object { $_.name -eq $assetName }
+
+if ($asset) {
+    # Get the URL of the specific asset
+    $assetUrl = $asset.browser_download_url
+
+    # Check if the file already exists
+    $outputFile = "config/$assetName"
+    if (-Not (Test-Path -Path $outputFile)) {
+        # Download the specific asset
+        Invoke-WebRequest -Uri $assetUrl -OutFile $outputFile
+        Write-Output "Downloaded $assetName to $outputFile"
+    } else {
+        Write-Output "$assetName already exists. Skipping download."
+    }
+} else {
+    Write-Output "Asset $assetName not found in the latest release."
+}
+
+cd .\python
 uv run config
