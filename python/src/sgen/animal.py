@@ -163,7 +163,9 @@ class Animal(BaseModel):
     animal_id: Annotated[str, StringConstraints(pattern=r"^[A-Z]{2,6}\d{4}$")] = Field(
         description="The ID of the animal."
     )
-    batch: str = Field(description="The batch to which the current animal belongs to.")
+    batch: Annotated[str, StringConstraints(pattern=r"^[a-zA-Z0-9_\-\.]+$")] = Field(
+        description="The batch to which the current animal belongs to."
+    )
     session: Session = Field(description="Contains the session-related parameters.")
     sound: Sound = Field(description="Contains the sound-related parameters.")
     fixation_time: FixationTime = Field(

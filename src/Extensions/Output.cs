@@ -923,7 +923,7 @@ namespace Output
     public partial class Outcome
     {
     
-        private int _responsePoke;
+        private double _responsePoke;
     
         private int _success;
     
@@ -952,7 +952,7 @@ namespace Output
         [Newtonsoft.Json.JsonPropertyAttribute("response_poke", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="response_poke")]
         [System.ComponentModel.DescriptionAttribute("The answer given by the animal in the current trial.")]
-        public int ResponsePoke
+        public double ResponsePoke
         {
             get
             {
