@@ -39,7 +39,7 @@ class Optogenetics(BaseModel):
 
 
 class Outcome(BaseModel):
-    response_poke: int = Field(
+    response_poke: float = Field(
         description="The answer given by the animal in the current trial.", ge=-1, le=1
     )
     success: int = Field(
