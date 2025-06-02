@@ -17,7 +17,13 @@ def convert_output():
         animal_config = yaml.safe_load(file)
 
     # Get the animal output directory
-    animal_dir = config["paths"]["output"] + "/" + f"{animal_config["animal_id"]:03}"
+    animal_dir = (
+        config["paths"]["output"]
+        + "/"
+        + animal_config["batch"]
+        + "/"
+        + animal_config["animal_id"]
+    )
 
     # Get the directory from last session
     entries = os.listdir(animal_dir)
