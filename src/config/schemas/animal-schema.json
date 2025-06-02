@@ -337,6 +337,7 @@
     },
     "batch": {
       "description": "The batch to which the current animal belongs to.",
+      "pattern": "^[a-zA-Z0-9_\\-\\.]+$",
       "title": "Batch",
       "type": "string"
     },

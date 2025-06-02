@@ -248,10 +248,10 @@
       "properties": {
         "response_poke": {
           "description": "The answer given by the animal in the current trial.",
-          "maximum": 1,
-          "minimum": -1,
+          "maximum": 1.0,
+          "minimum": -1.0,
           "title": "Response Poke",
-          "type": "integer"
+          "type": "number"
         },
         "success": {
           "description": "Indicates whether the animal answered correctly (1), incorrectly (-1) or whether the trial was aborted (0).",
