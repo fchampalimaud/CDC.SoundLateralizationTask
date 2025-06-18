@@ -34,12 +34,15 @@ def ask_session(animal_config: dict, output_data: pd.DataFrame):
         else:
             print("Not a valid input.")
 
-    # Update block_number and trial_number
+    # Update block_number, trial_number and starting_training_level
     animal_config["session"]["starting_block_number"] = int(
         output_data.loc[output_data.index[-1], "block.number"] + 1
     )
     animal_config["session"]["starting_trial_number"] = int(
         output_data.loc[output_data.index[-1], "trial.number"] + 1
+    )
+    animal_config["session"]["starting_training_level"] = int(
+        output_data.loc[output_data.index[-1], "block.training_level"]
     )
 
 
