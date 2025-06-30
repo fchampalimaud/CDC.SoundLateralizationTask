@@ -56,6 +56,7 @@ For this part of the BOM, a peripheral is considered to be anything that either 
 | Micro USB cable | - | 1 | - | :heavy_check_mark: | :x: | Used to upload sounds to the Harp SoundCard |
 | 3.5 mm-stereo-audio-jack-to-jack cable | - | 4/5* | _TODO_ | :x: | :x: | Connects the Harp ClockSynchronizer to every other Harp device |
 | [12V Power Supply](https://www.digikey.pt/en/products/detail/xp-power/VER12US120-JA/5726836)** | AC/DC Wall Mount Adapter 12V 12W | 9/10* | VER12US120-JA | :heavy_check_mark:*** | :x: | 1 is used to power the LED strip that illuminates the behavior box, the remaining are used to power the Harp devices |
+| [BNC-to-bare-wires conector](https://pt.rs-online.com/web/p/conectores-de-alimentacion-dc/8104605?gb=a)** | | 1 | 810-4605 | :x: | :x: | Connects the LED strip to the power supply |
 
 \* if the Harp CurrentDriver is being used
 
