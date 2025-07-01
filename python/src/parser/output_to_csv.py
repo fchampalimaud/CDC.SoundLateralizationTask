@@ -90,10 +90,10 @@ def merge_output():
 
 
 def generate_plots(data: pd.DataFrame, path):
-    block_nums = data["block.number"].unique()
+    block_nums = data["block"].unique()
 
     for block_num in block_nums:
-        df = data[data["block.number"] == block_num]
+        df = data[data["block"] == block_num]
 
         fig, ax = plt.subplots(3, 3, figsize=(14, 10))
         plt.subplots_adjust(wspace=0.4, hspace=0.4)
@@ -180,28 +180,28 @@ def generate_plots(data: pd.DataFrame, path):
         ax[1, 2].yaxis.set_minor_formatter(formatter)
 
         # ILD plot
-        df2 = df[df["outcome.success"] == 1]
+        df2 = df[df["success"] == 1]
         ax[0, 1].plot(
-            df2["trial.number"],
-            df2["sound.ild"],
+            df2["trial"],
+            df2["ILD"],
             "o",
             markerfacecolor="none",
             markeredgecolor="green",
             markeredgewidth=1.5,
         )
-        df2 = df[df["outcome.success"] == -1]
+        df2 = df[df["success"] == -1]
         ax[0, 1].plot(
-            df2["trial.number"],
-            df2["sound.ild"],
+            df2["trial"],
+            df2["ILD"],
             "o",
             markerfacecolor="none",
             markeredgecolor="red",
             markeredgewidth=1.5,
         )
-        df2 = df[df["outcome.success"] == 0]
+        df2 = df[df["success"] == 0]
         ax[0, 1].plot(
-            df2["trial.number"],
-            df2["sound.ild"],
+            df2["trial"],
+            df2["ILD"],
             "o",
             markerfacecolor="none",
             markeredgecolor="black",
@@ -210,108 +210,108 @@ def generate_plots(data: pd.DataFrame, path):
 
         colors_aborts = plt.cm.hsv(np.linspace(0.75, 0, 10))
         # Outcome plot
-        df2 = df[(df["outcome.success"] == 1) & (df["sound.ild"] < 0)]
+        df2 = df[(df["success"] == 1) & (df["ILD"] < 0)]
         ax[0, 2].plot(
-            df2["trial.number"],
+            df2["trial"],
             2 * np.ones(df2.shape[0]),
             "<",
             markerfacecolor="none",
             markeredgecolor=colors_aborts[0],
             markeredgewidth=1.5,
         )
-        df2 = df[(df["outcome.success"] == 1) & (df["sound.ild"] > 0)]
+        df2 = df[(df["success"] == 1) & (df["ILD"] > 0)]
         ax[0, 2].plot(
-            df2["trial.number"],
+            df2["trial"],
             2 * np.ones(df2.shape[0]),
             ">",
             markerfacecolor="none",
             markeredgecolor=colors_aborts[0],
             markeredgewidth=1.5,
         )
-        df2 = df[(df["outcome.success"] == -1) & (df["sound.ild"] < 0)]
+        df2 = df[(df["success"] == -1) & (df["ILD"] < 0)]
         ax[0, 2].plot(
-            df2["trial.number"],
+            df2["trial"],
             np.ones(df2.shape[0]),
             "<",
             markerfacecolor="none",
             markeredgecolor=colors_aborts[1],
             markeredgewidth=1.5,
         )
-        df2 = df[(df["outcome.success"] == -1) & (df["sound.ild"] > 0)]
+        df2 = df[(df["success"] == -1) & (df["ILD"] > 0)]
         ax[0, 2].plot(
-            df2["trial.number"],
+            df2["trial"],
             np.ones(df2.shape[0]),
             ">",
             markerfacecolor="none",
             markeredgecolor=colors_aborts[1],
             markeredgewidth=1.5,
         )
-        df2 = df[df["outcome.abort_type"] == "CNP"]
+        df2 = df[df["abort_type"] == "CNP"]
         ax[0, 2].plot(
-            df2["trial.number"],
+            df2["trial"],
             -1 * np.ones(df2.shape[0]),
             "o",
             markerfacecolor="none",
             markeredgecolor=colors_aborts[2],
             markeredgewidth=1.5,
         )
-        df2 = df[df["outcome.abort_type"] == "Fixation"]
+        df2 = df[df["abort_type"] == "Fixation"]
         ax[0, 2].plot(
-            df2["trial.number"],
+            df2["trial"],
             -2 * np.ones(df2.shape[0]),
             "o",
             markerfacecolor="none",
             markeredgecolor=colors_aborts[3],
             markeredgewidth=1.5,
         )
-        df2 = df[df["outcome.abort_type"] == "RT+"]
+        df2 = df[df["abort_type"] == "RT+"]
         ax[0, 2].plot(
-            df2["trial.number"],
+            df2["trial"],
             -3 * np.ones(df2.shape[0]),
             "o",
             markerfacecolor="none",
             markeredgecolor=colors_aborts[4],
             markeredgewidth=1.5,
         )
-        df2 = df[df["outcome.abort_type"] == "RT-"]
+        df2 = df[df["abort_type"] == "RT-"]
         ax[0, 2].plot(
-            df2["trial.number"],
+            df2["trial"],
             -4 * np.ones(df2.shape[0]),
             "o",
             markerfacecolor="none",
             markeredgecolor=colors_aborts[5],
             markeredgewidth=1.5,
         )
-        df2 = df[df["outcome.abort_type"] == "MT+"]
+        df2 = df[df["abort_type"] == "MT+"]
         ax[0, 2].plot(
-            df2["trial.number"],
+            df2["trial"],
             -5 * np.ones(df2.shape[0]),
             "o",
             markerfacecolor="none",
             markeredgecolor=colors_aborts[6],
             markeredgewidth=1.5,
         )
-        df2 = df[df["outcome.abort_type"] == "MT-"]
+        df2 = df[df["abort_type"] == "MT-"]
         ax[0, 2].plot(
-            df2["trial.number"],
+            df2["trial"],
             -6 * np.ones(df2.shape[0]),
             "o",
             markerfacecolor="none",
             markeredgecolor=colors_aborts[7],
             markeredgewidth=1.5,
         )
-        df2 = df[df["outcome.abort_type"] == "LNP"]
+        df2 = df[df["abort_type"] == "LNP"]
         ax[0, 2].plot(
-            df2["trial.number"],
+            df2["trial"],
             -7 * np.ones(df2.shape[0]),
             "o",
             markerfacecolor="none",
             markeredgecolor=colors_aborts[8],
             markeredgewidth=1.5,
         )
-        df2 = df[df["outcome.abort_type"] == "IO"]
+        df2 = df[df["abort_type"] == "IO"]
         ax[0, 2].plot(
-            df2["trial.number"],
+            df2["trial"],
             -8 * np.ones(df2.shape[0]),
             "o",
             markerfacecolor="none",
@@ -321,8 +321,8 @@ def generate_plots(data: pd.DataFrame, path):
 
         # Performance plot
         ax[1, 0].plot(
-            df["trial.number"],
-            df["outcome.block_performance"],
+            df["trial"],
+            df["block_perf"],
             "o",
             # markerfacecolor="none",
             markeredgecolor="green",
@@ -351,46 +351,46 @@ def generate_plots(data: pd.DataFrame, path):
         )
 
         # Time to CNP plot
-        df2 = df[(df["outcome.success"] == 1) & (df["sound.ild"] < 0)]
+        df2 = df[(df["success"] == 1) & (df["ILD"] < 0)]
         ax[1, 2].plot(
-            df2["trial.number"],
-            df2["time_to_cnp.timed_value"],
+            df2["trial"],
+            df2["cnp_time"],
             "<",
             markerfacecolor="none",
             markeredgecolor="green",
             markeredgewidth=1.5,
         )
-        df2 = df[(df["outcome.success"] == 1) & (df["sound.ild"] > 0)]
+        df2 = df[(df["success"] == 1) & (df["ILD"] > 0)]
         ax[1, 2].plot(
-            df2["trial.number"],
-            df2["time_to_cnp.timed_value"],
+            df2["trial"],
+            df2["cnp_time"],
             ">",
             markerfacecolor="none",
             markeredgecolor="green",
             markeredgewidth=1.5,
         )
-        df2 = df[(df["outcome.success"] == -1) & (df["sound.ild"] < 0)]
+        df2 = df[(df["success"] == -1) & (df["ILD"] < 0)]
         ax[1, 2].plot(
-            df2["trial.number"],
-            df2["time_to_cnp.timed_value"],
+            df2["trial"],
+            df2["cnp_time"],
             "<",
             markerfacecolor="none",
             markeredgecolor="red",
             markeredgewidth=1.5,
         )
-        df2 = df[(df["outcome.success"] == -1) & (df["sound.ild"] > 0)]
+        df2 = df[(df["success"] == -1) & (df["ILD"] > 0)]
         ax[1, 2].plot(
-            df2["trial.number"],
-            df2["time_to_cnp.timed_value"],
+            df2["trial"],
+            df2["cnp_time"],
             ">",
             markerfacecolor="none",
             markeredgecolor="red",
             markeredgewidth=1.5,
         )
-        df2 = df[(df["outcome.success"] == 0)]
+        df2 = df[(df["success"] == 0)]
         ax[1, 2].plot(
-            df2["trial.number"],
-            df2["time_to_cnp.timed_value"],
+            df2["trial"],
+            df2["cnp_time"],
             "o",
             markerfacecolor="none",
             markeredgecolor="black",
@@ -398,46 +398,46 @@ def generate_plots(data: pd.DataFrame, path):
         )
 
         # Reaction time plot
-        df2 = df[(df["outcome.success"] == 1) & (df["sound.ild"] < 0)]
+        df2 = df[(df["success"] == 1) & (df["ILD"] < 0)]
         ax[2, 0].plot(
-            df2["trial.number"],
-            df2["reaction_time.timed_duration"] * 1000,
+            df2["trial"],
+            df2["timed_rt"] * 1000,
             "<",
             markerfacecolor="none",
             markeredgecolor="green",
             markeredgewidth=1.5,
         )
-        df2 = df[(df["outcome.success"] == 1) & (df["sound.ild"] > 0)]
+        df2 = df[(df["success"] == 1) & (df["ILD"] > 0)]
         ax[2, 0].plot(
-            df2["trial.number"],
-            df2["reaction_time.timed_duration"] * 1000,
+            df2["trial"],
+            df2["timed_rt"] * 1000,
             ">",
             markerfacecolor="none",
             markeredgecolor="green",
             markeredgewidth=1.5,
         )
-        df2 = df[(df["outcome.success"] == -1) & (df["sound.ild"] < 0)]
+        df2 = df[(df["success"] == -1) & (df["ILD"] < 0)]
         ax[2, 0].plot(
-            df2["trial.number"],
-            df2["reaction_time.timed_duration"] * 1000,
+            df2["trial"],
+            df2["timed_rt"] * 1000,
             "<",
             markerfacecolor="none",
             markeredgecolor="red",
             markeredgewidth=1.5,
         )
-        df2 = df[(df["outcome.success"] == -1) & (df["sound.ild"] > 0)]
+        df2 = df[(df["success"] == -1) & (df["ILD"] > 0)]
         ax[2, 0].plot(
-            df2["trial.number"],
-            df2["reaction_time.timed_duration"] * 1000,
+            df2["trial"],
+            df2["timed_rt"] * 1000,
             ">",
             markerfacecolor="none",
             markeredgecolor="red",
             markeredgewidth=1.5,
         )
-        df2 = df[(df["outcome.success"] == 0)]
+        df2 = df[(df["success"] == 0)]
         ax[2, 0].plot(
-            df2["trial.number"],
-            df2["reaction_time.timed_duration"] * 1000,
+            df2["trial"],
+            df2["timed_rt"] * 1000,
             "o",
             markerfacecolor="none",
             markeredgecolor="black",
@@ -445,46 +445,46 @@ def generate_plots(data: pd.DataFrame, path):
         )
 
         # Movement time plot
-        df2 = df[(df["outcome.success"] == 1) & (df["sound.ild"] < 0)]
+        df2 = df[(df["success"] == 1) & (df["ILD"] < 0)]
         ax[2, 1].plot(
-            df2["trial.number"],
-            df2["movement_time.timed_duration"] * 1000,
+            df2["trial"],
+            df2["timed_mt"] * 1000,
             "<",
             markerfacecolor="none",
             markeredgecolor="green",
             markeredgewidth=1.5,
         )
-        df2 = df[(df["outcome.success"] == 1) & (df["sound.ild"] > 0)]
+        df2 = df[(df["success"] == 1) & (df["ILD"] > 0)]
         ax[2, 1].plot(
-            df2["trial.number"],
-            df2["movement_time.timed_duration"] * 1000,
+            df2["trial"],
+            df2["timed_mt"] * 1000,
             ">",
             markerfacecolor="none",
             markeredgecolor="green",
             markeredgewidth=1.5,
         )
-        df2 = df[(df["outcome.success"] == -1) & (df["sound.ild"] < 0)]
+        df2 = df[(df["success"] == -1) & (df["ILD"] < 0)]
         ax[2, 1].plot(
-            df2["trial.number"],
-            df2["movement_time.timed_duration"] * 1000,
+            df2["trial"],
+            df2["timed_mt"] * 1000,
             "<",
             markerfacecolor="none",
             markeredgecolor="red",
             markeredgewidth=1.5,
         )
-        df2 = df[(df["outcome.success"] == -1) & (df["sound.ild"] > 0)]
+        df2 = df[(df["success"] == -1) & (df["ILD"] > 0)]
         ax[2, 1].plot(
-            df2["trial.number"],
-            df2["movement_time.timed_duration"] * 1000,
+            df2["trial"],
+            df2["timed_mt"] * 1000,
             ">",
             markerfacecolor="none",
             markeredgecolor="red",
             markeredgewidth=1.5,
         )
-        df2 = df[(df["outcome.success"] == 0)]
+        df2 = df[(df["success"] == 0)]
         ax[2, 1].plot(
-            df2["trial.number"],
-            df2["movement_time.timed_duration"] * 1000,
+            df2["trial"],
+            df2["timed_mt"] * 1000,
             "o",
             markerfacecolor="none",
             markeredgecolor="black",
@@ -496,18 +496,16 @@ def generate_plots(data: pd.DataFrame, path):
 
 
 def get_performance_by_ild(df):
-    ilds = df["sound.ild"].unique()
+    ilds = df["ILD"].unique()
     array = np.zeros((ilds.size, 3))
 
     for i in range(ilds.size):
-        df2 = df[df["sound.ild"] == ilds[i]]
+        df2 = df[df["ILD"] == ilds[i]]
         array[i, 0] = ilds[i]
         array[i, 1] = (
-            float(df2[df2["outcome.success"] == 1].shape[0])
-            / df2[(df2["outcome.success"] == 1) | (df2["outcome.success"] == -1)].shape[
-                0
-            ]
+            float(df2[df2["success"] == 1].shape[0])
+            / df2[(df2["success"] == 1) | (df2["success"] == -1)].shape[0]
         )
-        array[i, 2] = df2[df2["outcome.success"] == 0].shape[0] / float(df2.shape[0])
+        array[i, 2] = df2[df2["success"] == 0].shape[0] / float(df2.shape[0])
 
     return array

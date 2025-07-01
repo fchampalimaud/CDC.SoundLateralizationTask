@@ -1,11 +1,12 @@
 import os
+from datetime import datetime
 from parser.config_to_json import converter
 
 import pandas as pd
 import yaml
 
 
-def ask_session(animal_config: dict, output_data: pd.DataFrame):
+def verify_session(animal_config: dict, output_data: pd.DataFrame, last_dir: str):
     """
     Asks the user whether it should start a new session or not and updates the animal.yml file accordingly.
 
@@ -15,34 +16,32 @@ def ask_session(animal_config: dict, output_data: pd.DataFrame):
         the dictionary containing the parameters from the animal.yml file.
     output_data : pd.DataFrame
         the dataframe containing the data from the last session out.csv.
+    last_dir : str
+        the name of the directory from last session, which is in the format `YYYYMMDD`
     """
-    while True:
-        # Ask for user input
-        update = input("New session? [y/n] ")
-        update_lower = update.lower()
 
-        if update_lower == "y" or update_lower == "":
-            animal_config["session"]["number"] = int(
-                output_data.loc[output_data.index[-1], "session.number"] + 1
-            )
-            break
-        elif update_lower == "n":
-            animal_config["session"]["number"] = int(
-                output_data.loc[output_data.index[-1], "session.number"]
-            )
-            break
-        else:
-            print("Not a valid input.")
+    last_session_date = datetime.strptime(last_dir, "%Y%m%d").date()
+
+    if last_session_date == datetime.today().date():
+        animal_config["session"]["number"] = int(
+            output_data.loc[output_data.index[-1], "session"]
+        )
+        animal_config["session"]["block_number"] = int(
+            output_data.loc[output_data.index[-1], "block"] + 1
+        )
+    else:
+        animal_config["session"]["number"] = int(
+            output_data.loc[output_data.index[-1], "session"] + 1
+        )
+        animal_config["session"]["block_number"] = 1
 
     # Update block_number, trial_number and starting_training_level
-    animal_config["session"]["starting_block_number"] = int(
-        output_data.loc[output_data.index[-1], "block.number"] + 1
-    )
+    animal_config["session"]["block_number"] = 1
     animal_config["session"]["starting_trial_number"] = int(
-        output_data.loc[output_data.index[-1], "trial.number"] + 1
+        output_data.loc[output_data.index[-1], "trial"] + 1
     )
     animal_config["session"]["starting_training_level"] = int(
-        output_data.loc[output_data.index[-1], "block.training_level"]
+        output_data.loc[output_data.index[-1], "training_level"]
     )
 
 
@@ -66,16 +65,16 @@ def ask_time_parameters(animal_config: dict, df: pd.DataFrame):
 
         if update_lower == "y" or update_lower == "":
             animal_config["fixation_time"]["opto_onset_time"]["min_value"] = float(
-                df.loc[df.index[-1], "fixation_time.opto_onset_time.base_time"]
+                df.loc[df.index[-1], "base_ft_oot"]
             )
             animal_config["fixation_time"]["sound_onset_time"]["min_value"] = float(
-                df.loc[df.index[-1], "fixation_time.sound_onset_time.base_time"]
+                df.loc[df.index[-1], "base_ft_sot"]
             )
             animal_config["reaction_time"]["min_value"] = float(
-                df.loc[df.index[-1], "reaction_time.base_time"]
+                df.loc[df.index[-1], "base_rt"]
             )
             animal_config["lnp_time"]["min_value"] = float(
-                df.loc[df.index[-1], "lnp_time.intended_duration"]
+                df.loc[df.index[-1], "intended_lnp"]
             )
             break
         elif update_lower == "n":
@@ -124,7 +123,7 @@ def startup():
             return
 
         # Ask for user input to update animal.yml file
-        ask_session(animal_config, df)
+        verify_session(animal_config, df, dirs[-1])
         ask_time_parameters(animal_config, df)
 
         # Add JSON schema
