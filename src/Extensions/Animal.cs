@@ -702,6 +702,8 @@ namespace Animal
     
         private int _startingTrialNumber;
     
+        private int _blockNumber;
+    
         private int _startingTrainingLevel;
     
         private int _lastTrainingLevel;
@@ -718,6 +720,7 @@ namespace Animal
             _type = other._type;
             _box = other._box;
             _startingTrialNumber = other._startingTrialNumber;
+            _blockNumber = other._blockNumber;
             _startingTrainingLevel = other._startingTrainingLevel;
             _lastTrainingLevel = other._lastTrainingLevel;
         }
@@ -832,6 +835,24 @@ namespace Animal
         }
     
         /// <summary>
+        /// The number of the first block of the session.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("block_number", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="block_number")]
+        [System.ComponentModel.DescriptionAttribute("The number of the first block of the session.")]
+        public int BlockNumber
+        {
+            get
+            {
+                return _blockNumber;
+            }
+            set
+            {
+                _blockNumber = value;
+            }
+        }
+    
+        /// <summary>
         /// The training level the animal will start in the current session.
         /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("starting_training_level", Required=Newtonsoft.Json.Required.Always)]
@@ -886,6 +907,7 @@ namespace Animal
             stringBuilder.Append("type = " + _type + ", ");
             stringBuilder.Append("box = " + _box + ", ");
             stringBuilder.Append("starting_trial_number = " + _startingTrialNumber + ", ");
+            stringBuilder.Append("block_number = " + _blockNumber + ", ");
             stringBuilder.Append("starting_training_level = " + _startingTrainingLevel + ", ");
             stringBuilder.Append("last_training_level = " + _lastTrainingLevel);
             return true;

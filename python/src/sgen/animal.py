@@ -146,6 +146,9 @@ class Session(BaseModel):
     starting_trial_number: int = Field(
         description="The number of the first trial of the session.", ge=1
     )
+    block_number: int = Field(
+        description="The number of the first block of the session.", ge=1
+    )
     starting_training_level: int = Field(
         description="The training level the animal will start in the current session.",
         ge=1,
