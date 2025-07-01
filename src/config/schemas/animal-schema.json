@@ -228,12 +228,6 @@
           "title": "Starting Trial Number",
           "type": "integer"
         },
-        "starting_block_number": {
-          "description": "The number of the first block of the session.",
-          "minimum": 1,
-          "title": "Starting Block Number",
-          "type": "integer"
-        },
         "starting_training_level": {
           "description": "The training level the animal will start in the current session.",
           "minimum": 1,
@@ -254,7 +248,6 @@
         "type",
         "box",
         "starting_trial_number",
-        "starting_block_number",
         "starting_training_level",
         "last_training_level"
       ],

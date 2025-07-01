@@ -702,8 +702,6 @@ namespace Animal
     
         private int _startingTrialNumber;
     
-        private int _startingBlockNumber;
-    
         private int _startingTrainingLevel;
     
         private int _lastTrainingLevel;
@@ -720,7 +718,6 @@ namespace Animal
             _type = other._type;
             _box = other._box;
             _startingTrialNumber = other._startingTrialNumber;
-            _startingBlockNumber = other._startingBlockNumber;
             _startingTrainingLevel = other._startingTrainingLevel;
             _lastTrainingLevel = other._lastTrainingLevel;
         }
@@ -835,24 +832,6 @@ namespace Animal
         }
     
         /// <summary>
-        /// The number of the first block of the session.
-        /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("starting_block_number", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="starting_block_number")]
-        [System.ComponentModel.DescriptionAttribute("The number of the first block of the session.")]
-        public int StartingBlockNumber
-        {
-            get
-            {
-                return _startingBlockNumber;
-            }
-            set
-            {
-                _startingBlockNumber = value;
-            }
-        }
-    
-        /// <summary>
         /// The training level the animal will start in the current session.
         /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("starting_training_level", Required=Newtonsoft.Json.Required.Always)]
@@ -907,7 +886,6 @@ namespace Animal
             stringBuilder.Append("type = " + _type + ", ");
             stringBuilder.Append("box = " + _box + ", ");
             stringBuilder.Append("starting_trial_number = " + _startingTrialNumber + ", ");
-            stringBuilder.Append("starting_block_number = " + _startingBlockNumber + ", ");
             stringBuilder.Append("starting_training_level = " + _startingTrainingLevel + ", ");
             stringBuilder.Append("last_training_level = " + _lastTrainingLevel);
             return true;
