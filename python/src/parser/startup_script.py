@@ -17,10 +17,10 @@ def verify_session(animal_config: dict, output_data: pd.DataFrame, last_dir: str
     output_data : pd.DataFrame
         the dataframe containing the data from the last session out.csv.
     last_dir : str
-        the name of the directory from last session, which is in the format `YYYYMMDD`
+        the name of the directory from last session, which is in the format `YYMMDD`
     """
 
-    last_session_date = datetime.strptime(last_dir, "%Y%m%d").date()
+    last_session_date = datetime.strptime(last_dir, "%y%m%d").date()
 
     if last_session_date == datetime.today().date():
         animal_config["session"]["number"] = int(
