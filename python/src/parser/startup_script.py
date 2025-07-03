@@ -1,4 +1,5 @@
 import os
+import re
 from datetime import datetime
 from parser.config_to_json import converter
 
@@ -135,3 +136,67 @@ def startup():
         # Write new animal.yml file
         with open(config["paths"]["animal"], "w") as file:
             file.write(yaml_string)
+
+
+def ask_experimenter():
+    while True:
+        experimenter = input("Hello! :) Let me know who you are, please: ")
+
+        if not bool(re.fullmatch(r"^[A-Z]([a-zA-Z -])*[a-zA-Z]$", experimenter)):
+            print(
+                "This is not a valid name! The name must start with a capital letter and end with a letter. Warning: numbers, punctuation and unicode characters (such as accented characters) can't be used."
+            )
+            continue
+
+        break
+
+    if os.path.exists("../src/config/users.yml"):
+        with open("../src/config/users.yml", "r") as file:
+            users = yaml.safe_load(file)
+        for user in users:
+            if experimenter == user:
+                print("Welcome back! :)")
+                return experimenter
+        users.append(experimenter)
+    else:
+        users = [experimenter]
+
+    print("Welcome! :)")
+
+    with open("../src/config/users.yml", "w") as file:
+        yaml.dump(users, file, default_flow_style=False)
+
+    return experimenter
+
+
+def ask_batch():
+    while True:
+        batch = input("Are you training an animal from which batch? ")
+
+        if not re.fullmatch(r"^[a-zA-Z0-9][a-zA-Z0-9_]*[a-zA-Z0-9]$", batch):
+            print(
+                "This is not a valid batch name! You can only use ASCII letters and numbers. Additionally, you can use underscores (_) in the middle of the name."
+            )
+            continue
+
+        return batch
+
+
+def main():
+    # Load config.yml
+    with open("../src/config/config.yml", "r") as file:
+        config = yaml.safe_load(file)
+
+    experimenter = ask_experimenter()
+    batch = ask_batch()
+
+    # while True:
+    #     # Animal prompt
+    #     animal = input("Which furry friend is going to be joining us? ")
+
+    #     # Check if the animal ID is valid
+    #     if not re.fullmatch(r"^[A-Z]{2,6}\d{4}$", animal):
+    #         print(
+    #             "This is not a valid animal ID! The animal ID must be composed by 2 to 6 letters followed by 4 digits (ex: ANIMAL0000)."
+    #         )
+    #         continue

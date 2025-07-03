@@ -12,6 +12,7 @@ nuget.config
 output
 config/
 src/config/config.yml
+src/config/users.yml
 src/config/setup.json
 src/config/training.json
 
