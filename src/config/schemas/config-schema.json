@@ -8,6 +8,11 @@
           "title": "Animal",
           "type": "string"
         },
+        "animal_dir": {
+          "description": "The path to the directory containing the animal ID files.",
+          "title": "Animal Dir",
+          "type": "string"
+        },
         "setup": {
           "description": "The path to the setup.json configuration file.",
           "pattern": "\\.csv$",
@@ -24,13 +29,27 @@
           "description": "The path to the output directory, where the output date will be saved.",
           "title": "Output",
           "type": "string"
+        },
+        "output_backup": {
+          "description": "The path to the backup output directory.",
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Output Backup"
         }
       },
       "required": [
         "animal",
+        "animal_dir",
         "setup",
         "training",
-        "output"
+        "output",
+        "output_backup"
       ],
       "title": "Paths",
       "type": "object"
@@ -80,6 +99,12 @@
     }
   },
   "properties": {
+    "setup": {
+      "description": "The setup number.",
+      "minimum": 0,
+      "title": "Setup",
+      "type": "integer"
+    },
     "ports": {
       "$ref": "#/definitions/Ports",
       "description": "Contains the COM ports for the different Harp boards."
@@ -90,6 +115,7 @@
     }
   },
   "required": [
+    "setup",
     "ports",
     "paths"
   ],

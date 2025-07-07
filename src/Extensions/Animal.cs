@@ -698,8 +698,6 @@ namespace Animal
     
         private int _type;
     
-        private int _box;
-    
         private int _startingTrialNumber;
     
         private int _blockNumber;
@@ -718,7 +716,6 @@ namespace Animal
             _experimenter = other._experimenter;
             _duration = other._duration;
             _type = other._type;
-            _box = other._box;
             _startingTrialNumber = other._startingTrialNumber;
             _blockNumber = other._blockNumber;
             _startingTrainingLevel = other._startingTrainingLevel;
@@ -795,24 +792,6 @@ namespace Animal
             set
             {
                 _type = value;
-            }
-        }
-    
-        /// <summary>
-        /// The ID number of the setup where the animal will perform the session.
-        /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("box", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="box")]
-        [System.ComponentModel.DescriptionAttribute("The ID number of the setup where the animal will perform the session.")]
-        public int Box
-        {
-            get
-            {
-                return _box;
-            }
-            set
-            {
-                _box = value;
             }
         }
     
@@ -905,7 +884,6 @@ namespace Animal
             stringBuilder.Append("experimenter = " + _experimenter + ", ");
             stringBuilder.Append("duration = " + _duration + ", ");
             stringBuilder.Append("type = " + _type + ", ");
-            stringBuilder.Append("box = " + _box + ", ");
             stringBuilder.Append("starting_trial_number = " + _startingTrialNumber + ", ");
             stringBuilder.Append("block_number = " + _blockNumber + ", ");
             stringBuilder.Append("starting_training_level = " + _startingTrainingLevel + ", ");

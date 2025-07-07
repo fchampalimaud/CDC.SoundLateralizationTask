@@ -216,12 +216,6 @@
           "title": "Type",
           "type": "integer"
         },
-        "box": {
-          "description": "The ID number of the setup where the animal will perform the session.",
-          "minimum": 0,
-          "title": "Box",
-          "type": "integer"
-        },
         "starting_trial_number": {
           "description": "The number of the first trial of the session.",
           "minimum": 1,
@@ -252,7 +246,6 @@
         "experimenter",
         "duration",
         "type",
-        "box",
         "starting_trial_number",
         "block_number",
         "starting_training_level",

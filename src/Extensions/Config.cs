@@ -17,11 +17,15 @@ namespace Config
     
         private string _animal;
     
+        private string _animalDir;
+    
         private string _setup;
     
         private string _training;
     
         private string _output;
+    
+        private string _outputBackup;
     
         public Paths()
         {
@@ -30,9 +34,11 @@ namespace Config
         protected Paths(Paths other)
         {
             _animal = other._animal;
+            _animalDir = other._animalDir;
             _setup = other._setup;
             _training = other._training;
             _output = other._output;
+            _outputBackup = other._outputBackup;
         }
     
         /// <summary>
@@ -50,6 +56,24 @@ namespace Config
             set
             {
                 _animal = value;
+            }
+        }
+    
+        /// <summary>
+        /// The path to the directory containing the animal ID files.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("animal_dir", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="animal_dir")]
+        [System.ComponentModel.DescriptionAttribute("The path to the directory containing the animal ID files.")]
+        public string AnimalDir
+        {
+            get
+            {
+                return _animalDir;
+            }
+            set
+            {
+                _animalDir = value;
             }
         }
     
@@ -107,6 +131,24 @@ namespace Config
             }
         }
     
+        /// <summary>
+        /// The path to the backup output directory.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("output_backup", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="output_backup")]
+        [System.ComponentModel.DescriptionAttribute("The path to the backup output directory.")]
+        public string OutputBackup
+        {
+            get
+            {
+                return _outputBackup;
+            }
+            set
+            {
+                _outputBackup = value;
+            }
+        }
+    
         public System.IObservable<Paths> Process()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new Paths(this)));
@@ -120,9 +162,11 @@ namespace Config
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
             stringBuilder.Append("animal = " + _animal + ", ");
+            stringBuilder.Append("animal_dir = " + _animalDir + ", ");
             stringBuilder.Append("setup = " + _setup + ", ");
             stringBuilder.Append("training = " + _training + ", ");
-            stringBuilder.Append("output = " + _output);
+            stringBuilder.Append("output = " + _output + ", ");
+            stringBuilder.Append("output_backup = " + _outputBackup);
             return true;
         }
     
@@ -301,6 +345,8 @@ namespace Config
     public partial class Config
     {
     
+        private int _setup;
+    
         private Ports _ports = new Ports();
     
         private Paths _paths = new Paths();
@@ -311,8 +357,27 @@ namespace Config
     
         protected Config(Config other)
         {
+            _setup = other._setup;
             _ports = other._ports;
             _paths = other._paths;
+        }
+    
+        /// <summary>
+        /// The setup number.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("setup", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="setup")]
+        [System.ComponentModel.DescriptionAttribute("The setup number.")]
+        public int Setup
+        {
+            get
+            {
+                return _setup;
+            }
+            set
+            {
+                _setup = value;
+            }
         }
     
         /// <summary>
@@ -365,6 +430,7 @@ namespace Config
     
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
+            stringBuilder.Append("setup = " + _setup + ", ");
             stringBuilder.Append("ports = " + _ports + ", ");
             stringBuilder.Append("paths = " + _paths);
             return true;

@@ -1,13 +1,16 @@
+from pathlib import Path
+from typing import Optional
+
 from pydantic import BaseModel, Field
 from pydantic.types import StringConstraints
 from typing_extensions import Annotated
+
 from sgen._utils import (
-    export_schema,
-    bonsai_sgen,
     BonsaiSgenSerializers,
+    bonsai_sgen,
+    export_schema,
     pascal_to_snake_case,
 )
-from pathlib import Path
 
 
 class Ports(BaseModel):
@@ -32,6 +35,9 @@ class Paths(BaseModel):
     animal: Annotated[str, StringConstraints(pattern=r"\.yml$")] = Field(
         description="The path to the animal.yml configuration file."
     )
+    animal_dir: str = Field(
+        description="The path to the directory containing the animal ID files."
+    )
     setup: Annotated[str, StringConstraints(pattern=r"\.csv$")] = Field(
         description="The path to the setup.json configuration file."
     )
@@ -41,11 +47,19 @@ class Paths(BaseModel):
     output: str = Field(
         description="The path to the output directory, where the output date will be saved."
     )
+    output_backup: Optional[str] = Field(
+        description="The path to the backup output directory."
+    )
 
 
 class Config(BaseModel):
-    ports: Ports = Field(description="Contains the COM ports for the different Harp boards.")
-    paths: Paths = Field(description="Contains the paths to the configuration files and to the output directory.")
+    setup: int = Field(description="The setup number.", ge=0)
+    ports: Ports = Field(
+        description="Contains the COM ports for the different Harp boards."
+    )
+    paths: Paths = Field(
+        description="Contains the paths to the configuration files and to the output directory."
+    )
 
 
 def generate_config():

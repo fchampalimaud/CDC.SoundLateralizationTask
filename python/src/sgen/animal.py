@@ -139,10 +139,6 @@ class Session(BaseModel):
         description="The duration of the session (in the hh:mm:ss format)."
     )
     type: int = Field(description="The number of the session type.")
-    box: int = Field(
-        description="The ID number of the setup where the animal will perform the session.",
-        ge=0,
-    )
     starting_trial_number: int = Field(
         description="The number of the first trial of the session.", ge=1
     )
