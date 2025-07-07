@@ -1,10 +1,61 @@
 import tkinter as tk
+from tkinter import filedialog as fd
 from tkinter import ttk
+from tkinter.messagebox import showwarning
+
 import serial.tools.list_ports
 from pyharp.device import Device
 from serial.serialutil import SerialException
-from tkinter.messagebox import showwarning
-from tkinter import filedialog as fd
+
+
+class LabeledSpinbox:
+    def __init__(
+        self,
+        container,
+        text: str,
+        row: int,
+        column: int,
+        width: float = 10,
+        rowspan: int = 1,
+        columnspan: int = 1,
+        sticky=None,
+    ):
+        self.frame = tk.Frame(container)
+        for i in range(2):
+            self.frame.grid_rowconfigure(i, weight=1)
+        for i in range(1):
+            self.frame.grid_columnconfigure(i, weight=1)
+
+        self.label = tk.Label(self.frame, text=text)
+        self.label.grid(row=0, column=0, sticky="s")
+
+        self.var = tk.IntVar(self.frame, 0)
+
+        self.spinbox = ttk.Spinbox(
+            self.frame,
+            textvariable=self.var,
+            justify="center",
+            width=width,
+            from_=0,
+            to=1000,  # FIXME
+        )
+        self.spinbox.grid(row=1, column=0, sticky="n")
+
+        self.frame.grid(
+            row=row,
+            column=column,
+            rowspan=rowspan,
+            columnspan=columnspan,
+            padx=5,
+            pady=5,
+            sticky=sticky,
+        )
+
+    def get(self):
+        return self.var.get()
+
+    def set(self, value: int):
+        self.var.set(value)
 
 
 class PortCombobox:

@@ -39,7 +39,7 @@ if ($asset) {
     $assetUrl = $asset.browser_download_url
 
     # Check if the file already exists
-    $outputFile = "config/$assetName"
+    $outputFile = "config/template.yml"
     if (-Not (Test-Path -Path $outputFile)) {
         # Download the specific asset
         Invoke-WebRequest -Uri $assetUrl -OutFile $outputFile

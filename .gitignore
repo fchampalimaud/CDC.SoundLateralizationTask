@@ -10,11 +10,11 @@ nuget.config
 /docs/_site
 /docs/api
 output
-config/
-src/config/config.yml
-src/config/users.yml
-src/config/setup.json
-src/config/training.json
+/config/
+/src/config/config.yml
+/src/config/users.yml
+/src/config/setup.yml
+/src/config/training.json
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
