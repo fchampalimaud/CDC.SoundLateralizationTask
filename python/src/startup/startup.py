@@ -1,7 +1,7 @@
 import os
 import re
 from datetime import datetime
-from parser.config_to_json import converter
+from typing import Literal
 
 import pandas as pd
 import yaml
@@ -137,56 +137,36 @@ def ask_animal():
         return animal
 
 
-def main():
-    # Load config.yml
-    with open("../src/config/config.yml", "r") as file:
-        config = yaml.safe_load(file)
+def ask_last_training_level():
+    while True:
+        # Last training level prompt
+        last_training_level = input(
+            "What is the training level the animal should stop progressing? (You can leave blank if the animal can progress until the last level) "
+        )
 
-    # Convert the setup.csv and training.csv into JSON files so that Bonsai is able to read them
-    converter(config["paths"]["setup"], "setup")
-    converter(config["paths"]["training"], "training")
-
-    # Load the animal.yml config file
-    with open(config["paths"]["animal"], "r") as file:
-        animal_config = yaml.safe_load(file)
-
-    experimenter = ask_experimenter()
-    batch = ask_batch()
-    animal = ask_animal()
-
-    # Possible path to the current animal output directory
-    animal_dir = config["paths"]["output"] + "/" + batch + "/" + animal
-    if os.path.isdir(animal_dir):
-        entries = os.listdir(animal_dir)
-        dirs = [
-            entry for entry in entries if os.path.isdir(os.path.join(animal_dir, entry))
-        ]
-        dir_path = os.path.join(animal_dir, dirs[-1])
-
-        # Try to read the last out.csv file and return from function if something goes wrong
-        try:
-            df = pd.read_csv(os.path.join(dir_path, "out.csv"))
-            # Ask for user input to update animal.yml file
-            verify_session(animal_config, df, dirs[-1])
-            ask_time_parameters(animal_config, df)
-            animal_config["session"]["starting_trial_number"] = int(
-                df.loc[df.index[-1], "trial"] + 1
+        # Check if the animal ID is valid
+        if not re.fullmatch(r"^(?:\d{1,2})?$", last_training_level):
+            print(
+                "This is not a valid training level! Leave the prompt blank or write up to 2 digits."
             )
-        except:
-            pass
+            continue
 
-    # Update block_number, trial_number and starting_training_level
-    animal_config["session"]["block_number"] = 1
-    animal_config["session"]["experimenter"] = experimenter
-    animal_config["animal_id"] = animal
-    animal_config["batch"] = batch
+        if last_training_level == "":
+            return 16  # FIXME
+        else:
+            return int(last_training_level)
 
-    # Add JSON schema
-    yaml_string = (
-        "# yaml-language-server: $schema=https://raw.githubusercontent.com/fchampalimaud/CDC.SoundLateralizationTask/refs/heads/main/src/config/schemas/animal-schema.json\n"
-        + yaml.dump(animal_config, default_flow_style=False)
-    )
 
-    # Write new animal.yml file
-    with open(config["paths"]["animal"], "w") as file:
+def save_yaml(data: dict, filepath: str, type: Literal["animal", "config"]):
+    # Store schema path according to file type
+    if type == "animal":
+        schema = "# yaml-language-server: $schema=https://raw.githubusercontent.com/fchampalimaud/CDC.SoundLateralizationTask/refs/heads/main/src/config/schemas/animal-schema.json\n"
+    else:
+        schema = "# yaml-language-server: $schema=schemas/config-schema.json\n"
+
+    # Add JSON schema to yaml structure
+    yaml_string = schema + yaml.dump(data, default_flow_style=False)
+
+    # Save file
+    with open(filepath, "w") as file:
         file.write(yaml_string)

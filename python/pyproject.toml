@@ -23,7 +23,7 @@ pyharp = { git = "https://github.com/harp-tech/pyharp.git" }
 [project.scripts]
 generate-schemas = "sgen.__main__:main"
 config = "config.__main__:main"
-startup = "parser.startup:main"
+startup = "startup.__main__:main"
 convert-output = "parser.output_to_csv:convert_output"
 
 [build-system]

@@ -120,15 +120,9 @@ class Setup(BaseModel):
     camera: Camera = Field(description="Contains parameters related to the camera.")
 
 
-class SetupList(BaseModel):
-    setups: List[Setup] = Field(
-        description="The list with the parameters for every existent setup."
-    )
-
-
 def generate_setup():
-    json_schema = export_schema(SetupList)
-    schema_name = SetupList.__name__
+    json_schema = export_schema(Setup)
+    schema_name = Setup.__name__
     _dashed = pascal_to_snake_case(schema_name).replace("_", "-")
     schema_path = Path(rf"../src/config/schemas/{_dashed}-schema.json")
     with open(schema_path, "w", encoding="utf-8") as f:

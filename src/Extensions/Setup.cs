@@ -5,7 +5,7 @@
 //----------------------
 
 
-namespace SetupList
+namespace Setup
 {
     #pragma warning disable // Disable all warnings
 
@@ -371,256 +371,6 @@ namespace SetupList
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
             stringBuilder.Append("low_to_high = " + _lowToHigh);
-            return true;
-        }
-    
-        public override string ToString()
-        {
-            System.Text.StringBuilder stringBuilder = new System.Text.StringBuilder();
-            stringBuilder.Append(GetType().Name);
-            stringBuilder.Append(" { ");
-            if (PrintMembers(stringBuilder))
-            {
-                stringBuilder.Append(" ");
-            }
-            stringBuilder.Append("}");
-            return stringBuilder.ToString();
-        }
-    }
-
-
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
-    [Bonsai.CombinatorAttribute()]
-    [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
-    public partial class Setup
-    {
-    
-        private int _setupId;
-    
-        private Poke _leftPoke = new Poke();
-    
-        private Poke _centerPoke = new Poke();
-    
-        private Poke _rightPoke = new Poke();
-    
-        private Speakers _speakers = new Speakers();
-    
-        private Lights _lights = new Lights();
-    
-        private SyringePumps _syringePumps = new SyringePumps();
-    
-        private System.Collections.Generic.List<Sound> _sounds = new System.Collections.Generic.List<Sound>();
-    
-        private Camera _camera = new Camera();
-    
-        public Setup()
-        {
-        }
-    
-        protected Setup(Setup other)
-        {
-            _setupId = other._setupId;
-            _leftPoke = other._leftPoke;
-            _centerPoke = other._centerPoke;
-            _rightPoke = other._rightPoke;
-            _speakers = other._speakers;
-            _lights = other._lights;
-            _syringePumps = other._syringePumps;
-            _sounds = other._sounds;
-            _camera = other._camera;
-        }
-    
-        /// <summary>
-        /// The ID number of the setup.
-        /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("setup_id", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="setup_id")]
-        [System.ComponentModel.DescriptionAttribute("The ID number of the setup.")]
-        public int SetupId
-        {
-            get
-            {
-                return _setupId;
-            }
-            set
-            {
-                _setupId = value;
-            }
-        }
-    
-        /// <summary>
-        /// Contains parameters related to the left poke.
-        /// </summary>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        [Newtonsoft.Json.JsonPropertyAttribute("left_poke", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="left_poke")]
-        [System.ComponentModel.DescriptionAttribute("Contains parameters related to the left poke.")]
-        public Poke LeftPoke
-        {
-            get
-            {
-                return _leftPoke;
-            }
-            set
-            {
-                _leftPoke = value;
-            }
-        }
-    
-        /// <summary>
-        /// Contains parameters related to the center poke.
-        /// </summary>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        [Newtonsoft.Json.JsonPropertyAttribute("center_poke", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="center_poke")]
-        [System.ComponentModel.DescriptionAttribute("Contains parameters related to the center poke.")]
-        public Poke CenterPoke
-        {
-            get
-            {
-                return _centerPoke;
-            }
-            set
-            {
-                _centerPoke = value;
-            }
-        }
-    
-        /// <summary>
-        /// Contains parameters related to the right poke.
-        /// </summary>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        [Newtonsoft.Json.JsonPropertyAttribute("right_poke", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="right_poke")]
-        [System.ComponentModel.DescriptionAttribute("Contains parameters related to the right poke.")]
-        public Poke RightPoke
-        {
-            get
-            {
-                return _rightPoke;
-            }
-            set
-            {
-                _rightPoke = value;
-            }
-        }
-    
-        /// <summary>
-        /// Contains parameters related to the speakers.
-        /// </summary>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        [Newtonsoft.Json.JsonPropertyAttribute("speakers", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="speakers")]
-        [System.ComponentModel.DescriptionAttribute("Contains parameters related to the speakers.")]
-        public Speakers Speakers
-        {
-            get
-            {
-                return _speakers;
-            }
-            set
-            {
-                _speakers = value;
-            }
-        }
-    
-        /// <summary>
-        /// Contains parameters related to the box and poke LEDs.
-        /// </summary>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        [Newtonsoft.Json.JsonPropertyAttribute("lights", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="lights")]
-        [System.ComponentModel.DescriptionAttribute("Contains parameters related to the box and poke LEDs.")]
-        public Lights Lights
-        {
-            get
-            {
-                return _lights;
-            }
-            set
-            {
-                _lights = value;
-            }
-        }
-    
-        /// <summary>
-        /// Contains the parameters related to the SyringePumps.
-        /// </summary>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        [Newtonsoft.Json.JsonPropertyAttribute("syringe_pumps", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="syringe_pumps")]
-        [System.ComponentModel.DescriptionAttribute("Contains the parameters related to the SyringePumps.")]
-        public SyringePumps SyringePumps
-        {
-            get
-            {
-                return _syringePumps;
-            }
-            set
-            {
-                _syringePumps = value;
-            }
-        }
-    
-        /// <summary>
-        /// The list with information regarding the sounds uploaded to the Harp SoundCard.
-        /// </summary>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        [Newtonsoft.Json.JsonPropertyAttribute("sounds", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="sounds")]
-        [System.ComponentModel.DescriptionAttribute("The list with information regarding the sounds uploaded to the Harp SoundCard.")]
-        public System.Collections.Generic.List<Sound> Sounds
-        {
-            get
-            {
-                return _sounds;
-            }
-            set
-            {
-                _sounds = value;
-            }
-        }
-    
-        /// <summary>
-        /// Contains parameters related to the camera.
-        /// </summary>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        [Newtonsoft.Json.JsonPropertyAttribute("camera", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="camera")]
-        [System.ComponentModel.DescriptionAttribute("Contains parameters related to the camera.")]
-        public Camera Camera
-        {
-            get
-            {
-                return _camera;
-            }
-            set
-            {
-                _camera = value;
-            }
-        }
-    
-        public System.IObservable<Setup> Process()
-        {
-            return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new Setup(this)));
-        }
-    
-        public System.IObservable<Setup> Process<TSource>(System.IObservable<TSource> source)
-        {
-            return System.Reactive.Linq.Observable.Select(source, _ => new Setup(this));
-        }
-    
-        protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
-        {
-            stringBuilder.Append("setup_id = " + _setupId + ", ");
-            stringBuilder.Append("left_poke = " + _leftPoke + ", ");
-            stringBuilder.Append("center_poke = " + _centerPoke + ", ");
-            stringBuilder.Append("right_poke = " + _rightPoke + ", ");
-            stringBuilder.Append("speakers = " + _speakers + ", ");
-            stringBuilder.Append("lights = " + _lights + ", ");
-            stringBuilder.Append("syringe_pumps = " + _syringePumps + ", ");
-            stringBuilder.Append("sounds = " + _sounds + ", ");
-            stringBuilder.Append("camera = " + _camera);
             return true;
         }
     
@@ -1017,52 +767,235 @@ namespace SetupList
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
     [Bonsai.CombinatorAttribute()]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
-    public partial class SetupList
+    public partial class Setup
     {
     
-        private System.Collections.Generic.List<Setup> _setups = new System.Collections.Generic.List<Setup>();
+        private int _setupId;
     
-        public SetupList()
+        private Poke _leftPoke = new Poke();
+    
+        private Poke _centerPoke = new Poke();
+    
+        private Poke _rightPoke = new Poke();
+    
+        private Speakers _speakers = new Speakers();
+    
+        private Lights _lights = new Lights();
+    
+        private SyringePumps _syringePumps = new SyringePumps();
+    
+        private System.Collections.Generic.List<Sound> _sounds = new System.Collections.Generic.List<Sound>();
+    
+        private Camera _camera = new Camera();
+    
+        public Setup()
         {
         }
     
-        protected SetupList(SetupList other)
+        protected Setup(Setup other)
         {
-            _setups = other._setups;
+            _setupId = other._setupId;
+            _leftPoke = other._leftPoke;
+            _centerPoke = other._centerPoke;
+            _rightPoke = other._rightPoke;
+            _speakers = other._speakers;
+            _lights = other._lights;
+            _syringePumps = other._syringePumps;
+            _sounds = other._sounds;
+            _camera = other._camera;
         }
     
         /// <summary>
-        /// The list with the parameters for every existent setup.
+        /// The ID number of the setup.
         /// </summary>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        [Newtonsoft.Json.JsonPropertyAttribute("setups", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="setups")]
-        [System.ComponentModel.DescriptionAttribute("The list with the parameters for every existent setup.")]
-        public System.Collections.Generic.List<Setup> Setups
+        [Newtonsoft.Json.JsonPropertyAttribute("setup_id", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="setup_id")]
+        [System.ComponentModel.DescriptionAttribute("The ID number of the setup.")]
+        public int SetupId
         {
             get
             {
-                return _setups;
+                return _setupId;
             }
             set
             {
-                _setups = value;
+                _setupId = value;
             }
         }
     
-        public System.IObservable<SetupList> Process()
+        /// <summary>
+        /// Contains parameters related to the left poke.
+        /// </summary>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [Newtonsoft.Json.JsonPropertyAttribute("left_poke", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="left_poke")]
+        [System.ComponentModel.DescriptionAttribute("Contains parameters related to the left poke.")]
+        public Poke LeftPoke
         {
-            return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new SetupList(this)));
+            get
+            {
+                return _leftPoke;
+            }
+            set
+            {
+                _leftPoke = value;
+            }
         }
     
-        public System.IObservable<SetupList> Process<TSource>(System.IObservable<TSource> source)
+        /// <summary>
+        /// Contains parameters related to the center poke.
+        /// </summary>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [Newtonsoft.Json.JsonPropertyAttribute("center_poke", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="center_poke")]
+        [System.ComponentModel.DescriptionAttribute("Contains parameters related to the center poke.")]
+        public Poke CenterPoke
         {
-            return System.Reactive.Linq.Observable.Select(source, _ => new SetupList(this));
+            get
+            {
+                return _centerPoke;
+            }
+            set
+            {
+                _centerPoke = value;
+            }
+        }
+    
+        /// <summary>
+        /// Contains parameters related to the right poke.
+        /// </summary>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [Newtonsoft.Json.JsonPropertyAttribute("right_poke", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="right_poke")]
+        [System.ComponentModel.DescriptionAttribute("Contains parameters related to the right poke.")]
+        public Poke RightPoke
+        {
+            get
+            {
+                return _rightPoke;
+            }
+            set
+            {
+                _rightPoke = value;
+            }
+        }
+    
+        /// <summary>
+        /// Contains parameters related to the speakers.
+        /// </summary>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [Newtonsoft.Json.JsonPropertyAttribute("speakers", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="speakers")]
+        [System.ComponentModel.DescriptionAttribute("Contains parameters related to the speakers.")]
+        public Speakers Speakers
+        {
+            get
+            {
+                return _speakers;
+            }
+            set
+            {
+                _speakers = value;
+            }
+        }
+    
+        /// <summary>
+        /// Contains parameters related to the box and poke LEDs.
+        /// </summary>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [Newtonsoft.Json.JsonPropertyAttribute("lights", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="lights")]
+        [System.ComponentModel.DescriptionAttribute("Contains parameters related to the box and poke LEDs.")]
+        public Lights Lights
+        {
+            get
+            {
+                return _lights;
+            }
+            set
+            {
+                _lights = value;
+            }
+        }
+    
+        /// <summary>
+        /// Contains the parameters related to the SyringePumps.
+        /// </summary>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [Newtonsoft.Json.JsonPropertyAttribute("syringe_pumps", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="syringe_pumps")]
+        [System.ComponentModel.DescriptionAttribute("Contains the parameters related to the SyringePumps.")]
+        public SyringePumps SyringePumps
+        {
+            get
+            {
+                return _syringePumps;
+            }
+            set
+            {
+                _syringePumps = value;
+            }
+        }
+    
+        /// <summary>
+        /// The list with information regarding the sounds uploaded to the Harp SoundCard.
+        /// </summary>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [Newtonsoft.Json.JsonPropertyAttribute("sounds", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="sounds")]
+        [System.ComponentModel.DescriptionAttribute("The list with information regarding the sounds uploaded to the Harp SoundCard.")]
+        public System.Collections.Generic.List<Sound> Sounds
+        {
+            get
+            {
+                return _sounds;
+            }
+            set
+            {
+                _sounds = value;
+            }
+        }
+    
+        /// <summary>
+        /// Contains parameters related to the camera.
+        /// </summary>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [Newtonsoft.Json.JsonPropertyAttribute("camera", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="camera")]
+        [System.ComponentModel.DescriptionAttribute("Contains parameters related to the camera.")]
+        public Camera Camera
+        {
+            get
+            {
+                return _camera;
+            }
+            set
+            {
+                _camera = value;
+            }
+        }
+    
+        public System.IObservable<Setup> Process()
+        {
+            return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new Setup(this)));
+        }
+    
+        public System.IObservable<Setup> Process<TSource>(System.IObservable<TSource> source)
+        {
+            return System.Reactive.Linq.Observable.Select(source, _ => new Setup(this));
         }
     
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
-            stringBuilder.Append("setups = " + _setups);
+            stringBuilder.Append("setup_id = " + _setupId + ", ");
+            stringBuilder.Append("left_poke = " + _leftPoke + ", ");
+            stringBuilder.Append("center_poke = " + _centerPoke + ", ");
+            stringBuilder.Append("right_poke = " + _rightPoke + ", ");
+            stringBuilder.Append("speakers = " + _speakers + ", ");
+            stringBuilder.Append("lights = " + _lights + ", ");
+            stringBuilder.Append("syringe_pumps = " + _syringePumps + ", ");
+            stringBuilder.Append("sounds = " + _sounds + ", ");
+            stringBuilder.Append("camera = " + _camera);
             return true;
         }
     
@@ -1126,11 +1059,6 @@ namespace SetupList
             return Process<Poke>(source);
         }
 
-        public System.IObservable<string> Process(System.IObservable<Setup> source)
-        {
-            return Process<Setup>(source);
-        }
-
         public System.IObservable<string> Process(System.IObservable<Sound> source)
         {
             return Process<Sound>(source);
@@ -1146,9 +1074,9 @@ namespace SetupList
             return Process<SyringePumps>(source);
         }
 
-        public System.IObservable<string> Process(System.IObservable<SetupList> source)
+        public System.IObservable<string> Process(System.IObservable<Setup> source)
         {
-            return Process<SetupList>(source);
+            return Process<Setup>(source);
         }
     }
 
@@ -1163,17 +1091,16 @@ namespace SetupList
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Camera>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Lights>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Poke>))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Setup>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Sound>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Speakers>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<SyringePumps>))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<SetupList>))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Setup>))]
     public partial class DeserializeFromJson : Bonsai.Expressions.SingleArgumentExpressionBuilder
     {
     
         public DeserializeFromJson()
         {
-            Type = new Bonsai.Expressions.TypeMapping<SetupList>();
+            Type = new Bonsai.Expressions.TypeMapping<Setup>();
         }
 
         public Bonsai.Expressions.TypeMapping Type { get; set; }
@@ -1231,11 +1158,6 @@ namespace SetupList
             return Process<Poke>(source);
         }
 
-        public System.IObservable<string> Process(System.IObservable<Setup> source)
-        {
-            return Process<Setup>(source);
-        }
-
         public System.IObservable<string> Process(System.IObservable<Sound> source)
         {
             return Process<Sound>(source);
@@ -1251,9 +1173,9 @@ namespace SetupList
             return Process<SyringePumps>(source);
         }
 
-        public System.IObservable<string> Process(System.IObservable<SetupList> source)
+        public System.IObservable<string> Process(System.IObservable<Setup> source)
         {
-            return Process<SetupList>(source);
+            return Process<Setup>(source);
         }
     }
 
@@ -1268,17 +1190,16 @@ namespace SetupList
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Camera>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Lights>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Poke>))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Setup>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Sound>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Speakers>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<SyringePumps>))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<SetupList>))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Setup>))]
     public partial class DeserializeFromYaml : Bonsai.Expressions.SingleArgumentExpressionBuilder
     {
     
         public DeserializeFromYaml()
         {
-            Type = new Bonsai.Expressions.TypeMapping<SetupList>();
+            Type = new Bonsai.Expressions.TypeMapping<Setup>();
         }
 
         public Bonsai.Expressions.TypeMapping Type { get; set; }
