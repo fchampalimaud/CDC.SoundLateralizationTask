@@ -12,8 +12,8 @@ nuget.config
 output
 /config/
 /src/config/config.yml
-/src/config/users.yml
-/src/config/setup.yml
+/python/assets/users.yml
+/src/config/setup.json
 /src/config/training.json
 
 # Byte-compiled / optimized / DLL files

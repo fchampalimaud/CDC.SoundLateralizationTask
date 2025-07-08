@@ -1,9 +1,9 @@
+from datetime import time
 from pathlib import Path
 from typing import Literal
 
 from pydantic import BaseModel, Field
 from pydantic.types import StringConstraints
-from pydantic_extra_types.pendulum_dt import DateTime
 from typing_extensions import Annotated
 
 from sgen._utils import (
@@ -172,10 +172,10 @@ class Block(BaseModel):
 
 class Trial(BaseModel):
     number: int = Field(description="The trial number.", ge=1)
-    computer_start_time: DateTime = Field(
+    computer_start_time: time = Field(
         "The timestamp at which the trial started in computer time."
     )
-    computer_end_time: DateTime = Field(
+    computer_end_time: time = Field(
         "The timestamp at which the trial ended in computer time."
     )
     start_time: float = Field(

@@ -1744,9 +1744,9 @@ namespace Output
     
         private int _number;
     
-        private System.DateTimeOffset _computerStartTime;
+        private System.TimeSpan _computerStartTime;
     
-        private System.DateTimeOffset _computerEndTime;
+        private System.TimeSpan _computerEndTime;
     
         private double _startTime;
     
@@ -1792,7 +1792,7 @@ namespace Output
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         [Newtonsoft.Json.JsonPropertyAttribute("computer_start_time")]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="computer_start_time")]
-        public System.DateTimeOffset ComputerStartTime
+        public System.TimeSpan ComputerStartTime
         {
             get
             {
@@ -1807,7 +1807,7 @@ namespace Output
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         [Newtonsoft.Json.JsonPropertyAttribute("computer_end_time")]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="computer_end_time")]
-        public System.DateTimeOffset ComputerEndTime
+        public System.TimeSpan ComputerEndTime
         {
             get
             {

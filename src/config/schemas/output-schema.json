@@ -479,13 +479,13 @@
         },
         "computer_start_time": {
           "default": "The timestamp at which the trial started in computer time.",
-          "format": "date-time",
+          "format": "time",
           "title": "Computer Start Time",
           "type": "string"
         },
         "computer_end_time": {
           "default": "The timestamp at which the trial ended in computer time.",
-          "format": "date-time",
+          "format": "time",
           "title": "Computer End Time",
           "type": "string"
         },
