@@ -113,7 +113,8 @@ class GUI(tk.Tk):
                 currentdriver=self.ports.current_driver.get(),
             ),
             paths=Paths(
-                animal=self.paths.animal.get(),
+                animal="template.yml",
+                animal_dir=self.paths.animal.get(),
                 setup=self.paths.setup.get(),
                 training=self.paths.training.get(),
                 output=self.paths.output.get(),
