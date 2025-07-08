@@ -100,5 +100,5 @@ def save_setup(filepath: str, index: int):
     setup_dict = unflatten_json(setup_dict)
 
     # Save file
-    with open("../src/config/setup.yml", "w") as file:
-        yaml.dump(setup_dict, file, default_flow_style=False)
+    with open("../src/config/setup.json", "w") as file:
+        json.dump(setup_dict, file, indent=4)
