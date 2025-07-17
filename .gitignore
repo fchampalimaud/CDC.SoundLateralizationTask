@@ -10,7 +10,7 @@ nuget.config
 /docs/_site
 /docs/api
 output
-/config/
+# /config/
 /src/config/config.yml
 /python/assets/users.yml
 /src/config/setup.json

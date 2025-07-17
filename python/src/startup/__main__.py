@@ -27,7 +27,7 @@ def main():
     converter(config["paths"]["training"], "training")
 
     # Ask user for some informations from prompts
-    experimenter = ask_experimenter()
+    # experimenter = ask_experimenter()
     batch = ask_batch()
     animal = ask_animal()
 
@@ -57,24 +57,24 @@ def main():
         ]
         animal_out = os.path.join(animal_out_dir, dirs[-1])
 
-        # Try to read the last out.csv file and return from function if something goes wrong
-        try:
-            df = pd.read_csv(os.path.join(animal_out, "out.csv"))
-            # Ask for user input to update animal.yml file
-            verify_session(animal_config, df, dirs[-1])
-            ask_time_parameters(animal_config, df)
-            animal_config["session"]["starting_trial_number"] = int(
-                df.loc[df.index[-1], "trial"] + 1
-            )
-        except:
-            pass
+        # # Try to read the last out.csv file and return from function if something goes wrong
+        # try:
+        #     df = pd.read_csv(os.path.join(animal_out, "out.csv"))
+        #     # Ask for user input to update animal.yml file
+        #     verify_session(animal_config, df, dirs[-1])
+        #     ask_time_parameters(animal_config, df)
+        #     animal_config["session"]["starting_trial_number"] = int(
+        #         df.loc[df.index[-1], "trial"] + 1
+        #     )
+        # except:
+        #     pass
 
     # Update animal, batch, experimenter and block_number
     animal_config["animal_id"] = animal
     animal_config["batch"] = batch
-    animal_config["session"]["experimenter"] = experimenter
-    animal_config["session"]["block_number"] = 1
-    animal_config["session"]["last_training_level"] = ask_last_training_level()
+    # animal_config["session"]["experimenter"] = experimenter
+    # animal_config["session"]["block_number"] = 1
+    # animal_config["session"]["last_training_level"] = ask_last_training_level()
 
     # Save animal and config files
     os.makedirs(config["paths"]["animal_dir"] + "/" + batch, exist_ok=True)

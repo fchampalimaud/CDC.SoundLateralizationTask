@@ -1,0 +1,68 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/fchampalimaud/CDC.SoundLateralizationTask/refs/heads/main/src/config/schemas/animal-schema.json
+animal_id: ICE0000
+autobias_correction:
+  cutoff_bias: 0.25
+  performance_threshold: 1
+  slope_multiplier: 1
+  use_correction: false
+  window: 25
+base_reward: 15
+batch: freeze
+fixation_time:
+  opto_onset_time:
+    delta: 0.5
+    min_value: 5.0
+    target: 100
+  sound_onset_time:
+    delta: 0.5
+    min_value: 5.0
+    target: 100
+lnp_time:
+  delta: 0.001
+  min_value: 0.01
+  target: 0.01
+max_reaction_time: 10
+min_movement_time: 0.01
+optogenetics:
+  duration: 2
+  led0:
+    duty_cycle: 50
+    frequency: 20
+    mode: TTL
+    power: 0
+    use_pulses: false
+    voltage: 0
+  led1:
+    duty_cycle: 50
+    frequency: 20
+    mode: TTL
+    power: 0
+    use_pulses: false
+    voltage: 0
+  mode: Bilateral
+  opto_ratio: 0.3
+  ramp_mode: None
+  ramp_time: 1
+  use_opto: false
+  use_rt: false
+reaction_time:
+  delta: 0.001
+  min_value: 0.01
+  target: 0.01
+session:
+  block_number: 1
+  duration: 02:00:00
+  experimenter: John Doe
+  last_training_level: 1
+  number: 1
+  starting_training_level: 1
+  starting_trial_number: 1
+  type: 1
+sound:
+  abl_list:
+  - 20
+  - 40
+  - 50
+  fixed_abl: 50
+  max_side: 8
+  pseudo_random_side: false
