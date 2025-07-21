@@ -69,7 +69,7 @@
       </Location>
       <Size>
         <Width>1499</Width>
-        <Height>999</Height>
+        <Height>983</Height>
       </Size>
       <WindowState>Normal</WindowState>
     </EditorDialogSettings>
@@ -696,12 +696,12 @@
     <EditorDialogSettings>
       <Visible>false</Visible>
       <Location>
-        <X>440</X>
-        <Y>328</Y>
+        <X>229</X>
+        <Y>310</Y>
       </Location>
       <Size>
-        <Width>1210</Width>
-        <Height>609</Height>
+        <Width>1104</Width>
+        <Height>574</Height>
       </Size>
       <WindowState>Normal</WindowState>
     </EditorDialogSettings>
