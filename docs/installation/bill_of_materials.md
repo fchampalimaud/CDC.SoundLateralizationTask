@@ -40,7 +40,7 @@ For this part of the BOM, a peripheral is considered to be anything that either 
 | [Behavior Poke Port Breakout v1.1](https://github.com/harp-tech/peripheral.portbreakout) | Makes the ethernet ports pins from the Harp Behavior available | 3 | - | :x: | :heavy_check_mark: | Connects to the Harp Behavior |
 | [RJ-to-RJ cables](https://www.pcdiga.com/adaptadores-e-cabos/conectividade-de-rede/cabos-de-rede-rj45/cabo-de-rede-ewent-im1037-cat-6-u-utp-slim-100-cobre-1m-branco-im1037-8054392618567) | - | 3 | IM1037 | :x: | :x: | Connects the Harp Behavior to the Behavior Poke Port Breakout v1.1 |
 | Poke Small v1.1 | Board with infrared beam to detect animal pokes | 3 | - | :x: | :heavy_check_mark: | Connects to the Behavior Poke Port Breakout v1.1 |
-| 3.5 mm-stereo-audio-jack-to-bare-wires | - | 3 | _TODO_ | :x: | :x: | Connects the Poke Small v1.1 to the Behavior Poke Port Breakout v1.1 |
+| [3.5 mm-stereo-audio-jack-to-bare-wires](https://pt.mouser.com/ProductDetail/Bel/BC-A3ML006F?qs=A6eO%252BMLsxmSwlYYLRmpP7w%3D%3D) | - | 3 | BC-A3ML006F  | :x: | :x: | Connects the Poke Small v1.1 to the Behavior Poke Port Breakout v1.1 |
 | 5 mm white/blue LED | Placed on the box lid to give cues to the animal | 1 | - | :x: | :x: | Connects to the LED0 pins of the Harp Behavior |
 | 3 mm green LED | Placed in the central poke to give cues to the animal | 1 | - | :x: | :x: | Connects to the LED1 pins of the Harp Behavior |
 | RCA-to-RCA cables | - | 2 | - | :heavy_check_mark: | :x: | Connects each Harp Audio Amplifier to the Harp SoundCard |
