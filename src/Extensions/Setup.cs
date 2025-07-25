@@ -17,6 +17,8 @@ namespace Setup
     
         private bool _useCamera;
     
+        private CameraType _type;
+    
         private double _framesPerSecond;
     
         private string _resolution;
@@ -30,6 +32,7 @@ namespace Setup
         protected Camera(Camera other)
         {
             _useCamera = other._useCamera;
+            _type = other._type;
             _framesPerSecond = other._framesPerSecond;
             _resolution = other._resolution;
             _codec = other._codec;
@@ -50,6 +53,25 @@ namespace Setup
             set
             {
                 _useCamera = value;
+            }
+        }
+    
+        /// <summary>
+        /// The type of camera used in the setup.
+        /// </summary>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [Newtonsoft.Json.JsonPropertyAttribute("type", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="type")]
+        [System.ComponentModel.DescriptionAttribute("The type of camera used in the setup.")]
+        public CameraType Type
+        {
+            get
+            {
+                return _type;
+            }
+            set
+            {
+                _type = value;
             }
         }
     
@@ -121,6 +143,7 @@ namespace Setup
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
             stringBuilder.Append("use_camera = " + _useCamera + ", ");
+            stringBuilder.Append("type = " + _type + ", ");
             stringBuilder.Append("frames_per_second = " + _framesPerSecond + ", ");
             stringBuilder.Append("resolution = " + _resolution + ", ");
             stringBuilder.Append("codec = " + _codec);
@@ -1011,6 +1034,21 @@ namespace Setup
             stringBuilder.Append("}");
             return stringBuilder.ToString();
         }
+    }
+
+
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
+    [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+    public enum CameraType
+    {
+    
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="Point Grey")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="Point Grey")]
+        PointGrey = 0,
+    
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="FLIR")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="FLIR")]
+        FLIR = 1,
     }
 
 

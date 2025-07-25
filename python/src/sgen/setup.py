@@ -85,6 +85,9 @@ class Camera(BaseModel):
     use_camera: bool = Field(
         description="Indicates whether the setup has a camera (true) or not (false)."
     )
+    type: Literal["Point Grey", "FLIR"] = Field(
+        description="The type of camera used in the setup."
+    )
     frames_per_second: float = Field(
         description="The number of frames per second of the camera.", gt=0
     )
