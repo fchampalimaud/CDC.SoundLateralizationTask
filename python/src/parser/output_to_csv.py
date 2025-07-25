@@ -41,7 +41,8 @@ def convert_output():
         # Concatenate the data from every output JSON file in the last session directory
         all_data = append_json(dir_path)
 
-        out_path = os.path.join(animal_dir, dirs[i], "out.csv")
+        out_name = "out_" + dirs[i] + ".csv"
+        out_path = os.path.join(animal_dir, dirs[i], out_name)
 
         # Generate the out.csv file from the JSON structure
         if not os.path.isfile(out_path) or (i == len(dirs) - 1):
@@ -146,6 +147,22 @@ def generate_plots(data: pd.DataFrame, path):
         ax[0, 0].set_yticks([])
         ax[0, 0].set_xticks([])
 
+        text = "Animal: " + df["animal"][0] + "\n"
+        text += "Batch: " + df["batch"][0] + "\n"
+        text += "Block: " + str(df["block"][0]) + "\n"
+        text += "Learning Stage: " + str(df["training_level"][0]) + "\n"
+        text += "Setup: " + str(df["box"][0]) + "\n"
+
+        # Informative text
+        textbox = plt.text(
+            ax[0, 0].get_position().x0 + 0.005,
+            ax[0, 0].get_position().y0 + 0.06,
+            text,
+            transform=fig.transFigure,
+            fontsize=8,
+            linespacing=1.5,
+        )
+
         # Changes the labels of the y-ticks in the outcome plot
         ax[0, 2].set_yticks(
             range(3, -9, -1),
@@ -207,6 +224,7 @@ def generate_plots(data: pd.DataFrame, path):
             markeredgecolor="black",
             markeredgewidth=1.5,
         )
+        ax[0, 1].set_ylim(-1.1 * max(np.abs(df["ILD"])), 1.1 * max(np.abs(df["ILD"])))
 
         colors_aborts = plt.cm.hsv(np.linspace(0.75, 0, 10))
         # Outcome plot
@@ -396,6 +414,7 @@ def generate_plots(data: pd.DataFrame, path):
             markeredgecolor="black",
             markeredgewidth=1.5,
         )
+        # ax[1, 2].set_ylim(0.9 * min(df["cnp_time"]), 1.1 * max(df["cnp_time"]))
 
         # Reaction time plot
         df2 = df[(df["success"] == 1) & (df["ILD"] < 0)]
@@ -496,7 +515,7 @@ def generate_plots(data: pd.DataFrame, path):
 
 
 def get_performance_by_ild(df):
-    ilds = df["ILD"].unique()
+    ilds = np.sort(df["ILD"].unique())
     array = np.zeros((ilds.size, 3))
 
     for i in range(ilds.size):
