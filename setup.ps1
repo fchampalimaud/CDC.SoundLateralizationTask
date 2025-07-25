@@ -25,7 +25,7 @@ if (!(Test-Path ".\config")) {
 # Define repository owner and name
 $repoOwner = "fchampalimaud"
 $repoName = "CDC.SoundLateralizationTask"
-$assetName = "animal.yml"  # Replace with the name of the specific file you want to download
+$assetName = "template.yml"  # Replace with the name of the specific file you want to download
 
 # Get the latest release information
 $apiUrl = "https://api.github.com/repos/$repoOwner/$repoName/releases/latest"
