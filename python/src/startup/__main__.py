@@ -67,13 +67,12 @@ def main():
                 df.loc[df.index[-1], "trial"] + 1
             )
         except:
-            pass
+            animal_config["session"]["block_number"] = 1
 
     # Update animal, batch, experimenter and block_number
     animal_config["animal_id"] = animal
     animal_config["batch"] = batch
     animal_config["session"]["experimenter"] = experimenter
-    animal_config["session"]["block_number"] = 1
     animal_config["session"]["last_training_level"] = ask_last_training_level()
 
     # Save animal and config files
