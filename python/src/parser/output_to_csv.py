@@ -147,11 +147,11 @@ def generate_plots(data: pd.DataFrame, path):
         ax[0, 0].set_yticks([])
         ax[0, 0].set_xticks([])
 
-        text = "Animal: " + df["animal"][0] + "\n"
-        text += "Batch: " + df["batch"][0] + "\n"
-        text += "Block: " + str(df["block"][0]) + "\n"
-        text += "Learning Stage: " + str(df["training_level"][0]) + "\n"
-        text += "Setup: " + str(df["box"][0]) + "\n"
+        text = "Animal: " + df["animal"].to_numpy()[0] + "\n"
+        text += "Batch: " + df["batch"].to_numpy()[0] + "\n"
+        text += "Block: " + str(df["block"].to_numpy()[0]) + "\n"
+        text += "Learning Stage: " + str(df["training_level"].to_numpy()[0]) + "\n"
+        text += "Setup: " + str(df["box"].to_numpy()[0]) + "\n"
 
         # Informative text
         textbox = plt.text(
