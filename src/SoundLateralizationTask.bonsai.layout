@@ -21,7 +21,7 @@
       </Location>
       <Size>
         <Width>1499</Width>
-        <Height>998</Height>
+        <Height>999</Height>
       </Size>
       <WindowState>Normal</WindowState>
     </EditorDialogSettings>
@@ -125,12 +125,12 @@
   <DialogSettings xsi:type="WorkflowEditorSettings">
     <Visible>true</Visible>
     <Location>
-      <X>-1412</X>
-      <Y>-24</Y>
+      <X>428</X>
+      <Y>-7</Y>
     </Location>
     <Size>
-      <Width>1001</Width>
-      <Height>991</Height>
+      <Width>254</Width>
+      <Height>233</Height>
     </Size>
     <WindowState>Maximized</WindowState>
     <VisualizerTypeName>Bonsai.Gui.TableLayoutPanelVisualizer</VisualizerTypeName>
@@ -243,8 +243,8 @@
                   <GraphPanelVisualizer>
                     <Span>0</Span>
                     <Capacity>80</Capacity>
-                    <XMin>0</XMin>
-                    <XMax>40</XMax>
+                    <XMin>3</XMin>
+                    <XMax>4</XMax>
                     <YMin>-60</YMin>
                     <YMax>60</YMax>
                     <AutoScaleX>true</AutoScaleX>
@@ -276,8 +276,8 @@
                   <GraphPanelVisualizer>
                     <Span>0</Span>
                     <Capacity>80</Capacity>
-                    <XMin>0</XMin>
-                    <XMax>40</XMax>
+                    <XMin>3</XMin>
+                    <XMax>4</XMax>
                     <YMin>-9</YMin>
                     <YMax>3</YMax>
                     <AutoScaleX>true</AutoScaleX>
@@ -363,8 +363,8 @@
                   <GraphPanelVisualizer>
                     <Span>0</Span>
                     <Capacity>80</Capacity>
-                    <XMin>0</XMin>
-                    <XMax>40</XMax>
+                    <XMin>3</XMin>
+                    <XMax>4</XMax>
                     <YMin>0</YMin>
                     <YMax>1.1</YMax>
                     <AutoScaleX>true</AutoScaleX>
@@ -407,10 +407,10 @@
                   <GraphPanelVisualizer>
                     <Span>0</Span>
                     <Capacity>80</Capacity>
-                    <XMin>0</XMin>
-                    <XMax>40</XMax>
-                    <YMin>1.5</YMin>
-                    <YMax>5</YMax>
+                    <XMin>3</XMin>
+                    <XMax>4</XMax>
+                    <YMin>1.95</YMin>
+                    <YMax>2.3</YMax>
                     <AutoScaleX>true</AutoScaleX>
                     <AutoScaleY>true</AutoScaleY>
                     <MashupSettings>
@@ -630,12 +630,12 @@
     <EditorDialogSettings>
       <Visible>false</Visible>
       <Location>
-        <X>531</X>
-        <Y>618</Y>
+        <X>580</X>
+        <Y>719</Y>
       </Location>
       <Size>
         <Width>864</Width>
-        <Height>429</Height>
+        <Height>163</Height>
       </Size>
       <WindowState>Normal</WindowState>
     </EditorDialogSettings>
@@ -655,19 +655,19 @@
   <DialogSettings xsi:type="WorkflowEditorSettings">
     <Visible>false</Visible>
     <Location>
-      <X>0</X>
-      <Y>0</Y>
+      <X>192</X>
+      <Y>208</Y>
     </Location>
     <Size>
-      <Width>0</Width>
-      <Height>0</Height>
+      <Width>413</Width>
+      <Height>278</Height>
     </Size>
     <WindowState>Normal</WindowState>
     <EditorDialogSettings>
       <Visible>false</Visible>
       <Location>
-        <X>233</X>
-        <Y>570</Y>
+        <X>221</X>
+        <Y>604</Y>
       </Location>
       <Size>
         <Width>1456</Width>
