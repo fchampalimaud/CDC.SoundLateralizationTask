@@ -19,6 +19,7 @@ packages = ["src/sgen", "src/parser"]
 
 [tool.uv.sources]
 pyharp = { git = "https://github.com/harp-tech/pyharp.git" }
+speaker-calibration = { git = "ssh://git@github.com/fchampalimaud/cdc-speaker-calibration", branch = "feature/chirp" }
 
 [project.scripts]
 generate-schemas = "sgen.__main__:main"

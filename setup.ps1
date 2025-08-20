@@ -103,5 +103,13 @@ if ($asset) {
     Write-Output "Asset $assetName not found in the latest release."
 }
 
+if (!(Test-Path ".\assets\toSoundCard.exe")) {
+    Invoke-WebRequest "https://github.com/fchampalimaud/cdc-speaker-calibration/releases/download/v0.3.0-alpha/toSoundCard.exe" -OutFile ".\python\assets\toSoundCard.exe"
+}
+
+if (!(Test-Path ".\assets\LibUsbDotNet.dll")) {
+    Invoke-WebRequest "https://github.com/fchampalimaud/cdc-speaker-calibration/releases/download/v0.3.0-alpha/LibUsbDotNet.dll" -OutFile ".\python\assets\LibUsbDotNet.dll"
+}
+
 cd .\python
 uv run config

@@ -1,11 +1,14 @@
+import os
 import tkinter as tk
 from tkinter import filedialog as fd
 from tkinter import ttk
 from tkinter.messagebox import showwarning
 
+import numpy as np
 import serial.tools.list_ports
 from pyharp.device import Device
 from serial.serialutil import SerialException
+from speaker_calibration.sound import create_sound_file, white_noise
 
 
 class LabeledSpinbox:
@@ -213,3 +216,61 @@ class PathWidget:
             self.set(fd.askdirectory())
         else:
             self.set(fd.askopenfilename())
+
+
+def upload_sound(
+    duration: float,
+    left_calib_path: str,
+    left_eq_filter_path: str,
+    right_calib_path: str,
+    right_eq_filter_path: str,
+    abl: float = None,
+    ild: float = 0,
+    fs: int = 192000,
+    filename: str = "sound.bin",
+    soundcard_index: int = None,
+):
+    if soundcard_index < 2 and soundcard_index > 31:
+        raise (ValueError("soundcard_index must be between 2 and 31"))
+
+    eq_left = np.load(left_eq_filter_path)
+    eq_right = np.load(right_eq_filter_path)
+    fit_left = np.loadtxt(left_calib_path, delimiter=",")
+    fit_right = np.loadtxt(right_calib_path, delimiter=",")
+
+    if abl is None:
+        attenuation_left = 1
+        attenuation_right = 1
+    else:
+        db_left = abl - ild / 2
+        attenuation_left = 10 ** ((db_left - fit_left[1]) / fit_left[0])
+        db_right = abl + ild / 2
+        attenuation_right = 10 ** ((db_right - fit_right[1]) / fit_right[0])
+
+    signal_left = white_noise(
+        duration,
+        fs,
+        amplitude=attenuation_left,
+        freq_min=5000,
+        freq_max=20000,
+        inverse_filter=eq_left,
+    )
+    signal_right = white_noise(
+        duration,
+        fs,
+        amplitude=attenuation_right,
+        freq_min=5000,
+        freq_max=20000,
+        inverse_filter=eq_right,
+    )
+
+    create_sound_file(signal_left, signal_right, filename)
+    if soundcard_index is not None:
+        os.system(
+            "cmd /c .\\assets\\toSoundCard.exe "
+            + filename
+            + " "
+            + str(soundcard_index)
+            + " 0 "
+            + str(fs)
+        )

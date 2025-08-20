@@ -1,12 +1,13 @@
 import ctypes
 import os
 import tkinter as tk
+from datetime import datetime
 from tkinter import ttk
 
 import yaml
 from sgen.config import Config, Paths, Ports
 
-from config.utils import LabeledSpinbox, PathWidget, PortCombobox
+from config.utils import LabeledSpinbox, PathWidget, PortCombobox, upload_sound
 
 myappid = "fchampalimaud.preconfig.alpha"
 ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
@@ -62,6 +63,62 @@ class PathsFrame(ttk.Frame):
         )
 
 
+class SoundLoadingFrame(ttk.Frame):
+    def __init__(self, container):
+        super().__init__(container)
+        for i in range(6):
+            self.grid_rowconfigure(i, weight=1)
+        for i in range(1):
+            self.grid_columnconfigure(i, weight=1)
+
+        self.num_sounds = LabeledSpinbox(self, text="Number of Sounds", row=0, column=0)
+        self.num_sounds.set(5)
+        self.num_sounds.spinbox.config(from_=1, to=14)
+
+        self.calib_left = PathWidget(
+            self, text="Left Speaker Calibration Parameters", row=1, column=0
+        )
+        self.eq_left = PathWidget(self, text="Left Speaker EQ Filter", row=2, column=0)
+        self.calib_right = PathWidget(
+            self, text="Right Speaker Calibration Parameters", row=3, column=0
+        )
+        self.eq_right = PathWidget(
+            self, text="Right Speaker EQ Filter", row=4, column=0
+        )
+
+        self.button = ttk.Button(self, text="Upload Sounds", command=self.upload_sounds)
+        self.button.grid(row=5, column=0, padx=5, pady=5)
+
+    def upload_sounds(self):
+        date = datetime.now().strftime("%y%m%d_%H%M%S")
+        for i in range(self.num_sounds.get()):
+            upload_sound(
+                10,
+                self.calib_left.get(),
+                self.eq_left.get(),
+                self.calib_right.get(),
+                self.eq_right.get(),
+                abl=None,
+                ild=0,
+                fs=192000,
+                filename="../" + date + "/noise" + str(i) + ".bin",
+                soundcard_index=(2 * i + 2),
+            )
+
+        upload_sound(
+            0.001,
+            self.calib_left.get(),
+            self.eq_left.get(),
+            self.calib_right.get(),
+            self.eq_right.get(),
+            abl=None,
+            ild=0,
+            fs=192000,
+            filename="../" + date + "/silence.bin",
+            soundcard_index=31,
+        )
+
+
 class GUI(tk.Tk):
     def __init__(self):
         super().__init__()
@@ -71,7 +128,7 @@ class GUI(tk.Tk):
         self.iconbitmap("assets/favicon.ico")
 
         # Configures the rows and column of the grid
-        for i in range(2):
+        for i in range(3):
             self.grid_rowconfigure(i, weight=1)
         for i in range(2):
             self.grid_columnconfigure(i, weight=1)
@@ -86,6 +143,13 @@ class GUI(tk.Tk):
             self, text="Update Configuration", command=self.generate_config
         )
         self.button.grid(row=1, column=0, columnspan=2, padx=5, pady=5)
+
+        self.sound = SoundLoadingFrame(self)
+        self.sound.grid(
+            row=2,
+            column=0,
+            columnspan=2,
+        )
 
         if os.path.isfile("../src/config/config.yml"):
             with open("../src/config/config.yml", "r") as file:
