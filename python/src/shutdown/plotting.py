@@ -1,93 +1,43 @@
 import os
-from parser.generate_csv import append_json, generate_csv
 
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-import yaml
 from matplotlib.ticker import LogFormatter, MaxNLocator
 
 
-def convert_output():
-    """
-    Converts the output files from one day (which should correspond to a session) for an animal into a single CSV file.
-    """
-    # Open config.yml file
-    with open("../src/config/config.yml", "r") as file:
-        config = yaml.safe_load(file)
+class Plotting:
+    def __init__(self):
+        pass
 
-    # Open animal.yml file
-    with open(config["paths"]["animal"], "r") as file:
-        animal_config = yaml.safe_load(file)
 
-    # Get the animal output directory
-    animal_dir = (
-        config["paths"]["output"]
-        + "/"
-        + animal_config["batch"]
-        + "/"
-        + animal_config["animal_id"]
-    )
-
-    # Get the directory from last session
-    entries = os.listdir(animal_dir)
-    dirs = [
-        entry for entry in entries if os.path.isdir(os.path.join(animal_dir, entry))
+TITLES = np.array(
+    [
+        ["", "ILD condition and t. outcome", "Outcome with abort tags"],
+        [
+            "Running average performance and abort rate",
+            "Performance and abort rate for all ILD conditions",
+            "Time to central nose poke",
+        ],
+        ["Reaction Time", "Movement time", ""],
     ]
+)
 
-    for i in range(len(dirs)):
-        dir_path = os.path.join(animal_dir, dirs[i], "unparsed_out")
-
-        # Concatenate the data from every output JSON file in the last session directory
-        all_data = append_json(dir_path)
-
-        out_name = "out_" + dirs[i] + ".csv"
-        out_path = os.path.join(animal_dir, dirs[i], out_name)
-
-        # Generate the out.csv file from the JSON structure
-        if not os.path.isfile(out_path) or (i == len(dirs) - 1):
-            generate_csv(all_data, out_path)
-            df = pd.read_csv(out_path, na_values=["NaN"])
-
-            plot_path = os.path.join(animal_dir, dirs[i], "plots")
-            os.makedirs(plot_path, exist_ok=True)
-            generate_plots(df, plot_path)
-
-
-def merge_output():
-    # Open config.yml file
-    with open("../src/config/config.yml", "r") as file:
-        config = yaml.safe_load(file)
-
-    # Open animal.yml file
-    with open(config["paths"]["animal"], "r") as file:
-        animal_config = yaml.safe_load(file)
-
-    # Get the animal output directory
-    animal_dir = (
-        config["paths"]["output"]
-        + "/"
-        + animal_config["batch"]
-        + "/"
-        + animal_config["animal_id"]
-    )
-
-    # Get the directory from last session
-    entries = os.listdir(animal_dir)
-    dirs = [
-        entry for entry in entries if os.path.isdir(os.path.join(animal_dir, entry))
+XLABELS = np.array(
+    [
+        ["", "Trial", "Trial"],
+        ["Trial", "ILD step", "Trial"],
+        ["Trial", "Trial", ""],
     ]
+)
 
-    out_path = os.path.join(animal_dir, dirs[0], "out.csv")
-    out = pd.read_csv(out_path, na_values=["NaN"])
-
-    for i in range(1, len(dirs)):
-        out_path = os.path.join(animal_dir, dirs[i], "out.csv")
-        df = pd.read_csv(out_path, na_values=["NaN"])
-
-        out = pd.concat([out, df], axis=0, ignore_index=True)
-
-    out.to_csv(out_path=os.path.join(animal_dir, "out.csv"), index=False)
+YLABELS = np.array(
+    [
+        ["", "Left    ILD (dB SPL)    Right", "Outcome"],
+        ["Proportion", "Proportion", "Time (s)"],
+        ["Time (ms)", "Time (ms)", ""],
+    ]
+)
 
 
 def generate_plots(data: pd.DataFrame, path):
@@ -154,7 +104,7 @@ def generate_plots(data: pd.DataFrame, path):
         text += "Setup: " + str(df["box"].to_numpy()[0]) + "\n"
 
         # Informative text
-        textbox = plt.text(
+        plt.text(
             ax[0, 0].get_position().x0 + 0.005,
             ax[0, 0].get_position().y0 + 0.06,
             text,
@@ -521,10 +471,13 @@ def get_performance_by_ild(df):
     for i in range(ilds.size):
         df2 = df[df["ILD"] == ilds[i]]
         array[i, 0] = ilds[i]
-        array[i, 1] = (
-            float(df2[df2["success"] == 1].shape[0])
-            / df2[(df2["success"] == 1) | (df2["success"] == -1)].shape[0]
-        )
         array[i, 2] = df2[df2["success"] == 0].shape[0] / float(df2.shape[0])
+        try:
+            array[i, 1] = (
+                float(df2[df2["success"] == 1].shape[0])
+                / df2[(df2["success"] == 1) | (df2["success"] == -1)].shape[0]
+            )
+        except:
+            array[i, 1] = 0
 
     return array

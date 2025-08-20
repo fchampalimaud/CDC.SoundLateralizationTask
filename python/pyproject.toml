@@ -12,10 +12,11 @@ dependencies = [
     "pyharp",
     "pyserial>=3.5",
     "pyyaml>=6.0.2",
+    "speaker-calibration",
 ]
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/sgen", "src/parser"]
+packages = ["src/sgen", "src/shutdown"]
 
 [tool.uv.sources]
 pyharp = { git = "https://github.com/harp-tech/pyharp.git" }
@@ -25,7 +26,8 @@ speaker-calibration = { git = "ssh://git@github.com/fchampalimaud/cdc-speaker-ca
 generate-schemas = "sgen.__main__:main"
 config = "config.__main__:main"
 startup = "startup.__main__:main"
-convert-output = "parser.output_to_csv:convert_output"
+convert-output = "shutdown.output_to_csv:convert_output"
+merge-output = "shutdown.output_to_csv:merge_output"
 
 [build-system]
 requires = ["hatchling"]
