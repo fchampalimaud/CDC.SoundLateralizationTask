@@ -3,7 +3,8 @@ import os
 import pandas as pd
 import yaml
 
-from shutdown.plotting import generate_plots
+# from shutdown.plotting import generate_plots, generate_plots_refactored
+from shutdown.block_plots import generate_plots
 from shutdown.utils import append_json, generate_csv
 
 
@@ -53,6 +54,7 @@ class Shutdown:
             if not os.path.isfile(out_path) or (i == len(self.dirs) - 1):
                 df = generate_csv(out_dict, out_path)
                 # df = pd.read_csv(out_path, na_values=["NaN"])
+                df.replace("NaN", float("nan"), inplace=True)
 
                 # Generate plots with some metrics for the each block of the current session
                 plot_path = os.path.join(self.animal_dir, self.dirs[i], "plots")

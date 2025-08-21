@@ -4,6 +4,7 @@ version = "0.1.0"
 description = "Add your description here"
 requires-python = ">=3.12"
 dependencies = [
+    "harp-python>=0.4.1",
     "matplotlib>=3.10.3",
     "pandas>=2.2.3",
     "pendulum>=3.1.0",
@@ -26,8 +27,7 @@ speaker-calibration = { git = "ssh://git@github.com/fchampalimaud/cdc-speaker-ca
 generate-schemas = "sgen.__main__:main"
 config = "config.__main__:main"
 startup = "startup.__main__:main"
-convert-output = "shutdown.output_to_csv:convert_output"
-merge-output = "shutdown.output_to_csv:merge_output"
+convert-output = "shutdown.__main__:main"
 
 [build-system]
 requires = ["hatchling"]
