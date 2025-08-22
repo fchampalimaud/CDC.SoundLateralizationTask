@@ -18,7 +18,7 @@ class PortsFrame(ttk.Frame):
     def __init__(self, container):
         super().__init__(container)
 
-        for i in range(6):
+        for i in range(7):
             self.grid_rowconfigure(i, weight=1)
         for i in range(1):
             self.grid_columnconfigure(i, weight=1)
@@ -38,6 +38,9 @@ class PortsFrame(ttk.Frame):
         )
         self.current_driver = PortCombobox(
             self, text="Harp CurrentDriver", board_id=1282, row=5, column=0
+        )
+        self.clock_synchronizer = PortCombobox(
+            self, text="Harp ClockSynchronizer", board_id=1152, row=6, column=0
         )
 
 

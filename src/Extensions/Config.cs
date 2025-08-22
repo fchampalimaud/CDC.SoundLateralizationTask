@@ -201,6 +201,8 @@ namespace Config
     
         private string _currentdriver;
     
+        private string _clocksynchronizer;
+    
         public Ports()
         {
         }
@@ -212,6 +214,7 @@ namespace Config
             _leftPump = other._leftPump;
             _rightPump = other._rightPump;
             _currentdriver = other._currentdriver;
+            _clocksynchronizer = other._clocksynchronizer;
         }
     
         /// <summary>
@@ -304,6 +307,24 @@ namespace Config
             }
         }
     
+        /// <summary>
+        /// The COM port of the Harp ClockSynchronizer.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("clocksynchronizer", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="clocksynchronizer")]
+        [System.ComponentModel.DescriptionAttribute("The COM port of the Harp ClockSynchronizer.")]
+        public string Clocksynchronizer
+        {
+            get
+            {
+                return _clocksynchronizer;
+            }
+            set
+            {
+                _clocksynchronizer = value;
+            }
+        }
+    
         public System.IObservable<Ports> Process()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new Ports(this)));
@@ -320,7 +341,8 @@ namespace Config
             stringBuilder.Append("soundcard = " + _soundcard + ", ");
             stringBuilder.Append("left_pump = " + _leftPump + ", ");
             stringBuilder.Append("right_pump = " + _rightPump + ", ");
-            stringBuilder.Append("currentdriver = " + _currentdriver);
+            stringBuilder.Append("currentdriver = " + _currentdriver + ", ");
+            stringBuilder.Append("clocksynchronizer = " + _clocksynchronizer);
             return true;
         }
     

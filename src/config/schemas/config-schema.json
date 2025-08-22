@@ -85,6 +85,12 @@
           "pattern": "^COM\\d+$",
           "title": "Currentdriver",
           "type": "string"
+        },
+        "clocksynchronizer": {
+          "description": "The COM port of the Harp ClockSynchronizer.",
+          "pattern": "^COM\\d+$",
+          "title": "Clocksynchronizer",
+          "type": "string"
         }
       },
       "required": [
@@ -92,7 +98,8 @@
         "soundcard",
         "left_pump",
         "right_pump",
-        "currentdriver"
+        "currentdriver",
+        "clocksynchronizer"
       ],
       "title": "Ports",
       "type": "object"

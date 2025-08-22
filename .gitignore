@@ -13,6 +13,7 @@ output
 /config/
 /src/config/config.yml
 /python/assets/users.yml
+/python/assets/LibUsbDotNet.dll
 /src/config/setup.json
 /src/config/training.json
 

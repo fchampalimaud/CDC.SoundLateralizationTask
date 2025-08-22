@@ -29,6 +29,9 @@ class Ports(BaseModel):
     currentdriver: Annotated[str, StringConstraints(pattern=r"^COM\d+$")] = Field(
         description="The COM port of the Harp CurrentDriver."
     )
+    clocksynchronizer: Annotated[str, StringConstraints(pattern=r"^COM\d+$")] = Field(
+        description="The COM port of the Harp ClockSynchronizer."
+    )
 
 
 class Paths(BaseModel):
