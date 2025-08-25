@@ -1,10 +1,14 @@
 import os
+import time
 import tkinter as tk
+from datetime import datetime
+from threading import Thread
 from tkinter import filedialog as fd
 from tkinter import ttk
 from tkinter.messagebox import showwarning
 
 import numpy as np
+import pandas as pd
 import serial.tools.list_ports
 from pyharp.device import Device
 from serial.serialutil import SerialException
@@ -266,11 +270,78 @@ def upload_sound(
 
     create_sound_file(signal_left, signal_right, filename)
     if soundcard_index is not None:
-        os.system(
-            "cmd /c .\\assets\\toSoundCard.exe "
-            + filename
-            + " "
-            + str(soundcard_index)
-            + " 0 "
-            + str(fs)
+        while True:
+            output = os.popen(
+                "cmd /c .\\assets\\toSoundCard.exe "
+                + filename
+                + " "
+                + str(soundcard_index)
+                + " 0 "
+                + str(fs)
+            ).read()
+
+            if "Bandwidth: " in output:
+                break
+            print(output)
+            time.sleep(3)
+
+
+class UploadSound(Thread):
+    def __init__(
+        self,
+        left_calib_path: str,
+        left_eq_filter_path: str,
+        right_calib_path: str,
+        right_eq_filter_path: str,
+        setup: int,
+        setup_path: str,
+    ):
+        super().__init__()
+        self.eq_left = np.load(left_eq_filter_path)
+        self.eq_right = np.load(right_eq_filter_path)
+        self.fit_left = np.loadtxt(left_calib_path, delimiter=",")
+        self.fit_right = np.loadtxt(right_calib_path, delimiter=",")
+        self.setup = setup
+        self.setup_path = setup_path
+
+    def run(self):
+        date = datetime.now().strftime("%y%m%d_%H%M%S")
+        for i in range(self.num_sounds.get()):
+            upload_sound(
+                10,
+                self.calib_left.get(),
+                self.eq_left.get(),
+                self.calib_right.get(),
+                self.eq_right.get(),
+                abl=None,
+                ild=0,
+                fs=192000,
+                filename="../" + date + "/noise" + str(i) + ".bin",
+                soundcard_index=(2 * i + 2),
+            )
+
+        upload_sound(
+            0.001,
+            self.calib_left.get(),
+            self.eq_left.get(),
+            self.calib_right.get(),
+            self.eq_right.get(),
+            abl=None,
+            ild=0,
+            fs=192000,
+            filename="../" + date + "/silence.bin",
+            soundcard_index=31,
         )
+
+        try:
+            calib_left = np.loadtxt(self.calib_left.get(), delimiter=",")
+            calib_right = np.loadtxt(self.calib_right.get(), delimiter=",")
+            setups = pd.read_csv(self.setup_path)
+            setups.loc[self.setup, "speakers.left_slope"] = calib_left[0]
+            setups.loc[self.setup, "speakers.left_intercept"] = calib_left[1]
+            setups.loc[self.setup, "speakers.right_slope"] = calib_right[0]
+            setups.loc[self.setup, "speakers.right_intercept"] = calib_right[1]
+            setups.to_csv(self.setup_path, index=False)
+
+        except:
+            print("It wasn't possible to update the setup.csv file.")

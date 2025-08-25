@@ -74,4 +74,4 @@ class Shutdown:
 
             out = pd.concat([out, df], axis=0, ignore_index=True)
 
-        out.to_csv(out_path=os.path.join(self.animal_dir, "out.csv"), index=False)
+        out.to_csv(os.path.join(self.animal_dir, "out.csv"), index=False)

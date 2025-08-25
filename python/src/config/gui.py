@@ -1,13 +1,12 @@
 import ctypes
 import os
 import tkinter as tk
-from datetime import datetime
 from tkinter import ttk
 
 import yaml
 from sgen.config import Config, Paths, Ports
 
-from config.utils import LabeledSpinbox, PathWidget, PortCombobox, upload_sound
+from config.utils import LabeledSpinbox, PathWidget, PortCombobox, UploadSound
 
 myappid = "fchampalimaud.preconfig.alpha"
 ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
@@ -89,37 +88,8 @@ class SoundLoadingFrame(ttk.Frame):
             self, text="Right Speaker EQ Filter", row=4, column=0
         )
 
-        self.button = ttk.Button(self, text="Upload Sounds", command=self.upload_sounds)
+        self.button = ttk.Button(self, text="Upload Sounds")
         self.button.grid(row=5, column=0, padx=5, pady=5)
-
-    def upload_sounds(self):
-        date = datetime.now().strftime("%y%m%d_%H%M%S")
-        for i in range(self.num_sounds.get()):
-            upload_sound(
-                10,
-                self.calib_left.get(),
-                self.eq_left.get(),
-                self.calib_right.get(),
-                self.eq_right.get(),
-                abl=None,
-                ild=0,
-                fs=192000,
-                filename="../" + date + "/noise" + str(i) + ".bin",
-                soundcard_index=(2 * i + 2),
-            )
-
-        upload_sound(
-            0.001,
-            self.calib_left.get(),
-            self.eq_left.get(),
-            self.calib_right.get(),
-            self.eq_right.get(),
-            abl=None,
-            ild=0,
-            fs=192000,
-            filename="../" + date + "/silence.bin",
-            soundcard_index=31,
-        )
 
 
 class GUI(tk.Tk):
@@ -153,6 +123,8 @@ class GUI(tk.Tk):
             column=0,
             columnspan=2,
         )
+
+        self.sound.button.config(command=self.upload_sounds)
 
         if os.path.isfile("../src/config/config.yml"):
             with open("../src/config/config.yml", "r") as file:
@@ -198,3 +170,25 @@ class GUI(tk.Tk):
 
         with open("../src/config/config.yml", "w") as file:
             file.write(yaml_string)
+
+    def upload_sounds(self):
+        self.sound.button.config(state=tk.DISABLED)
+        thread = UploadSound(
+            self.sound.calib_left.get(),
+            self.sound.eq_left.get(),
+            self.sound.calib_right.get(),
+            self.sound.eq_right.get(),
+            self.ports.setup.get(),
+            self.paths.setup.get(),
+        )
+        thread.start()
+
+        self.monitor(thread)
+
+    def monitor(self, thread):
+        if thread.is_alive():
+            # Check the thread every 100 ms
+            self.after(100, lambda: self.monitor(thread))
+        else:
+            # Activates the Run button again
+            self.sound.button.config(state=tk.NORMAL)
