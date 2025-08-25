@@ -122,6 +122,116 @@ namespace Output
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
     [Bonsai.CombinatorAttribute()]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
+    public partial class Cnp
+    {
+    
+        private double _startTime;
+    
+        private double _timedValue;
+    
+        private double _maxDuration;
+    
+        public Cnp()
+        {
+        }
+    
+        protected Cnp(Cnp other)
+        {
+            _startTime = other._startTime;
+            _timedValue = other._timedValue;
+            _maxDuration = other._maxDuration;
+        }
+    
+        /// <summary>
+        /// The timestamp at which the animal poked in the central port (s).
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("start_time", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="start_time")]
+        [System.ComponentModel.DescriptionAttribute("The timestamp at which the animal poked in the central port (s).")]
+        public double StartTime
+        {
+            get
+            {
+                return _startTime;
+            }
+            set
+            {
+                _startTime = value;
+            }
+        }
+    
+        /// <summary>
+        /// The time it took for the animal to start the trial (s).
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("timed_value", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="timed_value")]
+        [System.ComponentModel.DescriptionAttribute("The time it took for the animal to start the trial (s).")]
+        public double TimedValue
+        {
+            get
+            {
+                return _timedValue;
+            }
+            set
+            {
+                _timedValue = value;
+            }
+        }
+    
+        /// <summary>
+        /// The maximum allowed time to start the trial (s).
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("max_duration", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="max_duration")]
+        [System.ComponentModel.DescriptionAttribute("The maximum allowed time to start the trial (s).")]
+        public double MaxDuration
+        {
+            get
+            {
+                return _maxDuration;
+            }
+            set
+            {
+                _maxDuration = value;
+            }
+        }
+    
+        public System.IObservable<Cnp> Process()
+        {
+            return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new Cnp(this)));
+        }
+    
+        public System.IObservable<Cnp> Process<TSource>(System.IObservable<TSource> source)
+        {
+            return System.Reactive.Linq.Observable.Select(source, _ => new Cnp(this));
+        }
+    
+        protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
+        {
+            stringBuilder.Append("start_time = " + _startTime + ", ");
+            stringBuilder.Append("timed_value = " + _timedValue + ", ");
+            stringBuilder.Append("max_duration = " + _maxDuration);
+            return true;
+        }
+    
+        public override string ToString()
+        {
+            System.Text.StringBuilder stringBuilder = new System.Text.StringBuilder();
+            stringBuilder.Append(GetType().Name);
+            stringBuilder.Append(" { ");
+            if (PrintMembers(stringBuilder))
+            {
+                stringBuilder.Append(" ");
+            }
+            stringBuilder.Append("}");
+            return stringBuilder.ToString();
+        }
+    }
+
+
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
+    [Bonsai.CombinatorAttribute()]
+    [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
     public partial class FixationTime
     {
     
@@ -638,6 +748,8 @@ namespace Output
     
         private double _maxDuration;
     
+        private double _startTime;
+    
         private double _timedDuration;
     
         public MovementTime()
@@ -647,6 +759,7 @@ namespace Output
         protected MovementTime(MovementTime other)
         {
             _maxDuration = other._maxDuration;
+            _startTime = other._startTime;
             _timedDuration = other._timedDuration;
         }
     
@@ -665,6 +778,24 @@ namespace Output
             set
             {
                 _maxDuration = value;
+            }
+        }
+    
+        /// <summary>
+        /// The timestamp at which the movement time started (s).
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("start_time", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="start_time")]
+        [System.ComponentModel.DescriptionAttribute("The timestamp at which the movement time started (s).")]
+        public double StartTime
+        {
+            get
+            {
+                return _startTime;
+            }
+            set
+            {
+                _startTime = value;
             }
         }
     
@@ -699,6 +830,7 @@ namespace Output
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
             stringBuilder.Append("max_duration = " + _maxDuration + ", ");
+            stringBuilder.Append("start_time = " + _startTime + ", ");
             stringBuilder.Append("timed_duration = " + _timedDuration);
             return true;
         }
@@ -1194,6 +1326,8 @@ namespace Output
     
         private double _maxDuration;
     
+        private double _startTime;
+    
         private double _timedDuration;
     
         public ReactionTime()
@@ -1204,6 +1338,7 @@ namespace Output
         {
             _baseTime = other._baseTime;
             _maxDuration = other._maxDuration;
+            _startTime = other._startTime;
             _timedDuration = other._timedDuration;
         }
     
@@ -1244,6 +1379,24 @@ namespace Output
         }
     
         /// <summary>
+        /// The timestamp at which the reaction time started (s).
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("start_time", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="start_time")]
+        [System.ComponentModel.DescriptionAttribute("The timestamp at which the reaction time started (s).")]
+        public double StartTime
+        {
+            get
+            {
+                return _startTime;
+            }
+            set
+            {
+                _startTime = value;
+            }
+        }
+    
+        /// <summary>
         /// The timed reaction time (s).
         /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("timed_duration", Required=Newtonsoft.Json.Required.Always)]
@@ -1275,6 +1428,7 @@ namespace Output
         {
             stringBuilder.Append("base_time = " + _baseTime + ", ");
             stringBuilder.Append("max_duration = " + _maxDuration + ", ");
+            stringBuilder.Append("start_time = " + _startTime + ", ");
             stringBuilder.Append("timed_duration = " + _timedDuration);
             return true;
         }
@@ -1651,102 +1805,10 @@ namespace Output
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
     [Bonsai.CombinatorAttribute()]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
-    public partial class TimeToCnp
-    {
-    
-        private double _timedValue;
-    
-        private double _maxDuration;
-    
-        public TimeToCnp()
-        {
-        }
-    
-        protected TimeToCnp(TimeToCnp other)
-        {
-            _timedValue = other._timedValue;
-            _maxDuration = other._maxDuration;
-        }
-    
-        /// <summary>
-        /// The time it took for the animal to start the trial (s).
-        /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("timed_value", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="timed_value")]
-        [System.ComponentModel.DescriptionAttribute("The time it took for the animal to start the trial (s).")]
-        public double TimedValue
-        {
-            get
-            {
-                return _timedValue;
-            }
-            set
-            {
-                _timedValue = value;
-            }
-        }
-    
-        /// <summary>
-        /// The maximum allowed time to start the trial (s).
-        /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("max_duration", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="max_duration")]
-        [System.ComponentModel.DescriptionAttribute("The maximum allowed time to start the trial (s).")]
-        public double MaxDuration
-        {
-            get
-            {
-                return _maxDuration;
-            }
-            set
-            {
-                _maxDuration = value;
-            }
-        }
-    
-        public System.IObservable<TimeToCnp> Process()
-        {
-            return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new TimeToCnp(this)));
-        }
-    
-        public System.IObservable<TimeToCnp> Process<TSource>(System.IObservable<TSource> source)
-        {
-            return System.Reactive.Linq.Observable.Select(source, _ => new TimeToCnp(this));
-        }
-    
-        protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
-        {
-            stringBuilder.Append("timed_value = " + _timedValue + ", ");
-            stringBuilder.Append("max_duration = " + _maxDuration);
-            return true;
-        }
-    
-        public override string ToString()
-        {
-            System.Text.StringBuilder stringBuilder = new System.Text.StringBuilder();
-            stringBuilder.Append(GetType().Name);
-            stringBuilder.Append(" { ");
-            if (PrintMembers(stringBuilder))
-            {
-                stringBuilder.Append(" ");
-            }
-            stringBuilder.Append("}");
-            return stringBuilder.ToString();
-        }
-    }
-
-
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
-    [Bonsai.CombinatorAttribute()]
-    [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
     public partial class Trial
     {
     
         private int _number;
-    
-        private System.TimeSpan _computerStartTime;
-    
-        private System.TimeSpan _computerEndTime;
     
         private double _startTime;
     
@@ -1763,8 +1825,6 @@ namespace Output
         protected Trial(Trial other)
         {
             _number = other._number;
-            _computerStartTime = other._computerStartTime;
-            _computerEndTime = other._computerEndTime;
             _startTime = other._startTime;
             _taredStartTime = other._taredStartTime;
             _endTime = other._endTime;
@@ -1786,36 +1846,6 @@ namespace Output
             set
             {
                 _number = value;
-            }
-        }
-    
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        [Newtonsoft.Json.JsonPropertyAttribute("computer_start_time")]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="computer_start_time")]
-        public System.TimeSpan ComputerStartTime
-        {
-            get
-            {
-                return _computerStartTime;
-            }
-            set
-            {
-                _computerStartTime = value;
-            }
-        }
-    
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        [Newtonsoft.Json.JsonPropertyAttribute("computer_end_time")]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="computer_end_time")]
-        public System.TimeSpan ComputerEndTime
-        {
-            get
-            {
-                return _computerEndTime;
-            }
-            set
-            {
-                _computerEndTime = value;
             }
         }
     
@@ -1905,8 +1935,6 @@ namespace Output
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
             stringBuilder.Append("number = " + _number + ", ");
-            stringBuilder.Append("computer_start_time = " + _computerStartTime + ", ");
-            stringBuilder.Append("computer_end_time = " + _computerEndTime + ", ");
             stringBuilder.Append("start_time = " + _startTime + ", ");
             stringBuilder.Append("tared_start_time = " + _taredStartTime + ", ");
             stringBuilder.Append("end_time = " + _endTime + ", ");
@@ -1953,7 +1981,7 @@ namespace Output
     
         private ITI _iti = new ITI();
     
-        private TimeToCnp _timeToCnp = new TimeToCnp();
+        private Cnp _timeToCnp = new Cnp();
     
         private FixationTime _fixationTime = new FixationTime();
     
@@ -2177,7 +2205,7 @@ namespace Output
         [Newtonsoft.Json.JsonPropertyAttribute("time_to_cnp", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="time_to_cnp")]
         [System.ComponentModel.DescriptionAttribute("Contains the data related to the time to CNP.")]
-        public TimeToCnp TimeToCnp
+        public Cnp TimeToCnp
         {
             get
             {
@@ -2512,6 +2540,11 @@ namespace Output
             return Process<Block>(source);
         }
 
+        public System.IObservable<string> Process(System.IObservable<Cnp> source)
+        {
+            return Process<Cnp>(source);
+        }
+
         public System.IObservable<string> Process(System.IObservable<FixationTime> source)
         {
             return Process<FixationTime>(source);
@@ -2572,11 +2605,6 @@ namespace Output
             return Process<Sound>(source);
         }
 
-        public System.IObservable<string> Process(System.IObservable<TimeToCnp> source)
-        {
-            return Process<TimeToCnp>(source);
-        }
-
         public System.IObservable<string> Process(System.IObservable<Trial> source)
         {
             return Process<Trial>(source);
@@ -2597,6 +2625,7 @@ namespace Output
     [System.ComponentModel.DefaultPropertyAttribute("Type")]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Transform)]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Block>))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Cnp>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<FixationTime>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<FixationTimeParts>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<ITI>))]
@@ -2609,7 +2638,6 @@ namespace Output
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Reward>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Session>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Sound>))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<TimeToCnp>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Trial>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Output>))]
     public partial class DeserializeFromJson : Bonsai.Expressions.SingleArgumentExpressionBuilder
@@ -2665,6 +2693,11 @@ namespace Output
             return Process<Block>(source);
         }
 
+        public System.IObservable<string> Process(System.IObservable<Cnp> source)
+        {
+            return Process<Cnp>(source);
+        }
+
         public System.IObservable<string> Process(System.IObservable<FixationTime> source)
         {
             return Process<FixationTime>(source);
@@ -2725,11 +2758,6 @@ namespace Output
             return Process<Sound>(source);
         }
 
-        public System.IObservable<string> Process(System.IObservable<TimeToCnp> source)
-        {
-            return Process<TimeToCnp>(source);
-        }
-
         public System.IObservable<string> Process(System.IObservable<Trial> source)
         {
             return Process<Trial>(source);
@@ -2750,6 +2778,7 @@ namespace Output
     [System.ComponentModel.DefaultPropertyAttribute("Type")]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Transform)]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Block>))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Cnp>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<FixationTime>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<FixationTimeParts>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<ITI>))]
@@ -2762,7 +2791,6 @@ namespace Output
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Reward>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Session>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Sound>))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<TimeToCnp>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Trial>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Output>))]
     public partial class DeserializeFromYaml : Bonsai.Expressions.SingleArgumentExpressionBuilder

@@ -65,6 +65,9 @@ class MovementTime(BaseModel):
     max_duration: float = Field(
         description="The maximum allowed movement time (s).", ge=0
     )
+    start_time: float = Field(
+        description="The timestamp at which the movement time started (s)."
+    )
     timed_duration: float = Field(description="The timed movement time (s).", ge=0)
 
 
@@ -72,6 +75,9 @@ class ReactionTime(BaseModel):
     base_time: float = Field(description="The minimum allowed reaction time (s).", ge=0)
     max_duration: float = Field(
         description="The maximum allowed reaction time (s).", ge=0
+    )
+    start_time: float = Field(
+        description="The timestamp at which the reaction time started (s)."
     )
     timed_duration: float = Field(description="The timed reaction time (s).")
 
@@ -117,7 +123,11 @@ class FixationTime(BaseModel):
     )
 
 
-class TimeToCnp(BaseModel):
+class Cnp(BaseModel):
+    start_time: float = Field(
+        description="The timestamp at which the animal poked in the central port (s).",
+        ge=0,
+    )
     timed_value: float = Field(
         description="The time it took for the animal to start the trial (s).", ge=0
     )
@@ -172,12 +182,6 @@ class Block(BaseModel):
 
 class Trial(BaseModel):
     number: int = Field(description="The trial number.", ge=1)
-    computer_start_time: time = Field(
-        "The timestamp at which the trial started in computer time."
-    )
-    computer_end_time: time = Field(
-        "The timestamp at which the trial ended in computer time."
-    )
     start_time: float = Field(
         description="The timestamp at which the trial started in Harp time (s).", ge=0
     )
@@ -232,7 +236,7 @@ class Output(BaseModel):
     session: Session = Field(description="Contains the session-related data.")
     sound: Sound = Field(description="Contains the sound-related data.")
     iti: ITI = Field(description="Contains the ITI-related data.")
-    time_to_cnp: TimeToCnp = Field(
+    time_to_cnp: Cnp = Field(
         description="Contains the data related to the time to CNP."
     )
     fixation_time: FixationTime = Field(

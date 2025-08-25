@@ -27,6 +27,35 @@
       "title": "Block",
       "type": "object"
     },
+    "Cnp": {
+      "properties": {
+        "start_time": {
+          "description": "The timestamp at which the animal poked in the central port (s).",
+          "minimum": 0.0,
+          "title": "Start Time",
+          "type": "number"
+        },
+        "timed_value": {
+          "description": "The time it took for the animal to start the trial (s).",
+          "minimum": 0.0,
+          "title": "Timed Value",
+          "type": "number"
+        },
+        "max_duration": {
+          "description": "The maximum allowed time to start the trial (s).",
+          "minimum": 0.0,
+          "title": "Max Duration",
+          "type": "number"
+        }
+      },
+      "required": [
+        "start_time",
+        "timed_value",
+        "max_duration"
+      ],
+      "title": "Cnp",
+      "type": "object"
+    },
     "FixationTime": {
       "properties": {
         "opto_onset_time": {
@@ -168,6 +197,11 @@
           "title": "Max Duration",
           "type": "number"
         },
+        "start_time": {
+          "description": "The timestamp at which the movement time started (s).",
+          "title": "Start Time",
+          "type": "number"
+        },
         "timed_duration": {
           "description": "The timed movement time (s).",
           "minimum": 0.0,
@@ -177,6 +211,7 @@
       },
       "required": [
         "max_duration",
+        "start_time",
         "timed_duration"
       ],
       "title": "MovementTime",
@@ -344,6 +379,11 @@
           "title": "Max Duration",
           "type": "number"
         },
+        "start_time": {
+          "description": "The timestamp at which the reaction time started (s).",
+          "title": "Start Time",
+          "type": "number"
+        },
         "timed_duration": {
           "description": "The timed reaction time (s).",
           "title": "Timed Duration",
@@ -353,6 +393,7 @@
       "required": [
         "base_time",
         "max_duration",
+        "start_time",
         "timed_duration"
       ],
       "title": "ReactionTime",
@@ -447,28 +488,6 @@
       "title": "Sound",
       "type": "object"
     },
-    "TimeToCnp": {
-      "properties": {
-        "timed_value": {
-          "description": "The time it took for the animal to start the trial (s).",
-          "minimum": 0.0,
-          "title": "Timed Value",
-          "type": "number"
-        },
-        "max_duration": {
-          "description": "The maximum allowed time to start the trial (s).",
-          "minimum": 0.0,
-          "title": "Max Duration",
-          "type": "number"
-        }
-      },
-      "required": [
-        "timed_value",
-        "max_duration"
-      ],
-      "title": "TimeToCnp",
-      "type": "object"
-    },
     "Trial": {
       "properties": {
         "number": {
@@ -476,18 +495,6 @@
           "minimum": 1,
           "title": "Number",
           "type": "integer"
-        },
-        "computer_start_time": {
-          "default": "The timestamp at which the trial started in computer time.",
-          "format": "time",
-          "title": "Computer Start Time",
-          "type": "string"
-        },
-        "computer_end_time": {
-          "default": "The timestamp at which the trial ended in computer time.",
-          "format": "time",
-          "title": "Computer End Time",
-          "type": "string"
         },
         "start_time": {
           "description": "The timestamp at which the trial started in Harp time (s).",
@@ -569,7 +576,7 @@
       "description": "Contains the ITI-related data."
     },
     "time_to_cnp": {
-      "$ref": "#/definitions/TimeToCnp",
+      "$ref": "#/definitions/Cnp",
       "description": "Contains the data related to the time to CNP."
     },
     "fixation_time": {
