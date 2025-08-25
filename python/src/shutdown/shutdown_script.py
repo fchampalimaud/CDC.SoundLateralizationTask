@@ -1,5 +1,6 @@
 import os
 
+import numpy as np
 import pandas as pd
 import yaml
 
@@ -54,7 +55,7 @@ class Shutdown:
             if not os.path.isfile(out_path) or (i == len(self.dirs) - 1):
                 df = generate_csv(out_dict, out_path)
                 # df = pd.read_csv(out_path, na_values=["NaN"])
-                df.replace("NaN", float("nan"), inplace=True)
+                df.replace("NaN", np.nan, inplace=True)
 
                 # Generate plots with some metrics for the each block of the current session
                 plot_path = os.path.join(self.animal_dir, self.dirs[i], "plots")

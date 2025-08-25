@@ -1,7 +1,10 @@
+import glob
 import json
 import os
 
 import pandas as pd
+
+from shutdown.video_preprocessing import add_frame_numbers
 
 
 def append_json(dir: str):
@@ -82,6 +85,10 @@ def generate_csv(data: dict, path: str):
     # Rename the columns to shorter and more intuitive names
     df = df.rename(columns=COLUMN_RENAMES)
 
+    dir = os.path.dirname(path)
+    if glob.glob(os.path.join(dir, "cam_metadata_*.csv")):
+        df = add_frame_numbers(df, path)
+
     # Save the DataFrame to CSV
     df.to_csv(path, index=False)
 
@@ -91,8 +98,6 @@ def generate_csv(data: dict, path: str):
 COLUMN_RENAMES = {
     "animal_id": "animal",
     "trial.number": "trial",
-    "trial.computer_start_time": "computer_trial_start",
-    "trial.computer_end_time": "computer_trial_end",
     "trial.start_time": "trial_start",
     "trial.tared_start_time": "tared_trial_start",
     "trial.end_time": "trial_end",
@@ -112,8 +117,9 @@ COLUMN_RENAMES = {
     "iti.start_time": "iti_start",
     "iti.end_time": "iti_end",
     "iti.timed_duration": "iti_duration",
-    "time_to_cnp.timed_value": "cnp_time",
-    "time_to_cnp.max_duration": "max_cnp",
+    "cnp.start_time": "cnp_start",
+    "cnp.timed_value": "cnp_time",
+    "cnp.max_duration": "max_cnp",
     "fixation_time.opto_onset_time.base_time": "base_ft_oot",
     "fixation_time.opto_onset_time.exp_mean": "ft_oot_exp",
     "fixation_time.opto_onset_time.intended_duration": "intended_ft_oot",
@@ -127,8 +133,10 @@ COLUMN_RENAMES = {
     "fixation_time.total_duration": "total_fix_time",
     "reaction_time.base_time": "base_rt",
     "reaction_time.max_duration": "max_rt",
+    "reaction_time.start_time": "rt_start",
     "reaction_time.timed_duration": "timed_rt",
     "movement_time.max_duration": "max_mt",
+    "movement_time.start_time": "mt_start",
     "movement_time.timed_duration": "timed_mt",
     "lnp_time.intended_duration": "intended_lnp",
     "lnp_time.timed_duration": "timed_lnp",
