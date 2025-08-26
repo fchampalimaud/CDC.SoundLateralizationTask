@@ -3,7 +3,7 @@
 After setting up both the hardware and the software needed for the task, there's just one more step to follow before start running the task: configuring it.
 
 Despite the task having a [common structure](../articles/introduction.md), there are small variations to the task that can be achieved by tweaking inumerous configurations. Additionally, there's a need to input the calibration parameters for different pieces of hardware (speakers, SyringePumps, etc), which vary from setup to setup. Because of this, 3 different configuration files were created:
-- `animal.yml` - This file contains task configurations that are not level-dependent and/or don't change throughout a session. Some of the parameters present in this file can be updated based on the previous session. A description of each animal-specific setting can be found [here](../api/Animal.Animal.yml).
+- `animal.yml` - This file contains task configurations that are not level-dependent and/or don't change throughout a session. Some of the parameters present in this file can be updated based on the previous session. Every animal has its own file (`[animal_name].yml`), so one can think of this file as some sort of ID. A description of each animal-specific setting can be found [here](../api/Animal.Animal.yml).
 - `training.csv` - Generally, the configurations that can be set in this file are task parameters that can change a lot during the training phase of an animal. Each line of the file is a different training level the animal has to progress to/through. It can be assumed that when the animal reaches the last level, it's ready for the "actual" experiment. A description of each training-specific setting can be found [here](../api/Training.Level.yml).
 - `setup.csv` - The settings that can be found in this file don't usually change the logic of the state machine, but are necessary for the setup to be working correctly (for example: equipment calibration parameters). Each line of this file is a different setup, so it's possible to have a single file stored in a drive containing the configurations for every setup and "point" to that file from the pre-configuration script (the application mentioned in the [Software Installation](software.md) page). A description of each setup-specific setting can be found [here](../api/SetupList.Setup.yml).
 
@@ -13,94 +13,46 @@ It is intended that all data from every animal is saved in a single directory (t
 
 ```
 output/
-├── Rat001/
-│   ├── 241001/
-│   │   ├── out_0.json
-│   │   ├── out_0.csv
-│   │   ├── video_0.avi
-│   │   ├── cam_metadata_0.csv
-│   │   ├── events/
-│   │   │   ├── behavior_0_32.bin
-│   │   │   ├── behavior_0_33.bin
-│   │   │   ├── soundcard_0_32.bin
-│   │   │   ├── soundcard_0_33.bin
-│   │   │   ├── left_pump_0_32.bin
-│   │   │   ├── left_pump_0_33.bin
-│   │   │   ├── right_pump_0_32.bin
-│   │   │   ├── right_pump_0_33.bin
-│   │   │   ├── current_driver_0_32.bin
-│   │   │   └── current_driver_0_33.bin
-│   │   └── config/
-│   │       ├── animal_0.yml
-│   │       ├── setup_0.csv
-│   │       └── training_0.csv
-│   └── 241002/
-│       ├── out_0.json
-│       ├── out_1.json
-│       ├── out_0.csv
-│       ├── out_1.csv
-│       ├── video_0.avi
-│       ├── video_1.avi
-│       ├── cam_metadata_0.csv
-│       ├── cam_metadata_1.csv
-│       ├── events/
-│       │   ├── behavior_0_32.bin
-│       │   ├── behavior_0_33.bin
-│       │   ├── behavior_1_32.bin
-│       │   ├── behavior_1_33.bin
-│       │   ├── soundcard_0_32.bin
-│       │   ├── soundcard_0_33.bin
-│       │   ├── soundcard_1_32.bin
-│       │   ├── soundcard_1_33.bin
-│       │   ├── left_pump_0_32.bin
-│       │   ├── left_pump_0_33.bin
-│       │   ├── left_pump_1_32.bin
-│       │   ├── left_pump_1_33.bin
-│       │   ├── right_pump_0_32.bin
-│       │   ├── right_pump_0_33.bin
-│       │   ├── right_pump_1_32.bin
-│       │   ├── right_pump_1_33.bin
-│       │   ├── current_driver_0_32.bin
-│       │   ├── current_driver_0_33.bin
-│       │   ├── current_driver_1_32.bin
-│       │   └── current_driver_1_33.bin
-│       └── config/
-│           ├── animal_0.yml
-│           ├── animal_1.yml
-│           ├── setup_0.csv
-│           ├── setup_1.csv
-│           ├── training_0.csv
-│           └── training_1.csv
-└── Rat002/
-    └── 241003/
-        ├── out_0.json
-        ├── out_0.csv
-        ├── video_0.avi
-        ├── cam_metadata_0.csv
-        ├── events/
-        │   ├── behavior_0_32.bin
-        │   ├── behavior_0_33.bin
-        │   ├── soundcard_0_32.bin
-        │   ├── soundcard_0_33.bin
-        │   ├── left_pump_0_32.bin
-        │   ├── left_pump_0_33.bin
-        │   ├── right_pump_0_32.bin
-        │   ├── right_pump_0_33.bin
-        │   ├── current_driver_0_32.bin
-        │   └── current_driver_0_33.bin
-        └── config/
-            ├── animal_0.yml
-            ├── setup_0.csv
-            └── training_0.csv
+└──batch/
+    └── RAT0001/
+        └── 241001/
+            ├── cam_metadata_143123.csv
+            ├── out_241001.csv
+            ├── video_143123.avi
+            ├── config/
+            │   ├── animal_143123.yml
+            │   ├── setup_143123.csv
+            │   └── training_143123.csv
+            ├── events/
+            │   └── 143123
+            │       ├── behavior
+            │       │   ├── behavior_0.bin
+            │       │   ├── ...
+            │       │   ├── behavior_122.bin
+            │       │   └── device.yml
+            │       ├── soundcard
+            │       ├── left_pump
+            │       ├── right_pump
+            │       └── current_driver
+            ├── plots/
+            │   ├── block_1.png
+            │   ├── block_2.png
+            │   └── block_3.png
+            └── unparsed_out/
+                └── out_143123.json
 ```
 
 Inside the output directory there is a folder for every animal. Inside each animal's folder there is a folder for every session day, whose name is in the `YYMMDD` format, and inside every session day folder there are different files and folders types:
-- `out_X.json` - this is the main output file and has the output data from every trial from every session an animal did so far as Bonsai saves it.
-- `out_X.csv` - this is the CSV version of the `out_X.json` file, since it is a more human readable format. This file is generated by a Python script that runs after Bonsai closes.
-- `video_X.avi` - this is the CSV version of the `out_X.json` file, since it is a more human readable format. This file is generated by a Python script that runs after Bonsai closes.
-- `cam_metadata_X.csv` - this is the CSV version of the `out_X.json` file, since it is a more human readable format. This file is generated by a Python script that runs after Bonsai closes.
-- `events/` - this directory has every event from every Harp device connected during a session. The files inside this directory have a name formatted as follows: [_device_name_]\_X\_[_register_].bin. Basically, there's a different file with Harp messages per device register.
-- `config/`- this directory contains a copy of the configuration files used in the current session.
+- `out_YYMMDD.csv` - this is the file that contains the final output structure for the session. This file is generated by a Python script that runs after Bonsai closes and that joins the different `out_hhmmss.json` files that can be found inside the `unparsed_out` directory.
+- `video_hhmmss.mp4` - this is the video recorded during the session.
+- `cam_metadata_hhmmss.csv` - this is the file containing metadata directly saved from the camera for every frame recorded in `video_hhmmss.mp4`, so for each frame it's possible to know the camera timestamp, the frame ID and the state of the camera GPIO pins.
+- `config/`- this directory contains a copy of the configuration files used in the session. The files are saved with the names: `animal_hhmmss.yml`, `setup_hhmmss.json` and `training_hhmmss.csv`.
+- `events/` - this directory contains a directory for each time Bonsai was initialized during the session named `hhmmss/`, which, in turn, has a directory for every Harp device (example: `behavior/`), which, in turn, has the binary files that contain every message sent by the device during the session (`[device_name]_X.bin`, where `X` is the register number) and the file containing the `device.yml` (the device metadata file).
+- `plots/`- this directory is where the figures containing plots with some metrics regarding the animal's performance are saved. A figure per block is saved with name `block_X.png` (where `X` is the block number).
+- `unparsed_out/`- this directory contains the raw output structure saved in (a fake) JSON directly from Bonsai and that will be convert into a single CSV file. The files saved follow the name `out_hhmmss.json`.
+
+> [!NOTE]
+> In order to avoid losing or overwriting data in case there's a need to restart the workflow, most of the files and directories are saved with a suffix `hhmmss` corresponding to the time at which the workflow was started.
 
 > [!CAUTION]
 > Don't store any other files in the output directory that are not generated automatically during a session and don't change the names of the files. Some operations - auto-update of configuration files, the numbers in the file names - depend on the files saved by the task's software and on the way they are saved.
