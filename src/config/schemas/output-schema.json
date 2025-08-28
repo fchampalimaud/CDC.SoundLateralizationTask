@@ -575,7 +575,7 @@
       "$ref": "#/definitions/ITI",
       "description": "Contains the ITI-related data."
     },
-    "time_to_cnp": {
+    "cnp": {
       "$ref": "#/definitions/Cnp",
       "description": "Contains the data related to the time to CNP."
     },
@@ -634,7 +634,7 @@
     "session",
     "sound",
     "iti",
-    "time_to_cnp",
+    "cnp",
     "fixation_time",
     "reaction_time",
     "movement_time",

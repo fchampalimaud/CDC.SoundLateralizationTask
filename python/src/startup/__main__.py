@@ -67,7 +67,7 @@ def main():
             animal_config["session"]["starting_trial_number"] = int(
                 df.loc[df.index[-1], "trial"] + 1
             )
-        except:
+        except Exception:
             animal_config["session"]["block_number"] = 1
 
     # Update animal, batch, experimenter and block_number

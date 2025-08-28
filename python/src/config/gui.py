@@ -1,6 +1,7 @@
 import ctypes
 import os
 import tkinter as tk
+from pathlib import Path
 from tkinter import ttk
 
 import yaml
@@ -55,8 +56,20 @@ class PathsFrame(ttk.Frame):
         self.animal = PathWidget(
             self, text="Animal Config Directory", row=0, column=0, folder=True
         )
-        self.setup = PathWidget(self, text="Setup Config", row=1, column=0)
-        self.training = PathWidget(self, text="Training Config", row=2, column=0)
+        self.setup = PathWidget(
+            self,
+            text="Setup Config",
+            row=1,
+            column=0,
+            filetypes=[("CSV files", "*.csv"), ("All files", "*.*")],
+        )
+        self.training = PathWidget(
+            self,
+            text="Training Config",
+            row=2,
+            column=0,
+            filetypes=[("CSV files", "*.csv"), ("All files", "*.*")],
+        )
         self.output = PathWidget(
             self, text="Output Directory", row=3, column=0, folder=True
         )
@@ -78,14 +91,32 @@ class SoundLoadingFrame(ttk.Frame):
         self.num_sounds.spinbox.config(from_=1, to=14)
 
         self.calib_left = PathWidget(
-            self, text="Left Speaker Calibration Parameters", row=1, column=0
+            self,
+            text="Left Speaker Calibration Parameters",
+            row=1,
+            column=0,
+            filetypes=[("NPY files", "*.npy"), ("All files", "*.*")],
         )
-        self.eq_left = PathWidget(self, text="Left Speaker EQ Filter", row=2, column=0)
+        self.eq_left = PathWidget(
+            self,
+            text="Left Speaker EQ Filter",
+            row=2,
+            column=0,
+            filetypes=[("NPY files", "*.npy"), ("All files", "*.*")],
+        )
         self.calib_right = PathWidget(
-            self, text="Right Speaker Calibration Parameters", row=3, column=0
+            self,
+            text="Right Speaker Calibration Parameters",
+            row=3,
+            column=0,
+            filetypes=[("NPY files", "*.npy"), ("All files", "*.*")],
         )
         self.eq_right = PathWidget(
-            self, text="Right Speaker EQ Filter", row=4, column=0
+            self,
+            text="Right Speaker EQ Filter",
+            row=4,
+            column=0,
+            filetypes=[("NPY files", "*.npy"), ("All files", "*.*")],
         )
 
         self.button = ttk.Button(self, text="Upload Sounds")
@@ -129,17 +160,18 @@ class GUI(tk.Tk):
         if os.path.isfile("../src/config/config.yml"):
             with open("../src/config/config.yml", "r") as file:
                 config = yaml.safe_load(file)
-            self.ports.setup.set(config["setup"])
-            self.ports.behavior.set(config["ports"]["behavior"])
-            self.ports.soundcard.set(config["ports"]["soundcard"])
-            self.ports.left_pump.set(config["ports"]["left_pump"])
-            self.ports.right_pump.set(config["ports"]["right_pump"])
-            self.ports.current_driver.set(config["ports"]["currentdriver"])
-            self.paths.animal.set(config["paths"]["animal_dir"])
-            self.paths.setup.set(config["paths"]["setup"])
-            self.paths.training.set(config["paths"]["training"])
-            self.paths.output.set(config["paths"]["output"])
-            self.paths.output_backup.set(config["paths"]["output_backup"])
+            if config is not None:
+                self.ports.setup.set(config["setup"])
+                self.ports.behavior.set(config["ports"]["behavior"])
+                self.ports.soundcard.set(config["ports"]["soundcard"])
+                self.ports.left_pump.set(config["ports"]["left_pump"])
+                self.ports.right_pump.set(config["ports"]["right_pump"])
+                self.ports.current_driver.set(config["ports"]["currentdriver"])
+                self.paths.animal.set(config["paths"]["animal_dir"])
+                self.paths.setup.set(config["paths"]["setup"])
+                self.paths.training.set(config["paths"]["training"])
+                self.paths.output.set(config["paths"]["output"])
+                self.paths.output_backup.set(config["paths"]["output_backup"])
 
     def generate_config(self):
         config = Config(
@@ -150,6 +182,7 @@ class GUI(tk.Tk):
                 left_pump=self.ports.left_pump.get(),
                 right_pump=self.ports.right_pump.get(),
                 currentdriver=self.ports.current_driver.get(),
+                clocksynchronizer=self.ports.clock_synchronizer.get(),
             ),
             paths=Paths(
                 animal="template.yml",
@@ -174,12 +207,13 @@ class GUI(tk.Tk):
     def upload_sounds(self):
         self.sound.button.config(state=tk.DISABLED)
         thread = UploadSound(
-            self.sound.calib_left.get(),
-            self.sound.eq_left.get(),
-            self.sound.calib_right.get(),
-            self.sound.eq_right.get(),
+            self.sound.num_sounds.get(),
+            Path(self.sound.calib_left.get()),
+            Path(self.sound.eq_left.get()),
+            Path(self.sound.calib_right.get()),
+            Path(self.sound.eq_right.get()),
             self.ports.setup.get(),
-            self.paths.setup.get(),
+            Path(self.paths.setup.get()),
         )
         thread.start()
 

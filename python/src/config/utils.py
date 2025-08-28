@@ -2,10 +2,12 @@ import os
 import time
 import tkinter as tk
 from datetime import datetime
+from pathlib import Path
 from threading import Thread
 from tkinter import filedialog as fd
 from tkinter import ttk
 from tkinter.messagebox import showwarning
+from typing import Optional
 
 import numpy as np
 import pandas as pd
@@ -22,7 +24,7 @@ class LabeledSpinbox:
         text: str,
         row: int,
         column: int,
-        width: float = 10,
+        width: int = 10,
         rowspan: int = 1,
         columnspan: int = 1,
         sticky=None,
@@ -73,7 +75,7 @@ class PortCombobox:
         board_id: int,
         row: int,
         column: int,
-        width: float = 10,
+        width: int = 10,
         rowspan: int = 1,
         columnspan: int = 1,
         sticky=None,
@@ -119,6 +121,8 @@ class PortCombobox:
             self.board_name = "Harp SyringePump"
         elif self.id == 1282:
             self.board_name = "Harp CurrentDriver"
+        elif self.id == 1152:
+            self.board_name = "Harp ClockSynchronizer"
 
     def get(self):
         port = self.var.get()
@@ -174,6 +178,7 @@ class PathWidget:
         columnspan: int = 1,
         sticky=None,
         folder: bool = False,
+        filetypes=[("All files", "*.*")],
     ):
         self.folder = folder
         self.frame = tk.Frame(container)
@@ -209,6 +214,8 @@ class PathWidget:
             sticky=sticky,
         )
 
+        self.filetypes = filetypes
+
     def get(self):
         return self.var.get()
 
@@ -219,42 +226,39 @@ class PathWidget:
         if self.folder:
             self.set(fd.askdirectory())
         else:
-            self.set(fd.askopenfilename())
+            self.set(fd.askopenfilename(filetypes=self.filetypes))
 
 
 def upload_sound(
     duration: float,
-    left_calib_path: str,
-    left_eq_filter_path: str,
-    right_calib_path: str,
-    right_eq_filter_path: str,
-    abl: float = None,
+    calib_left,
+    eq_left,
+    calib_right,
+    eq_right,
+    abl: Optional[float] = None,
     ild: float = 0,
     fs: int = 192000,
-    filename: str = "sound.bin",
-    soundcard_index: int = None,
+    ramp_time: float = 0.005,
+    filename: Path = Path("sound.bin"),
+    soundcard_index: Optional[int] = None,
 ):
-    if soundcard_index < 2 and soundcard_index > 31:
+    if soundcard_index is not None and (soundcard_index < 2 or soundcard_index > 31):
         raise (ValueError("soundcard_index must be between 2 and 31"))
-
-    eq_left = np.load(left_eq_filter_path)
-    eq_right = np.load(right_eq_filter_path)
-    fit_left = np.loadtxt(left_calib_path, delimiter=",")
-    fit_right = np.loadtxt(right_calib_path, delimiter=",")
 
     if abl is None:
         attenuation_left = 1
         attenuation_right = 1
     else:
         db_left = abl - ild / 2
-        attenuation_left = 10 ** ((db_left - fit_left[1]) / fit_left[0])
+        attenuation_left = 10 ** ((db_left - calib_left[1]) / calib_left[0])
         db_right = abl + ild / 2
-        attenuation_right = 10 ** ((db_right - fit_right[1]) / fit_right[0])
+        attenuation_right = 10 ** ((db_right - calib_right[1]) / calib_right[0])
 
     signal_left = white_noise(
         duration,
         fs,
         amplitude=attenuation_left,
+        ramp_time=ramp_time,
         freq_min=5000,
         freq_max=20000,
         inverse_filter=eq_left,
@@ -263,6 +267,7 @@ def upload_sound(
         duration,
         fs,
         amplitude=attenuation_right,
+        ramp_time=ramp_time,
         freq_min=5000,
         freq_max=20000,
         inverse_filter=eq_right,
@@ -273,7 +278,7 @@ def upload_sound(
         while True:
             output = os.popen(
                 "cmd /c .\\assets\\toSoundCard.exe "
-                + filename
+                + str(filename)
                 + " "
                 + str(soundcard_index)
                 + " 0 "
@@ -289,59 +294,63 @@ def upload_sound(
 class UploadSound(Thread):
     def __init__(
         self,
-        left_calib_path: str,
-        left_eq_filter_path: str,
-        right_calib_path: str,
-        right_eq_filter_path: str,
+        num_sounds: int,
+        calib_left_path: Path,
+        eq_left_path: Path,
+        calib_right_path: Path,
+        eq_right_path: Path,
         setup: int,
-        setup_path: str,
+        setup_path: Path,
     ):
         super().__init__()
-        self.eq_left = np.load(left_eq_filter_path)
-        self.eq_right = np.load(right_eq_filter_path)
-        self.fit_left = np.loadtxt(left_calib_path, delimiter=",")
-        self.fit_right = np.loadtxt(right_calib_path, delimiter=",")
+        self.num_sounds = num_sounds
+        self.calib_left = np.load(calib_left_path)
+        self.eq_left = np.load(eq_left_path)
+        self.calib_right = np.load(calib_right_path)
+        self.eq_right = np.load(eq_right_path)
         self.setup = setup
         self.setup_path = setup_path
 
     def run(self):
         date = datetime.now().strftime("%y%m%d_%H%M%S")
-        for i in range(self.num_sounds.get()):
+        sounds_dir = Path("../config/sounds/" + date)
+
+        os.makedirs(sounds_dir)
+
+        for i in range(self.num_sounds):
             upload_sound(
                 10,
-                self.calib_left.get(),
-                self.eq_left.get(),
-                self.calib_right.get(),
-                self.eq_right.get(),
+                self.calib_left,
+                self.eq_left,
+                self.calib_right,
+                self.eq_right,
                 abl=None,
                 ild=0,
                 fs=192000,
-                filename="../" + date + "/noise" + str(i) + ".bin",
+                filename=sounds_dir / ("noise" + str(i) + ".bin"),
                 soundcard_index=(2 * i + 2),
             )
 
         upload_sound(
             0.001,
-            self.calib_left.get(),
-            self.eq_left.get(),
-            self.calib_right.get(),
-            self.eq_right.get(),
+            self.calib_left,
+            self.eq_left,
+            self.calib_right,
+            self.eq_right,
             abl=None,
             ild=0,
             fs=192000,
-            filename="../" + date + "/silence.bin",
+            filename=sounds_dir / "silence.bin",
             soundcard_index=31,
+            ramp_time=0,
         )
 
         try:
-            calib_left = np.loadtxt(self.calib_left.get(), delimiter=",")
-            calib_right = np.loadtxt(self.calib_right.get(), delimiter=",")
             setups = pd.read_csv(self.setup_path)
-            setups.loc[self.setup, "speakers.left_slope"] = calib_left[0]
-            setups.loc[self.setup, "speakers.left_intercept"] = calib_left[1]
-            setups.loc[self.setup, "speakers.right_slope"] = calib_right[0]
-            setups.loc[self.setup, "speakers.right_intercept"] = calib_right[1]
+            setups.loc[self.setup, "speakers.left_slope"] = self.calib_left[0]
+            setups.loc[self.setup, "speakers.left_intercept"] = self.calib_left[1]
+            setups.loc[self.setup, "speakers.right_slope"] = self.calib_right[0]
+            setups.loc[self.setup, "speakers.right_intercept"] = self.calib_right[1]
             setups.to_csv(self.setup_path, index=False)
-
-        except:
+        except Exception:
             print("It wasn't possible to update the setup.csv file.")

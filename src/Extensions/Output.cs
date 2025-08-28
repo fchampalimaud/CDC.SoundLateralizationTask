@@ -1981,7 +1981,7 @@ namespace Output
     
         private ITI _iti = new ITI();
     
-        private Cnp _timeToCnp = new Cnp();
+        private Cnp _cnp = new Cnp();
     
         private FixationTime _fixationTime = new FixationTime();
     
@@ -2018,7 +2018,7 @@ namespace Output
             _session = other._session;
             _sound = other._sound;
             _iti = other._iti;
-            _timeToCnp = other._timeToCnp;
+            _cnp = other._cnp;
             _fixationTime = other._fixationTime;
             _reactionTime = other._reactionTime;
             _movementTime = other._movementTime;
@@ -2202,18 +2202,18 @@ namespace Output
         /// Contains the data related to the time to CNP.
         /// </summary>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        [Newtonsoft.Json.JsonPropertyAttribute("time_to_cnp", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="time_to_cnp")]
+        [Newtonsoft.Json.JsonPropertyAttribute("cnp", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="cnp")]
         [System.ComponentModel.DescriptionAttribute("Contains the data related to the time to CNP.")]
-        public Cnp TimeToCnp
+        public Cnp Cnp
         {
             get
             {
-                return _timeToCnp;
+                return _cnp;
             }
             set
             {
-                _timeToCnp = value;
+                _cnp = value;
             }
         }
     
@@ -2429,7 +2429,7 @@ namespace Output
             stringBuilder.Append("session = " + _session + ", ");
             stringBuilder.Append("sound = " + _sound + ", ");
             stringBuilder.Append("iti = " + _iti + ", ");
-            stringBuilder.Append("time_to_cnp = " + _timeToCnp + ", ");
+            stringBuilder.Append("cnp = " + _cnp + ", ");
             stringBuilder.Append("fixation_time = " + _fixationTime + ", ");
             stringBuilder.Append("reaction_time = " + _reactionTime + ", ");
             stringBuilder.Append("movement_time = " + _movementTime + ", ");

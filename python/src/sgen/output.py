@@ -236,9 +236,7 @@ class Output(BaseModel):
     session: Session = Field(description="Contains the session-related data.")
     sound: Sound = Field(description="Contains the sound-related data.")
     iti: ITI = Field(description="Contains the ITI-related data.")
-    time_to_cnp: Cnp = Field(
-        description="Contains the data related to the time to CNP."
-    )
+    cnp: Cnp = Field(description="Contains the data related to the time to CNP.")
     fixation_time: FixationTime = Field(
         description="Contains the data related to the fixation time."
     )

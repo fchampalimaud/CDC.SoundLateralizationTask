@@ -87,7 +87,13 @@ def generate_csv(data: dict, path: str):
 
     dir = os.path.dirname(path)
     if glob.glob(os.path.join(dir, "cam_metadata_*.csv")):
-        df = add_frame_numbers(df, path)
+        # df = add_frame_numbers(df, dir)
+        try:
+            df = add_frame_numbers(df, dir)
+        except Exception:
+            print(
+                "It was not possible to process the camera metadata. Note: this feature is not yet available for PointGrey cameras."
+            )
 
     # Save the DataFrame to CSV
     df.to_csv(path, index=False)

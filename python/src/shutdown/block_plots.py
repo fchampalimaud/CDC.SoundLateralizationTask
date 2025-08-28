@@ -483,7 +483,7 @@ def get_performance_by_ild(df):
                 float(df2[df2["success"] == 1].shape[0])
                 / df2[(df2["success"] == 1) | (df2["success"] == -1)].shape[0]
             )
-        except:
+        except Exception:
             array[i, 1] = 0
 
     return array
