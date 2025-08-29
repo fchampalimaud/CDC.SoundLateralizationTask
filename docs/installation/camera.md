@@ -11,7 +11,22 @@ As mentioned above, there is a need for the camera used in the setup to have som
 
 ## FLIR
 
-After installing the [Spinnaker Drivers](software.md#spinnaker-drivers), connect the camera to the computer in an USB-3.0 port (connecting it to an USB-2.0 port limits the camera's capabilities, namely the frame rate) and follow the instructions:
+After installing the [Spinnaker Drivers](software.md#spinnaker-drivers), connect the camera to the computer in an USB-3.0 port (connecting it to an USB-2.0 port limits the camera's capabilities, namely the frame rate).
+
+### Firmware Update
+
+In order to access the state of the GPIO pins in the camera model BFS-U3-16S2M-CS, it's necessary that the firmware version [2207.2.1.0](https://teledyne.app.box.com/s/nug2qb3auxty1betfu5tkpp5kcnkihn8) is installed. Follow the instructions to verify the firmware version currently installed and install a different version in case it's necessary.
+
+1. Open the SpinView software.
+2. Select the camera to be configured.
+3. Click on the `Update Device Firmware` icon.
+![Camera Firmware 1](../images/camera_firmware_1.png)
+4. After a new window pops up, click on its `Browse` button to choose the firmware file. Then, click on `Start`.
+![Camera Firmware 2](../images/camera_firmware_2.png)
+
+### Camera Configuration
+
+After having the correct firmware version installed, follow the instructions to configure the camera.
 
 1. Open the SpinView software. 
 2. Select the camera to be configured.
@@ -33,6 +48,8 @@ After installing the [Spinnaker Drivers](software.md#spinnaker-drivers), connect
 15. _Optional_: Click on `Image Format` to change the camera resolution and save the User Set again.
 ![Camera Config 4](../images/camera_config_4.png)
 
+### Hardware Connections
+
 In order for the camera to be able to communicate with the Harp Behavior, it's necessary that the [camera GPIO cable](https://machinevisiondirect.com/es/products/cei-mva-50-3-x-3m) is connected. The following connections shall be made:
 - Line 2 (pin 3) from the camera to the Behavior's DI3 pin.
 - Line 0 (pin 2) from the camera to the Behavior's DO0 pin.
@@ -42,7 +59,7 @@ In order for the camera to be able to communicate with the Harp Behavior, it's n
 
 ![Camera Pins](../images/camera_pins.png)
 
-### GPIO Cable Color Code
+#### GPIO Cable Color Code
 The color code for the [CEI MVA-50-3-X-3]((https://machinevisiondirect.com/es/products/cei-mva-50-3-x-3m)) camera GPIO cable is as follows:
 
 | Pin |  Color |
