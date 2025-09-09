@@ -1,3 +1,4 @@
+import json
 import os
 from pathlib import Path
 
@@ -93,7 +94,15 @@ def synch_camera(path):
         si_mask = (strobe["DIPort1"]) & (strobe["DIPort1"].shift(1) == False)
         strobe_index = strobe[si_mask].index.to_numpy()[-1]
 
-        mi_mask = (metadata["GPIO"] == 12) & (metadata["GPIO"].shift(1) == 13)
+        setup_path = path / "config" / ("setup_" + datestr + ".yml")
+        setup = json.load(setup_path)
+
+        if setup["camera"]["type"] == "FLIR":
+            mi_mask = (metadata["GPIO"] == 12) & (metadata["GPIO"].shift(1) == 13)
+        else:
+            mi_mask = (metadata["GPIO"] == 805306368) & (
+                metadata["GPIO"].shift(1) == 2952790016
+            )
         metadata_index = metadata[mi_mask].index.to_numpy()[-1]
 
         sl_after = strobe.iloc[strobe_index:].shape[0]

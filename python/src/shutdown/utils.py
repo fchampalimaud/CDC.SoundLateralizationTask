@@ -91,9 +91,7 @@ def generate_csv(data: dict, path: str):
         try:
             df = add_frame_numbers(df, dir)
         except Exception:
-            print(
-                "It was not possible to process the camera metadata. Note: this feature is not yet available for PointGrey cameras."
-            )
+            print("It was not possible to process the camera metadata.")
 
     # Save the DataFrame to CSV
     df.to_csv(path, index=False)

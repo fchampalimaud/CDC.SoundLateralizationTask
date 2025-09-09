@@ -48,7 +48,9 @@ class Shutdown:
             out_dict = append_json(out_dir)
 
             # Set the session output file path
-            out_name = "out_" + self.dirs[i] + ".csv"
+            out_name = (
+                "out_" + self.animal_config["animal_id"] + "_" + self.dirs[i] + ".csv"
+            )
             out_path = os.path.join(self.animal_dir, self.dirs[i], out_name)
 
             # Generate the out.csv file from the JSON structure if the file doesn't already exists or if it corresponds to the last session
