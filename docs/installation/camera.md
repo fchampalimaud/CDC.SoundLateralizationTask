@@ -55,7 +55,7 @@ In order for the camera to be able to communicate with the Harp Behavior, it's n
 - Line 0 (pin 2) from the camera to the Behavior's DO0 pin.
 
 > [!WARNING]
-> Don't forget to connect the camera's grounds (pins 5 and 6) to the Harp Behavior's GND pins.
+> Don't forget to connect the camera's grounds (pins 5 and 6) to the Harp Behavior's GND pins!
 
 ![Camera Pins](../images/camera_pins.png)
 
@@ -74,5 +74,42 @@ The color code for the [CEI MVA-50-3-X-3]((https://machinevisiondirect.com/es/pr
 
 ## PointGrey
 
+After installing the PointGrey Drivers, connect the camera to the computer in an USB-3.0 port (connecting it to an USB-2.0 port limits the camera's capabilities, namely the frame rate).
+
+### Camera Configuration
+
+To configure a PointGrey camera follow the instructions below.
+
+1. Open the Point Grey FlyCap2 software.
+2. Select the camera to be configured and click on the `Configure Selected` button.
+![Camera Config 1](../images/flycap_config_1.png)
+3. In the `Camera Settings` tab, activate the `On/Off` checkbox from the `FrameRate` row and modify its value.
+![Camera Config 2](../images/flycap_config_2.png)
+4. Go to the `Trigger / Strobe` tab.
+5. Select the GPIO 0 to be an input and the GPIO 2 to be an output.
+6. Under `Strobe Control`, activate the `Enable strobe for this pin` checkbox for GPIO 2 and change the polarity to `High`.
+![Camera Config 3](../images/flycap_config_3.png)
+7. Go to the `Advanced Camera Settings`.
+8. In the `Embedded Image Information`, select the following fields:
+    - Timestamp
+    - Frame counter
+    - Strobe pattern
+    - GPIO pin state
+9. In the `Memory Channels` section, select a channel different from `Default` and click on `Save` to save the current configuration.
+![Camera Config 4](../images/flycap_config_4.png)
+10. _Optional:_ Go to the `Custom Video Modes` and modify the camera resolution. Then save the camera configuration again.
+![Camera Config 5](../images/flycap_config_5.png)
+
+### Hardware Connections
+
+Since the GPIO cable used by the PointGrey cameras is different from the one used by the FLIR cameras, the connections that need to be made between the camera and the Harp Behavior are also different. The connections should be made as follows:
+- Pin 1 (I0) from the camera to the Behavior's DO0 pin.
+- Pin 3 (IO2) from the camera do the Behavior's DI3 pin.
+
 > [!WARNING]
-> Under construction!
+> Don't forget to connect the camera's grounds (pins 5 and 6) to the Harp Behavior's GND pins!
+
+![Camera Pins](../images/flycap_pins.png)
+
+> [!NOTE]
+> In the actual GPIO cable, the color of the cable corresponding to pin 5 might be purple instead of brown!
