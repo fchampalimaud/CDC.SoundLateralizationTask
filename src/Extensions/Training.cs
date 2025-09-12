@@ -15,6 +15,10 @@ namespace Training
     public partial class ABL
     {
     
+        private System.Collections.Generic.List<double> _ablList = new System.Collections.Generic.List<double>();
+    
+        private double _fixedAbl;
+    
         private bool _useFixedAbl;
     
         private bool _changeEveryTrial;
@@ -25,17 +29,57 @@ namespace Training
     
         protected ABL(ABL other)
         {
+            _ablList = other._ablList;
+            _fixedAbl = other._fixedAbl;
             _useFixedAbl = other._useFixedAbl;
             _changeEveryTrial = other._changeEveryTrial;
         }
     
         /// <summary>
-        /// Indicates whether the fixed_abl from the animal.yml file should be used (true) or not (false).
+        /// The list of ABL values to be used in the task (dB SPL).
+        /// </summary>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [Newtonsoft.Json.JsonPropertyAttribute("abl_list", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="abl_list")]
+        [System.ComponentModel.DescriptionAttribute("The list of ABL values to be used in the task (dB SPL).")]
+        public System.Collections.Generic.List<double> AblList
+        {
+            get
+            {
+                return _ablList;
+            }
+            set
+            {
+                _ablList = value;
+            }
+        }
+    
+        /// <summary>
+        /// The ABL value to use when use_fixed_abl from the training.json file is true (dB).
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("fixed_abl", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="fixed_abl")]
+        [System.ComponentModel.DescriptionAttribute("The ABL value to use when use_fixed_abl from the training.json file is true (dB)." +
+            "")]
+        public double FixedAbl
+        {
+            get
+            {
+                return _fixedAbl;
+            }
+            set
+            {
+                _fixedAbl = value;
+            }
+        }
+    
+        /// <summary>
+        /// Indicates whether the fixed_abl should be used in the fully lateralized trials (true) or not (false).
         /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("use_fixed_abl", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="use_fixed_abl")]
-        [System.ComponentModel.DescriptionAttribute("Indicates whether the fixed_abl from the animal.yml file should be used (true) or" +
-            " not (false).")]
+        [System.ComponentModel.DescriptionAttribute("Indicates whether the fixed_abl should be used in the fully lateralized trials (t" +
+            "rue) or not (false).")]
         public bool UseFixedAbl
         {
             get
@@ -78,6 +122,8 @@ namespace Training
     
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
+            stringBuilder.Append("abl_list = " + _ablList + ", ");
+            stringBuilder.Append("fixed_abl = " + _fixedAbl + ", ");
             stringBuilder.Append("use_fixed_abl = " + _useFixedAbl + ", ");
             stringBuilder.Append("change_every_trial = " + _changeEveryTrial);
             return true;
@@ -284,8 +330,6 @@ namespace Training
     public partial class ILD
     {
     
-        private bool _fullyLateralized;
-    
         private double _stepSize;
     
         private int _numSteps;
@@ -300,29 +344,10 @@ namespace Training
     
         protected ILD(ILD other)
         {
-            _fullyLateralized = other._fullyLateralized;
             _stepSize = other._stepSize;
             _numSteps = other._numSteps;
             _useLog = other._useLog;
             _logBase = other._logBase;
-        }
-    
-        /// <summary>
-        /// In the fully lateralized variation of the task, the real ILD value corresponds to the input ABL and the real ABL value corresponds to half of it. For example, if the input ABL value is 50 db SPL, one of the speakers will produce a sound of 50 dB SPL and the other one will produce a sound of 0 dB SPL. This parameter indicates whether to apply the fully lateralized variation of the task (true) or not (false).
-        /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("fully_lateralized", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="fully_lateralized")]
-        [System.ComponentModel.DescriptionAttribute(@"In the fully lateralized variation of the task, the real ILD value corresponds to the input ABL and the real ABL value corresponds to half of it. For example, if the input ABL value is 50 db SPL, one of the speakers will produce a sound of 50 dB SPL and the other one will produce a sound of 0 dB SPL. This parameter indicates whether to apply the fully lateralized variation of the task (true) or not (false).")]
-        public bool FullyLateralized
-        {
-            get
-            {
-                return _fullyLateralized;
-            }
-            set
-            {
-                _fullyLateralized = value;
-            }
         }
     
         /// <summary>
@@ -409,7 +434,6 @@ namespace Training
     
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
-            stringBuilder.Append("fully_lateralized = " + _fullyLateralized + ", ");
             stringBuilder.Append("step_size = " + _stepSize + ", ");
             stringBuilder.Append("num_steps = " + _numSteps + ", ");
             stringBuilder.Append("use_log = " + _useLog + ", ");
@@ -1091,6 +1115,8 @@ namespace Training
     
         private ILD _ild = new ILD();
     
+        private double _fullyLateralizedProbability;
+    
         public Sound()
         {
         }
@@ -1099,6 +1125,7 @@ namespace Training
         {
             _abl = other._abl;
             _ild = other._ild;
+            _fullyLateralizedProbability = other._fullyLateralizedProbability;
         }
     
         /// <summary>
@@ -1139,6 +1166,24 @@ namespace Training
             }
         }
     
+        /// <summary>
+        /// In the fully lateralized variation of the task, the real ILD value corresponds to the input ABL and the real ABL value corresponds to half of it. For example, if the input ABL value is 50 db SPL, one of the speakers will produce a sound of 50 dB SPL and the other one will produce a sound of 0 dB SPL. This parameter indicates the probability of a trial being fully lateralized in a given training level.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("fully_lateralized_probability", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="fully_lateralized_probability")]
+        [System.ComponentModel.DescriptionAttribute(@"In the fully lateralized variation of the task, the real ILD value corresponds to the input ABL and the real ABL value corresponds to half of it. For example, if the input ABL value is 50 db SPL, one of the speakers will produce a sound of 50 dB SPL and the other one will produce a sound of 0 dB SPL. This parameter indicates the probability of a trial being fully lateralized in a given training level.")]
+        public double FullyLateralizedProbability
+        {
+            get
+            {
+                return _fullyLateralizedProbability;
+            }
+            set
+            {
+                _fullyLateralizedProbability = value;
+            }
+        }
+    
         public System.IObservable<Sound> Process()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new Sound(this)));
@@ -1152,7 +1197,8 @@ namespace Training
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
             stringBuilder.Append("abl = " + _abl + ", ");
-            stringBuilder.Append("ild = " + _ild);
+            stringBuilder.Append("ild = " + _ild + ", ");
+            stringBuilder.Append("fully_lateralized_probability = " + _fullyLateralizedProbability);
             return true;
         }
     

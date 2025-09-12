@@ -114,13 +114,6 @@ class FixationTime(BaseModel):
 
 
 class Sound(BaseModel):
-    fixed_abl: float = Field(
-        description="The ABL value to use when use_fixed_abl from the training.json file is true (dB).",
-        ge=0,
-    )
-    abl_list: List[float] = Field(
-        description="The list of ABL values to be used in the task (dB SPL)."
-    )
     pseudo_random_side: bool = Field(
         description="Indicates whether the correct side is picked pseudo-randomly (true) or randomly (false). If it's picked pseudo-randomly, a shuffled array with equal amounts of -1's (left) and 1's (right) of size 2 * `max_side` is created and it's cycled through - a new shuffled array is generated when the end of the array is reached."
     )

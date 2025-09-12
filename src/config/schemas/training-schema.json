@@ -2,8 +2,22 @@
   "definitions": {
     "ABL": {
       "properties": {
+        "abl_list": {
+          "description": "The list of ABL values to be used in the task (dB SPL).",
+          "items": {
+            "type": "number"
+          },
+          "title": "Abl List",
+          "type": "array"
+        },
+        "fixed_abl": {
+          "description": "The ABL value to use when use_fixed_abl from the training.json file is true (dB).",
+          "minimum": 0.0,
+          "title": "Fixed Abl",
+          "type": "number"
+        },
         "use_fixed_abl": {
-          "description": "Indicates whether the fixed_abl from the animal.yml file should be used (true) or not (false).",
+          "description": "Indicates whether the fixed_abl should be used in the fully lateralized trials (true) or not (false).",
           "title": "Use Fixed Abl",
           "type": "boolean"
         },
@@ -14,6 +28,8 @@
         }
       },
       "required": [
+        "abl_list",
+        "fixed_abl",
         "use_fixed_abl",
         "change_every_trial"
       ],
@@ -66,11 +82,6 @@
     },
     "ILD": {
       "properties": {
-        "fully_lateralized": {
-          "description": "In the fully lateralized variation of the task, the real ILD value corresponds to the input ABL and the real ABL value corresponds to half of it. For example, if the input ABL value is 50 db SPL, one of the speakers will produce a sound of 50 dB SPL and the other one will produce a sound of 0 dB SPL. This parameter indicates whether to apply the fully lateralized variation of the task (true) or not (false).",
-          "title": "Fully Lateralized",
-          "type": "boolean"
-        },
         "step_size": {
           "description": "The separation between two consecutive |ILD| values.",
           "exclusiveMinimum": 0.0,
@@ -96,7 +107,6 @@
         }
       },
       "required": [
-        "fully_lateralized",
         "step_size",
         "num_steps",
         "use_log",
@@ -272,11 +282,19 @@
         "ild": {
           "$ref": "#/definitions/ILD",
           "description": "Contains the ILD-related parameters."
+        },
+        "fully_lateralized_probability": {
+          "description": "In the fully lateralized variation of the task, the real ILD value corresponds to the input ABL and the real ABL value corresponds to half of it. For example, if the input ABL value is 50 db SPL, one of the speakers will produce a sound of 50 dB SPL and the other one will produce a sound of 0 dB SPL. This parameter indicates the probability of a trial being fully lateralized in a given training level.",
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Fully Lateralized Probability",
+          "type": "number"
         }
       },
       "required": [
         "abl",
-        "ild"
+        "ild",
+        "fully_lateralized_probability"
       ],
       "title": "Sound",
       "type": "object"

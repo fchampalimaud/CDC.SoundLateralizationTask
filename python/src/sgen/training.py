@@ -76,9 +76,6 @@ class ITI(BaseModel):
 
 
 class ILD(BaseModel):
-    fully_lateralized: bool = Field(
-        description="In the fully lateralized variation of the task, the real ILD value corresponds to the input ABL and the real ABL value corresponds to half of it. For example, if the input ABL value is 50 db SPL, one of the speakers will produce a sound of 50 dB SPL and the other one will produce a sound of 0 dB SPL. This parameter indicates whether to apply the fully lateralized variation of the task (true) or not (false)."
-    )
     step_size: float = Field(
         description="The separation between two consecutive |ILD| values.", gt=0
     )
@@ -93,8 +90,15 @@ class ILD(BaseModel):
 
 
 class ABL(BaseModel):
+    abl_list: List[float] = Field(
+        description="The list of ABL values to be used in the task (dB SPL)."
+    )
+    fixed_abl: float = Field(
+        description="The ABL value to use when use_fixed_abl from the training.json file is true (dB).",
+        ge=0,
+    )
     use_fixed_abl: bool = Field(
-        description="Indicates whether the fixed_abl from the animal.yml file should be used (true) or not (false)."
+        description="Indicates whether the fixed_abl should be used in the fully lateralized trials (true) or not (false)."
     )
     change_every_trial: bool = Field(
         description="Indicates whether the ABL should change every trial (true) or not (false)."
@@ -104,6 +108,11 @@ class ABL(BaseModel):
 class Sound(BaseModel):
     abl: ABL = Field(description="Contains the ABL-related parameters.")
     ild: ILD = Field(description="Contains the ILD-related parameters.")
+    fully_lateralized_probability: float = Field(
+        description="In the fully lateralized variation of the task, the real ILD value corresponds to the input ABL and the real ABL value corresponds to half of it. For example, if the input ABL value is 50 db SPL, one of the speakers will produce a sound of 50 dB SPL and the other one will produce a sound of 0 dB SPL. This parameter indicates the probability of a trial being fully lateralized in a given training level.",
+        ge=0,
+        le=1,
+    )
 
 
 class Level(BaseModel):

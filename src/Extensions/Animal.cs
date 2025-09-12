@@ -912,10 +912,6 @@ namespace Animal
     public partial class Sound
     {
     
-        private double _fixedAbl;
-    
-        private System.Collections.Generic.List<double> _ablList = new System.Collections.Generic.List<double>();
-    
         private bool _pseudoRandomSide;
     
         private int _maxSide;
@@ -926,48 +922,8 @@ namespace Animal
     
         protected Sound(Sound other)
         {
-            _fixedAbl = other._fixedAbl;
-            _ablList = other._ablList;
             _pseudoRandomSide = other._pseudoRandomSide;
             _maxSide = other._maxSide;
-        }
-    
-        /// <summary>
-        /// The ABL value to use when use_fixed_abl from the training.json file is true (dB).
-        /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("fixed_abl", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="fixed_abl")]
-        [System.ComponentModel.DescriptionAttribute("The ABL value to use when use_fixed_abl from the training.json file is true (dB)." +
-            "")]
-        public double FixedAbl
-        {
-            get
-            {
-                return _fixedAbl;
-            }
-            set
-            {
-                _fixedAbl = value;
-            }
-        }
-    
-        /// <summary>
-        /// The list of ABL values to be used in the task (dB SPL).
-        /// </summary>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        [Newtonsoft.Json.JsonPropertyAttribute("abl_list", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="abl_list")]
-        [System.ComponentModel.DescriptionAttribute("The list of ABL values to be used in the task (dB SPL).")]
-        public System.Collections.Generic.List<double> AblList
-        {
-            get
-            {
-                return _ablList;
-            }
-            set
-            {
-                _ablList = value;
-            }
         }
     
         /// <summary>
@@ -1019,8 +975,6 @@ namespace Animal
     
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
-            stringBuilder.Append("fixed_abl = " + _fixedAbl + ", ");
-            stringBuilder.Append("abl_list = " + _ablList + ", ");
             stringBuilder.Append("pseudo_random_side = " + _pseudoRandomSide + ", ");
             stringBuilder.Append("max_side = " + _maxSide);
             return true;

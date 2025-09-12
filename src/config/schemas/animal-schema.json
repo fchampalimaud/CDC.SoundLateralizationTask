@@ -256,20 +256,6 @@
     },
     "Sound": {
       "properties": {
-        "fixed_abl": {
-          "description": "The ABL value to use when use_fixed_abl from the training.json file is true (dB).",
-          "minimum": 0.0,
-          "title": "Fixed Abl",
-          "type": "number"
-        },
-        "abl_list": {
-          "description": "The list of ABL values to be used in the task (dB SPL).",
-          "items": {
-            "type": "number"
-          },
-          "title": "Abl List",
-          "type": "array"
-        },
         "pseudo_random_side": {
           "description": "Indicates whether the correct side is picked pseudo-randomly (true) or randomly (false). If it's picked pseudo-randomly, a shuffled array with equal amounts of -1's (left) and 1's (right) of size 2 * `max_side` is created and it's cycled through - a new shuffled array is generated when the end of the array is reached.",
           "title": "Pseudo Random Side",
@@ -283,8 +269,6 @@
         }
       },
       "required": [
-        "fixed_abl",
-        "abl_list",
         "pseudo_random_side",
         "max_side"
       ],
