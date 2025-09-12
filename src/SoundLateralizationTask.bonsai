@@ -653,6 +653,63 @@
                                       </Workflow>
                                     </Expression>
                                     <Expression xsi:type="GroupWorkflow">
+                                      <Name>IsLateralizedTrial</Name>
+                                      <Workflow>
+                                        <Nodes>
+                                          <Expression xsi:type="WorkflowInput">
+                                            <Name>Source1</Name>
+                                          </Expression>
+                                          <Expression xsi:type="SubscribeSubject">
+                                            <Name>Random</Name>
+                                          </Expression>
+                                          <Expression xsi:type="Combinator">
+                                            <Combinator xsi:type="p1:CreateContinuousUniform">
+                                              <p1:Lower>0</p1:Lower>
+                                              <p1:Upper>1</p1:Upper>
+                                            </Combinator>
+                                          </Expression>
+                                          <Expression xsi:type="Combinator">
+                                            <Combinator xsi:type="rx:WithLatestFrom" />
+                                          </Expression>
+                                          <Expression xsi:type="MemberSelector">
+                                            <Selector>Item2</Selector>
+                                          </Expression>
+                                          <Expression xsi:type="Combinator">
+                                            <Combinator xsi:type="p1:Sample" />
+                                          </Expression>
+                                          <Expression xsi:type="SubscribeSubject">
+                                            <Name>LevelConfig</Name>
+                                          </Expression>
+                                          <Expression xsi:type="MemberSelector">
+                                            <Selector>Sound.FullyLateralizedProbability</Selector>
+                                          </Expression>
+                                          <Expression xsi:type="Combinator">
+                                            <Combinator xsi:type="rx:WithLatestFrom" />
+                                          </Expression>
+                                          <Expression xsi:type="scr:ExpressionTransform">
+                                            <scr:Expression>Item1 &lt;= Item2</scr:Expression>
+                                          </Expression>
+                                          <Expression xsi:type="MulticastSubject">
+                                            <Name>IsLateralizedTrial</Name>
+                                          </Expression>
+                                          <Expression xsi:type="WorkflowOutput" />
+                                        </Nodes>
+                                        <Edges>
+                                          <Edge From="0" To="3" Label="Source1" />
+                                          <Edge From="1" To="2" Label="Source1" />
+                                          <Edge From="2" To="3" Label="Source2" />
+                                          <Edge From="3" To="4" Label="Source1" />
+                                          <Edge From="4" To="5" Label="Source1" />
+                                          <Edge From="5" To="8" Label="Source1" />
+                                          <Edge From="6" To="7" Label="Source1" />
+                                          <Edge From="7" To="8" Label="Source2" />
+                                          <Edge From="8" To="9" Label="Source1" />
+                                          <Edge From="9" To="10" Label="Source1" />
+                                          <Edge From="10" To="11" Label="Source1" />
+                                        </Edges>
+                                      </Workflow>
+                                    </Expression>
+                                    <Expression xsi:type="GroupWorkflow">
                                       <Name>ABL</Name>
                                       <Workflow>
                                         <Nodes>
@@ -674,12 +731,28 @@
                                                     <Value>false</Value>
                                                   </Operand>
                                                 </Expression>
+                                                <Expression xsi:type="SubscribeSubject">
+                                                  <Name>IsLateralizedTrial</Name>
+                                                </Expression>
+                                                <Expression xsi:type="Equal">
+                                                  <Operand xsi:type="BooleanProperty">
+                                                    <Value>false</Value>
+                                                  </Operand>
+                                                </Expression>
+                                                <Expression xsi:type="Combinator">
+                                                  <Combinator xsi:type="rx:CombineLatest" />
+                                                </Expression>
+                                                <Expression xsi:type="LogicalOr" />
                                                 <Expression xsi:type="WorkflowOutput" />
                                               </Nodes>
                                               <Edges>
                                                 <Edge From="0" To="1" Label="Source1" />
                                                 <Edge From="1" To="2" Label="Source1" />
-                                                <Edge From="2" To="3" Label="Source1" />
+                                                <Edge From="2" To="5" Label="Source1" />
+                                                <Edge From="3" To="4" Label="Source1" />
+                                                <Edge From="4" To="5" Label="Source2" />
+                                                <Edge From="5" To="6" Label="Source1" />
+                                                <Edge From="6" To="7" Label="Source1" />
                                               </Edges>
                                             </Workflow>
                                           </Expression>
@@ -745,10 +818,10 @@
                                                         </Workflow>
                                                       </Expression>
                                                       <Expression xsi:type="SubscribeSubject">
-                                                        <Name>AnimalConfig</Name>
+                                                        <Name>LevelConfig</Name>
                                                       </Expression>
                                                       <Expression xsi:type="MemberSelector">
-                                                        <Selector>Sound.AblList.Count</Selector>
+                                                        <Selector>Sound.Abl.AblList.Count</Selector>
                                                       </Expression>
                                                       <Expression xsi:type="Subtract">
                                                         <Operand xsi:type="IntProperty">
@@ -811,17 +884,17 @@
                                                   <Workflow>
                                                     <Nodes>
                                                       <Expression xsi:type="SubscribeSubject">
-                                                        <Name>AnimalConfig</Name>
+                                                        <Name>LevelConfig</Name>
                                                       </Expression>
                                                       <Expression xsi:type="MemberSelector">
-                                                        <Selector>Sound.AblList</Selector>
+                                                        <Selector>Sound.Abl.AblList</Selector>
                                                       </Expression>
                                                       <Expression xsi:type="ExternalizedMapping">
                                                         <Property Name="Value" DisplayName="Index" />
                                                       </Expression>
                                                       <Expression xsi:type="Index">
                                                         <Operand xsi:type="IntProperty">
-                                                          <Value>1</Value>
+                                                          <Value>2</Value>
                                                         </Operand>
                                                       </Expression>
                                                       <Expression xsi:type="Combinator">
@@ -860,19 +933,29 @@
                                                 <Expression xsi:type="MemberSelector">
                                                   <Selector>Sound.Abl.UseFixedAbl</Selector>
                                                 </Expression>
+                                                <Expression xsi:type="SubscribeSubject">
+                                                  <Name>IsLateralizedTrial</Name>
+                                                </Expression>
+                                                <Expression xsi:type="Combinator">
+                                                  <Combinator xsi:type="rx:CombineLatest" />
+                                                </Expression>
+                                                <Expression xsi:type="LogicalAnd" />
                                                 <Expression xsi:type="WorkflowOutput" />
                                               </Nodes>
                                               <Edges>
                                                 <Edge From="0" To="1" Label="Source1" />
-                                                <Edge From="1" To="2" Label="Source1" />
+                                                <Edge From="1" To="3" Label="Source1" />
+                                                <Edge From="2" To="3" Label="Source2" />
+                                                <Edge From="3" To="4" Label="Source1" />
+                                                <Edge From="4" To="5" Label="Source1" />
                                               </Edges>
                                             </Workflow>
                                           </Expression>
                                           <Expression xsi:type="SubscribeSubject">
-                                            <Name>AnimalConfig</Name>
+                                            <Name>LevelConfig</Name>
                                           </Expression>
                                           <Expression xsi:type="MemberSelector">
-                                            <Selector>Sound.FixedAbl</Selector>
+                                            <Selector>Sound.Abl.FixedAbl</Selector>
                                           </Expression>
                                           <Expression xsi:type="Combinator">
                                             <Combinator xsi:type="rx:WithLatestFrom" />
@@ -1246,20 +1329,16 @@
                                             <Name>LeftOrRight</Name>
                                           </Expression>
                                           <Expression xsi:type="rx:Condition">
-                                            <Name>IsFullyLateralized</Name>
+                                            <Name>IsLateralizedTrial</Name>
                                             <Workflow>
                                               <Nodes>
                                                 <Expression xsi:type="SubscribeSubject">
-                                                  <Name>LevelConfig</Name>
-                                                </Expression>
-                                                <Expression xsi:type="MemberSelector">
-                                                  <Selector>Sound.Ild.FullyLateralized</Selector>
+                                                  <Name>IsLateralizedTrial</Name>
                                                 </Expression>
                                                 <Expression xsi:type="WorkflowOutput" />
                                               </Nodes>
                                               <Edges>
                                                 <Edge From="0" To="1" Label="Source1" />
-                                                <Edge From="1" To="2" Label="Source1" />
                                               </Edges>
                                             </Workflow>
                                           </Expression>
@@ -1298,14 +1377,11 @@
                                             </Workflow>
                                           </Expression>
                                           <Expression xsi:type="rx:Condition">
-                                            <Name>!IsFullyLateralized</Name>
+                                            <Name>!IsLateralizedTrial</Name>
                                             <Workflow>
                                               <Nodes>
                                                 <Expression xsi:type="SubscribeSubject">
-                                                  <Name>LevelConfig</Name>
-                                                </Expression>
-                                                <Expression xsi:type="MemberSelector">
-                                                  <Selector>Sound.Ild.FullyLateralized</Selector>
+                                                  <Name>IsLateralizedTrial</Name>
                                                 </Expression>
                                                 <Expression xsi:type="Equal">
                                                   <Operand xsi:type="BooleanProperty">
@@ -1317,7 +1393,6 @@
                                               <Edges>
                                                 <Edge From="0" To="1" Label="Source1" />
                                                 <Edge From="1" To="2" Label="Source1" />
-                                                <Edge From="2" To="3" Label="Source1" />
                                               </Edges>
                                             </Workflow>
                                           </Expression>
@@ -1354,7 +1429,7 @@
                                                 <Expression xsi:type="Combinator">
                                                   <Combinator xsi:type="p1:CreateDiscreteUniform">
                                                     <p1:Lower>0</p1:Lower>
-                                                    <p1:Upper>0</p1:Upper>
+                                                    <p1:Upper>4</p1:Upper>
                                                   </Combinator>
                                                 </Expression>
                                                 <Expression xsi:type="Combinator">
@@ -1380,7 +1455,7 @@
                                                 </Expression>
                                                 <Expression xsi:type="Index">
                                                   <Operand xsi:type="IntProperty">
-                                                    <Value>1</Value>
+                                                    <Value>4</Value>
                                                   </Operand>
                                                 </Expression>
                                                 <Expression xsi:type="WorkflowOutput" />
@@ -1543,20 +1618,21 @@
                                   </Nodes>
                                   <Edges>
                                     <Edge From="0" To="1" Label="Source1" />
-                                    <Edge From="0" To="10" Label="Source1" />
+                                    <Edge From="0" To="11" Label="Source1" />
                                     <Edge From="1" To="2" Label="Source1" />
                                     <Edge From="2" To="3" Label="Source1" />
-                                    <Edge From="3" To="5" Label="Source1" />
-                                    <Edge From="4" To="5" Label="Source2" />
-                                    <Edge From="5" To="6" Label="Source1" />
+                                    <Edge From="3" To="4" Label="Source1" />
+                                    <Edge From="4" To="6" Label="Source1" />
+                                    <Edge From="5" To="6" Label="Source2" />
                                     <Edge From="6" To="7" Label="Source1" />
                                     <Edge From="7" To="8" Label="Source1" />
                                     <Edge From="8" To="9" Label="Source1" />
-                                    <Edge From="9" To="13" Label="Source1" />
-                                    <Edge From="10" To="11" Label="Source1" />
+                                    <Edge From="9" To="10" Label="Source1" />
+                                    <Edge From="10" To="14" Label="Source1" />
                                     <Edge From="11" To="12" Label="Source1" />
-                                    <Edge From="12" To="13" Label="Source2" />
-                                    <Edge From="13" To="14" Label="Source1" />
+                                    <Edge From="12" To="13" Label="Source1" />
+                                    <Edge From="13" To="14" Label="Source2" />
+                                    <Edge From="14" To="15" Label="Source1" />
                                   </Edges>
                                 </Workflow>
                               </Expression>
@@ -2187,7 +2263,7 @@
                                                 </Expression>
                                                 <Expression xsi:type="Combinator">
                                                   <Combinator xsi:type="p1:CreateExponential">
-                                                    <p1:Rate>INF</p1:Rate>
+                                                    <p1:Rate>0.005</p1:Rate>
                                                   </Combinator>
                                                 </Expression>
                                                 <Expression xsi:type="WorkflowOutput" />
@@ -2447,7 +2523,7 @@
                                                 </Expression>
                                                 <Expression xsi:type="Combinator">
                                                   <Combinator xsi:type="p1:CreateExponential">
-                                                    <p1:Rate>INF</p1:Rate>
+                                                    <p1:Rate>0.005</p1:Rate>
                                                   </Combinator>
                                                 </Expression>
                                                 <Expression xsi:type="WorkflowOutput" />
@@ -3665,13 +3741,6 @@
                                 <scr:Name>IsHit</scr:Name>
                                 <scr:Expression>it == 2</scr:Expression>
                               </Expression>
-                              <Expression xsi:type="Disable">
-                                <Builder xsi:type="Combinator">
-                                  <Combinator xsi:type="IntProperty">
-                                    <Value>1</Value>
-                                  </Combinator>
-                                </Builder>
-                              </Expression>
                               <Expression xsi:type="Combinator">
                                 <Combinator xsi:type="DoubleProperty">
                                   <Value>1</Value>
@@ -3680,13 +3749,6 @@
                               <Expression xsi:type="scr:ExpressionCondition">
                                 <scr:Name>IsMiss</scr:Name>
                                 <scr:Expression>it != 2</scr:Expression>
-                              </Expression>
-                              <Expression xsi:type="Disable">
-                                <Builder xsi:type="Combinator">
-                                  <Combinator xsi:type="IntProperty">
-                                    <Value>0</Value>
-                                  </Combinator>
-                                </Builder>
                               </Expression>
                               <Expression xsi:type="Combinator">
                                 <Combinator xsi:type="DoubleProperty">
@@ -3901,23 +3963,21 @@
                             </Nodes>
                             <Edges>
                               <Edge From="0" To="1" Label="Source1" />
-                              <Edge From="0" To="4" Label="Source1" />
+                              <Edge From="0" To="3" Label="Source1" />
                               <Edge From="1" To="2" Label="Source1" />
-                              <Edge From="2" To="3" Label="Source1" />
-                              <Edge From="3" To="7" Label="Source1" />
-                              <Edge From="4" To="5" Label="Source1" />
+                              <Edge From="2" To="5" Label="Source1" />
+                              <Edge From="3" To="4" Label="Source1" />
+                              <Edge From="4" To="5" Label="Source2" />
                               <Edge From="5" To="6" Label="Source1" />
-                              <Edge From="6" To="7" Label="Source2" />
+                              <Edge From="6" To="7" Label="Source1" />
                               <Edge From="7" To="8" Label="Source1" />
                               <Edge From="8" To="9" Label="Source1" />
-                              <Edge From="9" To="10" Label="Source1" />
-                              <Edge From="10" To="11" Label="Source1" />
-                              <Edge From="10" To="12" Label="Source1" />
-                              <Edge From="11" To="13" Label="Source1" />
-                              <Edge From="12" To="13" Label="Source2" />
+                              <Edge From="8" To="10" Label="Source1" />
+                              <Edge From="9" To="11" Label="Source1" />
+                              <Edge From="10" To="11" Label="Source2" />
+                              <Edge From="11" To="12" Label="Source1" />
+                              <Edge From="12" To="13" Label="Source1" />
                               <Edge From="13" To="14" Label="Source1" />
-                              <Edge From="14" To="15" Label="Source1" />
-                              <Edge From="15" To="16" Label="Source1" />
                             </Edges>
                           </Workflow>
                         </Expression>
@@ -4775,7 +4835,7 @@
                               <Expression xsi:type="Combinator">
                                 <Combinator xsi:type="rx:Range">
                                   <rx:Start>0</rx:Start>
-                                  <rx:Count>2</rx:Count>
+                                  <rx:Count>10</rx:Count>
                                 </Combinator>
                               </Expression>
                               <Expression xsi:type="Combinator">
@@ -4973,7 +5033,7 @@
                               </Expression>
                               <Expression xsi:type="Combinator">
                                 <Combinator xsi:type="rx:Take">
-                                  <rx:Count>2</rx:Count>
+                                  <rx:Count>10</rx:Count>
                                 </Combinator>
                               </Expression>
                               <Expression xsi:type="Combinator">
@@ -5112,7 +5172,7 @@
                               </Expression>
                               <Expression xsi:type="Combinator">
                                 <Combinator xsi:type="rx:Take">
-                                  <rx:Count>2</rx:Count>
+                                  <rx:Count>10</rx:Count>
                                 </Combinator>
                               </Expression>
                               <Expression xsi:type="Combinator">
@@ -5267,9 +5327,9 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p2:GenerateILDArray">
-                      <p2:NumSteps>1</p2:NumSteps>
-                      <p2:StepSize>50</p2:StepSize>
-                      <p2:UseLog>false</p2:UseLog>
+                      <p2:NumSteps>5</p2:NumSteps>
+                      <p2:StepSize>1</p2:StepSize>
+                      <p2:UseLog>true</p2:UseLog>
                       <p2:LogBase>2</p2:LogBase>
                     </Combinator>
                   </Expression>
@@ -5287,11 +5347,11 @@
                           <Name>LevelConfig</Name>
                         </Expression>
                         <Expression xsi:type="MemberSelector">
-                          <Selector>Sound.Ild.FullyLateralized</Selector>
+                          <Selector>Sound.FullyLateralizedProbability</Selector>
                         </Expression>
-                        <Expression xsi:type="Equal">
-                          <Operand xsi:type="BooleanProperty">
-                            <Value>false</Value>
+                        <Expression xsi:type="NotEqual">
+                          <Operand xsi:type="DoubleProperty">
+                            <Value>1</Value>
                           </Operand>
                         </Expression>
                         <Expression xsi:type="WorkflowOutput" />
@@ -5317,9 +5377,9 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p2:GenerateLateralizedILDs">
-                      <p2:NumSteps>1</p2:NumSteps>
-                      <p2:StepSize>50</p2:StepSize>
-                      <p2:UseLog>false</p2:UseLog>
+                      <p2:NumSteps>5</p2:NumSteps>
+                      <p2:StepSize>1</p2:StepSize>
+                      <p2:UseLog>true</p2:UseLog>
                       <p2:LogBase>2</p2:LogBase>
                     </Combinator>
                   </Expression>
@@ -5331,7 +5391,12 @@
                           <Name>LevelConfig</Name>
                         </Expression>
                         <Expression xsi:type="MemberSelector">
-                          <Selector>Sound.Ild.FullyLateralized</Selector>
+                          <Selector>Sound.FullyLateralizedProbability</Selector>
+                        </Expression>
+                        <Expression xsi:type="Equal">
+                          <Operand xsi:type="DoubleProperty">
+                            <Value>1</Value>
+                          </Operand>
                         </Expression>
                         <Expression xsi:type="MemberSelector">
                           <Selector>Sound.Abl.UseFixedAbl</Selector>
@@ -5344,11 +5409,12 @@
                       </Nodes>
                       <Edges>
                         <Edge From="0" To="1" Label="Source1" />
-                        <Edge From="0" To="2" Label="Source1" />
-                        <Edge From="1" To="3" Label="Source1" />
-                        <Edge From="2" To="3" Label="Source2" />
-                        <Edge From="3" To="4" Label="Source1" />
+                        <Edge From="0" To="3" Label="Source1" />
+                        <Edge From="1" To="2" Label="Source1" />
+                        <Edge From="2" To="4" Label="Source1" />
+                        <Edge From="3" To="4" Label="Source2" />
                         <Edge From="4" To="5" Label="Source1" />
+                        <Edge From="5" To="6" Label="Source1" />
                       </Edges>
                     </Workflow>
                   </Expression>
@@ -5365,10 +5431,10 @@
                           <scr:Expression>it == 0</scr:Expression>
                         </Expression>
                         <Expression xsi:type="SubscribeSubject">
-                          <Name>AnimalConfig</Name>
+                          <Name>LevelConfig</Name>
                         </Expression>
                         <Expression xsi:type="MemberSelector">
-                          <Selector>Sound.FixedAbl</Selector>
+                          <Selector>Sound.Abl.FixedAbl</Selector>
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="rx:WithLatestFrom" />
@@ -5385,10 +5451,10 @@
                           <scr:Expression>it == 1</scr:Expression>
                         </Expression>
                         <Expression xsi:type="SubscribeSubject">
-                          <Name>AnimalConfig</Name>
+                          <Name>LevelConfig</Name>
                         </Expression>
                         <Expression xsi:type="MemberSelector">
-                          <Selector>Sound.FixedAbl</Selector>
+                          <Selector>Sound.Abl.FixedAbl</Selector>
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="rx:WithLatestFrom" />
@@ -5429,10 +5495,6 @@
                       </Edges>
                     </Workflow>
                   </Expression>
-                  <Expression xsi:type="Annotation">
-                    <Name>FIXME: create node to generate ILD</Name>
-                    <Text><![CDATA[]]></Text>
-                  </Expression>
                   <Expression xsi:type="rx:Condition">
                     <Name>FullyLateralized &amp;&amp; !UseFixedAbl</Name>
                     <Workflow>
@@ -5441,7 +5503,12 @@
                           <Name>LevelConfig</Name>
                         </Expression>
                         <Expression xsi:type="MemberSelector">
-                          <Selector>Sound.Ild.FullyLateralized</Selector>
+                          <Selector>Sound.FullyLateralizedProbability</Selector>
+                        </Expression>
+                        <Expression xsi:type="Equal">
+                          <Operand xsi:type="DoubleProperty">
+                            <Value>1</Value>
+                          </Operand>
                         </Expression>
                         <Expression xsi:type="MemberSelector">
                           <Selector>Sound.Abl.UseFixedAbl</Selector>
@@ -5459,17 +5526,18 @@
                       </Nodes>
                       <Edges>
                         <Edge From="0" To="1" Label="Source1" />
-                        <Edge From="0" To="2" Label="Source1" />
-                        <Edge From="1" To="4" Label="Source1" />
-                        <Edge From="2" To="3" Label="Source1" />
-                        <Edge From="3" To="4" Label="Source2" />
-                        <Edge From="4" To="5" Label="Source1" />
+                        <Edge From="0" To="3" Label="Source1" />
+                        <Edge From="1" To="2" Label="Source1" />
+                        <Edge From="2" To="5" Label="Source1" />
+                        <Edge From="3" To="4" Label="Source1" />
+                        <Edge From="4" To="5" Label="Source2" />
                         <Edge From="5" To="6" Label="Source1" />
+                        <Edge From="6" To="7" Label="Source1" />
                       </Edges>
                     </Workflow>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>AnimalConfig</Name>
+                    <Name>LevelConfig</Name>
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:Take">
@@ -5477,7 +5545,7 @@
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
-                    <Selector>Sound.AblList</Selector>
+                    <Selector>Sound.Abl.AblList</Selector>
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:Merge" />
@@ -5517,24 +5585,23 @@
                   <Edge From="3" To="4" Label="Source1" />
                   <Edge From="5" To="6" Label="Source1" />
                   <Edge From="5" To="10" Label="Source1" />
-                  <Edge From="5" To="13" Label="Source1" />
+                  <Edge From="5" To="12" Label="Source1" />
                   <Edge From="6" To="7" Label="Source1" />
                   <Edge From="7" To="8" Label="Source1" />
                   <Edge From="8" To="9" Label="Source1" />
-                  <Edge From="9" To="22" Label="Source1" />
+                  <Edge From="9" To="21" Label="Source1" />
                   <Edge From="10" To="11" Label="Source1" />
-                  <Edge From="11" To="22" Label="Source2" />
-                  <Edge From="12" To="13" Label="Source2" />
-                  <Edge From="13" To="19" Label="Source1" />
+                  <Edge From="11" To="21" Label="Source2" />
+                  <Edge From="12" To="18" Label="Source1" />
+                  <Edge From="13" To="14" Label="Source1" />
                   <Edge From="14" To="15" Label="Source1" />
                   <Edge From="15" To="16" Label="Source1" />
                   <Edge From="16" To="17" Label="Source1" />
-                  <Edge From="17" To="18" Label="Source1" />
-                  <Edge From="18" To="19" Label="Source2" />
+                  <Edge From="17" To="18" Label="Source2" />
+                  <Edge From="18" To="19" Label="Source1" />
                   <Edge From="19" To="20" Label="Source1" />
-                  <Edge From="20" To="21" Label="Source1" />
-                  <Edge From="21" To="22" Label="Source3" />
-                  <Edge From="22" To="23" Label="Source1" />
+                  <Edge From="20" To="21" Label="Source3" />
+                  <Edge From="21" To="22" Label="Source1" />
                 </Edges>
               </Workflow>
             </Expression>
@@ -6940,8 +7007,17 @@
                   <Expression xsi:type="SubscribeSubject">
                     <Name>LEDStart</Name>
                   </Expression>
+                  <Expression xsi:type="SubscribeSubject">
+                    <Name>OptoTrial</Name>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="rx:WithLatestFrom" />
+                  </Expression>
                   <Expression xsi:type="scr:ExpressionCondition">
-                    <scr:Expression>it != 0 &amp;&amp; !Double.IsNaN(it)</scr:Expression>
+                    <scr:Expression>!Double.IsNaN(Item1) &amp;&amp; Item2 == 1</scr:Expression>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Item1</Selector>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
                     <Name>OptogeneticsButton</Name>
@@ -7127,52 +7203,55 @@
                   <Expression xsi:type="WorkflowOutput" />
                 </Nodes>
                 <Edges>
-                  <Edge From="1" To="2" Label="Source1" />
-                  <Edge From="2" To="5" Label="Source1" />
+                  <Edge From="1" To="3" Label="Source1" />
+                  <Edge From="2" To="3" Label="Source2" />
                   <Edge From="3" To="4" Label="Source1" />
-                  <Edge From="4" To="5" Label="Source2" />
+                  <Edge From="4" To="5" Label="Source1" />
                   <Edge From="5" To="8" Label="Source1" />
-                  <Edge From="5" To="14" Label="Source1" />
                   <Edge From="6" To="7" Label="Source1" />
                   <Edge From="7" To="8" Label="Source2" />
-                  <Edge From="8" To="9" Label="Source1" />
+                  <Edge From="8" To="11" Label="Source1" />
+                  <Edge From="8" To="17" Label="Source1" />
                   <Edge From="9" To="10" Label="Source1" />
-                  <Edge From="10" To="11" Label="Source1" />
-                  <Edge From="11" To="43" Label="Source1" />
+                  <Edge From="10" To="11" Label="Source2" />
+                  <Edge From="11" To="12" Label="Source1" />
                   <Edge From="12" To="13" Label="Source1" />
-                  <Edge From="13" To="14" Label="Source2" />
-                  <Edge From="14" To="15" Label="Source1" />
+                  <Edge From="13" To="14" Label="Source1" />
+                  <Edge From="14" To="46" Label="Source1" />
                   <Edge From="15" To="16" Label="Source1" />
-                  <Edge From="16" To="17" Label="Source1" />
-                  <Edge From="17" To="43" Label="Source2" />
+                  <Edge From="16" To="17" Label="Source2" />
+                  <Edge From="17" To="18" Label="Source1" />
                   <Edge From="18" To="19" Label="Source1" />
-                  <Edge From="19" To="24" Label="Source1" />
-                  <Edge From="20" To="21" Label="Source1" />
+                  <Edge From="19" To="20" Label="Source1" />
+                  <Edge From="20" To="46" Label="Source2" />
                   <Edge From="21" To="22" Label="Source1" />
-                  <Edge From="22" To="23" Label="Source1" />
-                  <Edge From="23" To="24" Label="Source2" />
+                  <Edge From="22" To="27" Label="Source1" />
+                  <Edge From="23" To="24" Label="Source1" />
                   <Edge From="24" To="25" Label="Source1" />
-                  <Edge From="25" To="27" Label="Source1" />
+                  <Edge From="25" To="26" Label="Source1" />
                   <Edge From="26" To="27" Label="Source2" />
                   <Edge From="27" To="28" Label="Source1" />
                   <Edge From="28" To="30" Label="Source1" />
                   <Edge From="29" To="30" Label="Source2" />
                   <Edge From="30" To="31" Label="Source1" />
-                  <Edge From="31" To="32" Label="Source1" />
-                  <Edge From="32" To="40" Label="Source1" />
+                  <Edge From="31" To="33" Label="Source1" />
+                  <Edge From="32" To="33" Label="Source2" />
                   <Edge From="33" To="34" Label="Source1" />
-                  <Edge From="34" To="39" Label="Source1" />
-                  <Edge From="35" To="36" Label="Source1" />
+                  <Edge From="34" To="35" Label="Source1" />
+                  <Edge From="35" To="43" Label="Source1" />
                   <Edge From="36" To="37" Label="Source1" />
-                  <Edge From="37" To="38" Label="Source1" />
-                  <Edge From="38" To="39" Label="Source2" />
-                  <Edge From="39" To="40" Label="Source2" />
+                  <Edge From="37" To="42" Label="Source1" />
+                  <Edge From="38" To="39" Label="Source1" />
+                  <Edge From="39" To="40" Label="Source1" />
                   <Edge From="40" To="41" Label="Source1" />
-                  <Edge From="40" To="42" Label="Source1" />
-                  <Edge From="41" To="43" Label="Source3" />
-                  <Edge From="42" To="43" Label="Source4" />
+                  <Edge From="41" To="42" Label="Source2" />
+                  <Edge From="42" To="43" Label="Source2" />
                   <Edge From="43" To="44" Label="Source1" />
-                  <Edge From="44" To="45" Label="Source1" />
+                  <Edge From="43" To="45" Label="Source1" />
+                  <Edge From="44" To="46" Label="Source3" />
+                  <Edge From="45" To="46" Label="Source4" />
+                  <Edge From="46" To="47" Label="Source1" />
+                  <Edge From="47" To="48" Label="Source1" />
                 </Edges>
               </Workflow>
             </Expression>
@@ -7971,7 +8050,7 @@
                   <Expression xsi:type="beh:CreateMessage">
                     <harp:MessageType>Write</harp:MessageType>
                     <harp:Payload xsi:type="beh:CreatePulseDOPort0Payload">
-                      <beh:PulseDOPort0>11</beh:PulseDOPort0>
+                      <beh:PulseDOPort0>18</beh:PulseDOPort0>
                     </harp:Payload>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
@@ -7996,7 +8075,7 @@
                   <Expression xsi:type="beh:CreateMessage">
                     <harp:MessageType>Write</harp:MessageType>
                     <harp:Payload xsi:type="beh:CreatePulseDOPort1Payload">
-                      <beh:PulseDOPort1>23</beh:PulseDOPort1>
+                      <beh:PulseDOPort1>386</beh:PulseDOPort1>
                     </harp:Payload>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
@@ -9496,7 +9575,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p8:JsonWriter">
-                      <p8:Path>/batch/ANIMAL0001/250909/unparsed_out/out_141556.json</p8:Path>
+                      <p8:Path>/batch/ANIMAL0000/250911/unparsed_out/out_140411.json</p8:Path>
                       <p8:Suffix>None</p8:Suffix>
                       <p8:Overwrite>false</p8:Overwrite>
                     </Combinator>
@@ -9593,10 +9672,10 @@
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p9:Trial">
                       <p9:Number>4</p9:Number>
-                      <p9:StartTime>18114.433984</p9:StartTime>
-                      <p9:TaredStartTime>7.6080000000001746</p9:TaredStartTime>
-                      <p9:EndTime>18113.396</p9:EndTime>
-                      <p9:Duration>-1.0379839999986871</p9:Duration>
+                      <p9:StartTime>1373.1</p9:StartTime>
+                      <p9:TaredStartTime>21.141024000000016</p9:TaredStartTime>
+                      <p9:EndTime>1370.052</p9:EndTime>
+                      <p9:Duration>-3.0480000000000018</p9:Duration>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
@@ -9633,8 +9712,8 @@
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p9:Block">
                       <p9:Number>1</p9:Number>
-                      <p9:TrainingLevel>1</p9:TrainingLevel>
-                      <p9:TrialsPerBlock>200</p9:TrialsPerBlock>
+                      <p9:TrainingLevel>16</p9:TrainingLevel>
+                      <p9:TrialsPerBlock>100</p9:TrialsPerBlock>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
@@ -9713,8 +9792,8 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p9:Sound">
-                      <p9:Abl>30</p9:Abl>
-                      <p9:Ild>-60</p9:Ild>
+                      <p9:Abl>25</p9:Abl>
+                      <p9:Ild>50</p9:Ild>
                       <p9:SoundIndex>2</p9:SoundIndex>
                       <p9:LeftAmp>0</p9:LeftAmp>
                       <p9:RightAmp>0</p9:RightAmp>
@@ -9761,10 +9840,10 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p9:ITI">
-                      <p9:IntendedDuration>1</p9:IntendedDuration>
-                      <p9:StartTime>18113.422976</p9:StartTime>
-                      <p9:EndTime>18114.432</p9:EndTime>
-                      <p9:TimedDuration>1.0090239999990445</p9:TimedDuration>
+                      <p9:IntendedDuration>3</p9:IntendedDuration>
+                      <p9:StartTime>1370.084</p9:StartTime>
+                      <p9:EndTime>1373.097984</p9:EndTime>
+                      <p9:TimedDuration>3.0139839999999367</p9:TimedDuration>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
@@ -9799,7 +9878,7 @@
                     <Combinator xsi:type="p9:Cnp">
                       <p9:StartTime>NaN</p9:StartTime>
                       <p9:TimedValue>NaN</p9:TimedValue>
-                      <p9:MaxDuration>180</p9:MaxDuration>
+                      <p9:MaxDuration>30</p9:MaxDuration>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
@@ -9837,8 +9916,8 @@
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p9:FixationTimeParts">
                       <p9:BaseTime>11.5</p9:BaseTime>
-                      <p9:ExpMean>0</p9:ExpMean>
-                      <p9:IntendedDuration>11.5</p9:IntendedDuration>
+                      <p9:ExpMean>200</p9:ExpMean>
+                      <p9:IntendedDuration>18.248892301198996</p9:IntendedDuration>
                       <p9:TimedDuration>NaN</p9:TimedDuration>
                     </Combinator>
                   </Expression>
@@ -9872,8 +9951,8 @@
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p9:FixationTimeParts">
                       <p9:BaseTime>11.5</p9:BaseTime>
-                      <p9:ExpMean>0</p9:ExpMean>
-                      <p9:IntendedDuration>11.5</p9:IntendedDuration>
+                      <p9:ExpMean>200</p9:ExpMean>
+                      <p9:IntendedDuration>367.81495734814774</p9:IntendedDuration>
                       <p9:TimedDuration>NaN</p9:TimedDuration>
                     </Combinator>
                   </Expression>
@@ -9923,9 +10002,9 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p9:FixationTime">
-                      <p9:IntendedDuration>23</p9:IntendedDuration>
-                      <p9:TimedDuration>24.096000001009088</p9:TimedDuration>
-                      <p9:TotalDuration>24.096313089009087</p9:TotalDuration>
+                      <p9:IntendedDuration>386.06384964934676</p9:IntendedDuration>
+                      <p9:TimedDuration>84.575999999970009</p9:TimedDuration>
+                      <p9:TotalDuration>84.57722214397</p9:TotalDuration>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
@@ -9962,7 +10041,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p9:ReactionTime">
-                      <p9:BaseTime>0</p9:BaseTime>
+                      <p9:BaseTime>0.01</p9:BaseTime>
                       <p9:MaxDuration>10</p9:MaxDuration>
                       <p9:StartTime>NaN</p9:StartTime>
                       <p9:TimedDuration>NaN</p9:TimedDuration>
@@ -9998,7 +10077,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p9:MovementTime">
-                      <p9:MaxDuration>180</p9:MaxDuration>
+                      <p9:MaxDuration>2</p9:MaxDuration>
                       <p9:StartTime>NaN</p9:StartTime>
                       <p9:TimedDuration>NaN</p9:TimedDuration>
                     </Combinator>
@@ -10089,9 +10168,9 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p9:PenaltyTimes">
-                      <p9:Incorrect>1</p9:Incorrect>
+                      <p9:Incorrect>15</p9:Incorrect>
                       <p9:Abort>1</p9:Abort>
-                      <p9:FixationAbort>1</p9:FixationAbort>
+                      <p9:FixationAbort>5</p9:FixationAbort>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
@@ -10199,7 +10278,7 @@
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p9:Optogenetics">
                       <p9:OptoTrial>false</p9:OptoTrial>
-                      <p9:Duration>NaN</p9:Duration>
+                      <p9:Duration>2.0514879999998357</p9:Duration>
                       <p9:Led0Voltage>0</p9:Led0Voltage>
                       <p9:Led0Power>0</p9:Led0Power>
                       <p9:Led1Voltage>0</p9:Led1Voltage>
@@ -10213,7 +10292,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p9:Output">
-                      <p9:AnimalId>ANIMAL0001</p9:AnimalId>
+                      <p9:AnimalId>ANIMAL0000</p9:AnimalId>
                       <p9:Batch>batch</p9:Batch>
                       <p9:Experimenter>JG</p9:Experimenter>
                       <p9:Version>0.5.0</p9:Version>
@@ -10247,7 +10326,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p8:JsonWriter">
-                      <p8:Path>C:/Users/HSP/Documents/BonsaiWorkflows/CDC.SoundLateralizationTask/output/batch/ANIMAL0001/250909/unparsed_out/out_141556.json</p8:Path>
+                      <p8:Path>C:/Users/HSP/Documents/BonsaiWorkflows/CDC.SoundLateralizationTask/output/batch/ANIMAL0000/250911/unparsed_out/out_140411.json</p8:Path>
                       <p8:Suffix>None</p8:Suffix>
                       <p8:Overwrite>false</p8:Overwrite>
                     </Combinator>
@@ -10713,7 +10792,7 @@
                     </PropertyMappings>
                   </Expression>
                   <Expression xsi:type="io:CsvWriter">
-                    <io:FileName>/batch/ANIMAL0001/250909/cam_metadata_141556.csv</io:FileName>
+                    <io:FileName>/batch/ANIMAL0000/250911/cam_metadata_140411.csv</io:FileName>
                     <io:Append>false</io:Append>
                     <io:Overwrite>false</io:Overwrite>
                     <io:Suffix>None</io:Suffix>
@@ -11599,7 +11678,7 @@
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="io:WriteAllText">
-                            <io:Path>/batch/ANIMAL0001/250909/config/animal_141556.yml</io:Path>
+                            <io:Path>/batch/ANIMAL0000/250911/config/animal_140411.yml</io:Path>
                             <io:Overwrite>false</io:Overwrite>
                             <io:Append>false</io:Append>
                           </Combinator>
@@ -11623,7 +11702,7 @@
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="io:ReadAllText">
-                            <io:Path>C:/Users/HSP/Documents/BonsaiWorkflows/CDC.SoundLateralizationTask/config/batch/ANIMAL0001.yml</io:Path>
+                            <io:Path>C:/Users/HSP/Documents/BonsaiWorkflows/CDC.SoundLateralizationTask/config/batch/ANIMAL0000.yml</io:Path>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="SubscribeSubject">
@@ -11649,7 +11728,7 @@
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="io:WriteAllText">
-                            <io:Path>C:/Users/HSP/Documents/BonsaiWorkflows/CDC.SoundLateralizationTask/output/batch/ANIMAL0001/250909/config/animal_141556.yml</io:Path>
+                            <io:Path>C:/Users/HSP/Documents/BonsaiWorkflows/CDC.SoundLateralizationTask/output/batch/ANIMAL0000/250911/config/animal_140411.yml</io:Path>
                             <io:Overwrite>false</io:Overwrite>
                             <io:Append>false</io:Append>
                           </Combinator>
@@ -11720,7 +11799,7 @@
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="io:WriteAllText">
-                            <io:Path>/batch/ANIMAL0001/250909/config/setup_141556.yml</io:Path>
+                            <io:Path>/batch/ANIMAL0000/250911/config/setup_140411.yml</io:Path>
                             <io:Overwrite>false</io:Overwrite>
                             <io:Append>false</io:Append>
                           </Combinator>
@@ -11759,7 +11838,7 @@
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="io:WriteAllText">
-                            <io:Path>C:/Users/HSP/Documents/BonsaiWorkflows/CDC.SoundLateralizationTask/output/batch/ANIMAL0001/250909/config/setup_141556.json</io:Path>
+                            <io:Path>C:/Users/HSP/Documents/BonsaiWorkflows/CDC.SoundLateralizationTask/output/batch/ANIMAL0000/250911/config/setup_140411.json</io:Path>
                             <io:Overwrite>false</io:Overwrite>
                             <io:Append>false</io:Append>
                           </Combinator>
@@ -11827,7 +11906,7 @@
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="io:WriteAllText">
-                            <io:Path>/batch/ANIMAL0001/250909/config/training_141556.csv</io:Path>
+                            <io:Path>/batch/ANIMAL0000/250911/config/training_140411.csv</io:Path>
                             <io:Overwrite>false</io:Overwrite>
                             <io:Append>false</io:Append>
                           </Combinator>
@@ -11877,7 +11956,7 @@
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="io:WriteAllText">
-                            <io:Path>C:/Users/HSP/Documents/BonsaiWorkflows/CDC.SoundLateralizationTask/output/batch/ANIMAL0001/250909/config/training_141556.csv</io:Path>
+                            <io:Path>C:/Users/HSP/Documents/BonsaiWorkflows/CDC.SoundLateralizationTask/output/batch/ANIMAL0000/250911/config/training_140411.csv</io:Path>
                             <io:Overwrite>false</io:Overwrite>
                             <io:Append>false</io:Append>
                           </Combinator>
@@ -12272,7 +12351,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="io:ReadAllText">
-                <io:Path>C:/Users/HSP/Documents/BonsaiWorkflows/CDC.SoundLateralizationTask/config/batch/ANIMAL0001.yml</io:Path>
+                <io:Path>C:/Users/HSP/Documents/BonsaiWorkflows/CDC.SoundLateralizationTask/config/batch/ANIMAL0000.yml</io:Path>
               </Combinator>
             </Expression>
             <Expression xsi:type="p11:DeserializeFromYaml">
@@ -12366,7 +12445,7 @@
             </Expression>
             <Expression xsi:type="Index">
               <Operand xsi:type="IntProperty">
-                <Value>0</Value>
+                <Value>15</Value>
               </Operand>
             </Expression>
             <Expression xsi:type="rx:BehaviorSubject">
@@ -12836,6 +12915,9 @@
             <Expression xsi:type="rx:BehaviorSubject">
               <Name>RepeatErrors</Name>
             </Expression>
+            <Expression xsi:type="rx:BehaviorSubject">
+              <Name>IsLateralizedTrial</Name>
+            </Expression>
             <Expression xsi:type="rx:PublishSubject">
               <Name>EndOpto</Name>
             </Expression>
@@ -13072,7 +13154,7 @@
             <Edge From="83" To="84" Label="Source1" />
             <Edge From="84" To="85" Label="Source1" />
             <Edge From="85" To="86" Label="Source1" />
-            <Edge From="87" To="88" Label="Source1" />
+            <Edge From="86" To="87" Label="Source1" />
             <Edge From="88" To="89" Label="Source1" />
             <Edge From="89" To="90" Label="Source1" />
             <Edge From="90" To="91" Label="Source1" />
@@ -13084,7 +13166,7 @@
             <Edge From="96" To="97" Label="Source1" />
             <Edge From="97" To="98" Label="Source1" />
             <Edge From="98" To="99" Label="Source1" />
-            <Edge From="100" To="101" Label="Source1" />
+            <Edge From="99" To="100" Label="Source1" />
             <Edge From="101" To="102" Label="Source1" />
             <Edge From="102" To="103" Label="Source1" />
             <Edge From="103" To="104" Label="Source1" />
@@ -13122,6 +13204,7 @@
             <Edge From="135" To="136" Label="Source1" />
             <Edge From="136" To="137" Label="Source1" />
             <Edge From="137" To="138" Label="Source1" />
+            <Edge From="138" To="139" Label="Source1" />
           </Edges>
         </Workflow>
       </Expression>
@@ -14783,7 +14866,7 @@
             <Expression xsi:type="gui:LabelBuilder">
               <gui:Enabled>true</gui:Enabled>
               <gui:Visible>true</gui:Visible>
-              <gui:Text>Rat: ANIMAL0001</gui:Text>
+              <gui:Text>Rat: ANIMAL0000</gui:Text>
             </Expression>
             <Expression xsi:type="VisualizerMapping" />
             <Expression xsi:type="Combinator">
@@ -14892,7 +14975,7 @@
             <Expression xsi:type="gui:LabelBuilder">
               <gui:Enabled>true</gui:Enabled>
               <gui:Visible>true</gui:Visible>
-              <gui:Text>ILD: -60 dB</gui:Text>
+              <gui:Text>ILD: 50 dB</gui:Text>
             </Expression>
             <Expression xsi:type="VisualizerMapping" />
             <Expression xsi:type="Combinator">
@@ -14923,7 +15006,7 @@
             <Expression xsi:type="gui:LabelBuilder">
               <gui:Enabled>true</gui:Enabled>
               <gui:Visible>true</gui:Visible>
-              <gui:Text>ABL: 30 dB</gui:Text>
+              <gui:Text>ABL: 25 dB</gui:Text>
             </Expression>
             <Expression xsi:type="VisualizerMapping" />
             <Expression xsi:type="Combinator">
@@ -14949,7 +15032,7 @@
             <Expression xsi:type="gui:LabelBuilder">
               <gui:Enabled>true</gui:Enabled>
               <gui:Visible>true</gui:Visible>
-              <gui:Text>Learning Stage:1</gui:Text>
+              <gui:Text>Learning Stage:16</gui:Text>
             </Expression>
             <Expression xsi:type="VisualizerMapping" />
             <Expression xsi:type="Combinator">
@@ -15077,7 +15160,7 @@
             <Expression xsi:type="gui:LabelBuilder">
               <gui:Enabled>true</gui:Enabled>
               <gui:Visible>true</gui:Visible>
-              <gui:Text>Current Fixation Time: 23.00 ms</gui:Text>
+              <gui:Text>Current Fixation Time: 386.06 ms</gui:Text>
             </Expression>
             <Expression xsi:type="VisualizerMapping" />
             <Expression xsi:type="Combinator">
@@ -15111,7 +15194,7 @@
             <Expression xsi:type="gui:LabelBuilder">
               <gui:Enabled>true</gui:Enabled>
               <gui:Visible>true</gui:Visible>
-              <gui:Text>Current ITI: 1 s</gui:Text>
+              <gui:Text>Current ITI: 3 s</gui:Text>
             </Expression>
             <Expression xsi:type="VisualizerMapping" />
             <Expression xsi:type="Combinator">
@@ -15238,7 +15321,7 @@
             <Expression xsi:type="gui:LabelBuilder">
               <gui:Enabled>true</gui:Enabled>
               <gui:Visible>true</gui:Visible>
-              <gui:Text>Time Elapsed: 00:00:10</gui:Text>
+              <gui:Text>Time Elapsed: 00:00:26</gui:Text>
             </Expression>
             <Expression xsi:type="VisualizerMapping" />
             <Expression xsi:type="gui:TableLayoutPanelBuilder">
@@ -15286,7 +15369,7 @@
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="cv:CreatePoint2d">
                 <cv:X>4</cv:X>
-                <cv:Y>-60</cv:Y>
+                <cv:Y>50</cv:Y>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -16558,7 +16641,7 @@
               <gui:Enabled>true</gui:Enabled>
               <gui:Visible>true</gui:Visible>
               <gui:Text>Repeat Errors</gui:Text>
-              <gui:Checked>true</gui:Checked>
+              <gui:Checked>false</gui:Checked>
             </Expression>
             <Expression xsi:type="rx:PublishSubject">
               <Name>RepeatErrorsButton</Name>
@@ -17025,7 +17108,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:Delay">
-                      <rx:DueTime>PT1S</rx:DueTime>
+                      <rx:DueTime>PT3S</rx:DueTime>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="IncludeWorkflow" Path="Extensions\TimestampEvent.bonsai">
@@ -17374,7 +17457,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="rx:Timer">
-                <rx:DueTime>PT3M</rx:DueTime>
+                <rx:DueTime>PT30S</rx:DueTime>
                 <rx:Period>PT0S</rx:Period>
               </Combinator>
             </Expression>
@@ -18467,7 +18550,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="rx:Timer">
-                <rx:DueTime>PT3M</rx:DueTime>
+                <rx:DueTime>PT2S</rx:DueTime>
                 <rx:Period>PT0S</rx:Period>
               </Combinator>
             </Expression>

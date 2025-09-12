@@ -409,8 +409,8 @@
                     <Capacity>80</Capacity>
                     <XMin>1</XMin>
                     <XMax>3</XMax>
-                    <YMin>0.15</YMin>
-                    <YMax>0.35000000000000003</YMax>
+                    <YMin>0.6</YMin>
+                    <YMax>1.4000000000000001</YMax>
                     <AutoScaleX>true</AutoScaleX>
                     <AutoScaleY>true</AutoScaleY>
                     <MashupSettings>
@@ -786,8 +786,8 @@
     <EditorDialogSettings>
       <Visible>false</Visible>
       <Location>
-        <X>414</X>
-        <Y>596</Y>
+        <X>310</X>
+        <Y>616</Y>
       </Location>
       <Size>
         <Width>1046</Width>
