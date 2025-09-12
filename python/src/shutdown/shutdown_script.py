@@ -10,7 +10,7 @@ from shutdown.utils import append_json, generate_csv
 
 
 class Shutdown:
-    def __init__(self):
+    def __init__(self, is_backup: bool = False):
         # Open config.yml file
         with open("../src/config/config.yml", "r") as file:
             self.config = yaml.safe_load(file)
@@ -20,13 +20,22 @@ class Shutdown:
             self.animal_config = yaml.safe_load(file)
 
         # Get the animal output directory
-        self.animal_dir = (
-            self.config["paths"]["output"]
-            + "/"
-            + self.animal_config["batch"]
-            + "/"
-            + self.animal_config["animal_id"]
-        )
+        if not is_backup:
+            self.animal_dir = (
+                self.config["paths"]["output"]
+                + "/"
+                + self.animal_config["batch"]
+                + "/"
+                + self.animal_config["animal_id"]
+            )
+        else:
+            self.animal_dir = (
+                self.config["paths"]["output_backup"]
+                + "/"
+                + self.animal_config["batch"]
+                + "/"
+                + self.animal_config["animal_id"]
+            )
 
         # Get all of the directories inside the animal directory
         entries = os.listdir(self.animal_dir)

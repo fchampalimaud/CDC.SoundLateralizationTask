@@ -1,4 +1,5 @@
 import os
+from datetime import datetime
 
 import pandas as pd
 import yaml
@@ -48,6 +49,7 @@ def main():
 
     # Possible path to the current animal output directory
     animal_out_dir = config["paths"]["output"] + "/" + batch + "/" + animal
+    dirs = ["200101"]
     if os.path.isdir(animal_out_dir):
         entries = os.listdir(animal_out_dir)
         dirs = [
@@ -55,20 +57,36 @@ def main():
             for entry in entries
             if os.path.isdir(os.path.join(animal_out_dir, entry))
         ]
-        animal_out = os.path.join(animal_out_dir, dirs[-1])
 
-        # Try to read the last out.csv file and return from function if something goes wrong
-        try:
-            out_name = "out_" + str(dirs[-1]) + ".csv"
-            df = pd.read_csv(os.path.join(animal_out, out_name))
-            # Ask for user input to update animal.yml file
-            verify_session(animal_config, df, dirs[-1])
-            ask_time_parameters(animal_config, df)
-            animal_config["session"]["starting_trial_number"] = int(
-                df.loc[df.index[-1], "trial"] + 1
-            )
-        except Exception:
-            animal_config["session"]["block_number"] = 1
+    animal_out_backup = config["paths"]["output_backup"] + "/" + batch + "/" + animal
+    output_dirs = ["200101"]
+    if os.path.isdir(animal_out_backup):
+        entries = os.listdir(animal_out_backup)
+        output_dirs = [
+            entry
+            for entry in entries
+            if os.path.isdir(os.path.join(animal_out_backup, entry))
+        ]
+
+    if datetime.strptime(dirs[-1], "%y%m%d") >= datetime.strptime(
+        output_dirs[-1], "%y%m%d"
+    ):
+        animal_out = os.path.join(animal_out_dir, dirs[-1])
+    else:
+        animal_out = os.path.join(animal_out_backup, output_dirs[-1])
+
+    # Try to read the last out.csv file and return from function if something goes wrong
+    try:
+        out_name = "out_" + animal + "_" + str(dirs[-1]) + ".csv"
+        df = pd.read_csv(os.path.join(animal_out, out_name))
+        # Ask for user input to update animal.yml file
+        verify_session(animal_config, df, dirs[-1])
+        ask_time_parameters(animal_config, df)
+        animal_config["session"]["starting_trial_number"] = int(
+            df.loc[df.index[-1], "trial"] + 1
+        )
+    except Exception:
+        animal_config["session"]["block_number"] = 1
 
     # Update animal, batch, experimenter and block_number
     animal_config["animal_id"] = animal

@@ -76,6 +76,8 @@ def converter(filepath: str, filetype: Literal["setup", "training"]):
         values = df.iloc[i].tolist()
         if filetype == "setup":
             values[1] = json.loads(values[1].replace("'", '"'))
+        else:
+            values[6] = json.loads(values[6])
         dictionary = dict(zip(headers, values))
         nested_dict = unflatten_json(dictionary)
         lines.append(nested_dict)
@@ -101,3 +103,16 @@ def save_setup(filepath: str, index: int):
     # Save file
     with open("../src/config/setup.json", "w") as file:
         json.dump(setup_dict, file, indent=4)
+
+
+# def save_training(filepath: str, index: int):
+#     df = pd.read_csv(filepath)
+#     training_dict = df.to_dict(orient="records")[index]
+#     training_dict["sounds"]["abl"]["abl_list"] = json.loads(
+#         training_dict["sounds"]["abl"]["abl_list"]  # .replace("'", '"')
+#     )
+#     training_dict = unflatten_json(training_dict)
+
+#     # Save file
+#     with open("../src/config/training.json", "w") as file:
+#         json.dump(training_dict, file, indent=4)
