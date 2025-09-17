@@ -243,8 +243,8 @@
                   <GraphPanelVisualizer>
                     <Span>0</Span>
                     <Capacity>80</Capacity>
-                    <XMin>0</XMin>
-                    <XMax>1</XMax>
+                    <XMin>3.7000000000000006</XMin>
+                    <XMax>4.2</XMax>
                     <YMin>-60</YMin>
                     <YMax>60</YMax>
                     <AutoScaleX>true</AutoScaleX>
@@ -276,8 +276,8 @@
                   <GraphPanelVisualizer>
                     <Span>0</Span>
                     <Capacity>80</Capacity>
-                    <XMin>0</XMin>
-                    <XMax>1</XMax>
+                    <XMin>3.7000000000000006</XMin>
+                    <XMax>4.2</XMax>
                     <YMin>-9</YMin>
                     <YMax>3</YMax>
                     <AutoScaleX>true</AutoScaleX>
@@ -363,8 +363,8 @@
                   <GraphPanelVisualizer>
                     <Span>0</Span>
                     <Capacity>80</Capacity>
-                    <XMin>0</XMin>
-                    <XMax>1</XMax>
+                    <XMin>3.7000000000000006</XMin>
+                    <XMax>4.2</XMax>
                     <YMin>0</YMin>
                     <YMax>1.1</YMax>
                     <AutoScaleX>true</AutoScaleX>
@@ -407,10 +407,10 @@
                   <GraphPanelVisualizer>
                     <Span>0</Span>
                     <Capacity>80</Capacity>
-                    <XMin>0</XMin>
-                    <XMax>1</XMax>
-                    <YMin>0</YMin>
-                    <YMax>1.1</YMax>
+                    <XMin>3.7000000000000006</XMin>
+                    <XMax>4.2</XMax>
+                    <YMin>6900</YMin>
+                    <YMax>7700</YMax>
                     <AutoScaleX>true</AutoScaleX>
                     <AutoScaleY>true</AutoScaleY>
                     <MashupSettings>
@@ -715,31 +715,31 @@
   <DialogSettings>
     <Visible>false</Visible>
     <Location>
-      <X>0</X>
-      <Y>0</Y>
+      <X>-1624</X>
+      <Y>675</Y>
     </Location>
     <Size>
-      <Width>0</Width>
-      <Height>0</Height>
+      <Width>413</Width>
+      <Height>278</Height>
     </Size>
     <WindowState>Normal</WindowState>
   </DialogSettings>
   <DialogSettings xsi:type="WorkflowEditorSettings">
     <Visible>false</Visible>
     <Location>
-      <X>0</X>
-      <Y>0</Y>
+      <X>-891</X>
+      <Y>662</Y>
     </Location>
     <Size>
-      <Width>0</Width>
-      <Height>0</Height>
+      <Width>413</Width>
+      <Height>278</Height>
     </Size>
     <WindowState>Normal</WindowState>
     <EditorDialogSettings>
       <Visible>false</Visible>
       <Location>
-        <X>288</X>
-        <Y>672</Y>
+        <X>214</X>
+        <Y>597</Y>
       </Location>
       <Size>
         <Width>1010</Width>
@@ -786,8 +786,8 @@
     <EditorDialogSettings>
       <Visible>false</Visible>
       <Location>
-        <X>275</X>
-        <Y>622</Y>
+        <X>-1621</X>
+        <Y>692</Y>
       </Location>
       <Size>
         <Width>1046</Width>
@@ -823,6 +823,18 @@
   <DialogSettings>
     <Visible>false</Visible>
     <Location>
+      <X>-1361</X>
+      <Y>794</Y>
+    </Location>
+    <Size>
+      <Width>413</Width>
+      <Height>278</Height>
+    </Size>
+    <WindowState>Normal</WindowState>
+  </DialogSettings>
+  <DialogSettings xsi:type="WorkflowEditorSettings">
+    <Visible>false</Visible>
+    <Location>
       <X>0</X>
       <Y>0</Y>
     </Location>
@@ -831,6 +843,18 @@
       <Height>0</Height>
     </Size>
     <WindowState>Normal</WindowState>
+    <EditorDialogSettings>
+      <Visible>false</Visible>
+      <Location>
+        <X>4</X>
+        <Y>4</Y>
+      </Location>
+      <Size>
+        <Width>1499</Width>
+        <Height>999</Height>
+      </Size>
+      <WindowState>Normal</WindowState>
+    </EditorDialogSettings>
   </DialogSettings>
   <DialogSettings>
     <Visible>false</Visible>
