@@ -273,7 +273,7 @@ def upload_sound(
         inverse_filter=eq_right,
     )
 
-    create_sound_file(signal_left, signal_right, filename)
+    create_sound_file(signal_left, signal_right, str(filename))
     if soundcard_index is not None:
         while True:
             output = os.popen(
