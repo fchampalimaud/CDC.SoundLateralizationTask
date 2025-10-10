@@ -337,7 +337,7 @@ class UploadSound(Thread):
             self.eq_left,
             self.calib_right,
             self.eq_right,
-            abl=None,
+            abl=0,
             ild=0,
             fs=192000,
             filename=sounds_dir / "silence.bin",

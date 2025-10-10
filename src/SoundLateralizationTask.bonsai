@@ -18289,9 +18289,8 @@
                   <Expression xsi:type="WorkflowInput">
                     <Name>Source1</Name>
                   </Expression>
-                  <Expression xsi:type="GroupWorkflow">
+                  <Expression xsi:type="rx:Sink">
                     <Name>PlaySound</Name>
-                    <Description>Presents the noise stimulus to the animal</Description>
                     <Workflow>
                       <Nodes>
                         <Expression xsi:type="WorkflowInput">
