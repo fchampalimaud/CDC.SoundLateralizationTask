@@ -94,8 +94,9 @@ def synch_camera(path):
         si_mask = (strobe["DIPort1"]) & (strobe["DIPort1"].shift(1) == False)
         strobe_index = strobe[si_mask].index.to_numpy()[-1]
 
-        setup_path = path / "config" / ("setup_" + datestr + ".yml")
-        setup = json.load(setup_path)
+        setup_path = path / "config" / ("setup_" + date + ".json")
+        with open(setup_path, "r") as file:
+            setup = json.load(file)
 
         if setup["camera"]["type"] == "FLIR":
             mi_mask = (metadata["GPIO"] == 12) & (metadata["GPIO"].shift(1) == 13)

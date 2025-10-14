@@ -2,6 +2,7 @@ import glob
 import json
 import os
 
+import numpy as np
 import pandas as pd
 
 from shutdown.video_preprocessing import add_frame_numbers
@@ -84,6 +85,8 @@ def generate_csv(data: dict, path: str):
 
     # Rename the columns to shorter and more intuitive names
     df = df.rename(columns=COLUMN_RENAMES)
+
+    df.replace("NaN", np.nan, inplace=True)
 
     dir = os.path.dirname(path)
     if glob.glob(os.path.join(dir, "cam_metadata_*.csv")):

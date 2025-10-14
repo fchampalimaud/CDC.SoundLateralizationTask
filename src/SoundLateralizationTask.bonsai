@@ -10311,7 +10311,7 @@
                       <p8:AnimalId>ANIMAL0003</p8:AnimalId>
                       <p8:Batch>batch</p8:Batch>
                       <p8:Experimenter>JG</p8:Experimenter>
-                      <p8:Version>0.5.1</p8:Version>
+                      <p8:Version>0.5.2</p8:Version>
                       <p8:Bias>0.04</p8:Bias>
                       <p8:RepeatedTrial>false</p8:RepeatedTrial>
                     </Combinator>
@@ -12343,20 +12343,9 @@
                     <Name>Setup</Name>
                     <Workflow>
                       <Nodes>
-                        <Expression xsi:type="SubscribeSubject">
-                          <Name>Config</Name>
-                        </Expression>
-                        <Expression xsi:type="MemberSelector">
-                          <Selector>Paths.Setup</Selector>
-                        </Expression>
-                        <Expression xsi:type="PropertyMapping">
-                          <PropertyMappings>
-                            <Property Name="Path" />
-                          </PropertyMappings>
-                        </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="io:ReadAllText">
-                            <io:Path>C:/Users/HSP/Documents/BonsaiWorkflows/CDC.SoundLateralizationTask/config/setup.csv</io:Path>
+                            <io:Path>config/setup.json</io:Path>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="SubscribeSubject">
@@ -12450,28 +12439,25 @@
                         </Expression>
                       </Nodes>
                       <Edges>
-                        <Edge From="0" To="1" Label="Source1" />
-                        <Edge From="1" To="2" Label="Source1" />
+                        <Edge From="0" To="7" Label="Source1" />
+                        <Edge From="1" To="4" Label="Source1" />
                         <Edge From="2" To="3" Label="Source1" />
-                        <Edge From="3" To="10" Label="Source1" />
-                        <Edge From="4" To="7" Label="Source1" />
+                        <Edge From="3" To="4" Label="Source2" />
+                        <Edge From="4" To="5" Label="Source1" />
                         <Edge From="5" To="6" Label="Source1" />
                         <Edge From="6" To="7" Label="Source2" />
                         <Edge From="7" To="8" Label="Source1" />
-                        <Edge From="8" To="9" Label="Source1" />
-                        <Edge From="9" To="10" Label="Source2" />
+                        <Edge From="8" To="15" Label="Source1" />
+                        <Edge From="9" To="12" Label="Source1" />
                         <Edge From="10" To="11" Label="Source1" />
-                        <Edge From="11" To="18" Label="Source1" />
-                        <Edge From="12" To="15" Label="Source1" />
+                        <Edge From="11" To="12" Label="Source2" />
+                        <Edge From="12" To="13" Label="Source1" />
                         <Edge From="13" To="14" Label="Source1" />
                         <Edge From="14" To="15" Label="Source2" />
-                        <Edge From="15" To="16" Label="Source1" />
-                        <Edge From="16" To="17" Label="Source1" />
+                        <Edge From="15" To="19" Label="Source1" />
+                        <Edge From="16" To="18" Label="Source1" />
                         <Edge From="17" To="18" Label="Source2" />
-                        <Edge From="18" To="22" Label="Source1" />
-                        <Edge From="19" To="21" Label="Source1" />
-                        <Edge From="20" To="21" Label="Source2" />
-                        <Edge From="21" To="22" Label="Source2" />
+                        <Edge From="18" To="19" Label="Source2" />
                       </Edges>
                     </Workflow>
                   </Expression>
