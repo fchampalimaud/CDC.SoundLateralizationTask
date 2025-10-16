@@ -64,8 +64,9 @@ class Shutdown:
 
             # Generate the out.csv file from the JSON structure if the file doesn't already exists or if it corresponds to the last session
             if not os.path.isfile(out_path) or (i == len(self.dirs) - 1):
+                pd.set_option("future.no_silent_downcasting", True)
                 df = generate_csv(out_dict, out_path)
-                # df = pd.read_csv(out_path, na_values=["NaN"])
+
                 df.replace("NaN", np.nan, inplace=True)
 
                 # Generate plots with some metrics for the each block of the current session

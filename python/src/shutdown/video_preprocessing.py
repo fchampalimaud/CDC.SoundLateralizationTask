@@ -45,17 +45,17 @@ def add_frame_numbers(out: pd.DataFrame, path):
             mt_mask = strobe["Timestamp"] >= row["mt_start"]
             mt_frame = strobe.loc[mt_mask, "FrameID"].iloc[0]
 
-        new_row = pd.Series(
-            [ts_frame, cnp_frame, rt_frame, mt_frame],
-            index=[
-                "trial_frame_start",
-                "trial_frame_cnp",
-                "trial_frame_rt",
-                "trial_frame_mt",
-            ],
+        new_row = pd.DataFrame(
+            {
+                "trial_frame_start": [ts_frame],
+                "trial_frame_cnp": [cnp_frame],
+                "trial_frame_rt": [rt_frame],
+                "trial_frame_mt": [mt_frame],
+            }
         )
-
-        df = df._append(new_row, ignore_index=True)
+        df = pd.concat(
+            [i.dropna(axis=1, how="all") for i in [df, new_row]], ignore_index=True
+        )
 
     final_out = pd.concat([out, df], axis=1)
 
@@ -138,6 +138,8 @@ def synch_camera(path):
             }
         )
 
-        synched_data = pd.concat([synched_data, df], ignore_index=True)
+        synched_data = pd.concat(
+            [i.dropna(axis=1, how="all") for i in [synched_data, df]], ignore_index=True
+        )
 
     return synched_data
