@@ -10,6 +10,7 @@ from startup.startup import (
     ask_batch,
     ask_experimenter,
     ask_last_training_level,
+    ask_starting_training_level,
     ask_time_parameters,
     save_yaml,
     verify_session,
@@ -92,6 +93,9 @@ def main():
     animal_config["animal_id"] = animal
     animal_config["batch"] = batch
     animal_config["session"]["experimenter"] = experimenter
+    starting_level = ask_starting_training_level()
+    if starting_level != -1:
+        animal_config["session"]["starting_training_level"] = starting_level
     animal_config["session"]["last_training_level"] = ask_last_training_level()
 
     # Save animal and config files

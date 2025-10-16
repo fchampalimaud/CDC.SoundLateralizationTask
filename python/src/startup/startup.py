@@ -137,6 +137,31 @@ def ask_animal():
         return animal
 
 
+def ask_starting_training_level():
+    while True:
+        # Starting training level prompt
+        starting_training_level = input(
+            "What is the training level you want the animal to start in? (You can leave blank to keep the current value) "
+        )
+
+        # Check if the animal ID is valid
+        if not re.fullmatch(r"^(?:\d{1,2})?$", starting_training_level):
+            print(
+                "This is not a valid training level! Leave the prompt blank or write up to 2 digits."
+            )
+            continue
+        elif starting_training_level != "" and int(starting_training_level) > 16:
+            print(
+                "This is not a valid training level! There are only 16 training levels."
+            )
+            continue
+
+        if starting_training_level == "":
+            return -1
+        else:
+            return int(starting_training_level)
+
+
 def ask_last_training_level():
     while True:
         # Last training level prompt
