@@ -244,7 +244,7 @@
                     <Span>0</Span>
                     <Capacity>80</Capacity>
                     <XMin>20</XMin>
-                    <XMax>26</XMax>
+                    <XMax>21</XMax>
                     <YMin>-60</YMin>
                     <YMax>60</YMax>
                     <AutoScaleX>true</AutoScaleX>
@@ -277,7 +277,7 @@
                     <Span>0</Span>
                     <Capacity>80</Capacity>
                     <XMin>20</XMin>
-                    <XMax>26</XMax>
+                    <XMax>21</XMax>
                     <YMin>-9</YMin>
                     <YMax>3</YMax>
                     <AutoScaleX>true</AutoScaleX>
@@ -364,8 +364,8 @@
                     <Span>0</Span>
                     <Capacity>80</Capacity>
                     <XMin>20</XMin>
-                    <XMax>26</XMax>
-                    <YMin>0</YMin>
+                    <XMax>21</XMax>
+                    <YMin>0.3</YMin>
                     <YMax>1.1</YMax>
                     <AutoScaleX>true</AutoScaleX>
                     <AutoScaleY>true</AutoScaleY>
@@ -408,9 +408,9 @@
                     <Span>0</Span>
                     <Capacity>80</Capacity>
                     <XMin>20</XMin>
-                    <XMax>26</XMax>
-                    <YMin>-0.5</YMin>
-                    <YMax>2.5</YMax>
+                    <XMax>21</XMax>
+                    <YMin>-0.2</YMin>
+                    <YMax>1.2</YMax>
                     <AutoScaleX>true</AutoScaleX>
                     <AutoScaleY>true</AutoScaleY>
                     <MashupSettings>
@@ -786,8 +786,8 @@
     <EditorDialogSettings>
       <Visible>false</Visible>
       <Location>
-        <X>318</X>
-        <Y>567</Y>
+        <X>597</X>
+        <Y>530</Y>
       </Location>
       <Size>
         <Width>1046</Width>

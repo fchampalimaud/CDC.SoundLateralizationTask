@@ -18,6 +18,9 @@ class TrialRepetition(BaseModel):
     repeat_aborts: bool = Field(
         description="Indicates whether the stimulus is repeated after aborts."
     )
+    repeat_fix_time: bool = Field(
+        description="Indicates whether the fixation time is repeated after aborts."
+    )
 
 
 class CriticalPerformance(BaseModel):

@@ -1227,6 +1227,8 @@ namespace Training
     
         private bool _repeatAborts;
     
+        private bool _repeatFixTime;
+    
         public TrialRepetition()
         {
         }
@@ -1235,6 +1237,7 @@ namespace Training
         {
             _repeatErrors = other._repeatErrors;
             _repeatAborts = other._repeatAborts;
+            _repeatFixTime = other._repeatFixTime;
         }
     
         /// <summary>
@@ -1273,6 +1276,24 @@ namespace Training
             }
         }
     
+        /// <summary>
+        /// Indicates whether the fixation time is repeated after aborts.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("repeat_fix_time", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="repeat_fix_time")]
+        [System.ComponentModel.DescriptionAttribute("Indicates whether the fixation time is repeated after aborts.")]
+        public bool RepeatFixTime
+        {
+            get
+            {
+                return _repeatFixTime;
+            }
+            set
+            {
+                _repeatFixTime = value;
+            }
+        }
+    
         public System.IObservable<TrialRepetition> Process()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new TrialRepetition(this)));
@@ -1286,7 +1307,8 @@ namespace Training
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
             stringBuilder.Append("repeat_errors = " + _repeatErrors + ", ");
-            stringBuilder.Append("repeat_aborts = " + _repeatAborts);
+            stringBuilder.Append("repeat_aborts = " + _repeatAborts + ", ");
+            stringBuilder.Append("repeat_fix_time = " + _repeatFixTime);
             return true;
         }
     

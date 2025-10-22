@@ -310,11 +310,17 @@
           "description": "Indicates whether the stimulus is repeated after aborts.",
           "title": "Repeat Aborts",
           "type": "boolean"
+        },
+        "repeat_fix_time": {
+          "description": "Indicates whether the fixation time is repeated after aborts.",
+          "title": "Repeat Fix Time",
+          "type": "boolean"
         }
       },
       "required": [
         "repeat_errors",
-        "repeat_aborts"
+        "repeat_aborts",
+        "repeat_fix_time"
       ],
       "title": "TrialRepetition",
       "type": "object"
