@@ -9605,58 +9605,50 @@
                 </Edges>
               </Workflow>
             </Expression>
-            <Expression xsi:type="Disable">
-              <Builder xsi:type="SubscribeSubject">
-                <Name>Config</Name>
-              </Builder>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>Config</Name>
             </Expression>
-            <Expression xsi:type="Disable">
-              <Builder xsi:type="MemberSelector">
-                <Selector>Ports.Clocksynchronizer</Selector>
-              </Builder>
+            <Expression xsi:type="MemberSelector">
+              <Selector>Ports.Clocksynchronizer</Selector>
             </Expression>
-            <Expression xsi:type="Disable">
-              <Builder xsi:type="PropertyMapping">
-                <PropertyMappings>
-                  <Property Name="PortName" />
-                </PropertyMappings>
-              </Builder>
+            <Expression xsi:type="PropertyMapping">
+              <PropertyMappings>
+                <Property Name="PortName" />
+              </PropertyMappings>
             </Expression>
-            <Expression xsi:type="Disable">
-              <Builder xsi:type="GroupWorkflow">
-                <Name>ClockSynchronizer</Name>
-                <Workflow>
-                  <Nodes>
-                    <Expression xsi:type="Combinator">
-                      <Combinator xsi:type="IntProperty">
-                        <Value>0</Value>
-                      </Combinator>
-                    </Expression>
-                    <Expression xsi:type="Combinator">
-                      <Combinator xsi:type="harp:SynchronizeTimestamp" />
-                    </Expression>
-                    <Expression xsi:type="ExternalizedMapping">
-                      <Property Name="PortName" />
-                    </Expression>
-                    <Expression xsi:type="Combinator">
-                      <Combinator xsi:type="p7:Device">
-                        <harp:OperationMode>Active</harp:OperationMode>
-                        <harp:OperationLed>On</harp:OperationLed>
-                        <harp:DumpRegisters>true</harp:DumpRegisters>
-                        <harp:VisualIndicators>On</harp:VisualIndicators>
-                        <harp:Heartbeat>Disabled</harp:Heartbeat>
-                        <harp:IgnoreErrors>false</harp:IgnoreErrors>
-                        <harp:PortName>COM0</harp:PortName>
-                      </Combinator>
-                    </Expression>
-                  </Nodes>
-                  <Edges>
-                    <Edge From="0" To="1" Label="Source1" />
-                    <Edge From="1" To="3" Label="Source1" />
-                    <Edge From="2" To="3" Label="Source2" />
-                  </Edges>
-                </Workflow>
-              </Builder>
+            <Expression xsi:type="GroupWorkflow">
+              <Name>ClockSynchronizer</Name>
+              <Workflow>
+                <Nodes>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="IntProperty">
+                      <Value>0</Value>
+                    </Combinator>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="harp:SynchronizeTimestamp" />
+                  </Expression>
+                  <Expression xsi:type="ExternalizedMapping">
+                    <Property Name="PortName" />
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="p7:Device">
+                      <harp:OperationMode>Active</harp:OperationMode>
+                      <harp:OperationLed>On</harp:OperationLed>
+                      <harp:DumpRegisters>true</harp:DumpRegisters>
+                      <harp:VisualIndicators>On</harp:VisualIndicators>
+                      <harp:Heartbeat>Disabled</harp:Heartbeat>
+                      <harp:IgnoreErrors>false</harp:IgnoreErrors>
+                      <harp:PortName>COM0</harp:PortName>
+                    </Combinator>
+                  </Expression>
+                </Nodes>
+                <Edges>
+                  <Edge From="0" To="1" Label="Source1" />
+                  <Edge From="1" To="3" Label="Source1" />
+                  <Edge From="2" To="3" Label="Source2" />
+                </Edges>
+              </Workflow>
             </Expression>
           </Nodes>
           <Edges>
@@ -10907,60 +10899,78 @@
                     <io:Suffix>None</io:Suffix>
                     <io:IncludeHeader>false</io:IncludeHeader>
                   </Expression>
-                  <Expression xsi:type="rx:Condition">
-                    <Workflow>
-                      <Nodes>
-                        <Expression xsi:type="SubscribeSubject">
-                          <Name>Config</Name>
-                        </Expression>
-                        <Expression xsi:type="MemberSelector">
-                          <Selector>Paths.OutputBackup</Selector>
-                        </Expression>
-                        <Expression xsi:type="NotEqual">
-                          <Operand xsi:type="StringProperty" />
-                        </Expression>
-                        <Expression xsi:type="WorkflowOutput" />
-                      </Nodes>
-                      <Edges>
-                        <Edge From="0" To="1" Label="Source1" />
-                        <Edge From="1" To="2" Label="Source1" />
-                        <Edge From="2" To="3" Label="Source1" />
-                      </Edges>
-                    </Workflow>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="rx:Condition">
+                      <Workflow>
+                        <Nodes>
+                          <Expression xsi:type="SubscribeSubject">
+                            <Name>Config</Name>
+                          </Expression>
+                          <Expression xsi:type="MemberSelector">
+                            <Selector>Paths.OutputBackup</Selector>
+                          </Expression>
+                          <Expression xsi:type="NotEqual">
+                            <Operand xsi:type="StringProperty" />
+                          </Expression>
+                          <Expression xsi:type="WorkflowOutput" />
+                        </Nodes>
+                        <Edges>
+                          <Edge From="0" To="1" Label="Source1" />
+                          <Edge From="1" To="2" Label="Source1" />
+                          <Edge From="2" To="3" Label="Source1" />
+                        </Edges>
+                      </Workflow>
+                    </Builder>
                   </Expression>
-                  <Expression xsi:type="SubscribeSubject">
-                    <Name>OutputBackupDirPath</Name>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="SubscribeSubject">
+                      <Name>OutputBackupDirPath</Name>
+                    </Builder>
                   </Expression>
-                  <Expression xsi:type="SubscribeSubject">
-                    <Name>Suffix</Name>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="SubscribeSubject">
+                      <Name>Suffix</Name>
+                    </Builder>
                   </Expression>
-                  <Expression xsi:type="Format">
-                    <Format>cam_metadata_{0}.csv</Format>
-                    <Selector>it</Selector>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="Format">
+                      <Format>cam_metadata_{0}.csv</Format>
+                      <Selector>it</Selector>
+                    </Builder>
                   </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="rx:Zip" />
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="Combinator">
+                      <Combinator xsi:type="rx:Zip" />
+                    </Builder>
                   </Expression>
-                  <Expression xsi:type="scr:ExpressionTransform">
-                    <scr:Expression>Item1 + Item2</scr:Expression>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="scr:ExpressionTransform">
+                      <scr:Expression>Item1 + Item2</scr:Expression>
+                    </Builder>
                   </Expression>
-                  <Expression xsi:type="PropertyMapping">
-                    <PropertyMappings>
-                      <Property Name="FileName" />
-                    </PropertyMappings>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="PropertyMapping">
+                      <PropertyMappings>
+                        <Property Name="FileName" />
+                      </PropertyMappings>
+                    </Builder>
                   </Expression>
-                  <Expression xsi:type="io:CsvWriter">
-                    <io:FileName>C:/Users/HSP/Documents/backup/batch/ANIMAL0003/250916/cam_metadata_135951.csv</io:FileName>
-                    <io:Append>false</io:Append>
-                    <io:Overwrite>false</io:Overwrite>
-                    <io:Suffix>None</io:Suffix>
-                    <io:IncludeHeader>false</io:IncludeHeader>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="io:CsvWriter">
+                      <io:FileName>C:/Users/HSP/Documents/backup/batch/ANIMAL0003/250916/cam_metadata_135951.csv</io:FileName>
+                      <io:Append>false</io:Append>
+                      <io:Overwrite>false</io:Overwrite>
+                      <io:Suffix>None</io:Suffix>
+                      <io:IncludeHeader>false</io:IncludeHeader>
+                    </Builder>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
                     <Name>OutputDirPath</Name>
                   </Expression>
-                  <Expression xsi:type="SubscribeSubject">
-                    <Name>OutputBackupDirPath</Name>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="SubscribeSubject">
+                      <Name>OutputBackupDirPath</Name>
+                    </Builder>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
                     <Name>SetupConfig</Name>
