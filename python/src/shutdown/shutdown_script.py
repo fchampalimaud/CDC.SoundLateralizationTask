@@ -4,13 +4,12 @@ import numpy as np
 import pandas as pd
 import yaml
 
-# from shutdown.plotting import generate_plots, generate_plots_refactored
 from shutdown.block_plots import generate_plots
 from shutdown.utils import append_json, generate_csv
 
 
 class Shutdown:
-    def __init__(self, is_backup: bool = False):
+    def __init__(self):
         # Open config.yml file
         with open("../src/config/config.yml", "r") as file:
             self.config = yaml.safe_load(file)
@@ -19,18 +18,19 @@ class Shutdown:
         with open(self.config["paths"]["animal"], "r") as file:
             self.animal_config = yaml.safe_load(file)
 
-        # Get the animal output directory
-        if not is_backup:
-            self.animal_dir = (
-                self.config["paths"]["output"]
-                + "/"
-                + self.animal_config["batch"]
-                + "/"
-                + self.animal_config["animal_id"]
-            )
+        self.animal_dir = (
+            self.config["paths"]["output_backup"]
+            + "/"
+            + self.animal_config["batch"]
+            + "/"
+            + self.animal_config["animal_id"]
+        )
+
+        if self.config["paths"]["output"] == "":
+            self.animal_backup_dir = None
         else:
-            self.animal_dir = (
-                self.config["paths"]["output_backup"]
+            self.animal_backup_dir = (
+                self.config["paths"]["output"]
                 + "/"
                 + self.animal_config["batch"]
                 + "/"
@@ -62,17 +62,32 @@ class Shutdown:
             )
             out_path = os.path.join(self.animal_dir, self.dirs[i], out_name)
 
+            if self.config["paths"]["output"] == "":
+                out_backup_path = None
+            else:
+                out_backup_path = os.path.join(
+                    self.animal_backup_dir, self.dirs[i], out_name
+                )
+
             # Generate the out.csv file from the JSON structure if the file doesn't already exists or if it corresponds to the last session
             if not os.path.isfile(out_path) or (i == len(self.dirs) - 1):
                 pd.set_option("future.no_silent_downcasting", True)
-                df = generate_csv(out_dict, out_path)
+                df = generate_csv(out_dict, out_path, out_backup_path)
 
                 df.replace("NaN", np.nan, inplace=True)
 
                 # Generate plots with some metrics for the each block of the current session
                 plot_path = os.path.join(self.animal_dir, self.dirs[i], "plots")
                 os.makedirs(plot_path, exist_ok=True)
-                generate_plots(df, plot_path)
+
+                if self.config["paths"]["output"] == "":
+                    plot_backup_path = None
+                else:
+                    plot_backup_path = os.path.join(
+                        self.animal_backup_dir, self.dirs[i], "plots"
+                    )
+                    os.makedirs(plot_backup_path, exist_ok=True)
+                generate_plots(df, plot_path, plot_backup_path)
 
     def merge_output(self):
         out_path = os.path.join(self.animal_dir, self.dirs[0], "out.csv")

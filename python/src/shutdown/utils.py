@@ -1,6 +1,7 @@
 import glob
 import json
 import os
+from typing import Optional
 
 import numpy as np
 import pandas as pd
@@ -63,7 +64,7 @@ def append_json(dir: str):
     return data
 
 
-def generate_csv(data: dict, path: str):
+def generate_csv(data: dict, path: str, backup_path: Optional[str]):
     """
     Generates a CSV file from a JSON object.
 
@@ -98,6 +99,8 @@ def generate_csv(data: dict, path: str):
 
     # Save the DataFrame to CSV
     df.to_csv(path, index=False)
+    if backup_path is not None:
+        df.to_csv(backup_path, index=False)
 
     return df
 
