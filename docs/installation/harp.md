@@ -1,45 +1,40 @@
 # Harp Devices Setup
 
-In order to use the Harp devices, the USB drivers and each devices's firmware must be installed. The installer for the USB drivers can be downloaded [here](https://bitbucket.org/fchampalimaud/downloads/downloads/UsbDriver-2.12.26.zip). The [Firmware](#firmware) section contains the instructions for installing each board's firmware.
+In order to use the Harp devices, the USB drivers and each devices's firmware must be installed. The installer for the USB drivers can be downloaded [here](https://bitbucket.org/fchampalimaud/downloads/downloads/UsbDriver-2.12.26.zip). The [Firmware](#firmware-installation) section contains the instructions for installing each board's firmware.
 
 > [!NOTE]
 > The Harp devices are usually delivered with the firmware already installed, but it may be useful to know how to install the firmware (for example: in case a new firmware version that solves a particular bug is released)
 
-## Firmware
-For most devices, it's possible to install the corresponding firmware in two different ways.
-
-### Firmware Download
-1. Go to the [Harp Tech GitHub organization](https://github.com/harp-tech).
-2. Search for the board's repository. The name of the repository follows the format device.[_board_name_] (for example, [device.behavior](https://github.com/harp-tech/device.behavior)).
-    - **Note:** The Harp Audio Amplifier is not considered a device by itself, but a peripheral for the Harp SoundCard, so there isn't a firmware to be installed for this board.
-3. Click on `Releases` and search for the latest firmware release, whose name follows the format fw[_firmware_version_]-harp[_harp_core_version_] (for example, fw2.2-harp1.13).
-4. Download the latest version of the firmware binary corresponding to the hardware version of the board being used. The firmware binary name follows the format [_board_name_]-fw[_firmware_version_]-harp[_harp_core_version_]-hw[_hardware_version_]-ass[_assembly_version_].hex (for example, Behavior-fw3.2-harp1.13-hw2.0-ass0.hex).
-    - **Note:** For the Harp SoundCard, an additional firmware binary must be downloaded (the PIC32 firmware).
-
-### Via Harp Convert to CSV GUI
+## Firmware Installation
 If the Harp Convert to CSV GUI is already installed, skip to step 3. If it's not already installed, but other Labview-based Harp board GUI is, skip to step 2 instead.
 
 1. Install the [LabView Runtime](https://bitbucket.org/fchampalimaud/downloads/downloads/Runtime-1.0.zip) and reboot the computer.
-2. Install the latest version of the [Harp Convert to CSV GUI](https://github.com/harp-tech/csv_converter/releases/tag/1.9.0-preview).
-3. Open the Harp Convert to CSV GUI.
-4. Click on `Options` and write "bootloader" in the `List` textbox. The _Update Firmware_ window should appear.
-5. Choose the communication port (_COMx_) of the board whose firmware is going to be installed.
-6. Select the firmware binary to be installed and click on `Update`.
-    - **Note:** For the Harp SoundCard, during the installation of the firmware, select the PIC32 firmware when the application asks for the 32 bits device firmware.
 
-### Via Bonsai
-As explained at the beginning of the [section](#firmware), it is not possible to install the Harp SoundCard firmware through this method. Skip to step 4 if the Bonsai environment is already installed.
+2. Install the [Harp Convert to CSV GUI](https://bitbucket.org/fchampalimaud/downloads/downloads/Harp_Convert_To_CSV_v1.8.3.zip).
 
-> [!CAUTION]
-> It is not possible to use this method to install the firmware of the Harp SoundCard.
+3. Open the application. Then, click on `Options`.
 
-1. Install [Bonsai](https://bonsai-rx.org/docs/articles/installation.html).
-2. Open Bonsai and click on `Manage Packages`.
-3. Install the following packages:
-    - Bonsai - Harp Library
-    - Bonsai - Harp Design Library
-4. Start a new workflow and add a Device node from the Harp package to it.
-5. Change the `PortName` property of the node to the communication port (_COMx_) of the board whose firmware is going to be installed.
-6. Double-click on the Device node. The _Device Setup_ window should appear.
-7. Click on `Bootloader>>`. The _Device Setup_ should expand.
-8. Click on `Open...` to select the firmware binary to be installed and then click on `Update`.
+    ![Firmware 1](../images/firmware_1.png)
+
+4. Write "bootloader" in the `List` textbox. The `Update Firmware` window should appear.
+
+    ![Firmware 2](../images/firmware_2.png)
+
+5. Choose the serial port (_COMx_) of the board and the corresponding firmware binary (`.hex` file). Then, click on `Update`. 
+
+    ![Firmware 2](../images/firmware_3.png)
+
+6. **For the Harp SoundCard:** during the installation of the firmware, select the PIC32 firmware when the application asks for the 32 bits device firmware (`SoundCard.X-fw2.0-harp1.4-hw2.2-ass0.hex`).
+
+    ![Firmware 2](../images/firmware_4.png)
+
+### Firmware Versions
+You can find the firmware versions currently being used in the table below.
+
+| Device | Firmware Version | Harp Core Version | Hardware Version | PIC32 Firmware |
+|--------|:----------------:|:-----------------:|:----------------:|:--------------:|
+| Harp Behavior | [v3.2](https://github.com/harp-tech/device.behavior/releases/download/fw3.2-harp1.13/Behavior-fw3.2-harp1.13-hw2.0-ass0.hex) | v1.13 | v2.0 | - |
+| Harp SoundCard | [v2.0](https://github.com/harp-tech/device.soundcard/releases/download/fw2.0-harp1.4/SoundCard-fw2.0-harp1.4-hw2.2-ass0.hex) | v1.4 | v2.2 | [v2.0](https://github.com/harp-tech/device.soundcard/releases/download/fw2.0-harp1.4/SoundCard.X-fw2.0-harp1.4-hw2.2-ass0.hex) |
+| Harp ClockSynchronizer | [v1.0](https://github.com/harp-tech/device.clocksynchronizer/releases/download/fw1.0-harp1.13/ClockSynchronizer-fw1.0-harp1.13-hw1.0-ass0.hex) | v1.13 | v1.0 | - |
+| Harp SyringePump | [v1.0](https://github.com/harp-tech/device.syringepump/releases/download/fw1.0-harp1.13/SyringePump-fw1.0-harp1.13-hw1.1-ass0.hex) | v1.13 | v1.1 | - |
+| Harp CurrentDriver | v0.2 | v1.13 | v1.1 | - |
