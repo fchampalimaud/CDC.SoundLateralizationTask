@@ -14,7 +14,8 @@ import pandas as pd
 import serial.tools.list_ports
 from pyharp.device import Device
 from serial.serialutil import SerialException
-from speaker_calibration.sound import create_sound_file, white_noise
+from speaker_calibration.sound import WhiteNoise
+from speaker_calibration.soundcards import create_sound_file
 
 
 class LabeledSpinbox:
@@ -254,7 +255,7 @@ def upload_sound(
         db_right = abl + ild / 2
         attenuation_right = 10 ** ((db_right - calib_right[1]) / calib_right[0])
 
-    signal_left = white_noise(
+    signal_left = WhiteNoise(
         duration,
         fs,
         amplitude=attenuation_left,
@@ -263,7 +264,7 @@ def upload_sound(
         freq_max=20000,
         inverse_filter=eq_left,
     )
-    signal_right = white_noise(
+    signal_right = WhiteNoise(
         duration,
         fs,
         amplitude=attenuation_right,

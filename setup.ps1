@@ -3,6 +3,11 @@ if (!(Get-Command uv -ErrorAction SilentlyContinue)) {
     powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 }
 
+if (!(Get-Command ffmpeg -ErrorAction SilentlyContinue)) {
+    Write-Host "Installing FFmpeg ..."
+    powershell -ExecutionPolicy ByPass -c "winget install Gyan.FFmpeg"
+}
+
 cd .\bonsai
 
 if (!(Test-Path "./Bonsai.exe")) {
