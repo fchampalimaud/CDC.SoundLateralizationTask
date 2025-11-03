@@ -19,7 +19,7 @@ class Shutdown:
             self.animal_config = yaml.safe_load(file)
 
         self.animal_dir = (
-            self.config["paths"]["output_backup"]
+            self.config["paths"]["output"]
             + "/"
             + self.animal_config["batch"]
             + "/"
