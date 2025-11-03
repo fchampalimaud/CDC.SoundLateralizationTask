@@ -12,5 +12,5 @@
   href: configuration.md
 - name: Running the Task
   href: running.md
-- name: Known Issues
-  href: known_issues.md
+- name: Testing the Setup
+  href: testing.md

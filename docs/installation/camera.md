@@ -11,7 +11,7 @@ As mentioned above, there is a need for the camera used in the setup to have som
 
 ## FLIR
 
-After installing the [Spinnaker Drivers](software.md#spinnaker-drivers), connect the camera to the computer in an USB-3.0 port (connecting it to an USB-2.0 port limits the camera's capabilities, namely the frame rate).
+After installing the [Spinnaker Drivers](software.md#flir), connect the camera to the computer in an USB-3.0 port (connecting it to an USB-2.0 port limits the camera's capabilities, namely the frame rate).
 
 ### Firmware Update
 
