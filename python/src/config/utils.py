@@ -262,7 +262,7 @@ def upload_sound(
         ramp_time=ramp_time,
         freq_min=5000,
         freq_max=20000,
-        inverse_filter=eq_left,
+        eq_filter=eq_left,
     )
     signal_right = WhiteNoise(
         duration,
@@ -271,7 +271,7 @@ def upload_sound(
         ramp_time=ramp_time,
         freq_min=5000,
         freq_max=20000,
-        inverse_filter=eq_right,
+        eq_filter=eq_right,
     )
 
     create_sound_file(signal_left, signal_right, str(filename))

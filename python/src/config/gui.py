@@ -167,6 +167,7 @@ class GUI(tk.Tk):
                 self.ports.left_pump.set(config["ports"]["left_pump"])
                 self.ports.right_pump.set(config["ports"]["right_pump"])
                 self.ports.current_driver.set(config["ports"]["currentdriver"])
+                self.ports.clock_synchronizer.set(config["ports"]["clocksynchronizer"])
                 self.paths.animal.set(config["paths"]["animal_dir"])
                 self.paths.setup.set(config["paths"]["setup"])
                 self.paths.training.set(config["paths"]["training"])
