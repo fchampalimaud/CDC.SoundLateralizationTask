@@ -1,0 +1,175 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Testing the Setup | CDC.SoundLateralizationTask </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Testing the Setup | CDC.SoundLateralizationTask ">
+      
+      
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/fchampalimaud/CDC.SoundLateralizationTask/blob/main/docs/installation/testing.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo_white.svg" alt="CDC.SoundLateralizationTask">
+            CDC.SoundLateralizationTask
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="testing-the-setup">Testing the Setup</h1>
+
+<p>The setup is composed by a lot of hardware (3/4 Harp devices, around half a dozen Harp peripherals and a camera), so it only takes a small issue in hardware for the whole operation to go south.</p>
+<p>With this in mind, this section aims to guide the user on going through the hardware and testing it to either ensure everything is working correctly or to rule out possible problems in case the setup is not working as expected.</p>
+<h2 id="quick-checks">Quick checks</h2>
+<p>This section serves as checklist of the most basic stuff a setup should have or should pass through before anything else:</p>
+<ul>
+<li>Verify you have all of the necessary hardware (behavior box, Harp tower, Harp SyringePumps, speakers, camera, computer). A more detailed list with the necessary materials can be found <a href="bill_of_materials.html">here</a>.</li>
+<li>Configure the setup and the camera (read the <a href="software.html">Software Installation</a> and the <a href="camera.html">Camera Configuration</a> sections if you need to do so).</li>
+<li>Calibrate the speakers.</li>
+</ul>
+<div class="WARNING">
+<h5>Warning</h5>
+<p><em>The calibration protocol is not up to date, but it can be found <a href="https://fchampalimaud.github.io/cdc-speaker-calibration/">here</a>.</em></p>
+</div>
+<ul>
+<li>Configure the task (read the <a href="configuration.html">Task Configuration</a> section).</li>
+<li>Run and test the task without an animal to check everything is working as desired (read the <a href="running.html">Running the Task</a> section).</li>
+</ul>
+<h2 id="testing-the-harp-devices">Testing the Harp devices</h2>
+<p>The Harp devices are the interface between the real world and the computer (and, consequently, the task's logic), specially throught the pokes, the speakers and the reward delivery system.</p>
+<p>In order to test each of these parts individually, a bonsai workflow named <code>SetupTesting.bonsai</code> was created. To open it, follow the instructions:</p>
+<ol>
+<li>Open <code>./bonsai/Bonsai.exe</code>.</li>
+<li>Click on <code>Open File</code> and select the workflow <code>./src/SetupTesting.bonsai</code>.</li>
+<li>Start the execution of the workflow. A GUI similar to the one shown in the figure below should pop-up (if it doesn't, double-click on the <code>GUI</code> node).</li>
+</ol>
+<p><img src="../images/setup_tests.png" alt="Setup Tests"></p>
+<p>The left side of the GUI shows the state of the digital inputs (DIs) used in the task. The first three are the DIs corresponding to the pokes, which are very straight forward. The remaining ones are a second set of DIs that are used in the task to time certain events that require timing precision (i.e. fixation time). To test these DIs in particular, click on the <code>Toggle PortDOx</code> buttons and check whether the state of the corresponding <code>PortDIOx</code> changes with it.</p>
+<p>The right side of the GUI is more straight forward:</p>
+<ul>
+<li>The <code>Reward Left/Right</code> buttons should deliver water, by using the same Harp SyringePump protocol used in the task.</li>
+<li>The <code>PlaySound</code> button should play the sound stored in the index indicated in the combobox on the left (Note: index 31 is a silence and is used to stop a sound that is playing) and with the left and right intensities (dB SPL) that are shown in the sliders (this workflow uses the same calibration parameters that would be used in the task).</li>
+<li>The <code>Toggle [something]</code> buttons toggle a specific digital output (i.e. the box LED).</li>
+<li>Finally, the <code>Stop Application</code> button stops the execution of the workflow.</li>
+</ul>
+<h2 id="testing-the-camera">Testing the Camera</h2>
+<p>There aren't a lot of requirements for the camera recording. Besides having a clear image and the camera being capturing the region of interest (which in this case is the region containing the pokes, the speakers and the animal interacting with these), the other major requirement is that the frame rate is 100 Hz.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>If the camera hasn't been configured yet, read the <a href="camera.html">Camera Configuration</a> section before proceeding.</p>
+</div>
+<p>To check if the camera is recording with the desired frame rate, open the respective camera software (<a href="#spinview">SpinView</a> for the FLIR cameras and <a href="#flycap2">Point Grey FlyCap2</a> for the Point Grey cameras) and take a look at the real frame rate values given by the camera (see the figures below).</p>
+<p>If the real frame rate doesn't match the desired value (in this case 100 Hz), it might be due to one of two factors:</p>
+<ul>
+<li>There isn't enough light reaching the camera. Try to decrease the exposure time (read the <a href="camera.html">Camera Configuration</a> section again if you need) or try to increase the luminosity of the region of interest.</li>
+<li>The camera is using USB-2.0 instead of USB-3.0. This happens if the camera is connected to a USB-2.0 port of the computer. This might also happen if there's some sort of contact issue between the camera and the computer (when the camera is connected to a USB-3.0 port) - make sure the connections are solid and, as a last resource, switch the cable altogether. If this is the case, the camera's software will cap the maximum frame rate configuration value to 27.64 Hz (see figure below).
+<img src="../images/frame_rate_cap.png" alt="Frame Rate Cap"></li>
+</ul>
+<h3 id="spinview">SpinView</h3>
+<p><img src="../images/camera_test_flir.png" alt="Camera Test - FLIR"></p>
+<h3 id="flycap2">FlyCap2</h3>
+<p><img src="../images/camera_test_pointgrey.png" alt="Camera Test - Point Grey"></p>
+<h2 id="known-issues">Known Issues</h2>
+<p>This project is still being actively developed and maintained. However, since this project is composed by a lot of small parts, it's normal that some issues are discovered and, by one reason or another, can't be addressed right away. Here's a list of known issues and how to deal with them for now.</p>
+<h3 id="bonsai-freeze">Bonsai Freeze</h3>
+<p>There's an ongoing issue where the Bonsai might freeze during a session. It's still unclear what's causing the issue, but it has the following side effects:</p>
+<ul>
+<li>Video corruption (the video from the session is basically lost)</li>
+<li>Possible data loss in the JSON out structure</li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/fchampalimaud/CDC.SoundLateralizationTask/blob/main/docs/installation/testing.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
