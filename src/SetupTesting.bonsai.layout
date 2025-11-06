@@ -45,7 +45,7 @@
       </Location>
       <Size>
         <Width>1499</Width>
-        <Height>999</Height>
+        <Height>983</Height>
       </Size>
       <WindowState>Normal</WindowState>
     </EditorDialogSettings>
@@ -74,11 +74,23 @@
       <WindowState>Normal</WindowState>
     </EditorDialogSettings>
   </DialogSettings>
+  <DialogSettings>
+    <Visible>false</Visible>
+    <Location>
+      <X>0</X>
+      <Y>0</Y>
+    </Location>
+    <Size>
+      <Width>0</Width>
+      <Height>0</Height>
+    </Size>
+    <WindowState>Normal</WindowState>
+  </DialogSettings>
   <DialogSettings xsi:type="WorkflowEditorSettings">
     <Visible>true</Visible>
     <Location>
-      <X>-875</X>
-      <Y>-17</Y>
+      <X>-914</X>
+      <Y>-27</Y>
     </Location>
     <Size>
       <Width>254</Width>
@@ -93,45 +105,102 @@
           <VisualizerSettings>
             <TableLayoutPanelVisualizer>
               <MashupSettings>
-                <VisualizerTypeName>Bonsai.Gui.LabelVisualizer</VisualizerTypeName>
+                <VisualizerTypeName>Bonsai.Gui.TableLayoutPanelVisualizer</VisualizerTypeName>
                 <VisualizerSettings>
-                  <LabelVisualizer />
+                  <TableLayoutPanelVisualizer>
+                    <MashupSettings>
+                      <VisualizerTypeName>Bonsai.Gui.LabelVisualizer</VisualizerTypeName>
+                      <VisualizerSettings>
+                        <LabelVisualizer />
+                      </VisualizerSettings>
+                    </MashupSettings>
+                    <MashupSettings>
+                      <VisualizerTypeName>Bonsai.Gui.LabelVisualizer</VisualizerTypeName>
+                      <VisualizerSettings>
+                        <LabelVisualizer />
+                      </VisualizerSettings>
+                    </MashupSettings>
+                    <MashupSettings>
+                      <VisualizerTypeName>Bonsai.Gui.LabelVisualizer</VisualizerTypeName>
+                      <VisualizerSettings>
+                        <LabelVisualizer />
+                      </VisualizerSettings>
+                    </MashupSettings>
+                    <MashupSettings>
+                      <VisualizerTypeName>Bonsai.Gui.LabelVisualizer</VisualizerTypeName>
+                      <VisualizerSettings>
+                        <LabelVisualizer />
+                      </VisualizerSettings>
+                    </MashupSettings>
+                    <MashupSettings>
+                      <VisualizerTypeName>Bonsai.Gui.LabelVisualizer</VisualizerTypeName>
+                      <VisualizerSettings>
+                        <LabelVisualizer />
+                      </VisualizerSettings>
+                    </MashupSettings>
+                    <MashupSettings>
+                      <VisualizerTypeName>Bonsai.Gui.LabelVisualizer</VisualizerTypeName>
+                      <VisualizerSettings>
+                        <LabelVisualizer />
+                      </VisualizerSettings>
+                    </MashupSettings>
+                    <MashupSettings>
+                      <VisualizerTypeName>Bonsai.Gui.LabelVisualizer</VisualizerTypeName>
+                      <VisualizerSettings>
+                        <LabelVisualizer />
+                      </VisualizerSettings>
+                    </MashupSettings>
+                  </TableLayoutPanelVisualizer>
                 </VisualizerSettings>
               </MashupSettings>
               <MashupSettings>
-                <VisualizerTypeName>Bonsai.Gui.LabelVisualizer</VisualizerTypeName>
+                <VisualizerTypeName>Bonsai.Gui.TableLayoutPanelVisualizer</VisualizerTypeName>
                 <VisualizerSettings>
-                  <LabelVisualizer />
-                </VisualizerSettings>
-              </MashupSettings>
-              <MashupSettings>
-                <VisualizerTypeName>Bonsai.Gui.LabelVisualizer</VisualizerTypeName>
-                <VisualizerSettings>
-                  <LabelVisualizer />
-                </VisualizerSettings>
-              </MashupSettings>
-              <MashupSettings>
-                <VisualizerTypeName>Bonsai.Gui.LabelVisualizer</VisualizerTypeName>
-                <VisualizerSettings>
-                  <LabelVisualizer />
-                </VisualizerSettings>
-              </MashupSettings>
-              <MashupSettings>
-                <VisualizerTypeName>Bonsai.Gui.LabelVisualizer</VisualizerTypeName>
-                <VisualizerSettings>
-                  <LabelVisualizer />
-                </VisualizerSettings>
-              </MashupSettings>
-              <MashupSettings>
-                <VisualizerTypeName>Bonsai.Gui.LabelVisualizer</VisualizerTypeName>
-                <VisualizerSettings>
-                  <LabelVisualizer />
-                </VisualizerSettings>
-              </MashupSettings>
-              <MashupSettings>
-                <VisualizerTypeName>Bonsai.Gui.LabelVisualizer</VisualizerTypeName>
-                <VisualizerSettings>
-                  <LabelVisualizer />
+                  <TableLayoutPanelVisualizer>
+                    <MashupSettings>
+                      <VisualizerTypeName>Bonsai.Gui.PropertyGridVisualizer</VisualizerTypeName>
+                      <VisualizerSettings>
+                        <PropertyGridVisualizer />
+                      </VisualizerSettings>
+                    </MashupSettings>
+                    <MashupSettings>
+                      <VisualizerTypeName>Bonsai.Gui.ButtonVisualizer</VisualizerTypeName>
+                      <VisualizerSettings>
+                        <ButtonVisualizer />
+                      </VisualizerSettings>
+                    </MashupSettings>
+                    <MashupSettings>
+                      <VisualizerTypeName>Bonsai.Gui.ButtonVisualizer</VisualizerTypeName>
+                      <VisualizerSettings>
+                        <ButtonVisualizer />
+                      </VisualizerSettings>
+                    </MashupSettings>
+                    <MashupSettings>
+                      <VisualizerTypeName>Bonsai.Gui.TableLayoutPanelVisualizer</VisualizerTypeName>
+                      <VisualizerSettings>
+                        <TableLayoutPanelVisualizer>
+                          <MashupSettings>
+                            <VisualizerTypeName>Bonsai.Gui.RadioButtonVisualizer</VisualizerTypeName>
+                            <VisualizerSettings>
+                              <RadioButtonVisualizer />
+                            </VisualizerSettings>
+                          </MashupSettings>
+                          <MashupSettings>
+                            <VisualizerTypeName>Bonsai.Gui.RadioButtonVisualizer</VisualizerTypeName>
+                            <VisualizerSettings>
+                              <RadioButtonVisualizer />
+                            </VisualizerSettings>
+                          </MashupSettings>
+                          <MashupSettings>
+                            <VisualizerTypeName>Bonsai.Gui.RadioButtonVisualizer</VisualizerTypeName>
+                            <VisualizerSettings>
+                              <RadioButtonVisualizer />
+                            </VisualizerSettings>
+                          </MashupSettings>
+                        </TableLayoutPanelVisualizer>
+                      </VisualizerSettings>
+                    </MashupSettings>
+                  </TableLayoutPanelVisualizer>
                 </VisualizerSettings>
               </MashupSettings>
             </TableLayoutPanelVisualizer>
@@ -142,15 +211,28 @@
           <VisualizerSettings>
             <TableLayoutPanelVisualizer>
               <MashupSettings>
-                <VisualizerTypeName>Bonsai.Gui.ButtonVisualizer</VisualizerTypeName>
+                <VisualizerTypeName>Bonsai.Vision.Design.IplImageVisualizer</VisualizerTypeName>
                 <VisualizerSettings>
-                  <ButtonVisualizer />
+                  <IplImageVisualizer />
+                </VisualizerSettings>
+              </MashupSettings>
+            </TableLayoutPanelVisualizer>
+          </VisualizerSettings>
+        </MashupSettings>
+        <MashupSettings>
+          <VisualizerTypeName>Bonsai.Gui.TableLayoutPanelVisualizer</VisualizerTypeName>
+          <VisualizerSettings>
+            <TableLayoutPanelVisualizer>
+              <MashupSettings>
+                <VisualizerTypeName>Bonsai.Gui.SliderVisualizer</VisualizerTypeName>
+                <VisualizerSettings>
+                  <SliderVisualizer />
                 </VisualizerSettings>
               </MashupSettings>
               <MashupSettings>
-                <VisualizerTypeName>Bonsai.Gui.ButtonVisualizer</VisualizerTypeName>
+                <VisualizerTypeName>Bonsai.Gui.SliderVisualizer</VisualizerTypeName>
                 <VisualizerSettings>
-                  <ButtonVisualizer />
+                  <SliderVisualizer />
                 </VisualizerSettings>
               </MashupSettings>
               <MashupSettings>
@@ -166,17 +248,24 @@
                 </VisualizerSettings>
               </MashupSettings>
               <MashupSettings>
-                <VisualizerTypeName>Bonsai.Gui.SliderVisualizer</VisualizerTypeName>
+                <VisualizerTypeName>Bonsai.Gui.ButtonVisualizer</VisualizerTypeName>
                 <VisualizerSettings>
-                  <SliderVisualizer />
+                  <ButtonVisualizer />
                 </VisualizerSettings>
               </MashupSettings>
               <MashupSettings>
-                <VisualizerTypeName>Bonsai.Gui.SliderVisualizer</VisualizerTypeName>
+                <VisualizerTypeName>Bonsai.Gui.ButtonVisualizer</VisualizerTypeName>
                 <VisualizerSettings>
-                  <SliderVisualizer />
+                  <ButtonVisualizer />
                 </VisualizerSettings>
               </MashupSettings>
+            </TableLayoutPanelVisualizer>
+          </VisualizerSettings>
+        </MashupSettings>
+        <MashupSettings>
+          <VisualizerTypeName>Bonsai.Gui.TableLayoutPanelVisualizer</VisualizerTypeName>
+          <VisualizerSettings>
+            <TableLayoutPanelVisualizer>
               <MashupSettings>
                 <VisualizerTypeName>Bonsai.Gui.ToggleButtonVisualizer</VisualizerTypeName>
                 <VisualizerSettings>
