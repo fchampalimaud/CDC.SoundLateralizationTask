@@ -9,7 +9,7 @@ This section serves as checklist of the most basic stuff a setup should have or 
 - Configure the setup and the camera (read the [Software Installation](./software.md) and the [Camera Configuration](camera.md) sections if you need to do so).
 - Calibrate the speakers.
 > [!WARNING]
-> _The calibration protocol is not up to date, but it can found [here](https://fchampalimaud.github.io/cdc-speaker-calibration/)._
+> _The calibration protocol is not up to date, but it can be found [here](https://fchampalimaud.github.io/cdc-speaker-calibration/)._
 - Configure the task (read the [Task Configuration](./configuration.md) section).
 - Run and test the task without an animal to check everything is working as desired (read the [Running the Task](./running.md) section).
 
