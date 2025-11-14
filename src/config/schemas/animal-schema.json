@@ -370,6 +370,11 @@
       "minimum": 0,
       "title": "Reward Probability",
       "type": "number"
+    },
+    "abl_block": {
+      "description": "Indicates whether the the same ABL should be used across the current block.",
+      "title": "Abl Block",
+      "type": "boolean"
     }
   },
   "required": [
@@ -386,6 +391,7 @@
     "optogenetics",
     "autobias_correction",
     "reward_probability",
+    "abl_block"
   ],
   "title": "Animal",
   "type": "object"

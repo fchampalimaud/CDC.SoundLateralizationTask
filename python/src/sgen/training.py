@@ -103,9 +103,6 @@ class ABL(BaseModel):
     use_fixed_abl: bool = Field(
         description="Indicates whether the fixed_abl should be used in the fully lateralized trials (true) or not (false)."
     )
-    change_every_trial: bool = Field(
-        description="Indicates whether the ABL should change every trial (true) or not (false)."
-    )
 
 
 class Sound(BaseModel):

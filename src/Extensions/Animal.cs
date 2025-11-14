@@ -1138,6 +1138,8 @@ namespace Animal
     
         private double _rewardProbability;
     
+        private bool _ablBlock;
+    
         public Animal()
         {
         }
@@ -1157,6 +1159,7 @@ namespace Animal
             _optogenetics = other._optogenetics;
             _autobiasCorrection = other._autobiasCorrection;
             _rewardProbability = other._rewardProbability;
+            _ablBlock = other._ablBlock;
         }
     
         /// <summary>
@@ -1402,6 +1405,24 @@ namespace Animal
             }
         }
     
+        /// <summary>
+        /// Indicates whether the the same ABL should be used across the current block.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("abl_block", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="abl_block")]
+        [System.ComponentModel.DescriptionAttribute("Indicates whether the the same ABL should be used across the current block.")]
+        public bool AblBlock
+        {
+            get
+            {
+                return _ablBlock;
+            }
+            set
+            {
+                _ablBlock = value;
+            }
+        }
+    
         public System.IObservable<Animal> Process()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new Animal(this)));
@@ -1427,6 +1448,7 @@ namespace Animal
             stringBuilder.Append("optogenetics = " + _optogenetics + ", ");
             stringBuilder.Append("autobias_correction = " + _autobiasCorrection + ", ");
             stringBuilder.Append("reward_probability = " + _rewardProbability + ", ");
+            stringBuilder.Append("abl_block = " + _ablBlock);
             return true;
         }
     

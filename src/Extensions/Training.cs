@@ -21,8 +21,6 @@ namespace Training
     
         private bool _useFixedAbl;
     
-        private bool _changeEveryTrial;
-    
         public ABL()
         {
         }
@@ -32,7 +30,6 @@ namespace Training
             _ablList = other._ablList;
             _fixedAbl = other._fixedAbl;
             _useFixedAbl = other._useFixedAbl;
-            _changeEveryTrial = other._changeEveryTrial;
         }
     
         /// <summary>
@@ -92,24 +89,6 @@ namespace Training
             }
         }
     
-        /// <summary>
-        /// Indicates whether the ABL should change every trial (true) or not (false).
-        /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("change_every_trial", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="change_every_trial")]
-        [System.ComponentModel.DescriptionAttribute("Indicates whether the ABL should change every trial (true) or not (false).")]
-        public bool ChangeEveryTrial
-        {
-            get
-            {
-                return _changeEveryTrial;
-            }
-            set
-            {
-                _changeEveryTrial = value;
-            }
-        }
-    
         public System.IObservable<ABL> Process()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new ABL(this)));
@@ -124,8 +103,7 @@ namespace Training
         {
             stringBuilder.Append("abl_list = " + _ablList + ", ");
             stringBuilder.Append("fixed_abl = " + _fixedAbl + ", ");
-            stringBuilder.Append("use_fixed_abl = " + _useFixedAbl + ", ");
-            stringBuilder.Append("change_every_trial = " + _changeEveryTrial);
+            stringBuilder.Append("use_fixed_abl = " + _useFixedAbl);
             return true;
         }
     

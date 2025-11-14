@@ -186,6 +186,9 @@ class Animal(BaseModel):
         ge=0,
         le=1,
     )
+    abl_block: bool = Field(
+        description="Indicates whether the the same ABL should be used across the current block."
+    )
 
 
 def generate_animal():

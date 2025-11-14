@@ -12,7 +12,7 @@
         },
         "fixed_abl": {
           "description": "The ABL value to use when use_fixed_abl from the training.json file is true (dB).",
-          "minimum": 0.0,
+          "minimum": 0,
           "title": "Fixed Abl",
           "type": "number"
         },
@@ -20,18 +20,12 @@
           "description": "Indicates whether the fixed_abl should be used in the fully lateralized trials (true) or not (false).",
           "title": "Use Fixed Abl",
           "type": "boolean"
-        },
-        "change_every_trial": {
-          "description": "Indicates whether the ABL should change every trial (true) or not (false).",
-          "title": "Change Every Trial",
-          "type": "boolean"
         }
       },
       "required": [
         "abl_list",
         "fixed_abl",
-        "use_fixed_abl",
-        "change_every_trial"
+        "use_fixed_abl"
       ],
       "title": "ABL",
       "type": "object"
@@ -40,8 +34,8 @@
       "properties": {
         "value": {
           "description": "The minimum correct answer ratio required to advance to the next block (if use_performance is true).",
-          "maximum": 1.0,
-          "minimum": 0.0,
+          "maximum": 1,
+          "minimum": 0,
           "title": "Value",
           "type": "number"
         },
@@ -62,13 +56,13 @@
       "properties": {
         "opto_exp_mean": {
           "description": "The mean value of the random part of the optogenetics onset time (ms), which follows an exponential distribution.",
-          "minimum": 0.0,
+          "minimum": 0,
           "title": "Opto Exp Mean",
           "type": "number"
         },
         "sound_exp_mean": {
           "description": "The mean value of the random part of the sound onset time (ms), which follows an exponential distribution.",
-          "minimum": 0.0,
+          "minimum": 0,
           "title": "Sound Exp Mean",
           "type": "number"
         }
@@ -84,7 +78,7 @@
       "properties": {
         "step_size": {
           "description": "The separation between two consecutive |ILD| values.",
-          "exclusiveMinimum": 0.0,
+          "exclusiveMinimum": 0,
           "title": "Step Size",
           "type": "number"
         },
@@ -101,7 +95,7 @@
         },
         "log_base": {
           "description": "The base of the logarithm.",
-          "exclusiveMinimum": 0.0,
+          "exclusiveMinimum": 0,
           "title": "Log Base",
           "type": "number"
         }
@@ -119,7 +113,7 @@
       "properties": {
         "value": {
           "description": "The intended ITI duration (s).",
-          "minimum": 0.0,
+          "minimum": 0,
           "title": "Value",
           "type": "number"
         },
@@ -159,7 +153,7 @@
         },
         "max_wait": {
           "description": "The maximum allowed time to start the trial (s).",
-          "minimum": 0.0,
+          "minimum": 0,
           "title": "Max Wait",
           "type": "number"
         },
@@ -222,19 +216,19 @@
       "properties": {
         "incorrect": {
           "description": "The penalty time to be applied when the animal answers incorrectly.",
-          "minimum": 0.0,
+          "minimum": 0,
           "title": "Incorrect",
           "type": "number"
         },
         "abort": {
           "description": "The penalty time to be applied when the animal aborts a trial (except if it's a fixation abort).",
-          "minimum": 0.0,
+          "minimum": 0,
           "title": "Abort",
           "type": "number"
         },
         "fixation_abort": {
           "description": "The penalty time to be applied in case of a fixation abort.",
-          "minimum": 0.0,
+          "minimum": 0,
           "title": "Fixation Abort",
           "type": "number"
         }
@@ -285,8 +279,8 @@
         },
         "fully_lateralized_probability": {
           "description": "In the fully lateralized variation of the task, the real ILD value corresponds to the input ABL and the real ABL value corresponds to half of it. For example, if the input ABL value is 50 db SPL, one of the speakers will produce a sound of 50 dB SPL and the other one will produce a sound of 0 dB SPL. This parameter indicates the probability of a trial being fully lateralized in a given training level.",
-          "maximum": 1.0,
-          "minimum": 0.0,
+          "maximum": 1,
+          "minimum": 0,
           "title": "Fully Lateralized Probability",
           "type": "number"
         }
