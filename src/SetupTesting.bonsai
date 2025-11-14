@@ -1218,7 +1218,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="cv:LoadImage">
-                <cv:FileName>C:\Users\HSP\Desktop\ligma.png</cv:FileName>
+                <cv:FileName />
                 <cv:Mode>Unchanged</cv:Mode>
               </Combinator>
             </Expression>
@@ -1242,8 +1242,8 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="cv:SaveImage">
-                <cv:FileName>C:\Users\HSP\Desktop\ligma.png</cv:FileName>
-                <cv:Suffix>None</cv:Suffix>
+                <cv:FileName />
+                <cv:Suffix>Timestamp</cv:Suffix>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
