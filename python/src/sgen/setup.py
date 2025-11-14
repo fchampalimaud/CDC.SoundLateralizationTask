@@ -117,8 +117,11 @@ class Setup(BaseModel):
     syringe_pumps: SyringePumps = Field(
         description="Contains the parameters related to the SyringePumps."
     )
-    sounds: List[Sound] = Field(
-        description="The list with information regarding the sounds uploaded to the Harp SoundCard."
+    sounds: List[int] = Field(
+        description="The list containing the indexes where the non-short-duration sounds are saved in the Harp SoundCard."
+    )
+    short_sounds: List[int] = Field(
+        description="The list containing the indexes where the short-duration sounds are saved in the Harp SoundCard."
     )
     camera: Camera = Field(description="Contains parameters related to the camera.")
 

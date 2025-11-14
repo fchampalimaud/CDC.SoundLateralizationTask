@@ -121,6 +121,9 @@ class Sound(BaseModel):
         description="The maximum amount of elements representing the left or right side in the pseudo-random array for when the side is picked pseudo-randomly.",
         gt=0,
     )
+    short_duration_ratio: float = Field(
+        description="The percentage of short duration trials in a session.", ge=0, le=1
+    )
 
 
 class Session(BaseModel):

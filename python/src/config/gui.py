@@ -81,46 +81,42 @@ class PathsFrame(ttk.Frame):
 class SoundLoadingFrame(ttk.Frame):
     def __init__(self, container):
         super().__init__(container)
-        for i in range(6):
+        for i in range(5):
             self.grid_rowconfigure(i, weight=1)
         for i in range(1):
             self.grid_columnconfigure(i, weight=1)
 
-        self.num_sounds = LabeledSpinbox(self, text="Number of Sounds", row=0, column=0)
-        self.num_sounds.set(5)
-        self.num_sounds.spinbox.config(from_=1, to=14)
-
         self.calib_left = PathWidget(
             self,
             text="Left Speaker Calibration Parameters",
-            row=1,
+            row=0,
             column=0,
             filetypes=[("NPY files", "*.npy"), ("All files", "*.*")],
         )
         self.eq_left = PathWidget(
             self,
             text="Left Speaker EQ Filter",
-            row=2,
+            row=1,
             column=0,
             filetypes=[("NPY files", "*.npy"), ("All files", "*.*")],
         )
         self.calib_right = PathWidget(
             self,
             text="Right Speaker Calibration Parameters",
-            row=3,
+            row=2,
             column=0,
             filetypes=[("NPY files", "*.npy"), ("All files", "*.*")],
         )
         self.eq_right = PathWidget(
             self,
             text="Right Speaker EQ Filter",
-            row=4,
+            row=3,
             column=0,
             filetypes=[("NPY files", "*.npy"), ("All files", "*.*")],
         )
 
         self.button = ttk.Button(self, text="Upload Sounds")
-        self.button.grid(row=5, column=0, padx=5, pady=5)
+        self.button.grid(row=4, column=0, padx=5, pady=5)
 
 
 class GUI(tk.Tk):
@@ -208,13 +204,13 @@ class GUI(tk.Tk):
     def upload_sounds(self):
         self.sound.button.config(state=tk.DISABLED)
         thread = UploadSound(
-            self.sound.num_sounds.get(),
             Path(self.sound.calib_left.get()),
             Path(self.sound.eq_left.get()),
             Path(self.sound.calib_right.get()),
             Path(self.sound.eq_right.get()),
             self.ports.setup.get(),
             Path(self.paths.setup.get()),
+            num_sounds=5,
         )
         thread.start()
 

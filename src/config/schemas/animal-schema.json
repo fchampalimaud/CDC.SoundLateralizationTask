@@ -266,11 +266,19 @@
           "exclusiveMinimum": 0,
           "title": "Max Side",
           "type": "integer"
+        },
+        "short_duration_ratio": {
+          "description": "The percentage of short duration trials in a session.",
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Short Duration Ratio",
+          "type": "number"
         }
       },
       "required": [
         "pseudo_random_side",
-        "max_side"
+        "max_side",
+        "short_duration_ratio"
       ],
       "title": "Sound",
       "type": "object"

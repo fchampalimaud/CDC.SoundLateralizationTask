@@ -160,6 +160,7 @@ COLUMN_RENAMES = {
     "penalty_times.fixation_abort": "ft_abort_penalty",
     "reward.left": "reward_left",
     "reward.right": "reward_right",
+    "reward.delivered": "reward_delivered",
     "optogenetics.opto_trial": "opto_trial",
     "optogenetics.duration": "opto_duration",
     "optogenetics.mode": "opto_mode",

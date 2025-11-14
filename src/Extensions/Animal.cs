@@ -916,6 +916,8 @@ namespace Animal
     
         private int _maxSide;
     
+        private double _shortDurationRatio;
+    
         public Sound()
         {
         }
@@ -924,6 +926,7 @@ namespace Animal
         {
             _pseudoRandomSide = other._pseudoRandomSide;
             _maxSide = other._maxSide;
+            _shortDurationRatio = other._shortDurationRatio;
         }
     
         /// <summary>
@@ -963,6 +966,24 @@ namespace Animal
             }
         }
     
+        /// <summary>
+        /// The percentage of short duration trials in a session.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("short_duration_ratio", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="short_duration_ratio")]
+        [System.ComponentModel.DescriptionAttribute("The percentage of short duration trials in a session.")]
+        public double ShortDurationRatio
+        {
+            get
+            {
+                return _shortDurationRatio;
+            }
+            set
+            {
+                _shortDurationRatio = value;
+            }
+        }
+    
         public System.IObservable<Sound> Process()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new Sound(this)));
@@ -976,7 +997,8 @@ namespace Animal
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
             stringBuilder.Append("pseudo_random_side = " + _pseudoRandomSide + ", ");
-            stringBuilder.Append("max_side = " + _maxSide);
+            stringBuilder.Append("max_side = " + _maxSide + ", ");
+            stringBuilder.Append("short_duration_ratio = " + _shortDurationRatio);
             return true;
         }
     

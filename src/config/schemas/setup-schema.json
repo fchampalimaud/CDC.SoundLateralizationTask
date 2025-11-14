@@ -18,7 +18,7 @@
         },
         "frames_per_second": {
           "description": "The number of frames per second of the camera.",
-          "exclusiveMinimum": 0.0,
+          "exclusiveMinimum": 0,
           "title": "Frames Per Second",
           "type": "number"
         },
@@ -52,13 +52,13 @@
       "properties": {
         "box_period": {
           "description": "The period of the blinking of the box LED (ms).",
-          "minimum": 0.0,
+          "minimum": 0,
           "title": "Box Period",
           "type": "number"
         },
         "poke_period": {
           "description": "The period of the blinking of the central poke LED (ms).",
-          "minimum": 0.0,
+          "minimum": 0,
           "title": "Poke Period",
           "type": "number"
         },
@@ -106,28 +106,6 @@
         "low_to_high"
       ],
       "title": "Poke",
-      "type": "object"
-    },
-    "Sound": {
-      "properties": {
-        "index": {
-          "description": "The index number where the noise is stored in the Harp SoundCard.",
-          "maximum": 31,
-          "minimum": 2,
-          "title": "Index",
-          "type": "integer"
-        },
-        "duration": {
-          "description": "The duration of the noise (s).",
-          "title": "Duration",
-          "type": "number"
-        }
-      },
-      "required": [
-        "index",
-        "duration"
-      ],
-      "title": "Sound",
       "type": "object"
     },
     "Speakers": {
@@ -232,11 +210,19 @@
       "description": "Contains the parameters related to the SyringePumps."
     },
     "sounds": {
-      "description": "The list with information regarding the sounds uploaded to the Harp SoundCard.",
+      "description": "The list containing the indexes where the non-short-duration sounds are saved in the Harp SoundCard.",
       "items": {
-        "$ref": "#/definitions/Sound"
+        "type": "integer"
       },
       "title": "Sounds",
+      "type": "array"
+    },
+    "short_sounds": {
+      "description": "The list containing the indexes where the short-duration sounds are saved in the Harp SoundCard.",
+      "items": {
+        "type": "integer"
+      },
+      "title": "Short Sounds",
       "type": "array"
     },
     "camera": {
@@ -253,6 +239,7 @@
     "lights",
     "syringe_pumps",
     "sounds",
+    "short_sounds",
     "camera"
   ],
   "title": "Setup",

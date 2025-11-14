@@ -415,94 +415,6 @@ namespace Setup
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
     [Bonsai.CombinatorAttribute()]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
-    public partial class Sound
-    {
-    
-        private int _index;
-    
-        private double _duration;
-    
-        public Sound()
-        {
-        }
-    
-        protected Sound(Sound other)
-        {
-            _index = other._index;
-            _duration = other._duration;
-        }
-    
-        /// <summary>
-        /// The index number where the noise is stored in the Harp SoundCard.
-        /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("index", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="index")]
-        [System.ComponentModel.DescriptionAttribute("The index number where the noise is stored in the Harp SoundCard.")]
-        public int Index
-        {
-            get
-            {
-                return _index;
-            }
-            set
-            {
-                _index = value;
-            }
-        }
-    
-        /// <summary>
-        /// The duration of the noise (s).
-        /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("duration", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="duration")]
-        [System.ComponentModel.DescriptionAttribute("The duration of the noise (s).")]
-        public double Duration
-        {
-            get
-            {
-                return _duration;
-            }
-            set
-            {
-                _duration = value;
-            }
-        }
-    
-        public System.IObservable<Sound> Process()
-        {
-            return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new Sound(this)));
-        }
-    
-        public System.IObservable<Sound> Process<TSource>(System.IObservable<TSource> source)
-        {
-            return System.Reactive.Linq.Observable.Select(source, _ => new Sound(this));
-        }
-    
-        protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
-        {
-            stringBuilder.Append("index = " + _index + ", ");
-            stringBuilder.Append("duration = " + _duration);
-            return true;
-        }
-    
-        public override string ToString()
-        {
-            System.Text.StringBuilder stringBuilder = new System.Text.StringBuilder();
-            stringBuilder.Append(GetType().Name);
-            stringBuilder.Append(" { ");
-            if (PrintMembers(stringBuilder))
-            {
-                stringBuilder.Append(" ");
-            }
-            stringBuilder.Append("}");
-            return stringBuilder.ToString();
-        }
-    }
-
-
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
-    [Bonsai.CombinatorAttribute()]
-    [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
     public partial class Speakers
     {
     
@@ -807,7 +719,9 @@ namespace Setup
     
         private SyringePumps _syringePumps = new SyringePumps();
     
-        private System.Collections.Generic.List<Sound> _sounds = new System.Collections.Generic.List<Sound>();
+        private System.Collections.Generic.List<int> _sounds = new System.Collections.Generic.List<int>();
+    
+        private System.Collections.Generic.List<int> _shortSounds = new System.Collections.Generic.List<int>();
     
         private Camera _camera = new Camera();
     
@@ -825,6 +739,7 @@ namespace Setup
             _lights = other._lights;
             _syringePumps = other._syringePumps;
             _sounds = other._sounds;
+            _shortSounds = other._shortSounds;
             _camera = other._camera;
         }
     
@@ -961,13 +876,14 @@ namespace Setup
         }
     
         /// <summary>
-        /// The list with information regarding the sounds uploaded to the Harp SoundCard.
+        /// The list containing the indexes where the non-short-duration sounds are saved in the Harp SoundCard.
         /// </summary>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         [Newtonsoft.Json.JsonPropertyAttribute("sounds", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="sounds")]
-        [System.ComponentModel.DescriptionAttribute("The list with information regarding the sounds uploaded to the Harp SoundCard.")]
-        public System.Collections.Generic.List<Sound> Sounds
+        [System.ComponentModel.DescriptionAttribute("The list containing the indexes where the non-short-duration sounds are saved in " +
+            "the Harp SoundCard.")]
+        public System.Collections.Generic.List<int> Sounds
         {
             get
             {
@@ -976,6 +892,26 @@ namespace Setup
             set
             {
                 _sounds = value;
+            }
+        }
+    
+        /// <summary>
+        /// The list containing the indexes where the short-duration sounds are saved in the Harp SoundCard.
+        /// </summary>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [Newtonsoft.Json.JsonPropertyAttribute("short_sounds", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="short_sounds")]
+        [System.ComponentModel.DescriptionAttribute("The list containing the indexes where the short-duration sounds are saved in the " +
+            "Harp SoundCard.")]
+        public System.Collections.Generic.List<int> ShortSounds
+        {
+            get
+            {
+                return _shortSounds;
+            }
+            set
+            {
+                _shortSounds = value;
             }
         }
     
@@ -1018,6 +954,7 @@ namespace Setup
             stringBuilder.Append("lights = " + _lights + ", ");
             stringBuilder.Append("syringe_pumps = " + _syringePumps + ", ");
             stringBuilder.Append("sounds = " + _sounds + ", ");
+            stringBuilder.Append("short_sounds = " + _shortSounds + ", ");
             stringBuilder.Append("camera = " + _camera);
             return true;
         }
@@ -1097,11 +1034,6 @@ namespace Setup
             return Process<Poke>(source);
         }
 
-        public System.IObservable<string> Process(System.IObservable<Sound> source)
-        {
-            return Process<Sound>(source);
-        }
-
         public System.IObservable<string> Process(System.IObservable<Speakers> source)
         {
             return Process<Speakers>(source);
@@ -1129,7 +1061,6 @@ namespace Setup
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Camera>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Lights>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Poke>))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Sound>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Speakers>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<SyringePumps>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Setup>))]
@@ -1196,11 +1127,6 @@ namespace Setup
             return Process<Poke>(source);
         }
 
-        public System.IObservable<string> Process(System.IObservable<Sound> source)
-        {
-            return Process<Sound>(source);
-        }
-
         public System.IObservable<string> Process(System.IObservable<Speakers> source)
         {
             return Process<Speakers>(source);
@@ -1228,7 +1154,6 @@ namespace Setup
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Camera>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Lights>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Poke>))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Sound>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Speakers>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<SyringePumps>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Setup>))]

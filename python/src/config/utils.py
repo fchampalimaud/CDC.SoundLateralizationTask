@@ -14,7 +14,7 @@ import pandas as pd
 import serial.tools.list_ports
 from pyharp.device import Device
 from serial.serialutil import SerialException
-from speaker_calibration.sound import WhiteNoise
+from speaker_calibration.sound import Sound, WhiteNoise
 from speaker_calibration.soundcards import create_sound_file
 
 
@@ -230,6 +230,23 @@ class PathWidget:
             self.set(fd.askopenfilename(filetypes=self.filetypes))
 
 
+def load_sound(filename, soundcard_index, fs):
+    while True:
+        output = os.popen(
+            "cmd /c .\\assets\\toSoundCard.exe "
+            + str(filename)
+            + " "
+            + str(soundcard_index)
+            + " 0 "
+            + str(fs)
+        ).read()
+
+        if "Bandwidth: " in output:
+            break
+        print(output)
+        time.sleep(3)
+
+
 def upload_sound(
     duration: float,
     calib_left,
@@ -275,42 +292,47 @@ def upload_sound(
     )
 
     create_sound_file(signal_left, signal_right, str(filename))
-    if soundcard_index is not None:
-        while True:
-            output = os.popen(
-                "cmd /c .\\assets\\toSoundCard.exe "
-                + str(filename)
-                + " "
-                + str(soundcard_index)
-                + " 0 "
-                + str(fs)
-            ).read()
+    load_sound(filename, soundcard_index, fs)
 
-            if "Bandwidth: " in output:
-                break
-            print(output)
-            time.sleep(3)
+    if soundcard_index != 31:
+        samples_15 = int(fs * 0.015)
+        short_15_left = Sound(signal_left.signal[0:samples_15], fs)
+        short_15_right = Sound(signal_right.signal[0:samples_15], fs)
+        create_sound_file(short_15_left, short_15_right, str(filename))
+        load_sound(filename, (soundcard_index - 2) / 2 + 12, fs)
+
+        samples_60 = int(fs * 0.060)
+        short_60_left = Sound(signal_left.signal[0:samples_60], fs)
+        short_60_right = Sound(signal_right.signal[0:samples_60], fs)
+        create_sound_file(short_60_left, short_60_right, str(filename))
+        load_sound(filename, (soundcard_index - 2) / 2 + 17, fs)
+
+        samples_120 = int(fs * 0.120)
+        short_120_left = Sound(signal_left.signal[0:samples_120], fs)
+        short_120_right = Sound(signal_right.signal[0:samples_120], fs)
+        create_sound_file(short_120_left, short_120_right, str(filename))
+        load_sound(filename, (soundcard_index - 2) / 2 + 22, fs)
 
 
 class UploadSound(Thread):
     def __init__(
         self,
-        num_sounds: int,
         calib_left_path: Path,
         eq_left_path: Path,
         calib_right_path: Path,
         eq_right_path: Path,
         setup: int,
         setup_path: Path,
+        num_sounds: int,
     ):
         super().__init__()
-        self.num_sounds = num_sounds
         self.calib_left = np.load(calib_left_path)
         self.eq_left = np.load(eq_left_path)
         self.calib_right = np.load(calib_right_path)
         self.eq_right = np.load(eq_right_path)
         self.setup = setup
         self.setup_path = setup_path
+        self.num_sounds = num_sounds
 
     def run(self):
         date = datetime.now().strftime("%y%m%d_%H%M%S")
