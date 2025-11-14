@@ -31,19 +31,19 @@
       "properties": {
         "start_time": {
           "description": "The timestamp at which the animal poked in the central port (s).",
-          "minimum": 0.0,
+          "minimum": 0,
           "title": "Start Time",
           "type": "number"
         },
         "timed_value": {
           "description": "The time it took for the animal to start the trial (s).",
-          "minimum": 0.0,
+          "minimum": 0,
           "title": "Timed Value",
           "type": "number"
         },
         "max_duration": {
           "description": "The maximum allowed time to start the trial (s).",
-          "minimum": 0.0,
+          "minimum": 0,
           "title": "Max Duration",
           "type": "number"
         }
@@ -68,19 +68,19 @@
         },
         "intended_duration": {
           "description": "The intended duration for the total fixation time (ms).",
-          "minimum": 0.0,
+          "minimum": 0,
           "title": "Intended Duration",
           "type": "number"
         },
         "timed_duration": {
           "description": "The timed duration for the total fixation time (ms).",
-          "minimum": 0.0,
+          "minimum": 0,
           "title": "Timed Duration",
           "type": "number"
         },
         "total_duration": {
           "description": "The total fixation time corresponds to the sum of the fixation time with the reaction time (ms).",
-          "minimum": 0.0,
+          "minimum": 0,
           "title": "Total Duration",
           "type": "number"
         }
@@ -99,25 +99,25 @@
       "properties": {
         "base_time": {
           "description": "The constant part of the fixation time (ms).",
-          "minimum": 0.0,
+          "minimum": 0,
           "title": "Base Time",
           "type": "number"
         },
         "exp_mean": {
           "description": "The mean value of the random part of the fixation time (ms), which follows an exponential distribution.",
-          "minimum": 0.0,
+          "minimum": 0,
           "title": "Exp Mean",
           "type": "number"
         },
         "intended_duration": {
           "description": "The intended duration for this part of the fixation time (ms).",
-          "minimum": 0.0,
+          "minimum": 0,
           "title": "Intended Duration",
           "type": "number"
         },
         "timed_duration": {
           "description": "The timed duration for this part of the fixation time (ms).",
-          "minimum": 0.0,
+          "minimum": 0,
           "title": "Timed Duration",
           "type": "number"
         }
@@ -135,25 +135,25 @@
       "properties": {
         "intended_duration": {
           "description": "The intended duration of the ITI (s).",
-          "minimum": 0.0,
+          "minimum": 0,
           "title": "Intended Duration",
           "type": "number"
         },
         "start_time": {
           "description": "The timestamp at which the trial started (s).",
-          "minimum": 0.0,
+          "minimum": 0,
           "title": "Start Time",
           "type": "number"
         },
         "end_time": {
           "description": "The timestamp at which the trial ended (s).",
-          "minimum": 0.0,
+          "minimum": 0,
           "title": "End Time",
           "type": "number"
         },
         "timed_duration": {
           "description": "The ITI duration (s).",
-          "exclusiveMinimum": 0.0,
+          "exclusiveMinimum": 0,
           "title": "Timed Duration",
           "type": "number"
         }
@@ -171,13 +171,13 @@
       "properties": {
         "intended_duration": {
           "description": "The minimum allowed LNP time (s).",
-          "minimum": 0.0,
+          "minimum": 0,
           "title": "Intended Duration",
           "type": "number"
         },
         "timed_duration": {
           "description": "The timed LNP time (s).",
-          "minimum": 0.0,
+          "minimum": 0,
           "title": "Timed Duration",
           "type": "number"
         }
@@ -193,7 +193,7 @@
       "properties": {
         "max_duration": {
           "description": "The maximum allowed movement time (s).",
-          "minimum": 0.0,
+          "minimum": 0,
           "title": "Max Duration",
           "type": "number"
         },
@@ -204,7 +204,7 @@
         },
         "timed_duration": {
           "description": "The timed movement time (s).",
-          "minimum": 0.0,
+          "minimum": 0,
           "title": "Timed Duration",
           "type": "number"
         }
@@ -226,7 +226,7 @@
         },
         "duration": {
           "description": "The duration of the optogenetics used during the trial (s).",
-          "minimum": 0.0,
+          "minimum": 0,
           "title": "Duration",
           "type": "number"
         },
@@ -242,27 +242,27 @@
         },
         "led0_voltage": {
           "description": "The voltage to use in the TTL signal.",
-          "maximum": 5000.0,
-          "minimum": 0.0,
+          "maximum": 5000,
+          "minimum": 0,
           "title": "Led0 Voltage",
           "type": "number"
         },
         "led0_power": {
           "description": "The power with which the animal is stimulated.",
-          "minimum": 0.0,
+          "minimum": 0,
           "title": "Led0 Power",
           "type": "number"
         },
         "led1_voltage": {
           "description": "The voltage to use in the TTL signal.",
-          "maximum": 5000.0,
-          "minimum": 0.0,
+          "maximum": 5000,
+          "minimum": 0,
           "title": "Led1 Voltage",
           "type": "number"
         },
         "led1_power": {
           "description": "The power with which the animal is stimulated.",
-          "minimum": 0.0,
+          "minimum": 0,
           "title": "Led1 Power",
           "type": "number"
         }
@@ -283,8 +283,8 @@
       "properties": {
         "response_poke": {
           "description": "The answer given by the animal in the current trial.",
-          "maximum": 1.0,
-          "minimum": -1.0,
+          "maximum": 1,
+          "minimum": -1,
           "title": "Response Poke",
           "type": "number"
         },
@@ -313,15 +313,15 @@
         },
         "block_performance": {
           "description": "The block performance.",
-          "maximum": 1.0,
-          "minimum": 0.0,
+          "maximum": 1,
+          "minimum": 0,
           "title": "Block Performance",
           "type": "number"
         },
         "block_abort_ratio": {
           "description": "The block abort ratio.",
-          "maximum": 1.0,
-          "minimum": 0.0,
+          "maximum": 1,
+          "minimum": 0,
           "title": "Block Abort Ratio",
           "type": "number"
         }
@@ -340,19 +340,19 @@
       "properties": {
         "incorrect": {
           "description": "The penalty time to be applied when the animal answers incorrectly.",
-          "minimum": 0.0,
+          "minimum": 0,
           "title": "Incorrect",
           "type": "number"
         },
         "abort": {
           "description": "The penalty time to be applied when the animal aborts a trial (except if it's a fixation abort).",
-          "minimum": 0.0,
+          "minimum": 0,
           "title": "Abort",
           "type": "number"
         },
         "fixation_abort": {
           "description": "The penalty time to be applied in case of a fixation abort.",
-          "minimum": 0.0,
+          "minimum": 0,
           "title": "Fixation Abort",
           "type": "number"
         }
@@ -369,13 +369,13 @@
       "properties": {
         "base_time": {
           "description": "The minimum allowed reaction time (s).",
-          "minimum": 0.0,
+          "minimum": 0,
           "title": "Base Time",
           "type": "number"
         },
         "max_duration": {
           "description": "The maximum allowed reaction time (s).",
-          "minimum": 0.0,
+          "minimum": 0,
           "title": "Max Duration",
           "type": "number"
         },
@@ -403,20 +403,26 @@
       "properties": {
         "left": {
           "description": "The amount of reward to be delivered in case the left poke is the correct answer.",
-          "exclusiveMinimum": 0.0,
+          "exclusiveMinimum": 0,
           "title": "Left",
           "type": "number"
         },
         "right": {
           "description": "The amount of reward to be delivered in case the right poke is the correct answer.",
-          "exclusiveMinimum": 0.0,
+          "exclusiveMinimum": 0,
           "title": "Right",
           "type": "number"
+        },
+        "delivered": {
+          "description": "Indicates whether a reward was delivered in the current trial as a result of a correct answer.",
+          "title": "Delivered",
+          "type": "boolean"
         }
       },
       "required": [
         "left",
-        "right"
+        "right",
+        "delivered"
       ],
       "title": "Reward",
       "type": "object"
@@ -451,7 +457,7 @@
       "properties": {
         "abl": {
           "description": "The trial ABL value (dB).",
-          "minimum": 0.0,
+          "minimum": 0,
           "title": "Abl",
           "type": "number"
         },
@@ -498,25 +504,25 @@
         },
         "start_time": {
           "description": "The timestamp at which the trial started in Harp time (s).",
-          "minimum": 0.0,
+          "minimum": 0,
           "title": "Start Time",
           "type": "number"
         },
         "tared_start_time": {
           "description": "The tared timestamp at which the trial started in which t = 0 is the start time of the first trial of the session (s).",
-          "minimum": 0.0,
+          "minimum": 0,
           "title": "Tared Start Time",
           "type": "number"
         },
         "end_time": {
           "description": "The timestamp at which the trial ended in Harp time (s).",
-          "minimum": 0.0,
+          "minimum": 0,
           "title": "End Time",
           "type": "number"
         },
         "duration": {
           "description": "The trial duration in Harp time (s).",
-          "exclusiveMinimum": 0.0,
+          "exclusiveMinimum": 0,
           "title": "Duration",
           "type": "number"
         }
@@ -605,8 +611,8 @@
     },
     "bias": {
       "description": "Indicates the bias of the animal in the last n trials, where negative bias is a bias towards the left side and positive bias is a bias towards the right side.",
-      "maximum": 1.0,
-      "minimum": -1.0,
+      "maximum": 1,
+      "minimum": -1,
       "title": "Bias",
       "type": "number"
     },

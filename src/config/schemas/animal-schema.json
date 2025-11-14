@@ -15,21 +15,21 @@
         },
         "cutoff_bias": {
           "description": "The minimum |bias| value from which the side rewards start to be corrected.",
-          "maximum": 1.0,
-          "minimum": 0.0,
+          "maximum": 1,
+          "minimum": 0,
           "title": "Cutoff Bias",
           "type": "number"
         },
         "performance_threshold": {
           "description": "The minimum performance value for which the side rewards are not corrected.",
-          "maximum": 1.0,
-          "minimum": 0.0,
+          "maximum": 1,
+          "minimum": 0,
           "title": "Performance Threshold",
           "type": "number"
         },
         "slope_multiplier": {
           "description": "A multiplying factor to the slope of the increasing reward amount side (corresponds to the non-biased side).",
-          "exclusiveMinimum": 0.0,
+          "exclusiveMinimum": 0,
           "title": "Slope Multiplier",
           "type": "number"
         }
@@ -66,14 +66,14 @@
       "properties": {
         "voltage": {
           "description": "The voltage to use in the TTL signal.",
-          "maximum": 5000.0,
-          "minimum": 0.0,
+          "maximum": 5000,
+          "minimum": 0,
           "title": "Voltage",
           "type": "number"
         },
         "power": {
           "description": "The power with which the animal is stimulated.",
-          "minimum": 0.0,
+          "minimum": 0,
           "title": "Power",
           "type": "number"
         },
@@ -136,14 +136,14 @@
         },
         "duration": {
           "description": "The duration of the optogenetics stimulation/inhibition protocol (s).",
-          "minimum": 0.0,
+          "minimum": 0,
           "title": "Duration",
           "type": "number"
         },
         "opto_ratio": {
           "description": "The ratio of optogenetics trials.",
-          "maximum": 1.0,
-          "minimum": 0.0,
+          "maximum": 1,
+          "minimum": 0,
           "title": "Opto Ratio",
           "type": "number"
         },
@@ -279,19 +279,19 @@
       "properties": {
         "min_value": {
           "description": "The initial base value.",
-          "minimum": 0.0,
+          "minimum": 0,
           "title": "Min Value",
           "type": "number"
         },
         "delta": {
           "description": "The increment to the base value every trial a certain condition is met until the target value is reached.",
-          "minimum": 0.0,
+          "minimum": 0,
           "title": "Delta",
           "type": "number"
         },
         "target": {
           "description": "The target value.",
-          "minimum": 0.0,
+          "minimum": 0,
           "title": "Target",
           "type": "number"
         }
@@ -336,13 +336,13 @@
     },
     "max_reaction_time": {
       "description": "The maximum allowed reaction time (s).",
-      "minimum": 0.0,
+      "minimum": 0,
       "title": "Max Reaction Time",
       "type": "number"
     },
     "min_movement_time": {
       "description": "The minimum allowed movement time (s).",
-      "minimum": 0.0,
+      "minimum": 0,
       "title": "Min Movement Time",
       "type": "number"
     },
@@ -352,7 +352,7 @@
     },
     "base_reward": {
       "description": "The amount of reward delivered to the animal (uL).",
-      "exclusiveMinimum": 0.0,
+      "exclusiveMinimum": 0,
       "title": "Base Reward",
       "type": "number"
     },
@@ -363,6 +363,13 @@
     "autobias_correction": {
       "$ref": "#/definitions/AutobiasCorrection",
       "description": "Contains parameters related to the autobias correction algorithm."
+    },
+    "reward_probability": {
+      "description": "The probability of the animal receiving reward given a right answer.",
+      "maximum": 1,
+      "minimum": 0,
+      "title": "Reward Probability",
+      "type": "number"
     }
   },
   "required": [
@@ -377,7 +384,8 @@
     "lnp_time",
     "base_reward",
     "optogenetics",
-    "autobias_correction"
+    "autobias_correction",
+    "reward_probability",
   ],
   "title": "Animal",
   "type": "object"

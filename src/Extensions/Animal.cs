@@ -1136,6 +1136,8 @@ namespace Animal
     
         private AutobiasCorrection _autobiasCorrection = new AutobiasCorrection();
     
+        private double _rewardProbability;
+    
         public Animal()
         {
         }
@@ -1154,6 +1156,7 @@ namespace Animal
             _baseReward = other._baseReward;
             _optogenetics = other._optogenetics;
             _autobiasCorrection = other._autobiasCorrection;
+            _rewardProbability = other._rewardProbability;
         }
     
         /// <summary>
@@ -1381,6 +1384,24 @@ namespace Animal
             }
         }
     
+        /// <summary>
+        /// The probability of the animal receiving reward given a right answer.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("reward_probability", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="reward_probability")]
+        [System.ComponentModel.DescriptionAttribute("The probability of the animal receiving reward given a right answer.")]
+        public double RewardProbability
+        {
+            get
+            {
+                return _rewardProbability;
+            }
+            set
+            {
+                _rewardProbability = value;
+            }
+        }
+    
         public System.IObservable<Animal> Process()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new Animal(this)));
@@ -1404,7 +1425,8 @@ namespace Animal
             stringBuilder.Append("lnp_time = " + _lnpTime + ", ");
             stringBuilder.Append("base_reward = " + _baseReward + ", ");
             stringBuilder.Append("optogenetics = " + _optogenetics + ", ");
-            stringBuilder.Append("autobias_correction = " + _autobiasCorrection);
+            stringBuilder.Append("autobias_correction = " + _autobiasCorrection + ", ");
+            stringBuilder.Append("reward_probability = " + _rewardProbability + ", ");
             return true;
         }
     

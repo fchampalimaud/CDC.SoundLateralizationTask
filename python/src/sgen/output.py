@@ -218,6 +218,9 @@ class Reward(BaseModel):
         description="The amount of reward to be delivered in case the right poke is the correct answer.",
         gt=0,
     )
+    delivered: bool = Field(
+        description="Indicates whether a reward was delivered in the current trial as a result of a correct answer."
+    )
 
 
 class Output(BaseModel):

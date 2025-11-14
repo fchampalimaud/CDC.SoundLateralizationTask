@@ -181,6 +181,11 @@ class Animal(BaseModel):
     autobias_correction: AutobiasCorrection = Field(
         description="Contains parameters related to the autobias correction algorithm."
     )
+    reward_probability: float = Field(
+        description="The probability of the animal receiving reward given a right answer.",
+        ge=0,
+        le=1,
+    )
 
 
 def generate_animal():

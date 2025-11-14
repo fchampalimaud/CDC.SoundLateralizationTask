@@ -1458,6 +1458,8 @@ namespace Output
     
         private double _right;
     
+        private bool _delivered;
+    
         public Reward()
         {
         }
@@ -1466,6 +1468,7 @@ namespace Output
         {
             _left = other._left;
             _right = other._right;
+            _delivered = other._delivered;
         }
     
         /// <summary>
@@ -1506,6 +1509,25 @@ namespace Output
             }
         }
     
+        /// <summary>
+        /// Indicates whether a reward was delivered in the current trial as a result of a correct answer.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("delivered", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="delivered")]
+        [System.ComponentModel.DescriptionAttribute("Indicates whether a reward was delivered in the current trial as a result of a co" +
+            "rrect answer.")]
+        public bool Delivered
+        {
+            get
+            {
+                return _delivered;
+            }
+            set
+            {
+                _delivered = value;
+            }
+        }
+    
         public System.IObservable<Reward> Process()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new Reward(this)));
@@ -1519,7 +1541,8 @@ namespace Output
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
             stringBuilder.Append("left = " + _left + ", ");
-            stringBuilder.Append("right = " + _right);
+            stringBuilder.Append("right = " + _right + ", ");
+            stringBuilder.Append("delivered = " + _delivered);
             return true;
         }
     
