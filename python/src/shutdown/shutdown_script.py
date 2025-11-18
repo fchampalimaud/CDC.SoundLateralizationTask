@@ -26,11 +26,11 @@ class Shutdown:
             + self.animal_config["animal_id"]
         )
 
-        if self.config["paths"]["output"] == "":
+        if self.config["paths"]["output_backup"] == "":
             self.animal_backup_dir = None
         else:
             self.animal_backup_dir = (
-                self.config["paths"]["output"]
+                self.config["paths"]["output_backup"]
                 + "/"
                 + self.animal_config["batch"]
                 + "/"
@@ -62,12 +62,20 @@ class Shutdown:
             )
             out_path = os.path.join(self.animal_dir, self.dirs[i], out_name)
 
-            if self.config["paths"]["output"] == "":
+            plot_path = os.path.join(self.animal_dir, self.dirs[i], "plots")
+            os.makedirs(plot_path, exist_ok=True)
+
+            if self.animal_backup_dir is None:
                 out_backup_path = None
+                plot_backup_path = None
             else:
                 out_backup_path = os.path.join(
                     self.animal_backup_dir, self.dirs[i], out_name
                 )
+                plot_backup_path = os.path.join(
+                    self.animal_backup_dir, self.dirs[i], "plots"
+                )
+                os.makedirs(plot_backup_path, exist_ok=True)
 
             # Generate the out.csv file from the JSON structure if the file doesn't already exists or if it corresponds to the last session
             if not os.path.isfile(out_path) or (i == len(self.dirs) - 1):
@@ -77,16 +85,6 @@ class Shutdown:
                 df.replace("NaN", np.nan, inplace=True)
 
                 # Generate plots with some metrics for the each block of the current session
-                plot_path = os.path.join(self.animal_dir, self.dirs[i], "plots")
-                os.makedirs(plot_path, exist_ok=True)
-
-                if self.config["paths"]["output"] == "":
-                    plot_backup_path = None
-                else:
-                    plot_backup_path = os.path.join(
-                        self.animal_backup_dir, self.dirs[i], "plots"
-                    )
-                    os.makedirs(plot_backup_path, exist_ok=True)
                 generate_plots(df, plot_path, plot_backup_path)
 
     def merge_output(self):
