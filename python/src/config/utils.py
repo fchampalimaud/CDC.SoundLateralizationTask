@@ -299,19 +299,19 @@ def upload_sound(
         short_15_left = Sound(signal_left.signal[0:samples_15], fs)
         short_15_right = Sound(signal_right.signal[0:samples_15], fs)
         create_sound_file(short_15_left, short_15_right, str(filename))
-        load_sound(filename, (soundcard_index - 2) / 2 + 12, fs)
+        load_sound(filename, int((soundcard_index - 2) / 2 + 12), fs)
 
         samples_60 = int(fs * 0.060)
         short_60_left = Sound(signal_left.signal[0:samples_60], fs)
         short_60_right = Sound(signal_right.signal[0:samples_60], fs)
         create_sound_file(short_60_left, short_60_right, str(filename))
-        load_sound(filename, (soundcard_index - 2) / 2 + 17, fs)
+        load_sound(filename, int((soundcard_index - 2) / 2 + 17), fs)
 
         samples_120 = int(fs * 0.120)
         short_120_left = Sound(signal_left.signal[0:samples_120], fs)
         short_120_right = Sound(signal_right.signal[0:samples_120], fs)
         create_sound_file(short_120_left, short_120_right, str(filename))
-        load_sound(filename, (soundcard_index - 2) / 2 + 22, fs)
+        load_sound(filename, int((soundcard_index - 2) / 2 + 22), fs)
 
 
 class UploadSound(Thread):
