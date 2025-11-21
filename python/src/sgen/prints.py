@@ -1,12 +1,14 @@
-from pydantic import BaseModel, Field
+from pathlib import Path
 from typing import Dict
+
+from pydantic import BaseModel, Field
+
 from sgen._utils import (
-    export_schema,
-    bonsai_sgen,
     BonsaiSgenSerializers,
+    bonsai_sgen,
+    export_schema,
     pascal_to_snake_case,
 )
-from pathlib import Path
 
 
 class Print(BaseModel):

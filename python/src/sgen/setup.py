@@ -12,15 +12,6 @@ from sgen._utils import (
 )
 
 
-class Sound(BaseModel):
-    index: int = Field(
-        description="The index number where the noise is stored in the Harp SoundCard.",
-        ge=2,
-        le=31,
-    )
-    duration: float = Field(description="The duration of the noise (s).")
-
-
 class SyringePumps(BaseModel):
     use_pumps: bool = Field(
         description="Indicates whether the setup uses valves (false) or Harp SyringePumps (true) for reward delivery."

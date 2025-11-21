@@ -1,9 +1,9 @@
 import inspect
 import json
 from enum import Enum
-from typing import Any, Optional, Type, List
 from os import PathLike
-from subprocess import run, CompletedProcess
+from subprocess import CompletedProcess, run
+from typing import Any, List, Optional, Type
 
 from pydantic import BaseModel, PydanticInvalidForJsonSchema
 from pydantic.json_schema import (
