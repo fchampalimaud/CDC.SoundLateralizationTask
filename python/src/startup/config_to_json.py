@@ -98,6 +98,9 @@ def save_setup(filepath: str, index: int):
     df = pd.read_csv(filepath)
     setup_dict = df.to_dict(orient="records")[index]
     setup_dict["sounds"] = json.loads(setup_dict["sounds"].replace("'", '"'))
+    setup_dict["short_sounds"] = json.loads(
+        setup_dict["short_sounds"].replace("'", '"')
+    )
     setup_dict = unflatten_json(setup_dict)
 
     # Save file
