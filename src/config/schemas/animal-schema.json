@@ -44,6 +44,62 @@
       "title": "AutobiasCorrection",
       "type": "object"
     },
+    "BiasedBlockDistribution": {
+      "properties": {
+        "mean": {
+          "description": "The mean number of trials a biased block should have.",
+          "exclusiveMinimum": 0,
+          "title": "Mean",
+          "type": "integer"
+        },
+        "min_value": {
+          "description": "The minimum number of trials that a biased block should have.",
+          "exclusiveMinimum": 0,
+          "title": "Min Value",
+          "type": "integer"
+        },
+        "max_value": {
+          "description": "The maximum number of trials that a biased block should have.",
+          "exclusiveMinimum": 0,
+          "title": "Max Value",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "mean",
+        "min_value",
+        "max_value"
+      ],
+      "title": "BiasedBlockDistribution",
+      "type": "object"
+    },
+    "BiasedSession": {
+      "properties": {
+        "is_biased_session": {
+          "description": "Indicates whether the current session will have biased blocks.",
+          "title": "Is Biased Session",
+          "type": "boolean"
+        },
+        "bias_probability": {
+          "description": "The probability of the preferencial side in a biased block.",
+          "maximum": 1,
+          "minimum": 0.5,
+          "title": "Bias Probability",
+          "type": "number"
+        },
+        "block_distributions": {
+          "$ref": "#/definitions/BiasedBlockDistribution",
+          "description": "Contains the parameters of the exponential distribution from which the number of trials in a biased block is sampled."
+        }
+      },
+      "required": [
+        "is_biased_session",
+        "bias_probability",
+        "block_distributions"
+      ],
+      "title": "BiasedSession",
+      "type": "object"
+    },
     "FixationTime": {
       "properties": {
         "opto_onset_time": {
@@ -383,6 +439,10 @@
       "description": "Indicates whether the the same ABL should be used across the current block.",
       "title": "Abl Block",
       "type": "boolean"
+    },
+    "biased_session": {
+      "$ref": "#/definitions/BiasedSession",
+      "description": "Contains the parameter to configure a biased session."
     }
   },
   "required": [
@@ -399,7 +459,8 @@
     "optogenetics",
     "autobias_correction",
     "reward_probability",
-    "abl_block"
+    "abl_block",
+    "biased_session"
   ],
   "title": "Animal",
   "type": "object"

@@ -1,6 +1,6 @@
 from datetime import timedelta
 from pathlib import Path
-from typing import List, Literal
+from typing import Literal
 
 from pydantic import BaseModel, Field
 from pydantic.types import StringConstraints
@@ -12,6 +12,34 @@ from sgen._utils import (
     export_schema,
     pascal_to_snake_case,
 )
+
+
+class BiasedBlockDistribution(BaseModel):
+    mean: int = Field(
+        description="The mean number of trials a biased block should have.", gt=0
+    )
+    min_value: int = Field(
+        description="The minimum number of trials that a biased block should have.",
+        gt=0,
+    )
+    max_value: int = Field(
+        description="The maximum number of trials that a biased block should have.",
+        gt=0,
+    )
+
+
+class BiasedSession(BaseModel):
+    is_biased_session: bool = Field(
+        description="Indicates whether the current session will have biased blocks."
+    )
+    bias_probability: float = Field(
+        description="The probability of the preferencial side in a biased block.",
+        ge=0.5,
+        le=1,
+    )
+    block_distributions: BiasedBlockDistribution = Field(
+        description="Contains the parameters of the exponential distribution from which the number of trials in a biased block is sampled."
+    )
 
 
 class AutobiasCorrection(BaseModel):
@@ -191,6 +219,9 @@ class Animal(BaseModel):
     )
     abl_block: bool = Field(
         description="Indicates whether the the same ABL should be used across the current block."
+    )
+    biased_session: BiasedSession = Field(
+        description="Contains the parameter to configure a biased session."
     )
 
 

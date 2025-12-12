@@ -167,6 +167,228 @@ namespace Animal
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
     [Bonsai.CombinatorAttribute()]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
+    public partial class BiasedBlockDistribution
+    {
+    
+        private int _mean;
+    
+        private int _minValue;
+    
+        private int _maxValue;
+    
+        public BiasedBlockDistribution()
+        {
+        }
+    
+        protected BiasedBlockDistribution(BiasedBlockDistribution other)
+        {
+            _mean = other._mean;
+            _minValue = other._minValue;
+            _maxValue = other._maxValue;
+        }
+    
+        /// <summary>
+        /// The mean number of trials a biased block should have.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("mean", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="mean")]
+        [System.ComponentModel.DescriptionAttribute("The mean number of trials a biased block should have.")]
+        public int Mean
+        {
+            get
+            {
+                return _mean;
+            }
+            set
+            {
+                _mean = value;
+            }
+        }
+    
+        /// <summary>
+        /// The minimum number of trials that a biased block should have.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("min_value", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="min_value")]
+        [System.ComponentModel.DescriptionAttribute("The minimum number of trials that a biased block should have.")]
+        public int MinValue
+        {
+            get
+            {
+                return _minValue;
+            }
+            set
+            {
+                _minValue = value;
+            }
+        }
+    
+        /// <summary>
+        /// The maximum number of trials that a biased block should have.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("max_value", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="max_value")]
+        [System.ComponentModel.DescriptionAttribute("The maximum number of trials that a biased block should have.")]
+        public int MaxValue
+        {
+            get
+            {
+                return _maxValue;
+            }
+            set
+            {
+                _maxValue = value;
+            }
+        }
+    
+        public System.IObservable<BiasedBlockDistribution> Process()
+        {
+            return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new BiasedBlockDistribution(this)));
+        }
+    
+        public System.IObservable<BiasedBlockDistribution> Process<TSource>(System.IObservable<TSource> source)
+        {
+            return System.Reactive.Linq.Observable.Select(source, _ => new BiasedBlockDistribution(this));
+        }
+    
+        protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
+        {
+            stringBuilder.Append("mean = " + _mean + ", ");
+            stringBuilder.Append("min_value = " + _minValue + ", ");
+            stringBuilder.Append("max_value = " + _maxValue);
+            return true;
+        }
+    
+        public override string ToString()
+        {
+            System.Text.StringBuilder stringBuilder = new System.Text.StringBuilder();
+            stringBuilder.Append(GetType().Name);
+            stringBuilder.Append(" { ");
+            if (PrintMembers(stringBuilder))
+            {
+                stringBuilder.Append(" ");
+            }
+            stringBuilder.Append("}");
+            return stringBuilder.ToString();
+        }
+    }
+
+
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
+    [Bonsai.CombinatorAttribute()]
+    [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
+    public partial class BiasedSession
+    {
+    
+        private bool _isBiasedSession;
+    
+        private double _biasProbability;
+    
+        private BiasedBlockDistribution _blockDistributions = new BiasedBlockDistribution();
+    
+        public BiasedSession()
+        {
+        }
+    
+        protected BiasedSession(BiasedSession other)
+        {
+            _isBiasedSession = other._isBiasedSession;
+            _biasProbability = other._biasProbability;
+            _blockDistributions = other._blockDistributions;
+        }
+    
+        /// <summary>
+        /// Indicates whether the current session will have biased blocks.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("is_biased_session", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="is_biased_session")]
+        [System.ComponentModel.DescriptionAttribute("Indicates whether the current session will have biased blocks.")]
+        public bool IsBiasedSession
+        {
+            get
+            {
+                return _isBiasedSession;
+            }
+            set
+            {
+                _isBiasedSession = value;
+            }
+        }
+    
+        /// <summary>
+        /// The probability of the preferencial side in a biased block.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("bias_probability", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="bias_probability")]
+        [System.ComponentModel.DescriptionAttribute("The probability of the preferencial side in a biased block.")]
+        public double BiasProbability
+        {
+            get
+            {
+                return _biasProbability;
+            }
+            set
+            {
+                _biasProbability = value;
+            }
+        }
+    
+        /// <summary>
+        /// Contains the parameters of the exponential distribution from which the number of trials in a biased block is sampled.
+        /// </summary>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [Newtonsoft.Json.JsonPropertyAttribute("block_distributions", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="block_distributions")]
+        [System.ComponentModel.DescriptionAttribute("Contains the parameters of the exponential distribution from which the number of " +
+            "trials in a biased block is sampled.")]
+        public BiasedBlockDistribution BlockDistributions
+        {
+            get
+            {
+                return _blockDistributions;
+            }
+            set
+            {
+                _blockDistributions = value;
+            }
+        }
+    
+        public System.IObservable<BiasedSession> Process()
+        {
+            return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new BiasedSession(this)));
+        }
+    
+        public System.IObservable<BiasedSession> Process<TSource>(System.IObservable<TSource> source)
+        {
+            return System.Reactive.Linq.Observable.Select(source, _ => new BiasedSession(this));
+        }
+    
+        protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
+        {
+            stringBuilder.Append("is_biased_session = " + _isBiasedSession + ", ");
+            stringBuilder.Append("bias_probability = " + _biasProbability + ", ");
+            stringBuilder.Append("block_distributions = " + _blockDistributions);
+            return true;
+        }
+    
+        public override string ToString()
+        {
+            System.Text.StringBuilder stringBuilder = new System.Text.StringBuilder();
+            stringBuilder.Append(GetType().Name);
+            stringBuilder.Append(" { ");
+            if (PrintMembers(stringBuilder))
+            {
+                stringBuilder.Append(" ");
+            }
+            stringBuilder.Append("}");
+            return stringBuilder.ToString();
+        }
+    }
+
+
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
+    [Bonsai.CombinatorAttribute()]
+    [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
     public partial class FixationTime
     {
     
@@ -1162,6 +1384,8 @@ namespace Animal
     
         private bool _ablBlock;
     
+        private BiasedSession _biasedSession = new BiasedSession();
+    
         public Animal()
         {
         }
@@ -1182,6 +1406,7 @@ namespace Animal
             _autobiasCorrection = other._autobiasCorrection;
             _rewardProbability = other._rewardProbability;
             _ablBlock = other._ablBlock;
+            _biasedSession = other._biasedSession;
         }
     
         /// <summary>
@@ -1445,6 +1670,25 @@ namespace Animal
             }
         }
     
+        /// <summary>
+        /// Contains the parameter to configure a biased session.
+        /// </summary>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [Newtonsoft.Json.JsonPropertyAttribute("biased_session", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="biased_session")]
+        [System.ComponentModel.DescriptionAttribute("Contains the parameter to configure a biased session.")]
+        public BiasedSession BiasedSession
+        {
+            get
+            {
+                return _biasedSession;
+            }
+            set
+            {
+                _biasedSession = value;
+            }
+        }
+    
         public System.IObservable<Animal> Process()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new Animal(this)));
@@ -1470,7 +1714,8 @@ namespace Animal
             stringBuilder.Append("optogenetics = " + _optogenetics + ", ");
             stringBuilder.Append("autobias_correction = " + _autobiasCorrection + ", ");
             stringBuilder.Append("reward_probability = " + _rewardProbability + ", ");
-            stringBuilder.Append("abl_block = " + _ablBlock);
+            stringBuilder.Append("abl_block = " + _ablBlock + ", ");
+            stringBuilder.Append("biased_session = " + _biasedSession);
             return true;
         }
     
@@ -1566,6 +1811,16 @@ namespace Animal
             return Process<AutobiasCorrection>(source);
         }
 
+        public System.IObservable<string> Process(System.IObservable<BiasedBlockDistribution> source)
+        {
+            return Process<BiasedBlockDistribution>(source);
+        }
+
+        public System.IObservable<string> Process(System.IObservable<BiasedSession> source)
+        {
+            return Process<BiasedSession>(source);
+        }
+
         public System.IObservable<string> Process(System.IObservable<FixationTime> source)
         {
             return Process<FixationTime>(source);
@@ -1611,6 +1866,8 @@ namespace Animal
     [System.ComponentModel.DefaultPropertyAttribute("Type")]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Transform)]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<AutobiasCorrection>))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<BiasedBlockDistribution>))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<BiasedSession>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<FixationTime>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<OptoLED>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Optogenetics>))]
@@ -1671,6 +1928,16 @@ namespace Animal
             return Process<AutobiasCorrection>(source);
         }
 
+        public System.IObservable<string> Process(System.IObservable<BiasedBlockDistribution> source)
+        {
+            return Process<BiasedBlockDistribution>(source);
+        }
+
+        public System.IObservable<string> Process(System.IObservable<BiasedSession> source)
+        {
+            return Process<BiasedSession>(source);
+        }
+
         public System.IObservable<string> Process(System.IObservable<FixationTime> source)
         {
             return Process<FixationTime>(source);
@@ -1716,6 +1983,8 @@ namespace Animal
     [System.ComponentModel.DefaultPropertyAttribute("Type")]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Transform)]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<AutobiasCorrection>))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<BiasedBlockDistribution>))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<BiasedSession>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<FixationTime>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<OptoLED>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Optogenetics>))]
