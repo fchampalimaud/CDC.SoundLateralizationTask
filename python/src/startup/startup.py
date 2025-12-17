@@ -104,7 +104,7 @@ def ask_experimenter():
     print("Welcome! :)")
 
     with open("./assets/users.yml", "w") as file:
-        yaml.dump(users, file, default_flow_style=False)
+        yaml.safe_dump(users, file, default_flow_style=False, sort_keys=False)
 
     return experimenter
 
@@ -190,7 +190,9 @@ def save_yaml(data: dict, filepath: str, type: Literal["animal", "config"]):
         schema = "# yaml-language-server: $schema=schemas/config-schema.json\n"
 
     # Add JSON schema to yaml structure
-    yaml_string = schema + yaml.dump(data, default_flow_style=False)
+    yaml_string = schema + yaml.safe_dump(
+        data, default_flow_style=False, sort_keys=False
+    )
 
     # Save file
     with open(filepath, "w") as file:

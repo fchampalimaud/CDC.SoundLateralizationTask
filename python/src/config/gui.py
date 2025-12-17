@@ -195,7 +195,7 @@ class GUI(tk.Tk):
 
         yaml_string = (
             "# yaml-language-server: $schema=schemas/config-schema.json\n"
-            + yaml.dump(config_dict, default_flow_style=False)
+            + yaml.safe_dump(config_dict, default_flow_style=False, sort_keys=False)
         )
 
         with open("../src/config/config.yml", "w") as file:

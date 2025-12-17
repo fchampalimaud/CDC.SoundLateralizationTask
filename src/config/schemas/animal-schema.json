@@ -3,6 +3,7 @@
     "AutobiasCorrection": {
       "properties": {
         "use_correction": {
+          "default": false,
           "description": "Indicates whether the autobias correction feature should be used or not.",
           "title": "Use Correction",
           "type": "boolean"
@@ -35,7 +36,6 @@
         }
       },
       "required": [
-        "use_correction",
         "window",
         "cutoff_bias",
         "performance_threshold",
@@ -76,6 +76,7 @@
     "BiasedSession": {
       "properties": {
         "is_biased_session": {
+          "default": false,
           "description": "Indicates whether the current session will have biased blocks.",
           "title": "Is Biased Session",
           "type": "boolean"
@@ -93,7 +94,6 @@
         }
       },
       "required": [
-        "is_biased_session",
         "bias_probability",
         "block_distributions"
       ],
@@ -104,17 +104,23 @@
       "properties": {
         "opto_onset_time": {
           "$ref": "#/definitions/TimeConstrains",
+          "default": {
+            "min_value": 5.0,
+            "delta": 0.5,
+            "target": 100.0
+          },
           "description": "Contains parameters related to the Optogenetics Onset Time part of the Fixation Time. The units of each of the parameters is milliseconds."
         },
         "sound_onset_time": {
           "$ref": "#/definitions/TimeConstrains",
+          "default": {
+            "min_value": 5.0,
+            "delta": 0.5,
+            "target": 100.0
+          },
           "description": "Contains parameters related to the Sound Onset Time part of the Fixation Time. The units of each of the parameters is milliseconds."
         }
       },
-      "required": [
-        "opto_onset_time",
-        "sound_onset_time"
-      ],
       "title": "FixationTime",
       "type": "object"
     },
@@ -176,6 +182,7 @@
     "Optogenetics": {
       "properties": {
         "use_opto": {
+          "default": false,
           "description": "Indicates whether optogenetics is used or not.",
           "title": "Use Opto",
           "type": "boolean"
@@ -235,7 +242,6 @@
         }
       },
       "required": [
-        "use_opto",
         "mode",
         "duration",
         "opto_ratio",
@@ -246,6 +252,63 @@
         "led1"
       ],
       "title": "Optogenetics",
+      "type": "object"
+    },
+    "ReactionTime": {
+      "properties": {
+        "min_value": {
+          "default": 0.01,
+          "description": "The initial base value.",
+          "minimum": 0,
+          "title": "Min Value",
+          "type": "number"
+        },
+        "delta": {
+          "default": 0.001,
+          "description": "The increment to the base value every trial a certain condition is met until the target value is reached.",
+          "minimum": 0,
+          "title": "Delta",
+          "type": "number"
+        },
+        "target": {
+          "default": 0.01,
+          "description": "The target value.",
+          "minimum": 0,
+          "title": "Target",
+          "type": "number"
+        },
+        "max_value": {
+          "default": 10,
+          "description": "The maximum allowed reaction time (s).",
+          "exclusiveMinimum": 0,
+          "title": "Max Value",
+          "type": "number"
+        }
+      },
+      "title": "ReactionTime",
+      "type": "object"
+    },
+    "Reward": {
+      "properties": {
+        "base_amount": {
+          "description": "The amount of reward delivered to the animal (uL).",
+          "exclusiveMinimum": 0,
+          "title": "Base Amount",
+          "type": "number"
+        },
+        "probability": {
+          "default": 1,
+          "description": "The probability of the animal receiving reward given a right answer.",
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Probability",
+          "type": "number"
+        }
+      },
+      "required": [
+        "base_amount"
+      ],
+      "title": "Reward",
       "type": "object"
     },
     "Session": {
@@ -323,7 +386,14 @@
           "title": "Max Side",
           "type": "integer"
         },
+        "abl_block": {
+          "default": false,
+          "description": "Indicates whether the the same ABL should be used across the current block.",
+          "title": "Abl Block",
+          "type": "boolean"
+        },
         "short_duration_ratio": {
+          "default": 0,
           "description": "The percentage of short duration trials in a session.",
           "maximum": 1,
           "minimum": 0,
@@ -333,8 +403,7 @@
       },
       "required": [
         "pseudo_random_side",
-        "max_side",
-        "short_duration_ratio"
+        "max_side"
       ],
       "title": "Sound",
       "type": "object"
@@ -342,29 +411,27 @@
     "TimeConstrains": {
       "properties": {
         "min_value": {
+          "default": 0.01,
           "description": "The initial base value.",
           "minimum": 0,
           "title": "Min Value",
           "type": "number"
         },
         "delta": {
+          "default": 0.001,
           "description": "The increment to the base value every trial a certain condition is met until the target value is reached.",
           "minimum": 0,
           "title": "Delta",
           "type": "number"
         },
         "target": {
+          "default": 0.01,
           "description": "The target value.",
           "minimum": 0,
           "title": "Target",
           "type": "number"
         }
       },
-      "required": [
-        "min_value",
-        "delta",
-        "target"
-      ],
       "title": "TimeConstrains",
       "type": "object"
     }
@@ -395,16 +462,17 @@
       "description": "Contains parameters related to the fixation time."
     },
     "reaction_time": {
-      "$ref": "#/definitions/TimeConstrains",
+      "$ref": "#/definitions/ReactionTime",
+      "default": {
+        "min_value": 0.01,
+        "delta": 0.001,
+        "target": 0.01,
+        "max_value": 10.0
+      },
       "description": "Contains parameters related to the reaction time. The units of each of the parameters is seconds."
     },
-    "max_reaction_time": {
-      "description": "The maximum allowed reaction time (s).",
-      "minimum": 0,
-      "title": "Max Reaction Time",
-      "type": "number"
-    },
     "min_movement_time": {
+      "default": 0.01,
       "description": "The minimum allowed movement time (s).",
       "minimum": 0,
       "title": "Min Movement Time",
@@ -412,36 +480,68 @@
     },
     "lnp_time": {
       "$ref": "#/definitions/TimeConstrains",
+      "default": {
+        "min_value": 0.01,
+        "delta": 0.001,
+        "target": 0.01
+      },
       "description": "Contains parameters related to the LNP (Lateral Nose Poke) time. The units of each of the parameters is seconds."
     },
-    "base_reward": {
-      "description": "The amount of reward delivered to the animal (uL).",
-      "exclusiveMinimum": 0,
-      "title": "Base Reward",
-      "type": "number"
+    "reward": {
+      "$ref": "#/definitions/Reward",
+      "description": "Contains the parameters that configure the reward delivery."
     },
     "optogenetics": {
       "$ref": "#/definitions/Optogenetics",
+      "default": {
+        "use_opto": false,
+        "mode": "Bilateral",
+        "duration": 2.0,
+        "opto_ratio": 0.3,
+        "use_rt": false,
+        "ramp_mode": "None",
+        "ramp_time": 1,
+        "led0": {
+          "duty_cycle": 50,
+          "frequency": 20,
+          "mode": "TTL",
+          "power": 0.0,
+          "use_pulses": false,
+          "voltage": 0.0
+        },
+        "led1": {
+          "duty_cycle": 50,
+          "frequency": 20,
+          "mode": "TTL",
+          "power": 0.0,
+          "use_pulses": false,
+          "voltage": 0.0
+        }
+      },
       "description": "Contains the optogenetics-related parameters."
     },
     "autobias_correction": {
       "$ref": "#/definitions/AutobiasCorrection",
+      "default": {
+        "use_correction": false,
+        "window": 25,
+        "cutoff_bias": 0.25,
+        "performance_threshold": 1.0,
+        "slope_multiplier": 1.0
+      },
       "description": "Contains parameters related to the autobias correction algorithm."
-    },
-    "reward_probability": {
-      "description": "The probability of the animal receiving reward given a right answer.",
-      "maximum": 1,
-      "minimum": 0,
-      "title": "Reward Probability",
-      "type": "number"
-    },
-    "abl_block": {
-      "description": "Indicates whether the the same ABL should be used across the current block.",
-      "title": "Abl Block",
-      "type": "boolean"
     },
     "biased_session": {
       "$ref": "#/definitions/BiasedSession",
+      "default": {
+        "is_biased_session": false,
+        "bias_probability": 0.8,
+        "block_distributions": {
+          "max_value": 100,
+          "mean": 60,
+          "min_value": 20
+        }
+      },
       "description": "Contains the parameter to configure a biased session."
     }
   },
@@ -451,16 +551,7 @@
     "session",
     "sound",
     "fixation_time",
-    "reaction_time",
-    "max_reaction_time",
-    "min_movement_time",
-    "lnp_time",
-    "base_reward",
-    "optogenetics",
-    "autobias_correction",
-    "reward_probability",
-    "abl_block",
-    "biased_session"
+    "reward"
   ],
   "title": "Animal",
   "type": "object"

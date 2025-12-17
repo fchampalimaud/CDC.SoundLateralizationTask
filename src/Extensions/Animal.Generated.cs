@@ -9,9 +9,9 @@ namespace Animal
 {
     #pragma warning disable // Disable all warnings
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
-    [Bonsai.CombinatorAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
+    [Bonsai.CombinatorAttribute(MethodName="Generate")]
     public partial class AutobiasCorrection
     {
     
@@ -27,6 +27,7 @@ namespace Animal
     
         public AutobiasCorrection()
         {
+            _useCorrection = false;
         }
     
         protected AutobiasCorrection(AutobiasCorrection other)
@@ -41,7 +42,7 @@ namespace Animal
         /// <summary>
         /// Indicates whether the autobias correction feature should be used or not.
         /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("use_correction", Required=Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonPropertyAttribute("use_correction")]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="use_correction")]
         [System.ComponentModel.DescriptionAttribute("Indicates whether the autobias correction feature should be used or not.")]
         public bool UseCorrection
@@ -129,23 +130,23 @@ namespace Animal
             }
         }
     
-        public System.IObservable<AutobiasCorrection> Process()
+        public System.IObservable<AutobiasCorrection> Generate()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new AutobiasCorrection(this)));
         }
     
-        public System.IObservable<AutobiasCorrection> Process<TSource>(System.IObservable<TSource> source)
+        public System.IObservable<AutobiasCorrection> Generate<TSource>(System.IObservable<TSource> source)
         {
             return System.Reactive.Linq.Observable.Select(source, _ => new AutobiasCorrection(this));
         }
     
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
-            stringBuilder.Append("use_correction = " + _useCorrection + ", ");
-            stringBuilder.Append("window = " + _window + ", ");
-            stringBuilder.Append("cutoff_bias = " + _cutoffBias + ", ");
-            stringBuilder.Append("performance_threshold = " + _performanceThreshold + ", ");
-            stringBuilder.Append("slope_multiplier = " + _slopeMultiplier);
+            stringBuilder.Append("UseCorrection = " + _useCorrection + ", ");
+            stringBuilder.Append("Window = " + _window + ", ");
+            stringBuilder.Append("CutoffBias = " + _cutoffBias + ", ");
+            stringBuilder.Append("PerformanceThreshold = " + _performanceThreshold + ", ");
+            stringBuilder.Append("SlopeMultiplier = " + _slopeMultiplier);
             return true;
         }
     
@@ -164,9 +165,9 @@ namespace Animal
     }
 
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
-    [Bonsai.CombinatorAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
+    [Bonsai.CombinatorAttribute(MethodName="Generate")]
     public partial class BiasedBlockDistribution
     {
     
@@ -241,21 +242,21 @@ namespace Animal
             }
         }
     
-        public System.IObservable<BiasedBlockDistribution> Process()
+        public System.IObservable<BiasedBlockDistribution> Generate()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new BiasedBlockDistribution(this)));
         }
     
-        public System.IObservable<BiasedBlockDistribution> Process<TSource>(System.IObservable<TSource> source)
+        public System.IObservable<BiasedBlockDistribution> Generate<TSource>(System.IObservable<TSource> source)
         {
             return System.Reactive.Linq.Observable.Select(source, _ => new BiasedBlockDistribution(this));
         }
     
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
-            stringBuilder.Append("mean = " + _mean + ", ");
-            stringBuilder.Append("min_value = " + _minValue + ", ");
-            stringBuilder.Append("max_value = " + _maxValue);
+            stringBuilder.Append("Mean = " + _mean + ", ");
+            stringBuilder.Append("MinValue = " + _minValue + ", ");
+            stringBuilder.Append("MaxValue = " + _maxValue);
             return true;
         }
     
@@ -274,9 +275,9 @@ namespace Animal
     }
 
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
-    [Bonsai.CombinatorAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
+    [Bonsai.CombinatorAttribute(MethodName="Generate")]
     public partial class BiasedSession
     {
     
@@ -284,10 +285,12 @@ namespace Animal
     
         private double _biasProbability;
     
-        private BiasedBlockDistribution _blockDistributions = new BiasedBlockDistribution();
+        private BiasedBlockDistribution _blockDistributions;
     
         public BiasedSession()
         {
+            _isBiasedSession = false;
+            _blockDistributions = new BiasedBlockDistribution();
         }
     
         protected BiasedSession(BiasedSession other)
@@ -300,7 +303,7 @@ namespace Animal
         /// <summary>
         /// Indicates whether the current session will have biased blocks.
         /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("is_biased_session", Required=Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonPropertyAttribute("is_biased_session")]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="is_biased_session")]
         [System.ComponentModel.DescriptionAttribute("Indicates whether the current session will have biased blocks.")]
         public bool IsBiasedSession
@@ -353,21 +356,21 @@ namespace Animal
             }
         }
     
-        public System.IObservable<BiasedSession> Process()
+        public System.IObservable<BiasedSession> Generate()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new BiasedSession(this)));
         }
     
-        public System.IObservable<BiasedSession> Process<TSource>(System.IObservable<TSource> source)
+        public System.IObservable<BiasedSession> Generate<TSource>(System.IObservable<TSource> source)
         {
             return System.Reactive.Linq.Observable.Select(source, _ => new BiasedSession(this));
         }
     
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
-            stringBuilder.Append("is_biased_session = " + _isBiasedSession + ", ");
-            stringBuilder.Append("bias_probability = " + _biasProbability + ", ");
-            stringBuilder.Append("block_distributions = " + _blockDistributions);
+            stringBuilder.Append("IsBiasedSession = " + _isBiasedSession + ", ");
+            stringBuilder.Append("BiasProbability = " + _biasProbability + ", ");
+            stringBuilder.Append("BlockDistributions = " + _blockDistributions);
             return true;
         }
     
@@ -386,18 +389,20 @@ namespace Animal
     }
 
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
-    [Bonsai.CombinatorAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
+    [Bonsai.CombinatorAttribute(MethodName="Generate")]
     public partial class FixationTime
     {
     
-        private TimeConstrains _optoOnsetTime = new TimeConstrains();
+        private TimeConstrains _optoOnsetTime;
     
-        private TimeConstrains _soundOnsetTime = new TimeConstrains();
+        private TimeConstrains _soundOnsetTime;
     
         public FixationTime()
         {
+            _optoOnsetTime = new TimeConstrains();
+            _soundOnsetTime = new TimeConstrains();
         }
     
         protected FixationTime(FixationTime other)
@@ -410,7 +415,7 @@ namespace Animal
         /// Contains parameters related to the Optogenetics Onset Time part of the Fixation Time. The units of each of the parameters is milliseconds.
         /// </summary>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        [Newtonsoft.Json.JsonPropertyAttribute("opto_onset_time", Required=Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonPropertyAttribute("opto_onset_time")]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="opto_onset_time")]
         [System.ComponentModel.DescriptionAttribute("Contains parameters related to the Optogenetics Onset Time part of the Fixation T" +
             "ime. The units of each of the parameters is milliseconds.")]
@@ -430,7 +435,7 @@ namespace Animal
         /// Contains parameters related to the Sound Onset Time part of the Fixation Time. The units of each of the parameters is milliseconds.
         /// </summary>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        [Newtonsoft.Json.JsonPropertyAttribute("sound_onset_time", Required=Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonPropertyAttribute("sound_onset_time")]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="sound_onset_time")]
         [System.ComponentModel.DescriptionAttribute("Contains parameters related to the Sound Onset Time part of the Fixation Time. Th" +
             "e units of each of the parameters is milliseconds.")]
@@ -446,20 +451,20 @@ namespace Animal
             }
         }
     
-        public System.IObservable<FixationTime> Process()
+        public System.IObservable<FixationTime> Generate()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new FixationTime(this)));
         }
     
-        public System.IObservable<FixationTime> Process<TSource>(System.IObservable<TSource> source)
+        public System.IObservable<FixationTime> Generate<TSource>(System.IObservable<TSource> source)
         {
             return System.Reactive.Linq.Observable.Select(source, _ => new FixationTime(this));
         }
     
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
-            stringBuilder.Append("opto_onset_time = " + _optoOnsetTime + ", ");
-            stringBuilder.Append("sound_onset_time = " + _soundOnsetTime);
+            stringBuilder.Append("OptoOnsetTime = " + _optoOnsetTime + ", ");
+            stringBuilder.Append("SoundOnsetTime = " + _soundOnsetTime);
             return true;
         }
     
@@ -478,9 +483,9 @@ namespace Animal
     }
 
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
-    [Bonsai.CombinatorAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
+    [Bonsai.CombinatorAttribute(MethodName="Generate")]
     public partial class OptoLED
     {
     
@@ -549,7 +554,6 @@ namespace Animal
         /// <summary>
         /// Indicates whether the LED port is being used to control an external LED via TTL or if it's controlling a LED directly with the current sources.
         /// </summary>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
         [Newtonsoft.Json.JsonPropertyAttribute("mode", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="mode")]
         [System.ComponentModel.DescriptionAttribute("Indicates whether the LED port is being used to control an external LED via TTL o" +
@@ -621,24 +625,24 @@ namespace Animal
             }
         }
     
-        public System.IObservable<OptoLED> Process()
+        public System.IObservable<OptoLED> Generate()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new OptoLED(this)));
         }
     
-        public System.IObservable<OptoLED> Process<TSource>(System.IObservable<TSource> source)
+        public System.IObservable<OptoLED> Generate<TSource>(System.IObservable<TSource> source)
         {
             return System.Reactive.Linq.Observable.Select(source, _ => new OptoLED(this));
         }
     
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
-            stringBuilder.Append("voltage = " + _voltage + ", ");
-            stringBuilder.Append("power = " + _power + ", ");
-            stringBuilder.Append("mode = " + _mode + ", ");
-            stringBuilder.Append("use_pulses = " + _usePulses + ", ");
-            stringBuilder.Append("frequency = " + _frequency + ", ");
-            stringBuilder.Append("duty_cycle = " + _dutyCycle);
+            stringBuilder.Append("Voltage = " + _voltage + ", ");
+            stringBuilder.Append("Power = " + _power + ", ");
+            stringBuilder.Append("Mode = " + _mode + ", ");
+            stringBuilder.Append("UsePulses = " + _usePulses + ", ");
+            stringBuilder.Append("Frequency = " + _frequency + ", ");
+            stringBuilder.Append("DutyCycle = " + _dutyCycle);
             return true;
         }
     
@@ -657,9 +661,9 @@ namespace Animal
     }
 
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
-    [Bonsai.CombinatorAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
+    [Bonsai.CombinatorAttribute(MethodName="Generate")]
     public partial class Optogenetics
     {
     
@@ -677,12 +681,15 @@ namespace Animal
     
         private int _rampTime;
     
-        private OptoLED _led0 = new OptoLED();
+        private OptoLED _led0;
     
-        private OptoLED _led1 = new OptoLED();
+        private OptoLED _led1;
     
         public Optogenetics()
         {
+            _useOpto = false;
+            _led0 = new OptoLED();
+            _led1 = new OptoLED();
         }
     
         protected Optogenetics(Optogenetics other)
@@ -701,7 +708,7 @@ namespace Animal
         /// <summary>
         /// Indicates whether optogenetics is used or not.
         /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("use_opto", Required=Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonPropertyAttribute("use_opto")]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="use_opto")]
         [System.ComponentModel.DescriptionAttribute("Indicates whether optogenetics is used or not.")]
         public bool UseOpto
@@ -719,7 +726,6 @@ namespace Animal
         /// <summary>
         /// Indicates the optogenetics mode used in the current session.
         /// </summary>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
         [Newtonsoft.Json.JsonPropertyAttribute("mode", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="mode")]
         [System.ComponentModel.DescriptionAttribute("Indicates the optogenetics mode used in the current session.")]
@@ -793,7 +799,6 @@ namespace Animal
         /// <summary>
         /// Indicates the ramp mode used in the optogenetics protocol. It only works if the LED is not configured to use pulses.
         /// </summary>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
         [Newtonsoft.Json.JsonPropertyAttribute("ramp_mode", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="ramp_mode")]
         [System.ComponentModel.DescriptionAttribute("Indicates the ramp mode used in the optogenetics protocol. It only works if the L" +
@@ -867,27 +872,27 @@ namespace Animal
             }
         }
     
-        public System.IObservable<Optogenetics> Process()
+        public System.IObservable<Optogenetics> Generate()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new Optogenetics(this)));
         }
     
-        public System.IObservable<Optogenetics> Process<TSource>(System.IObservable<TSource> source)
+        public System.IObservable<Optogenetics> Generate<TSource>(System.IObservable<TSource> source)
         {
             return System.Reactive.Linq.Observable.Select(source, _ => new Optogenetics(this));
         }
     
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
-            stringBuilder.Append("use_opto = " + _useOpto + ", ");
-            stringBuilder.Append("mode = " + _mode + ", ");
-            stringBuilder.Append("duration = " + _duration + ", ");
-            stringBuilder.Append("opto_ratio = " + _optoRatio + ", ");
-            stringBuilder.Append("use_rt = " + _useRt + ", ");
-            stringBuilder.Append("ramp_mode = " + _rampMode + ", ");
-            stringBuilder.Append("ramp_time = " + _rampTime + ", ");
-            stringBuilder.Append("led0 = " + _led0 + ", ");
-            stringBuilder.Append("led1 = " + _led1);
+            stringBuilder.Append("UseOpto = " + _useOpto + ", ");
+            stringBuilder.Append("Mode = " + _mode + ", ");
+            stringBuilder.Append("Duration = " + _duration + ", ");
+            stringBuilder.Append("OptoRatio = " + _optoRatio + ", ");
+            stringBuilder.Append("UseRt = " + _useRt + ", ");
+            stringBuilder.Append("RampMode = " + _rampMode + ", ");
+            stringBuilder.Append("RampTime = " + _rampTime + ", ");
+            stringBuilder.Append("Led0 = " + _led0 + ", ");
+            stringBuilder.Append("Led1 = " + _led1);
             return true;
         }
     
@@ -906,9 +911,235 @@ namespace Animal
     }
 
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
-    [Bonsai.CombinatorAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
+    [Bonsai.CombinatorAttribute(MethodName="Generate")]
+    public partial class ReactionTime
+    {
+    
+        private double _minValue;
+    
+        private double _delta;
+    
+        private double _target;
+    
+        private double _maxValue;
+    
+        public ReactionTime()
+        {
+            _minValue = 0.01D;
+            _delta = 0.001D;
+            _target = 0.01D;
+            _maxValue = 10D;
+        }
+    
+        protected ReactionTime(ReactionTime other)
+        {
+            _minValue = other._minValue;
+            _delta = other._delta;
+            _target = other._target;
+            _maxValue = other._maxValue;
+        }
+    
+        /// <summary>
+        /// The initial base value.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("min_value")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="min_value")]
+        [System.ComponentModel.DescriptionAttribute("The initial base value.")]
+        public double MinValue
+        {
+            get
+            {
+                return _minValue;
+            }
+            set
+            {
+                _minValue = value;
+            }
+        }
+    
+        /// <summary>
+        /// The increment to the base value every trial a certain condition is met until the target value is reached.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("delta")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="delta")]
+        [System.ComponentModel.DescriptionAttribute("The increment to the base value every trial a certain condition is met until the " +
+            "target value is reached.")]
+        public double Delta
+        {
+            get
+            {
+                return _delta;
+            }
+            set
+            {
+                _delta = value;
+            }
+        }
+    
+        /// <summary>
+        /// The target value.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("target")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="target")]
+        [System.ComponentModel.DescriptionAttribute("The target value.")]
+        public double Target
+        {
+            get
+            {
+                return _target;
+            }
+            set
+            {
+                _target = value;
+            }
+        }
+    
+        /// <summary>
+        /// The maximum allowed reaction time (s).
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("max_value")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="max_value")]
+        [System.ComponentModel.DescriptionAttribute("The maximum allowed reaction time (s).")]
+        public double MaxValue
+        {
+            get
+            {
+                return _maxValue;
+            }
+            set
+            {
+                _maxValue = value;
+            }
+        }
+    
+        public System.IObservable<ReactionTime> Generate()
+        {
+            return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new ReactionTime(this)));
+        }
+    
+        public System.IObservable<ReactionTime> Generate<TSource>(System.IObservable<TSource> source)
+        {
+            return System.Reactive.Linq.Observable.Select(source, _ => new ReactionTime(this));
+        }
+    
+        protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
+        {
+            stringBuilder.Append("MinValue = " + _minValue + ", ");
+            stringBuilder.Append("Delta = " + _delta + ", ");
+            stringBuilder.Append("Target = " + _target + ", ");
+            stringBuilder.Append("MaxValue = " + _maxValue);
+            return true;
+        }
+    
+        public override string ToString()
+        {
+            System.Text.StringBuilder stringBuilder = new System.Text.StringBuilder();
+            stringBuilder.Append(GetType().Name);
+            stringBuilder.Append(" { ");
+            if (PrintMembers(stringBuilder))
+            {
+                stringBuilder.Append(" ");
+            }
+            stringBuilder.Append("}");
+            return stringBuilder.ToString();
+        }
+    }
+
+
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
+    [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
+    [Bonsai.CombinatorAttribute(MethodName="Generate")]
+    public partial class Reward
+    {
+    
+        private double _baseAmount;
+    
+        private double _probability;
+    
+        public Reward()
+        {
+            _probability = 1D;
+        }
+    
+        protected Reward(Reward other)
+        {
+            _baseAmount = other._baseAmount;
+            _probability = other._probability;
+        }
+    
+        /// <summary>
+        /// The amount of reward delivered to the animal (uL).
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("base_amount", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="base_amount")]
+        [System.ComponentModel.DescriptionAttribute("The amount of reward delivered to the animal (uL).")]
+        public double BaseAmount
+        {
+            get
+            {
+                return _baseAmount;
+            }
+            set
+            {
+                _baseAmount = value;
+            }
+        }
+    
+        /// <summary>
+        /// The probability of the animal receiving reward given a right answer.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("probability")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="probability")]
+        [System.ComponentModel.DescriptionAttribute("The probability of the animal receiving reward given a right answer.")]
+        public double Probability
+        {
+            get
+            {
+                return _probability;
+            }
+            set
+            {
+                _probability = value;
+            }
+        }
+    
+        public System.IObservable<Reward> Generate()
+        {
+            return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new Reward(this)));
+        }
+    
+        public System.IObservable<Reward> Generate<TSource>(System.IObservable<TSource> source)
+        {
+            return System.Reactive.Linq.Observable.Select(source, _ => new Reward(this));
+        }
+    
+        protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
+        {
+            stringBuilder.Append("BaseAmount = " + _baseAmount + ", ");
+            stringBuilder.Append("Probability = " + _probability);
+            return true;
+        }
+    
+        public override string ToString()
+        {
+            System.Text.StringBuilder stringBuilder = new System.Text.StringBuilder();
+            stringBuilder.Append(GetType().Name);
+            stringBuilder.Append(" { ");
+            if (PrintMembers(stringBuilder))
+            {
+                stringBuilder.Append(" ");
+            }
+            stringBuilder.Append("}");
+            return stringBuilder.ToString();
+        }
+    }
+
+
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
+    [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
+    [Bonsai.CombinatorAttribute(MethodName="Generate")]
     public partial class Session
     {
     
@@ -996,6 +1227,23 @@ namespace Animal
             set
             {
                 _duration = value;
+            }
+        }
+    
+        [Newtonsoft.Json.JsonIgnoreAttribute()]
+        [YamlDotNet.Serialization.YamlIgnoreAttribute()]
+        [System.ComponentModel.BrowsableAttribute(false)]
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
+        [System.Xml.Serialization.XmlElementAttribute("Duration")]
+        public string DurationXml
+        {
+            get
+            {
+                return System.Xml.XmlConvert.ToString(_duration);
+            }
+            set
+            {
+                _duration = System.Xml.XmlConvert.ToTimeSpan(value);
             }
         }
     
@@ -1090,26 +1338,26 @@ namespace Animal
             }
         }
     
-        public System.IObservable<Session> Process()
+        public System.IObservable<Session> Generate()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new Session(this)));
         }
     
-        public System.IObservable<Session> Process<TSource>(System.IObservable<TSource> source)
+        public System.IObservable<Session> Generate<TSource>(System.IObservable<TSource> source)
         {
             return System.Reactive.Linq.Observable.Select(source, _ => new Session(this));
         }
     
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
-            stringBuilder.Append("number = " + _number + ", ");
-            stringBuilder.Append("experimenter = " + _experimenter + ", ");
-            stringBuilder.Append("duration = " + _duration + ", ");
-            stringBuilder.Append("type = " + _type + ", ");
-            stringBuilder.Append("starting_trial_number = " + _startingTrialNumber + ", ");
-            stringBuilder.Append("block_number = " + _blockNumber + ", ");
-            stringBuilder.Append("starting_training_level = " + _startingTrainingLevel + ", ");
-            stringBuilder.Append("last_training_level = " + _lastTrainingLevel);
+            stringBuilder.Append("Number = " + _number + ", ");
+            stringBuilder.Append("Experimenter = " + _experimenter + ", ");
+            stringBuilder.Append("Duration = " + _duration + ", ");
+            stringBuilder.Append("Type = " + _type + ", ");
+            stringBuilder.Append("StartingTrialNumber = " + _startingTrialNumber + ", ");
+            stringBuilder.Append("BlockNumber = " + _blockNumber + ", ");
+            stringBuilder.Append("StartingTrainingLevel = " + _startingTrainingLevel + ", ");
+            stringBuilder.Append("LastTrainingLevel = " + _lastTrainingLevel);
             return true;
         }
     
@@ -1128,9 +1376,9 @@ namespace Animal
     }
 
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
-    [Bonsai.CombinatorAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
+    [Bonsai.CombinatorAttribute(MethodName="Generate")]
     public partial class Sound
     {
     
@@ -1138,16 +1386,21 @@ namespace Animal
     
         private int _maxSide;
     
+        private bool _ablBlock;
+    
         private double _shortDurationRatio;
     
         public Sound()
         {
+            _ablBlock = false;
+            _shortDurationRatio = 0D;
         }
     
         protected Sound(Sound other)
         {
             _pseudoRandomSide = other._pseudoRandomSide;
             _maxSide = other._maxSide;
+            _ablBlock = other._ablBlock;
             _shortDurationRatio = other._shortDurationRatio;
         }
     
@@ -1189,9 +1442,27 @@ namespace Animal
         }
     
         /// <summary>
+        /// Indicates whether the the same ABL should be used across the current block.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("abl_block")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="abl_block")]
+        [System.ComponentModel.DescriptionAttribute("Indicates whether the the same ABL should be used across the current block.")]
+        public bool AblBlock
+        {
+            get
+            {
+                return _ablBlock;
+            }
+            set
+            {
+                _ablBlock = value;
+            }
+        }
+    
+        /// <summary>
         /// The percentage of short duration trials in a session.
         /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("short_duration_ratio", Required=Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonPropertyAttribute("short_duration_ratio")]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="short_duration_ratio")]
         [System.ComponentModel.DescriptionAttribute("The percentage of short duration trials in a session.")]
         public double ShortDurationRatio
@@ -1206,21 +1477,22 @@ namespace Animal
             }
         }
     
-        public System.IObservable<Sound> Process()
+        public System.IObservable<Sound> Generate()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new Sound(this)));
         }
     
-        public System.IObservable<Sound> Process<TSource>(System.IObservable<TSource> source)
+        public System.IObservable<Sound> Generate<TSource>(System.IObservable<TSource> source)
         {
             return System.Reactive.Linq.Observable.Select(source, _ => new Sound(this));
         }
     
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
-            stringBuilder.Append("pseudo_random_side = " + _pseudoRandomSide + ", ");
-            stringBuilder.Append("max_side = " + _maxSide + ", ");
-            stringBuilder.Append("short_duration_ratio = " + _shortDurationRatio);
+            stringBuilder.Append("PseudoRandomSide = " + _pseudoRandomSide + ", ");
+            stringBuilder.Append("MaxSide = " + _maxSide + ", ");
+            stringBuilder.Append("AblBlock = " + _ablBlock + ", ");
+            stringBuilder.Append("ShortDurationRatio = " + _shortDurationRatio);
             return true;
         }
     
@@ -1239,9 +1511,9 @@ namespace Animal
     }
 
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
-    [Bonsai.CombinatorAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
+    [Bonsai.CombinatorAttribute(MethodName="Generate")]
     public partial class TimeConstrains
     {
     
@@ -1253,6 +1525,9 @@ namespace Animal
     
         public TimeConstrains()
         {
+            _minValue = 0.01D;
+            _delta = 0.001D;
+            _target = 0.01D;
         }
     
         protected TimeConstrains(TimeConstrains other)
@@ -1265,7 +1540,7 @@ namespace Animal
         /// <summary>
         /// The initial base value.
         /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("min_value", Required=Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonPropertyAttribute("min_value")]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="min_value")]
         [System.ComponentModel.DescriptionAttribute("The initial base value.")]
         public double MinValue
@@ -1283,7 +1558,7 @@ namespace Animal
         /// <summary>
         /// The increment to the base value every trial a certain condition is met until the target value is reached.
         /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("delta", Required=Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonPropertyAttribute("delta")]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="delta")]
         [System.ComponentModel.DescriptionAttribute("The increment to the base value every trial a certain condition is met until the " +
             "target value is reached.")]
@@ -1302,7 +1577,7 @@ namespace Animal
         /// <summary>
         /// The target value.
         /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("target", Required=Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonPropertyAttribute("target")]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="target")]
         [System.ComponentModel.DescriptionAttribute("The target value.")]
         public double Target
@@ -1317,21 +1592,21 @@ namespace Animal
             }
         }
     
-        public System.IObservable<TimeConstrains> Process()
+        public System.IObservable<TimeConstrains> Generate()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new TimeConstrains(this)));
         }
     
-        public System.IObservable<TimeConstrains> Process<TSource>(System.IObservable<TSource> source)
+        public System.IObservable<TimeConstrains> Generate<TSource>(System.IObservable<TSource> source)
         {
             return System.Reactive.Linq.Observable.Select(source, _ => new TimeConstrains(this));
         }
     
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
-            stringBuilder.Append("min_value = " + _minValue + ", ");
-            stringBuilder.Append("delta = " + _delta + ", ");
-            stringBuilder.Append("target = " + _target);
+            stringBuilder.Append("MinValue = " + _minValue + ", ");
+            stringBuilder.Append("Delta = " + _delta + ", ");
+            stringBuilder.Append("Target = " + _target);
             return true;
         }
     
@@ -1350,9 +1625,9 @@ namespace Animal
     }
 
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
-    [Bonsai.CombinatorAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
+    [Bonsai.CombinatorAttribute(MethodName="Generate")]
     public partial class Animal
     {
     
@@ -1360,34 +1635,38 @@ namespace Animal
     
         private string _batch;
     
-        private Session _session = new Session();
+        private Session _session;
     
-        private Sound _sound = new Sound();
+        private Sound _sound;
     
-        private FixationTime _fixationTime = new FixationTime();
+        private FixationTime _fixationTime;
     
-        private TimeConstrains _reactionTime = new TimeConstrains();
-    
-        private double _maxReactionTime;
+        private ReactionTime _reactionTime;
     
         private double _minMovementTime;
     
-        private TimeConstrains _lnpTime = new TimeConstrains();
+        private TimeConstrains _lnpTime;
     
-        private double _baseReward;
+        private Reward _reward;
     
-        private Optogenetics _optogenetics = new Optogenetics();
+        private Optogenetics _optogenetics;
     
-        private AutobiasCorrection _autobiasCorrection = new AutobiasCorrection();
+        private AutobiasCorrection _autobiasCorrection;
     
-        private double _rewardProbability;
-    
-        private bool _ablBlock;
-    
-        private BiasedSession _biasedSession = new BiasedSession();
+        private BiasedSession _biasedSession;
     
         public Animal()
         {
+            _session = new Session();
+            _sound = new Sound();
+            _fixationTime = new FixationTime();
+            _reactionTime = new ReactionTime();
+            _minMovementTime = 0.01D;
+            _lnpTime = new TimeConstrains();
+            _reward = new Reward();
+            _optogenetics = new Optogenetics();
+            _autobiasCorrection = new AutobiasCorrection();
+            _biasedSession = new BiasedSession();
         }
     
         protected Animal(Animal other)
@@ -1398,14 +1677,11 @@ namespace Animal
             _sound = other._sound;
             _fixationTime = other._fixationTime;
             _reactionTime = other._reactionTime;
-            _maxReactionTime = other._maxReactionTime;
             _minMovementTime = other._minMovementTime;
             _lnpTime = other._lnpTime;
-            _baseReward = other._baseReward;
+            _reward = other._reward;
             _optogenetics = other._optogenetics;
             _autobiasCorrection = other._autobiasCorrection;
-            _rewardProbability = other._rewardProbability;
-            _ablBlock = other._ablBlock;
             _biasedSession = other._biasedSession;
         }
     
@@ -1506,11 +1782,11 @@ namespace Animal
         /// Contains parameters related to the reaction time. The units of each of the parameters is seconds.
         /// </summary>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        [Newtonsoft.Json.JsonPropertyAttribute("reaction_time", Required=Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonPropertyAttribute("reaction_time")]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="reaction_time")]
         [System.ComponentModel.DescriptionAttribute("Contains parameters related to the reaction time. The units of each of the parame" +
             "ters is seconds.")]
-        public TimeConstrains ReactionTime
+        public ReactionTime ReactionTime
         {
             get
             {
@@ -1523,27 +1799,9 @@ namespace Animal
         }
     
         /// <summary>
-        /// The maximum allowed reaction time (s).
-        /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("max_reaction_time", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="max_reaction_time")]
-        [System.ComponentModel.DescriptionAttribute("The maximum allowed reaction time (s).")]
-        public double MaxReactionTime
-        {
-            get
-            {
-                return _maxReactionTime;
-            }
-            set
-            {
-                _maxReactionTime = value;
-            }
-        }
-    
-        /// <summary>
         /// The minimum allowed movement time (s).
         /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("min_movement_time", Required=Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonPropertyAttribute("min_movement_time")]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="min_movement_time")]
         [System.ComponentModel.DescriptionAttribute("The minimum allowed movement time (s).")]
         public double MinMovementTime
@@ -1562,7 +1820,7 @@ namespace Animal
         /// Contains parameters related to the LNP (Lateral Nose Poke) time. The units of each of the parameters is seconds.
         /// </summary>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        [Newtonsoft.Json.JsonPropertyAttribute("lnp_time", Required=Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonPropertyAttribute("lnp_time")]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="lnp_time")]
         [System.ComponentModel.DescriptionAttribute("Contains parameters related to the LNP (Lateral Nose Poke) time. The units of eac" +
             "h of the parameters is seconds.")]
@@ -1579,20 +1837,21 @@ namespace Animal
         }
     
         /// <summary>
-        /// The amount of reward delivered to the animal (uL).
+        /// Contains the parameters that configure the reward delivery.
         /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("base_reward", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="base_reward")]
-        [System.ComponentModel.DescriptionAttribute("The amount of reward delivered to the animal (uL).")]
-        public double BaseReward
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [Newtonsoft.Json.JsonPropertyAttribute("reward", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="reward")]
+        [System.ComponentModel.DescriptionAttribute("Contains the parameters that configure the reward delivery.")]
+        public Reward Reward
         {
             get
             {
-                return _baseReward;
+                return _reward;
             }
             set
             {
-                _baseReward = value;
+                _reward = value;
             }
         }
     
@@ -1600,7 +1859,7 @@ namespace Animal
         /// Contains the optogenetics-related parameters.
         /// </summary>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        [Newtonsoft.Json.JsonPropertyAttribute("optogenetics", Required=Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonPropertyAttribute("optogenetics")]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="optogenetics")]
         [System.ComponentModel.DescriptionAttribute("Contains the optogenetics-related parameters.")]
         public Optogenetics Optogenetics
@@ -1619,7 +1878,7 @@ namespace Animal
         /// Contains parameters related to the autobias correction algorithm.
         /// </summary>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        [Newtonsoft.Json.JsonPropertyAttribute("autobias_correction", Required=Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonPropertyAttribute("autobias_correction")]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="autobias_correction")]
         [System.ComponentModel.DescriptionAttribute("Contains parameters related to the autobias correction algorithm.")]
         public AutobiasCorrection AutobiasCorrection
@@ -1635,46 +1894,10 @@ namespace Animal
         }
     
         /// <summary>
-        /// The probability of the animal receiving reward given a right answer.
-        /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("reward_probability", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="reward_probability")]
-        [System.ComponentModel.DescriptionAttribute("The probability of the animal receiving reward given a right answer.")]
-        public double RewardProbability
-        {
-            get
-            {
-                return _rewardProbability;
-            }
-            set
-            {
-                _rewardProbability = value;
-            }
-        }
-    
-        /// <summary>
-        /// Indicates whether the the same ABL should be used across the current block.
-        /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("abl_block", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="abl_block")]
-        [System.ComponentModel.DescriptionAttribute("Indicates whether the the same ABL should be used across the current block.")]
-        public bool AblBlock
-        {
-            get
-            {
-                return _ablBlock;
-            }
-            set
-            {
-                _ablBlock = value;
-            }
-        }
-    
-        /// <summary>
         /// Contains the parameter to configure a biased session.
         /// </summary>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        [Newtonsoft.Json.JsonPropertyAttribute("biased_session", Required=Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonPropertyAttribute("biased_session")]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="biased_session")]
         [System.ComponentModel.DescriptionAttribute("Contains the parameter to configure a biased session.")]
         public BiasedSession BiasedSession
@@ -1689,33 +1912,30 @@ namespace Animal
             }
         }
     
-        public System.IObservable<Animal> Process()
+        public System.IObservable<Animal> Generate()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new Animal(this)));
         }
     
-        public System.IObservable<Animal> Process<TSource>(System.IObservable<TSource> source)
+        public System.IObservable<Animal> Generate<TSource>(System.IObservable<TSource> source)
         {
             return System.Reactive.Linq.Observable.Select(source, _ => new Animal(this));
         }
     
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
-            stringBuilder.Append("animal_id = " + _animalId + ", ");
-            stringBuilder.Append("batch = " + _batch + ", ");
-            stringBuilder.Append("session = " + _session + ", ");
-            stringBuilder.Append("sound = " + _sound + ", ");
-            stringBuilder.Append("fixation_time = " + _fixationTime + ", ");
-            stringBuilder.Append("reaction_time = " + _reactionTime + ", ");
-            stringBuilder.Append("max_reaction_time = " + _maxReactionTime + ", ");
-            stringBuilder.Append("min_movement_time = " + _minMovementTime + ", ");
-            stringBuilder.Append("lnp_time = " + _lnpTime + ", ");
-            stringBuilder.Append("base_reward = " + _baseReward + ", ");
-            stringBuilder.Append("optogenetics = " + _optogenetics + ", ");
-            stringBuilder.Append("autobias_correction = " + _autobiasCorrection + ", ");
-            stringBuilder.Append("reward_probability = " + _rewardProbability + ", ");
-            stringBuilder.Append("abl_block = " + _ablBlock + ", ");
-            stringBuilder.Append("biased_session = " + _biasedSession);
+            stringBuilder.Append("AnimalId = " + _animalId + ", ");
+            stringBuilder.Append("Batch = " + _batch + ", ");
+            stringBuilder.Append("Session = " + _session + ", ");
+            stringBuilder.Append("Sound = " + _sound + ", ");
+            stringBuilder.Append("FixationTime = " + _fixationTime + ", ");
+            stringBuilder.Append("ReactionTime = " + _reactionTime + ", ");
+            stringBuilder.Append("MinMovementTime = " + _minMovementTime + ", ");
+            stringBuilder.Append("LnpTime = " + _lnpTime + ", ");
+            stringBuilder.Append("Reward = " + _reward + ", ");
+            stringBuilder.Append("Optogenetics = " + _optogenetics + ", ");
+            stringBuilder.Append("AutobiasCorrection = " + _autobiasCorrection + ", ");
+            stringBuilder.Append("BiasedSession = " + _biasedSession);
             return true;
         }
     
@@ -1734,7 +1954,7 @@ namespace Animal
     }
 
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
     [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
     public enum OptoLEDMode
     {
@@ -1749,7 +1969,7 @@ namespace Animal
     }
 
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
     [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
     public enum OptogeneticsMode
     {
@@ -1768,7 +1988,7 @@ namespace Animal
     }
 
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
     [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
     public enum OptogeneticsRampMode
     {
@@ -1794,16 +2014,19 @@ namespace Animal
     /// <summary>
     /// Serializes a sequence of data model objects into JSON strings.
     /// </summary>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
     [System.ComponentModel.DescriptionAttribute("Serializes a sequence of data model objects into JSON strings.")]
-    [Bonsai.CombinatorAttribute()]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Transform)]
+    [Bonsai.CombinatorAttribute()]
     public partial class SerializeToJson
     {
     
+        public Newtonsoft.Json.Formatting Formatting { get; set; }
+
         private System.IObservable<string> Process<T>(System.IObservable<T> source)
         {
-            return System.Reactive.Linq.Observable.Select(source, value => Newtonsoft.Json.JsonConvert.SerializeObject(value));
+            var formatting = Formatting;
+            return System.Reactive.Linq.Observable.Select(source, value => Newtonsoft.Json.JsonConvert.SerializeObject(value, formatting));
         }
 
         public System.IObservable<string> Process(System.IObservable<AutobiasCorrection> source)
@@ -1836,6 +2059,16 @@ namespace Animal
             return Process<Optogenetics>(source);
         }
 
+        public System.IObservable<string> Process(System.IObservable<ReactionTime> source)
+        {
+            return Process<ReactionTime>(source);
+        }
+
+        public System.IObservable<string> Process(System.IObservable<Reward> source)
+        {
+            return Process<Reward>(source);
+        }
+
         public System.IObservable<string> Process(System.IObservable<Session> source)
         {
             return Process<Session>(source);
@@ -1861,7 +2094,7 @@ namespace Animal
     /// <summary>
     /// Deserializes a sequence of JSON strings into data model objects.
     /// </summary>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
     [System.ComponentModel.DescriptionAttribute("Deserializes a sequence of JSON strings into data model objects.")]
     [System.ComponentModel.DefaultPropertyAttribute("Type")]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Transform)]
@@ -1871,6 +2104,8 @@ namespace Animal
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<FixationTime>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<OptoLED>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Optogenetics>))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<ReactionTime>))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Reward>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Session>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Sound>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<TimeConstrains>))]
@@ -1906,10 +2141,10 @@ namespace Animal
     /// <summary>
     /// Serializes a sequence of data model objects into YAML strings.
     /// </summary>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
     [System.ComponentModel.DescriptionAttribute("Serializes a sequence of data model objects into YAML strings.")]
-    [Bonsai.CombinatorAttribute()]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Transform)]
+    [Bonsai.CombinatorAttribute()]
     public partial class SerializeToYaml
     {
     
@@ -1918,7 +2153,8 @@ namespace Animal
             return System.Reactive.Linq.Observable.Defer(() =>
             {
                 var serializer = new YamlDotNet.Serialization.SerializerBuilder()
-                    .Build();
+                      .WithTypeConverter(new YamlDotNet.Serialization.Converters.DateTimeOffsetConverter())
+                      .Build();
                 return System.Reactive.Linq.Observable.Select(source, value => serializer.Serialize(value)); 
             });
         }
@@ -1953,6 +2189,16 @@ namespace Animal
             return Process<Optogenetics>(source);
         }
 
+        public System.IObservable<string> Process(System.IObservable<ReactionTime> source)
+        {
+            return Process<ReactionTime>(source);
+        }
+
+        public System.IObservable<string> Process(System.IObservable<Reward> source)
+        {
+            return Process<Reward>(source);
+        }
+
         public System.IObservable<string> Process(System.IObservable<Session> source)
         {
             return Process<Session>(source);
@@ -1978,7 +2224,7 @@ namespace Animal
     /// <summary>
     /// Deserializes a sequence of YAML strings into data model objects.
     /// </summary>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
     [System.ComponentModel.DescriptionAttribute("Deserializes a sequence of YAML strings into data model objects.")]
     [System.ComponentModel.DefaultPropertyAttribute("Type")]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Transform)]
@@ -1988,6 +2234,8 @@ namespace Animal
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<FixationTime>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<OptoLED>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Optogenetics>))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<ReactionTime>))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Reward>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Session>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Sound>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<TimeConstrains>))]
@@ -2018,7 +2266,8 @@ namespace Animal
             return System.Reactive.Linq.Observable.Defer(() =>
             {
                 var serializer = new YamlDotNet.Serialization.DeserializerBuilder()
-                    .Build();
+                      .WithTypeConverter(new YamlDotNet.Serialization.Converters.DateTimeOffsetConverter())
+                      .Build();
                 return System.Reactive.Linq.Observable.Select(source, value =>
                 {
                     var reader = new System.IO.StringReader(value);
