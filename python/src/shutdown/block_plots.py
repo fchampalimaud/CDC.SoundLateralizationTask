@@ -114,7 +114,7 @@ def _build_text_block(df):
     return txt
 
 
-def generate_plots(data: pd.DataFrame, path: str, backup_path: Optional[str]):
+def generate_plots(data: pd.DataFrame, path: str, backup_path: Optional[str] = None):
     """
     Refactored plotting function that produces the same 3x3 layout per block
     but with much less repeated code. Save each block to path/block_<n>.png
@@ -467,11 +467,11 @@ def generate_plots(data: pd.DataFrame, path: str, backup_path: Optional[str]):
 
         # Save figure
         fig_path = os.path.join(path, f"block_{block_num}.png")
+        fig.savefig(fig_path)
         if backup_path is not None:
             fig_backup_path = os.path.join(backup_path, f"block_{block_num}.png")
-        fig.savefig(fig_path)
-        fig.savefig(fig_backup_path)
-        plt.close(fig)  # close to free memory
+            fig.savefig(fig_backup_path)
+        plt.close(fig)
 
 
 def get_performance_by_ild(df):

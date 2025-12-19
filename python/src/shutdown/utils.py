@@ -1,11 +1,13 @@
 import glob
 import json
 import os
+from pathlib import Path
 from typing import Optional
 
 import numpy as np
 import pandas as pd
 
+from shutdown.block_plots import generate_plots
 from shutdown.video_preprocessing import add_frame_numbers
 
 
@@ -45,6 +47,9 @@ def append_json(dir: str):
                 if text == "":
                     os.remove(path)
                 else:
+                    if text[-1] != "\n":
+                        idx = text.rfind("\n")
+                        text = text[: idx + 1]
                     # Append the data to the string
                     json_string += text
 
@@ -64,7 +69,7 @@ def append_json(dir: str):
     return data
 
 
-def generate_csv(data: dict, path: str, backup_path: Optional[str]):
+def generate_csv(data: dict, path: str, backup_path: Optional[str] = None):
     """
     Generates a CSV file from a JSON object.
 
@@ -103,6 +108,40 @@ def generate_csv(data: dict, path: str, backup_path: Optional[str]):
         df.to_csv(backup_path, index=False)
 
     return df
+
+
+def convert_output(session_dir: Path, backup_dir: Optional[Path] = None):
+    # Get unparsed out directory path
+    out_dir = session_dir / "unparsed_out"
+
+    # Concatenate the data from every output JSON file in the last session directory
+    out_dict = append_json(out_dir)
+
+    # Set the session output file path
+    out_name = (
+        "out_"
+        + os.path.basename(os.path.dirname(session_dir))
+        + "_"
+        + os.path.basename(session_dir)
+        + ".csv"
+    )
+
+    out_path = session_dir / out_name
+    plot_path = session_dir / "plots"
+    os.makedirs(plot_path, exist_ok=True)
+
+    out_backup_path = None
+    plot_backup_path = None
+    if backup_dir is not None:
+        out_backup_path = backup_dir / out_name
+        plot_backup_path = backup_dir / "plots"
+
+    pd.set_option("future.no_silent_downcasting", True)
+    df = generate_csv(out_dict, out_path, out_backup_path)
+    df.replace("NaN", np.nan, inplace=True)
+
+    # Generate plots with some metrics for the each block of the current session
+    generate_plots(df, plot_path, plot_backup_path)
 
 
 COLUMN_RENAMES = {

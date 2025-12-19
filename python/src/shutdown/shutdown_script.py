@@ -1,102 +1,53 @@
-import os
+from pathlib import Path
 
-import numpy as np
-import pandas as pd
 import yaml
 
-from shutdown.block_plots import generate_plots
-from shutdown.utils import append_json, generate_csv
+from shutdown.utils import convert_output
 
 
-class Shutdown:
-    def __init__(self):
-        # Open config.yml file
-        with open("../src/config/config.yml", "r") as file:
-            self.config = yaml.safe_load(file)
+def shutdown():
+    # Open config.yml file
+    with open("../src/config/config.yml", "r") as file:
+        config = yaml.safe_load(file)
 
-        # Open animal.yml file
-        with open(self.config["paths"]["animal"], "r") as file:
-            self.animal_config = yaml.safe_load(file)
+    # Open animal.yml file
+    with open(config["paths"]["animal"], "r") as file:
+        animal_config = yaml.safe_load(file)
 
-        self.animal_dir = (
-            self.config["paths"]["output"]
-            + "/"
-            + self.animal_config["batch"]
-            + "/"
-            + self.animal_config["animal_id"]
+    animal_dir = (
+        Path(config["paths"]["output"])
+        / animal_config["batch"]
+        / animal_config["animal_id"]
+    )
+
+    if config["paths"]["output_backup"] == "":
+        animal_backup_dir = None
+    else:
+        animal_backup_dir = (
+            Path(config["paths"]["output_backup"])
+            / animal_config["batch"]
+            / animal_config["animal_id"]
         )
 
-        if self.config["paths"]["output_backup"] == "":
-            self.animal_backup_dir = None
-        else:
-            self.animal_backup_dir = (
-                self.config["paths"]["output_backup"]
-                + "/"
-                + self.animal_config["batch"]
-                + "/"
-                + self.animal_config["animal_id"]
-            )
+    # Get all of the directories inside the animal directory
+    session_dir = [entry for entry in animal_dir.iterdir() if entry.is_dir()][-1]
+    if animal_backup_dir is not None:
+        session_backup_dir = animal_backup_dir / session_dir.name
 
-        # Get all of the directories inside the animal directory
-        entries = os.listdir(self.animal_dir)
-        self.dirs = [
-            entry
-            for entry in entries
-            if os.path.isdir(os.path.join(self.animal_dir, entry))
-        ]
+    convert_output(session_dir, session_backup_dir)
+    # merge_output()
 
-        self.convert_output()
-        # self.merge_output()
 
-    def convert_output(self):
-        for i in range(len(self.dirs)):
-            # Get unparsed out directory path
-            out_dir = os.path.join(self.animal_dir, self.dirs[i], "unparsed_out")
+# def merge_output(self):
+#     out_path = os.path.join(self.animal_dir, self.dirs[0], "out.csv")
+#     out = pd.read_csv(out_path, na_values=["NaN"])
 
-            # Concatenate the data from every output JSON file in the last session directory
-            out_dict = append_json(out_dir)
+#     for i in range(1, len(self.dirs)):
+#         out_path = os.path.join(
+#             self.animal_dir, self.dirs[i], "out_" + self.dirs[i] + ".csv"
+#         )
+#         df = pd.read_csv(out_path, na_values=["NaN"])
 
-            # Set the session output file path
-            out_name = (
-                "out_" + self.animal_config["animal_id"] + "_" + self.dirs[i] + ".csv"
-            )
-            out_path = os.path.join(self.animal_dir, self.dirs[i], out_name)
+#         out = pd.concat([out, df], axis=0, ignore_index=True)
 
-            plot_path = os.path.join(self.animal_dir, self.dirs[i], "plots")
-            os.makedirs(plot_path, exist_ok=True)
-
-            if self.animal_backup_dir is None:
-                out_backup_path = None
-                plot_backup_path = None
-            else:
-                out_backup_path = os.path.join(
-                    self.animal_backup_dir, self.dirs[i], out_name
-                )
-                plot_backup_path = os.path.join(
-                    self.animal_backup_dir, self.dirs[i], "plots"
-                )
-                os.makedirs(plot_backup_path, exist_ok=True)
-
-            # Generate the out.csv file from the JSON structure if the file doesn't already exists or if it corresponds to the last session
-            if not os.path.isfile(out_path) or (i == len(self.dirs) - 1):
-                pd.set_option("future.no_silent_downcasting", True)
-                df = generate_csv(out_dict, out_path, out_backup_path)
-
-                df.replace("NaN", np.nan, inplace=True)
-
-                # Generate plots with some metrics for the each block of the current session
-                generate_plots(df, plot_path, plot_backup_path)
-
-    def merge_output(self):
-        out_path = os.path.join(self.animal_dir, self.dirs[0], "out.csv")
-        out = pd.read_csv(out_path, na_values=["NaN"])
-
-        for i in range(1, len(self.dirs)):
-            out_path = os.path.join(
-                self.animal_dir, self.dirs[i], "out_" + self.dirs[i] + ".csv"
-            )
-            df = pd.read_csv(out_path, na_values=["NaN"])
-
-            out = pd.concat([out, df], axis=0, ignore_index=True)
-
-        out.to_csv(os.path.join(self.animal_dir, "out.csv"), index=False)
+#     out.to_csv(os.path.join(self.animal_dir, "out.csv"), index=False)
