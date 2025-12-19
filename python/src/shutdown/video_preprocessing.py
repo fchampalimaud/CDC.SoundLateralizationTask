@@ -14,10 +14,11 @@ def add_frame_numbers(out: pd.DataFrame, path):
     df = pd.DataFrame(
         columns=np.array(
             [
-                "trial_frame_start",
-                "trial_frame_cnp",
-                "trial_frame_rt",
-                "trial_frame_mt",
+                "trial_start_frame",
+                "cnp_start_frame",
+                "rt_start_frame",
+                "mt_start_frame",
+                "mt_end_frame",
             ]
         )
     )
@@ -45,12 +46,19 @@ def add_frame_numbers(out: pd.DataFrame, path):
             mt_mask = strobe["Timestamp"] >= row["mt_start"]
             mt_frame = strobe.loc[mt_mask, "FrameID"].iloc[0]
 
+        if np.isnan(row["mt_start"]):
+            mt_end_frame = np.nan
+        else:
+            mt_end_mask = strobe["Timestamp"] >= row["mt_start"] + row["timed_mt"]
+            mt_end_frame = strobe.loc[mt_end_mask, "FrameID"].iloc[0]
+
         new_row = pd.DataFrame(
             {
-                "trial_frame_start": [ts_frame],
-                "trial_frame_cnp": [cnp_frame],
-                "trial_frame_rt": [rt_frame],
-                "trial_frame_mt": [mt_frame],
+                "trial_start_frame": [ts_frame],
+                "cnp_start_frame": [cnp_frame],
+                "rt_start_frame": [rt_frame],
+                "mt_start_frame": [mt_frame],
+                "mt_end_frame": [mt_end_frame],
             }
         )
         df = pd.concat(
