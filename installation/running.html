@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Running the Task | CDC.SoundLateralizationTask </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Running the Task | CDC.SoundLateralizationTask ">
+      
+      
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/fchampalimaud/CDC.SoundLateralizationTask/blob/main/docs/installation/running.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo_white.svg" alt="CDC.SoundLateralizationTask">
+            CDC.SoundLateralizationTask
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="running-the-task">Running the Task</h1>
+
+<p>After having everything else setup, the only thing left is to run the task. To do it, follow the steps:</p>
+<ol>
+<li>In the task's directory, double-click on the <code>./Run.cmd</code> script.</li>
+<li>Answer the initial prompts. Then, the bonsai workflow will open and the task will start with the GUI that allows the user to monitor the task in real-time and interact with some aspects of it.</li>
+</ol>
+<h2 id="initial-prompts">Initial prompts</h2>
+<p>The goal of the initial prompts is to ease up launching the task without the need for the user to change the configuration files manually every session, specially for parameters that depend on the data saved in the previous session (like the trial number) and for repetitive operations (like choosing the animal the will perform the task). Below, you can find the prompts with a brief description of what it does and what answers are valid.</p>
+<ol>
+<li><p>Hello! :) Let me know who you are, please:</p>
+<p>This prompt only accepts letters and spaces and the first character <strong>must</strong> be a capital letter. Examples of valid answers are: <code>John Doe</code> or <code>JD</code>.</p>
+</li>
+<li><p>Are you training an animal from which batch?</p>
+<p>This prompt accepts alphanumeric answers (with underscores, but the underscore can't be the first or last character). An example of a valid answer is: <code>batch_name</code>.</p>
+</li>
+<li><p>Which furry friend is going to be joining us?</p>
+<p>This prompt accepts an animal ID, which is composed by 2 to 6 capital letters followed by 4 digits: Examples of valid answers are: <code>ANIMAL0000</code> or <code>RAT0055</code>.</p>
+</li>
+<li><p>Get parameters from last session (fixation time, reaction time, lnp_time and training_level)? [y/n]</p>
+<p>This prompt only accepts <code>y</code> and <code>n</code> as valid answers and only appears in case the animal input in 3. already started training previously. If the answer is affirmative, the values from fixation time, reaction time, LNP time and training level are read from the last trial done by the animal and written in the animal's <code>animal.yml</code> file.</p>
+</li>
+<li><p>What is the training level the animal should stop progressing? (You can leave blank if the animal can progress until the last level)</p>
+<p>This prompt only accepts a number up to 2 digits.</p>
+</li>
+</ol>
+<p>In addition to the prompts mentioned above, the startup script also looks at the data saved from the last session and updates the session number and the block number automatically.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/fchampalimaud/CDC.SoundLateralizationTask/blob/main/docs/installation/running.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

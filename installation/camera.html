@@ -1,0 +1,253 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Camera Configuration | CDC.SoundLateralizationTask </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Camera Configuration | CDC.SoundLateralizationTask ">
+      
+      
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/fchampalimaud/CDC.SoundLateralizationTask/blob/main/docs/installation/camera.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo_white.svg" alt="CDC.SoundLateralizationTask">
+            CDC.SoundLateralizationTask
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="camera-configuration">Camera Configuration</h1>
+
+<p>The setups need a camera to record the sessions and to monitor the task in real time. Since there's a need for the video to be recorded with some specific settings, this section contains instructions explaining how to configure PointGrey and FLIR cameras, which are the two types of cameras used.</p>
+<h2 id="desired-camera-settings">Desired Camera Settings</h2>
+<p>As mentioned above, there is a need for the camera used in the setup to have some specifications, namely:</p>
+<ul>
+<li>a frame rate if 100 fps.</li>
+<li>the ability for the camera to send a pulse to the Harp Behavior every time a frame is being acquired.</li>
+<li>the ability to receive a pulse from the Harp Behavior when the animal is poking in the central port (by making one of the Behavior's digital outputs mimic the central port digital input).</li>
+</ul>
+<h2 id="flir">FLIR</h2>
+<p>After installing the <a href="software.html#flir">Spinnaker Drivers</a>, connect the camera to the computer in an USB-3.0 port (connecting it to an USB-2.0 port limits the camera's capabilities, namely the frame rate).</p>
+<h3 id="firmware-update">Firmware Update</h3>
+<p>In order to access the state of the GPIO pins in the camera model BFS-U3-16S2M-CS, it's necessary that the firmware version <a href="https://teledyne.app.box.com/s/nug2qb3auxty1betfu5tkpp5kcnkihn8">2207.2.1.0</a> is installed. Follow the instructions to verify the firmware version currently installed and install a different version in case it's necessary.</p>
+<ol>
+<li>Open the SpinView software.</li>
+<li>Select the camera to be configured.</li>
+<li>Click on the <code>Update Device Firmware</code> icon.
+<img src="../images/camera_firmware_1.png" alt="Camera Firmware 1"></li>
+<li>After a new window pops up, click on its <code>Browse</code> button to choose the firmware file. Then, click on <code>Start</code>.
+<img src="../images/camera_firmware_2.png" alt="Camera Firmware 2"></li>
+</ol>
+<h3 id="camera-configuration-1">Camera Configuration</h3>
+<p>After having the correct firmware version installed, follow the instructions to configure the camera.</p>
+<ol>
+<li>Open the SpinView software.</li>
+<li>Select the camera to be configured.</li>
+<li>Click on the <code>Optimize camera frame rate</code> button (see the figure below).</li>
+<li>Click on <code>Features</code>.</li>
+<li>Click on the camera model name and then on <code>Acquisition Control</code>.</li>
+<li>Change the <code>Acquisition Frame Rate</code> parameter to the desired value. Confirm that the <code>Acquisition Frame Rate Enable</code> setting is checked.</li>
+<li>Change the <code>Exposure Auto</code> setting to <code>Off</code> and adjust the <code>Exposure Time</code> to the maximum possible so that the acquisition stays stably at 100 FPS.
+<img src="../images/camera_config_1.png" alt="Camera Config 1"></li>
+<li>Close the <code>Acquisition Control</code> section and open the one named <code>Digital IO Control</code>.</li>
+<li>Select the <code>Line 2</code> in the <code>Line Selector</code> parameter.</li>
+<li>Change the <code>Line Mode</code> to <code>Output</code>.
+<img src="../images/camera_config_2.png" alt="Camera Config 2"></li>
+<li>Close the <code>Digital IO Control</code> section and open the one named <code>User Set Control</code>.</li>
+<li>Select an <code>User Set Selector</code> other than <code>Default</code>.</li>
+<li>Select the same User Set in the <code>User Set Default</code> parameter.</li>
+<li>Finally, click on the <code>User Set Save</code> button to save the current User Set.
+<img src="../images/camera_config_3.png" alt="Camera Config 3"></li>
+<li><em>Optional</em>: Click on <code>Image Format</code> to change the camera resolution and save the User Set again.
+<img src="../images/camera_config_4.png" alt="Camera Config 4"></li>
+</ol>
+<h3 id="hardware-connections">Hardware Connections</h3>
+<p>In order for the camera to be able to communicate with the Harp Behavior, it's necessary that the <a href="https://machinevisiondirect.com/es/products/cei-mva-50-3-x-3m">camera GPIO cable</a> is connected. The following connections shall be made:</p>
+<ul>
+<li>Line 2 (pin 3) from the camera to the Behavior's DI3 pin.</li>
+<li>Line 0 (pin 2) from the camera to the Behavior's DO0 pin.</li>
+</ul>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Don't forget to connect the camera's grounds (pins 5 and 6) to the Harp Behavior's GND pins!</p>
+</div>
+<p><img src="../images/camera_pins.png" alt="Camera Pins"></p>
+<h4 id="gpio-cable-color-code">GPIO Cable Color Code</h4>
+<p>The color code for the <a href="(https://machinevisiondirect.com/es/products/cei-mva-50-3-x-3m)">CEI MVA-50-3-X-3</a> camera GPIO cable is as follows:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Pin</th>
+<th style="text-align: center;">Color</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">White</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">Brown</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">Green</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">Yellow</td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">Gray</td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">Pink</td>
+</tr>
+<tr>
+<td style="text-align: center;">H</td>
+<td style="text-align: center;">Shield</td>
+</tr>
+</tbody>
+</table>
+<h2 id="pointgrey">PointGrey</h2>
+<p>After installing the PointGrey Drivers, connect the camera to the computer in an USB-3.0 port (connecting it to an USB-2.0 port limits the camera's capabilities, namely the frame rate).</p>
+<h3 id="camera-configuration-2">Camera Configuration</h3>
+<p>To configure a PointGrey camera follow the instructions below.</p>
+<ol>
+<li>Open the Point Grey FlyCap2 software.</li>
+<li>Select the camera to be configured and click on the <code>Configure Selected</code> button.
+<img src="../images/flycap_config_1.png" alt="Camera Config 1"></li>
+<li>In the <code>Camera Settings</code> tab, activate the <code>On/Off</code> checkbox from the <code>FrameRate</code> row and modify its value.
+<img src="../images/flycap_config_2.png" alt="Camera Config 2"></li>
+<li>Go to the <code>Trigger / Strobe</code> tab.</li>
+<li>Select the GPIO 0 to be an input and the GPIO 2 to be an output.</li>
+<li>Under <code>Strobe Control</code>, activate the <code>Enable strobe for this pin</code> checkbox for GPIO 2 and change the polarity to <code>High</code>.
+<img src="../images/flycap_config_3.png" alt="Camera Config 3"></li>
+<li>Go to the <code>Advanced Camera Settings</code>.</li>
+<li>In the <code>Embedded Image Information</code>, select the following fields:
+<ul>
+<li>Timestamp</li>
+<li>Frame counter</li>
+<li>Strobe pattern</li>
+<li>GPIO pin state</li>
+</ul>
+</li>
+<li>In the <code>Memory Channels</code> section, select a channel different from <code>Default</code> and click on <code>Save</code> to save the current configuration.
+<img src="../images/flycap_config_4.png" alt="Camera Config 4"></li>
+<li><em>Optional:</em> Go to the <code>Custom Video Modes</code> and modify the camera resolution. Then save the camera configuration again.
+<img src="../images/flycap_config_5.png" alt="Camera Config 5"></li>
+</ol>
+<h3 id="hardware-connections-1">Hardware Connections</h3>
+<p>Since the GPIO cable used by the PointGrey cameras is different from the one used by the FLIR cameras, the connections that need to be made between the camera and the Harp Behavior are also different. The connections should be made as follows:</p>
+<ul>
+<li>Pin 1 (I0) from the camera to the Behavior's DO0 pin.</li>
+<li>Pin 3 (IO2) from the camera do the Behavior's DI3 pin.</li>
+</ul>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Don't forget to connect the camera's grounds (pins 5 and 6) to the Harp Behavior's GND pins!</p>
+</div>
+<p><img src="../images/flycap_pins.png" alt="Camera Pins"></p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>In the actual GPIO cable, the color of the cable corresponding to pin 5 might be purple instead of brown!</p>
+</div>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/fchampalimaud/CDC.SoundLateralizationTask/blob/main/docs/installation/camera.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
