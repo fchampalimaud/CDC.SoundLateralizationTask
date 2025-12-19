@@ -89,9 +89,9 @@ def synch_camera(path):
             header=None,
             names=["Timestamp", "FrameID", "GPIO"],
         )
-        metadata["FrameID"] -= metadata["FrameID"].to_numpy()[0] + 1
+        metadata["FrameID"] = metadata.index.to_numpy() + 1
 
-        si_mask = (strobe["DIPort1"]) & (strobe["DIPort1"].shift(1) == False)
+        si_mask = (strobe["DIPort1"] == False) & (strobe["DIPort1"].shift(1))
         strobe_index = strobe[si_mask].index.to_numpy()[-1]
 
         setup_path = path / "config" / ("setup_" + date + ".json")
