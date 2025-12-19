@@ -1,5 +1,4 @@
 import json
-import os
 from pathlib import Path
 
 import harp
@@ -7,102 +6,153 @@ import numpy as np
 import pandas as pd
 
 
-def add_frame_numbers(out: pd.DataFrame, path):
-    strobe = synch_camera(Path(path))
+def add_frame_numbers(out: pd.DataFrame, path: Path):
+    """
+    Adds the frame numbers to the out structure for the following events: trial start, CNP start, sound (RT) start, MT start and MT end (or LNP start)
 
+    Parameters
+    ----------
+    out : pd.DataFrame
+        The out DataFrame structure without the frame data.
+    path : Path
+        The path to the camera metadata file.
+
+    Returns
+    -------
+    out : pd.DataFrame
+        The final out DataFrame structure.
+    """
+    # Synchronize the camera frames with the Harp timestamps
+    strobe = synch_camera(path)
     strobe = strobe[strobe["Timestamp"] >= 0]
-    df = pd.DataFrame(
-        columns=np.array(
-            [
-                "trial_start_frame",
-                "cnp_start_frame",
-                "rt_start_frame",
-                "mt_start_frame",
-                "mt_end_frame",
-            ]
-        )
+
+    # Create a temporary copy of the out structure
+    temp_out = out.copy()
+    temp_out["mt_end"] = temp_out["mt_start"] + temp_out["timed_mt"]
+
+    # Convert the type of the relevant columns to float
+    temp_out["trial_start"] = temp_out["trial_start"].astype(float)
+    temp_out["cnp_start"] = temp_out["cnp_start"].astype(float)
+    temp_out["rt_start"] = temp_out["rt_start"].astype(float)
+    temp_out["mt_start"] = temp_out["mt_start"].astype(float)
+    temp_out["mt_end"] = temp_out["mt_end"].astype(float)
+
+    # Get the frame number of the start of each trial
+    df = pd.merge_asof(
+        left=temp_out[temp_out["trial_start"].notna()],
+        right=strobe,
+        left_on="trial_start",
+        right_on="Timestamp",
+        direction="forward",
     )
+    df = df.rename(columns={"FrameID": "trial_start_frame"})
+    df = df[["trial", "trial_start_frame"]]
+    out = out.merge(df, how="left", on="trial")
 
-    for i in range(out.shape[0]):
-        row = out.iloc[i]
-        ts_mask = strobe["Timestamp"] >= row["trial_start"]
-        ts_frame = strobe.loc[ts_mask, "FrameID"].iloc[0]
+    # Get the frame number of the CNP events for each trial
+    df = pd.merge_asof(
+        left=temp_out[temp_out["cnp_start"].notna()],
+        right=strobe,
+        left_on="cnp_start",
+        right_on="Timestamp",
+        direction="forward",
+    )
+    df = df.rename(columns={"FrameID": "cnp_start_frame"})
+    df = df[["trial", "cnp_start_frame"]]
+    out = out.merge(df, how="left", on="trial")
 
-        if np.isnan(row["cnp_start"]):
-            cnp_frame = np.nan
-        else:
-            cnp_mask = strobe["Timestamp"] >= row["cnp_start"]
-            cnp_frame = strobe.loc[cnp_mask, "FrameID"].iloc[0]
+    # Get the frame number of the sound start for each trial
+    df = pd.merge_asof(
+        left=temp_out[temp_out["rt_start"].notna()],
+        right=strobe,
+        left_on="rt_start",
+        right_on="Timestamp",
+        direction="forward",
+    )
+    df = df.rename(columns={"FrameID": "rt_start_frame"})
+    df = df[["trial", "rt_start_frame"]]
+    out = out.merge(df, how="left", on="trial")
 
-        if np.isnan(row["rt_start"]):
-            rt_frame = np.nan
-        else:
-            rt_mask = strobe["Timestamp"] >= row["rt_start"]
-            rt_frame = strobe.loc[rt_mask, "FrameID"].iloc[0]
+    # Get the frame number of the moment the animal leaves the central port for each trial
+    df = pd.merge_asof(
+        left=temp_out[temp_out["mt_start"].notna()],
+        right=strobe,
+        left_on="mt_start",
+        right_on="Timestamp",
+        direction="forward",
+    )
+    df = df.rename(columns={"FrameID": "mt_start_frame"})
+    df = df[["trial", "mt_start_frame"]]
+    out = out.merge(df, how="left", on="trial")
 
-        if np.isnan(row["mt_start"]):
-            mt_frame = np.nan
-        else:
-            mt_mask = strobe["Timestamp"] >= row["mt_start"]
-            mt_frame = strobe.loc[mt_mask, "FrameID"].iloc[0]
-
-        if np.isnan(row["mt_start"]):
-            mt_end_frame = np.nan
-        else:
-            mt_end_mask = strobe["Timestamp"] >= row["mt_start"] + row["timed_mt"]
-            mt_end_frame = strobe.loc[mt_end_mask, "FrameID"].iloc[0]
-
-        new_row = pd.DataFrame(
-            {
-                "trial_start_frame": [ts_frame],
-                "cnp_start_frame": [cnp_frame],
-                "rt_start_frame": [rt_frame],
-                "mt_start_frame": [mt_frame],
-                "mt_end_frame": [mt_end_frame],
-            }
+    # FIXME: find out why some data is not being saved correctly
+    # Get the frame number of the moment the animal enters one of the lateral pokes for each trial
+    try:
+        df = pd.merge_asof(
+            left=temp_out[(temp_out["mt_end"].notna())],
+            right=strobe,
+            left_on="mt_end",
+            right_on="Timestamp",
+            direction="forward",
         )
-        df = pd.concat(
-            [i.dropna(axis=1, how="all") for i in [df, new_row]], ignore_index=True
-        )
+        df = df.rename(columns={"FrameID": "mt_end_frame"})
+        df = df[["trial", "mt_end_frame"]]
+        out = out.merge(df, how="left", on="trial")
+    except Exception:
+        print("It was not possible to add the mt_end_frame column")
 
-    final_out = pd.concat([out, df], axis=1)
-
-    return final_out
+    return out
 
 
-def synch_camera(path):
-    datestr = [
-        f.split("_")[2].split(".")[0]
-        for f in os.listdir(path)
-        if f.startswith("cam_metadata_") and f.endswith(".csv")
+def synch_camera(path: Path):
+    """
+    Synchronizes the camera data with the Harp timestamps.
+
+    Parameters
+    ----------
+    path : Path
+        The path to the camera metadata file.
+
+    Returns
+    -------
+    synched_data : pd.DataFrame
+        A pandas DataFrame containing a Harp timestamp for every frame, as well as the state of the camera GPIOs and the relevant Harp Behavior GPIOs.
+    """
+
+    # Get all of the time strings that correspond to a camera metadata file
+    timestr_array = [
+        f.name.split("_")[2].split(".")[0]
+        for f in path.iterdir()
+        if f.name.startswith("cam_metadata_") and f.name.endswith(".csv")
     ]
 
+    # Initialize a DataFrame for the synched data between the camera and the Harp
     synched_data = pd.DataFrame(
         columns=np.array(["Timestamp", "DI3", "DIPort1", "FrameID", "GPIO"])
     )
 
-    for date in datestr:
-        events_path = path / "events" / date / "behavior"
+    for timestr in timestr_array:
+        events_path = path / "events" / timestr / "behavior"
         reader = harp.create_reader(events_path)
 
         strobe = reader.DigitalInputState.read(events_path / "behavior_32.bin")
-        strobe = strobe[(strobe["DI3"] == False) & (strobe["DI3"].shift(1))]
+        strobe = strobe[(~strobe["DI3"]) & (strobe["DI3"].shift(1))]
         strobe = strobe[["DI3", "DIPort1"]]
         timestamps = strobe.index.to_numpy()
         strobe = strobe.reset_index(drop=True)
         strobe["Timestamp"] = timestamps
 
         metadata = pd.read_csv(
-            path / ("cam_metadata_" + date + ".csv"),
+            path / ("cam_metadata_" + timestr + ".csv"),
             header=None,
             names=["Timestamp", "FrameID", "GPIO"],
         )
         metadata["FrameID"] = metadata.index.to_numpy() + 1
 
-        si_mask = (strobe["DIPort1"] == False) & (strobe["DIPort1"].shift(1))
+        si_mask = (~strobe["DIPort1"]) & (strobe["DIPort1"].shift(1))
         strobe_index = strobe[si_mask].index.to_numpy()[-1]
 
-        setup_path = path / "config" / ("setup_" + date + ".json")
+        setup_path = path / "config" / ("setup_" + timestr + ".json")
         with open(setup_path, "r") as file:
             setup = json.load(file)
 
@@ -116,25 +166,24 @@ def synch_camera(path):
 
         sl_after = strobe.iloc[strobe_index:].shape[0]
         ml_after = metadata.iloc[metadata_index:].shape[0]
-        if sl_after > ml_after:
-            new_row = pd.Series([0, 0, 0], index=["Timestamp", "FrameID", "GPIO"])
-            for i in range(sl_after - ml_after):
-                metadata = metadata._append(new_row, ignore_index=True)
-        elif sl_after < ml_after:
-            new_row = pd.Series([0, 0, 0], index=["DI3", "DIPort1", "Timestamp"])
-            for i in range(ml_after - sl_after):
-                strobe = strobe._append(new_row, ignore_index=True)
+        zeros = np.zeros(max(0, ml_after - sl_after), dtype=int)
+        pos_strobe = pd.DataFrame({"Timestamp": zeros, "FrameID": zeros, "GPIO": zeros})
+        zeros = np.zeros(max(0, sl_after - ml_after), dtype=int)
+        pos_metadata = pd.DataFrame(
+            {"DI3": zeros, "DIPort1": zeros, "Timestamp": zeros}
+        )
 
         sl_before = strobe.iloc[:strobe_index].shape[0]
         ml_before = metadata.iloc[:metadata_index].shape[0]
-        if sl_before > ml_before:
-            new_row = pd.DataFrame({"Timestamp": [0], "FrameID": [0], "GPIO": [0]})
-            for i in range(sl_before - ml_before):
-                metadata = pd.concat([new_row, metadata], ignore_index=True)
-        elif sl_before < ml_before:
-            new_row = pd.DataFrame({"Timestamp": [0], "FrameID": [0], "GPIO": [0]})
-            for i in range(ml_before - sl_before):
-                strobe = pd.concat([new_row, strobe], ignore_index=True)
+        zeros = np.zeros(max(0, ml_before - sl_before), dtype=int)
+        pre_strobe = pd.DataFrame({"Timestamp": zeros, "FrameID": zeros, "GPIO": zeros})
+        zeros = np.zeros(max(0, sl_before - ml_before), dtype=int)
+        pre_metadata = pd.DataFrame(
+            {"DI3": zeros, "DIPort1": zeros, "Timestamp": zeros}
+        )
+
+        strobe = pd.concat([pre_strobe, strobe, pos_strobe], ignore_index=True)
+        metadata = pd.concat([pre_metadata, metadata, pos_metadata], ignore_index=True)
 
         df = pd.DataFrame(
             {

@@ -69,38 +69,37 @@ def append_json(dir: str):
     return data
 
 
-def generate_csv(data: dict, path: str, backup_path: Optional[str] = None):
+def generate_csv(data: dict, path: Path, backup_path: Optional[Path] = None):
     """
     Generates a CSV file from a JSON object.
 
     Parameters
     ----------
-    data : str
+    data : dict
         the JSON object to convert to CSV.
-    path : str
+    path : Path
         the path to the output file.
+    backup_path : Path, optional
+        the path to the backup output file.
 
     Returns
     -------
     df : DataFrame
         the output structure pandas DataFrame.
     """
-
     # Create a DataFrame from a dictionary
     df = pd.json_normalize(data)
 
-    # Rename the columns to shorter and more intuitive names
+    # Rename the columns to shorter and more intuitive names and replace "NaN" strings
     df = df.rename(columns=COLUMN_RENAMES)
-
     df.replace("NaN", np.nan, inplace=True)
 
-    dir = os.path.dirname(path)
-    if glob.glob(os.path.join(dir, "cam_metadata_*.csv")):
-        # df = add_frame_numbers(df, dir)
+    # Create columns of the frame numbers that correspond to specific events of a trial
+    if glob.glob(str(path.parent / "cam_metadata_*.csv")):
         try:
-            df = add_frame_numbers(df, dir)
+            df = add_frame_numbers(df, path.parent)
         except Exception:
-            print("It was not possible to process the camera metadata.")
+            print("It was not possible to process the camera metadata")
 
     # Save the DataFrame to CSV
     df.to_csv(path, index=False)
@@ -118,13 +117,7 @@ def convert_output(session_dir: Path, backup_dir: Optional[Path] = None):
     out_dict = append_json(out_dir)
 
     # Set the session output file path
-    out_name = (
-        "out_"
-        + os.path.basename(os.path.dirname(session_dir))
-        + "_"
-        + os.path.basename(session_dir)
-        + ".csv"
-    )
+    out_name = "out_" + session_dir.parent.name + "_" + session_dir.name + ".csv"
 
     out_path = session_dir / out_name
     plot_path = session_dir / "plots"
