@@ -791,7 +791,7 @@
                                                               <Name>AnimalConfig</Name>
                                                             </Expression>
                                                             <Expression xsi:type="MemberSelector">
-                                                              <Selector>AblBlock</Selector>
+                                                              <Selector>Sound.AblBlock</Selector>
                                                             </Expression>
                                                             <Expression xsi:type="Equal">
                                                               <Operand xsi:type="BooleanProperty">
@@ -853,7 +853,7 @@
                                                               <Name>AnimalConfig</Name>
                                                             </Expression>
                                                             <Expression xsi:type="MemberSelector">
-                                                              <Selector>AblBlock</Selector>
+                                                              <Selector>Sound.AblBlock</Selector>
                                                             </Expression>
                                                             <Expression xsi:type="SubscribeSubject">
                                                               <Name>BlockTrial</Name>
@@ -910,7 +910,7 @@
                                                               <Name>AnimalConfig</Name>
                                                             </Expression>
                                                             <Expression xsi:type="MemberSelector">
-                                                              <Selector>AblBlock</Selector>
+                                                              <Selector>Sound.AblBlock</Selector>
                                                             </Expression>
                                                             <Expression xsi:type="SubscribeSubject">
                                                               <Name>BlockTrial</Name>
@@ -6886,7 +6886,7 @@
                           <Name>AnimalConfig</Name>
                         </Expression>
                         <Expression xsi:type="MemberSelector">
-                          <Selector>BaseReward</Selector>
+                          <Selector>Reward.BaseAmount</Selector>
                         </Expression>
                         <Expression xsi:type="SubscribeSubject">
                           <Name>AnimalConfig</Name>
@@ -6963,7 +6963,7 @@
                           <Name>AnimalConfig</Name>
                         </Expression>
                         <Expression xsi:type="MemberSelector">
-                          <Selector>BaseReward</Selector>
+                          <Selector>Reward.BaseAmount</Selector>
                         </Expression>
                         <Expression xsi:type="SubscribeSubject">
                           <Name>AnimalConfig</Name>
@@ -7056,7 +7056,7 @@
                     <Name>AnimalConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
-                    <Selector>BaseReward</Selector>
+                    <Selector>Reward.BaseAmount</Selector>
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:WithLatestFrom" />
@@ -10982,7 +10982,7 @@
                     <Name>AnimalConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
-                    <Selector>MaxReactionTime</Selector>
+                    <Selector>ReactionTime.MaxValue</Selector>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
                     <Name>TimedRT</Name>
@@ -11106,6 +11106,7 @@
                     <Combinator xsi:type="p8:Outcome">
                       <p8:ResponsePoke>NaN</p8:ResponsePoke>
                       <p8:Success>0</p8:Success>
+                      <p8:AbortType>Empty</p8:AbortType>
                       <p8:BlockPerformance>NaN</p8:BlockPerformance>
                       <p8:BlockAbortRatio>0</p8:BlockAbortRatio>
                     </Combinator>
@@ -11247,6 +11248,7 @@
                     <Combinator xsi:type="p8:Optogenetics">
                       <p8:OptoTrial>false</p8:OptoTrial>
                       <p8:Duration>0</p8:Duration>
+                      <p8:Mode>Left</p8:Mode>
                       <p8:Led0Voltage>0</p8:Led0Voltage>
                       <p8:Led0Power>0</p8:Led0Power>
                       <p8:Led1Voltage>0</p8:Led1Voltage>
@@ -11263,7 +11265,7 @@
                       <p8:AnimalId>ANIMAL0000</p8:AnimalId>
                       <p8:Batch>batch_name</p8:Batch>
                       <p8:Experimenter>experimenter_name</p8:Experimenter>
-                      <p8:Version>0.7.1</p8:Version>
+                      <p8:Version>0.8.0</p8:Version>
                       <p8:Bias>0</p8:Bias>
                       <p8:RepeatedTrial>false</p8:RepeatedTrial>
                     </Combinator>
@@ -11373,7 +11375,9 @@
                     <Combinator xsi:type="rx:Merge" />
                   </Expression>
                   <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="p8:SerializeToJson" />
+                    <Combinator xsi:type="p8:SerializeToJson">
+                      <p8:Formatting>None</p8:Formatting>
+                    </Combinator>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
                     <Name>OutputDirPath</Name>
@@ -19755,7 +19759,7 @@
                     <Name>AnimalConfig</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
-                    <Selector>MaxReactionTime</Selector>
+                    <Selector>ReactionTime.MaxValue</Selector>
                   </Expression>
                   <Expression xsi:type="scr:ExpressionTransform">
                     <scr:Name>FromSecondsToTimeSpan</scr:Name>
@@ -20633,7 +20637,7 @@
                           <Name>AnimalConfig</Name>
                         </Expression>
                         <Expression xsi:type="MemberSelector">
-                          <Selector>RewardProbability</Selector>
+                          <Selector>Reward.Probability</Selector>
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="rx:CombineLatest" />
@@ -20696,7 +20700,7 @@
                           <Name>AnimalConfig</Name>
                         </Expression>
                         <Expression xsi:type="MemberSelector">
-                          <Selector>RewardProbability</Selector>
+                          <Selector>Reward.Probability</Selector>
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="rx:CombineLatest" />
