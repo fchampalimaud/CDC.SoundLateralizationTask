@@ -1,0 +1,1 @@
+powershell -ExecutionPolicy Bypass -File .\conversion_tool.ps1

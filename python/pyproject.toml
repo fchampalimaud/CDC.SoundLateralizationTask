@@ -28,6 +28,7 @@ generate-schemas = "sgen.__main__:main"
 config = "config.__main__:main"
 startup = "startup.__main__:main"
 convert-output = "shutdown.shutdown_script:shutdown"
+conversion-tool = "shutdown.tool:convert_tool"
 
 [build-system]
 requires = ["hatchling"]
