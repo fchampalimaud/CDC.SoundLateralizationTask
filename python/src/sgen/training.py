@@ -165,7 +165,7 @@ def generate_training():
 
     bonsai_sgen(
         schema_path=schema_path,
-        output_path=Path(rf"../src/Extensions/{schema_name}.cs"),
+        output_path=Path(rf"../src/Extensions"),
         namespace=schema_name,
         serializer=[BonsaiSgenSerializers.JSON, BonsaiSgenSerializers.YAML],
     )

@@ -9,9 +9,9 @@ namespace Config
 {
     #pragma warning disable // Disable all warnings
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
-    [Bonsai.CombinatorAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
+    [Bonsai.CombinatorAttribute(MethodName="Generate")]
     public partial class Paths
     {
     
@@ -134,7 +134,7 @@ namespace Config
         /// <summary>
         /// The path to the backup output directory.
         /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("output_backup", Required=Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonPropertyAttribute("output_backup", Required=Newtonsoft.Json.Required.AllowNull)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="output_backup")]
         [System.ComponentModel.DescriptionAttribute("The path to the backup output directory.")]
         public string OutputBackup
@@ -149,24 +149,24 @@ namespace Config
             }
         }
     
-        public System.IObservable<Paths> Process()
+        public System.IObservable<Paths> Generate()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new Paths(this)));
         }
     
-        public System.IObservable<Paths> Process<TSource>(System.IObservable<TSource> source)
+        public System.IObservable<Paths> Generate<TSource>(System.IObservable<TSource> source)
         {
             return System.Reactive.Linq.Observable.Select(source, _ => new Paths(this));
         }
     
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
-            stringBuilder.Append("animal = " + _animal + ", ");
-            stringBuilder.Append("animal_dir = " + _animalDir + ", ");
-            stringBuilder.Append("setup = " + _setup + ", ");
-            stringBuilder.Append("training = " + _training + ", ");
-            stringBuilder.Append("output = " + _output + ", ");
-            stringBuilder.Append("output_backup = " + _outputBackup);
+            stringBuilder.Append("Animal = " + _animal + ", ");
+            stringBuilder.Append("AnimalDir = " + _animalDir + ", ");
+            stringBuilder.Append("Setup = " + _setup + ", ");
+            stringBuilder.Append("Training = " + _training + ", ");
+            stringBuilder.Append("Output = " + _output + ", ");
+            stringBuilder.Append("OutputBackup = " + _outputBackup);
             return true;
         }
     
@@ -185,9 +185,9 @@ namespace Config
     }
 
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
-    [Bonsai.CombinatorAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
+    [Bonsai.CombinatorAttribute(MethodName="Generate")]
     public partial class Ports
     {
     
@@ -325,24 +325,24 @@ namespace Config
             }
         }
     
-        public System.IObservable<Ports> Process()
+        public System.IObservable<Ports> Generate()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new Ports(this)));
         }
     
-        public System.IObservable<Ports> Process<TSource>(System.IObservable<TSource> source)
+        public System.IObservable<Ports> Generate<TSource>(System.IObservable<TSource> source)
         {
             return System.Reactive.Linq.Observable.Select(source, _ => new Ports(this));
         }
     
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
-            stringBuilder.Append("behavior = " + _behavior + ", ");
-            stringBuilder.Append("soundcard = " + _soundcard + ", ");
-            stringBuilder.Append("left_pump = " + _leftPump + ", ");
-            stringBuilder.Append("right_pump = " + _rightPump + ", ");
-            stringBuilder.Append("currentdriver = " + _currentdriver + ", ");
-            stringBuilder.Append("clocksynchronizer = " + _clocksynchronizer);
+            stringBuilder.Append("Behavior = " + _behavior + ", ");
+            stringBuilder.Append("Soundcard = " + _soundcard + ", ");
+            stringBuilder.Append("LeftPump = " + _leftPump + ", ");
+            stringBuilder.Append("RightPump = " + _rightPump + ", ");
+            stringBuilder.Append("Currentdriver = " + _currentdriver + ", ");
+            stringBuilder.Append("Clocksynchronizer = " + _clocksynchronizer);
             return true;
         }
     
@@ -361,20 +361,22 @@ namespace Config
     }
 
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
-    [Bonsai.CombinatorAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
+    [Bonsai.CombinatorAttribute(MethodName="Generate")]
     public partial class Config
     {
     
         private int _setup;
     
-        private Ports _ports = new Ports();
+        private Ports _ports;
     
-        private Paths _paths = new Paths();
+        private Paths _paths;
     
         public Config()
         {
+            _ports = new Ports();
+            _paths = new Paths();
         }
     
         protected Config(Config other)
@@ -440,21 +442,21 @@ namespace Config
             }
         }
     
-        public System.IObservable<Config> Process()
+        public System.IObservable<Config> Generate()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new Config(this)));
         }
     
-        public System.IObservable<Config> Process<TSource>(System.IObservable<TSource> source)
+        public System.IObservable<Config> Generate<TSource>(System.IObservable<TSource> source)
         {
             return System.Reactive.Linq.Observable.Select(source, _ => new Config(this));
         }
     
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
-            stringBuilder.Append("setup = " + _setup + ", ");
-            stringBuilder.Append("ports = " + _ports + ", ");
-            stringBuilder.Append("paths = " + _paths);
+            stringBuilder.Append("Setup = " + _setup + ", ");
+            stringBuilder.Append("Ports = " + _ports + ", ");
+            stringBuilder.Append("Paths = " + _paths);
             return true;
         }
     
@@ -476,16 +478,19 @@ namespace Config
     /// <summary>
     /// Serializes a sequence of data model objects into JSON strings.
     /// </summary>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
     [System.ComponentModel.DescriptionAttribute("Serializes a sequence of data model objects into JSON strings.")]
-    [Bonsai.CombinatorAttribute()]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Transform)]
+    [Bonsai.CombinatorAttribute()]
     public partial class SerializeToJson
     {
     
+        public Newtonsoft.Json.Formatting Formatting { get; set; }
+
         private System.IObservable<string> Process<T>(System.IObservable<T> source)
         {
-            return System.Reactive.Linq.Observable.Select(source, value => Newtonsoft.Json.JsonConvert.SerializeObject(value));
+            var formatting = Formatting;
+            return System.Reactive.Linq.Observable.Select(source, value => Newtonsoft.Json.JsonConvert.SerializeObject(value, formatting));
         }
 
         public System.IObservable<string> Process(System.IObservable<Paths> source)
@@ -508,7 +513,7 @@ namespace Config
     /// <summary>
     /// Deserializes a sequence of JSON strings into data model objects.
     /// </summary>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
     [System.ComponentModel.DescriptionAttribute("Deserializes a sequence of JSON strings into data model objects.")]
     [System.ComponentModel.DefaultPropertyAttribute("Type")]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Transform)]
@@ -546,10 +551,10 @@ namespace Config
     /// <summary>
     /// Serializes a sequence of data model objects into YAML strings.
     /// </summary>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
     [System.ComponentModel.DescriptionAttribute("Serializes a sequence of data model objects into YAML strings.")]
-    [Bonsai.CombinatorAttribute()]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Transform)]
+    [Bonsai.CombinatorAttribute()]
     public partial class SerializeToYaml
     {
     
@@ -558,7 +563,8 @@ namespace Config
             return System.Reactive.Linq.Observable.Defer(() =>
             {
                 var serializer = new YamlDotNet.Serialization.SerializerBuilder()
-                    .Build();
+                      .WithTypeConverter(new YamlDotNet.Serialization.Converters.DateTimeOffsetConverter())
+                      .Build();
                 return System.Reactive.Linq.Observable.Select(source, value => serializer.Serialize(value)); 
             });
         }
@@ -583,7 +589,7 @@ namespace Config
     /// <summary>
     /// Deserializes a sequence of YAML strings into data model objects.
     /// </summary>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
     [System.ComponentModel.DescriptionAttribute("Deserializes a sequence of YAML strings into data model objects.")]
     [System.ComponentModel.DefaultPropertyAttribute("Type")]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Transform)]
@@ -616,7 +622,8 @@ namespace Config
             return System.Reactive.Linq.Observable.Defer(() =>
             {
                 var serializer = new YamlDotNet.Serialization.DeserializerBuilder()
-                    .Build();
+                      .WithTypeConverter(new YamlDotNet.Serialization.Converters.DateTimeOffsetConverter())
+                      .Build();
                 return System.Reactive.Linq.Observable.Select(source, value =>
                 {
                     var reader = new System.IO.StringReader(value);

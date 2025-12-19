@@ -9,9 +9,9 @@ namespace Setup
 {
     #pragma warning disable // Disable all warnings
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
-    [Bonsai.CombinatorAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
+    [Bonsai.CombinatorAttribute(MethodName="Generate")]
     public partial class Camera
     {
     
@@ -59,7 +59,6 @@ namespace Setup
         /// <summary>
         /// The type of camera used in the setup.
         /// </summary>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
         [Newtonsoft.Json.JsonPropertyAttribute("type", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="type")]
         [System.ComponentModel.DescriptionAttribute("The type of camera used in the setup.")]
@@ -114,7 +113,6 @@ namespace Setup
         /// <summary>
         /// The codec used to save the video with FFMPEG.
         /// </summary>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
         [Newtonsoft.Json.JsonPropertyAttribute("codec", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="codec")]
         [System.ComponentModel.DescriptionAttribute("The codec used to save the video with FFMPEG.")]
@@ -130,23 +128,23 @@ namespace Setup
             }
         }
     
-        public System.IObservable<Camera> Process()
+        public System.IObservable<Camera> Generate()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new Camera(this)));
         }
     
-        public System.IObservable<Camera> Process<TSource>(System.IObservable<TSource> source)
+        public System.IObservable<Camera> Generate<TSource>(System.IObservable<TSource> source)
         {
             return System.Reactive.Linq.Observable.Select(source, _ => new Camera(this));
         }
     
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
-            stringBuilder.Append("use_camera = " + _useCamera + ", ");
-            stringBuilder.Append("type = " + _type + ", ");
-            stringBuilder.Append("frames_per_second = " + _framesPerSecond + ", ");
-            stringBuilder.Append("resolution = " + _resolution + ", ");
-            stringBuilder.Append("codec = " + _codec);
+            stringBuilder.Append("UseCamera = " + _useCamera + ", ");
+            stringBuilder.Append("Type = " + _type + ", ");
+            stringBuilder.Append("FramesPerSecond = " + _framesPerSecond + ", ");
+            stringBuilder.Append("Resolution = " + _resolution + ", ");
+            stringBuilder.Append("Codec = " + _codec);
             return true;
         }
     
@@ -165,9 +163,9 @@ namespace Setup
     }
 
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
-    [Bonsai.CombinatorAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
+    [Bonsai.CombinatorAttribute(MethodName="Generate")]
     public partial class Lights
     {
     
@@ -309,24 +307,24 @@ namespace Setup
             }
         }
     
-        public System.IObservable<Lights> Process()
+        public System.IObservable<Lights> Generate()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new Lights(this)));
         }
     
-        public System.IObservable<Lights> Process<TSource>(System.IObservable<TSource> source)
+        public System.IObservable<Lights> Generate<TSource>(System.IObservable<TSource> source)
         {
             return System.Reactive.Linq.Observable.Select(source, _ => new Lights(this));
         }
     
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
-            stringBuilder.Append("box_period = " + _boxPeriod + ", ");
-            stringBuilder.Append("poke_period = " + _pokePeriod + ", ");
-            stringBuilder.Append("iti_light = " + _itiLight + ", ");
-            stringBuilder.Append("poke_light = " + _pokeLight + ", ");
-            stringBuilder.Append("fixation_light = " + _fixationLight + ", ");
-            stringBuilder.Append("penalty_light = " + _penaltyLight);
+            stringBuilder.Append("BoxPeriod = " + _boxPeriod + ", ");
+            stringBuilder.Append("PokePeriod = " + _pokePeriod + ", ");
+            stringBuilder.Append("ItiLight = " + _itiLight + ", ");
+            stringBuilder.Append("PokeLight = " + _pokeLight + ", ");
+            stringBuilder.Append("FixationLight = " + _fixationLight + ", ");
+            stringBuilder.Append("PenaltyLight = " + _penaltyLight);
             return true;
         }
     
@@ -345,9 +343,9 @@ namespace Setup
     }
 
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
-    [Bonsai.CombinatorAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
+    [Bonsai.CombinatorAttribute(MethodName="Generate")]
     public partial class Poke
     {
     
@@ -381,19 +379,19 @@ namespace Setup
             }
         }
     
-        public System.IObservable<Poke> Process()
+        public System.IObservable<Poke> Generate()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new Poke(this)));
         }
     
-        public System.IObservable<Poke> Process<TSource>(System.IObservable<TSource> source)
+        public System.IObservable<Poke> Generate<TSource>(System.IObservable<TSource> source)
         {
             return System.Reactive.Linq.Observable.Select(source, _ => new Poke(this));
         }
     
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
-            stringBuilder.Append("low_to_high = " + _lowToHigh);
+            stringBuilder.Append("LowToHigh = " + _lowToHigh);
             return true;
         }
     
@@ -412,9 +410,9 @@ namespace Setup
     }
 
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
-    [Bonsai.CombinatorAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
+    [Bonsai.CombinatorAttribute(MethodName="Generate")]
     public partial class Speakers
     {
     
@@ -510,22 +508,22 @@ namespace Setup
             }
         }
     
-        public System.IObservable<Speakers> Process()
+        public System.IObservable<Speakers> Generate()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new Speakers(this)));
         }
     
-        public System.IObservable<Speakers> Process<TSource>(System.IObservable<TSource> source)
+        public System.IObservable<Speakers> Generate<TSource>(System.IObservable<TSource> source)
         {
             return System.Reactive.Linq.Observable.Select(source, _ => new Speakers(this));
         }
     
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
-            stringBuilder.Append("left_slope = " + _leftSlope + ", ");
-            stringBuilder.Append("left_intercept = " + _leftIntercept + ", ");
-            stringBuilder.Append("right_slope = " + _rightSlope + ", ");
-            stringBuilder.Append("right_intercept = " + _rightIntercept);
+            stringBuilder.Append("LeftSlope = " + _leftSlope + ", ");
+            stringBuilder.Append("LeftIntercept = " + _leftIntercept + ", ");
+            stringBuilder.Append("RightSlope = " + _rightSlope + ", ");
+            stringBuilder.Append("RightIntercept = " + _rightIntercept);
             return true;
         }
     
@@ -544,9 +542,9 @@ namespace Setup
     }
 
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
-    [Bonsai.CombinatorAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
+    [Bonsai.CombinatorAttribute(MethodName="Generate")]
     public partial class SyringePumps
     {
     
@@ -664,23 +662,23 @@ namespace Setup
             }
         }
     
-        public System.IObservable<SyringePumps> Process()
+        public System.IObservable<SyringePumps> Generate()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new SyringePumps(this)));
         }
     
-        public System.IObservable<SyringePumps> Process<TSource>(System.IObservable<TSource> source)
+        public System.IObservable<SyringePumps> Generate<TSource>(System.IObservable<TSource> source)
         {
             return System.Reactive.Linq.Observable.Select(source, _ => new SyringePumps(this));
         }
     
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
-            stringBuilder.Append("use_pumps = " + _usePumps + ", ");
-            stringBuilder.Append("left_slope = " + _leftSlope + ", ");
-            stringBuilder.Append("left_intercept = " + _leftIntercept + ", ");
-            stringBuilder.Append("right_slope = " + _rightSlope + ", ");
-            stringBuilder.Append("right_intercept = " + _rightIntercept);
+            stringBuilder.Append("UsePumps = " + _usePumps + ", ");
+            stringBuilder.Append("LeftSlope = " + _leftSlope + ", ");
+            stringBuilder.Append("LeftIntercept = " + _leftIntercept + ", ");
+            stringBuilder.Append("RightSlope = " + _rightSlope + ", ");
+            stringBuilder.Append("RightIntercept = " + _rightIntercept);
             return true;
         }
     
@@ -699,34 +697,43 @@ namespace Setup
     }
 
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
-    [Bonsai.CombinatorAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
+    [Bonsai.CombinatorAttribute(MethodName="Generate")]
     public partial class Setup
     {
     
         private int _setupId;
     
-        private Poke _leftPoke = new Poke();
+        private Poke _leftPoke;
     
-        private Poke _centerPoke = new Poke();
+        private Poke _centerPoke;
     
-        private Poke _rightPoke = new Poke();
+        private Poke _rightPoke;
     
-        private Speakers _speakers = new Speakers();
+        private Speakers _speakers;
     
-        private Lights _lights = new Lights();
+        private Lights _lights;
     
-        private SyringePumps _syringePumps = new SyringePumps();
+        private SyringePumps _syringePumps;
     
-        private System.Collections.Generic.List<int> _sounds = new System.Collections.Generic.List<int>();
+        private System.Collections.Generic.List<int> _sounds;
     
-        private System.Collections.Generic.List<int> _shortSounds = new System.Collections.Generic.List<int>();
+        private System.Collections.Generic.List<int> _shortSounds;
     
-        private Camera _camera = new Camera();
+        private Camera _camera;
     
         public Setup()
         {
+            _leftPoke = new Poke();
+            _centerPoke = new Poke();
+            _rightPoke = new Poke();
+            _speakers = new Speakers();
+            _lights = new Lights();
+            _syringePumps = new SyringePumps();
+            _sounds = new System.Collections.Generic.List<int>();
+            _shortSounds = new System.Collections.Generic.List<int>();
+            _camera = new Camera();
         }
     
         protected Setup(Setup other)
@@ -934,28 +941,28 @@ namespace Setup
             }
         }
     
-        public System.IObservable<Setup> Process()
+        public System.IObservable<Setup> Generate()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new Setup(this)));
         }
     
-        public System.IObservable<Setup> Process<TSource>(System.IObservable<TSource> source)
+        public System.IObservable<Setup> Generate<TSource>(System.IObservable<TSource> source)
         {
             return System.Reactive.Linq.Observable.Select(source, _ => new Setup(this));
         }
     
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
-            stringBuilder.Append("setup_id = " + _setupId + ", ");
-            stringBuilder.Append("left_poke = " + _leftPoke + ", ");
-            stringBuilder.Append("center_poke = " + _centerPoke + ", ");
-            stringBuilder.Append("right_poke = " + _rightPoke + ", ");
-            stringBuilder.Append("speakers = " + _speakers + ", ");
-            stringBuilder.Append("lights = " + _lights + ", ");
-            stringBuilder.Append("syringe_pumps = " + _syringePumps + ", ");
-            stringBuilder.Append("sounds = " + _sounds + ", ");
-            stringBuilder.Append("short_sounds = " + _shortSounds + ", ");
-            stringBuilder.Append("camera = " + _camera);
+            stringBuilder.Append("SetupId = " + _setupId + ", ");
+            stringBuilder.Append("LeftPoke = " + _leftPoke + ", ");
+            stringBuilder.Append("CenterPoke = " + _centerPoke + ", ");
+            stringBuilder.Append("RightPoke = " + _rightPoke + ", ");
+            stringBuilder.Append("Speakers = " + _speakers + ", ");
+            stringBuilder.Append("Lights = " + _lights + ", ");
+            stringBuilder.Append("SyringePumps = " + _syringePumps + ", ");
+            stringBuilder.Append("Sounds = " + _sounds + ", ");
+            stringBuilder.Append("ShortSounds = " + _shortSounds + ", ");
+            stringBuilder.Append("Camera = " + _camera);
             return true;
         }
     
@@ -974,7 +981,7 @@ namespace Setup
     }
 
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
     [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
     public enum CameraType
     {
@@ -989,7 +996,7 @@ namespace Setup
     }
 
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
     [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
     public enum CameraCodec
     {
@@ -1007,16 +1014,19 @@ namespace Setup
     /// <summary>
     /// Serializes a sequence of data model objects into JSON strings.
     /// </summary>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
     [System.ComponentModel.DescriptionAttribute("Serializes a sequence of data model objects into JSON strings.")]
-    [Bonsai.CombinatorAttribute()]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Transform)]
+    [Bonsai.CombinatorAttribute()]
     public partial class SerializeToJson
     {
     
+        public Newtonsoft.Json.Formatting Formatting { get; set; }
+
         private System.IObservable<string> Process<T>(System.IObservable<T> source)
         {
-            return System.Reactive.Linq.Observable.Select(source, value => Newtonsoft.Json.JsonConvert.SerializeObject(value));
+            var formatting = Formatting;
+            return System.Reactive.Linq.Observable.Select(source, value => Newtonsoft.Json.JsonConvert.SerializeObject(value, formatting));
         }
 
         public System.IObservable<string> Process(System.IObservable<Camera> source)
@@ -1054,7 +1064,7 @@ namespace Setup
     /// <summary>
     /// Deserializes a sequence of JSON strings into data model objects.
     /// </summary>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
     [System.ComponentModel.DescriptionAttribute("Deserializes a sequence of JSON strings into data model objects.")]
     [System.ComponentModel.DefaultPropertyAttribute("Type")]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Transform)]
@@ -1095,10 +1105,10 @@ namespace Setup
     /// <summary>
     /// Serializes a sequence of data model objects into YAML strings.
     /// </summary>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
     [System.ComponentModel.DescriptionAttribute("Serializes a sequence of data model objects into YAML strings.")]
-    [Bonsai.CombinatorAttribute()]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Transform)]
+    [Bonsai.CombinatorAttribute()]
     public partial class SerializeToYaml
     {
     
@@ -1107,7 +1117,8 @@ namespace Setup
             return System.Reactive.Linq.Observable.Defer(() =>
             {
                 var serializer = new YamlDotNet.Serialization.SerializerBuilder()
-                    .Build();
+                      .WithTypeConverter(new YamlDotNet.Serialization.Converters.DateTimeOffsetConverter())
+                      .Build();
                 return System.Reactive.Linq.Observable.Select(source, value => serializer.Serialize(value)); 
             });
         }
@@ -1147,7 +1158,7 @@ namespace Setup
     /// <summary>
     /// Deserializes a sequence of YAML strings into data model objects.
     /// </summary>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
     [System.ComponentModel.DescriptionAttribute("Deserializes a sequence of YAML strings into data model objects.")]
     [System.ComponentModel.DefaultPropertyAttribute("Type")]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Transform)]
@@ -1183,7 +1194,8 @@ namespace Setup
             return System.Reactive.Linq.Observable.Defer(() =>
             {
                 var serializer = new YamlDotNet.Serialization.DeserializerBuilder()
-                    .Build();
+                      .WithTypeConverter(new YamlDotNet.Serialization.Converters.DateTimeOffsetConverter())
+                      .Build();
                 return System.Reactive.Linq.Observable.Select(source, value =>
                 {
                     var reader = new System.IO.StringReader(value);

@@ -30,7 +30,8 @@ class BiasedBlockDistribution(BaseModel):
 
 class BiasedSession(BaseModel):
     is_biased_session: bool = Field(
-        description="Indicates whether the current session will have biased blocks."
+        description="Indicates whether the current session will have biased blocks.",
+        default=False,
     )
     bias_probability: float = Field(
         description="The probability of the preferencial side in a biased block.",
@@ -44,7 +45,8 @@ class BiasedSession(BaseModel):
 
 class AutobiasCorrection(BaseModel):
     use_correction: bool = Field(
-        description="Indicates whether the autobias correction feature should be used or not."
+        description="Indicates whether the autobias correction feature should be used or not.",
+        default=False,
     )
     window: int = Field(
         description="The amount of trials to consider to calculate the animal bias.",
@@ -92,9 +94,11 @@ class OptoLED(BaseModel):
 
 
 class Optogenetics(BaseModel):
-    use_opto: bool = Field(description="Indicates whether optogenetics is used or not.")
+    use_opto: bool = Field(
+        description="Indicates whether optogenetics is used or not.", default=False
+    )
     mode: Literal["Left", "Right", "Bilateral"] = Field(
-        description="Indicates the optogenetics mode used in the current session."
+        description="Indicates the optogenetics mode used in the current session.",
     )
     duration: float = Field(
         description="The duration of the optogenetics stimulation/inhibition protocol (s).",
@@ -118,26 +122,34 @@ class Optogenetics(BaseModel):
 
 
 class TimeConstrains(BaseModel):
-    min_value: float = Field(description="The initial base value.", ge=0)
+    min_value: float = Field(description="The initial base value.", default=0.01, ge=0)
     delta: float = Field(
         description="The increment to the base value every trial a certain condition is met until the target value is reached.",
+        default=0.001,
         ge=0,
     )
-    target: float = Field(description="The target value.", ge=0)
+    target: float = Field(description="The target value.", default=0.01, ge=0)
 
 
 OptoOnsetTime = TimeConstrains
 SoundOnsetTime = TimeConstrains
-ReactionTime = TimeConstrains
 LnpTime = TimeConstrains
+
+
+class ReactionTime(TimeConstrains):
+    max_value: float = Field(
+        description="The maximum allowed reaction time (s).", default=10, gt=0
+    )
 
 
 class FixationTime(BaseModel):
     opto_onset_time: OptoOnsetTime = Field(
-        description="Contains parameters related to the Optogenetics Onset Time part of the Fixation Time. The units of each of the parameters is milliseconds."
+        description="Contains parameters related to the Optogenetics Onset Time part of the Fixation Time. The units of each of the parameters is milliseconds.",
+        default=OptoOnsetTime(min_value=5, delta=0.5, target=100),
     )
     sound_onset_time: SoundOnsetTime = Field(
-        description="Contains parameters related to the Sound Onset Time part of the Fixation Time. The units of each of the parameters is milliseconds."
+        description="Contains parameters related to the Sound Onset Time part of the Fixation Time. The units of each of the parameters is milliseconds.",
+        default=SoundOnsetTime(min_value=5, delta=0.5, target=100),
     )
 
 
@@ -149,8 +161,15 @@ class Sound(BaseModel):
         description="The maximum amount of elements representing the left or right side in the pseudo-random array for when the side is picked pseudo-randomly.",
         gt=0,
     )
+    abl_block: bool = Field(
+        description="Indicates whether the the same ABL should be used across the current block.",
+        default=False,
+    )
     short_duration_ratio: float = Field(
-        description="The percentage of short duration trials in a session.", ge=0, le=1
+        description="The percentage of short duration trials in a session.",
+        default=0,
+        ge=0,
+        le=1,
     )
 
 
@@ -179,6 +198,18 @@ class Session(BaseModel):
     )
 
 
+class Reward(BaseModel):
+    base_amount: float = Field(
+        description="The amount of reward delivered to the animal (uL).", gt=0
+    )
+    probability: float = Field(
+        description="The probability of the animal receiving reward given a right answer.",
+        default=1,
+        ge=0,
+        le=1,
+    )
+
+
 class Animal(BaseModel):
     animal_id: Annotated[str, StringConstraints(pattern=r"^[A-Z]{2,6}\d{4}$")] = Field(
         description="The ID of the animal."
@@ -192,36 +223,66 @@ class Animal(BaseModel):
         description="Contains parameters related to the fixation time."
     )
     reaction_time: ReactionTime = Field(
-        description="Contains parameters related to the reaction time. The units of each of the parameters is seconds."
-    )
-    max_reaction_time: float = Field(
-        description="The maximum allowed reaction time (s).", ge=0
+        description="Contains parameters related to the reaction time. The units of each of the parameters is seconds.",
+        default=ReactionTime(min_value=0.01, delta=0.001, target=0.01, max_value=10),
     )
     min_movement_time: float = Field(
-        description="The minimum allowed movement time (s).", ge=0
+        description="The minimum allowed movement time (s).", ge=0, default=0.01
     )
     lnp_time: LnpTime = Field(
-        description="Contains parameters related to the LNP (Lateral Nose Poke) time. The units of each of the parameters is seconds."
+        description="Contains parameters related to the LNP (Lateral Nose Poke) time. The units of each of the parameters is seconds.",
+        default=LnpTime(min_value=0.01, delta=0.001, target=0.01),
     )
-    base_reward: float = Field(
-        description="The amount of reward delivered to the animal (uL).", gt=0
+    reward: Reward = Field(
+        description="Contains the parameters that configure the reward delivery."
     )
     optogenetics: Optogenetics = Field(
-        description="Contains the optogenetics-related parameters."
+        description="Contains the optogenetics-related parameters.",
+        default=Optogenetics(
+            use_opto=False,
+            opto_ratio=0.3,
+            duration=2,
+            use_rt=False,
+            mode="Bilateral",
+            ramp_mode="None",
+            ramp_time=1,
+            led0=OptoLED(
+                voltage=0,
+                power=0,
+                mode="TTL",
+                use_pulses=False,
+                frequency=20,
+                duty_cycle=50,
+            ),
+            led1=OptoLED(
+                voltage=0,
+                power=0,
+                mode="TTL",
+                use_pulses=False,
+                frequency=20,
+                duty_cycle=50,
+            ),
+        ),
     )
     autobias_correction: AutobiasCorrection = Field(
-        description="Contains parameters related to the autobias correction algorithm."
-    )
-    reward_probability: float = Field(
-        description="The probability of the animal receiving reward given a right answer.",
-        ge=0,
-        le=1,
-    )
-    abl_block: bool = Field(
-        description="Indicates whether the the same ABL should be used across the current block."
+        description="Contains parameters related to the autobias correction algorithm.",
+        default=AutobiasCorrection(
+            use_correction=False,
+            window=25,
+            cutoff_bias=0.25,
+            performance_threshold=1,
+            slope_multiplier=1,
+        ),
     )
     biased_session: BiasedSession = Field(
-        description="Contains the parameter to configure a biased session."
+        description="Contains the parameter to configure a biased session.",
+        default=BiasedSession(
+            is_biased_session=False,
+            bias_probability=0.8,
+            block_distributions=BiasedBlockDistribution(
+                mean=60, min_value=20, max_value=100
+            ),
+        ),
     )
 
 
@@ -235,7 +296,7 @@ def generate_animal():
 
     bonsai_sgen(
         schema_path=schema_path,
-        output_path=Path(rf"../src/Extensions/{schema_name}.cs"),
+        output_path=Path(rf"../src/Extensions"),
         namespace=schema_name,
         serializer=[BonsaiSgenSerializers.JSON, BonsaiSgenSerializers.YAML],
     )

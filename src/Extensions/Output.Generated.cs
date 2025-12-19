@@ -9,9 +9,9 @@ namespace Output
 {
     #pragma warning disable // Disable all warnings
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
-    [Bonsai.CombinatorAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
+    [Bonsai.CombinatorAttribute(MethodName="Generate")]
     public partial class Block
     {
     
@@ -86,21 +86,21 @@ namespace Output
             }
         }
     
-        public System.IObservable<Block> Process()
+        public System.IObservable<Block> Generate()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new Block(this)));
         }
     
-        public System.IObservable<Block> Process<TSource>(System.IObservable<TSource> source)
+        public System.IObservable<Block> Generate<TSource>(System.IObservable<TSource> source)
         {
             return System.Reactive.Linq.Observable.Select(source, _ => new Block(this));
         }
     
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
-            stringBuilder.Append("number = " + _number + ", ");
-            stringBuilder.Append("training_level = " + _trainingLevel + ", ");
-            stringBuilder.Append("trials_per_block = " + _trialsPerBlock);
+            stringBuilder.Append("Number = " + _number + ", ");
+            stringBuilder.Append("TrainingLevel = " + _trainingLevel + ", ");
+            stringBuilder.Append("TrialsPerBlock = " + _trialsPerBlock);
             return true;
         }
     
@@ -119,9 +119,9 @@ namespace Output
     }
 
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
-    [Bonsai.CombinatorAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
+    [Bonsai.CombinatorAttribute(MethodName="Generate")]
     public partial class Cnp
     {
     
@@ -196,21 +196,21 @@ namespace Output
             }
         }
     
-        public System.IObservable<Cnp> Process()
+        public System.IObservable<Cnp> Generate()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new Cnp(this)));
         }
     
-        public System.IObservable<Cnp> Process<TSource>(System.IObservable<TSource> source)
+        public System.IObservable<Cnp> Generate<TSource>(System.IObservable<TSource> source)
         {
             return System.Reactive.Linq.Observable.Select(source, _ => new Cnp(this));
         }
     
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
-            stringBuilder.Append("start_time = " + _startTime + ", ");
-            stringBuilder.Append("timed_value = " + _timedValue + ", ");
-            stringBuilder.Append("max_duration = " + _maxDuration);
+            stringBuilder.Append("StartTime = " + _startTime + ", ");
+            stringBuilder.Append("TimedValue = " + _timedValue + ", ");
+            stringBuilder.Append("MaxDuration = " + _maxDuration);
             return true;
         }
     
@@ -229,15 +229,15 @@ namespace Output
     }
 
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
-    [Bonsai.CombinatorAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
+    [Bonsai.CombinatorAttribute(MethodName="Generate")]
     public partial class FixationTime
     {
     
-        private FixationTimeParts _optoOnsetTime = new FixationTimeParts();
+        private FixationTimeParts _optoOnsetTime;
     
-        private FixationTimeParts _soundOnsetTime = new FixationTimeParts();
+        private FixationTimeParts _soundOnsetTime;
     
         private double _intendedDuration;
     
@@ -247,6 +247,8 @@ namespace Output
     
         public FixationTime()
         {
+            _optoOnsetTime = new FixationTimeParts();
+            _soundOnsetTime = new FixationTimeParts();
         }
     
         protected FixationTime(FixationTime other)
@@ -352,23 +354,23 @@ namespace Output
             }
         }
     
-        public System.IObservable<FixationTime> Process()
+        public System.IObservable<FixationTime> Generate()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new FixationTime(this)));
         }
     
-        public System.IObservable<FixationTime> Process<TSource>(System.IObservable<TSource> source)
+        public System.IObservable<FixationTime> Generate<TSource>(System.IObservable<TSource> source)
         {
             return System.Reactive.Linq.Observable.Select(source, _ => new FixationTime(this));
         }
     
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
-            stringBuilder.Append("opto_onset_time = " + _optoOnsetTime + ", ");
-            stringBuilder.Append("sound_onset_time = " + _soundOnsetTime + ", ");
-            stringBuilder.Append("intended_duration = " + _intendedDuration + ", ");
-            stringBuilder.Append("timed_duration = " + _timedDuration + ", ");
-            stringBuilder.Append("total_duration = " + _totalDuration);
+            stringBuilder.Append("OptoOnsetTime = " + _optoOnsetTime + ", ");
+            stringBuilder.Append("SoundOnsetTime = " + _soundOnsetTime + ", ");
+            stringBuilder.Append("IntendedDuration = " + _intendedDuration + ", ");
+            stringBuilder.Append("TimedDuration = " + _timedDuration + ", ");
+            stringBuilder.Append("TotalDuration = " + _totalDuration);
             return true;
         }
     
@@ -387,9 +389,9 @@ namespace Output
     }
 
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
-    [Bonsai.CombinatorAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
+    [Bonsai.CombinatorAttribute(MethodName="Generate")]
     public partial class FixationTimeParts
     {
     
@@ -486,22 +488,22 @@ namespace Output
             }
         }
     
-        public System.IObservable<FixationTimeParts> Process()
+        public System.IObservable<FixationTimeParts> Generate()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new FixationTimeParts(this)));
         }
     
-        public System.IObservable<FixationTimeParts> Process<TSource>(System.IObservable<TSource> source)
+        public System.IObservable<FixationTimeParts> Generate<TSource>(System.IObservable<TSource> source)
         {
             return System.Reactive.Linq.Observable.Select(source, _ => new FixationTimeParts(this));
         }
     
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
-            stringBuilder.Append("base_time = " + _baseTime + ", ");
-            stringBuilder.Append("exp_mean = " + _expMean + ", ");
-            stringBuilder.Append("intended_duration = " + _intendedDuration + ", ");
-            stringBuilder.Append("timed_duration = " + _timedDuration);
+            stringBuilder.Append("BaseTime = " + _baseTime + ", ");
+            stringBuilder.Append("ExpMean = " + _expMean + ", ");
+            stringBuilder.Append("IntendedDuration = " + _intendedDuration + ", ");
+            stringBuilder.Append("TimedDuration = " + _timedDuration);
             return true;
         }
     
@@ -520,9 +522,9 @@ namespace Output
     }
 
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
-    [Bonsai.CombinatorAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
+    [Bonsai.CombinatorAttribute(MethodName="Generate")]
     public partial class ITI
     {
     
@@ -618,22 +620,22 @@ namespace Output
             }
         }
     
-        public System.IObservable<ITI> Process()
+        public System.IObservable<ITI> Generate()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new ITI(this)));
         }
     
-        public System.IObservable<ITI> Process<TSource>(System.IObservable<TSource> source)
+        public System.IObservable<ITI> Generate<TSource>(System.IObservable<TSource> source)
         {
             return System.Reactive.Linq.Observable.Select(source, _ => new ITI(this));
         }
     
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
-            stringBuilder.Append("intended_duration = " + _intendedDuration + ", ");
-            stringBuilder.Append("start_time = " + _startTime + ", ");
-            stringBuilder.Append("end_time = " + _endTime + ", ");
-            stringBuilder.Append("timed_duration = " + _timedDuration);
+            stringBuilder.Append("IntendedDuration = " + _intendedDuration + ", ");
+            stringBuilder.Append("StartTime = " + _startTime + ", ");
+            stringBuilder.Append("EndTime = " + _endTime + ", ");
+            stringBuilder.Append("TimedDuration = " + _timedDuration);
             return true;
         }
     
@@ -652,9 +654,9 @@ namespace Output
     }
 
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
-    [Bonsai.CombinatorAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
+    [Bonsai.CombinatorAttribute(MethodName="Generate")]
     public partial class LnpTime
     {
     
@@ -708,20 +710,20 @@ namespace Output
             }
         }
     
-        public System.IObservable<LnpTime> Process()
+        public System.IObservable<LnpTime> Generate()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new LnpTime(this)));
         }
     
-        public System.IObservable<LnpTime> Process<TSource>(System.IObservable<TSource> source)
+        public System.IObservable<LnpTime> Generate<TSource>(System.IObservable<TSource> source)
         {
             return System.Reactive.Linq.Observable.Select(source, _ => new LnpTime(this));
         }
     
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
-            stringBuilder.Append("intended_duration = " + _intendedDuration + ", ");
-            stringBuilder.Append("timed_duration = " + _timedDuration);
+            stringBuilder.Append("IntendedDuration = " + _intendedDuration + ", ");
+            stringBuilder.Append("TimedDuration = " + _timedDuration);
             return true;
         }
     
@@ -740,9 +742,9 @@ namespace Output
     }
 
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
-    [Bonsai.CombinatorAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
+    [Bonsai.CombinatorAttribute(MethodName="Generate")]
     public partial class MovementTime
     {
     
@@ -817,21 +819,21 @@ namespace Output
             }
         }
     
-        public System.IObservable<MovementTime> Process()
+        public System.IObservable<MovementTime> Generate()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new MovementTime(this)));
         }
     
-        public System.IObservable<MovementTime> Process<TSource>(System.IObservable<TSource> source)
+        public System.IObservable<MovementTime> Generate<TSource>(System.IObservable<TSource> source)
         {
             return System.Reactive.Linq.Observable.Select(source, _ => new MovementTime(this));
         }
     
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
-            stringBuilder.Append("max_duration = " + _maxDuration + ", ");
-            stringBuilder.Append("start_time = " + _startTime + ", ");
-            stringBuilder.Append("timed_duration = " + _timedDuration);
+            stringBuilder.Append("MaxDuration = " + _maxDuration + ", ");
+            stringBuilder.Append("StartTime = " + _startTime + ", ");
+            stringBuilder.Append("TimedDuration = " + _timedDuration);
             return true;
         }
     
@@ -850,9 +852,9 @@ namespace Output
     }
 
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
-    [Bonsai.CombinatorAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
+    [Bonsai.CombinatorAttribute(MethodName="Generate")]
     public partial class Optogenetics
     {
     
@@ -924,7 +926,6 @@ namespace Output
         /// <summary>
         /// Indicates the optogenetics mode used in the current session.
         /// </summary>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
         [Newtonsoft.Json.JsonPropertyAttribute("mode", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="mode")]
         [System.ComponentModel.DescriptionAttribute("Indicates the optogenetics mode used in the current session.")]
@@ -1012,25 +1013,25 @@ namespace Output
             }
         }
     
-        public System.IObservable<Optogenetics> Process()
+        public System.IObservable<Optogenetics> Generate()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new Optogenetics(this)));
         }
     
-        public System.IObservable<Optogenetics> Process<TSource>(System.IObservable<TSource> source)
+        public System.IObservable<Optogenetics> Generate<TSource>(System.IObservable<TSource> source)
         {
             return System.Reactive.Linq.Observable.Select(source, _ => new Optogenetics(this));
         }
     
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
-            stringBuilder.Append("opto_trial = " + _optoTrial + ", ");
-            stringBuilder.Append("duration = " + _duration + ", ");
-            stringBuilder.Append("mode = " + _mode + ", ");
-            stringBuilder.Append("led0_voltage = " + _led0Voltage + ", ");
-            stringBuilder.Append("led0_power = " + _led0Power + ", ");
-            stringBuilder.Append("led1_voltage = " + _led1Voltage + ", ");
-            stringBuilder.Append("led1_power = " + _led1Power);
+            stringBuilder.Append("OptoTrial = " + _optoTrial + ", ");
+            stringBuilder.Append("Duration = " + _duration + ", ");
+            stringBuilder.Append("Mode = " + _mode + ", ");
+            stringBuilder.Append("Led0Voltage = " + _led0Voltage + ", ");
+            stringBuilder.Append("Led0Power = " + _led0Power + ", ");
+            stringBuilder.Append("Led1Voltage = " + _led1Voltage + ", ");
+            stringBuilder.Append("Led1Power = " + _led1Power);
             return true;
         }
     
@@ -1049,9 +1050,9 @@ namespace Output
     }
 
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
-    [Bonsai.CombinatorAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
+    [Bonsai.CombinatorAttribute(MethodName="Generate")]
     public partial class Outcome
     {
     
@@ -1118,7 +1119,6 @@ namespace Output
         /// <summary>
         /// Indicates the type of abort that happened in the trial.
         /// </summary>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
         [Newtonsoft.Json.JsonPropertyAttribute("abort_type", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="abort_type")]
         [System.ComponentModel.DescriptionAttribute("Indicates the type of abort that happened in the trial.")]
@@ -1170,23 +1170,23 @@ namespace Output
             }
         }
     
-        public System.IObservable<Outcome> Process()
+        public System.IObservable<Outcome> Generate()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new Outcome(this)));
         }
     
-        public System.IObservable<Outcome> Process<TSource>(System.IObservable<TSource> source)
+        public System.IObservable<Outcome> Generate<TSource>(System.IObservable<TSource> source)
         {
             return System.Reactive.Linq.Observable.Select(source, _ => new Outcome(this));
         }
     
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
-            stringBuilder.Append("response_poke = " + _responsePoke + ", ");
-            stringBuilder.Append("success = " + _success + ", ");
-            stringBuilder.Append("abort_type = " + _abortType + ", ");
-            stringBuilder.Append("block_performance = " + _blockPerformance + ", ");
-            stringBuilder.Append("block_abort_ratio = " + _blockAbortRatio);
+            stringBuilder.Append("ResponsePoke = " + _responsePoke + ", ");
+            stringBuilder.Append("Success = " + _success + ", ");
+            stringBuilder.Append("AbortType = " + _abortType + ", ");
+            stringBuilder.Append("BlockPerformance = " + _blockPerformance + ", ");
+            stringBuilder.Append("BlockAbortRatio = " + _blockAbortRatio);
             return true;
         }
     
@@ -1205,9 +1205,9 @@ namespace Output
     }
 
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
-    [Bonsai.CombinatorAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
+    [Bonsai.CombinatorAttribute(MethodName="Generate")]
     public partial class PenaltyTimes
     {
     
@@ -1283,21 +1283,21 @@ namespace Output
             }
         }
     
-        public System.IObservable<PenaltyTimes> Process()
+        public System.IObservable<PenaltyTimes> Generate()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new PenaltyTimes(this)));
         }
     
-        public System.IObservable<PenaltyTimes> Process<TSource>(System.IObservable<TSource> source)
+        public System.IObservable<PenaltyTimes> Generate<TSource>(System.IObservable<TSource> source)
         {
             return System.Reactive.Linq.Observable.Select(source, _ => new PenaltyTimes(this));
         }
     
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
-            stringBuilder.Append("incorrect = " + _incorrect + ", ");
-            stringBuilder.Append("abort = " + _abort + ", ");
-            stringBuilder.Append("fixation_abort = " + _fixationAbort);
+            stringBuilder.Append("Incorrect = " + _incorrect + ", ");
+            stringBuilder.Append("Abort = " + _abort + ", ");
+            stringBuilder.Append("FixationAbort = " + _fixationAbort);
             return true;
         }
     
@@ -1316,9 +1316,9 @@ namespace Output
     }
 
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
-    [Bonsai.CombinatorAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
+    [Bonsai.CombinatorAttribute(MethodName="Generate")]
     public partial class ReactionTime
     {
     
@@ -1414,22 +1414,22 @@ namespace Output
             }
         }
     
-        public System.IObservable<ReactionTime> Process()
+        public System.IObservable<ReactionTime> Generate()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new ReactionTime(this)));
         }
     
-        public System.IObservable<ReactionTime> Process<TSource>(System.IObservable<TSource> source)
+        public System.IObservable<ReactionTime> Generate<TSource>(System.IObservable<TSource> source)
         {
             return System.Reactive.Linq.Observable.Select(source, _ => new ReactionTime(this));
         }
     
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
-            stringBuilder.Append("base_time = " + _baseTime + ", ");
-            stringBuilder.Append("max_duration = " + _maxDuration + ", ");
-            stringBuilder.Append("start_time = " + _startTime + ", ");
-            stringBuilder.Append("timed_duration = " + _timedDuration);
+            stringBuilder.Append("BaseTime = " + _baseTime + ", ");
+            stringBuilder.Append("MaxDuration = " + _maxDuration + ", ");
+            stringBuilder.Append("StartTime = " + _startTime + ", ");
+            stringBuilder.Append("TimedDuration = " + _timedDuration);
             return true;
         }
     
@@ -1448,9 +1448,9 @@ namespace Output
     }
 
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
-    [Bonsai.CombinatorAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
+    [Bonsai.CombinatorAttribute(MethodName="Generate")]
     public partial class Reward
     {
     
@@ -1528,21 +1528,21 @@ namespace Output
             }
         }
     
-        public System.IObservable<Reward> Process()
+        public System.IObservable<Reward> Generate()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new Reward(this)));
         }
     
-        public System.IObservable<Reward> Process<TSource>(System.IObservable<TSource> source)
+        public System.IObservable<Reward> Generate<TSource>(System.IObservable<TSource> source)
         {
             return System.Reactive.Linq.Observable.Select(source, _ => new Reward(this));
         }
     
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
-            stringBuilder.Append("left = " + _left + ", ");
-            stringBuilder.Append("right = " + _right + ", ");
-            stringBuilder.Append("delivered = " + _delivered);
+            stringBuilder.Append("Left = " + _left + ", ");
+            stringBuilder.Append("Right = " + _right + ", ");
+            stringBuilder.Append("Delivered = " + _delivered);
             return true;
         }
     
@@ -1561,9 +1561,9 @@ namespace Output
     }
 
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
-    [Bonsai.CombinatorAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
+    [Bonsai.CombinatorAttribute(MethodName="Generate")]
     public partial class Session
     {
     
@@ -1638,21 +1638,21 @@ namespace Output
             }
         }
     
-        public System.IObservable<Session> Process()
+        public System.IObservable<Session> Generate()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new Session(this)));
         }
     
-        public System.IObservable<Session> Process<TSource>(System.IObservable<TSource> source)
+        public System.IObservable<Session> Generate<TSource>(System.IObservable<TSource> source)
         {
             return System.Reactive.Linq.Observable.Select(source, _ => new Session(this));
         }
     
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
-            stringBuilder.Append("number = " + _number + ", ");
-            stringBuilder.Append("type = " + _type + ", ");
-            stringBuilder.Append("box = " + _box);
+            stringBuilder.Append("Number = " + _number + ", ");
+            stringBuilder.Append("Type = " + _type + ", ");
+            stringBuilder.Append("Box = " + _box);
             return true;
         }
     
@@ -1671,9 +1671,9 @@ namespace Output
     }
 
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
-    [Bonsai.CombinatorAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
+    [Bonsai.CombinatorAttribute(MethodName="Generate")]
     public partial class Sound
     {
     
@@ -1790,23 +1790,23 @@ namespace Output
             }
         }
     
-        public System.IObservable<Sound> Process()
+        public System.IObservable<Sound> Generate()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new Sound(this)));
         }
     
-        public System.IObservable<Sound> Process<TSource>(System.IObservable<TSource> source)
+        public System.IObservable<Sound> Generate<TSource>(System.IObservable<TSource> source)
         {
             return System.Reactive.Linq.Observable.Select(source, _ => new Sound(this));
         }
     
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
-            stringBuilder.Append("abl = " + _abl + ", ");
-            stringBuilder.Append("ild = " + _ild + ", ");
-            stringBuilder.Append("sound_index = " + _soundIndex + ", ");
-            stringBuilder.Append("left_amp = " + _leftAmp + ", ");
-            stringBuilder.Append("right_amp = " + _rightAmp);
+            stringBuilder.Append("Abl = " + _abl + ", ");
+            stringBuilder.Append("Ild = " + _ild + ", ");
+            stringBuilder.Append("SoundIndex = " + _soundIndex + ", ");
+            stringBuilder.Append("LeftAmp = " + _leftAmp + ", ");
+            stringBuilder.Append("RightAmp = " + _rightAmp);
             return true;
         }
     
@@ -1825,9 +1825,9 @@ namespace Output
     }
 
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
-    [Bonsai.CombinatorAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
+    [Bonsai.CombinatorAttribute(MethodName="Generate")]
     public partial class Trial
     {
     
@@ -1945,23 +1945,23 @@ namespace Output
             }
         }
     
-        public System.IObservable<Trial> Process()
+        public System.IObservable<Trial> Generate()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new Trial(this)));
         }
     
-        public System.IObservable<Trial> Process<TSource>(System.IObservable<TSource> source)
+        public System.IObservable<Trial> Generate<TSource>(System.IObservable<TSource> source)
         {
             return System.Reactive.Linq.Observable.Select(source, _ => new Trial(this));
         }
     
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
-            stringBuilder.Append("number = " + _number + ", ");
-            stringBuilder.Append("start_time = " + _startTime + ", ");
-            stringBuilder.Append("tared_start_time = " + _taredStartTime + ", ");
-            stringBuilder.Append("end_time = " + _endTime + ", ");
-            stringBuilder.Append("duration = " + _duration);
+            stringBuilder.Append("Number = " + _number + ", ");
+            stringBuilder.Append("StartTime = " + _startTime + ", ");
+            stringBuilder.Append("TaredStartTime = " + _taredStartTime + ", ");
+            stringBuilder.Append("EndTime = " + _endTime + ", ");
+            stringBuilder.Append("Duration = " + _duration);
             return true;
         }
     
@@ -1980,9 +1980,9 @@ namespace Output
     }
 
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
-    [Bonsai.CombinatorAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
+    [Bonsai.CombinatorAttribute(MethodName="Generate")]
     public partial class Output
     {
     
@@ -1994,40 +1994,54 @@ namespace Output
     
         private string _version;
     
-        private Trial _trial = new Trial();
+        private Trial _trial;
     
-        private Block _block = new Block();
+        private Block _block;
     
-        private Session _session = new Session();
+        private Session _session;
     
-        private Sound _sound = new Sound();
+        private Sound _sound;
     
-        private ITI _iti = new ITI();
+        private ITI _iti;
     
-        private Cnp _cnp = new Cnp();
+        private Cnp _cnp;
     
-        private FixationTime _fixationTime = new FixationTime();
+        private FixationTime _fixationTime;
     
-        private ReactionTime _reactionTime = new ReactionTime();
+        private ReactionTime _reactionTime;
     
-        private MovementTime _movementTime = new MovementTime();
+        private MovementTime _movementTime;
     
-        private LnpTime _lnpTime = new LnpTime();
+        private LnpTime _lnpTime;
     
-        private Outcome _outcome = new Outcome();
+        private Outcome _outcome;
     
-        private PenaltyTimes _penaltyTimes = new PenaltyTimes();
+        private PenaltyTimes _penaltyTimes;
     
         private double _bias;
     
-        private Reward _reward = new Reward();
+        private Reward _reward;
     
         private bool _repeatedTrial;
     
-        private Optogenetics _optogenetics = new Optogenetics();
+        private Optogenetics _optogenetics;
     
         public Output()
         {
+            _trial = new Trial();
+            _block = new Block();
+            _session = new Session();
+            _sound = new Sound();
+            _iti = new ITI();
+            _cnp = new Cnp();
+            _fixationTime = new FixationTime();
+            _reactionTime = new ReactionTime();
+            _movementTime = new MovementTime();
+            _lnpTime = new LnpTime();
+            _outcome = new Outcome();
+            _penaltyTimes = new PenaltyTimes();
+            _reward = new Reward();
+            _optogenetics = new Optogenetics();
         }
     
         protected Output(Output other)
@@ -2431,38 +2445,38 @@ namespace Output
             }
         }
     
-        public System.IObservable<Output> Process()
+        public System.IObservable<Output> Generate()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new Output(this)));
         }
     
-        public System.IObservable<Output> Process<TSource>(System.IObservable<TSource> source)
+        public System.IObservable<Output> Generate<TSource>(System.IObservable<TSource> source)
         {
             return System.Reactive.Linq.Observable.Select(source, _ => new Output(this));
         }
     
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
-            stringBuilder.Append("animal_id = " + _animalId + ", ");
-            stringBuilder.Append("batch = " + _batch + ", ");
-            stringBuilder.Append("experimenter = " + _experimenter + ", ");
-            stringBuilder.Append("version = " + _version + ", ");
-            stringBuilder.Append("trial = " + _trial + ", ");
-            stringBuilder.Append("block = " + _block + ", ");
-            stringBuilder.Append("session = " + _session + ", ");
-            stringBuilder.Append("sound = " + _sound + ", ");
-            stringBuilder.Append("iti = " + _iti + ", ");
-            stringBuilder.Append("cnp = " + _cnp + ", ");
-            stringBuilder.Append("fixation_time = " + _fixationTime + ", ");
-            stringBuilder.Append("reaction_time = " + _reactionTime + ", ");
-            stringBuilder.Append("movement_time = " + _movementTime + ", ");
-            stringBuilder.Append("lnp_time = " + _lnpTime + ", ");
-            stringBuilder.Append("outcome = " + _outcome + ", ");
-            stringBuilder.Append("penalty_times = " + _penaltyTimes + ", ");
-            stringBuilder.Append("bias = " + _bias + ", ");
-            stringBuilder.Append("reward = " + _reward + ", ");
-            stringBuilder.Append("repeated_trial = " + _repeatedTrial + ", ");
-            stringBuilder.Append("optogenetics = " + _optogenetics);
+            stringBuilder.Append("AnimalId = " + _animalId + ", ");
+            stringBuilder.Append("Batch = " + _batch + ", ");
+            stringBuilder.Append("Experimenter = " + _experimenter + ", ");
+            stringBuilder.Append("Version = " + _version + ", ");
+            stringBuilder.Append("Trial = " + _trial + ", ");
+            stringBuilder.Append("Block = " + _block + ", ");
+            stringBuilder.Append("Session = " + _session + ", ");
+            stringBuilder.Append("Sound = " + _sound + ", ");
+            stringBuilder.Append("Iti = " + _iti + ", ");
+            stringBuilder.Append("Cnp = " + _cnp + ", ");
+            stringBuilder.Append("FixationTime = " + _fixationTime + ", ");
+            stringBuilder.Append("ReactionTime = " + _reactionTime + ", ");
+            stringBuilder.Append("MovementTime = " + _movementTime + ", ");
+            stringBuilder.Append("LnpTime = " + _lnpTime + ", ");
+            stringBuilder.Append("Outcome = " + _outcome + ", ");
+            stringBuilder.Append("PenaltyTimes = " + _penaltyTimes + ", ");
+            stringBuilder.Append("Bias = " + _bias + ", ");
+            stringBuilder.Append("Reward = " + _reward + ", ");
+            stringBuilder.Append("RepeatedTrial = " + _repeatedTrial + ", ");
+            stringBuilder.Append("Optogenetics = " + _optogenetics);
             return true;
         }
     
@@ -2481,7 +2495,7 @@ namespace Output
     }
 
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
     [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
     public enum OptogeneticsMode
     {
@@ -2500,7 +2514,7 @@ namespace Output
     }
 
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
     [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
     public enum OutcomeAbortType
     {
@@ -2546,16 +2560,19 @@ namespace Output
     /// <summary>
     /// Serializes a sequence of data model objects into JSON strings.
     /// </summary>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
     [System.ComponentModel.DescriptionAttribute("Serializes a sequence of data model objects into JSON strings.")]
-    [Bonsai.CombinatorAttribute()]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Transform)]
+    [Bonsai.CombinatorAttribute()]
     public partial class SerializeToJson
     {
     
+        public Newtonsoft.Json.Formatting Formatting { get; set; }
+
         private System.IObservable<string> Process<T>(System.IObservable<T> source)
         {
-            return System.Reactive.Linq.Observable.Select(source, value => Newtonsoft.Json.JsonConvert.SerializeObject(value));
+            var formatting = Formatting;
+            return System.Reactive.Linq.Observable.Select(source, value => Newtonsoft.Json.JsonConvert.SerializeObject(value, formatting));
         }
 
         public System.IObservable<string> Process(System.IObservable<Block> source)
@@ -2643,7 +2660,7 @@ namespace Output
     /// <summary>
     /// Deserializes a sequence of JSON strings into data model objects.
     /// </summary>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
     [System.ComponentModel.DescriptionAttribute("Deserializes a sequence of JSON strings into data model objects.")]
     [System.ComponentModel.DefaultPropertyAttribute("Type")]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Transform)]
@@ -2694,10 +2711,10 @@ namespace Output
     /// <summary>
     /// Serializes a sequence of data model objects into YAML strings.
     /// </summary>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
     [System.ComponentModel.DescriptionAttribute("Serializes a sequence of data model objects into YAML strings.")]
-    [Bonsai.CombinatorAttribute()]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Transform)]
+    [Bonsai.CombinatorAttribute()]
     public partial class SerializeToYaml
     {
     
@@ -2706,7 +2723,8 @@ namespace Output
             return System.Reactive.Linq.Observable.Defer(() =>
             {
                 var serializer = new YamlDotNet.Serialization.SerializerBuilder()
-                    .Build();
+                      .WithTypeConverter(new YamlDotNet.Serialization.Converters.DateTimeOffsetConverter())
+                      .Build();
                 return System.Reactive.Linq.Observable.Select(source, value => serializer.Serialize(value)); 
             });
         }
@@ -2796,7 +2814,7 @@ namespace Output
     /// <summary>
     /// Deserializes a sequence of YAML strings into data model objects.
     /// </summary>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.3.0.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v13.0.0.0)")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
     [System.ComponentModel.DescriptionAttribute("Deserializes a sequence of YAML strings into data model objects.")]
     [System.ComponentModel.DefaultPropertyAttribute("Type")]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Transform)]
@@ -2842,7 +2860,8 @@ namespace Output
             return System.Reactive.Linq.Observable.Defer(() =>
             {
                 var serializer = new YamlDotNet.Serialization.DeserializerBuilder()
-                    .Build();
+                      .WithTypeConverter(new YamlDotNet.Serialization.Converters.DateTimeOffsetConverter())
+                      .Build();
                 return System.Reactive.Linq.Observable.Select(source, value =>
                 {
                     var reader = new System.IO.StringReader(value);
