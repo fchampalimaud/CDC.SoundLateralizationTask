@@ -1,4 +1,3 @@
-import glob
 import json
 import os
 from pathlib import Path
@@ -11,50 +10,36 @@ from shutdown.block_plots import generate_plots
 from shutdown.video_preprocessing import add_frame_numbers
 
 
-def append_json(dir: str):
+def read_out_json(file: Path):
     """
-    Appends all of the "fake" JSON files inside the input directory.
+    Reads a `out.json` file, formats it to be a real JSON and returns a dictionary.
 
     Parameters
     ----------
-    dir : str
-        the path to the input directory.
+    file : Path
+        path of the JSON file to be read.
 
     Returns
     -------
-    data : dict
-        the appended JSON string from every unparsed output file.
+    dict
+        Dictionary containing the data parsed from the JSON file.
     """
-    # Initialize the final string object
-    json_string = ""
+    # Read the fake JSON file
+    with open(file, "r") as f:
+        text = f.read()
 
-    # Walk through the directory
-    for root, _, files in os.walk(dir):
-        for file in files:
-            # Check if the file is a JSON file
-            if file.endswith(".json"):
-                # Get the full file path
-                path = os.path.join(root, file)
+    # Delete file if empty
+    if text == "":
+        os.remove(file)
+        return
 
-                # Load the JSON data
-                with open(path, "r") as json_file:
-                    try:
-                        text = json_file.read()
-                    except json.JSONDecodeError as e:
-                        print(f"Error decoding JSON from file {path}: {e}")
-
-                # Delete file if empty
-                if text == "":
-                    os.remove(path)
-                else:
-                    if text[-1] != "\n":
-                        idx = text.rfind("\n")
-                        text = text[: idx + 1]
-                    # Append the data to the string
-                    json_string += text
+    # Delete last line if it doesn't end in '\n'
+    if text[-1] != "\n":
+        idx = text.rfind("\n")
+        text = text[: idx + 1]
 
     # Split the JSON object into lines
-    lines = json_string.splitlines()
+    lines = text.splitlines()
 
     # Convert to real JSON
     for i in range(len(lines) - 1):
@@ -64,77 +49,75 @@ def append_json(dir: str):
     text = "\n".join(lines)
 
     # Load the real JSON string
-    data = json.loads(text)
-
-    return data
-
-
-def generate_csv(data: dict, path: Path, backup_path: Optional[Path] = None):
-    """
-    Generates a CSV file from a JSON object.
-
-    Parameters
-    ----------
-    data : dict
-        the JSON object to convert to CSV.
-    path : Path
-        the path to the output file.
-    backup_path : Path, optional
-        the path to the backup output file.
-
-    Returns
-    -------
-    df : DataFrame
-        the output structure pandas DataFrame.
-    """
-    # Create a DataFrame from a dictionary
-    df = pd.json_normalize(data)
-
-    # Rename the columns to shorter and more intuitive names and replace "NaN" strings
-    df = df.rename(columns=COLUMN_RENAMES)
-    df.replace("NaN", np.nan, inplace=True)
-
-    # Create columns of the frame numbers that correspond to specific events of a trial
-    if glob.glob(str(path.parent / "cam_metadata_*.csv")):
-        try:
-            df = add_frame_numbers(df, path.parent)
-        except Exception:
-            print("It was not possible to process the camera metadata")
-
-    # Save the DataFrame to CSV
-    df.to_csv(path, index=False)
-    if backup_path is not None:
-        df.to_csv(backup_path, index=False)
-
-    return df
+    return json.loads(text)
 
 
 def convert_output(session_dir: Path, backup_dir: Optional[Path] = None):
-    # Get unparsed out directory path
-    out_dir = session_dir / "unparsed_out"
+    """
+    Converts the out structure from JSON to CSV.
 
-    # Concatenate the data from every output JSON file in the last session directory
-    out_dict = append_json(out_dir)
+    Parameters
+    ----------
+    session_dir : Path
+        the path to the session directory
+    backup_dir : Path, optional
+        the path to the backup directory
+    """
+    # Pandas config to get rid of warnings
+    pd.set_option("future.no_silent_downcasting", True)
 
-    # Set the session output file path
+    # Get all of the out.json files
+    out_files = [p for p in (session_dir / "unparsed_out").iterdir() if p.is_file()]
+
+    # Convert every JSON file to Pandas DataFrame and add them to the final DataFrame
+    for i in range(len(out_files)):
+        # Load the real JSON string
+        out_json = read_out_json(out_files[i])
+
+        # Continue to next file if current one was empty
+        if out_json is None:
+            continue
+
+        # Convert JSON to pandas DataFrame, rename the columns to shorter and more intuitive names and replace "NaN" strings
+        df = pd.json_normalize(out_json)
+        df = df.rename(columns=COLUMN_RENAMES)
+        df.replace("NaN", np.nan, inplace=True)
+
+        # Declare expected camera metadata file
+        time_str = out_files[i].name.split("_")[1].split(".")[0]
+        cam_metadata_path = session_dir / ("cam_metadata_" + time_str + ".csv")
+
+        # Create columns of the frame numbers that correspond to specific events of a trial if camera metadata exists
+        if cam_metadata_path.is_file():
+            try:
+                df = add_frame_numbers(df, session_dir, time_str)
+            except Exception:
+                print("It was not possible to process the camera metadata")
+
+        # If variable containing out structure already exists, append data to it, otherwise create it
+        if "out" not in locals():
+            out = df.copy()
+        else:
+            out = pd.concat([out, df], ignore_index=True)
+
+    # Save out structure to CSV
     out_name = "out_" + session_dir.parent.name + "_" + session_dir.name + ".csv"
-
     out_path = session_dir / out_name
-    plot_path = session_dir / "plots"
-    os.makedirs(plot_path, exist_ok=True)
-
-    out_backup_path = None
-    plot_backup_path = None
+    out.to_csv(out_path, index=False)
     if backup_dir is not None:
         out_backup_path = backup_dir / out_name
-        plot_backup_path = backup_dir / "plots"
+        out.to_csv(out_backup_path, index=False)
 
-    pd.set_option("future.no_silent_downcasting", True)
-    df = generate_csv(out_dict, out_path, out_backup_path)
-    df.replace("NaN", np.nan, inplace=True)
+    # Declare path to the directory where the plots will be saved
+    plot_path = session_dir / "plots"
+    os.makedirs(plot_path, exist_ok=True)
+    plot_backup_path = None
+    if backup_dir is not None:
+        plot_backup_path = backup_dir / "plots"
+        os.makedirs(plot_backup_path, exist_ok=True)
 
     # Generate plots with some metrics for the each block of the current session
-    generate_plots(df, plot_path, plot_backup_path)
+    generate_plots(out, plot_path, plot_backup_path)
 
 
 COLUMN_RENAMES = {

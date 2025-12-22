@@ -5,24 +5,26 @@ import numpy as np
 import pandas as pd
 
 
-def add_frame_numbers(out: pd.DataFrame, path: Path):
+def add_frame_numbers(out: pd.DataFrame, path: Path, time_str: str):
     """
     Adds the frame numbers to the out structure for the following events: trial start, CNP start, sound (RT) start, MT start and MT end (or LNP start)
 
     Parameters
     ----------
     out : pd.DataFrame
-        The out DataFrame structure without the frame data.
+        the out DataFrame structure without the frame data
     path : Path
-        The path to the camera metadata file.
+        the path to the camera metadata file
+    time_str : str
+        the string of the time the session began in the "hhmmss" format
 
     Returns
     -------
-    out : pd.DataFrame
-        The final out DataFrame structure.
+    pd.DataFrame
+        the final out DataFrame structure
     """
     # Synchronize the camera frames with the Harp timestamps
-    strobe = synch_camera(path)
+    strobe = synch_camera(path, time_str)
     strobe = strobe[strobe["Timestamp"] >= 0]
 
     # Create a temporary copy of the out structure
@@ -103,93 +105,74 @@ def add_frame_numbers(out: pd.DataFrame, path: Path):
     return out
 
 
-def synch_camera(path: Path):
+def synch_camera(path: Path, time_str: str):
     """
     Synchronizes the camera data with the Harp timestamps.
 
     Parameters
     ----------
     path : Path
-        The path to the camera metadata file.
+        the path to the camera metadata file
+    time_str : str
+        the string of the time the session began in the "hhmmss" format
 
     Returns
     -------
-    synched_data : pd.DataFrame
-        A pandas DataFrame containing a Harp timestamp for every frame, as well as the state of the camera GPIOs and the relevant Harp Behavior GPIOs.
+    pd.DataFrame
+        a pandas DataFrame containing a Harp timestamp for every frame, as well as the state of the camera GPIOs and the relevant Harp Behavior GPIOs
     """
+    # for timestr in timestr_array:
+    events_path = path / "events" / time_str / "behavior"
+    reader = harp.create_reader(events_path)
 
-    # Get all of the time strings that correspond to a camera metadata file
-    timestr_array = [
-        f.name.split("_")[2].split(".")[0]
-        for f in path.iterdir()
-        if f.name.startswith("cam_metadata_") and f.name.endswith(".csv")
-    ]
+    strobe = reader.DigitalInputState.read(events_path / "behavior_32.bin")
+    strobe = strobe[(~strobe["DI3"]) & (strobe["DI3"].shift(1))]
+    strobe = strobe[["DI3", "DIPort1"]]
+    timestamps = strobe.index.to_numpy()
+    strobe = strobe.reset_index(drop=True)
+    strobe["Timestamp"] = timestamps
 
-    # Initialize a DataFrame for the synched data between the camera and the Harp
-    synched_data = pd.DataFrame(
-        columns=np.array(["Timestamp", "DI3", "DIPort1", "FrameID", "GPIO"])
+    metadata = pd.read_csv(
+        path / ("cam_metadata_" + time_str + ".csv"),
+        header=None,
+        names=["Timestamp", "FrameID", "GPIO"],
     )
+    metadata["FrameID"] = metadata.index.to_numpy() + 1
 
-    for timestr in timestr_array:
-        events_path = path / "events" / timestr / "behavior"
-        reader = harp.create_reader(events_path)
+    si_mask = (~strobe["DIPort1"]) & (strobe["DIPort1"].shift(1))
+    strobe_index = strobe[si_mask].index.to_numpy()[0]
 
-        strobe = reader.DigitalInputState.read(events_path / "behavior_32.bin")
-        strobe = strobe[(~strobe["DI3"]) & (strobe["DI3"].shift(1))]
-        strobe = strobe[["DI3", "DIPort1"]]
-        timestamps = strobe.index.to_numpy()
-        strobe = strobe.reset_index(drop=True)
-        strobe["Timestamp"] = timestamps
+    # Check the state of the camera GPIO0 (0x1)
+    mi_mask = (~(metadata["GPIO"].fillna(-1).astype(int) & 0x1)) & (
+        metadata["GPIO"].shift(1).fillna(-1).astype(int) & 0x1
+    )
+    metadata_index = metadata[mi_mask.astype(bool)].index.to_numpy()[0]
 
-        metadata = pd.read_csv(
-            path / ("cam_metadata_" + timestr + ".csv"),
-            header=None,
-            names=["Timestamp", "FrameID", "GPIO"],
-        )
-        metadata["FrameID"] = metadata.index.to_numpy() + 1
+    sl_after = strobe.iloc[strobe_index:].shape[0]
+    ml_after = metadata.iloc[metadata_index:].shape[0]
+    if (sl_after - ml_after) > 0:
+        strobe = strobe.iloc[: -(sl_after - ml_after)]
+    elif (ml_after - sl_after) > 0:
+        metadata = metadata.iloc[: -(ml_after - sl_after)]
 
-        si_mask = (~strobe["DIPort1"]) & (strobe["DIPort1"].shift(1))
-        strobe_index = strobe[si_mask].index.to_numpy()[-1]
+    sl_before = strobe.iloc[:strobe_index].shape[0]
+    ml_before = metadata.iloc[:metadata_index].shape[0]
+    zeros = np.zeros(max(0, ml_before - sl_before), dtype=int)
+    pre_strobe = pd.DataFrame({"Timestamp": zeros, "FrameID": zeros, "GPIO": zeros})
+    zeros = np.zeros(max(0, sl_before - ml_before), dtype=int)
+    pre_metadata = pd.DataFrame({"DI3": zeros, "DIPort1": zeros, "Timestamp": zeros})
 
-        # Check the state of the camera GPIO0 (0x1)
-        mi_mask = (~(metadata["GPIO"] & 0x1)) & (
-            metadata["GPIO"].shift(1).fillna(-1).astype(int) & 0x1
-        )
-        metadata_index = metadata[mi_mask.astype(bool)].index.to_numpy()[-1]
+    strobe = pd.concat([pre_strobe, strobe], ignore_index=True)
+    metadata = pd.concat([pre_metadata, metadata], ignore_index=True)
 
-        sl_after = strobe.iloc[strobe_index:].shape[0]
-        ml_after = metadata.iloc[metadata_index:].shape[0]
-        zeros = np.zeros(max(0, ml_after - sl_after), dtype=int)
-        pos_strobe = pd.DataFrame({"Timestamp": zeros, "FrameID": zeros, "GPIO": zeros})
-        zeros = np.zeros(max(0, sl_after - ml_after), dtype=int)
-        pos_metadata = pd.DataFrame(
-            {"DI3": zeros, "DIPort1": zeros, "Timestamp": zeros}
-        )
-
-        sl_before = strobe.iloc[:strobe_index].shape[0]
-        ml_before = metadata.iloc[:metadata_index].shape[0]
-        zeros = np.zeros(max(0, ml_before - sl_before), dtype=int)
-        pre_strobe = pd.DataFrame({"Timestamp": zeros, "FrameID": zeros, "GPIO": zeros})
-        zeros = np.zeros(max(0, sl_before - ml_before), dtype=int)
-        pre_metadata = pd.DataFrame(
-            {"DI3": zeros, "DIPort1": zeros, "Timestamp": zeros}
-        )
-
-        strobe = pd.concat([pre_strobe, strobe, pos_strobe], ignore_index=True)
-        metadata = pd.concat([pre_metadata, metadata, pos_metadata], ignore_index=True)
-
-        df = pd.DataFrame(
-            {
-                "Timestamp": strobe["Timestamp"].to_numpy(),
-                "DI3": strobe["DI3"].to_numpy(),
-                "DIPort1": strobe["DIPort1"].to_numpy(),
-                "FrameID": metadata["FrameID"].to_numpy(),
-                "GPIO": metadata["GPIO"].to_numpy(),
-            }
-        )
-
-        synched_data = pd.concat(
-            [i.dropna(axis=1, how="all") for i in [synched_data, df]], ignore_index=True
-        )
+    synched_data = pd.DataFrame(
+        {
+            "Timestamp": strobe["Timestamp"].to_numpy(),
+            "DI3": strobe["DI3"].to_numpy(),
+            "DIPort1": strobe["DIPort1"].to_numpy(),
+            "FrameID": metadata["FrameID"].to_numpy(),
+            "GPIO": metadata["GPIO"].to_numpy(),
+        }
+    )
 
     return synched_data
