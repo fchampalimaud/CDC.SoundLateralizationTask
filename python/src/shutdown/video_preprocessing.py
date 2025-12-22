@@ -1,4 +1,3 @@
-import json
 from pathlib import Path
 
 import harp
@@ -152,17 +151,11 @@ def synch_camera(path: Path):
         si_mask = (~strobe["DIPort1"]) & (strobe["DIPort1"].shift(1))
         strobe_index = strobe[si_mask].index.to_numpy()[-1]
 
-        setup_path = path / "config" / ("setup_" + timestr + ".json")
-        with open(setup_path, "r") as file:
-            setup = json.load(file)
-
-        if setup["camera"]["type"] == "FLIR":
-            mi_mask = (metadata["GPIO"] == 12) & (metadata["GPIO"].shift(1) == 13)
-        else:
-            mi_mask = (metadata["GPIO"] == 805306368) & (
-                metadata["GPIO"].shift(1) == 2952790016
-            )
-        metadata_index = metadata[mi_mask].index.to_numpy()[-1]
+        # Check the state of the camera GPIO0 (0x1)
+        mi_mask = (~(metadata["GPIO"] & 0x1)) & (
+            metadata["GPIO"].shift(1).fillna(-1).astype(int) & 0x1
+        )
+        metadata_index = metadata[mi_mask.astype(bool)].index.to_numpy()[-1]
 
         sl_after = strobe.iloc[strobe_index:].shape[0]
         ml_after = metadata.iloc[metadata_index:].shape[0]
