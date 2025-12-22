@@ -1,4 +1,3 @@
-from datetime import time
 from pathlib import Path
 from typing import Literal
 
@@ -282,7 +281,7 @@ def generate_output():
 
     bonsai_sgen(
         schema_path=schema_path,
-        output_path=Path(rf"../src/Extensions"),
+        output_path=Path(r"../src/Extensions"),
         namespace=schema_name,
         serializer=[BonsaiSgenSerializers.JSON, BonsaiSgenSerializers.YAML],
     )
