@@ -29,6 +29,7 @@ config = "config.__main__:main"
 startup = "startup.__main__:main"
 convert-output = "shutdown.__main__:main"
 conversion-tool = "shutdown.tool:convert_tool"
+merge-output = "tooling.merger:main"
 
 [build-system]
 requires = ["hatchling"]
