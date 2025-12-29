@@ -11,16 +11,23 @@ These sessions, based on [[1](#references)], work as follows:
 3. After the first biased block ends, the preferential side switches (if it was left, it will be right in the next block, and vice-versa). The number of trials for this block is determined as described in 2. This logic is repeated until the end of the session.
 
 ## How to configure a biased blocks session?
+To configure a biased blocks session, the `biased_session.is_biased_session` parameter of the `animal.yml` file must be set to `true`. Additionally, the remaining parameters related to this feature should be configured (see the following example).
 
 ```
 biased_session:
-  is_biased_session: false
+  is_biased_session: true
   bias_probability: 0.8
   block_distributions:
     mean: 60
     min_value: 20
     max_value: 100
 ```
+
+The `bias_probability` is the probability of one of the sides producing the most intense stimulus in a given block (in the next block, it will be the other way around). An example could be the left side being the correct answer 80% of the trials in a given block and the right side only 20%.
+
+The `block_distributions` parameters model the (exponential) distribution from which the number of trials of a given biased block is sampled.
+
+An example of an `animal.yml` file with the biased blocks session configured is shown below.
 
 ```
 # yaml-language-server: $schema=../src/config/schemas/animal-schema.json
@@ -50,7 +57,7 @@ fixation_time:
 reward:
   base_amount: 15
 biased_session:
-  is_biased_session: false
+  is_biased_session: true
   bias_probability: 0.8
   block_distributions:
     mean: 60
