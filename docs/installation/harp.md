@@ -37,4 +37,4 @@ You can find the firmware versions currently being used in the table below.
 | Harp SoundCard | [v2.0](https://github.com/harp-tech/device.soundcard/releases/download/fw2.0-harp1.4/SoundCard-fw2.0-harp1.4-hw2.2-ass0.hex) | v1.4 | v2.2 | [v2.0](https://github.com/harp-tech/device.soundcard/releases/download/fw2.0-harp1.4/SoundCard.X-fw2.0-harp1.4-hw2.2-ass0.hex) |
 | Harp ClockSynchronizer | [v1.0](https://github.com/harp-tech/device.clocksynchronizer/releases/download/fw1.0-harp1.13/ClockSynchronizer-fw1.0-harp1.13-hw1.0-ass0.hex) | v1.13 | v1.0 | - |
 | Harp SyringePump | [v1.0](https://github.com/harp-tech/device.syringepump/releases/download/fw1.0-harp1.13/SyringePump-fw1.0-harp1.13-hw1.1-ass0.hex) | v1.13 | v1.1 | - |
-| Harp CurrentDriver | v0.2 | v1.13 | v1.1 | - |
+| Harp CurrentDriver | v0.3 | v1.13 | v1.1 | - |

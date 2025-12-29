@@ -1,16 +1,10 @@
-- name: Introduction
-  href: introduction.md
-- name: Inter-trial Interval
-  href: inter-trial-interval.md
-- name: Start Trial
-  href: start-trial.md
+- name: State Machine
+  href: state_machine.md
 - name: Fixation Time
   href: fixation-time.md
-- name: Stimulus
-  href: stimulus.md
-- name: Choice
-  href: choice.md
-- name: Reward
-  href: reward.md
-- name: Abort
-  href: abort.md
+- name: Optogenetics
+  href: optogenetics.md
+- name: Biased Blocks
+  href: biased_blocks.md
+- name: Autobias Correction
+  href: autobias.md

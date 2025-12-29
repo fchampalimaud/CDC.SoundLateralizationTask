@@ -6,6 +6,3 @@ If the RandomizeFT setting is 1, the fixation time varies from trial to trial - 
 $$t_{\text{Fix}} = t_{\text{Base Fix}} + (X ∼ \text{Exp}(λ))$$
 
 If RandomizeFT is 0, the fixation time is only given by $t_{\text{Base Fix}}$.
-
-## Progression conditions
-If the animal doesn't leave the CNP during this state, the task continues as it is supposed to, otherwise this trial is aborted.
