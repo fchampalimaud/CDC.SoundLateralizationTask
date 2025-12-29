@@ -57,6 +57,9 @@ class LnpTime(BaseModel):
     intended_duration: float = Field(
         description="The minimum allowed LNP time (s).", ge=0
     )
+    start_time: float = Field(
+        description="The timestamp at which the LNP time started (s)."
+    )
     timed_duration: float = Field(description="The timed LNP time (s).", ge=0)
 
 

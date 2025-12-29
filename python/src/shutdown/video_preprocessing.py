@@ -29,14 +29,13 @@ def add_frame_numbers(out: pd.DataFrame, path: Path, time_str: str):
 
     # Create a temporary copy of the out structure
     temp_out = out.copy()
-    temp_out["mt_end"] = temp_out["mt_start"] + temp_out["timed_mt"]
 
     # Convert the type of the relevant columns to float
     temp_out["trial_start"] = temp_out["trial_start"].astype(float)
     temp_out["cnp_start"] = temp_out["cnp_start"].astype(float)
     temp_out["rt_start"] = temp_out["rt_start"].astype(float)
     temp_out["mt_start"] = temp_out["mt_start"].astype(float)
-    temp_out["mt_end"] = temp_out["mt_end"].astype(float)
+    temp_out["lnp_start"] = temp_out["lnp_start"].astype(float)
 
     # Get the frame number of the start of each trial
     df = pd.merge_asof(
@@ -90,17 +89,17 @@ def add_frame_numbers(out: pd.DataFrame, path: Path, time_str: str):
     # Get the frame number of the moment the animal enters one of the lateral pokes for each trial
     try:
         df = pd.merge_asof(
-            left=temp_out[(temp_out["mt_end"].notna())],
+            left=temp_out[(temp_out["lnp_start"].notna())],
             right=strobe,
-            left_on="mt_end",
+            left_on="lnp_start",
             right_on="Timestamp",
             direction="forward",
         )
-        df = df.rename(columns={"FrameID": "mt_end_frame"})
-        df = df[["trial", "mt_end_frame"]]
+        df = df.rename(columns={"FrameID": "lnp_start_frame"})
+        df = df[["trial", "lnp_start_frame"]]
         out = out.merge(df, how="left", on="trial")
     except Exception:
-        print("It was not possible to add the mt_end_frame column")
+        print("It was not possible to add the lnp_start_frame column")
 
     return out
 

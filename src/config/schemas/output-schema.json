@@ -175,6 +175,11 @@
           "title": "Intended Duration",
           "type": "number"
         },
+        "start_time": {
+          "description": "The timestamp at which the LNP time started (s).",
+          "title": "Start Time",
+          "type": "number"
+        },
         "timed_duration": {
           "description": "The timed LNP time (s).",
           "minimum": 0,
@@ -184,6 +189,7 @@
       },
       "required": [
         "intended_duration",
+        "start_time",
         "timed_duration"
       ],
       "title": "LnpTime",

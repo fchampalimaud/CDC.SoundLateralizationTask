@@ -164,6 +164,7 @@ COLUMN_RENAMES = {
     "movement_time.start_time": "mt_start",
     "movement_time.timed_duration": "timed_mt",
     "lnp_time.intended_duration": "intended_lnp",
+    "lnp_time.start_time": "lnp_start",
     "lnp_time.timed_duration": "timed_lnp",
     "outcome.response_poke": "response_poke",
     "outcome.success": "success",

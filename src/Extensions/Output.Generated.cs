@@ -662,6 +662,8 @@ namespace Output
     
         private double _intendedDuration;
     
+        private double _startTime;
+    
         private double _timedDuration;
     
         public LnpTime()
@@ -671,6 +673,7 @@ namespace Output
         protected LnpTime(LnpTime other)
         {
             _intendedDuration = other._intendedDuration;
+            _startTime = other._startTime;
             _timedDuration = other._timedDuration;
         }
     
@@ -689,6 +692,24 @@ namespace Output
             set
             {
                 _intendedDuration = value;
+            }
+        }
+    
+        /// <summary>
+        /// The timestamp at which the LNP time started (s).
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("start_time", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="start_time")]
+        [System.ComponentModel.DescriptionAttribute("The timestamp at which the LNP time started (s).")]
+        public double StartTime
+        {
+            get
+            {
+                return _startTime;
+            }
+            set
+            {
+                _startTime = value;
             }
         }
     
@@ -723,6 +744,7 @@ namespace Output
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
             stringBuilder.Append("IntendedDuration = " + _intendedDuration + ", ");
+            stringBuilder.Append("StartTime = " + _startTime + ", ");
             stringBuilder.Append("TimedDuration = " + _timedDuration);
             return true;
         }
