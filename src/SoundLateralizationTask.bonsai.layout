@@ -666,8 +666,8 @@
     <EditorDialogSettings>
       <Visible>false</Visible>
       <Location>
-        <X>24</X>
-        <Y>26</Y>
+        <X>204</X>
+        <Y>318</Y>
       </Location>
       <Size>
         <Width>1358</Width>
@@ -702,8 +702,8 @@
     <EditorDialogSettings>
       <Visible>false</Visible>
       <Location>
-        <X>-1716</X>
-        <Y>109</Y>
+        <X>195</X>
+        <Y>219</Y>
       </Location>
       <Size>
         <Width>1504</Width>
