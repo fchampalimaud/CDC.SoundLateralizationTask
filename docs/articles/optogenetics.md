@@ -1,6 +1,11 @@
 # Optogenetics
 
+An experimental setup that uses this project for behavioral experiments and is equipped with a [Harp CurrentDriver](https://github.com/fchampalimaud/device.currentdriver) and a laser/LED that can be externally controlled is able to run an optogenetics session.
+
+In the context of the this task, an optogenetics stimulation starts during the fixation time, at the opto onset time to be more precise (a description of the fixation time can be found [here](state-machine.md#fixation-time)). The stimulation ends either when the animal leaves the central port (if `optogenetics.use_rt` is `true`) or after a fixed amount of time (that starts when the stimulus is presented).
+
 ## How to configure an optogenetics session?
+For a session to use the optogenetics feature the `optogenetics.use_opto` parameter of the `animal.yml` file must be set to `true`. See below an example for a configuration of an optogenetics session.
 
 ```
 optogenetics:
@@ -26,6 +31,18 @@ optogenetics:
     frequency: 1
     duty_cycle: 50
 ```
+
+From the snippet above, it can be concluded that it's possible to configure a variety of optogenetics protocol. Here is a list of what can be configured:
+- The ratio of optogenetics trials in a session (`opto_ratio`).
+- The use of rise and/or fall ramps of variable duration (`ramp_time`) when using a continuous stimulation protocol (i.e. `ledx.use_pulses` is `false`). The `ramp_mode` parameter can take the values `None`, `Rise`, `Fall` and `Both`.
+- Up to 2 different LEDs/lasers:
+  - The voltage with which the LED will be controlled.
+  - Whether the LED is being controlled externally or directly (current driven).
+  - The possibility of using a pulsed protocol (if `use_pulses` is true). To define the characteristics of the pulses, the `frequency` and `duty_cycle` parameters can be modified.
+
+Some of the parameters that can be defined (such as `mode` and `led0.power`) don't modify the protocol, but can be used as a record.
+
+An example of an `animal.yml` file with an optogenetics session configured is shown below.
 
 ```
 # yaml-language-server: $schema=../src/config/schemas/animal-schema.json

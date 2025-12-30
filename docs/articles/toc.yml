@@ -1,10 +1,8 @@
 - name: State Machine
-  href: state_machine.md
-- name: Fixation Time
-  href: fixation-time.md
+  href: state-machine.md
 - name: Optogenetics
   href: optogenetics.md
 - name: Biased Blocks
-  href: biased_blocks.md
+  href: biased-blocks.md
 - name: Autobias Correction
   href: autobias.md
