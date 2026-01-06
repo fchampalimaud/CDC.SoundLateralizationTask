@@ -35,19 +35,3 @@ def main():
         session_backup_dir = animal_backup_dir / session_dir.name
 
     convert_output(session_dir, session_backup_dir)
-    # merge_output()
-
-
-# def merge_output(self):
-#     out_path = os.path.join(self.animal_dir, self.dirs[0], "out.csv")
-#     out = pd.read_csv(out_path, na_values=["NaN"])
-
-#     for i in range(1, len(self.dirs)):
-#         out_path = os.path.join(
-#             self.animal_dir, self.dirs[i], "out_" + self.dirs[i] + ".csv"
-#         )
-#         df = pd.read_csv(out_path, na_values=["NaN"])
-
-#         out = pd.concat([out, df], axis=0, ignore_index=True)
-
-#     out.to_csv(os.path.join(self.animal_dir, "out.csv"), index=False)

@@ -138,6 +138,7 @@ def synch_camera(path: Path, time_str: str):
     )
     metadata["FrameID"] = metadata.index.to_numpy() + 1
 
+    # FIXME: there's an edge case that is not being dealt with when the animal never pokes in the central port
     si_mask = (~strobe["DIPort1"]) & (strobe["DIPort1"].shift(1))
     strobe_index = strobe[si_mask].index.to_numpy()[0]
 
