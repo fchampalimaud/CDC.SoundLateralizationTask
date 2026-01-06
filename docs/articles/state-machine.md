@@ -21,7 +21,14 @@ A trial starts when the rodent pokes his nose in the central nose port (CNP). So
 ## Fixation Time
 This is the state that precedes the stimulus presentation. The rodent must stay in the CNP during the entire time this state lasts so that the task progresses as expected, otherwise the trial is aborted. 
 
-The fixation time is usually random. Find more information on how the fixation time works [here](fixation-time.md).
+The fixation time is divided into 2 parts: the Opto Onset Time and the Sound Onset Time. The fixation time starts in the Opto Onset Time. When it ends the optogenetics stimulation starts (if it applies to the current trial) and the Sound Onset Time starts. When it ends, the sound stimulus is presented.
+
+Each of these parts is composed by the sum of a fixed duration and random variable modeled by a exponential distribution.
+
+$$t_\text{Opto Onset Time} = t_\text{Base Fix} + (X ∼ \text{Exp}(\lambda)) = t_\text{Sound Onset Time}$$
+$$t_\text{Fix} = t_\text{Opto Onset Time} + t_\text{Sound Onset Time}$$
+
+The advantage of modelling the fixation time with the exponential distribution is that it has a constant hazard rate, which in practice means, in the animal's perspective, that the probability of the sound starting (and therefore the fixation time ending) at any time given that a certain amount of time has already passed is constant. This way, it's difficult for the animal to predict when the sound is going to start.
 
 ## Stimulus
 This is the state where the stimulus is presented. The stimulus stops when either the rodent leaves the CNP (if `reaction_time.turn_sound_off` is `True`) or when the animal enters one of the LNP's (if `reaction_time.turn_sound_off` is `False`) or when the defined presentation time elapses (the presentation time is defined by `reaction_time.max_value`).
