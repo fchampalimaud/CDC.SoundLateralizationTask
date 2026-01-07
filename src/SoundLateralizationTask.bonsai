@@ -87,9 +87,6 @@
                               <Expression xsi:type="MulticastSubject">
                                 <Name>MTStart</Name>
                               </Expression>
-                              <Expression xsi:type="MulticastSubject">
-                                <Name>LNPStart</Name>
-                              </Expression>
                               <Expression xsi:type="WorkflowOutput" />
                               <Expression xsi:type="SubscribeSubject">
                                 <Name>NewTrialRequest</Name>
@@ -117,9 +114,8 @@
                               <Edge From="10" To="11" Label="Source1" />
                               <Edge From="11" To="12" Label="Source1" />
                               <Edge From="12" To="13" Label="Source1" />
-                              <Edge From="13" To="14" Label="Source1" />
+                              <Edge From="14" To="15" Label="Source1" />
                               <Edge From="15" To="16" Label="Source1" />
-                              <Edge From="16" To="17" Label="Source1" />
                             </Edges>
                           </Workflow>
                         </Expression>
@@ -8619,6 +8615,9 @@
                   <Expression xsi:type="MulticastSubject">
                     <Name>TimedLNP</Name>
                   </Expression>
+                  <Expression xsi:type="MulticastSubject">
+                    <Name>LNPStart</Name>
+                  </Expression>
                   <Expression xsi:type="WorkflowOutput" />
                 </Nodes>
                 <Edges>
@@ -8627,6 +8626,7 @@
                   <Edge From="2" To="3" Label="Source1" />
                   <Edge From="3" To="4" Label="Source1" />
                   <Edge From="4" To="5" Label="Source1" />
+                  <Edge From="5" To="6" Label="Source1" />
                 </Edges>
               </Workflow>
             </Expression>
@@ -11851,6 +11851,7 @@
                     <PropertyMappings>
                       <Property Name="IntendedDuration" Selector="Item2.LnpTime.IntendedDuration" />
                       <Property Name="TimedDuration" Selector="Item1" />
+                      <Property Name="StartTime" Selector="Item2.LnpTime.StartTime" />
                     </PropertyMappings>
                     <Selector>it</Selector>
                   </Expression>
