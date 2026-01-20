@@ -399,6 +399,21 @@
           "minimum": 0,
           "title": "Short Duration Ratio",
           "type": "number"
+        },
+        "short_durations": {
+          "default": [
+            15,
+            60,
+            120
+          ],
+          "description": "The list containing the possible sound durations in a short duration trial in ms.",
+          "items": {
+            "exclusiveMinimum": 0,
+            "maximum": 255,
+            "type": "integer"
+          },
+          "title": "Short Durations",
+          "type": "array"
         }
       },
       "required": [

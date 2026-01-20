@@ -138,6 +138,8 @@ COLUMN_RENAMES = {
     "sound.sound_index": "sound_index",
     "sound.left_amp": "left_amp",
     "sound.right_amp": "right_amp",
+    "sound.is_short_sound": "is_short_sound",
+    "sound.short_duration": "short_duration",
     "iti.intended_duration": "intended_iti",
     "iti.start_time": "iti_start",
     "iti.end_time": "iti_end",

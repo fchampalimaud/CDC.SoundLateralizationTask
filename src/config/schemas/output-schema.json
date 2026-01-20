@@ -488,6 +488,16 @@
           "description": "The amplification applied to the right speaker in the trial.",
           "title": "Right Amp",
           "type": "number"
+        },
+        "is_short_sound": {
+          "description": "Indicates whether the sound presented in the current trial had a short duration.",
+          "title": "Is Short Sound",
+          "type": "boolean"
+        },
+        "short_duration": {
+          "description": "The duration of the sound in a short duration trial.",
+          "title": "Short Duration",
+          "type": "integer"
         }
       },
       "required": [
@@ -495,7 +505,9 @@
         "ild",
         "sound_index",
         "left_amp",
-        "right_amp"
+        "right_amp",
+        "is_short_sound",
+        "short_duration"
       ],
       "title": "Sound",
       "type": "object"

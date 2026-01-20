@@ -1,6 +1,6 @@
 from datetime import timedelta
 from pathlib import Path
-from typing import Literal
+from typing import List, Literal
 
 from pydantic import BaseModel, Field
 from pydantic.types import StringConstraints
@@ -170,6 +170,10 @@ class Sound(BaseModel):
         default=0,
         ge=0,
         le=1,
+    )
+    short_durations: List[Annotated[int, Field(gt=0, le=255)]] = Field(
+        description="The list containing the possible sound durations in a short duration trial in ms.",
+        default=[15, 60, 120],
     )
 
 

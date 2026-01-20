@@ -1709,6 +1709,10 @@ namespace Output
     
         private double _rightAmp;
     
+        private bool _isShortSound;
+    
+        private int _shortDuration;
+    
         public Sound()
         {
         }
@@ -1720,6 +1724,8 @@ namespace Output
             _soundIndex = other._soundIndex;
             _leftAmp = other._leftAmp;
             _rightAmp = other._rightAmp;
+            _isShortSound = other._isShortSound;
+            _shortDuration = other._shortDuration;
         }
     
         /// <summary>
@@ -1812,6 +1818,42 @@ namespace Output
             }
         }
     
+        /// <summary>
+        /// Indicates whether the sound presented in the current trial had a short duration.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("is_short_sound", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="is_short_sound")]
+        [System.ComponentModel.DescriptionAttribute("Indicates whether the sound presented in the current trial had a short duration.")]
+        public bool IsShortSound
+        {
+            get
+            {
+                return _isShortSound;
+            }
+            set
+            {
+                _isShortSound = value;
+            }
+        }
+    
+        /// <summary>
+        /// The duration of the sound in a short duration trial.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("short_duration", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="short_duration")]
+        [System.ComponentModel.DescriptionAttribute("The duration of the sound in a short duration trial.")]
+        public int ShortDuration
+        {
+            get
+            {
+                return _shortDuration;
+            }
+            set
+            {
+                _shortDuration = value;
+            }
+        }
+    
         public System.IObservable<Sound> Generate()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new Sound(this)));
@@ -1828,7 +1870,9 @@ namespace Output
             stringBuilder.Append("Ild = " + _ild + ", ");
             stringBuilder.Append("SoundIndex = " + _soundIndex + ", ");
             stringBuilder.Append("LeftAmp = " + _leftAmp + ", ");
-            stringBuilder.Append("RightAmp = " + _rightAmp);
+            stringBuilder.Append("RightAmp = " + _rightAmp + ", ");
+            stringBuilder.Append("IsShortSound = " + _isShortSound + ", ");
+            stringBuilder.Append("ShortDuration = " + _shortDuration);
             return true;
         }
     

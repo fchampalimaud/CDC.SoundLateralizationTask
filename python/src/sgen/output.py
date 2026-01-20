@@ -163,6 +163,12 @@ class Sound(BaseModel):
     right_amp: float = Field(
         description="The amplification applied to the right speaker in the trial."
     )
+    is_short_sound: bool = Field(
+        description="Indicates whether the sound presented in the current trial had a short duration."
+    )
+    short_duration: int = Field(
+        description="The duration of the sound in a short duration trial."
+    )
 
 
 class Session(BaseModel):

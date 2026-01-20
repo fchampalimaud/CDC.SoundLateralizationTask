@@ -1390,10 +1390,13 @@ namespace Animal
     
         private double _shortDurationRatio;
     
+        private System.Collections.Generic.List<int> _shortDurations;
+    
         public Sound()
         {
             _ablBlock = false;
             _shortDurationRatio = 0D;
+            _shortDurations = new System.Collections.Generic.List<int>();
         }
     
         protected Sound(Sound other)
@@ -1402,6 +1405,7 @@ namespace Animal
             _maxSide = other._maxSide;
             _ablBlock = other._ablBlock;
             _shortDurationRatio = other._shortDurationRatio;
+            _shortDurations = other._shortDurations;
         }
     
         /// <summary>
@@ -1477,6 +1481,26 @@ namespace Animal
             }
         }
     
+        /// <summary>
+        /// The list containing the possible sound durations in a short duration trial in ms.
+        /// </summary>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [Newtonsoft.Json.JsonPropertyAttribute("short_durations")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="short_durations")]
+        [System.ComponentModel.DescriptionAttribute("The list containing the possible sound durations in a short duration trial in ms." +
+            "")]
+        public System.Collections.Generic.List<int> ShortDurations
+        {
+            get
+            {
+                return _shortDurations;
+            }
+            set
+            {
+                _shortDurations = value;
+            }
+        }
+    
         public System.IObservable<Sound> Generate()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new Sound(this)));
@@ -1492,7 +1516,8 @@ namespace Animal
             stringBuilder.Append("PseudoRandomSide = " + _pseudoRandomSide + ", ");
             stringBuilder.Append("MaxSide = " + _maxSide + ", ");
             stringBuilder.Append("AblBlock = " + _ablBlock + ", ");
-            stringBuilder.Append("ShortDurationRatio = " + _shortDurationRatio);
+            stringBuilder.Append("ShortDurationRatio = " + _shortDurationRatio + ", ");
+            stringBuilder.Append("ShortDurations = " + _shortDurations);
             return true;
         }
     
