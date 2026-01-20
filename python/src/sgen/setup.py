@@ -111,9 +111,6 @@ class Setup(BaseModel):
     sounds: List[int] = Field(
         description="The list containing the indexes where the non-short-duration sounds are saved in the Harp SoundCard."
     )
-    short_sounds: List[int] = Field(
-        description="The list containing the indexes where the short-duration sounds are saved in the Harp SoundCard."
-    )
     camera: Camera = Field(description="Contains parameters related to the camera.")
 
 

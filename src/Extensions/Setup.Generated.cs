@@ -719,8 +719,6 @@ namespace Setup
     
         private System.Collections.Generic.List<int> _sounds;
     
-        private System.Collections.Generic.List<int> _shortSounds;
-    
         private Camera _camera;
     
         public Setup()
@@ -732,7 +730,6 @@ namespace Setup
             _lights = new Lights();
             _syringePumps = new SyringePumps();
             _sounds = new System.Collections.Generic.List<int>();
-            _shortSounds = new System.Collections.Generic.List<int>();
             _camera = new Camera();
         }
     
@@ -746,7 +743,6 @@ namespace Setup
             _lights = other._lights;
             _syringePumps = other._syringePumps;
             _sounds = other._sounds;
-            _shortSounds = other._shortSounds;
             _camera = other._camera;
         }
     
@@ -903,26 +899,6 @@ namespace Setup
         }
     
         /// <summary>
-        /// The list containing the indexes where the short-duration sounds are saved in the Harp SoundCard.
-        /// </summary>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        [Newtonsoft.Json.JsonPropertyAttribute("short_sounds", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="short_sounds")]
-        [System.ComponentModel.DescriptionAttribute("The list containing the indexes where the short-duration sounds are saved in the " +
-            "Harp SoundCard.")]
-        public System.Collections.Generic.List<int> ShortSounds
-        {
-            get
-            {
-                return _shortSounds;
-            }
-            set
-            {
-                _shortSounds = value;
-            }
-        }
-    
-        /// <summary>
         /// Contains parameters related to the camera.
         /// </summary>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
@@ -961,7 +937,6 @@ namespace Setup
             stringBuilder.Append("Lights = " + _lights + ", ");
             stringBuilder.Append("SyringePumps = " + _syringePumps + ", ");
             stringBuilder.Append("Sounds = " + _sounds + ", ");
-            stringBuilder.Append("ShortSounds = " + _shortSounds + ", ");
             stringBuilder.Append("Camera = " + _camera);
             return true;
         }

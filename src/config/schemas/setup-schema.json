@@ -217,14 +217,6 @@
       "title": "Sounds",
       "type": "array"
     },
-    "short_sounds": {
-      "description": "The list containing the indexes where the short-duration sounds are saved in the Harp SoundCard.",
-      "items": {
-        "type": "integer"
-      },
-      "title": "Short Sounds",
-      "type": "array"
-    },
     "camera": {
       "$ref": "#/definitions/Camera",
       "description": "Contains parameters related to the camera."
@@ -239,7 +231,6 @@
     "lights",
     "syringe_pumps",
     "sounds",
-    "short_sounds",
     "camera"
   ],
   "title": "Setup",
