@@ -143,9 +143,16 @@
     "SyringePumps": {
       "properties": {
         "use_pumps": {
-          "description": "Indicates whether the setup uses valves (false) or Harp SyringePumps (true) for reward delivery.",
+          "description": "Indicates whether the reward delivery system is active or not.",
           "title": "Use Pumps",
           "type": "boolean"
+        },
+        "num_pumps": {
+          "description": "Indicates the number of Harp SyringePumps used in the reward delivery system. If the system only has one pump, a water valve must be connected to lateralize the reward.",
+          "maximum": 2,
+          "minimum": 1,
+          "title": "Num Pumps",
+          "type": "integer"
         },
         "left_slope": {
           "description": "The slope of the calibration curve of the left Harp SyringePump.",
@@ -170,6 +177,7 @@
       },
       "required": [
         "use_pumps",
+        "num_pumps",
         "left_slope",
         "left_intercept",
         "right_slope",

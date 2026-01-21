@@ -14,7 +14,12 @@ from sgen._utils import (
 
 class SyringePumps(BaseModel):
     use_pumps: bool = Field(
-        description="Indicates whether the setup uses valves (false) or Harp SyringePumps (true) for reward delivery."
+        description="Indicates whether the reward delivery system is active or not."
+    )
+    num_pumps: int = Field(
+        description="Indicates the number of Harp SyringePumps used in the reward delivery system. If the system only has one pump, a water valve must be connected to lateralize the reward.",
+        ge=1,
+        le=2,
     )
     left_slope: float = Field(
         description="The slope of the calibration curve of the left Harp SyringePump."

@@ -550,6 +550,8 @@ namespace Setup
     
         private bool _usePumps;
     
+        private int _numPumps;
+    
         private double _leftSlope;
     
         private double _leftIntercept;
@@ -565,6 +567,7 @@ namespace Setup
         protected SyringePumps(SyringePumps other)
         {
             _usePumps = other._usePumps;
+            _numPumps = other._numPumps;
             _leftSlope = other._leftSlope;
             _leftIntercept = other._leftIntercept;
             _rightSlope = other._rightSlope;
@@ -572,12 +575,11 @@ namespace Setup
         }
     
         /// <summary>
-        /// Indicates whether the setup uses valves (false) or Harp SyringePumps (true) for reward delivery.
+        /// Indicates whether the reward delivery system is active or not.
         /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("use_pumps", Required=Newtonsoft.Json.Required.Always)]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="use_pumps")]
-        [System.ComponentModel.DescriptionAttribute("Indicates whether the setup uses valves (false) or Harp SyringePumps (true) for r" +
-            "eward delivery.")]
+        [System.ComponentModel.DescriptionAttribute("Indicates whether the reward delivery system is active or not.")]
         public bool UsePumps
         {
             get
@@ -587,6 +589,26 @@ namespace Setup
             set
             {
                 _usePumps = value;
+            }
+        }
+    
+        /// <summary>
+        /// Indicates the number of Harp SyringePumps used in the reward delivery system. If the system only has one pump, a water valve must be connected to lateralize the reward.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("num_pumps", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="num_pumps")]
+        [System.ComponentModel.DescriptionAttribute("Indicates the number of Harp SyringePumps used in the reward delivery system. If " +
+            "the system only has one pump, a water valve must be connected to lateralize the " +
+            "reward.")]
+        public int NumPumps
+        {
+            get
+            {
+                return _numPumps;
+            }
+            set
+            {
+                _numPumps = value;
             }
         }
     
@@ -675,6 +697,7 @@ namespace Setup
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
             stringBuilder.Append("UsePumps = " + _usePumps + ", ");
+            stringBuilder.Append("NumPumps = " + _numPumps + ", ");
             stringBuilder.Append("LeftSlope = " + _leftSlope + ", ");
             stringBuilder.Append("LeftIntercept = " + _leftIntercept + ", ");
             stringBuilder.Append("RightSlope = " + _rightSlope + ", ");
