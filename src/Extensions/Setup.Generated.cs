@@ -25,8 +25,17 @@ namespace Setup
     
         private CameraCodec _codec;
     
+        private int _qpI;
+    
+        private int _qpP;
+    
+        private int _qpB;
+    
         public Camera()
         {
+            _qpI = -1;
+            _qpP = -1;
+            _qpB = -1;
         }
     
         protected Camera(Camera other)
@@ -36,6 +45,9 @@ namespace Setup
             _framesPerSecond = other._framesPerSecond;
             _resolution = other._resolution;
             _codec = other._codec;
+            _qpI = other._qpI;
+            _qpP = other._qpP;
+            _qpB = other._qpB;
         }
     
         /// <summary>
@@ -128,6 +140,60 @@ namespace Setup
             }
         }
     
+        /// <summary>
+        /// Quantization parameter for I-Frame. It only works with the h264_amf encoder.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("qp_i")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="qp_i")]
+        [System.ComponentModel.DescriptionAttribute("Quantization parameter for I-Frame. It only works with the h264_amf encoder.")]
+        public int QpI
+        {
+            get
+            {
+                return _qpI;
+            }
+            set
+            {
+                _qpI = value;
+            }
+        }
+    
+        /// <summary>
+        /// Quantization parameter for P-Frame. It only works with the h264_amf encoder.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("qp_p")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="qp_p")]
+        [System.ComponentModel.DescriptionAttribute("Quantization parameter for P-Frame. It only works with the h264_amf encoder.")]
+        public int QpP
+        {
+            get
+            {
+                return _qpP;
+            }
+            set
+            {
+                _qpP = value;
+            }
+        }
+    
+        /// <summary>
+        /// Quantization parameter for B-Frame. It only works with the h264_amf encoder.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("qp_b")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="qp_b")]
+        [System.ComponentModel.DescriptionAttribute("Quantization parameter for B-Frame. It only works with the h264_amf encoder.")]
+        public int QpB
+        {
+            get
+            {
+                return _qpB;
+            }
+            set
+            {
+                _qpB = value;
+            }
+        }
+    
         public System.IObservable<Camera> Generate()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new Camera(this)));
@@ -144,7 +210,10 @@ namespace Setup
             stringBuilder.Append("Type = " + _type + ", ");
             stringBuilder.Append("FramesPerSecond = " + _framesPerSecond + ", ");
             stringBuilder.Append("Resolution = " + _resolution + ", ");
-            stringBuilder.Append("Codec = " + _codec);
+            stringBuilder.Append("Codec = " + _codec + ", ");
+            stringBuilder.Append("QpI = " + _qpI + ", ");
+            stringBuilder.Append("QpP = " + _qpP + ", ");
+            stringBuilder.Append("QpB = " + _qpB);
             return true;
         }
     

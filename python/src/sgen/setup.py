@@ -93,6 +93,24 @@ class Camera(BaseModel):
     codec: Literal["h264", "h264_amf"] = Field(
         description="The codec used to save the video with FFMPEG."
     )
+    qp_i: int = Field(
+        description="Quantization parameter for I-Frame. It only works with the h264_amf encoder.",
+        default=-1,
+        ge=-1,
+        le=51,
+    )
+    qp_p: int = Field(
+        description="Quantization parameter for P-Frame. It only works with the h264_amf encoder.",
+        default=-1,
+        ge=-1,
+        le=51,
+    )
+    qp_b: int = Field(
+        description="Quantization parameter for B-Frame. It only works with the h264_amf encoder.",
+        default=-1,
+        ge=-1,
+        le=51,
+    )
 
 
 class Setup(BaseModel):

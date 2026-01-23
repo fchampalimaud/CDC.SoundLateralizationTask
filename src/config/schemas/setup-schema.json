@@ -36,6 +36,30 @@
           ],
           "title": "Codec",
           "type": "string"
+        },
+        "qp_i": {
+          "default": -1,
+          "description": "Quantization parameter for I-Frame. It only works with the h264_amf encoder.",
+          "maximum": 51,
+          "minimum": -1,
+          "title": "Qp I",
+          "type": "integer"
+        },
+        "qp_p": {
+          "default": -1,
+          "description": "Quantization parameter for P-Frame. It only works with the h264_amf encoder.",
+          "maximum": 51,
+          "minimum": -1,
+          "title": "Qp P",
+          "type": "integer"
+        },
+        "qp_b": {
+          "default": -1,
+          "description": "Quantization parameter for B-Frame. It only works with the h264_amf encoder.",
+          "maximum": 51,
+          "minimum": -1,
+          "title": "Qp B",
+          "type": "integer"
         }
       },
       "required": [
