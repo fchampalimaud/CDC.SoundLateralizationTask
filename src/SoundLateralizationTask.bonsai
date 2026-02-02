@@ -12908,7 +12908,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="StringProperty">
-                      <Value> -i \\.\pipe\video -c:v h264_amf -usage 5 -quality 2 -preset 2 -rc cqp -qp_i </Value>
+                      <Value> -i \\.\pipe\video -c:v h264_amf -quality 2 -preset 2 -rc cqp -qp_i </Value>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
