@@ -34,7 +34,10 @@ You can find the firmware versions currently being used in the table below.
 | Device | Firmware Version | Harp Core Version | Hardware Version | PIC32 Firmware |
 |--------|:----------------:|:-----------------:|:----------------:|:--------------:|
 | Harp Behavior | [v3.2](https://github.com/harp-tech/device.behavior/releases/download/fw3.2-harp1.13/Behavior-fw3.2-harp1.13-hw2.0-ass0.hex) | v1.13 | v2.0 | - |
-| Harp SoundCard | [v2.0](https://github.com/harp-tech/device.soundcard/releases/download/fw2.0-harp1.4/SoundCard-fw2.0-harp1.4-hw2.2-ass0.hex) | v1.4 | v2.2 | [v2.0](https://github.com/harp-tech/device.soundcard/releases/download/fw2.0-harp1.4/SoundCard.X-fw2.0-harp1.4-hw2.2-ass0.hex) |
+| Harp SoundCard | [v2.3 (Custom)](https://github.com/fchampalimaud/CDC.SoundLateralizationTask/releases/download/v0.9.0/SoundCard-fw2.3-harp1.4-hw2.2-ass0.hex) | v1.4 | v2.2 | [v2.3 (Custom)](https://github.com/fchampalimaud/CDC.SoundLateralizationTask/releases/download/v0.9.0/SoundCard.X-fw2.3-harp1.4-hw2.2-ass0.hex) |
 | Harp ClockSynchronizer | [v1.0](https://github.com/harp-tech/device.clocksynchronizer/releases/download/fw1.0-harp1.13/ClockSynchronizer-fw1.0-harp1.13-hw1.0-ass0.hex) | v1.13 | v1.0 | - |
 | Harp SyringePump | [v1.0](https://github.com/harp-tech/device.syringepump/releases/download/fw1.0-harp1.13/SyringePump-fw1.0-harp1.13-hw1.1-ass0.hex) | v1.13 | v1.1 | - |
-| Harp CurrentDriver | v0.3 | v1.13 | v1.1 | - |
+| Harp CurrentDriver | v0.4 | v1.13 | v1.1 | - |
+
+> [!NOTE]
+> The source code for the custom firmware of the Harp SoundCard can be found [here](https://github.com/ZegCricket/device.soundcard/tree/feature/interrupts).
