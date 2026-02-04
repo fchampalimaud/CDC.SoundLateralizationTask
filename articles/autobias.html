@@ -1,0 +1,176 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Autobias Correction | CDC.SoundLateralizationTask </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Autobias Correction | CDC.SoundLateralizationTask ">
+      
+      
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/fchampalimaud/CDC.SoundLateralizationTask/blob/main/docs/articles/autobias.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo_white.svg" alt="CDC.SoundLateralizationTask">
+            CDC.SoundLateralizationTask
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="autobias-correction">Autobias Correction</h1>
+
+<p>The autobias correction algorithm available in the current project changes the reward amount available in each lateral poke (in case of a successful trial) dynamically based on the bias of the animal (as defined <a href="#bias">below</a>).</p>
+<p>If this feature is active, the autobias correction algorithm will only take effect if the performance of the last <span class="math">\(n\)</span> trials is below a certain threshold. The reward amounts available in the side pokes will depend on the base reward (<span class="math">\(r_\text{base}\)</span>), the cutoff bias (<span class="math">\(c\)</span>) and the slope multiplier (<span class="math">\(\lambda\)</span>), where <span class="math">\(c \in [0, 1]\)</span> and <span class="math">\(\lambda \geq 0\)</span>.</p>
+<p>With that said, the reward amount available in the left poke is given by:</p>
+<p><span class="math">\(r = r_\text{base} \frac{1 + \text{Bias}}{1 - c}, \text{Bias} \leq - c\)</span></p>
+<p><span class="math">\(r = r_\text{base}, -c &lt; \text{Bias} &lt; c\)</span></p>
+<p><span class="math">\(r = r_\text{base} (1 + \lambda \frac{c - \text{Bias}}{c - 1}), \text{Bias} \geq c\)</span></p>
+<p>And the reward amount available in the right poke is given by:</p>
+<p><span class="math">\(r = r_\text{base} (1 + \lambda \frac{c + \text{Bias}}{c - 1}), \text{Bias} \leq - c\)</span></p>
+<p><span class="math">\(r = r_\text{base}, -c &lt; \text{Bias} &lt; c\)</span></p>
+<p><span class="math">\(r = r_\text{base} \frac{1 - \text{Bias}}{1 - c}, \text{Bias} \geq c\)</span></p>
+<p>The figure below is an illustrative plot of the reward given at each of the lateral pokes as a function of the bias of the animal (in the x-axis). To make this plot, it was chosen the <span class="math">\(r_\text{base} = 15\)</span>, <span class="math">\(c = 0.75\)</span> and <span class="math">\(\lambda = 2\)</span>.</p>
+<p><img src="../images/autobias.svg" alt="Autobias Correction Algorithm"></p>
+<h2 id="bias">Bias</h2>
+<p>In this project, bias was defined as follows:</p>
+<p><span class="math">\(\text{Bias} = \frac{\sum_{i = 0}^{n - 1} \text{Chosen Side}_i}{n}\)</span></p>
+<p>In other words, the bias is defined as the sum of the sides the animal chose in the last <span class="math">\(n\)</span> trials divided by those <span class="math">\(n\)</span> trials. The value of Chosen Side is -1 if left, 1 if right and 0 if the animal didn't pick a side in a given trial.</p>
+<p>The advantage of this definition is that the bias will always be a value between -1 and 1.</p>
+<h2 id="how-to-use-the-autobias-correction-feature">How to use the autobias correction feature?</h2>
+<p>To configure a session to use the autobias correction feature, the <code>autobias_correction.use_correction</code> parameter of the <code>animal.yml</code> file must be set to <code>true</code>. Additionally, the remaining parameters related to this feature should be configured (see the following example).</p>
+<pre><code>autobias_correction:
+  use_correction: true
+  window: 25
+  cutoff_bias: 0.75
+  performance_threshold: 0.8
+  slope_multiplier: 2
+</code></pre>
+<p>An example of an <code>animal.yml</code> file with the autobias correction feature configured is shown below.</p>
+<pre><code># yaml-language-server: $schema=../src/config/schemas/animal-schema.json
+animal_id: ANIMAL0000
+batch: batch_name
+session:
+  number: 1
+  duration: 02:00:00
+  experimenter: experimenter_name
+  type: 1
+  starting_trial_number: 1
+  starting_training_level: 1
+  last_training_level: 3
+  block_number: 1
+sound:
+  pseudo_random_side: false
+  max_side: 8
+fixation_time:
+  opto_onset_time:
+    min_value: 5
+    delta: 0.5
+    target: 100
+  sound_onset_time:
+    min_value: 5
+    delta: 0.5
+    target: 100
+reward:
+  base_amount: 15
+autobias_correction:
+  use_correction: true
+  window: 25
+  cutoff_bias: 0.75
+  performance_threshold: 0.8
+  slope_multiplier: 2
+</code></pre>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/fchampalimaud/CDC.SoundLateralizationTask/blob/main/docs/articles/autobias.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

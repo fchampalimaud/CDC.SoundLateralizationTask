@@ -1,0 +1,1441 @@
+{
+  "source_base_path": "D:/a/CDC.SoundLateralizationTask/CDC.SoundLateralizationTask/docs",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      }
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Animal.Animal.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Animal.Animal.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Animal.AutobiasCorrection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Animal.AutobiasCorrection.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Animal.BiasedBlockDistribution.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Animal.BiasedBlockDistribution.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Animal.BiasedSession.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Animal.BiasedSession.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Animal.DeserializeFromJson.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Animal.DeserializeFromJson.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Animal.DeserializeFromYaml.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Animal.DeserializeFromYaml.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Animal.FixationTime.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Animal.FixationTime.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Animal.OptoLED.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Animal.OptoLED.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Animal.OptoLEDMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Animal.OptoLEDMode.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Animal.Optogenetics.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Animal.Optogenetics.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Animal.OptogeneticsMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Animal.OptogeneticsMode.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Animal.OptogeneticsRampMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Animal.OptogeneticsRampMode.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Animal.ReactionTime.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Animal.ReactionTime.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Animal.Reward.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Animal.Reward.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Animal.SerializeToJson.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Animal.SerializeToJson.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Animal.SerializeToYaml.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Animal.SerializeToYaml.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Animal.Session.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Animal.Session.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Animal.Sound.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Animal.Sound.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Animal.TimeConstrains.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Animal.TimeConstrains.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Animal.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Animal.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CF.Antibias.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CF.Antibias.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CF.CalculateRatio.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CF.CalculateRatio.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CF.GenerateILDArray.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CF.GenerateILDArray.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CF.GenerateLateralizedILDs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CF.GenerateLateralizedILDs.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CF.GenerateLateralizedILDsFL.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CF.GenerateLateralizedILDsFL.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CF.GetOutputDir.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CF.GetOutputDir.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CF.ShuffleArray.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CF.ShuffleArray.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CF.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CF.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Config.Config.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Config.Config.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Config.DeserializeFromJson.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Config.DeserializeFromJson.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Config.DeserializeFromYaml.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Config.DeserializeFromYaml.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Config.Paths.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Config.Paths.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Config.Ports.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Config.Ports.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Config.SerializeToJson.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Config.SerializeToJson.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Config.SerializeToYaml.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Config.SerializeToYaml.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Config.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Config.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Output.Block.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Output.Block.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Output.Cnp.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Output.Cnp.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Output.DeserializeFromJson.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Output.DeserializeFromJson.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Output.DeserializeFromYaml.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Output.DeserializeFromYaml.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Output.FixationTime.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Output.FixationTime.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Output.FixationTimeParts.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Output.FixationTimeParts.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Output.ITI.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Output.ITI.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Output.LnpTime.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Output.LnpTime.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Output.MovementTime.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Output.MovementTime.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Output.Optogenetics.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Output.Optogenetics.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Output.OptogeneticsMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Output.OptogeneticsMode.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Output.Outcome.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Output.Outcome.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Output.OutcomeAbortType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Output.OutcomeAbortType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Output.Output.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Output.Output.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Output.PenaltyTimes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Output.PenaltyTimes.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Output.ReactionTime.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Output.ReactionTime.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Output.Reward.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Output.Reward.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Output.SerializeToJson.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Output.SerializeToJson.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Output.SerializeToYaml.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Output.SerializeToYaml.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Output.Session.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Output.Session.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Output.Sound.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Output.Sound.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Output.Trial.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Output.Trial.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Output.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Output.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PrintDict.DeserializeFromJson.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PrintDict.DeserializeFromJson.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PrintDict.DeserializeFromYaml.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PrintDict.DeserializeFromYaml.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PrintDict.Print.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PrintDict.Print.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PrintDict.PrintDict.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PrintDict.PrintDict.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PrintDict.SerializeToJson.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PrintDict.SerializeToJson.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PrintDict.SerializeToYaml.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PrintDict.SerializeToYaml.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PrintDict.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PrintDict.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Setup.Camera.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Setup.Camera.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Setup.CameraCodec.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Setup.CameraCodec.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Setup.CameraType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Setup.CameraType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Setup.DeserializeFromJson.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Setup.DeserializeFromJson.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Setup.DeserializeFromYaml.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Setup.DeserializeFromYaml.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Setup.Lights.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Setup.Lights.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Setup.Poke.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Setup.Poke.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Setup.SerializeToJson.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Setup.SerializeToJson.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Setup.SerializeToYaml.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Setup.SerializeToYaml.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Setup.Setup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Setup.Setup.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Setup.Speakers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Setup.Speakers.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Setup.SyringePumps.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Setup.SyringePumps.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Setup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Setup.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Training.ABL.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Training.ABL.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Training.CriticalPerformance.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Training.CriticalPerformance.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Training.DeserializeFromJson.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Training.DeserializeFromJson.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Training.DeserializeFromYaml.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Training.DeserializeFromYaml.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Training.FixationTime.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Training.FixationTime.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Training.ILD.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Training.ILD.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Training.ITI.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Training.ITI.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Training.Level.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Training.Level.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Training.PenaltyTimes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Training.PenaltyTimes.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Training.ReactionTime.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Training.ReactionTime.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Training.SerializeToJson.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Training.SerializeToJson.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Training.SerializeToYaml.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Training.SerializeToYaml.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Training.Sound.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Training.Sound.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Training.Training.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Training.Training.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Training.TrialRepetition.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Training.TrialRepetition.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Training.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Training.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/autobias.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/autobias.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/biased-blocks.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/biased-blocks.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/optogenetics.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/optogenetics.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/state-machine.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/state-machine.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "articles/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "articles/toc.html"
+        },
+        ".json": {
+          "relative_path": "articles/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docfx-tools/README.md",
+      "output": {
+        ".html": {
+          "relative_path": "docfx-tools/README.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "documentation.md",
+      "output": {
+        ".html": {
+          "relative_path": "documentation.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/autobias.svg",
+      "output": {
+        "resource": {
+          "relative_path": "images/autobias.svg"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/camera_config_1.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/camera_config_1.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/camera_config_2.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/camera_config_2.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/camera_config_3.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/camera_config_3.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/camera_config_4.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/camera_config_4.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/camera_firmware_1.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/camera_firmware_1.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/camera_firmware_2.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/camera_firmware_2.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/camera_pins.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/camera_pins.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/camera_test_flir.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/camera_test_flir.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/camera_test_pointgrey.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/camera_test_pointgrey.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/config_gui.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/config_gui.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/firmware_1.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/firmware_1.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/firmware_2.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/firmware_2.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/firmware_3.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/firmware_3.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/firmware_4.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/firmware_4.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/flycap_config_1.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/flycap_config_1.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/flycap_config_2.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/flycap_config_2.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/flycap_config_3.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/flycap_config_3.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/flycap_config_4.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/flycap_config_4.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/flycap_config_5.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/flycap_config_5.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/flycap_pins.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/flycap_pins.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/frame_rate_cap.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/frame_rate_cap.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/logo.svg",
+      "output": {
+        "resource": {
+          "relative_path": "images/logo.svg"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/logo_white.svg",
+      "output": {
+        "resource": {
+          "relative_path": "images/logo_white.svg"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/setup_tests.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/setup_tests.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/soundcard_crash.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/soundcard_crash.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/state_machine.svg",
+      "output": {
+        "resource": {
+          "relative_path": "images/state_machine.svg"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "installation/bill_of_materials.md",
+      "output": {
+        ".html": {
+          "relative_path": "installation/bill_of_materials.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "installation/calibrations.md",
+      "output": {
+        ".html": {
+          "relative_path": "installation/calibrations.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "installation/camera.md",
+      "output": {
+        ".html": {
+          "relative_path": "installation/camera.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "installation/configuration.md",
+      "output": {
+        ".html": {
+          "relative_path": "installation/configuration.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "installation/harp.md",
+      "output": {
+        ".html": {
+          "relative_path": "installation/harp.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "installation/running.md",
+      "output": {
+        ".html": {
+          "relative_path": "installation/running.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "installation/software.md",
+      "output": {
+        ".html": {
+          "relative_path": "installation/software.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "installation/testing.md",
+      "output": {
+        ".html": {
+          "relative_path": "installation/testing.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "installation/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "installation/toc.html"
+        },
+        ".json": {
+          "relative_path": "installation/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}
