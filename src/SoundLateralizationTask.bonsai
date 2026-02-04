@@ -12362,7 +12362,7 @@
                       <p8:AnimalId>ANIMAL0000</p8:AnimalId>
                       <p8:Batch>batch_name</p8:Batch>
                       <p8:Experimenter>experimenter_name</p8:Experimenter>
-                      <p8:Version>0.9.0</p8:Version>
+                      <p8:Version>0.9.1</p8:Version>
                       <p8:Bias>0</p8:Bias>
                       <p8:RepeatedTrial>false</p8:RepeatedTrial>
                     </Combinator>
