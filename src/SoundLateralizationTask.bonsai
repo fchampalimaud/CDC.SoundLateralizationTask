@@ -7245,10 +7245,10 @@
                         <Expression xsi:type="scr:ExpressionCondition">
                           <scr:Expression>it == -1</scr:Expression>
                         </Expression>
-                        <Expression xsi:type="pump:CreateMessage">
+                        <Expression xsi:type="beh:CreateMessage">
                           <harp:MessageType>Write</harp:MessageType>
-                          <harp:Payload xsi:type="pump:CreateDigitalOutputSetPayload">
-                            <pump:DigitalOutputSet>DO0</pump:DigitalOutputSet>
+                          <harp:Payload xsi:type="beh:CreateOutputSetPayload">
+                            <beh:OutputSet>DO1</beh:OutputSet>
                           </harp:Payload>
                         </Expression>
                         <Expression xsi:type="MulticastSubject">
@@ -7278,10 +7278,10 @@
                         <Expression xsi:type="scr:ExpressionCondition">
                           <scr:Expression>it == 1</scr:Expression>
                         </Expression>
-                        <Expression xsi:type="pump:CreateMessage">
+                        <Expression xsi:type="beh:CreateMessage">
                           <harp:MessageType>Write</harp:MessageType>
-                          <harp:Payload xsi:type="pump:CreateDigitalOutputClearPayload">
-                            <pump:DigitalOutputClear>DO0</pump:DigitalOutputClear>
+                          <harp:Payload xsi:type="beh:CreateOutputClearPayload">
+                            <beh:OutputClear>DO1</beh:OutputClear>
                           </harp:Payload>
                         </Expression>
                         <Expression xsi:type="MulticastSubject">
