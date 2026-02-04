@@ -10,12 +10,12 @@
                  xmlns:p3="clr-namespace:Harp.SoundCard;assembly=Harp.SoundCard"
                  xmlns:harp="clr-namespace:Bonsai.Harp;assembly=Bonsai.Harp"
                  xmlns:pump="clr-namespace:Harp.SyringePump;assembly=Harp.SyringePump"
+                 xmlns:beh="clr-namespace:Harp.Behavior;assembly=Harp.Behavior"
                  xmlns:num="clr-namespace:Bonsai.Numerics;assembly=Bonsai.Numerics"
                  xmlns:p4="clr-namespace:Harp.CurrentDriver;assembly=Harp.CurrentDriver"
                  xmlns:spk="clr-namespace:Bonsai.Spinnaker;assembly=Bonsai.Spinnaker"
                  xmlns:p5="clr-namespace:Setup;assembly=Extensions"
                  xmlns:p6="clr-namespace:Bonsai.PointGrey;assembly=Bonsai.PointGrey"
-                 xmlns:beh="clr-namespace:Harp.Behavior;assembly=Harp.Behavior"
                  xmlns:p7="clr-namespace:Harp.ClockSynchronizer;assembly=Harp.ClockSynchronizer"
                  xmlns:p8="clr-namespace:Output;assembly=Extensions"
                  xmlns:p9="clr-namespace:;assembly=Extensions"
@@ -769,8 +769,8 @@
                                   </Nodes>
                                   <Edges>
                                     <Edge From="0" To="1" Label="Source1" />
+                                    <Edge From="0" To="4" Label="Source1" />
                                     <Edge From="1" To="2" Label="Source1" />
-                                    <Edge From="1" To="4" Label="Source1" />
                                     <Edge From="2" To="3" Label="Source1" />
                                     <Edge From="3" To="6" Label="Source1" />
                                     <Edge From="4" To="5" Label="Source1" />
