@@ -97,7 +97,17 @@ class Optogenetics(BaseModel):
     use_opto: bool = Field(
         description="Indicates whether optogenetics is used or not.", default=False
     )
-    mode: Literal["Left", "Right", "Bilateral"] = Field(
+    mode: Literal[
+        "None",
+        "Left Excitation",
+        "Right Excitation",
+        "Bilateral Excitation",
+        "Left Inhibition",
+        "Right Inhibition",
+        "Bilateral Inhibition",
+        "Left Excitation Right Inhibition",
+        "Left Inhibition Right Excitation",
+    ] = Field(
         description="Indicates the optogenetics mode used in the current session.",
     )
     duration: float = Field(
@@ -247,7 +257,7 @@ class Animal(BaseModel):
             opto_ratio=0.3,
             duration=2,
             use_rt=False,
-            mode="Bilateral",
+            mode="None",
             ramp_mode="None",
             ramp_time=1,
             led0=OptoLED(

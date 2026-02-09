@@ -20,7 +20,17 @@ class Optogenetics(BaseModel):
     duration: float = Field(
         description="The duration of the optogenetics used during the trial (s).", ge=0
     )
-    mode: Literal["Left", "Right", "Bilateral"] = Field(
+    mode: Literal[
+        "None",
+        "Left Excitation",
+        "Right Excitation",
+        "Bilateral Excitation",
+        "Left Inhibition",
+        "Right Inhibition",
+        "Bilateral Inhibition",
+        "Left Excitation Right Inhibition",
+        "Left Inhibition Right Excitation",
+    ] = Field(
         description="Indicates the optogenetics mode used in the current session."
     )
     led0_voltage: float = Field(

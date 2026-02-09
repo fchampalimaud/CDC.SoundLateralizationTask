@@ -239,9 +239,15 @@
         "mode": {
           "description": "Indicates the optogenetics mode used in the current session.",
           "enum": [
-            "Left",
-            "Right",
-            "Bilateral"
+            "None",
+            "Left Excitation",
+            "Right Excitation",
+            "Bilateral Excitation",
+            "Left Inhibition",
+            "Right Inhibition",
+            "Bilateral Inhibition",
+            "Left Excitation Right Inhibition",
+            "Left Inhibition Right Excitation"
           ],
           "title": "Mode",
           "type": "string"
