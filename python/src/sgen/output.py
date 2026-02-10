@@ -22,14 +22,14 @@ class Optogenetics(BaseModel):
     )
     mode: Literal[
         "None",
-        "Left Excitation",
-        "Right Excitation",
-        "Bilateral Excitation",
-        "Left Inhibition",
-        "Right Inhibition",
-        "Bilateral Inhibition",
-        "Left Excitation Right Inhibition",
-        "Left Inhibition Right Excitation",
+        "LeftExcitation",
+        "RightExcitation",
+        "BilateralExcitation",
+        "LeftInhibition",
+        "RightInhibition",
+        "BilateralInhibition",
+        "LeftExcitationRightInhibition",
+        "LeftInhibitionRightExcitation",
     ] = Field(
         description="Indicates the optogenetics mode used in the current session."
     )

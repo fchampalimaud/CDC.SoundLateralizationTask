@@ -41,7 +41,7 @@ From the snippet above, it can be concluded that it's possible to configure a va
   - The possibility of using a pulsed protocol (if `use_pulses` is true). To define the characteristics of the pulses, the `frequency` and `duty_cycle` parameters can be modified.
 
 Some of the parameters that can be defined (such as `mode` and `led0.power`) don't modify the protocol, but can be used as a record:
-- The `mode` parameter can take one of the following values: `None`, `Left Excitation`, `Right Excitation`, `Bilateral Excitation`, `Left Inhibition`, `Right Inhibition`, `Bilateral Inhibition`, `Left Excitation Right Inhibition` and `Left Inhibition Right Excitation`.
+- The `mode` parameter can take one of the following values: `None`, `LeftExcitation`, `RightExcitation`, `BilateralExcitation`, `LeftInhibition`, `RightInhibition`, `BilateralInhibition`, `LeftExcitationRightInhibition` and `LeftInhibitionRightExcitation`.
 
 An example of an `animal.yml` file with an optogenetics session configured is shown below.
 

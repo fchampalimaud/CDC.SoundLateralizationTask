@@ -2003,36 +2003,36 @@ namespace Animal
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="None")]
         None = 0,
     
-        [System.Runtime.Serialization.EnumMemberAttribute(Value="Left Excitation")]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="Left Excitation")]
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="LeftExcitation")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="LeftExcitation")]
         LeftExcitation = 1,
     
-        [System.Runtime.Serialization.EnumMemberAttribute(Value="Right Excitation")]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="Right Excitation")]
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="RightExcitation")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="RightExcitation")]
         RightExcitation = 2,
     
-        [System.Runtime.Serialization.EnumMemberAttribute(Value="Bilateral Excitation")]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="Bilateral Excitation")]
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="BilateralExcitation")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="BilateralExcitation")]
         BilateralExcitation = 3,
     
-        [System.Runtime.Serialization.EnumMemberAttribute(Value="Left Inhibition")]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="Left Inhibition")]
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="LeftInhibition")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="LeftInhibition")]
         LeftInhibition = 4,
     
-        [System.Runtime.Serialization.EnumMemberAttribute(Value="Right Inhibition")]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="Right Inhibition")]
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="RightInhibition")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="RightInhibition")]
         RightInhibition = 5,
     
-        [System.Runtime.Serialization.EnumMemberAttribute(Value="Bilateral Inhibition")]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="Bilateral Inhibition")]
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="BilateralInhibition")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="BilateralInhibition")]
         BilateralInhibition = 6,
     
-        [System.Runtime.Serialization.EnumMemberAttribute(Value="Left Excitation Right Inhibition")]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="Left Excitation Right Inhibition")]
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="LeftExcitationRightInhibition")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="LeftExcitationRightInhibition")]
         LeftExcitationRightInhibition = 7,
     
-        [System.Runtime.Serialization.EnumMemberAttribute(Value="Left Inhibition Right Excitation")]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="Left Inhibition Right Excitation")]
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="LeftInhibitionRightExcitation")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="LeftInhibitionRightExcitation")]
         LeftInhibitionRightExcitation = 8,
     }
 
