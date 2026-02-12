@@ -62,15 +62,17 @@ def ask_time_parameters(animal_config: dict, df: pd.DataFrame):
             animal_config["fixation_time"]["sound_onset_time"]["min_value"] = float(
                 df.loc[df.index[-1], "base_ft_sot"]
             )
-            animal_config["reaction_time"]["min_value"] = float(
-                df.loc[df.index[-1], "base_rt"]
-            )
-            animal_config["lnp_time"]["min_value"] = float(
-                df.loc[df.index[-1], "intended_lnp"]
-            )
             animal_config["session"]["starting_training_level"] = int(
                 df.loc[df.index[-1], "training_level"]
             )
+            if "reaction_time" in animal_config:
+                animal_config["reaction_time"]["min_value"] = float(
+                    df.loc[df.index[-1], "base_rt"]
+                )
+            if "lnp_time" in animal_config:
+                animal_config["lnp_time"]["min_value"] = float(
+                    df.loc[df.index[-1], "intended_lnp"]
+                )
             break
         elif update_lower == "n":
             break
