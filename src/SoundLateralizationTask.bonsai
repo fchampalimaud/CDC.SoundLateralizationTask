@@ -7252,7 +7252,7 @@
                           </harp:Payload>
                         </Expression>
                         <Expression xsi:type="MulticastSubject">
-                          <Name>LeftPumpCommands</Name>
+                          <Name>BehaviorCommands</Name>
                         </Expression>
                         <Expression xsi:type="SubscribeSubject">
                           <Name>LeftRewardSteps</Name>
@@ -7285,7 +7285,7 @@
                           </harp:Payload>
                         </Expression>
                         <Expression xsi:type="MulticastSubject">
-                          <Name>LeftPumpCommands</Name>
+                          <Name>BehaviorCommands</Name>
                         </Expression>
                         <Expression xsi:type="SubscribeSubject">
                           <Name>RightRewardSteps</Name>
@@ -7313,7 +7313,7 @@
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="rx:Delay">
-                            <rx:DueTime>PT0.1S</rx:DueTime>
+                            <rx:DueTime>PT0.01S</rx:DueTime>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="pump:CreateMessage">
