@@ -1,0 +1,195 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Harp Devices Setup | CDC.SoundLateralizationTask </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Harp Devices Setup | CDC.SoundLateralizationTask ">
+      
+      
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/fchampalimaud/CDC.SoundLateralizationTask/blob/main/docs/installation/harp.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo_white.svg" alt="CDC.SoundLateralizationTask">
+            CDC.SoundLateralizationTask
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="harp-devices-setup">Harp Devices Setup</h1>
+
+<p>In order to use the Harp devices, the USB drivers and each devices's firmware must be installed. The installer for the USB drivers can be downloaded <a href="https://bitbucket.org/fchampalimaud/downloads/downloads/UsbDriver-2.12.26.zip">here</a>. The <a href="#firmware-installation">Firmware</a> section contains the instructions for installing each board's firmware.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The Harp devices are usually delivered with the firmware already installed, but it may be useful to know how to install the firmware (for example: in case a new firmware version that solves a particular bug is released)</p>
+</div>
+<h2 id="firmware-installation">Firmware Installation</h2>
+<p>If the Harp Convert to CSV GUI is already installed, skip to step 3. If it's not already installed, but other Labview-based Harp board GUI is, skip to step 2 instead.</p>
+<ol>
+<li><p>Install the <a href="https://bitbucket.org/fchampalimaud/downloads/downloads/Runtime-1.0.zip">LabView Runtime</a> and reboot the computer.</p>
+</li>
+<li><p>Install the <a href="https://bitbucket.org/fchampalimaud/downloads/downloads/Harp_Convert_To_CSV_v1.8.3.zip">Harp Convert to CSV GUI</a>.</p>
+</li>
+<li><p>Open the application. Then, click on <code>Options</code>.</p>
+<p><img src="../images/firmware_1.png" alt="Firmware 1"></p>
+</li>
+<li><p>Write &quot;bootloader&quot; in the <code>List</code> textbox. The <code>Update Firmware</code> window should appear.</p>
+<p><img src="../images/firmware_2.png" alt="Firmware 2"></p>
+</li>
+<li><p>Choose the serial port (<em>COMx</em>) of the board and the corresponding firmware binary (<code>.hex</code> file). Then, click on <code>Update</code>.</p>
+<p><img src="../images/firmware_3.png" alt="Firmware 2"></p>
+</li>
+<li><p><strong>For the Harp SoundCard:</strong> during the installation of the firmware, select the PIC32 firmware when the application asks for the 32 bits device firmware (<code>SoundCard.X-fw2.0-harp1.4-hw2.2-ass0.hex</code>).</p>
+<p><img src="../images/firmware_4.png" alt="Firmware 2"></p>
+</li>
+</ol>
+<h3 id="firmware-versions">Firmware Versions</h3>
+<p>You can find the firmware versions currently being used in the table below.</p>
+<table>
+<thead>
+<tr>
+<th>Device</th>
+<th style="text-align: center;">Firmware Version</th>
+<th style="text-align: center;">Harp Core Version</th>
+<th style="text-align: center;">Hardware Version</th>
+<th style="text-align: center;">PIC32 Firmware</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Harp Behavior</td>
+<td style="text-align: center;"><a href="https://github.com/harp-tech/device.behavior/releases/download/fw3.2-harp1.13/Behavior-fw3.2-harp1.13-hw2.0-ass0.hex">v3.2</a></td>
+<td style="text-align: center;">v1.13</td>
+<td style="text-align: center;">v2.0</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr>
+<td>Harp SoundCard</td>
+<td style="text-align: center;"><a href="https://github.com/fchampalimaud/CDC.SoundLateralizationTask/releases/download/v0.9.0/SoundCard-fw2.3-harp1.4-hw2.2-ass0.hex">v2.3 (Custom)</a></td>
+<td style="text-align: center;">v1.4</td>
+<td style="text-align: center;">v2.2</td>
+<td style="text-align: center;"><a href="https://github.com/fchampalimaud/CDC.SoundLateralizationTask/releases/download/v0.9.0/SoundCard.X-fw2.3-harp1.4-hw2.2-ass0.hex">v2.3 (Custom)</a></td>
+</tr>
+<tr>
+<td>Harp ClockSynchronizer</td>
+<td style="text-align: center;"><a href="https://github.com/harp-tech/device.clocksynchronizer/releases/download/fw1.0-harp1.13/ClockSynchronizer-fw1.0-harp1.13-hw1.0-ass0.hex">v1.0</a></td>
+<td style="text-align: center;">v1.13</td>
+<td style="text-align: center;">v1.0</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr>
+<td>Harp SyringePump</td>
+<td style="text-align: center;"><a href="https://github.com/harp-tech/device.syringepump/releases/download/fw1.0-harp1.13/SyringePump-fw1.0-harp1.13-hw1.1-ass0.hex">v1.0</a></td>
+<td style="text-align: center;">v1.13</td>
+<td style="text-align: center;">v1.1</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr>
+<td>Harp CurrentDriver</td>
+<td style="text-align: center;">v0.4</td>
+<td style="text-align: center;">v1.13</td>
+<td style="text-align: center;">v1.1</td>
+<td style="text-align: center;">-</td>
+</tr>
+</tbody>
+</table>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The source code for the custom firmware of the Harp SoundCard can be found <a href="https://github.com/ZegCricket/device.soundcard/tree/feature/interrupts">here</a>.</p>
+</div>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/fchampalimaud/CDC.SoundLateralizationTask/blob/main/docs/installation/harp.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
