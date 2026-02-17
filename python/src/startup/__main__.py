@@ -73,12 +73,13 @@ def main():
         output_dirs[-1], "%y%m%d"
     ):
         animal_out = os.path.join(animal_out_dir, dirs[-1])
+        out_name = "out_" + animal + "_" + str(dirs[-1]) + ".csv"
     else:
         animal_out = os.path.join(animal_out_backup, output_dirs[-1])
+        out_name = "out_" + animal + "_" + str(output_dirs[-1]) + ".csv"
 
     # Try to read the last out.csv file and return from function if something goes wrong
     try:
-        out_name = "out_" + animal + "_" + str(dirs[-1]) + ".csv"
         df = pd.read_csv(os.path.join(animal_out, out_name))
         # Ask for user input to update animal.yml file
         verify_session(animal_config, df, dirs[-1])
