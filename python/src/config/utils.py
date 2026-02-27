@@ -291,7 +291,7 @@ def upload_sound(
         eq_filter=eq_right,
     )
 
-    create_sound_file(signal_left, signal_right, str(filename))
+    create_sound_file(signal_left, signal_right, filename)
     load_sound(filename, soundcard_index, fs)
 
 
