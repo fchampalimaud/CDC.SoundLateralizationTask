@@ -1,0 +1,209 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Optogenetics | CDC.SoundLateralizationTask </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Optogenetics | CDC.SoundLateralizationTask ">
+      
+      
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/fchampalimaud/CDC.SoundLateralizationTask/blob/main/docs/articles/optogenetics.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo_white.svg" alt="CDC.SoundLateralizationTask">
+            CDC.SoundLateralizationTask
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="optogenetics">Optogenetics</h1>
+
+<p>An experimental setup that uses this project for behavioral experiments and is equipped with a <a href="https://github.com/fchampalimaud/device.currentdriver">Harp CurrentDriver</a> and a laser/LED that can be externally controlled is able to run an optogenetics session.</p>
+<p>In the context of the this task, an optogenetics stimulation starts during the fixation time, at the opto onset time to be more precise (a description of the fixation time can be found <a href="state-machine.html#fixation-time">here</a>). The stimulation ends either when the animal leaves the central port (if <code>optogenetics.use_rt</code> is <code>true</code>) or after a fixed amount of time (that starts when the stimulus is presented).</p>
+<h2 id="how-to-configure-an-optogenetics-session">How to configure an optogenetics session?</h2>
+<p>For a session to use the optogenetics feature the <code>optogenetics.use_opto</code> parameter of the <code>animal.yml</code> file must be set to <code>true</code>. See below an example for a configuration of an optogenetics session.</p>
+<pre><code>optogenetics:
+  use_opto: true
+  mode: Left Excitation
+  duration: 2
+  opto_ratio: 0.3
+  use_rt: false
+  ramp_mode: Fall
+  ramp_time: 100
+  led0:
+    voltage: 2000
+    power: 10
+    mode: TTL
+    use_pulses: false
+    frequency: 20
+    duty_cycle: 50
+  led1:
+    voltage: 0
+    power: 0
+    mode: TTL
+    use_pulses: false
+    frequency: 1
+    duty_cycle: 50
+</code></pre>
+<p>From the snippet above, it can be concluded that it's possible to configure a variety of optogenetics protocol. Here is a list of what can be configured:</p>
+<ul>
+<li>The ratio of optogenetics trials in a session (<code>opto_ratio</code>).</li>
+<li>The use of rise and/or fall ramps of variable duration (<code>ramp_time</code>) when using a continuous stimulation protocol (i.e. <code>ledx.use_pulses</code> is <code>false</code>). The <code>ramp_mode</code> parameter can take the values <code>None</code>, <code>Rise</code>, <code>Fall</code> and <code>Both</code>.</li>
+<li>Up to 2 different LEDs/lasers:
+<ul>
+<li>The voltage with which the LED will be controlled.</li>
+<li>Whether the LED is being controlled externally or directly (current driven).</li>
+<li>The possibility of using a pulsed protocol (if <code>use_pulses</code> is true). To define the characteristics of the pulses, the <code>frequency</code> and <code>duty_cycle</code> parameters can be modified.</li>
+</ul>
+</li>
+</ul>
+<p>Some of the parameters that can be defined (such as <code>mode</code> and <code>led0.power</code>) don't modify the protocol, but can be used as a record:</p>
+<ul>
+<li>The <code>mode</code> parameter can take one of the following values: <code>None</code>, <code>LeftExcitation</code>, <code>RightExcitation</code>, <code>BilateralExcitation</code>, <code>LeftInhibition</code>, <code>RightInhibition</code>, <code>BilateralInhibition</code>, <code>LeftExcitationRightInhibition</code> and <code>LeftInhibitionRightExcitation</code>.</li>
+</ul>
+<p>An example of an <code>animal.yml</code> file with an optogenetics session configured is shown below.</p>
+<pre><code># yaml-language-server: $schema=../src/config/schemas/animal-schema.json
+animal_id: ANIMAL0000
+batch: batch_name
+session:
+  number: 1
+  duration: 02:00:00
+  experimenter: experimenter_name
+  type: 1
+  starting_trial_number: 1
+  starting_training_level: 1
+  last_training_level: 3
+  block_number: 1
+sound:
+  pseudo_random_side: false
+  max_side: 8
+fixation_time:
+  opto_onset_time:
+    min_value: 5
+    delta: 0.5
+    target: 100
+  sound_onset_time:
+    min_value: 5
+    delta: 0.5
+    target: 100
+reward:
+  base_amount: 15
+optogenetics:
+  use_opto: true
+  mode: Left Excitation
+  duration: 2
+  opto_ratio: 0.3
+  use_rt: false
+  ramp_mode: Fall
+  ramp_time: 100
+  led0:
+    voltage: 2000
+    power: 10
+    mode: TTL
+    use_pulses: false
+    frequency: 20
+    duty_cycle: 50
+  led1:
+    voltage: 0
+    power: 0
+    mode: TTL
+    use_pulses: false
+    frequency: 1
+    duty_cycle: 50
+</code></pre>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/fchampalimaud/CDC.SoundLateralizationTask/blob/main/docs/articles/optogenetics.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
