@@ -331,7 +331,7 @@ class UploadSound(Thread):
                 abl=None,
                 ild=0,
                 fs=192000,
-                ramp_time=0.01,
+                ramp_time=0.005,
                 filename=sounds_dir / ("noise" + str(i) + ".bin"),
                 soundcard_index=(2 * i + 2),
             )
