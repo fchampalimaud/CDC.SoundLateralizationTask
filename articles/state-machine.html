@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>State Machine | CDC.SoundLateralizationTask </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="State Machine | CDC.SoundLateralizationTask ">
+      
+      
+      <link rel="icon" href="../images/logo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/fchampalimaud/CDC.SoundLateralizationTask/blob/main/docs/articles/state-machine.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo_white.svg" alt="CDC.SoundLateralizationTask">
+            CDC.SoundLateralizationTask
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="state-machine">State Machine</h1>
+
+<p>The sound lateralization task implemented in the current project, which is based on [<a href="#references">1</a>], was designed as a state machine, where the progression through the different states is driven by certain events. The figure below is a representation of the state machine that describes this task.</p>
+<p><img src="../images/state_machine.svg" alt="State Machine"></p>
+<p>From the figure, notice that from most states there are two possible states that these states can progress to. This happens because there are certain conditions that have to be met in order for the state machine to progress to the next &quot;desired&quot; state.</p>
+<p>A brief description of each individual state can be found below.</p>
+<h2 id="inter-trial-interval-iti">Inter-Trial Interval (ITI)</h2>
+<p>The Inter-Trial Interval (ITI) state is, as the name suggests, the time interval that separates two consecutive trials.</p>
+<p>Since there is a need to setup each trial (for example, to (re)set some parameters) and the duration of the ITI is, typically, a few seconds, this state is also a preparation of the new trial.</p>
+<p>If the <code>iti.can_reset</code> parameter (located in the <code>training.csv</code> file) is <code>True</code>, this state resets everytime the animal is poking the CNP before the ITI is over.</p>
+<h2 id="start-trial">Start Trial</h2>
+<p>A trial starts when the rodent pokes his nose in the central nose port (CNP). So this state consists of waiting that the rodent starts poking the CNP. If there is a poke within a certain time limit (determined by the <code>max_wait</code> parameter of the <code>training.csv</code> file), the task continues as it is supposed to, otherwise this trial is aborted.</p>
+<h2 id="fixation-time">Fixation Time</h2>
+<p>This is the state that precedes the stimulus presentation. The rodent must stay in the CNP during the entire time this state lasts so that the task progresses as expected, otherwise the trial is aborted.</p>
+<p>The fixation time is divided into 2 parts: the Opto Onset Time and the Sound Onset Time. The fixation time starts in the Opto Onset Time. When it ends the optogenetics stimulation starts (if it applies to the current trial) and the Sound Onset Time starts. When it ends, the sound stimulus is presented.</p>
+<p>Each of these parts is composed by the sum of a fixed duration and random variable modeled by a exponential distribution.</p>
+<p><span class="math">\(t_\text{Opto Onset Time} = t_\text{Base Fix} + (X ∼ \text{Exp}(\lambda)) = t_\text{Sound Onset Time}\)</span>
+<span class="math">\(t_\text{Fix} = t_\text{Opto Onset Time} + t_\text{Sound Onset Time}\)</span></p>
+<p>The advantage of modelling the fixation time with the exponential distribution is that it has a constant hazard rate, which in practice means, in the animal's perspective, that the probability of the sound starting (and therefore the fixation time ending) at any time given that a certain amount of time has already passed is constant. This way, it's difficult for the animal to predict when the sound is going to start.</p>
+<h2 id="stimulus">Stimulus</h2>
+<p>This is the state where the stimulus is presented. The stimulus stops when either the rodent leaves the CNP (if <code>reaction_time.turn_sound_off</code> is <code>True</code>) or when the animal enters one of the LNP's (if <code>reaction_time.turn_sound_off</code> is <code>False</code>) or when the defined presentation time elapses (the presentation time is defined by <code>reaction_time.max_value</code>).</p>
+<p>If the animal leaves the CNP before the minimum reaction time (defined by <code>reaction_time.min_value</code>) or after the maximum reaction time (defined by <code>reaction_time.max_value</code>), the trial is aborted.</p>
+<h2 id="decision">Decision</h2>
+<p>In this state, the animal has to pick the side (left or right) which corresponds to the speaker that played the loudest sound by poking in either lateral nose port (LNP).</p>
+<p>If the animal pokes either LNP before the minimum movement time or after the maximum reaction time, the trial is aborted. This also happens when the animal pokes in one of the LNPs but doesn't stay in it for the minimum required time (<code>lnp_time.min_value</code>).</p>
+<h2 id="reward">Reward</h2>
+<p>The Reward state evaluates whether the rodent got the answer right or not. In case the answer is wrong, a penalty time is applied (10 seconds for instance). If the answer is right, the animal gets the reward (water). This is the final state of a successful trial.</p>
+<h2 id="abort">Abort</h2>
+<p>The Abort state is triggered when some condition is not met in one of the previous states. This state consists of a small time penalty. The penalty time is defined by the <code>penalty_time.abort</code> parameter of the <code>training.csv</code> file, unless a fixation abort occurred. If that's the case, then the penalty time is defined by <code>penalty_time.fixation_abort</code>. This is the final state of an unsuccessful trial.</p>
+<h2 id="references">References</h2>
+<p>[1] J. L. Pardo-Vazquez et al., “The mechanistic foundation of Weber’s law,” Nat Neurosci, vol. 22, no. 9, pp. 1493–1502, Sep. 2019, doi: 10.1038/s41593-019-0439-7.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/fchampalimaud/CDC.SoundLateralizationTask/blob/main/docs/articles/state-machine.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
