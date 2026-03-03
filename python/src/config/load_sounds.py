@@ -14,9 +14,9 @@ ctypes.windll.shcore.SetProcessDpiAwareness(1)
 class SoundCharacteristics(ttk.Frame):
     def __init__(self, container):
         super().__init__(container)
-        for i in range(5):
+        for i in range(6):
             self.grid_rowconfigure(i, weight=1)
-        for i in range(4):
+        for i in range(3):
             self.grid_columnconfigure(i, weight=1)
 
         self.durations = []
@@ -24,9 +24,15 @@ class SoundCharacteristics(ttk.Frame):
         self.ramp_times = []
         self.ramp_time_widgets = []
 
+        label = ttk.Label(self, text="Duration (s)")
+        label.grid(row=0, column=1, padx=5, pady=5)
+
+        label = ttk.Label(self, text="Ramp Time (s)")
+        label.grid(row=0, column=2, padx=5, pady=5)
+
         for i in range(5):
-            label = ttk.Label(self, text="Sound " + str(i) + " duration (s)")
-            label.grid(row=i, column=0, padx=5, pady=5)
+            label = ttk.Label(self, text="Sound " + str(i))
+            label.grid(row=i + 1, column=0, padx=5, pady=5)
 
             self.durations.append(tk.DoubleVar(value=10))
             self.duration_widgets.append(
@@ -39,10 +45,10 @@ class SoundCharacteristics(ttk.Frame):
                     state="disabled",
                 )
             )
-            self.duration_widgets[i].grid(row=i, column=1, padx=5, pady=5)
+            self.duration_widgets[i].grid(row=i + 1, column=1, padx=5, pady=5)
 
-            label = ttk.Label(self, text="Sound " + str(i) + " ramp time (s)")
-            label.grid(row=i, column=2, padx=5, pady=5)
+            # label = ttk.Label(self, text="Sound " + str(i) + " ramp time (s)")
+            # label.grid(row=i, column=2, padx=5, pady=5)
 
             self.ramp_times.append(tk.DoubleVar(value=0.005))
             self.ramp_time_widgets.append(
@@ -54,7 +60,7 @@ class SoundCharacteristics(ttk.Frame):
                     textvariable=self.ramp_times[i],
                 )
             )
-            self.ramp_time_widgets[i].grid(row=i, column=3, padx=5, pady=5)
+            self.ramp_time_widgets[i].grid(row=i + 1, column=2, padx=5, pady=5)
 
 
 class SoundLoadingFrame(ttk.Frame):
