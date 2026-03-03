@@ -305,6 +305,8 @@ class UploadSound(Thread):
         setup: int,
         setup_path: Path,
         num_sounds: int,
+        durations: list[float],
+        ramp_times: list[float],
     ):
         super().__init__()
         self.calib_left = np.load(calib_left_path)
@@ -314,6 +316,8 @@ class UploadSound(Thread):
         self.setup = setup
         self.setup_path = setup_path
         self.num_sounds = num_sounds
+        self.durations = durations
+        self.ramp_times = ramp_times
 
     def run(self):
         date = datetime.now().strftime("%y%m%d_%H%M%S")
@@ -323,7 +327,7 @@ class UploadSound(Thread):
 
         for i in range(self.num_sounds):
             upload_sound(
-                10,
+                self.durations[i],
                 self.calib_left,
                 self.eq_left,
                 self.calib_right,
@@ -331,7 +335,7 @@ class UploadSound(Thread):
                 abl=None,
                 ild=0,
                 fs=192000,
-                ramp_time=0.005,
+                ramp_time=self.ramp_times[i],
                 filename=sounds_dir / ("noise" + str(i) + ".bin"),
                 soundcard_index=(2 * i + 2),
             )
