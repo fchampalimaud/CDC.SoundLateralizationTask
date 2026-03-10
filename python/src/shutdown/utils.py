@@ -67,7 +67,11 @@ def convert_output(session_dir: Path, backup_dir: Optional[Path] = None):
     pd.set_option("future.no_silent_downcasting", True)
 
     # Get all of the out.json files
-    out_files = [p for p in (session_dir / "unparsed_out").iterdir() if p.is_file()]
+    out_files = [
+        p
+        for p in (session_dir / "unparsed_out").iterdir()
+        if p.is_file() and p.name != "desktop.ini"
+    ]
 
     # Convert every JSON file to Pandas DataFrame and add them to the final DataFrame
     for i in range(len(out_files)):
