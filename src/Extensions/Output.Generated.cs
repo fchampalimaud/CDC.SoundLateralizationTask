@@ -886,13 +886,29 @@ namespace Output
     
         private OptogeneticsMode _mode;
     
+        private OptogeneticsRampMode _rampMode;
+    
+        private int _rampTime;
+    
         private double _led0Voltage;
     
         private double _led0Power;
     
+        private bool _led0Pulses;
+    
+        private int _led0Frequency;
+    
+        private int _led0DutyCycle;
+    
         private double _led1Voltage;
     
         private double _led1Power;
+    
+        private bool _led1Pulses;
+    
+        private int _led1Frequency;
+    
+        private int _led1DutyCycle;
     
         public Optogenetics()
         {
@@ -903,10 +919,18 @@ namespace Output
             _optoTrial = other._optoTrial;
             _duration = other._duration;
             _mode = other._mode;
+            _rampMode = other._rampMode;
+            _rampTime = other._rampTime;
             _led0Voltage = other._led0Voltage;
             _led0Power = other._led0Power;
+            _led0Pulses = other._led0Pulses;
+            _led0Frequency = other._led0Frequency;
+            _led0DutyCycle = other._led0DutyCycle;
             _led1Voltage = other._led1Voltage;
             _led1Power = other._led1Power;
+            _led1Pulses = other._led1Pulses;
+            _led1Frequency = other._led1Frequency;
+            _led1DutyCycle = other._led1DutyCycle;
         }
     
         /// <summary>
@@ -964,6 +988,44 @@ namespace Output
         }
     
         /// <summary>
+        /// Indicates the ramp mode used in the optogenetics protocol. It only works if the LED is not configured to use pulses.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("ramp_mode", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="ramp_mode")]
+        [System.ComponentModel.DescriptionAttribute("Indicates the ramp mode used in the optogenetics protocol. It only works if the L" +
+            "ED is not configured to use pulses.")]
+        public OptogeneticsRampMode RampMode
+        {
+            get
+            {
+                return _rampMode;
+            }
+            set
+            {
+                _rampMode = value;
+            }
+        }
+    
+        /// <summary>
+        /// The duration of the ramp of the optogenetics protocol (ms). It only works when use_pulses is false.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("ramp_time", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="ramp_time")]
+        [System.ComponentModel.DescriptionAttribute("The duration of the ramp of the optogenetics protocol (ms). It only works when us" +
+            "e_pulses is false.")]
+        public int RampTime
+        {
+            get
+            {
+                return _rampTime;
+            }
+            set
+            {
+                _rampTime = value;
+            }
+        }
+    
+        /// <summary>
         /// The voltage to use in the TTL signal.
         /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("led0_voltage", Required=Newtonsoft.Json.Required.Always)]
@@ -996,6 +1058,61 @@ namespace Output
             set
             {
                 _led0Power = value;
+            }
+        }
+    
+        /// <summary>
+        /// Indicates whether the optogenetics protocol uses pulses of light (true) or a continuous emission (false).
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("led0_pulses", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="led0_pulses")]
+        [System.ComponentModel.DescriptionAttribute("Indicates whether the optogenetics protocol uses pulses of light (true) or a cont" +
+            "inuous emission (false).")]
+        public bool Led0Pulses
+        {
+            get
+            {
+                return _led0Pulses;
+            }
+            set
+            {
+                _led0Pulses = value;
+            }
+        }
+    
+        /// <summary>
+        /// The frequency of the pulses (Hz). It only works when use_pulses is true.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("led0_frequency", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="led0_frequency")]
+        [System.ComponentModel.DescriptionAttribute("The frequency of the pulses (Hz). It only works when use_pulses is true.")]
+        public int Led0Frequency
+        {
+            get
+            {
+                return _led0Frequency;
+            }
+            set
+            {
+                _led0Frequency = value;
+            }
+        }
+    
+        /// <summary>
+        /// The duty cycle of the pulses (%). It only works when use_pulses is true.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("led0_duty_cycle", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="led0_duty_cycle")]
+        [System.ComponentModel.DescriptionAttribute("The duty cycle of the pulses (%). It only works when use_pulses is true.")]
+        public int Led0DutyCycle
+        {
+            get
+            {
+                return _led0DutyCycle;
+            }
+            set
+            {
+                _led0DutyCycle = value;
             }
         }
     
@@ -1035,6 +1152,61 @@ namespace Output
             }
         }
     
+        /// <summary>
+        /// Indicates whether the optogenetics protocol uses pulses of light (true) or a continuous emission (false).
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("led1_pulses", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="led1_pulses")]
+        [System.ComponentModel.DescriptionAttribute("Indicates whether the optogenetics protocol uses pulses of light (true) or a cont" +
+            "inuous emission (false).")]
+        public bool Led1Pulses
+        {
+            get
+            {
+                return _led1Pulses;
+            }
+            set
+            {
+                _led1Pulses = value;
+            }
+        }
+    
+        /// <summary>
+        /// The frequency of the pulses (Hz). It only works when use_pulses is true.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("led1_frequency", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="led1_frequency")]
+        [System.ComponentModel.DescriptionAttribute("The frequency of the pulses (Hz). It only works when use_pulses is true.")]
+        public int Led1Frequency
+        {
+            get
+            {
+                return _led1Frequency;
+            }
+            set
+            {
+                _led1Frequency = value;
+            }
+        }
+    
+        /// <summary>
+        /// The duty cycle of the pulses (%). It only works when use_pulses is true.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("led1_duty_cycle", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="led1_duty_cycle")]
+        [System.ComponentModel.DescriptionAttribute("The duty cycle of the pulses (%). It only works when use_pulses is true.")]
+        public int Led1DutyCycle
+        {
+            get
+            {
+                return _led1DutyCycle;
+            }
+            set
+            {
+                _led1DutyCycle = value;
+            }
+        }
+    
         public System.IObservable<Optogenetics> Generate()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new Optogenetics(this)));
@@ -1050,10 +1222,18 @@ namespace Output
             stringBuilder.Append("OptoTrial = " + _optoTrial + ", ");
             stringBuilder.Append("Duration = " + _duration + ", ");
             stringBuilder.Append("Mode = " + _mode + ", ");
+            stringBuilder.Append("RampMode = " + _rampMode + ", ");
+            stringBuilder.Append("RampTime = " + _rampTime + ", ");
             stringBuilder.Append("Led0Voltage = " + _led0Voltage + ", ");
             stringBuilder.Append("Led0Power = " + _led0Power + ", ");
+            stringBuilder.Append("Led0Pulses = " + _led0Pulses + ", ");
+            stringBuilder.Append("Led0Frequency = " + _led0Frequency + ", ");
+            stringBuilder.Append("Led0DutyCycle = " + _led0DutyCycle + ", ");
             stringBuilder.Append("Led1Voltage = " + _led1Voltage + ", ");
-            stringBuilder.Append("Led1Power = " + _led1Power);
+            stringBuilder.Append("Led1Power = " + _led1Power + ", ");
+            stringBuilder.Append("Led1Pulses = " + _led1Pulses + ", ");
+            stringBuilder.Append("Led1Frequency = " + _led1Frequency + ", ");
+            stringBuilder.Append("Led1DutyCycle = " + _led1DutyCycle);
             return true;
         }
     
@@ -2601,6 +2781,29 @@ namespace Output
         [System.Runtime.Serialization.EnumMemberAttribute(Value="LeftInhibitionRightExcitation")]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="LeftInhibitionRightExcitation")]
         LeftInhibitionRightExcitation = 8,
+    }
+
+
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
+    [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+    public enum OptogeneticsRampMode
+    {
+    
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="None")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="None")]
+        None = 0,
+    
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="Rise")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="Rise")]
+        Rise = 1,
+    
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="Fall")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="Fall")]
+        Fall = 2,
+    
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="Both")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="Both")]
+        Both = 3,
     }
 
 

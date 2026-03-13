@@ -252,6 +252,23 @@
           "title": "Mode",
           "type": "string"
         },
+        "ramp_mode": {
+          "description": "Indicates the ramp mode used in the optogenetics protocol. It only works if the LED is not configured to use pulses.",
+          "enum": [
+            "None",
+            "Rise",
+            "Fall",
+            "Both"
+          ],
+          "title": "Ramp Mode",
+          "type": "string"
+        },
+        "ramp_time": {
+          "description": "The duration of the ramp of the optogenetics protocol (ms). It only works when use_pulses is false.",
+          "minimum": 1,
+          "title": "Ramp Time",
+          "type": "integer"
+        },
         "led0_voltage": {
           "description": "The voltage to use in the TTL signal.",
           "maximum": 5000,
@@ -265,6 +282,25 @@
           "title": "Led0 Power",
           "type": "number"
         },
+        "led0_pulses": {
+          "description": "Indicates whether the optogenetics protocol uses pulses of light (true) or a continuous emission (false).",
+          "title": "Led0 Pulses",
+          "type": "boolean"
+        },
+        "led0_frequency": {
+          "description": "The frequency of the pulses (Hz). It only works when use_pulses is true.",
+          "maximum": 255,
+          "minimum": 1,
+          "title": "Led0 Frequency",
+          "type": "integer"
+        },
+        "led0_duty_cycle": {
+          "description": "The duty cycle of the pulses (%). It only works when use_pulses is true.",
+          "maximum": 100,
+          "minimum": 0,
+          "title": "Led0 Duty Cycle",
+          "type": "integer"
+        },
         "led1_voltage": {
           "description": "The voltage to use in the TTL signal.",
           "maximum": 5000,
@@ -277,16 +313,43 @@
           "minimum": 0,
           "title": "Led1 Power",
           "type": "number"
+        },
+        "led1_pulses": {
+          "description": "Indicates whether the optogenetics protocol uses pulses of light (true) or a continuous emission (false).",
+          "title": "Led1 Pulses",
+          "type": "boolean"
+        },
+        "led1_frequency": {
+          "description": "The frequency of the pulses (Hz). It only works when use_pulses is true.",
+          "maximum": 255,
+          "minimum": 1,
+          "title": "Led1 Frequency",
+          "type": "integer"
+        },
+        "led1_duty_cycle": {
+          "description": "The duty cycle of the pulses (%). It only works when use_pulses is true.",
+          "maximum": 100,
+          "minimum": 0,
+          "title": "Led1 Duty Cycle",
+          "type": "integer"
         }
       },
       "required": [
         "opto_trial",
         "duration",
         "mode",
+        "ramp_mode",
+        "ramp_time",
         "led0_voltage",
         "led0_power",
+        "led0_pulses",
+        "led0_frequency",
+        "led0_duty_cycle",
         "led1_voltage",
-        "led1_power"
+        "led1_power",
+        "led1_pulses",
+        "led1_frequency",
+        "led1_duty_cycle"
       ],
       "title": "Optogenetics",
       "type": "object"

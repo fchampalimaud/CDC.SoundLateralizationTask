@@ -33,17 +33,50 @@ class Optogenetics(BaseModel):
     ] = Field(
         description="Indicates the optogenetics mode used in the current session."
     )
+    ramp_mode: Literal["None", "Rise", "Fall", "Both"] = Field(
+        description="Indicates the ramp mode used in the optogenetics protocol. It only works if the LED is not configured to use pulses."
+    )
+    ramp_time: int = Field(
+        description="The duration of the ramp of the optogenetics protocol (ms). It only works when use_pulses is false.",
+        ge=1,
+    )
     led0_voltage: float = Field(
         description="The voltage to use in the TTL signal.", ge=0, le=5000
     )
     led0_power: float = Field(
         description="The power with which the animal is stimulated.", ge=0
     )
+    led0_pulses: bool = Field(
+        description="Indicates whether the optogenetics protocol uses pulses of light (true) or a continuous emission (false)."
+    )
+    led0_frequency: int = Field(
+        description="The frequency of the pulses (Hz). It only works when use_pulses is true.",
+        ge=1,
+        le=255,
+    )
+    led0_duty_cycle: int = Field(
+        description="The duty cycle of the pulses (%). It only works when use_pulses is true.",
+        ge=0,
+        le=100,
+    )
     led1_voltage: float = Field(
         description="The voltage to use in the TTL signal.", ge=0, le=5000
     )
     led1_power: float = Field(
         description="The power with which the animal is stimulated.", ge=0
+    )
+    led1_pulses: bool = Field(
+        description="Indicates whether the optogenetics protocol uses pulses of light (true) or a continuous emission (false)."
+    )
+    led1_frequency: int = Field(
+        description="The frequency of the pulses (Hz). It only works when use_pulses is true.",
+        ge=1,
+        le=255,
+    )
+    led1_duty_cycle: int = Field(
+        description="The duty cycle of the pulses (%). It only works when use_pulses is true.",
+        ge=0,
+        le=100,
     )
 
 
