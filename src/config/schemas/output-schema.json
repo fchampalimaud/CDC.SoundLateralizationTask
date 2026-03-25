@@ -269,6 +269,15 @@
           "title": "Ramp Time",
           "type": "integer"
         },
+        "onset": {
+          "description": "Indicates when the optogenetics protocol should start.",
+          "enum": [
+            "MidFixation",
+            "SoundStart"
+          ],
+          "title": "Onset",
+          "type": "string"
+        },
         "led0_voltage": {
           "description": "The voltage to use in the TTL signal.",
           "maximum": 5000,
@@ -340,6 +349,7 @@
         "mode",
         "ramp_mode",
         "ramp_time",
+        "onset",
         "led0_voltage",
         "led0_power",
         "led0_pulses",

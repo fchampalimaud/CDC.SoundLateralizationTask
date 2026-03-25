@@ -73,29 +73,76 @@ class OptoLED(BaseModel):
         description="The voltage to use in the TTL signal.", ge=0, le=5000
     )
     power: float = Field(
-        description="The power with which the animal is stimulated.", ge=0
+        description="The power with which the animal is stimulated.", ge=0, default=0
     )
-    mode: Literal["TTL", "Current"] = Field(
-        description="Indicates whether the LED port is being used to control an external LED via TTL or if it's controlling a LED directly with the current sources."
+    mode: Literal["Analog", "Current"] = Field(
+        description="Indicates whether the LED port is being used to control an external LED via TTL or if it's controlling a LED directly with the current sources.",
+        default="Analog",
     )
     use_pulses: bool = Field(
-        description="Indicates whether the optogenetics protocol uses pulses of light (true) or a continuous emission (false)."
+        description="Indicates whether the optogenetics protocol uses pulses of light (true) or a continuous emission (false).",
+        default=False,
     )
     frequency: int = Field(
         description="The frequency of the pulses (Hz). It only works when use_pulses is true.",
         ge=1,
         le=255,
+        default=1,
     )
     duty_cycle: int = Field(
         description="The duty cycle of the pulses (%). It only works when use_pulses is true.",
         ge=0,
         le=100,
+        default=100,
+    )
+
+
+class OptoProtocol(BaseModel):
+    duration: float = Field(
+        description="The duration of the optogenetics stimulation/inhibition protocol (s).",
+        ge=0,
+    )
+    probability: float = Field(
+        description="The probability of this protocol being used in a optogenetics trial.",
+        gt=0,
+    )
+    onset: Literal["MidFixation", "SoundStart"] = Field(
+        description="Indicates when the optogenetics protocol should start."
+    )
+    use_rt: bool = Field(
+        description="Indicates whether the optogenetics stimulation/inhibition should stop when the animal leaves the poke (true) or not (false)."
+    )
+    ramp_mode: Literal["None", "Rise", "Fall", "Both"] = Field(
+        description="Indicates the ramp mode used in the optogenetics protocol. It only works if the LED is not configured to use pulses.",
+        default="None",
+    )
+    ramp_time: int = Field(
+        description="The duration of the ramp of the optogenetics protocol (ms). It only works when use_pulses is false.",
+        ge=1,
+        default=1,
+    )
+    led0: OptoLED = Field(
+        description="The optogenetics protocol that LED 0 executes.",
+    )
+    led1: OptoLED = Field(
+        description="The optogenetics protocol that LED 1 executes.",
+        default=OptoLED(
+            voltage=0,
+            power=0,
+            mode="Analog",
+            use_pulses=False,
+            frequency=20,
+            duty_cycle=50,
+        ),
     )
 
 
 class Optogenetics(BaseModel):
     use_opto: bool = Field(
         description="Indicates whether optogenetics is used or not.", default=False
+    )
+    opto_ratio: float = Field(
+        description="The ratio of optogenetics trials.", ge=0, le=1
     )
     mode: Literal[
         "None",
@@ -109,26 +156,11 @@ class Optogenetics(BaseModel):
         "LeftInhibitionRightExcitation",
     ] = Field(
         description="Indicates the optogenetics mode used in the current session.",
+        default="None",
     )
-    duration: float = Field(
-        description="The duration of the optogenetics stimulation/inhibition protocol (s).",
-        ge=0,
+    protocols: List[Annotated[OptoProtocol, Field()]] = Field(
+        description="The list containing the available optogenetics protocols."
     )
-    opto_ratio: float = Field(
-        description="The ratio of optogenetics trials.", ge=0, le=1
-    )
-    use_rt: bool = Field(
-        description="Indicates whether the optogenetics stimulation/inhibition should stop when the animal leaves the poke (true) or not (false)."
-    )
-    ramp_mode: Literal["None", "Rise", "Fall", "Both"] = Field(
-        description="Indicates the ramp mode used in the optogenetics protocol. It only works if the LED is not configured to use pulses."
-    )
-    ramp_time: int = Field(
-        description="The duration of the ramp of the optogenetics protocol (ms). It only works when use_pulses is false.",
-        ge=1,
-    )
-    led0: OptoLED = Field(description="The optogenetics protocol that LED 0 executes.")
-    led1: OptoLED = Field(description="The optogenetics protocol that LED 1 executes.")
 
 
 class TimeConstrains(BaseModel):
@@ -255,27 +287,33 @@ class Animal(BaseModel):
         default=Optogenetics(
             use_opto=False,
             opto_ratio=0.3,
-            duration=2,
-            use_rt=False,
             mode="None",
-            ramp_mode="None",
-            ramp_time=1,
-            led0=OptoLED(
-                voltage=0,
-                power=0,
-                mode="TTL",
-                use_pulses=False,
-                frequency=20,
-                duty_cycle=50,
-            ),
-            led1=OptoLED(
-                voltage=0,
-                power=0,
-                mode="TTL",
-                use_pulses=False,
-                frequency=20,
-                duty_cycle=50,
-            ),
+            protocols=[
+                OptoProtocol(
+                    duration=2,
+                    probability=1,
+                    onset="MidFixation",
+                    use_rt=False,
+                    ramp_mode="None",
+                    ramp_time=1,
+                    led0=OptoLED(
+                        voltage=0,
+                        power=0,
+                        mode="Analog",
+                        use_pulses=False,
+                        frequency=20,
+                        duty_cycle=50,
+                    ),
+                    led1=OptoLED(
+                        voltage=0,
+                        power=0,
+                        mode="Analog",
+                        use_pulses=False,
+                        frequency=20,
+                        duty_cycle=50,
+                    ),
+                )
+            ],
         ),
     )
     autobias_correction: AutobiasCorrection = Field(

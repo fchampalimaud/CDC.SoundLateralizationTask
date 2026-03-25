@@ -503,6 +503,11 @@ namespace Animal
     
         public OptoLED()
         {
+            _power = 0D;
+            _mode = OptoLEDMode.Analog;
+            _usePulses = false;
+            _frequency = 1;
+            _dutyCycle = 100;
         }
     
         protected OptoLED(OptoLED other)
@@ -536,7 +541,7 @@ namespace Animal
         /// <summary>
         /// The power with which the animal is stimulated.
         /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("power", Required=Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonPropertyAttribute("power")]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="power")]
         [System.ComponentModel.DescriptionAttribute("The power with which the animal is stimulated.")]
         public double Power
@@ -554,7 +559,7 @@ namespace Animal
         /// <summary>
         /// Indicates whether the LED port is being used to control an external LED via TTL or if it's controlling a LED directly with the current sources.
         /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("mode", Required=Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonPropertyAttribute("mode")]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="mode")]
         [System.ComponentModel.DescriptionAttribute("Indicates whether the LED port is being used to control an external LED via TTL o" +
             "r if it\'s controlling a LED directly with the current sources.")]
@@ -573,7 +578,7 @@ namespace Animal
         /// <summary>
         /// Indicates whether the optogenetics protocol uses pulses of light (true) or a continuous emission (false).
         /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("use_pulses", Required=Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonPropertyAttribute("use_pulses")]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="use_pulses")]
         [System.ComponentModel.DescriptionAttribute("Indicates whether the optogenetics protocol uses pulses of light (true) or a cont" +
             "inuous emission (false).")]
@@ -592,7 +597,7 @@ namespace Animal
         /// <summary>
         /// The frequency of the pulses (Hz). It only works when use_pulses is true.
         /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("frequency", Required=Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonPropertyAttribute("frequency")]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="frequency")]
         [System.ComponentModel.DescriptionAttribute("The frequency of the pulses (Hz). It only works when use_pulses is true.")]
         public int Frequency
@@ -610,7 +615,7 @@ namespace Animal
         /// <summary>
         /// The duty cycle of the pulses (%). It only works when use_pulses is true.
         /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("duty_cycle", Required=Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonPropertyAttribute("duty_cycle")]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="duty_cycle")]
         [System.ComponentModel.DescriptionAttribute("The duty cycle of the pulses (%). It only works when use_pulses is true.")]
         public int DutyCycle
@@ -664,20 +669,18 @@ namespace Animal
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
     [Bonsai.CombinatorAttribute(MethodName="Generate")]
-    public partial class Optogenetics
+    public partial class OptoProtocol
     {
-    
-        private bool _useOpto;
-    
-        private OptogeneticsMode _mode;
     
         private double _duration;
     
-        private double _optoRatio;
+        private double _probability;
+    
+        private OptoProtocolOnset _onset;
     
         private bool _useRt;
     
-        private OptogeneticsRampMode _rampMode;
+        private OptoProtocolRampMode _rampMode;
     
         private int _rampTime;
     
@@ -685,60 +688,24 @@ namespace Animal
     
         private OptoLED _led1;
     
-        public Optogenetics()
+        public OptoProtocol()
         {
-            _useOpto = false;
+            _rampMode = OptoProtocolRampMode.None;
+            _rampTime = 1;
             _led0 = new OptoLED();
             _led1 = new OptoLED();
         }
     
-        protected Optogenetics(Optogenetics other)
+        protected OptoProtocol(OptoProtocol other)
         {
-            _useOpto = other._useOpto;
-            _mode = other._mode;
             _duration = other._duration;
-            _optoRatio = other._optoRatio;
+            _probability = other._probability;
+            _onset = other._onset;
             _useRt = other._useRt;
             _rampMode = other._rampMode;
             _rampTime = other._rampTime;
             _led0 = other._led0;
             _led1 = other._led1;
-        }
-    
-        /// <summary>
-        /// Indicates whether optogenetics is used or not.
-        /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("use_opto")]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="use_opto")]
-        [System.ComponentModel.DescriptionAttribute("Indicates whether optogenetics is used or not.")]
-        public bool UseOpto
-        {
-            get
-            {
-                return _useOpto;
-            }
-            set
-            {
-                _useOpto = value;
-            }
-        }
-    
-        /// <summary>
-        /// Indicates the optogenetics mode used in the current session.
-        /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("mode", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="mode")]
-        [System.ComponentModel.DescriptionAttribute("Indicates the optogenetics mode used in the current session.")]
-        public OptogeneticsMode Mode
-        {
-            get
-            {
-                return _mode;
-            }
-            set
-            {
-                _mode = value;
-            }
         }
     
         /// <summary>
@@ -760,20 +727,38 @@ namespace Animal
         }
     
         /// <summary>
-        /// The ratio of optogenetics trials.
+        /// The probability of this protocol being used in a optogenetics trial.
         /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("opto_ratio", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="opto_ratio")]
-        [System.ComponentModel.DescriptionAttribute("The ratio of optogenetics trials.")]
-        public double OptoRatio
+        [Newtonsoft.Json.JsonPropertyAttribute("probability", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="probability")]
+        [System.ComponentModel.DescriptionAttribute("The probability of this protocol being used in a optogenetics trial.")]
+        public double Probability
         {
             get
             {
-                return _optoRatio;
+                return _probability;
             }
             set
             {
-                _optoRatio = value;
+                _probability = value;
+            }
+        }
+    
+        /// <summary>
+        /// Indicates when the optogenetics protocol should start.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("onset", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="onset")]
+        [System.ComponentModel.DescriptionAttribute("Indicates when the optogenetics protocol should start.")]
+        public OptoProtocolOnset Onset
+        {
+            get
+            {
+                return _onset;
+            }
+            set
+            {
+                _onset = value;
             }
         }
     
@@ -799,11 +784,11 @@ namespace Animal
         /// <summary>
         /// Indicates the ramp mode used in the optogenetics protocol. It only works if the LED is not configured to use pulses.
         /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("ramp_mode", Required=Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonPropertyAttribute("ramp_mode")]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="ramp_mode")]
         [System.ComponentModel.DescriptionAttribute("Indicates the ramp mode used in the optogenetics protocol. It only works if the L" +
             "ED is not configured to use pulses.")]
-        public OptogeneticsRampMode RampMode
+        public OptoProtocolRampMode RampMode
         {
             get
             {
@@ -818,7 +803,7 @@ namespace Animal
         /// <summary>
         /// The duration of the ramp of the optogenetics protocol (ms). It only works when use_pulses is false.
         /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("ramp_time", Required=Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonPropertyAttribute("ramp_time")]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="ramp_time")]
         [System.ComponentModel.DescriptionAttribute("The duration of the ramp of the optogenetics protocol (ms). It only works when us" +
             "e_pulses is false.")]
@@ -857,7 +842,7 @@ namespace Animal
         /// The optogenetics protocol that LED 1 executes.
         /// </summary>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        [Newtonsoft.Json.JsonPropertyAttribute("led1", Required=Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonPropertyAttribute("led1")]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="led1")]
         [System.ComponentModel.DescriptionAttribute("The optogenetics protocol that LED 1 executes.")]
         public OptoLED Led1
@@ -869,6 +854,146 @@ namespace Animal
             set
             {
                 _led1 = value;
+            }
+        }
+    
+        public System.IObservable<OptoProtocol> Generate()
+        {
+            return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new OptoProtocol(this)));
+        }
+    
+        public System.IObservable<OptoProtocol> Generate<TSource>(System.IObservable<TSource> source)
+        {
+            return System.Reactive.Linq.Observable.Select(source, _ => new OptoProtocol(this));
+        }
+    
+        protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
+        {
+            stringBuilder.Append("Duration = " + _duration + ", ");
+            stringBuilder.Append("Probability = " + _probability + ", ");
+            stringBuilder.Append("Onset = " + _onset + ", ");
+            stringBuilder.Append("UseRt = " + _useRt + ", ");
+            stringBuilder.Append("RampMode = " + _rampMode + ", ");
+            stringBuilder.Append("RampTime = " + _rampTime + ", ");
+            stringBuilder.Append("Led0 = " + _led0 + ", ");
+            stringBuilder.Append("Led1 = " + _led1);
+            return true;
+        }
+    
+        public override string ToString()
+        {
+            System.Text.StringBuilder stringBuilder = new System.Text.StringBuilder();
+            stringBuilder.Append(GetType().Name);
+            stringBuilder.Append(" { ");
+            if (PrintMembers(stringBuilder))
+            {
+                stringBuilder.Append(" ");
+            }
+            stringBuilder.Append("}");
+            return stringBuilder.ToString();
+        }
+    }
+
+
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
+    [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
+    [Bonsai.CombinatorAttribute(MethodName="Generate")]
+    public partial class Optogenetics
+    {
+    
+        private bool _useOpto;
+    
+        private double _optoRatio;
+    
+        private OptogeneticsMode _mode;
+    
+        private System.Collections.Generic.List<OptoProtocol> _protocols;
+    
+        public Optogenetics()
+        {
+            _useOpto = false;
+            _mode = OptogeneticsMode.None;
+            _protocols = new System.Collections.Generic.List<OptoProtocol>();
+        }
+    
+        protected Optogenetics(Optogenetics other)
+        {
+            _useOpto = other._useOpto;
+            _optoRatio = other._optoRatio;
+            _mode = other._mode;
+            _protocols = other._protocols;
+        }
+    
+        /// <summary>
+        /// Indicates whether optogenetics is used or not.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("use_opto")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="use_opto")]
+        [System.ComponentModel.DescriptionAttribute("Indicates whether optogenetics is used or not.")]
+        public bool UseOpto
+        {
+            get
+            {
+                return _useOpto;
+            }
+            set
+            {
+                _useOpto = value;
+            }
+        }
+    
+        /// <summary>
+        /// The ratio of optogenetics trials.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("opto_ratio", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="opto_ratio")]
+        [System.ComponentModel.DescriptionAttribute("The ratio of optogenetics trials.")]
+        public double OptoRatio
+        {
+            get
+            {
+                return _optoRatio;
+            }
+            set
+            {
+                _optoRatio = value;
+            }
+        }
+    
+        /// <summary>
+        /// Indicates the optogenetics mode used in the current session.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("mode")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="mode")]
+        [System.ComponentModel.DescriptionAttribute("Indicates the optogenetics mode used in the current session.")]
+        public OptogeneticsMode Mode
+        {
+            get
+            {
+                return _mode;
+            }
+            set
+            {
+                _mode = value;
+            }
+        }
+    
+        /// <summary>
+        /// The list containing the available optogenetics protocols.
+        /// </summary>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [Newtonsoft.Json.JsonPropertyAttribute("protocols", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="protocols")]
+        [System.ComponentModel.DescriptionAttribute("The list containing the available optogenetics protocols.")]
+        public System.Collections.Generic.List<OptoProtocol> Protocols
+        {
+            get
+            {
+                return _protocols;
+            }
+            set
+            {
+                _protocols = value;
             }
         }
     
@@ -885,14 +1010,9 @@ namespace Animal
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
             stringBuilder.Append("UseOpto = " + _useOpto + ", ");
-            stringBuilder.Append("Mode = " + _mode + ", ");
-            stringBuilder.Append("Duration = " + _duration + ", ");
             stringBuilder.Append("OptoRatio = " + _optoRatio + ", ");
-            stringBuilder.Append("UseRt = " + _useRt + ", ");
-            stringBuilder.Append("RampMode = " + _rampMode + ", ");
-            stringBuilder.Append("RampTime = " + _rampTime + ", ");
-            stringBuilder.Append("Led0 = " + _led0 + ", ");
-            stringBuilder.Append("Led1 = " + _led1);
+            stringBuilder.Append("Mode = " + _mode + ", ");
+            stringBuilder.Append("Protocols = " + _protocols);
             return true;
         }
     
@@ -1984,13 +2104,51 @@ namespace Animal
     public enum OptoLEDMode
     {
     
-        [System.Runtime.Serialization.EnumMemberAttribute(Value="TTL")]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="TTL")]
-        TTL = 0,
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="Analog")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="Analog")]
+        Analog = 0,
     
         [System.Runtime.Serialization.EnumMemberAttribute(Value="Current")]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="Current")]
         Current = 1,
+    }
+
+
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
+    [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+    public enum OptoProtocolOnset
+    {
+    
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="MidFixation")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="MidFixation")]
+        MidFixation = 0,
+    
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="SoundStart")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="SoundStart")]
+        SoundStart = 1,
+    }
+
+
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
+    [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+    public enum OptoProtocolRampMode
+    {
+    
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="None")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="None")]
+        None = 0,
+    
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="Rise")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="Rise")]
+        Rise = 1,
+    
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="Fall")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="Fall")]
+        Fall = 2,
+    
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="Both")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="Both")]
+        Both = 3,
     }
 
 
@@ -2037,29 +2195,6 @@ namespace Animal
     }
 
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
-    [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-    public enum OptogeneticsRampMode
-    {
-    
-        [System.Runtime.Serialization.EnumMemberAttribute(Value="None")]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="None")]
-        None = 0,
-    
-        [System.Runtime.Serialization.EnumMemberAttribute(Value="Rise")]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="Rise")]
-        Rise = 1,
-    
-        [System.Runtime.Serialization.EnumMemberAttribute(Value="Fall")]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="Fall")]
-        Fall = 2,
-    
-        [System.Runtime.Serialization.EnumMemberAttribute(Value="Both")]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="Both")]
-        Both = 3,
-    }
-
-
     /// <summary>
     /// Serializes a sequence of data model objects into JSON strings.
     /// </summary>
@@ -2101,6 +2236,11 @@ namespace Animal
         public System.IObservable<string> Process(System.IObservable<OptoLED> source)
         {
             return Process<OptoLED>(source);
+        }
+
+        public System.IObservable<string> Process(System.IObservable<OptoProtocol> source)
+        {
+            return Process<OptoProtocol>(source);
         }
 
         public System.IObservable<string> Process(System.IObservable<Optogenetics> source)
@@ -2152,6 +2292,7 @@ namespace Animal
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<BiasedSession>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<FixationTime>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<OptoLED>))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<OptoProtocol>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Optogenetics>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<ReactionTime>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Reward>))]
@@ -2233,6 +2374,11 @@ namespace Animal
             return Process<OptoLED>(source);
         }
 
+        public System.IObservable<string> Process(System.IObservable<OptoProtocol> source)
+        {
+            return Process<OptoProtocol>(source);
+        }
+
         public System.IObservable<string> Process(System.IObservable<Optogenetics> source)
         {
             return Process<Optogenetics>(source);
@@ -2282,6 +2428,7 @@ namespace Animal
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<BiasedSession>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<FixationTime>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<OptoLED>))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<OptoProtocol>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Optogenetics>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<ReactionTime>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Reward>))]

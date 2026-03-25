@@ -40,6 +40,9 @@ class Optogenetics(BaseModel):
         description="The duration of the ramp of the optogenetics protocol (ms). It only works when use_pulses is false.",
         ge=1,
     )
+    onset: Literal["MidFixation", "SoundStart"] = Field(
+        description="Indicates when the optogenetics protocol should start."
+    )
     led0_voltage: float = Field(
         description="The voltage to use in the TTL signal.", ge=0, le=5000
     )

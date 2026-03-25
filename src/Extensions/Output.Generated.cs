@@ -890,6 +890,8 @@ namespace Output
     
         private int _rampTime;
     
+        private OptogeneticsOnset _onset;
+    
         private double _led0Voltage;
     
         private double _led0Power;
@@ -921,6 +923,7 @@ namespace Output
             _mode = other._mode;
             _rampMode = other._rampMode;
             _rampTime = other._rampTime;
+            _onset = other._onset;
             _led0Voltage = other._led0Voltage;
             _led0Power = other._led0Power;
             _led0Pulses = other._led0Pulses;
@@ -1022,6 +1025,24 @@ namespace Output
             set
             {
                 _rampTime = value;
+            }
+        }
+    
+        /// <summary>
+        /// Indicates when the optogenetics protocol should start.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("onset", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="onset")]
+        [System.ComponentModel.DescriptionAttribute("Indicates when the optogenetics protocol should start.")]
+        public OptogeneticsOnset Onset
+        {
+            get
+            {
+                return _onset;
+            }
+            set
+            {
+                _onset = value;
             }
         }
     
@@ -1224,6 +1245,7 @@ namespace Output
             stringBuilder.Append("Mode = " + _mode + ", ");
             stringBuilder.Append("RampMode = " + _rampMode + ", ");
             stringBuilder.Append("RampTime = " + _rampTime + ", ");
+            stringBuilder.Append("Onset = " + _onset + ", ");
             stringBuilder.Append("Led0Voltage = " + _led0Voltage + ", ");
             stringBuilder.Append("Led0Power = " + _led0Power + ", ");
             stringBuilder.Append("Led0Pulses = " + _led0Pulses + ", ");
@@ -2804,6 +2826,21 @@ namespace Output
         [System.Runtime.Serialization.EnumMemberAttribute(Value="Both")]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="Both")]
         Both = 3,
+    }
+
+
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
+    [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+    public enum OptogeneticsOnset
+    {
+    
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="MidFixation")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="MidFixation")]
+        MidFixation = 0,
+    
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="SoundStart")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="SoundStart")]
+        SoundStart = 1,
     }
 
 
