@@ -26,7 +26,7 @@ speaker-calibration = { git = "ssh://git@github.com/fchampalimaud/cdc-speaker-ca
 [project.scripts]
 generate-schemas = "sgen.__main__:main"
 config = "config.__main__:main"
-startup = "startup.__main__:main"
+startup = "startup:main"
 convert-output = "shutdown.__main__:main"
 conversion-tool = "shutdown.tool:convert_tool"
 merge-output = "tooling.merger:main"

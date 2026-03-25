@@ -1,7 +1,6 @@
 import os
 import re
 from datetime import datetime
-from typing import Literal
 
 import pandas as pd
 import yaml
@@ -182,20 +181,3 @@ def ask_last_training_level():
             return 16  # FIXME
         else:
             return int(last_training_level)
-
-
-def save_yaml(data: dict, filepath: str, type: Literal["animal", "config"]):
-    # Store schema path according to file type
-    if type == "animal":
-        schema = "# yaml-language-server: $schema=https://raw.githubusercontent.com/fchampalimaud/CDC.SoundLateralizationTask/refs/heads/main/src/config/schemas/animal-schema.json\n"
-    else:
-        schema = "# yaml-language-server: $schema=schemas/config-schema.json\n"
-
-    # Add JSON schema to yaml structure
-    yaml_string = schema + yaml.safe_dump(
-        data, default_flow_style=False, sort_keys=False
-    )
-
-    # Save file
-    with open(filepath, "w") as file:
-        file.write(yaml_string)
