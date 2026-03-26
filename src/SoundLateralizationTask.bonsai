@@ -14786,308 +14786,306 @@
                       </Edges>
                     </Workflow>
                   </Expression>
-                  <Expression xsi:type="Disable">
-                    <Builder xsi:type="GroupWorkflow">
-                      <Name>CurrentDriver</Name>
-                      <Workflow>
-                        <Nodes>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>CDMessages</Name>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="harp:GroupByRegister" />
-                          </Expression>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>OutputDirPath</Name>
-                          </Expression>
-                          <Expression xsi:type="SubscribeSubject">
+                  <Expression xsi:type="GroupWorkflow">
+                    <Name>CurrentDriver</Name>
+                    <Workflow>
+                      <Nodes>
+                        <Expression xsi:type="SubscribeSubject">
+                          <Name>CDMessages</Name>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="harp:GroupByRegister" />
+                        </Expression>
+                        <Expression xsi:type="SubscribeSubject">
+                          <Name>OutputDirPath</Name>
+                        </Expression>
+                        <Expression xsi:type="SubscribeSubject">
+                          <Name>Suffix</Name>
+                        </Expression>
+                        <Expression xsi:type="Format">
+                          <Format>events/{0}/currentdriver/currentdriver.bin</Format>
+                          <Selector>it</Selector>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="rx:Zip" />
+                        </Expression>
+                        <Expression xsi:type="scr:ExpressionTransform">
+                          <scr:Expression>Item1 + Item2</scr:Expression>
+                        </Expression>
+                        <Expression xsi:type="PropertyMapping">
+                          <PropertyMappings>
+                            <Property Name="FileName" />
+                          </PropertyMappings>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="harp:MessageWriter">
+                            <harp:FileName>C:/Users/HSP/Documents/BonsaiWorkflows/CDC.SoundLateralizationTask/output/batch/ANIMAL0003/250917/events/111030/currentdriver/currentdriver.bin</harp:FileName>
+                            <harp:Suffix>None</harp:Suffix>
+                            <harp:Buffered>true</harp:Buffered>
+                            <harp:Overwrite>false</harp:Overwrite>
+                            <harp:FilterType>Include</harp:FilterType>
+                            <harp:MessageType xsi:nil="true" />
+                          </Combinator>
+                        </Expression>
+                        <Expression xsi:type="Disable">
+                          <Builder xsi:type="rx:Condition">
+                            <Workflow>
+                              <Nodes>
+                                <Expression xsi:type="SubscribeSubject">
+                                  <Name>Config</Name>
+                                </Expression>
+                                <Expression xsi:type="MemberSelector">
+                                  <Selector>Paths.OutputBackup</Selector>
+                                </Expression>
+                                <Expression xsi:type="NotEqual">
+                                  <Operand xsi:type="StringProperty" />
+                                </Expression>
+                                <Expression xsi:type="WorkflowOutput" />
+                              </Nodes>
+                              <Edges>
+                                <Edge From="0" To="1" Label="Source1" />
+                                <Edge From="1" To="2" Label="Source1" />
+                                <Edge From="2" To="3" Label="Source1" />
+                              </Edges>
+                            </Workflow>
+                          </Builder>
+                        </Expression>
+                        <Expression xsi:type="Disable">
+                          <Builder xsi:type="SubscribeSubject">
+                            <Name>OutputBackupDirPath</Name>
+                          </Builder>
+                        </Expression>
+                        <Expression xsi:type="Disable">
+                          <Builder xsi:type="SubscribeSubject">
                             <Name>Suffix</Name>
-                          </Expression>
-                          <Expression xsi:type="Format">
+                          </Builder>
+                        </Expression>
+                        <Expression xsi:type="Disable">
+                          <Builder xsi:type="Format">
                             <Format>events/{0}/currentdriver/currentdriver.bin</Format>
                             <Selector>it</Selector>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
+                          </Builder>
+                        </Expression>
+                        <Expression xsi:type="Disable">
+                          <Builder xsi:type="Combinator">
                             <Combinator xsi:type="rx:Zip" />
-                          </Expression>
-                          <Expression xsi:type="scr:ExpressionTransform">
+                          </Builder>
+                        </Expression>
+                        <Expression xsi:type="Disable">
+                          <Builder xsi:type="scr:ExpressionTransform">
                             <scr:Expression>Item1 + Item2</scr:Expression>
-                          </Expression>
-                          <Expression xsi:type="PropertyMapping">
+                          </Builder>
+                        </Expression>
+                        <Expression xsi:type="Disable">
+                          <Builder xsi:type="PropertyMapping">
                             <PropertyMappings>
                               <Property Name="FileName" />
                             </PropertyMappings>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
+                          </Builder>
+                        </Expression>
+                        <Expression xsi:type="Disable">
+                          <Builder xsi:type="Combinator">
                             <Combinator xsi:type="harp:MessageWriter">
-                              <harp:FileName>C:/Users/HSP/Documents/BonsaiWorkflows/CDC.SoundLateralizationTask/output/batch/ANIMAL0003/250917/events/111030/currentdriver/currentdriver.bin</harp:FileName>
+                              <harp:FileName>C:/Users/HSP/Documents/backup/batch/ANIMAL0003/250917/events/111030/currentdriver/currentdriver.bin</harp:FileName>
                               <harp:Suffix>None</harp:Suffix>
                               <harp:Buffered>true</harp:Buffered>
                               <harp:Overwrite>false</harp:Overwrite>
                               <harp:FilterType>Include</harp:FilterType>
                               <harp:MessageType xsi:nil="true" />
                             </Combinator>
-                          </Expression>
-                          <Expression xsi:type="Disable">
-                            <Builder xsi:type="rx:Condition">
-                              <Workflow>
-                                <Nodes>
-                                  <Expression xsi:type="SubscribeSubject">
-                                    <Name>Config</Name>
-                                  </Expression>
-                                  <Expression xsi:type="MemberSelector">
-                                    <Selector>Paths.OutputBackup</Selector>
-                                  </Expression>
-                                  <Expression xsi:type="NotEqual">
-                                    <Operand xsi:type="StringProperty" />
-                                  </Expression>
-                                  <Expression xsi:type="WorkflowOutput" />
-                                </Nodes>
-                                <Edges>
-                                  <Edge From="0" To="1" Label="Source1" />
-                                  <Edge From="1" To="2" Label="Source1" />
-                                  <Edge From="2" To="3" Label="Source1" />
-                                </Edges>
-                              </Workflow>
-                            </Builder>
-                          </Expression>
-                          <Expression xsi:type="Disable">
-                            <Builder xsi:type="SubscribeSubject">
-                              <Name>OutputBackupDirPath</Name>
-                            </Builder>
-                          </Expression>
-                          <Expression xsi:type="Disable">
-                            <Builder xsi:type="SubscribeSubject">
-                              <Name>Suffix</Name>
-                            </Builder>
-                          </Expression>
-                          <Expression xsi:type="Disable">
-                            <Builder xsi:type="Format">
-                              <Format>events/{0}/currentdriver/currentdriver.bin</Format>
-                              <Selector>it</Selector>
-                            </Builder>
-                          </Expression>
-                          <Expression xsi:type="Disable">
-                            <Builder xsi:type="Combinator">
-                              <Combinator xsi:type="rx:Zip" />
-                            </Builder>
-                          </Expression>
-                          <Expression xsi:type="Disable">
-                            <Builder xsi:type="scr:ExpressionTransform">
-                              <scr:Expression>Item1 + Item2</scr:Expression>
-                            </Builder>
-                          </Expression>
-                          <Expression xsi:type="Disable">
-                            <Builder xsi:type="PropertyMapping">
-                              <PropertyMappings>
-                                <Property Name="FileName" />
-                              </PropertyMappings>
-                            </Builder>
-                          </Expression>
-                          <Expression xsi:type="Disable">
-                            <Builder xsi:type="Combinator">
-                              <Combinator xsi:type="harp:MessageWriter">
-                                <harp:FileName>C:/Users/HSP/Documents/backup/batch/ANIMAL0003/250917/events/111030/currentdriver/currentdriver.bin</harp:FileName>
-                                <harp:Suffix>None</harp:Suffix>
-                                <harp:Buffered>true</harp:Buffered>
-                                <harp:Overwrite>false</harp:Overwrite>
-                                <harp:FilterType>Include</harp:FilterType>
-                                <harp:MessageType xsi:nil="true" />
-                              </Combinator>
-                            </Builder>
-                          </Expression>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>OutputDirPath</Name>
-                          </Expression>
-                          <Expression xsi:type="Disable">
-                            <Builder xsi:type="SubscribeSubject">
-                              <Name>OutputBackupDirPath</Name>
-                            </Builder>
-                          </Expression>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>AnimalConfig</Name>
-                          </Expression>
-                          <Expression xsi:type="MemberSelector">
-                            <Selector>Optogenetics.UseOpto</Selector>
-                          </Expression>
-                          <Expression xsi:type="scr:ExpressionCondition">
-                            <scr:Expression>it</scr:Expression>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:Zip" />
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:SubscribeWhen" />
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="p5:GetMetadata" />
-                          </Expression>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>OutputDirPath</Name>
-                          </Expression>
-                          <Expression xsi:type="SubscribeSubject">
+                          </Builder>
+                        </Expression>
+                        <Expression xsi:type="SubscribeSubject">
+                          <Name>OutputDirPath</Name>
+                        </Expression>
+                        <Expression xsi:type="Disable">
+                          <Builder xsi:type="SubscribeSubject">
+                            <Name>OutputBackupDirPath</Name>
+                          </Builder>
+                        </Expression>
+                        <Expression xsi:type="SubscribeSubject">
+                          <Name>AnimalConfig</Name>
+                        </Expression>
+                        <Expression xsi:type="MemberSelector">
+                          <Selector>Optogenetics.UseOpto</Selector>
+                        </Expression>
+                        <Expression xsi:type="scr:ExpressionCondition">
+                          <scr:Expression>it</scr:Expression>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="rx:Zip" />
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="rx:SubscribeWhen" />
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="p5:GetMetadata" />
+                        </Expression>
+                        <Expression xsi:type="SubscribeSubject">
+                          <Name>OutputDirPath</Name>
+                        </Expression>
+                        <Expression xsi:type="SubscribeSubject">
+                          <Name>Suffix</Name>
+                        </Expression>
+                        <Expression xsi:type="Format">
+                          <Format>events/{0}/currentdriver/device.yml</Format>
+                          <Selector>it</Selector>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="rx:Zip" />
+                        </Expression>
+                        <Expression xsi:type="scr:ExpressionTransform">
+                          <scr:Expression>Item1 + Item2</scr:Expression>
+                        </Expression>
+                        <Expression xsi:type="PropertyMapping">
+                          <PropertyMappings>
+                            <Property Name="Path" />
+                          </PropertyMappings>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="io:WriteAllText">
+                            <io:Path>C:/Users/HSP/Documents/BonsaiWorkflows/CDC.SoundLateralizationTask/output/batch/ANIMAL0003/250917/events/111030/currentdriver/device.yml</io:Path>
+                            <io:Overwrite>true</io:Overwrite>
+                            <io:Append>false</io:Append>
+                          </Combinator>
+                        </Expression>
+                        <Expression xsi:type="Disable">
+                          <Builder xsi:type="rx:Condition">
+                            <Workflow>
+                              <Nodes>
+                                <Expression xsi:type="SubscribeSubject">
+                                  <Name>Config</Name>
+                                </Expression>
+                                <Expression xsi:type="MemberSelector">
+                                  <Selector>Paths.OutputBackup</Selector>
+                                </Expression>
+                                <Expression xsi:type="NotEqual">
+                                  <Operand xsi:type="StringProperty" />
+                                </Expression>
+                                <Expression xsi:type="WorkflowOutput" />
+                              </Nodes>
+                              <Edges>
+                                <Edge From="0" To="1" Label="Source1" />
+                                <Edge From="1" To="2" Label="Source1" />
+                                <Edge From="2" To="3" Label="Source1" />
+                              </Edges>
+                            </Workflow>
+                          </Builder>
+                        </Expression>
+                        <Expression xsi:type="Disable">
+                          <Builder xsi:type="SubscribeSubject">
+                            <Name>OutputBackupDirPath</Name>
+                          </Builder>
+                        </Expression>
+                        <Expression xsi:type="Disable">
+                          <Builder xsi:type="SubscribeSubject">
                             <Name>Suffix</Name>
-                          </Expression>
-                          <Expression xsi:type="Format">
+                          </Builder>
+                        </Expression>
+                        <Expression xsi:type="Disable">
+                          <Builder xsi:type="Format">
                             <Format>events/{0}/currentdriver/device.yml</Format>
                             <Selector>it</Selector>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
+                          </Builder>
+                        </Expression>
+                        <Expression xsi:type="Disable">
+                          <Builder xsi:type="Combinator">
                             <Combinator xsi:type="rx:Zip" />
-                          </Expression>
-                          <Expression xsi:type="scr:ExpressionTransform">
+                          </Builder>
+                        </Expression>
+                        <Expression xsi:type="Disable">
+                          <Builder xsi:type="scr:ExpressionTransform">
                             <scr:Expression>Item1 + Item2</scr:Expression>
-                          </Expression>
-                          <Expression xsi:type="PropertyMapping">
+                          </Builder>
+                        </Expression>
+                        <Expression xsi:type="Disable">
+                          <Builder xsi:type="PropertyMapping">
                             <PropertyMappings>
                               <Property Name="Path" />
                             </PropertyMappings>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
+                          </Builder>
+                        </Expression>
+                        <Expression xsi:type="Disable">
+                          <Builder xsi:type="Combinator">
                             <Combinator xsi:type="io:WriteAllText">
-                              <io:Path>C:/Users/HSP/Documents/BonsaiWorkflows/CDC.SoundLateralizationTask/output/batch/ANIMAL0003/250917/events/111030/currentdriver/device.yml</io:Path>
+                              <io:Path>C:/Users/HSP/Documents/backup/batch/ANIMAL0003/250917/events/111030/currentdriver/device.yml</io:Path>
                               <io:Overwrite>true</io:Overwrite>
                               <io:Append>false</io:Append>
                             </Combinator>
-                          </Expression>
-                          <Expression xsi:type="Disable">
-                            <Builder xsi:type="rx:Condition">
-                              <Workflow>
-                                <Nodes>
-                                  <Expression xsi:type="SubscribeSubject">
-                                    <Name>Config</Name>
-                                  </Expression>
-                                  <Expression xsi:type="MemberSelector">
-                                    <Selector>Paths.OutputBackup</Selector>
-                                  </Expression>
-                                  <Expression xsi:type="NotEqual">
-                                    <Operand xsi:type="StringProperty" />
-                                  </Expression>
-                                  <Expression xsi:type="WorkflowOutput" />
-                                </Nodes>
-                                <Edges>
-                                  <Edge From="0" To="1" Label="Source1" />
-                                  <Edge From="1" To="2" Label="Source1" />
-                                  <Edge From="2" To="3" Label="Source1" />
-                                </Edges>
-                              </Workflow>
-                            </Builder>
-                          </Expression>
-                          <Expression xsi:type="Disable">
-                            <Builder xsi:type="SubscribeSubject">
-                              <Name>OutputBackupDirPath</Name>
-                            </Builder>
-                          </Expression>
-                          <Expression xsi:type="Disable">
-                            <Builder xsi:type="SubscribeSubject">
-                              <Name>Suffix</Name>
-                            </Builder>
-                          </Expression>
-                          <Expression xsi:type="Disable">
-                            <Builder xsi:type="Format">
-                              <Format>events/{0}/currentdriver/device.yml</Format>
-                              <Selector>it</Selector>
-                            </Builder>
-                          </Expression>
-                          <Expression xsi:type="Disable">
-                            <Builder xsi:type="Combinator">
-                              <Combinator xsi:type="rx:Zip" />
-                            </Builder>
-                          </Expression>
-                          <Expression xsi:type="Disable">
-                            <Builder xsi:type="scr:ExpressionTransform">
-                              <scr:Expression>Item1 + Item2</scr:Expression>
-                            </Builder>
-                          </Expression>
-                          <Expression xsi:type="Disable">
-                            <Builder xsi:type="PropertyMapping">
-                              <PropertyMappings>
-                                <Property Name="Path" />
-                              </PropertyMappings>
-                            </Builder>
-                          </Expression>
-                          <Expression xsi:type="Disable">
-                            <Builder xsi:type="Combinator">
-                              <Combinator xsi:type="io:WriteAllText">
-                                <io:Path>C:/Users/HSP/Documents/backup/batch/ANIMAL0003/250917/events/111030/currentdriver/device.yml</io:Path>
-                                <io:Overwrite>true</io:Overwrite>
-                                <io:Append>false</io:Append>
-                              </Combinator>
-                            </Builder>
-                          </Expression>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>OutputDirPath</Name>
-                          </Expression>
-                          <Expression xsi:type="Disable">
-                            <Builder xsi:type="SubscribeSubject">
-                              <Name>OutputBackupDirPath</Name>
-                            </Builder>
-                          </Expression>
-                          <Expression xsi:type="SubscribeSubject">
-                            <Name>AnimalConfig</Name>
-                          </Expression>
-                          <Expression xsi:type="MemberSelector">
-                            <Selector>Optogenetics.UseOpto</Selector>
-                          </Expression>
-                          <Expression xsi:type="scr:ExpressionCondition">
-                            <scr:Expression>it</scr:Expression>
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:Zip" />
-                          </Expression>
-                          <Expression xsi:type="Combinator">
-                            <Combinator xsi:type="rx:SubscribeWhen" />
-                          </Expression>
-                        </Nodes>
-                        <Edges>
-                          <Edge From="0" To="1" Label="Source1" />
-                          <Edge From="1" To="8" Label="Source1" />
-                          <Edge From="2" To="5" Label="Source1" />
-                          <Edge From="3" To="4" Label="Source1" />
-                          <Edge From="4" To="5" Label="Source2" />
-                          <Edge From="5" To="6" Label="Source1" />
-                          <Edge From="6" To="7" Label="Source1" />
-                          <Edge From="7" To="8" Label="Source2" />
-                          <Edge From="8" To="9" Label="Source1" />
-                          <Edge From="9" To="16" Label="Source1" />
-                          <Edge From="10" To="13" Label="Source1" />
-                          <Edge From="11" To="12" Label="Source1" />
-                          <Edge From="12" To="13" Label="Source2" />
-                          <Edge From="13" To="14" Label="Source1" />
-                          <Edge From="14" To="15" Label="Source1" />
-                          <Edge From="15" To="16" Label="Source2" />
-                          <Edge From="16" To="23" Label="Source1" />
-                          <Edge From="17" To="22" Label="Source1" />
-                          <Edge From="18" To="22" Label="Source2" />
-                          <Edge From="19" To="20" Label="Source1" />
-                          <Edge From="20" To="21" Label="Source1" />
-                          <Edge From="21" To="22" Label="Source3" />
-                          <Edge From="22" To="23" Label="Source2" />
-                          <Edge From="24" To="31" Label="Source1" />
-                          <Edge From="25" To="28" Label="Source1" />
-                          <Edge From="26" To="27" Label="Source1" />
-                          <Edge From="27" To="28" Label="Source2" />
-                          <Edge From="28" To="29" Label="Source1" />
-                          <Edge From="29" To="30" Label="Source1" />
-                          <Edge From="30" To="31" Label="Source2" />
-                          <Edge From="31" To="32" Label="Source1" />
-                          <Edge From="32" To="39" Label="Source1" />
-                          <Edge From="33" To="36" Label="Source1" />
-                          <Edge From="34" To="35" Label="Source1" />
-                          <Edge From="35" To="36" Label="Source2" />
-                          <Edge From="36" To="37" Label="Source1" />
-                          <Edge From="37" To="38" Label="Source1" />
-                          <Edge From="38" To="39" Label="Source2" />
-                          <Edge From="39" To="46" Label="Source1" />
-                          <Edge From="40" To="45" Label="Source1" />
-                          <Edge From="41" To="45" Label="Source2" />
-                          <Edge From="42" To="43" Label="Source1" />
-                          <Edge From="43" To="44" Label="Source1" />
-                          <Edge From="44" To="45" Label="Source3" />
-                          <Edge From="45" To="46" Label="Source2" />
-                        </Edges>
-                      </Workflow>
-                    </Builder>
+                          </Builder>
+                        </Expression>
+                        <Expression xsi:type="SubscribeSubject">
+                          <Name>OutputDirPath</Name>
+                        </Expression>
+                        <Expression xsi:type="Disable">
+                          <Builder xsi:type="SubscribeSubject">
+                            <Name>OutputBackupDirPath</Name>
+                          </Builder>
+                        </Expression>
+                        <Expression xsi:type="SubscribeSubject">
+                          <Name>AnimalConfig</Name>
+                        </Expression>
+                        <Expression xsi:type="MemberSelector">
+                          <Selector>Optogenetics.UseOpto</Selector>
+                        </Expression>
+                        <Expression xsi:type="scr:ExpressionCondition">
+                          <scr:Expression>it</scr:Expression>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="rx:Zip" />
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="rx:SubscribeWhen" />
+                        </Expression>
+                      </Nodes>
+                      <Edges>
+                        <Edge From="0" To="1" Label="Source1" />
+                        <Edge From="1" To="8" Label="Source1" />
+                        <Edge From="2" To="5" Label="Source1" />
+                        <Edge From="3" To="4" Label="Source1" />
+                        <Edge From="4" To="5" Label="Source2" />
+                        <Edge From="5" To="6" Label="Source1" />
+                        <Edge From="6" To="7" Label="Source1" />
+                        <Edge From="7" To="8" Label="Source2" />
+                        <Edge From="8" To="9" Label="Source1" />
+                        <Edge From="9" To="16" Label="Source1" />
+                        <Edge From="10" To="13" Label="Source1" />
+                        <Edge From="11" To="12" Label="Source1" />
+                        <Edge From="12" To="13" Label="Source2" />
+                        <Edge From="13" To="14" Label="Source1" />
+                        <Edge From="14" To="15" Label="Source1" />
+                        <Edge From="15" To="16" Label="Source2" />
+                        <Edge From="16" To="23" Label="Source1" />
+                        <Edge From="17" To="22" Label="Source1" />
+                        <Edge From="18" To="22" Label="Source2" />
+                        <Edge From="19" To="20" Label="Source1" />
+                        <Edge From="20" To="21" Label="Source1" />
+                        <Edge From="21" To="22" Label="Source3" />
+                        <Edge From="22" To="23" Label="Source2" />
+                        <Edge From="24" To="31" Label="Source1" />
+                        <Edge From="25" To="28" Label="Source1" />
+                        <Edge From="26" To="27" Label="Source1" />
+                        <Edge From="27" To="28" Label="Source2" />
+                        <Edge From="28" To="29" Label="Source1" />
+                        <Edge From="29" To="30" Label="Source1" />
+                        <Edge From="30" To="31" Label="Source2" />
+                        <Edge From="31" To="32" Label="Source1" />
+                        <Edge From="32" To="39" Label="Source1" />
+                        <Edge From="33" To="36" Label="Source1" />
+                        <Edge From="34" To="35" Label="Source1" />
+                        <Edge From="35" To="36" Label="Source2" />
+                        <Edge From="36" To="37" Label="Source1" />
+                        <Edge From="37" To="38" Label="Source1" />
+                        <Edge From="38" To="39" Label="Source2" />
+                        <Edge From="39" To="46" Label="Source1" />
+                        <Edge From="40" To="45" Label="Source1" />
+                        <Edge From="41" To="45" Label="Source2" />
+                        <Edge From="42" To="43" Label="Source1" />
+                        <Edge From="43" To="44" Label="Source1" />
+                        <Edge From="44" To="45" Label="Source3" />
+                        <Edge From="45" To="46" Label="Source2" />
+                      </Edges>
+                    </Workflow>
                   </Expression>
                 </Nodes>
                 <Edges />
