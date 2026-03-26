@@ -21,7 +21,31 @@
       </Location>
       <Size>
         <Width>1499</Width>
-        <Height>999</Height>
+        <Height>998</Height>
+      </Size>
+      <WindowState>Normal</WindowState>
+    </EditorDialogSettings>
+  </DialogSettings>
+  <DialogSettings xsi:type="WorkflowEditorSettings">
+    <Visible>false</Visible>
+    <Location>
+      <X>0</X>
+      <Y>0</Y>
+    </Location>
+    <Size>
+      <Width>0</Width>
+      <Height>0</Height>
+    </Size>
+    <WindowState>Normal</WindowState>
+    <EditorDialogSettings>
+      <Visible>false</Visible>
+      <Location>
+        <X>4</X>
+        <Y>4</Y>
+      </Location>
+      <Size>
+        <Width>1499</Width>
+        <Height>998</Height>
       </Size>
       <WindowState>Normal</WindowState>
     </EditorDialogSettings>
@@ -93,31 +117,7 @@
       </Location>
       <Size>
         <Width>1499</Width>
-        <Height>999</Height>
-      </Size>
-      <WindowState>Normal</WindowState>
-    </EditorDialogSettings>
-  </DialogSettings>
-  <DialogSettings xsi:type="WorkflowEditorSettings">
-    <Visible>false</Visible>
-    <Location>
-      <X>0</X>
-      <Y>0</Y>
-    </Location>
-    <Size>
-      <Width>0</Width>
-      <Height>0</Height>
-    </Size>
-    <WindowState>Normal</WindowState>
-    <EditorDialogSettings>
-      <Visible>false</Visible>
-      <Location>
-        <X>4</X>
-        <Y>4</Y>
-      </Location>
-      <Size>
-        <Width>1499</Width>
-        <Height>999</Height>
+        <Height>998</Height>
       </Size>
       <WindowState>Normal</WindowState>
     </EditorDialogSettings>
@@ -527,7 +527,7 @@
       </Location>
       <Size>
         <Width>1499</Width>
-        <Height>999</Height>
+        <Height>998</Height>
       </Size>
       <WindowState>Normal</WindowState>
     </EditorDialogSettings>
@@ -666,8 +666,8 @@
     <EditorDialogSettings>
       <Visible>false</Visible>
       <Location>
-        <X>80</X>
-        <Y>420</Y>
+        <X>184</X>
+        <Y>671</Y>
       </Location>
       <Size>
         <Width>1460</Width>
