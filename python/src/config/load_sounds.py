@@ -1,10 +1,8 @@
 import ctypes
 import tkinter as tk
-from pathlib import Path
 from tkinter import ttk
-from tkinter.messagebox import showinfo
 
-from config.utils import PathWidget, UploadSound
+from config.utils import PathWidget
 
 myappid = "fchampalimaud.preconfig.alpha"
 ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
@@ -133,38 +131,3 @@ class LoadSounds(tk.Toplevel):
 
         self.button = ttk.Button(self, text="Upload Sounds")
         self.button.grid(row=1, column=0, padx=5, pady=5, columnspan=2)
-        self.button.config(command=self.upload_sounds)
-
-    def upload_sounds(self):
-        self.sound.button.config(state=tk.DISABLED)
-        thread = UploadSound(
-            Path(self.sound.calib_left.get()),
-            Path(self.sound.eq_left.get()),
-            Path(self.sound.calib_right.get()),
-            Path(self.sound.eq_right.get()),
-            self.ports.setup.get(),
-            Path(self.paths.setup.get()),
-            num_sounds=5,
-            durations=[
-                duration.get() for duration in self.sound_characteristics.durations
-            ],
-            ramp_times=[
-                ramp_time.get() for ramp_time in self.sound_characteristics.ramp_times
-            ],
-        )
-        thread.start()
-
-        self.monitor(thread)
-
-    def monitor(self, thread):
-        if thread.is_alive():
-            # Check the thread every 100 ms
-            self.after(100, lambda: self.monitor(thread))
-        else:
-            # Activates the Run button again
-            self.sound.button.config(state=tk.NORMAL)
-
-            showinfo(
-                title="Information",
-                message="The sounds were successfully uploaded to the SoundCard.",
-            )
