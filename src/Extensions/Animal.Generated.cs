@@ -678,6 +678,8 @@ namespace Animal
     
         private OptoProtocolOnset _onset;
     
+        private int _protocolDelay;
+    
         private bool _useRt;
     
         private OptoProtocolRampMode _rampMode;
@@ -690,6 +692,7 @@ namespace Animal
     
         public OptoProtocol()
         {
+            _protocolDelay = 0;
             _rampMode = OptoProtocolRampMode.None;
             _rampTime = 1;
             _led0 = new OptoLED();
@@ -701,6 +704,7 @@ namespace Animal
             _duration = other._duration;
             _probability = other._probability;
             _onset = other._onset;
+            _protocolDelay = other._protocolDelay;
             _useRt = other._useRt;
             _rampMode = other._rampMode;
             _rampTime = other._rampTime;
@@ -759,6 +763,25 @@ namespace Animal
             set
             {
                 _onset = value;
+            }
+        }
+    
+        /// <summary>
+        /// The delay between the event that usually triggers the onset of the optogenetics protocol and the protocol actually starting (ms).
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("protocol_delay")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="protocol_delay")]
+        [System.ComponentModel.DescriptionAttribute("The delay between the event that usually triggers the onset of the optogenetics p" +
+            "rotocol and the protocol actually starting (ms).")]
+        public int ProtocolDelay
+        {
+            get
+            {
+                return _protocolDelay;
+            }
+            set
+            {
+                _protocolDelay = value;
             }
         }
     
@@ -872,6 +895,7 @@ namespace Animal
             stringBuilder.Append("Duration = " + _duration + ", ");
             stringBuilder.Append("Probability = " + _probability + ", ");
             stringBuilder.Append("Onset = " + _onset + ", ");
+            stringBuilder.Append("ProtocolDelay = " + _protocolDelay + ", ");
             stringBuilder.Append("UseRt = " + _useRt + ", ");
             stringBuilder.Append("RampMode = " + _rampMode + ", ");
             stringBuilder.Append("RampTime = " + _rampTime + ", ");

@@ -109,6 +109,11 @@ class OptoProtocol(BaseModel):
     onset: Literal["MidFixation", "SoundStart"] = Field(
         description="Indicates when the optogenetics protocol should start."
     )
+    protocol_delay: int = Field(
+        description="The delay between the event that usually triggers the onset of the optogenetics protocol and the protocol actually starting (ms).",
+        default=0,
+        ge=0,
+    )
     use_rt: bool = Field(
         description="Indicates whether the optogenetics stimulation/inhibition should stop when the animal leaves the poke (true) or not (false)."
     )
@@ -293,6 +298,7 @@ class Animal(BaseModel):
                     duration=2,
                     probability=1,
                     onset="MidFixation",
+                    protocol_delay=0,
                     use_rt=False,
                     ramp_mode="None",
                     ramp_time=1,

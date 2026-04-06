@@ -892,6 +892,8 @@ namespace Output
     
         private OptogeneticsOnset _onset;
     
+        private int _protocolDelay;
+    
         private double _led0Voltage;
     
         private double _led0Power;
@@ -914,6 +916,7 @@ namespace Output
     
         public Optogenetics()
         {
+            _protocolDelay = 0;
         }
     
         protected Optogenetics(Optogenetics other)
@@ -924,6 +927,7 @@ namespace Output
             _rampMode = other._rampMode;
             _rampTime = other._rampTime;
             _onset = other._onset;
+            _protocolDelay = other._protocolDelay;
             _led0Voltage = other._led0Voltage;
             _led0Power = other._led0Power;
             _led0Pulses = other._led0Pulses;
@@ -1043,6 +1047,25 @@ namespace Output
             set
             {
                 _onset = value;
+            }
+        }
+    
+        /// <summary>
+        /// The delay between the event that usually triggers the onset of the optogenetics protocol and the protocol actually starting (ms).
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("protocol_delay")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="protocol_delay")]
+        [System.ComponentModel.DescriptionAttribute("The delay between the event that usually triggers the onset of the optogenetics p" +
+            "rotocol and the protocol actually starting (ms).")]
+        public int ProtocolDelay
+        {
+            get
+            {
+                return _protocolDelay;
+            }
+            set
+            {
+                _protocolDelay = value;
             }
         }
     
@@ -1246,6 +1269,7 @@ namespace Output
             stringBuilder.Append("RampMode = " + _rampMode + ", ");
             stringBuilder.Append("RampTime = " + _rampTime + ", ");
             stringBuilder.Append("Onset = " + _onset + ", ");
+            stringBuilder.Append("ProtocolDelay = " + _protocolDelay + ", ");
             stringBuilder.Append("Led0Voltage = " + _led0Voltage + ", ");
             stringBuilder.Append("Led0Power = " + _led0Power + ", ");
             stringBuilder.Append("Led0Pulses = " + _led0Pulses + ", ");

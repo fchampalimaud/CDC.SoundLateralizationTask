@@ -278,6 +278,13 @@
           "title": "Onset",
           "type": "string"
         },
+        "protocol_delay": {
+          "default": 0,
+          "description": "The delay between the event that usually triggers the onset of the optogenetics protocol and the protocol actually starting (ms).",
+          "minimum": 0,
+          "title": "Protocol Delay",
+          "type": "integer"
+        },
         "led0_voltage": {
           "description": "The voltage to use in the TTL signal.",
           "maximum": 5000,

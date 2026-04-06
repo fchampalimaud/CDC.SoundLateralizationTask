@@ -43,6 +43,11 @@ class Optogenetics(BaseModel):
     onset: Literal["MidFixation", "SoundStart"] = Field(
         description="Indicates when the optogenetics protocol should start."
     )
+    protocol_delay: int = Field(
+        description="The delay between the event that usually triggers the onset of the optogenetics protocol and the protocol actually starting (ms).",
+        default=0,
+        ge=0,
+    )
     led0_voltage: float = Field(
         description="The voltage to use in the TTL signal.", ge=0, le=5000
     )

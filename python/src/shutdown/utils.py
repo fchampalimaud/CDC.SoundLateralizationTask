@@ -189,6 +189,7 @@ COLUMN_RENAMES = {
     "optogenetics.ramp_mode": "ramp_mode",
     "optogenetics.ramp_time": "ramp_time",
     "optogenetics.onset": "opto_onset",
+    "optogenetics.protocol_delay": "opto_delay",
     "optogenetics.led0_voltage": "led0_voltage",
     "optogenetics.led0_power": "led0_power",
     "optogenetics.led0_pulses": "led0_pulses",
