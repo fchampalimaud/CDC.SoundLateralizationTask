@@ -33,6 +33,9 @@ class SyringePumps(BaseModel):
     right_intercept: float = Field(
         description="The intercept of the calibration curve of the right Harp SyringePump."
     )
+    autorefill: bool = Field(
+        description="Indicates whether to use the autorefill feature (only available when using a single pump for reward delivery)."
+    )
 
 
 class Lights(BaseModel):

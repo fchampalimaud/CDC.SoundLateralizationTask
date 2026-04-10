@@ -197,6 +197,11 @@
           "description": "The intercept of the calibration curve of the right Harp SyringePump.",
           "title": "Right Intercept",
           "type": "number"
+        },
+        "autorefill": {
+          "description": "Indicates whether to use the autorefill feature (only available when using a single pump for reward delivery).",
+          "title": "Autorefill",
+          "type": "boolean"
         }
       },
       "required": [
@@ -205,7 +210,8 @@
         "left_slope",
         "left_intercept",
         "right_slope",
-        "right_intercept"
+        "right_intercept",
+        "autorefill"
       ],
       "title": "SyringePumps",
       "type": "object"

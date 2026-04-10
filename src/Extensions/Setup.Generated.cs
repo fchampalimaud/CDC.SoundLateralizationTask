@@ -629,6 +629,8 @@ namespace Setup
     
         private double _rightIntercept;
     
+        private bool _autorefill;
+    
         public SyringePumps()
         {
         }
@@ -641,6 +643,7 @@ namespace Setup
             _leftIntercept = other._leftIntercept;
             _rightSlope = other._rightSlope;
             _rightIntercept = other._rightIntercept;
+            _autorefill = other._autorefill;
         }
     
         /// <summary>
@@ -753,6 +756,25 @@ namespace Setup
             }
         }
     
+        /// <summary>
+        /// Indicates whether to use the autorefill feature (only available when using a single pump for reward delivery).
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("autorefill", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="autorefill")]
+        [System.ComponentModel.DescriptionAttribute("Indicates whether to use the autorefill feature (only available when using a sing" +
+            "le pump for reward delivery).")]
+        public bool Autorefill
+        {
+            get
+            {
+                return _autorefill;
+            }
+            set
+            {
+                _autorefill = value;
+            }
+        }
+    
         public System.IObservable<SyringePumps> Generate()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new SyringePumps(this)));
@@ -770,7 +792,8 @@ namespace Setup
             stringBuilder.Append("LeftSlope = " + _leftSlope + ", ");
             stringBuilder.Append("LeftIntercept = " + _leftIntercept + ", ");
             stringBuilder.Append("RightSlope = " + _rightSlope + ", ");
-            stringBuilder.Append("RightIntercept = " + _rightIntercept);
+            stringBuilder.Append("RightIntercept = " + _rightIntercept + ", ");
+            stringBuilder.Append("Autorefill = " + _autorefill);
             return true;
         }
     
