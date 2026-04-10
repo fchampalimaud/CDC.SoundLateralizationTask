@@ -100,28 +100,194 @@
       "title": "BiasedSession",
       "type": "object"
     },
-    "FixationTime": {
+    "CatchTrials": {
       "properties": {
-        "opto_onset_time": {
-          "$ref": "#/definitions/TimeConstrains",
-          "default": {
-            "min_value": 5.0,
-            "delta": 0.5,
-            "target": 100.0
-          },
-          "description": "Contains parameters related to the Optogenetics Onset Time part of the Fixation Time. The units of each of the parameters is milliseconds."
+        "probability": {
+          "description": "The probability of catch trials.",
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Probability",
+          "type": "number"
         },
-        "sound_onset_time": {
-          "$ref": "#/definitions/TimeConstrains",
-          "default": {
-            "min_value": 5.0,
-            "delta": 0.5,
-            "target": 100.0
+        "distribution": {
+          "description": "Contains the distribution parameters used in catch trials.",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/Constant"
+              },
+              {
+                "$ref": "#/definitions/Exponential"
+              },
+              {
+                "$ref": "#/definitions/Uniform"
+              },
+              {
+                "$ref": "#/definitions/Gaussian"
+              }
+            ]
           },
-          "description": "Contains parameters related to the Sound Onset Time part of the Fixation Time. The units of each of the parameters is milliseconds."
+          "title": "Distribution",
+          "type": "array"
         }
       },
+      "required": [
+        "probability",
+        "distribution"
+      ],
+      "title": "CatchTrials",
+      "type": "object"
+    },
+    "Constant": {
+      "properties": {
+        "distribution": {
+          "const": "constant",
+          "title": "Distribution",
+          "type": "string"
+        },
+        "opto_onset": {
+          "default": false,
+          "description": "Indicates whether the value drawn from this distribution should be used in the opto onset time as well (for mid-fixation opto activation).",
+          "title": "Opto Onset",
+          "type": "boolean"
+        },
+        "value": {
+          "description": "The value of the current constant part of the fixation time (ms).",
+          "exclusiveMinimum": 0,
+          "title": "Value",
+          "type": "number"
+        }
+      },
+      "required": [
+        "distribution",
+        "value"
+      ],
+      "title": "Constant",
+      "type": "object"
+    },
+    "Exponential": {
+      "properties": {
+        "distribution": {
+          "const": "exponential",
+          "title": "Distribution",
+          "type": "string"
+        },
+        "opto_onset": {
+          "default": false,
+          "description": "Indicates whether the value drawn from this distribution should be used in the opto onset time as well (for mid-fixation opto activation).",
+          "title": "Opto Onset",
+          "type": "boolean"
+        },
+        "mean": {
+          "description": "The mean of the exponential distribution (ms).",
+          "exclusiveMinimum": 0,
+          "title": "Mean",
+          "type": "number"
+        },
+        "max_value": {
+          "description": "The maximum allowed value for the distribution.",
+          "exclusiveMinimum": 0,
+          "title": "Max Value",
+          "type": "number"
+        }
+      },
+      "required": [
+        "distribution",
+        "mean",
+        "max_value"
+      ],
+      "title": "Exponential",
+      "type": "object"
+    },
+    "FixationTime": {
+      "properties": {
+        "training": {
+          "$ref": "#/definitions/TimeConstrains",
+          "description": "Contains parameters used during the training phase (i.e. all the levels before the last) for the fixation time. The units of each of the parameters is milliseconds."
+        },
+        "task": {
+          "description": "Contains the distribution parameters used in the last level for the fixation time.",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/Constant"
+              },
+              {
+                "$ref": "#/definitions/Exponential"
+              },
+              {
+                "$ref": "#/definitions/Uniform"
+              },
+              {
+                "$ref": "#/definitions/Gaussian"
+              }
+            ]
+          },
+          "title": "Task",
+          "type": "array"
+        },
+        "catch_trials": {
+          "$ref": "#/definitions/CatchTrials",
+          "default": {
+            "probability": 0.0,
+            "distribution": []
+          },
+          "description": "The parameters used in catch trials."
+        }
+      },
+      "required": [
+        "training",
+        "task"
+      ],
       "title": "FixationTime",
+      "type": "object"
+    },
+    "Gaussian": {
+      "properties": {
+        "distribution": {
+          "const": "gaussian",
+          "title": "Distribution",
+          "type": "string"
+        },
+        "opto_onset": {
+          "default": false,
+          "description": "Indicates whether the value drawn from this distribution should be used in the opto onset time as well (for mid-fixation opto activation).",
+          "title": "Opto Onset",
+          "type": "boolean"
+        },
+        "mean": {
+          "description": "The mean of the gaussian distribution (ms).",
+          "minimum": 0,
+          "title": "Mean",
+          "type": "number"
+        },
+        "std_dev": {
+          "description": "The standard deviation of the gaussian distribution (ms).",
+          "exclusiveMinimum": 0,
+          "title": "Std Dev",
+          "type": "number"
+        },
+        "min_value": {
+          "description": "The minimum allowed value for the distribution.",
+          "minimum": 0,
+          "title": "Min Value",
+          "type": "number"
+        },
+        "max_value": {
+          "description": "The maximum allowed value for the distribution.",
+          "exclusiveMinimum": 0,
+          "title": "Max Value",
+          "type": "number"
+        }
+      },
+      "required": [
+        "distribution",
+        "mean",
+        "std_dev",
+        "min_value",
+        "max_value"
+      ],
+      "title": "Gaussian",
       "type": "object"
     },
     "OptoLED": {
@@ -502,6 +668,40 @@
         }
       },
       "title": "TimeConstrains",
+      "type": "object"
+    },
+    "Uniform": {
+      "properties": {
+        "distribution": {
+          "const": "uniform",
+          "title": "Distribution",
+          "type": "string"
+        },
+        "opto_onset": {
+          "default": false,
+          "description": "Indicates whether the value drawn from this distribution should be used in the opto onset time as well (for mid-fixation opto activation).",
+          "title": "Opto Onset",
+          "type": "boolean"
+        },
+        "lower": {
+          "description": "The lower limit of the distribution.",
+          "minimum": 0,
+          "title": "Lower",
+          "type": "number"
+        },
+        "upper": {
+          "description": "The upper limit of the distribution.",
+          "exclusiveMinimum": 0,
+          "title": "Upper",
+          "type": "number"
+        }
+      },
+      "required": [
+        "distribution",
+        "lower",
+        "upper"
+      ],
+      "title": "Uniform",
       "type": "object"
     }
   },

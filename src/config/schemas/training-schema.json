@@ -52,28 +52,6 @@
       "title": "CriticalPerformance",
       "type": "object"
     },
-    "FixationTime": {
-      "properties": {
-        "opto_exp_mean": {
-          "description": "The mean value of the random part of the optogenetics onset time (ms), which follows an exponential distribution.",
-          "minimum": 0,
-          "title": "Opto Exp Mean",
-          "type": "number"
-        },
-        "sound_exp_mean": {
-          "description": "The mean value of the random part of the sound onset time (ms), which follows an exponential distribution.",
-          "minimum": 0,
-          "title": "Sound Exp Mean",
-          "type": "number"
-        }
-      },
-      "required": [
-        "opto_exp_mean",
-        "sound_exp_mean"
-      ],
-      "title": "FixationTime",
-      "type": "object"
-    },
     "ILD": {
       "properties": {
         "step_size": {
@@ -157,9 +135,11 @@
           "title": "Max Wait",
           "type": "number"
         },
-        "fixation_time": {
-          "$ref": "#/definitions/FixationTime",
-          "description": "Contains parameters related to the fixation time."
+        "ft_exp_mean": {
+          "description": "The mean value of the random part of the fixation time (ms), which follows an exponential distribution.",
+          "minimum": 0,
+          "title": "Ft Exp Mean",
+          "type": "number"
         },
         "reaction_time": {
           "$ref": "#/definitions/ReactionTime",
@@ -200,7 +180,7 @@
         "sound",
         "iti",
         "max_wait",
-        "fixation_time",
+        "ft_exp_mean",
         "reaction_time",
         "max_mt",
         "penalty_times",

@@ -58,13 +58,17 @@
     },
     "FixationTime": {
       "properties": {
-        "opto_onset_time": {
-          "$ref": "#/definitions/FixationTimeParts",
-          "description": "Contains the data related to the Optogenetics Onset Time part of the Fixation Time."
+        "base_time": {
+          "description": "The constant part of the fixation time (ms).",
+          "minimum": 0,
+          "title": "Base Time",
+          "type": "number"
         },
-        "sound_onset_time": {
-          "$ref": "#/definitions/FixationTimeParts",
-          "description": "Contains the data related to the Sound Onset Time part of the Fixation Time."
+        "exp_mean": {
+          "description": "The mean value of the random part of the fixation time (ms), which follows an exponential distribution.",
+          "minimum": 0,
+          "title": "Exp Mean",
+          "type": "number"
         },
         "intended_duration": {
           "description": "The intended duration for the total fixation time (ms).",
@@ -83,52 +87,22 @@
           "minimum": 0,
           "title": "Total Duration",
           "type": "number"
-        }
-      },
-      "required": [
-        "opto_onset_time",
-        "sound_onset_time",
-        "intended_duration",
-        "timed_duration",
-        "total_duration"
-      ],
-      "title": "FixationTime",
-      "type": "object"
-    },
-    "FixationTimeParts": {
-      "properties": {
-        "base_time": {
-          "description": "The constant part of the fixation time (ms).",
-          "minimum": 0,
-          "title": "Base Time",
-          "type": "number"
         },
-        "exp_mean": {
-          "description": "The mean value of the random part of the fixation time (ms), which follows an exponential distribution.",
-          "minimum": 0,
-          "title": "Exp Mean",
-          "type": "number"
-        },
-        "intended_duration": {
-          "description": "The intended duration for this part of the fixation time (ms).",
-          "minimum": 0,
-          "title": "Intended Duration",
-          "type": "number"
-        },
-        "timed_duration": {
-          "description": "The timed duration for this part of the fixation time (ms).",
-          "minimum": 0,
-          "title": "Timed Duration",
-          "type": "number"
+        "catch_trial": {
+          "description": "Indicates whether the current trial is a catch trial or not.",
+          "title": "Catch Trial",
+          "type": "boolean"
         }
       },
       "required": [
         "base_time",
         "exp_mean",
         "intended_duration",
-        "timed_duration"
+        "timed_duration",
+        "total_duration",
+        "catch_trial"
       ],
-      "title": "FixationTimeParts",
+      "title": "FixationTime",
       "type": "object"
     },
     "ITI": {
@@ -229,6 +203,18 @@
           "description": "Indicates if optogenetics was used in the current trial.",
           "title": "Opto Trial",
           "type": "boolean"
+        },
+        "intended_opto_onset_time": {
+          "description": "The intended time from the moment the fixation starts until the optogenetics protocol starts.",
+          "minimum": 0,
+          "title": "Intended Opto Onset Time",
+          "type": "number"
+        },
+        "timed_opto_onset_time": {
+          "description": "The actual time from the moment the fixation starts until the optogenetics protocol starts.",
+          "minimum": 0,
+          "title": "Timed Opto Onset Time",
+          "type": "number"
         },
         "duration": {
           "description": "The duration of the optogenetics used during the trial (s).",
@@ -352,6 +338,8 @@
       },
       "required": [
         "opto_trial",
+        "intended_opto_onset_time",
+        "timed_opto_onset_time",
         "duration",
         "mode",
         "ramp_mode",

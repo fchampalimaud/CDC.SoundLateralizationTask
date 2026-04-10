@@ -2,6 +2,7 @@ from pathlib import Path
 from typing import List
 
 from pydantic import BaseModel, Field
+from typing_extensions import Annotated
 
 from sgen._utils import (
     BonsaiSgenSerializers,
@@ -57,17 +58,6 @@ class ReactionTime(BaseModel):
     )
     use_max_rt: bool = Field(
         description="Indicates whether there is a maximum reaction time (true) or not (false)."
-    )
-
-
-class FixationTime(BaseModel):
-    opto_exp_mean: float = Field(
-        description="The mean value of the random part of the optogenetics onset time (ms), which follows an exponential distribution.",
-        ge=0,
-    )
-    sound_exp_mean: float = Field(
-        description="The mean value of the random part of the sound onset time (ms), which follows an exponential distribution.",
-        ge=0,
     )
 
 
@@ -127,8 +117,9 @@ class Level(BaseModel):
     max_wait: float = Field(
         description="The maximum allowed time to start the trial (s).", ge=0
     )
-    fixation_time: FixationTime = Field(
-        description="Contains parameters related to the fixation time."
+    ft_exp_mean: float = Field(
+        description="The mean value of the random part of the fixation time (ms), which follows an exponential distribution.",
+        ge=0,
     )
     reaction_time: ReactionTime = Field(
         description="Contains parameters related to the reaction time."
@@ -150,7 +141,7 @@ class Level(BaseModel):
 
 
 class Training(BaseModel):
-    levels: List[Level] = Field(
+    levels: List[Annotated[Level, Field()]] = Field(
         description="The list containing the parameters to be used for each training level."
     )
 

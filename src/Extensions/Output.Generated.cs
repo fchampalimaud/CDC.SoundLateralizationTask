@@ -235,9 +235,9 @@ namespace Output
     public partial class FixationTime
     {
     
-        private FixationTimeParts _optoOnsetTime;
+        private double _baseTime;
     
-        private FixationTimeParts _soundOnsetTime;
+        private double _expMean;
     
         private double _intendedDuration;
     
@@ -245,57 +245,56 @@ namespace Output
     
         private double _totalDuration;
     
+        private bool _catchTrial;
+    
         public FixationTime()
         {
-            _optoOnsetTime = new FixationTimeParts();
-            _soundOnsetTime = new FixationTimeParts();
         }
     
         protected FixationTime(FixationTime other)
         {
-            _optoOnsetTime = other._optoOnsetTime;
-            _soundOnsetTime = other._soundOnsetTime;
+            _baseTime = other._baseTime;
+            _expMean = other._expMean;
             _intendedDuration = other._intendedDuration;
             _timedDuration = other._timedDuration;
             _totalDuration = other._totalDuration;
+            _catchTrial = other._catchTrial;
         }
     
         /// <summary>
-        /// Contains the data related to the Optogenetics Onset Time part of the Fixation Time.
+        /// The constant part of the fixation time (ms).
         /// </summary>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        [Newtonsoft.Json.JsonPropertyAttribute("opto_onset_time", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="opto_onset_time")]
-        [System.ComponentModel.DescriptionAttribute("Contains the data related to the Optogenetics Onset Time part of the Fixation Tim" +
-            "e.")]
-        public FixationTimeParts OptoOnsetTime
+        [Newtonsoft.Json.JsonPropertyAttribute("base_time", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="base_time")]
+        [System.ComponentModel.DescriptionAttribute("The constant part of the fixation time (ms).")]
+        public double BaseTime
         {
             get
             {
-                return _optoOnsetTime;
+                return _baseTime;
             }
             set
             {
-                _optoOnsetTime = value;
+                _baseTime = value;
             }
         }
     
         /// <summary>
-        /// Contains the data related to the Sound Onset Time part of the Fixation Time.
+        /// The mean value of the random part of the fixation time (ms), which follows an exponential distribution.
         /// </summary>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        [Newtonsoft.Json.JsonPropertyAttribute("sound_onset_time", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="sound_onset_time")]
-        [System.ComponentModel.DescriptionAttribute("Contains the data related to the Sound Onset Time part of the Fixation Time.")]
-        public FixationTimeParts SoundOnsetTime
+        [Newtonsoft.Json.JsonPropertyAttribute("exp_mean", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="exp_mean")]
+        [System.ComponentModel.DescriptionAttribute("The mean value of the random part of the fixation time (ms), which follows an exp" +
+            "onential distribution.")]
+        public double ExpMean
         {
             get
             {
-                return _soundOnsetTime;
+                return _expMean;
             }
             set
             {
-                _soundOnsetTime = value;
+                _expMean = value;
             }
         }
     
@@ -354,6 +353,24 @@ namespace Output
             }
         }
     
+        /// <summary>
+        /// Indicates whether the current trial is a catch trial or not.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("catch_trial", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="catch_trial")]
+        [System.ComponentModel.DescriptionAttribute("Indicates whether the current trial is a catch trial or not.")]
+        public bool CatchTrial
+        {
+            get
+            {
+                return _catchTrial;
+            }
+            set
+            {
+                _catchTrial = value;
+            }
+        }
+    
         public System.IObservable<FixationTime> Generate()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new FixationTime(this)));
@@ -366,144 +383,12 @@ namespace Output
     
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
-            stringBuilder.Append("OptoOnsetTime = " + _optoOnsetTime + ", ");
-            stringBuilder.Append("SoundOnsetTime = " + _soundOnsetTime + ", ");
-            stringBuilder.Append("IntendedDuration = " + _intendedDuration + ", ");
-            stringBuilder.Append("TimedDuration = " + _timedDuration + ", ");
-            stringBuilder.Append("TotalDuration = " + _totalDuration);
-            return true;
-        }
-    
-        public override string ToString()
-        {
-            System.Text.StringBuilder stringBuilder = new System.Text.StringBuilder();
-            stringBuilder.Append(GetType().Name);
-            stringBuilder.Append(" { ");
-            if (PrintMembers(stringBuilder))
-            {
-                stringBuilder.Append(" ");
-            }
-            stringBuilder.Append("}");
-            return stringBuilder.ToString();
-        }
-    }
-
-
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
-    [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
-    [Bonsai.CombinatorAttribute(MethodName="Generate")]
-    public partial class FixationTimeParts
-    {
-    
-        private double _baseTime;
-    
-        private double _expMean;
-    
-        private double _intendedDuration;
-    
-        private double _timedDuration;
-    
-        public FixationTimeParts()
-        {
-        }
-    
-        protected FixationTimeParts(FixationTimeParts other)
-        {
-            _baseTime = other._baseTime;
-            _expMean = other._expMean;
-            _intendedDuration = other._intendedDuration;
-            _timedDuration = other._timedDuration;
-        }
-    
-        /// <summary>
-        /// The constant part of the fixation time (ms).
-        /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("base_time", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="base_time")]
-        [System.ComponentModel.DescriptionAttribute("The constant part of the fixation time (ms).")]
-        public double BaseTime
-        {
-            get
-            {
-                return _baseTime;
-            }
-            set
-            {
-                _baseTime = value;
-            }
-        }
-    
-        /// <summary>
-        /// The mean value of the random part of the fixation time (ms), which follows an exponential distribution.
-        /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("exp_mean", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="exp_mean")]
-        [System.ComponentModel.DescriptionAttribute("The mean value of the random part of the fixation time (ms), which follows an exp" +
-            "onential distribution.")]
-        public double ExpMean
-        {
-            get
-            {
-                return _expMean;
-            }
-            set
-            {
-                _expMean = value;
-            }
-        }
-    
-        /// <summary>
-        /// The intended duration for this part of the fixation time (ms).
-        /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("intended_duration", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="intended_duration")]
-        [System.ComponentModel.DescriptionAttribute("The intended duration for this part of the fixation time (ms).")]
-        public double IntendedDuration
-        {
-            get
-            {
-                return _intendedDuration;
-            }
-            set
-            {
-                _intendedDuration = value;
-            }
-        }
-    
-        /// <summary>
-        /// The timed duration for this part of the fixation time (ms).
-        /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("timed_duration", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="timed_duration")]
-        [System.ComponentModel.DescriptionAttribute("The timed duration for this part of the fixation time (ms).")]
-        public double TimedDuration
-        {
-            get
-            {
-                return _timedDuration;
-            }
-            set
-            {
-                _timedDuration = value;
-            }
-        }
-    
-        public System.IObservable<FixationTimeParts> Generate()
-        {
-            return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new FixationTimeParts(this)));
-        }
-    
-        public System.IObservable<FixationTimeParts> Generate<TSource>(System.IObservable<TSource> source)
-        {
-            return System.Reactive.Linq.Observable.Select(source, _ => new FixationTimeParts(this));
-        }
-    
-        protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
-        {
             stringBuilder.Append("BaseTime = " + _baseTime + ", ");
             stringBuilder.Append("ExpMean = " + _expMean + ", ");
             stringBuilder.Append("IntendedDuration = " + _intendedDuration + ", ");
-            stringBuilder.Append("TimedDuration = " + _timedDuration);
+            stringBuilder.Append("TimedDuration = " + _timedDuration + ", ");
+            stringBuilder.Append("TotalDuration = " + _totalDuration + ", ");
+            stringBuilder.Append("CatchTrial = " + _catchTrial);
             return true;
         }
     
@@ -882,6 +767,10 @@ namespace Output
     
         private bool _optoTrial;
     
+        private double _intendedOptoOnsetTime;
+    
+        private double _timedOptoOnsetTime;
+    
         private double _duration;
     
         private OptogeneticsMode _mode;
@@ -922,6 +811,8 @@ namespace Output
         protected Optogenetics(Optogenetics other)
         {
             _optoTrial = other._optoTrial;
+            _intendedOptoOnsetTime = other._intendedOptoOnsetTime;
+            _timedOptoOnsetTime = other._timedOptoOnsetTime;
             _duration = other._duration;
             _mode = other._mode;
             _rampMode = other._rampMode;
@@ -955,6 +846,44 @@ namespace Output
             set
             {
                 _optoTrial = value;
+            }
+        }
+    
+        /// <summary>
+        /// The intended time from the moment the fixation starts until the optogenetics protocol starts.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("intended_opto_onset_time", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="intended_opto_onset_time")]
+        [System.ComponentModel.DescriptionAttribute("The intended time from the moment the fixation starts until the optogenetics prot" +
+            "ocol starts.")]
+        public double IntendedOptoOnsetTime
+        {
+            get
+            {
+                return _intendedOptoOnsetTime;
+            }
+            set
+            {
+                _intendedOptoOnsetTime = value;
+            }
+        }
+    
+        /// <summary>
+        /// The actual time from the moment the fixation starts until the optogenetics protocol starts.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("timed_opto_onset_time", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="timed_opto_onset_time")]
+        [System.ComponentModel.DescriptionAttribute("The actual time from the moment the fixation starts until the optogenetics protoc" +
+            "ol starts.")]
+        public double TimedOptoOnsetTime
+        {
+            get
+            {
+                return _timedOptoOnsetTime;
+            }
+            set
+            {
+                _timedOptoOnsetTime = value;
             }
         }
     
@@ -1264,6 +1193,8 @@ namespace Output
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
             stringBuilder.Append("OptoTrial = " + _optoTrial + ", ");
+            stringBuilder.Append("IntendedOptoOnsetTime = " + _intendedOptoOnsetTime + ", ");
+            stringBuilder.Append("TimedOptoOnsetTime = " + _timedOptoOnsetTime + ", ");
             stringBuilder.Append("Duration = " + _duration + ", ");
             stringBuilder.Append("Mode = " + _mode + ", ");
             stringBuilder.Append("RampMode = " + _rampMode + ", ");
@@ -2944,11 +2875,6 @@ namespace Output
             return Process<FixationTime>(source);
         }
 
-        public System.IObservable<string> Process(System.IObservable<FixationTimeParts> source)
-        {
-            return Process<FixationTimeParts>(source);
-        }
-
         public System.IObservable<string> Process(System.IObservable<ITI> source)
         {
             return Process<ITI>(source);
@@ -3021,7 +2947,6 @@ namespace Output
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Block>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Cnp>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<FixationTime>))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<FixationTimeParts>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<ITI>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<LnpTime>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<MovementTime>))]
@@ -3098,11 +3023,6 @@ namespace Output
             return Process<FixationTime>(source);
         }
 
-        public System.IObservable<string> Process(System.IObservable<FixationTimeParts> source)
-        {
-            return Process<FixationTimeParts>(source);
-        }
-
         public System.IObservable<string> Process(System.IObservable<ITI> source)
         {
             return Process<ITI>(source);
@@ -3175,7 +3095,6 @@ namespace Output
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Block>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Cnp>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<FixationTime>))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<FixationTimeParts>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<ITI>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<LnpTime>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<MovementTime>))]

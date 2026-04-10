@@ -216,96 +216,6 @@ namespace Training
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
     [Bonsai.CombinatorAttribute(MethodName="Generate")]
-    public partial class FixationTime
-    {
-    
-        private double _optoExpMean;
-    
-        private double _soundExpMean;
-    
-        public FixationTime()
-        {
-        }
-    
-        protected FixationTime(FixationTime other)
-        {
-            _optoExpMean = other._optoExpMean;
-            _soundExpMean = other._soundExpMean;
-        }
-    
-        /// <summary>
-        /// The mean value of the random part of the optogenetics onset time (ms), which follows an exponential distribution.
-        /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("opto_exp_mean", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="opto_exp_mean")]
-        [System.ComponentModel.DescriptionAttribute("The mean value of the random part of the optogenetics onset time (ms), which foll" +
-            "ows an exponential distribution.")]
-        public double OptoExpMean
-        {
-            get
-            {
-                return _optoExpMean;
-            }
-            set
-            {
-                _optoExpMean = value;
-            }
-        }
-    
-        /// <summary>
-        /// The mean value of the random part of the sound onset time (ms), which follows an exponential distribution.
-        /// </summary>
-        [Newtonsoft.Json.JsonPropertyAttribute("sound_exp_mean", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="sound_exp_mean")]
-        [System.ComponentModel.DescriptionAttribute("The mean value of the random part of the sound onset time (ms), which follows an " +
-            "exponential distribution.")]
-        public double SoundExpMean
-        {
-            get
-            {
-                return _soundExpMean;
-            }
-            set
-            {
-                _soundExpMean = value;
-            }
-        }
-    
-        public System.IObservable<FixationTime> Generate()
-        {
-            return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new FixationTime(this)));
-        }
-    
-        public System.IObservable<FixationTime> Generate<TSource>(System.IObservable<TSource> source)
-        {
-            return System.Reactive.Linq.Observable.Select(source, _ => new FixationTime(this));
-        }
-    
-        protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
-        {
-            stringBuilder.Append("OptoExpMean = " + _optoExpMean + ", ");
-            stringBuilder.Append("SoundExpMean = " + _soundExpMean);
-            return true;
-        }
-    
-        public override string ToString()
-        {
-            System.Text.StringBuilder stringBuilder = new System.Text.StringBuilder();
-            stringBuilder.Append(GetType().Name);
-            stringBuilder.Append(" { ");
-            if (PrintMembers(stringBuilder))
-            {
-                stringBuilder.Append(" ");
-            }
-            stringBuilder.Append("}");
-            return stringBuilder.ToString();
-        }
-    }
-
-
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
-    [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
-    [Bonsai.CombinatorAttribute(MethodName="Generate")]
     public partial class ILD
     {
     
@@ -540,7 +450,7 @@ namespace Training
     
         private double _maxWait;
     
-        private FixationTime _fixationTime;
+        private double _ftExpMean;
     
         private ReactionTime _reactionTime;
     
@@ -560,7 +470,6 @@ namespace Training
         {
             _sound = new Sound();
             _iti = new ITI();
-            _fixationTime = new FixationTime();
             _reactionTime = new ReactionTime();
             _penaltyTimes = new PenaltyTimes();
             _criticalPerformance = new CriticalPerformance();
@@ -574,7 +483,7 @@ namespace Training
             _sound = other._sound;
             _iti = other._iti;
             _maxWait = other._maxWait;
-            _fixationTime = other._fixationTime;
+            _ftExpMean = other._ftExpMean;
             _reactionTime = other._reactionTime;
             _maxMt = other._maxMt;
             _penaltyTimes = other._penaltyTimes;
@@ -677,21 +586,21 @@ namespace Training
         }
     
         /// <summary>
-        /// Contains parameters related to the fixation time.
+        /// The mean value of the random part of the fixation time (ms), which follows an exponential distribution.
         /// </summary>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        [Newtonsoft.Json.JsonPropertyAttribute("fixation_time", Required=Newtonsoft.Json.Required.Always)]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="fixation_time")]
-        [System.ComponentModel.DescriptionAttribute("Contains parameters related to the fixation time.")]
-        public FixationTime FixationTime
+        [Newtonsoft.Json.JsonPropertyAttribute("ft_exp_mean", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="ft_exp_mean")]
+        [System.ComponentModel.DescriptionAttribute("The mean value of the random part of the fixation time (ms), which follows an exp" +
+            "onential distribution.")]
+        public double FtExpMean
         {
             get
             {
-                return _fixationTime;
+                return _ftExpMean;
             }
             set
             {
-                _fixationTime = value;
+                _ftExpMean = value;
             }
         }
     
@@ -843,7 +752,7 @@ namespace Training
             stringBuilder.Append("Sound = " + _sound + ", ");
             stringBuilder.Append("Iti = " + _iti + ", ");
             stringBuilder.Append("MaxWait = " + _maxWait + ", ");
-            stringBuilder.Append("FixationTime = " + _fixationTime + ", ");
+            stringBuilder.Append("FtExpMean = " + _ftExpMean + ", ");
             stringBuilder.Append("ReactionTime = " + _reactionTime + ", ");
             stringBuilder.Append("MaxMt = " + _maxMt + ", ");
             stringBuilder.Append("PenaltyTimes = " + _penaltyTimes + ", ");
@@ -1411,11 +1320,6 @@ namespace Training
             return Process<CriticalPerformance>(source);
         }
 
-        public System.IObservable<string> Process(System.IObservable<FixationTime> source)
-        {
-            return Process<FixationTime>(source);
-        }
-
         public System.IObservable<string> Process(System.IObservable<ILD> source)
         {
             return Process<ILD>(source);
@@ -1467,7 +1371,6 @@ namespace Training
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Transform)]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<ABL>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<CriticalPerformance>))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<FixationTime>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<ILD>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<ITI>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Level>))]
@@ -1535,11 +1438,6 @@ namespace Training
             return Process<CriticalPerformance>(source);
         }
 
-        public System.IObservable<string> Process(System.IObservable<FixationTime> source)
-        {
-            return Process<FixationTime>(source);
-        }
-
         public System.IObservable<string> Process(System.IObservable<ILD> source)
         {
             return Process<ILD>(source);
@@ -1591,7 +1489,6 @@ namespace Training
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Transform)]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<ABL>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<CriticalPerformance>))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<FixationTime>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<ILD>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<ITI>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Level>))]

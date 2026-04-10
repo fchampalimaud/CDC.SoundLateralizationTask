@@ -1,6 +1,7 @@
 import os
 import re
 from datetime import datetime
+from pathlib import Path
 
 import pandas as pd
 import yaml
@@ -163,7 +164,7 @@ def ask_starting_training_level():
             return int(starting_training_level)
 
 
-def ask_last_training_level():
+def ask_last_training_level(training_path: Path):
     while True:
         # Last training level prompt
         last_training_level = input(
@@ -177,7 +178,9 @@ def ask_last_training_level():
             )
             continue
 
-        if last_training_level == "":
-            return 16  # FIXME
+        df = pd.read_csv(training_path)
+
+        if last_training_level == "" or int(last_training_level) >= df.shape[0]:
+            return df.shape[0]
         else:
             return int(last_training_level)

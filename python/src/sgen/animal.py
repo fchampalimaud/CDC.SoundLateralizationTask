@@ -178,8 +178,7 @@ class TimeConstrains(BaseModel):
     target: float = Field(description="The target value.", default=0.01, ge=0)
 
 
-OptoOnsetTime = TimeConstrains
-SoundOnsetTime = TimeConstrains
+TrainingFixTime = TimeConstrains
 LnpTime = TimeConstrains
 
 
@@ -189,14 +188,79 @@ class ReactionTime(TimeConstrains):
     )
 
 
-class FixationTime(BaseModel):
-    opto_onset_time: OptoOnsetTime = Field(
-        description="Contains parameters related to the Optogenetics Onset Time part of the Fixation Time. The units of each of the parameters is milliseconds.",
-        default=OptoOnsetTime(min_value=5, delta=0.5, target=100),
+class Constant(BaseModel):
+    distribution: Literal["constant"]
+    opto_onset: bool = Field(
+        description="Indicates whether the value drawn from this distribution should be used in the opto onset time as well (for mid-fixation opto activation).",
+        default=False,
     )
-    sound_onset_time: SoundOnsetTime = Field(
-        description="Contains parameters related to the Sound Onset Time part of the Fixation Time. The units of each of the parameters is milliseconds.",
-        default=SoundOnsetTime(min_value=5, delta=0.5, target=100),
+    value: float = Field(
+        description="The value of the current constant part of the fixation time (ms).",
+        gt=0,
+    )
+
+
+class Exponential(BaseModel):
+    distribution: Literal["exponential"]
+    opto_onset: bool = Field(
+        description="Indicates whether the value drawn from this distribution should be used in the opto onset time as well (for mid-fixation opto activation).",
+        default=False,
+    )
+    mean: float = Field(
+        description="The mean of the exponential distribution (ms).", gt=0
+    )
+    max_value: float = Field(
+        description="The maximum allowed value for the distribution.", gt=0
+    )
+
+
+class Uniform(BaseModel):
+    distribution: Literal["uniform"]
+    opto_onset: bool = Field(
+        description="Indicates whether the value drawn from this distribution should be used in the opto onset time as well (for mid-fixation opto activation).",
+        default=False,
+    )
+    lower: float = Field(description="The lower limit of the distribution.", ge=0)
+    upper: float = Field(description="The upper limit of the distribution.", gt=0)
+
+
+class Gaussian(BaseModel):
+    distribution: Literal["gaussian"]
+    opto_onset: bool = Field(
+        description="Indicates whether the value drawn from this distribution should be used in the opto onset time as well (for mid-fixation opto activation).",
+        default=False,
+    )
+    mean: float = Field(description="The mean of the gaussian distribution (ms).", ge=0)
+    std_dev: float = Field(
+        description="The standard deviation of the gaussian distribution (ms).", gt=0
+    )
+    min_value: float = Field(
+        description="The minimum allowed value for the distribution.", ge=0
+    )
+    max_value: float = Field(
+        description="The maximum allowed value for the distribution.", gt=0
+    )
+
+
+class CatchTrials(BaseModel):
+    probability: float = Field(
+        description="The probability of catch trials.", ge=0, le=1
+    )
+    distribution: List[
+        Annotated[Constant | Exponential | Uniform | Gaussian, Field()]
+    ] = Field(description="Contains the distribution parameters used in catch trials.")
+
+
+class FixationTime(BaseModel):
+    training: TrainingFixTime = Field(
+        description="Contains parameters used during the training phase (i.e. all the levels before the last) for the fixation time. The units of each of the parameters is milliseconds."
+    )
+    task: List[Annotated[Constant | Exponential | Uniform | Gaussian, Field()]] = Field(
+        description="Contains the distribution parameters used in the last level for the fixation time."
+    )
+    catch_trials: CatchTrials = Field(
+        description="The parameters used in catch trials.",
+        default=CatchTrials(probability=0, distribution=[]),
     )
 
 

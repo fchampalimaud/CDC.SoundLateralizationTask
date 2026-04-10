@@ -85,7 +85,9 @@ def main():
     starting_level = ask_starting_training_level()
     if starting_level != -1:
         animal_config["session"]["starting_training_level"] = starting_level
-    animal_config["session"]["last_training_level"] = ask_last_training_level()
+    animal_config["session"]["last_training_level"] = ask_last_training_level(
+        Path(config["paths"]["training"])
+    )
 
     # Save animal and config files
     os.makedirs(config["paths"]["animal_dir"] + "/" + batch, exist_ok=True)

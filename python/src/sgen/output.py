@@ -17,6 +17,14 @@ class Optogenetics(BaseModel):
     opto_trial: bool = Field(
         description="Indicates if optogenetics was used in the current trial."
     )
+    intended_opto_onset_time: float = Field(
+        description="The intended time from the moment the fixation starts until the optogenetics protocol starts.",
+        ge=0,
+    )
+    timed_opto_onset_time: float = Field(
+        description="The actual time from the moment the fixation starts until the optogenetics protocol starts.",
+        ge=0,
+    )
     duration: float = Field(
         description="The duration of the optogenetics used during the trial (s).", ge=0
     )
@@ -135,33 +143,13 @@ class ReactionTime(BaseModel):
     timed_duration: float = Field(description="The timed reaction time (s).")
 
 
-class FixationTimeParts(BaseModel):
+class FixationTime(BaseModel):
     base_time: float = Field(
         description="The constant part of the fixation time (ms).", ge=0
     )
     exp_mean: float = Field(
         description="The mean value of the random part of the fixation time (ms), which follows an exponential distribution.",
         ge=0,
-    )
-    intended_duration: float = Field(
-        description="The intended duration for this part of the fixation time (ms).",
-        ge=0,
-    )
-    timed_duration: float = Field(
-        description="The timed duration for this part of the fixation time (ms).", ge=0
-    )
-
-
-OptoOnsetTime = FixationTimeParts
-SoundOnsetTime = FixationTimeParts
-
-
-class FixationTime(BaseModel):
-    opto_onset_time: OptoOnsetTime = Field(
-        description="Contains the data related to the Optogenetics Onset Time part of the Fixation Time."
-    )
-    sound_onset_time: SoundOnsetTime = Field(
-        description="Contains the data related to the Sound Onset Time part of the Fixation Time."
     )
     intended_duration: float = Field(
         description="The intended duration for the total fixation time (ms).",
@@ -173,6 +161,9 @@ class FixationTime(BaseModel):
     total_duration: float = Field(
         description="The total fixation time corresponds to the sum of the fixation time with the reaction time (ms).",
         ge=0,
+    )
+    catch_trial: bool = Field(
+        description="Indicates whether the current trial is a catch trial or not."
     )
 
 

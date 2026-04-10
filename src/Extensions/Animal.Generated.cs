@@ -392,62 +392,414 @@ namespace Animal
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
     [Bonsai.CombinatorAttribute(MethodName="Generate")]
+    public partial class CatchTrials
+    {
+    
+        private double _probability;
+    
+        private System.Collections.Generic.List<object> _distribution;
+    
+        public CatchTrials()
+        {
+            _distribution = new System.Collections.Generic.List<object>();
+        }
+    
+        protected CatchTrials(CatchTrials other)
+        {
+            _probability = other._probability;
+            _distribution = other._distribution;
+        }
+    
+        /// <summary>
+        /// The probability of catch trials.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("probability", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="probability")]
+        [System.ComponentModel.DescriptionAttribute("The probability of catch trials.")]
+        public double Probability
+        {
+            get
+            {
+                return _probability;
+            }
+            set
+            {
+                _probability = value;
+            }
+        }
+    
+        /// <summary>
+        /// Contains the distribution parameters used in catch trials.
+        /// </summary>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [Newtonsoft.Json.JsonPropertyAttribute("distribution", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="distribution")]
+        [System.ComponentModel.DescriptionAttribute("Contains the distribution parameters used in catch trials.")]
+        public System.Collections.Generic.List<object> Distribution
+        {
+            get
+            {
+                return _distribution;
+            }
+            set
+            {
+                _distribution = value;
+            }
+        }
+    
+        public System.IObservable<CatchTrials> Generate()
+        {
+            return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new CatchTrials(this)));
+        }
+    
+        public System.IObservable<CatchTrials> Generate<TSource>(System.IObservable<TSource> source)
+        {
+            return System.Reactive.Linq.Observable.Select(source, _ => new CatchTrials(this));
+        }
+    
+        protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
+        {
+            stringBuilder.Append("Probability = " + _probability + ", ");
+            stringBuilder.Append("Distribution = " + _distribution);
+            return true;
+        }
+    
+        public override string ToString()
+        {
+            System.Text.StringBuilder stringBuilder = new System.Text.StringBuilder();
+            stringBuilder.Append(GetType().Name);
+            stringBuilder.Append(" { ");
+            if (PrintMembers(stringBuilder))
+            {
+                stringBuilder.Append(" ");
+            }
+            stringBuilder.Append("}");
+            return stringBuilder.ToString();
+        }
+    }
+
+
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
+    [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
+    [Bonsai.CombinatorAttribute(MethodName="Generate")]
+    public partial class Constant
+    {
+    
+        private string _distribution;
+    
+        private bool _optoOnset;
+    
+        private double _value;
+    
+        public Constant()
+        {
+            _optoOnset = false;
+        }
+    
+        protected Constant(Constant other)
+        {
+            _distribution = other._distribution;
+            _optoOnset = other._optoOnset;
+            _value = other._value;
+        }
+    
+        [Newtonsoft.Json.JsonPropertyAttribute("distribution", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="distribution")]
+        public string Distribution
+        {
+            get
+            {
+                return _distribution;
+            }
+            set
+            {
+                _distribution = value;
+            }
+        }
+    
+        /// <summary>
+        /// Indicates whether the value drawn from this distribution should be used in the opto onset time as well (for mid-fixation opto activation).
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("opto_onset")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="opto_onset")]
+        [System.ComponentModel.DescriptionAttribute("Indicates whether the value drawn from this distribution should be used in the op" +
+            "to onset time as well (for mid-fixation opto activation).")]
+        public bool OptoOnset
+        {
+            get
+            {
+                return _optoOnset;
+            }
+            set
+            {
+                _optoOnset = value;
+            }
+        }
+    
+        /// <summary>
+        /// The value of the current constant part of the fixation time (ms).
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("value", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="value")]
+        [System.ComponentModel.DescriptionAttribute("The value of the current constant part of the fixation time (ms).")]
+        public double Value
+        {
+            get
+            {
+                return _value;
+            }
+            set
+            {
+                _value = value;
+            }
+        }
+    
+        public System.IObservable<Constant> Generate()
+        {
+            return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new Constant(this)));
+        }
+    
+        public System.IObservable<Constant> Generate<TSource>(System.IObservable<TSource> source)
+        {
+            return System.Reactive.Linq.Observable.Select(source, _ => new Constant(this));
+        }
+    
+        protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
+        {
+            stringBuilder.Append("Distribution = " + _distribution + ", ");
+            stringBuilder.Append("OptoOnset = " + _optoOnset + ", ");
+            stringBuilder.Append("Value = " + _value);
+            return true;
+        }
+    
+        public override string ToString()
+        {
+            System.Text.StringBuilder stringBuilder = new System.Text.StringBuilder();
+            stringBuilder.Append(GetType().Name);
+            stringBuilder.Append(" { ");
+            if (PrintMembers(stringBuilder))
+            {
+                stringBuilder.Append(" ");
+            }
+            stringBuilder.Append("}");
+            return stringBuilder.ToString();
+        }
+    }
+
+
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
+    [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
+    [Bonsai.CombinatorAttribute(MethodName="Generate")]
+    public partial class Exponential
+    {
+    
+        private string _distribution;
+    
+        private bool _optoOnset;
+    
+        private double _mean;
+    
+        private double _maxValue;
+    
+        public Exponential()
+        {
+            _optoOnset = false;
+        }
+    
+        protected Exponential(Exponential other)
+        {
+            _distribution = other._distribution;
+            _optoOnset = other._optoOnset;
+            _mean = other._mean;
+            _maxValue = other._maxValue;
+        }
+    
+        [Newtonsoft.Json.JsonPropertyAttribute("distribution", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="distribution")]
+        public string Distribution
+        {
+            get
+            {
+                return _distribution;
+            }
+            set
+            {
+                _distribution = value;
+            }
+        }
+    
+        /// <summary>
+        /// Indicates whether the value drawn from this distribution should be used in the opto onset time as well (for mid-fixation opto activation).
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("opto_onset")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="opto_onset")]
+        [System.ComponentModel.DescriptionAttribute("Indicates whether the value drawn from this distribution should be used in the op" +
+            "to onset time as well (for mid-fixation opto activation).")]
+        public bool OptoOnset
+        {
+            get
+            {
+                return _optoOnset;
+            }
+            set
+            {
+                _optoOnset = value;
+            }
+        }
+    
+        /// <summary>
+        /// The mean of the exponential distribution (ms).
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("mean", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="mean")]
+        [System.ComponentModel.DescriptionAttribute("The mean of the exponential distribution (ms).")]
+        public double Mean
+        {
+            get
+            {
+                return _mean;
+            }
+            set
+            {
+                _mean = value;
+            }
+        }
+    
+        /// <summary>
+        /// The maximum allowed value for the distribution.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("max_value", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="max_value")]
+        [System.ComponentModel.DescriptionAttribute("The maximum allowed value for the distribution.")]
+        public double MaxValue
+        {
+            get
+            {
+                return _maxValue;
+            }
+            set
+            {
+                _maxValue = value;
+            }
+        }
+    
+        public System.IObservable<Exponential> Generate()
+        {
+            return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new Exponential(this)));
+        }
+    
+        public System.IObservable<Exponential> Generate<TSource>(System.IObservable<TSource> source)
+        {
+            return System.Reactive.Linq.Observable.Select(source, _ => new Exponential(this));
+        }
+    
+        protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
+        {
+            stringBuilder.Append("Distribution = " + _distribution + ", ");
+            stringBuilder.Append("OptoOnset = " + _optoOnset + ", ");
+            stringBuilder.Append("Mean = " + _mean + ", ");
+            stringBuilder.Append("MaxValue = " + _maxValue);
+            return true;
+        }
+    
+        public override string ToString()
+        {
+            System.Text.StringBuilder stringBuilder = new System.Text.StringBuilder();
+            stringBuilder.Append(GetType().Name);
+            stringBuilder.Append(" { ");
+            if (PrintMembers(stringBuilder))
+            {
+                stringBuilder.Append(" ");
+            }
+            stringBuilder.Append("}");
+            return stringBuilder.ToString();
+        }
+    }
+
+
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
+    [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
+    [Bonsai.CombinatorAttribute(MethodName="Generate")]
     public partial class FixationTime
     {
     
-        private TimeConstrains _optoOnsetTime;
+        private TimeConstrains _training;
     
-        private TimeConstrains _soundOnsetTime;
+        private System.Collections.Generic.List<object> _task;
+    
+        private CatchTrials _catchTrials;
     
         public FixationTime()
         {
-            _optoOnsetTime = new TimeConstrains();
-            _soundOnsetTime = new TimeConstrains();
+            _training = new TimeConstrains();
+            _task = new System.Collections.Generic.List<object>();
+            _catchTrials = new CatchTrials();
         }
     
         protected FixationTime(FixationTime other)
         {
-            _optoOnsetTime = other._optoOnsetTime;
-            _soundOnsetTime = other._soundOnsetTime;
+            _training = other._training;
+            _task = other._task;
+            _catchTrials = other._catchTrials;
         }
     
         /// <summary>
-        /// Contains parameters related to the Optogenetics Onset Time part of the Fixation Time. The units of each of the parameters is milliseconds.
+        /// Contains parameters used during the training phase (i.e. all the levels before the last) for the fixation time. The units of each of the parameters is milliseconds.
         /// </summary>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        [Newtonsoft.Json.JsonPropertyAttribute("opto_onset_time")]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="opto_onset_time")]
-        [System.ComponentModel.DescriptionAttribute("Contains parameters related to the Optogenetics Onset Time part of the Fixation T" +
-            "ime. The units of each of the parameters is milliseconds.")]
-        public TimeConstrains OptoOnsetTime
+        [Newtonsoft.Json.JsonPropertyAttribute("training", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="training")]
+        [System.ComponentModel.DescriptionAttribute("Contains parameters used during the training phase (i.e. all the levels before th" +
+            "e last) for the fixation time. The units of each of the parameters is millisecon" +
+            "ds.")]
+        public TimeConstrains Training
         {
             get
             {
-                return _optoOnsetTime;
+                return _training;
             }
             set
             {
-                _optoOnsetTime = value;
+                _training = value;
             }
         }
     
         /// <summary>
-        /// Contains parameters related to the Sound Onset Time part of the Fixation Time. The units of each of the parameters is milliseconds.
+        /// Contains the distribution parameters used in the last level for the fixation time.
         /// </summary>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        [Newtonsoft.Json.JsonPropertyAttribute("sound_onset_time")]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="sound_onset_time")]
-        [System.ComponentModel.DescriptionAttribute("Contains parameters related to the Sound Onset Time part of the Fixation Time. Th" +
-            "e units of each of the parameters is milliseconds.")]
-        public TimeConstrains SoundOnsetTime
+        [Newtonsoft.Json.JsonPropertyAttribute("task", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="task")]
+        [System.ComponentModel.DescriptionAttribute("Contains the distribution parameters used in the last level for the fixation time" +
+            ".")]
+        public System.Collections.Generic.List<object> Task
         {
             get
             {
-                return _soundOnsetTime;
+                return _task;
             }
             set
             {
-                _soundOnsetTime = value;
+                _task = value;
+            }
+        }
+    
+        /// <summary>
+        /// The parameters used in catch trials.
+        /// </summary>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [Newtonsoft.Json.JsonPropertyAttribute("catch_trials")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="catch_trials")]
+        [System.ComponentModel.DescriptionAttribute("The parameters used in catch trials.")]
+        public CatchTrials CatchTrials
+        {
+            get
+            {
+                return _catchTrials;
+            }
+            set
+            {
+                _catchTrials = value;
             }
         }
     
@@ -463,8 +815,183 @@ namespace Animal
     
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
-            stringBuilder.Append("OptoOnsetTime = " + _optoOnsetTime + ", ");
-            stringBuilder.Append("SoundOnsetTime = " + _soundOnsetTime);
+            stringBuilder.Append("Training = " + _training + ", ");
+            stringBuilder.Append("Task = " + _task + ", ");
+            stringBuilder.Append("CatchTrials = " + _catchTrials);
+            return true;
+        }
+    
+        public override string ToString()
+        {
+            System.Text.StringBuilder stringBuilder = new System.Text.StringBuilder();
+            stringBuilder.Append(GetType().Name);
+            stringBuilder.Append(" { ");
+            if (PrintMembers(stringBuilder))
+            {
+                stringBuilder.Append(" ");
+            }
+            stringBuilder.Append("}");
+            return stringBuilder.ToString();
+        }
+    }
+
+
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
+    [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
+    [Bonsai.CombinatorAttribute(MethodName="Generate")]
+    public partial class Gaussian
+    {
+    
+        private string _distribution;
+    
+        private bool _optoOnset;
+    
+        private double _mean;
+    
+        private double _stdDev;
+    
+        private double _minValue;
+    
+        private double _maxValue;
+    
+        public Gaussian()
+        {
+            _optoOnset = false;
+        }
+    
+        protected Gaussian(Gaussian other)
+        {
+            _distribution = other._distribution;
+            _optoOnset = other._optoOnset;
+            _mean = other._mean;
+            _stdDev = other._stdDev;
+            _minValue = other._minValue;
+            _maxValue = other._maxValue;
+        }
+    
+        [Newtonsoft.Json.JsonPropertyAttribute("distribution", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="distribution")]
+        public string Distribution
+        {
+            get
+            {
+                return _distribution;
+            }
+            set
+            {
+                _distribution = value;
+            }
+        }
+    
+        /// <summary>
+        /// Indicates whether the value drawn from this distribution should be used in the opto onset time as well (for mid-fixation opto activation).
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("opto_onset")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="opto_onset")]
+        [System.ComponentModel.DescriptionAttribute("Indicates whether the value drawn from this distribution should be used in the op" +
+            "to onset time as well (for mid-fixation opto activation).")]
+        public bool OptoOnset
+        {
+            get
+            {
+                return _optoOnset;
+            }
+            set
+            {
+                _optoOnset = value;
+            }
+        }
+    
+        /// <summary>
+        /// The mean of the gaussian distribution (ms).
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("mean", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="mean")]
+        [System.ComponentModel.DescriptionAttribute("The mean of the gaussian distribution (ms).")]
+        public double Mean
+        {
+            get
+            {
+                return _mean;
+            }
+            set
+            {
+                _mean = value;
+            }
+        }
+    
+        /// <summary>
+        /// The standard deviation of the gaussian distribution (ms).
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("std_dev", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="std_dev")]
+        [System.ComponentModel.DescriptionAttribute("The standard deviation of the gaussian distribution (ms).")]
+        public double StdDev
+        {
+            get
+            {
+                return _stdDev;
+            }
+            set
+            {
+                _stdDev = value;
+            }
+        }
+    
+        /// <summary>
+        /// The minimum allowed value for the distribution.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("min_value", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="min_value")]
+        [System.ComponentModel.DescriptionAttribute("The minimum allowed value for the distribution.")]
+        public double MinValue
+        {
+            get
+            {
+                return _minValue;
+            }
+            set
+            {
+                _minValue = value;
+            }
+        }
+    
+        /// <summary>
+        /// The maximum allowed value for the distribution.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("max_value", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="max_value")]
+        [System.ComponentModel.DescriptionAttribute("The maximum allowed value for the distribution.")]
+        public double MaxValue
+        {
+            get
+            {
+                return _maxValue;
+            }
+            set
+            {
+                _maxValue = value;
+            }
+        }
+    
+        public System.IObservable<Gaussian> Generate()
+        {
+            return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new Gaussian(this)));
+        }
+    
+        public System.IObservable<Gaussian> Generate<TSource>(System.IObservable<TSource> source)
+        {
+            return System.Reactive.Linq.Observable.Select(source, _ => new Gaussian(this));
+        }
+    
+        protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
+        {
+            stringBuilder.Append("Distribution = " + _distribution + ", ");
+            stringBuilder.Append("OptoOnset = " + _optoOnset + ", ");
+            stringBuilder.Append("Mean = " + _mean + ", ");
+            stringBuilder.Append("StdDev = " + _stdDev + ", ");
+            stringBuilder.Append("MinValue = " + _minValue + ", ");
+            stringBuilder.Append("MaxValue = " + _maxValue);
             return true;
         }
     
@@ -1797,6 +2324,136 @@ namespace Animal
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
     [Bonsai.CombinatorAttribute(MethodName="Generate")]
+    public partial class Uniform
+    {
+    
+        private string _distribution;
+    
+        private bool _optoOnset;
+    
+        private double _lower;
+    
+        private double _upper;
+    
+        public Uniform()
+        {
+            _optoOnset = false;
+        }
+    
+        protected Uniform(Uniform other)
+        {
+            _distribution = other._distribution;
+            _optoOnset = other._optoOnset;
+            _lower = other._lower;
+            _upper = other._upper;
+        }
+    
+        [Newtonsoft.Json.JsonPropertyAttribute("distribution", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="distribution")]
+        public string Distribution
+        {
+            get
+            {
+                return _distribution;
+            }
+            set
+            {
+                _distribution = value;
+            }
+        }
+    
+        /// <summary>
+        /// Indicates whether the value drawn from this distribution should be used in the opto onset time as well (for mid-fixation opto activation).
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("opto_onset")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="opto_onset")]
+        [System.ComponentModel.DescriptionAttribute("Indicates whether the value drawn from this distribution should be used in the op" +
+            "to onset time as well (for mid-fixation opto activation).")]
+        public bool OptoOnset
+        {
+            get
+            {
+                return _optoOnset;
+            }
+            set
+            {
+                _optoOnset = value;
+            }
+        }
+    
+        /// <summary>
+        /// The lower limit of the distribution.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("lower", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="lower")]
+        [System.ComponentModel.DescriptionAttribute("The lower limit of the distribution.")]
+        public double Lower
+        {
+            get
+            {
+                return _lower;
+            }
+            set
+            {
+                _lower = value;
+            }
+        }
+    
+        /// <summary>
+        /// The upper limit of the distribution.
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("upper", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="upper")]
+        [System.ComponentModel.DescriptionAttribute("The upper limit of the distribution.")]
+        public double Upper
+        {
+            get
+            {
+                return _upper;
+            }
+            set
+            {
+                _upper = value;
+            }
+        }
+    
+        public System.IObservable<Uniform> Generate()
+        {
+            return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new Uniform(this)));
+        }
+    
+        public System.IObservable<Uniform> Generate<TSource>(System.IObservable<TSource> source)
+        {
+            return System.Reactive.Linq.Observable.Select(source, _ => new Uniform(this));
+        }
+    
+        protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
+        {
+            stringBuilder.Append("Distribution = " + _distribution + ", ");
+            stringBuilder.Append("OptoOnset = " + _optoOnset + ", ");
+            stringBuilder.Append("Lower = " + _lower + ", ");
+            stringBuilder.Append("Upper = " + _upper);
+            return true;
+        }
+    
+        public override string ToString()
+        {
+            System.Text.StringBuilder stringBuilder = new System.Text.StringBuilder();
+            stringBuilder.Append(GetType().Name);
+            stringBuilder.Append(" { ");
+            if (PrintMembers(stringBuilder))
+            {
+                stringBuilder.Append(" ");
+            }
+            stringBuilder.Append("}");
+            return stringBuilder.ToString();
+        }
+    }
+
+
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.7.2.0 (Newtonsoft.Json v13.0.0.0, YamlDotNet v16.0.0.0)")]
+    [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
+    [Bonsai.CombinatorAttribute(MethodName="Generate")]
     public partial class Animal
     {
     
@@ -2252,9 +2909,29 @@ namespace Animal
             return Process<BiasedSession>(source);
         }
 
+        public System.IObservable<string> Process(System.IObservable<CatchTrials> source)
+        {
+            return Process<CatchTrials>(source);
+        }
+
+        public System.IObservable<string> Process(System.IObservable<Constant> source)
+        {
+            return Process<Constant>(source);
+        }
+
+        public System.IObservable<string> Process(System.IObservable<Exponential> source)
+        {
+            return Process<Exponential>(source);
+        }
+
         public System.IObservable<string> Process(System.IObservable<FixationTime> source)
         {
             return Process<FixationTime>(source);
+        }
+
+        public System.IObservable<string> Process(System.IObservable<Gaussian> source)
+        {
+            return Process<Gaussian>(source);
         }
 
         public System.IObservable<string> Process(System.IObservable<OptoLED> source)
@@ -2297,6 +2974,11 @@ namespace Animal
             return Process<TimeConstrains>(source);
         }
 
+        public System.IObservable<string> Process(System.IObservable<Uniform> source)
+        {
+            return Process<Uniform>(source);
+        }
+
         public System.IObservable<string> Process(System.IObservable<Animal> source)
         {
             return Process<Animal>(source);
@@ -2314,7 +2996,11 @@ namespace Animal
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<AutobiasCorrection>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<BiasedBlockDistribution>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<BiasedSession>))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<CatchTrials>))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Constant>))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Exponential>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<FixationTime>))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Gaussian>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<OptoLED>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<OptoProtocol>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Optogenetics>))]
@@ -2323,6 +3009,7 @@ namespace Animal
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Session>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Sound>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<TimeConstrains>))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Uniform>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Animal>))]
     public partial class DeserializeFromJson : Bonsai.Expressions.SingleArgumentExpressionBuilder
     {
@@ -2388,9 +3075,29 @@ namespace Animal
             return Process<BiasedSession>(source);
         }
 
+        public System.IObservable<string> Process(System.IObservable<CatchTrials> source)
+        {
+            return Process<CatchTrials>(source);
+        }
+
+        public System.IObservable<string> Process(System.IObservable<Constant> source)
+        {
+            return Process<Constant>(source);
+        }
+
+        public System.IObservable<string> Process(System.IObservable<Exponential> source)
+        {
+            return Process<Exponential>(source);
+        }
+
         public System.IObservable<string> Process(System.IObservable<FixationTime> source)
         {
             return Process<FixationTime>(source);
+        }
+
+        public System.IObservable<string> Process(System.IObservable<Gaussian> source)
+        {
+            return Process<Gaussian>(source);
         }
 
         public System.IObservable<string> Process(System.IObservable<OptoLED> source)
@@ -2433,6 +3140,11 @@ namespace Animal
             return Process<TimeConstrains>(source);
         }
 
+        public System.IObservable<string> Process(System.IObservable<Uniform> source)
+        {
+            return Process<Uniform>(source);
+        }
+
         public System.IObservable<string> Process(System.IObservable<Animal> source)
         {
             return Process<Animal>(source);
@@ -2450,7 +3162,11 @@ namespace Animal
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<AutobiasCorrection>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<BiasedBlockDistribution>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<BiasedSession>))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<CatchTrials>))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Constant>))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Exponential>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<FixationTime>))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Gaussian>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<OptoLED>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<OptoProtocol>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Optogenetics>))]
@@ -2459,6 +3175,7 @@ namespace Animal
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Session>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Sound>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<TimeConstrains>))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Uniform>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Animal>))]
     public partial class DeserializeFromYaml : Bonsai.Expressions.SingleArgumentExpressionBuilder
     {
