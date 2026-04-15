@@ -2119,7 +2119,7 @@
                                                 </Expression>
                                                 <Expression xsi:type="Index">
                                                   <Operand xsi:type="IntProperty">
-                                                    <Value>3</Value>
+                                                    <Value>1</Value>
                                                   </Operand>
                                                 </Expression>
                                                 <Expression xsi:type="WorkflowOutput" />
@@ -2645,7 +2645,10 @@
                                     </Expression>
                                     <Expression xsi:type="Combinator">
                                       <Combinator xsi:type="p1:CreateCategorical">
-                                        <p1:ProbabilityMass />
+                                        <p1:ProbabilityMass>
+                                          <p1:double>1</p1:double>
+                                          <p1:double>1</p1:double>
+                                        </p1:ProbabilityMass>
                                       </Combinator>
                                     </Expression>
                                     <Expression xsi:type="Combinator">
@@ -2824,7 +2827,7 @@
                                     </Expression>
                                     <Expression xsi:type="GreaterThan">
                                       <Operand xsi:type="DoubleProperty">
-                                        <Value>0</Value>
+                                        <Value>0.7</Value>
                                       </Operand>
                                     </Expression>
                                     <Expression xsi:type="MemberSelector">
@@ -2873,7 +2876,7 @@
                                     </Expression>
                                     <Expression xsi:type="LessThanOrEqual">
                                       <Operand xsi:type="DoubleProperty">
-                                        <Value>0</Value>
+                                        <Value>0.7</Value>
                                       </Operand>
                                     </Expression>
                                     <Expression xsi:type="MemberSelector">
@@ -3200,7 +3203,7 @@
                                           </Expression>
                                           <Expression xsi:type="Combinator">
                                             <Combinator xsi:type="p1:CreateExponential">
-                                              <p1:Rate>0.005</p1:Rate>
+                                              <p1:Rate>0.0025</p1:Rate>
                                             </Combinator>
                                           </Expression>
                                           <Expression xsi:type="WorkflowOutput" />
@@ -3537,10 +3540,16 @@
                                           <Expression xsi:type="WorkflowInput">
                                             <Name>Source1</Name>
                                           </Expression>
+                                          <Expression xsi:type="Equal">
+                                            <Operand xsi:type="BooleanProperty">
+                                              <Value>false</Value>
+                                            </Operand>
+                                          </Expression>
                                           <Expression xsi:type="WorkflowOutput" />
                                         </Nodes>
                                         <Edges>
                                           <Edge From="0" To="1" Label="Source1" />
+                                          <Edge From="1" To="2" Label="Source1" />
                                         </Edges>
                                       </Workflow>
                                     </Expression>
@@ -3563,16 +3572,10 @@
                                           <Expression xsi:type="WorkflowInput">
                                             <Name>Source1</Name>
                                           </Expression>
-                                          <Expression xsi:type="Equal">
-                                            <Operand xsi:type="BooleanProperty">
-                                              <Value>false</Value>
-                                            </Operand>
-                                          </Expression>
                                           <Expression xsi:type="WorkflowOutput" />
                                         </Nodes>
                                         <Edges>
                                           <Edge From="0" To="1" Label="Source1" />
-                                          <Edge From="1" To="2" Label="Source1" />
                                         </Edges>
                                       </Workflow>
                                     </Expression>
@@ -3628,10 +3631,12 @@
                                     <Expression xsi:type="WorkflowInput">
                                       <Name>Source1</Name>
                                     </Expression>
-                                    <Expression xsi:type="Combinator">
-                                      <Combinator xsi:type="rx:Take">
-                                        <rx:Count>1</rx:Count>
-                                      </Combinator>
+                                    <Expression xsi:type="Disable">
+                                      <Builder xsi:type="Combinator">
+                                        <Combinator xsi:type="rx:Take">
+                                          <rx:Count>1</rx:Count>
+                                        </Combinator>
+                                      </Builder>
                                     </Expression>
                                     <Expression xsi:type="Combinator">
                                       <Combinator xsi:type="rx:Merge" />
@@ -3670,7 +3675,7 @@
                                     </Expression>
                                     <Expression xsi:type="Combinator">
                                       <Combinator xsi:type="p1:CreateExponential">
-                                        <p1:Rate>0</p1:Rate>
+                                        <p1:Rate>0.005</p1:Rate>
                                       </Combinator>
                                     </Expression>
                                     <Expression xsi:type="Combinator">
@@ -4088,6 +4093,18 @@
                               <Expression xsi:type="MulticastSubject">
                                 <Name>TimedFT</Name>
                               </Expression>
+                              <Expression xsi:type="scr:ExpressionCondition">
+                                <scr:Expression>!Double.IsNaN(it) &amp;&amp; it != 0</scr:Expression>
+                              </Expression>
+                              <Expression xsi:type="Combinator">
+                                <Combinator xsi:type="rx:Skip">
+                                  <rx:Count>1</rx:Count>
+                                </Combinator>
+                              </Expression>
+                              <Expression xsi:type="IncludeWorkflow" Path="Extensions\PrintRequest.bonsai">
+                                <PrintCode>fixation_time</PrintCode>
+                                <PrintSubjectName>PrintCode</PrintSubjectName>
+                              </Expression>
                               <Expression xsi:type="SubscribeSubject">
                                 <Name>OptoActivationDuringTask</Name>
                               </Expression>
@@ -4113,11 +4130,14 @@
                               <Edge From="2" To="3" Label="Source1" />
                               <Edge From="3" To="4" Label="Source1" />
                               <Edge From="4" To="5" Label="Source1" />
-                              <Edge From="6" To="8" Label="Source1" />
-                              <Edge From="7" To="8" Label="Source2" />
-                              <Edge From="8" To="9" Label="Source1" />
-                              <Edge From="9" To="10" Label="Source1" />
-                              <Edge From="10" To="11" Label="Source1" />
+                              <Edge From="5" To="6" Label="Source1" />
+                              <Edge From="6" To="7" Label="Source1" />
+                              <Edge From="7" To="8" Label="Source1" />
+                              <Edge From="9" To="11" Label="Source1" />
+                              <Edge From="10" To="11" Label="Source2" />
+                              <Edge From="11" To="12" Label="Source1" />
+                              <Edge From="12" To="13" Label="Source1" />
+                              <Edge From="13" To="14" Label="Source1" />
                             </Edges>
                           </Workflow>
                         </Expression>
@@ -9455,7 +9475,7 @@
                   <Expression xsi:type="p4:CreateMessage">
                     <harp:MessageType>Write</harp:MessageType>
                     <harp:Payload xsi:type="p4:CreateDac0VoltagePayload">
-                      <p4:Dac0Voltage>0</p4:Dac0Voltage>
+                      <p4:Dac0Voltage>1000</p4:Dac0Voltage>
                     </harp:Payload>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
@@ -9527,7 +9547,7 @@
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="rx:Delay">
-                            <rx:DueTime>PT0S</rx:DueTime>
+                            <rx:DueTime>PT0.2S</rx:DueTime>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="Combinator">
@@ -10208,7 +10228,7 @@
                       <harp:VisualIndicators>On</harp:VisualIndicators>
                       <harp:Heartbeat>Disabled</harp:Heartbeat>
                       <harp:IgnoreErrors>false</harp:IgnoreErrors>
-                      <harp:PortName>COM6</harp:PortName>
+                      <harp:PortName>COM12</harp:PortName>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="rx:PublishSubject">
@@ -10780,16 +10800,7 @@
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>OptoProtocol</Name>
-                  </Expression>
-                  <Expression xsi:type="SubscribeSubject">
                     <Name>IntendedOptoOnset</Name>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="rx:WithLatestFrom" />
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Item2</Selector>
                   </Expression>
                   <Expression xsi:type="rx:Condition">
                     <Workflow>
@@ -10845,16 +10856,7 @@
                     </Workflow>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
-                    <Name>OptoProtocol</Name>
-                  </Expression>
-                  <Expression xsi:type="SubscribeSubject">
                     <Name>IntendedSoundOnset</Name>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="rx:WithLatestFrom" />
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Item2</Selector>
                   </Expression>
                   <Expression xsi:type="rx:Condition">
                     <Workflow>
@@ -10934,7 +10936,7 @@
                   <Expression xsi:type="beh:CreateMessage">
                     <harp:MessageType>Write</harp:MessageType>
                     <harp:Payload xsi:type="beh:CreatePulseDOPort0Payload">
-                      <beh:PulseDOPort0>431</beh:PulseDOPort0>
+                      <beh:PulseDOPort0>1</beh:PulseDOPort0>
                     </harp:Payload>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
@@ -10952,7 +10954,7 @@
                   <Expression xsi:type="beh:CreateMessage">
                     <harp:MessageType>Write</harp:MessageType>
                     <harp:Payload xsi:type="beh:CreatePulseDOPort1Payload">
-                      <beh:PulseDOPort1>558</beh:PulseDOPort1>
+                      <beh:PulseDOPort1>411</beh:PulseDOPort1>
                     </harp:Payload>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
@@ -11397,93 +11399,87 @@
                   <Edge From="34" To="35" Label="Source1" />
                   <Edge From="35" To="36" Label="Source1" />
                   <Edge From="36" To="37" Label="Source1" />
-                  <Edge From="38" To="120" Label="Source1" />
-                  <Edge From="39" To="120" Label="Source2" />
-                  <Edge From="40" To="120" Label="Source3" />
+                  <Edge From="38" To="114" Label="Source1" />
+                  <Edge From="39" To="114" Label="Source2" />
+                  <Edge From="40" To="114" Label="Source3" />
                   <Edge From="41" To="42" Label="Source1" />
                   <Edge From="42" To="43" Label="Source1" />
-                  <Edge From="43" To="59" Label="Source1" />
-                  <Edge From="44" To="46" Label="Source1" />
-                  <Edge From="45" To="46" Label="Source2" />
+                  <Edge From="43" To="53" Label="Source1" />
+                  <Edge From="44" To="45" Label="Source1" />
+                  <Edge From="45" To="48" Label="Source1" />
                   <Edge From="46" To="47" Label="Source1" />
-                  <Edge From="47" To="48" Label="Source1" />
-                  <Edge From="48" To="54" Label="Source1" />
-                  <Edge From="49" To="51" Label="Source1" />
+                  <Edge From="47" To="48" Label="Source2" />
+                  <Edge From="48" To="51" Label="Source1" />
+                  <Edge From="49" To="50" Label="Source1" />
                   <Edge From="50" To="51" Label="Source2" />
                   <Edge From="51" To="52" Label="Source1" />
-                  <Edge From="52" To="53" Label="Source1" />
-                  <Edge From="53" To="54" Label="Source2" />
-                  <Edge From="54" To="57" Label="Source1" />
-                  <Edge From="55" To="56" Label="Source1" />
-                  <Edge From="56" To="57" Label="Source2" />
+                  <Edge From="52" To="53" Label="Source2" />
+                  <Edge From="53" To="54" Label="Source1" />
+                  <Edge From="54" To="55" Label="Source1" />
+                  <Edge From="55" To="114" Label="Source4" />
+                  <Edge From="56" To="57" Label="Source1" />
                   <Edge From="57" To="58" Label="Source1" />
-                  <Edge From="58" To="59" Label="Source2" />
-                  <Edge From="59" To="60" Label="Source1" />
+                  <Edge From="58" To="59" Label="Source1" />
+                  <Edge From="59" To="114" Label="Source5" />
                   <Edge From="60" To="61" Label="Source1" />
-                  <Edge From="61" To="120" Label="Source4" />
+                  <Edge From="61" To="62" Label="Source1" />
                   <Edge From="62" To="63" Label="Source1" />
                   <Edge From="63" To="64" Label="Source1" />
-                  <Edge From="64" To="65" Label="Source1" />
-                  <Edge From="65" To="120" Label="Source5" />
+                  <Edge From="64" To="114" Label="Source6" />
+                  <Edge From="65" To="66" Label="Source1" />
                   <Edge From="66" To="67" Label="Source1" />
                   <Edge From="67" To="68" Label="Source1" />
                   <Edge From="68" To="69" Label="Source1" />
-                  <Edge From="69" To="70" Label="Source1" />
-                  <Edge From="70" To="120" Label="Source6" />
+                  <Edge From="68" To="88" Label="Source1" />
+                  <Edge From="69" To="74" Label="Source1" />
+                  <Edge From="70" To="71" Label="Source1" />
                   <Edge From="71" To="72" Label="Source1" />
                   <Edge From="72" To="73" Label="Source1" />
-                  <Edge From="73" To="74" Label="Source1" />
+                  <Edge From="73" To="74" Label="Source2" />
                   <Edge From="74" To="75" Label="Source1" />
-                  <Edge From="74" To="94" Label="Source1" />
-                  <Edge From="75" To="80" Label="Source1" />
+                  <Edge From="75" To="114" Label="Source7" />
                   <Edge From="76" To="77" Label="Source1" />
                   <Edge From="77" To="78" Label="Source1" />
                   <Edge From="78" To="79" Label="Source1" />
-                  <Edge From="79" To="80" Label="Source2" />
+                  <Edge From="79" To="80" Label="Source1" />
                   <Edge From="80" To="81" Label="Source1" />
-                  <Edge From="81" To="120" Label="Source7" />
-                  <Edge From="82" To="83" Label="Source1" />
+                  <Edge From="81" To="82" Label="Source1" />
+                  <Edge From="81" To="96" Label="Source1" />
+                  <Edge From="82" To="86" Label="Source1" />
                   <Edge From="83" To="84" Label="Source1" />
                   <Edge From="84" To="85" Label="Source1" />
-                  <Edge From="85" To="86" Label="Source1" />
+                  <Edge From="85" To="86" Label="Source2" />
                   <Edge From="86" To="87" Label="Source1" />
-                  <Edge From="87" To="88" Label="Source1" />
-                  <Edge From="87" To="102" Label="Source1" />
-                  <Edge From="88" To="92" Label="Source1" />
+                  <Edge From="87" To="114" Label="Source8" />
+                  <Edge From="88" To="94" Label="Source1" />
                   <Edge From="89" To="90" Label="Source1" />
-                  <Edge From="90" To="91" Label="Source1" />
-                  <Edge From="91" To="92" Label="Source2" />
+                  <Edge From="90" To="94" Label="Source2" />
+                  <Edge From="91" To="92" Label="Source1" />
                   <Edge From="92" To="93" Label="Source1" />
-                  <Edge From="93" To="120" Label="Source8" />
-                  <Edge From="94" To="100" Label="Source1" />
-                  <Edge From="95" To="96" Label="Source1" />
-                  <Edge From="96" To="100" Label="Source2" />
+                  <Edge From="93" To="94" Label="Source3" />
+                  <Edge From="94" To="95" Label="Source1" />
+                  <Edge From="95" To="114" Label="Source9" />
+                  <Edge From="96" To="105" Label="Source1" />
                   <Edge From="97" To="98" Label="Source1" />
                   <Edge From="98" To="99" Label="Source1" />
-                  <Edge From="99" To="100" Label="Source3" />
-                  <Edge From="100" To="101" Label="Source1" />
-                  <Edge From="101" To="120" Label="Source9" />
-                  <Edge From="102" To="111" Label="Source1" />
+                  <Edge From="99" To="100" Label="Source1" />
+                  <Edge From="100" To="102" Label="Source1" />
+                  <Edge From="101" To="102" Label="Source2" />
+                  <Edge From="102" To="103" Label="Source1" />
                   <Edge From="103" To="104" Label="Source1" />
-                  <Edge From="104" To="105" Label="Source1" />
+                  <Edge From="104" To="105" Label="Source2" />
                   <Edge From="105" To="106" Label="Source1" />
-                  <Edge From="106" To="108" Label="Source1" />
-                  <Edge From="107" To="108" Label="Source2" />
+                  <Edge From="106" To="114" Label="Source10" />
+                  <Edge From="107" To="114" Label="Source11" />
                   <Edge From="108" To="109" Label="Source1" />
                   <Edge From="109" To="110" Label="Source1" />
-                  <Edge From="110" To="111" Label="Source2" />
+                  <Edge From="110" To="114" Label="Source12" />
                   <Edge From="111" To="112" Label="Source1" />
-                  <Edge From="112" To="120" Label="Source10" />
-                  <Edge From="113" To="120" Label="Source11" />
+                  <Edge From="112" To="113" Label="Source1" />
+                  <Edge From="113" To="114" Label="Source13" />
                   <Edge From="114" To="115" Label="Source1" />
-                  <Edge From="115" To="116" Label="Source1" />
-                  <Edge From="116" To="120" Label="Source12" />
-                  <Edge From="117" To="118" Label="Source1" />
-                  <Edge From="118" To="119" Label="Source1" />
-                  <Edge From="119" To="120" Label="Source13" />
-                  <Edge From="120" To="121" Label="Source1" />
-                  <Edge From="121" To="123" Label="Source1" />
-                  <Edge From="122" To="123" Label="Source2" />
+                  <Edge From="115" To="117" Label="Source1" />
+                  <Edge From="116" To="117" Label="Source2" />
                 </Edges>
               </Workflow>
             </Expression>
@@ -11516,7 +11512,7 @@
                       <harp:VisualIndicators>On</harp:VisualIndicators>
                       <harp:Heartbeat>Disabled</harp:Heartbeat>
                       <harp:IgnoreErrors>false</harp:IgnoreErrors>
-                      <harp:PortName>COM5</harp:PortName>
+                      <harp:PortName>COM13</harp:PortName>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="rx:PublishSubject">
@@ -11783,7 +11779,7 @@
                   <Expression xsi:type="p3:CreateMessage">
                     <harp:MessageType>Write</harp:MessageType>
                     <harp:Payload xsi:type="p3:CreateAttenuationLeftDI0Payload">
-                      <p3:AttenuationLeftDI0>577</p3:AttenuationLeftDI0>
+                      <p3:AttenuationLeftDI0>423</p3:AttenuationLeftDI0>
                     </harp:Payload>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
@@ -11827,7 +11823,7 @@
                   <Expression xsi:type="p3:CreateMessage">
                     <harp:MessageType>Write</harp:MessageType>
                     <harp:Payload xsi:type="p3:CreateAttenuationRightDI0Payload">
-                      <p3:AttenuationRightDI0>486</p3:AttenuationRightDI0>
+                      <p3:AttenuationRightDI0>425</p3:AttenuationRightDI0>
                     </harp:Payload>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
@@ -11975,7 +11971,7 @@
                       <harp:VisualIndicators>On</harp:VisualIndicators>
                       <harp:Heartbeat>Disabled</harp:Heartbeat>
                       <harp:IgnoreErrors>false</harp:IgnoreErrors>
-                      <harp:PortName>COM7</harp:PortName>
+                      <harp:PortName>COM10</harp:PortName>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="rx:PublishSubject">
@@ -12134,7 +12130,7 @@
                       <harp:VisualIndicators>On</harp:VisualIndicators>
                       <harp:Heartbeat>Disabled</harp:Heartbeat>
                       <harp:IgnoreErrors>false</harp:IgnoreErrors>
-                      <harp:PortName>COM0</harp:PortName>
+                      <harp:PortName>COM9</harp:PortName>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="rx:PublishSubject">
@@ -12408,7 +12404,7 @@
                         <Expression xsi:type="p4:CreateMessage">
                           <harp:MessageType>Write</harp:MessageType>
                           <harp:Payload xsi:type="p4:CreatePulseDutyCycleLed0Payload">
-                            <p4:PulseDutyCycleLed0>50</p4:PulseDutyCycleLed0>
+                            <p4:PulseDutyCycleLed0>100</p4:PulseDutyCycleLed0>
                           </harp:Payload>
                         </Expression>
                         <Expression xsi:type="SubscribeSubject">
@@ -12426,7 +12422,7 @@
                         <Expression xsi:type="p4:CreateMessage">
                           <harp:MessageType>Write</harp:MessageType>
                           <harp:Payload xsi:type="p4:CreatePulseDutyCycleLed1Payload">
-                            <p4:PulseDutyCycleLed1>50</p4:PulseDutyCycleLed1>
+                            <p4:PulseDutyCycleLed1>100</p4:PulseDutyCycleLed1>
                           </harp:Payload>
                         </Expression>
                         <Expression xsi:type="SubscribeSubject">
@@ -12444,7 +12440,7 @@
                         <Expression xsi:type="p4:CreateMessage">
                           <harp:MessageType>Write</harp:MessageType>
                           <harp:Payload xsi:type="p4:CreatePulseFrequencyLed0Payload">
-                            <p4:PulseFrequencyLed0>20</p4:PulseFrequencyLed0>
+                            <p4:PulseFrequencyLed0>1</p4:PulseFrequencyLed0>
                           </harp:Payload>
                         </Expression>
                         <Expression xsi:type="SubscribeSubject">
@@ -12462,7 +12458,7 @@
                         <Expression xsi:type="p4:CreateMessage">
                           <harp:MessageType>Write</harp:MessageType>
                           <harp:Payload xsi:type="p4:CreatePulseFrequencyLed1Payload">
-                            <p4:PulseFrequencyLed1>20</p4:PulseFrequencyLed1>
+                            <p4:PulseFrequencyLed1>1</p4:PulseFrequencyLed1>
                           </harp:Payload>
                         </Expression>
                         <Expression xsi:type="SubscribeSubject">
@@ -12479,7 +12475,7 @@
                         <Expression xsi:type="p4:CreateMessage">
                           <harp:MessageType>Write</harp:MessageType>
                           <harp:Payload xsi:type="p4:CreateRampLed0Payload">
-                            <p4:RampLed0>50</p4:RampLed0>
+                            <p4:RampLed0>1</p4:RampLed0>
                           </harp:Payload>
                         </Expression>
                         <Expression xsi:type="SubscribeSubject">
@@ -12497,7 +12493,7 @@
                         <Expression xsi:type="p4:CreateMessage">
                           <harp:MessageType>Write</harp:MessageType>
                           <harp:Payload xsi:type="p4:CreateRampLed1Payload">
-                            <p4:RampLed1>50</p4:RampLed1>
+                            <p4:RampLed1>1</p4:RampLed1>
                           </harp:Payload>
                         </Expression>
                         <Expression xsi:type="SubscribeSubject">
@@ -12550,7 +12546,7 @@
                         <Expression xsi:type="p4:CreateMessage">
                           <harp:MessageType>Write</harp:MessageType>
                           <harp:Payload xsi:type="p4:CreateRampConfigPayload">
-                            <p4:RampConfig>LED0_UP LED0_DOWN LED1_UP LED1_DOWN</p4:RampConfig>
+                            <p4:RampConfig>None</p4:RampConfig>
                           </harp:Payload>
                         </Expression>
                         <Expression xsi:type="Combinator">
@@ -12665,7 +12661,7 @@
                       <harp:VisualIndicators>On</harp:VisualIndicators>
                       <harp:Heartbeat>Disabled</harp:Heartbeat>
                       <harp:IgnoreErrors>false</harp:IgnoreErrors>
-                      <harp:PortName>COM0</harp:PortName>
+                      <harp:PortName>COM11</harp:PortName>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="rx:PublishSubject">
@@ -12882,11 +12878,11 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p8:Trial">
-                      <p8:Number>8</p8:Number>
-                      <p8:StartTime>3857896868.5059838</p8:StartTime>
-                      <p8:TaredStartTime>28.632991790771484</p8:TaredStartTime>
-                      <p8:EndTime>3857896865.4809918</p8:EndTime>
-                      <p8:Duration>-3.0249919891357422</p8:Duration>
+                      <p8:Number>2</p8:Number>
+                      <p8:StartTime>3859098001.52</p8:StartTime>
+                      <p8:TaredStartTime>34.159008026123047</p8:TaredStartTime>
+                      <p8:EndTime>3859097998.42</p8:EndTime>
+                      <p8:Duration>-3.0999999046325684</p8:Duration>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
@@ -12963,9 +12959,9 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p8:Session">
-                      <p8:Number>2</p8:Number>
+                      <p8:Number>4</p8:Number>
                       <p8:Type>1</p8:Type>
-                      <p8:Box>4</p8:Box>
+                      <p8:Box>11</p8:Box>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
@@ -13012,10 +13008,10 @@
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p8:Sound">
                       <p8:Abl>20</p8:Abl>
-                      <p8:Ild>8</p8:Ild>
+                      <p8:Ild>2</p8:Ild>
                       <p8:SoundIndex>10</p8:SoundIndex>
-                      <p8:LeftAmp>57.757636512303641</p8:LeftAmp>
-                      <p8:RightAmp>48.696809078035329</p8:RightAmp>
+                      <p8:LeftAmp>42.384101699424136</p8:LeftAmp>
+                      <p8:RightAmp>42.510893654013039</p8:RightAmp>
                       <p8:IsShortSound>false</p8:IsShortSound>
                       <p8:ShortDuration>0</p8:ShortDuration>
                     </Combinator>
@@ -13062,9 +13058,9 @@
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p8:ITI">
                       <p8:IntendedDuration>3</p8:IntendedDuration>
-                      <p8:StartTime>3857896865.4819841</p8:StartTime>
-                      <p8:EndTime>3857896868.5059838</p8:EndTime>
-                      <p8:TimedDuration>3.0239996910095215</p8:TimedDuration>
+                      <p8:StartTime>3859097998.512</p8:StartTime>
+                      <p8:EndTime>3859098001.52</p8:EndTime>
+                      <p8:TimedDuration>3.0079998970031738</p8:TimedDuration>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
@@ -13097,8 +13093,8 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p8:Cnp">
-                      <p8:StartTime>NaN</p8:StartTime>
-                      <p8:TimedValue>NaN</p8:TimedValue>
+                      <p8:StartTime>3859098016.2779841</p8:StartTime>
+                      <p8:TimedValue>14.757984161376953</p8:TimedValue>
                       <p8:MaxDuration>30</p8:MaxDuration>
                     </Combinator>
                   </Expression>
@@ -13159,11 +13155,11 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p8:FixationTime">
-                      <p8:BaseTime>0</p8:BaseTime>
-                      <p8:ExpMean>0</p8:ExpMean>
-                      <p8:IntendedDuration>558.79584801556894</p8:IntendedDuration>
-                      <p8:TimedDuration>467.80824661254883</p8:TimedDuration>
-                      <p8:TotalDuration>467.80893550825118</p8:TotalDuration>
+                      <p8:BaseTime>10</p8:BaseTime>
+                      <p8:ExpMean>400</p8:ExpMean>
+                      <p8:IntendedDuration>411.93317153835619</p8:IntendedDuration>
+                      <p8:TimedDuration>423.583984375</p8:TimedDuration>
+                      <p8:TotalDuration>423.58526411867143</p8:TotalDuration>
                       <p8:CatchTrial>false</p8:CatchTrial>
                     </Combinator>
                   </Expression>
@@ -13203,8 +13199,8 @@
                     <Combinator xsi:type="p8:ReactionTime">
                       <p8:BaseTime>0.01</p8:BaseTime>
                       <p8:MaxDuration>10</p8:MaxDuration>
-                      <p8:StartTime>NaN</p8:StartTime>
-                      <p8:TimedDuration>NaN</p8:TimedDuration>
+                      <p8:StartTime>3859098016.7015681</p8:StartTime>
+                      <p8:TimedDuration>1.2797436714172363</p8:TimedDuration>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
@@ -13238,8 +13234,8 @@
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p8:MovementTime">
                       <p8:MaxDuration>2</p8:MaxDuration>
-                      <p8:StartTime>NaN</p8:StartTime>
-                      <p8:TimedDuration>NaN</p8:TimedDuration>
+                      <p8:StartTime>3859098017.9813118</p8:StartTime>
+                      <p8:TimedDuration>0.27452802658081055</p8:TimedDuration>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
@@ -13306,11 +13302,11 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p8:Outcome">
-                      <p8:ResponsePoke>NaN</p8:ResponsePoke>
-                      <p8:Success>1</p8:Success>
+                      <p8:ResponsePoke>-1</p8:ResponsePoke>
+                      <p8:Success>-1</p8:Success>
                       <p8:AbortType>Empty</p8:AbortType>
-                      <p8:BlockPerformance>1</p8:BlockPerformance>
-                      <p8:BlockAbortRatio>0</p8:BlockAbortRatio>
+                      <p8:BlockPerformance>0</p8:BlockPerformance>
+                      <p8:BlockAbortRatio>0.5</p8:BlockAbortRatio>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="PropertyMapping">
@@ -13536,9 +13532,9 @@
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p8:Optogenetics">
                       <p8:OptoTrial>false</p8:OptoTrial>
-                      <p8:IntendedOptoOnsetTime>0</p8:IntendedOptoOnsetTime>
-                      <p8:TimedOptoOnsetTime>0</p8:TimedOptoOnsetTime>
-                      <p8:Duration>0</p8:Duration>
+                      <p8:IntendedOptoOnsetTime>NaN</p8:IntendedOptoOnsetTime>
+                      <p8:TimedOptoOnsetTime>151.96174233083519</p8:TimedOptoOnsetTime>
+                      <p8:Duration>NaN</p8:Duration>
                       <p8:Mode>None</p8:Mode>
                       <p8:RampMode>None</p8:RampMode>
                       <p8:RampTime>1</p8:RampTime>
@@ -13563,11 +13559,11 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p8:Output">
-                      <p8:AnimalId>ANIMAL0420</p8:AnimalId>
+                      <p8:AnimalId>ANIMAL0001</p8:AnimalId>
                       <p8:Batch>batch</p8:Batch>
                       <p8:Experimenter>JG</p8:Experimenter>
                       <p8:Version>0.10.0</p8:Version>
-                      <p8:Bias>0.04</p8:Bias>
+                      <p8:Bias>-0.04</p8:Bias>
                       <p8:RepeatedTrial>false</p8:RepeatedTrial>
                     </Combinator>
                   </Expression>
@@ -13621,8 +13617,8 @@
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p8:LnpTime">
                       <p8:IntendedDuration>0.01</p8:IntendedDuration>
-                      <p8:StartTime>3857896865.4702721</p8:StartTime>
-                      <p8:TimedDuration>0.18720006942749023</p8:TimedDuration>
+                      <p8:StartTime>3859097645.2024</p8:StartTime>
+                      <p8:TimedDuration>0.189727783203125</p8:TimedDuration>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
@@ -13658,11 +13654,11 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p8:Output">
-                      <p8:AnimalId>ANIMAL0420</p8:AnimalId>
+                      <p8:AnimalId>ANIMAL0001</p8:AnimalId>
                       <p8:Batch>batch</p8:Batch>
                       <p8:Experimenter>JG</p8:Experimenter>
                       <p8:Version>0.10.0</p8:Version>
-                      <p8:Bias>0.04</p8:Bias>
+                      <p8:Bias>-0.08</p8:Bias>
                       <p8:RepeatedTrial>false</p8:RepeatedTrial>
                     </Combinator>
                   </Expression>
@@ -13710,7 +13706,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p9:JsonWriter">
-                      <p9:Path>C:/Users/RenartLab/Desktop/CDC.SoundLateralizationTask/output/batch/ANIMAL0420/260401/unparsed_out/out_150035.json</p9:Path>
+                      <p9:Path>C:/Users/RenartLab/Desktop/CDC.SoundLateralizationTask/output/batch/ANIMAL0001/260415/unparsed_out/out_123922.json</p9:Path>
                       <p9:Suffix>None</p9:Suffix>
                       <p9:Overwrite>false</p9:Overwrite>
                     </Combinator>
@@ -13759,7 +13755,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p9:JsonWriter">
-                      <p9:Path>G:/.shortcut-targets-by-id/0ByIwavJ3nGrAbVVmNWo3OU5sM1k/RatBehaviorRoom/Rats/ILDtask/ASD_MV animals/batch/ANIMAL0420/260401/unparsed_out/out_150035.json</p9:Path>
+                      <p9:Path>G:\.shortcut-targets-by-id\0ByIwavJ3nGrAbVVmNWo3OU5sM1k\RatBehaviorRoom\Rats\ILDtask\ASD_MV animals/batch/ANIMAL0001/260415/unparsed_out/out_123922.json</p9:Path>
                       <p9:Suffix>None</p9:Suffix>
                       <p9:Overwrite>false</p9:Overwrite>
                     </Combinator>
@@ -14286,7 +14282,7 @@
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="io:StartProcess">
                       <io:FileName>"ffmpeg"</io:FileName>
-                      <io:Arguments>-y -f rawvideo -vcodec rawvideo -s 1440x1080 -pix_fmt gray -r 100 -i \\.\pipe\video -c:v h264_amf -quality 2 -preset 2 -rc cqp -qp_i 30 -qp_p 30 -qp_b 30 C:/Users/RenartLab/Desktop/CDC.SoundLateralizationTask/output/batch/ANIMAL0420/260401/ANIMAL0420_260401_150035.mp4</io:Arguments>
+                      <io:Arguments>-y -f rawvideo -vcodec rawvideo -s 1440x1080 -pix_fmt gray -r 100 -i \\.\pipe\video -c:v h264_amf -quality 2 -preset 2 -rc cqp -qp_i 40 -qp_p 40 -qp_b 40 C:/Users/RenartLab/Desktop/CDC.SoundLateralizationTask/output/batch/ANIMAL0001/260415/ANIMAL0001_260415_123922.mp4</io:Arguments>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
@@ -14413,7 +14409,7 @@
                     </PropertyMappings>
                   </Expression>
                   <Expression xsi:type="io:CsvWriter">
-                    <io:FileName>C:/Users/RenartLab/Desktop/CDC.SoundLateralizationTask/output/batch/ANIMAL0420/260401/cam_metadata_150035.csv</io:FileName>
+                    <io:FileName>C:/Users/RenartLab/Desktop/CDC.SoundLateralizationTask/output/batch/ANIMAL0001/260415/cam_metadata_123922.csv</io:FileName>
                     <io:Append>false</io:Append>
                     <io:Overwrite>false</io:Overwrite>
                     <io:Suffix>None</io:Suffix>
@@ -14571,7 +14567,7 @@
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="harp:MessageWriter">
-                            <harp:FileName>C:/Users/RenartLab/Desktop/CDC.SoundLateralizationTask/output/batch/ANIMAL0420/260401/events/150035/behavior/behavior.bin</harp:FileName>
+                            <harp:FileName>C:/Users/RenartLab/Desktop/CDC.SoundLateralizationTask/output/batch/ANIMAL0001/260415/events/123922/behavior/behavior.bin</harp:FileName>
                             <harp:Suffix>None</harp:Suffix>
                             <harp:Buffered>true</harp:Buffered>
                             <harp:Overwrite>false</harp:Overwrite>
@@ -14689,7 +14685,7 @@
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="io:WriteAllText">
-                            <io:Path>C:/Users/RenartLab/Desktop/CDC.SoundLateralizationTask/output/batch/ANIMAL0420/260401/events/150035/behavior/device.yml</io:Path>
+                            <io:Path>C:/Users/RenartLab/Desktop/CDC.SoundLateralizationTask/output/batch/ANIMAL0001/260415/events/123922/behavior/device.yml</io:Path>
                             <io:Overwrite>true</io:Overwrite>
                             <io:Append>false</io:Append>
                           </Combinator>
@@ -14852,7 +14848,7 @@
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="harp:MessageWriter">
-                            <harp:FileName>C:/Users/RenartLab/Desktop/CDC.SoundLateralizationTask/output/batch/ANIMAL0420/260401/events/150035/soundcard/soundcard.bin</harp:FileName>
+                            <harp:FileName>C:/Users/RenartLab/Desktop/CDC.SoundLateralizationTask/output/batch/ANIMAL0001/260415/events/123922/soundcard/soundcard.bin</harp:FileName>
                             <harp:Suffix>None</harp:Suffix>
                             <harp:Buffered>true</harp:Buffered>
                             <harp:Overwrite>false</harp:Overwrite>
@@ -14970,7 +14966,7 @@
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="io:WriteAllText">
-                            <io:Path>C:/Users/RenartLab/Desktop/CDC.SoundLateralizationTask/output/batch/ANIMAL0420/260401/events/150035/soundcard/device.yml</io:Path>
+                            <io:Path>C:/Users/RenartLab/Desktop/CDC.SoundLateralizationTask/output/batch/ANIMAL0001/260415/events/123922/soundcard/device.yml</io:Path>
                             <io:Overwrite>true</io:Overwrite>
                             <io:Append>false</io:Append>
                           </Combinator>
@@ -15133,7 +15129,7 @@
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="harp:MessageWriter">
-                            <harp:FileName>C:/Users/RenartLab/Desktop/CDC.SoundLateralizationTask/output/batch/ANIMAL0420/260401/events/150035/left_pump/left_pump.bin</harp:FileName>
+                            <harp:FileName>C:/Users/RenartLab/Desktop/CDC.SoundLateralizationTask/output/batch/ANIMAL0001/260415/events/123922/left_pump/left_pump.bin</harp:FileName>
                             <harp:Suffix>None</harp:Suffix>
                             <harp:Buffered>true</harp:Buffered>
                             <harp:Overwrite>false</harp:Overwrite>
@@ -15258,7 +15254,7 @@
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="io:WriteAllText">
-                            <io:Path>C:/Users/RenartLab/Desktop/CDC.SoundLateralizationTask/output/batch/ANIMAL0420/260401/events/150035/left_pump/device.yml</io:Path>
+                            <io:Path>C:/Users/RenartLab/Desktop/CDC.SoundLateralizationTask/output/batch/ANIMAL0001/260415/events/123922/left_pump/device.yml</io:Path>
                             <io:Overwrite>true</io:Overwrite>
                             <io:Append>false</io:Append>
                           </Combinator>
@@ -15434,7 +15430,7 @@
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="harp:MessageWriter">
-                            <harp:FileName>C:/Users/RenartLab/Desktop/CDC.SoundLateralizationTask/output/batch/ANIMAL0420/260401/events/150035/right_pump/right_pump.bin</harp:FileName>
+                            <harp:FileName>C:/Users/RenartLab/Desktop/CDC.SoundLateralizationTask/output/batch/ANIMAL0001/260415/events/123922/right_pump/right_pump.bin</harp:FileName>
                             <harp:Suffix>None</harp:Suffix>
                             <harp:Buffered>true</harp:Buffered>
                             <harp:Overwrite>false</harp:Overwrite>
@@ -15559,7 +15555,7 @@
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="io:WriteAllText">
-                            <io:Path>C:/Users/RenartLab/Desktop/CDC.SoundLateralizationTask/output/batch/ANIMAL0420/260401/events/150035/right_pump/device.yml</io:Path>
+                            <io:Path>C:/Users/RenartLab/Desktop/CDC.SoundLateralizationTask/output/batch/ANIMAL0001/260415/events/123922/right_pump/device.yml</io:Path>
                             <io:Overwrite>true</io:Overwrite>
                             <io:Append>false</io:Append>
                           </Combinator>
@@ -15735,7 +15731,7 @@
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="harp:MessageWriter">
-                            <harp:FileName>C:/Users/HSP/Documents/BonsaiWorkflows/CDC.SoundLateralizationTask/output/batch/ANIMAL0003/250917/events/111030/currentdriver/currentdriver.bin</harp:FileName>
+                            <harp:FileName>C:/Users/RenartLab/Desktop/CDC.SoundLateralizationTask/output/batch/ANIMAL0001/260415/events/123922/currentdriver/currentdriver.bin</harp:FileName>
                             <harp:Suffix>None</harp:Suffix>
                             <harp:Buffered>true</harp:Buffered>
                             <harp:Overwrite>false</harp:Overwrite>
@@ -15860,7 +15856,7 @@
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="io:WriteAllText">
-                            <io:Path>C:/Users/HSP/Documents/BonsaiWorkflows/CDC.SoundLateralizationTask/output/batch/ANIMAL0003/250917/events/111030/currentdriver/device.yml</io:Path>
+                            <io:Path>C:/Users/RenartLab/Desktop/CDC.SoundLateralizationTask/output/batch/ANIMAL0001/260415/events/123922/currentdriver/device.yml</io:Path>
                             <io:Overwrite>true</io:Overwrite>
                             <io:Append>false</io:Append>
                           </Combinator>
@@ -16028,7 +16024,7 @@
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="io:ReadAllText">
-                            <io:Path>G:/.shortcut-targets-by-id/0ByIwavJ3nGrAbVVmNWo3OU5sM1k/RatBehaviorRoom/Setup Configs/batch/ANIMAL0420.yml</io:Path>
+                            <io:Path>C:/Users/RenartLab/Desktop/SLT_config_0_10_0/batch/ANIMAL0001.yml</io:Path>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="SubscribeSubject">
@@ -16054,7 +16050,7 @@
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="io:WriteAllText">
-                            <io:Path>C:/Users/RenartLab/Desktop/CDC.SoundLateralizationTask/output/batch/ANIMAL0420/260401/config/animal_150035.yml</io:Path>
+                            <io:Path>C:/Users/RenartLab/Desktop/CDC.SoundLateralizationTask/output/batch/ANIMAL0001/260415/config/animal_123922.yml</io:Path>
                             <io:Overwrite>false</io:Overwrite>
                             <io:Append>false</io:Append>
                           </Combinator>
@@ -16103,7 +16099,7 @@
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="io:WriteAllText">
-                            <io:Path>G:/.shortcut-targets-by-id/0ByIwavJ3nGrAbVVmNWo3OU5sM1k/RatBehaviorRoom/Rats/ILDtask/ASD_MV animals/batch/ANIMAL0420/260401/config/animal_150035.yml</io:Path>
+                            <io:Path>G:\.shortcut-targets-by-id\0ByIwavJ3nGrAbVVmNWo3OU5sM1k\RatBehaviorRoom\Rats\ILDtask\ASD_MV animals/batch/ANIMAL0001/260415/config/animal_123922.yml</io:Path>
                             <io:Overwrite>false</io:Overwrite>
                             <io:Append>false</io:Append>
                           </Combinator>
@@ -16179,7 +16175,7 @@
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="io:WriteAllText">
-                            <io:Path>C:/Users/RenartLab/Desktop/CDC.SoundLateralizationTask/output/batch/ANIMAL0420/260401/config/setup_150035.json</io:Path>
+                            <io:Path>C:/Users/RenartLab/Desktop/CDC.SoundLateralizationTask/output/batch/ANIMAL0001/260415/config/setup_123922.json</io:Path>
                             <io:Overwrite>false</io:Overwrite>
                             <io:Append>false</io:Append>
                           </Combinator>
@@ -16228,7 +16224,7 @@
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="io:WriteAllText">
-                            <io:Path>G:/.shortcut-targets-by-id/0ByIwavJ3nGrAbVVmNWo3OU5sM1k/RatBehaviorRoom/Rats/ILDtask/ASD_MV animals/batch/ANIMAL0420/260401/config/setup_150035.json</io:Path>
+                            <io:Path>G:\.shortcut-targets-by-id\0ByIwavJ3nGrAbVVmNWo3OU5sM1k\RatBehaviorRoom\Rats\ILDtask\ASD_MV animals/batch/ANIMAL0001/260415/config/setup_123922.json</io:Path>
                             <io:Overwrite>false</io:Overwrite>
                             <io:Append>false</io:Append>
                           </Combinator>
@@ -16286,7 +16282,7 @@
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="io:ReadAllText">
-                            <io:Path>G:/.shortcut-targets-by-id/0ByIwavJ3nGrAbVVmNWo3OU5sM1k/RatBehaviorRoom/Setup Configs/training.csv</io:Path>
+                            <io:Path>C:/Users/RenartLab/Desktop/SLT_config_0_10_0/training.csv</io:Path>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="SubscribeSubject">
@@ -16312,7 +16308,7 @@
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="io:WriteAllText">
-                            <io:Path>C:/Users/RenartLab/Desktop/CDC.SoundLateralizationTask/output/batch/ANIMAL0420/260401/config/training_150035.csv</io:Path>
+                            <io:Path>C:/Users/RenartLab/Desktop/CDC.SoundLateralizationTask/output/batch/ANIMAL0001/260415/config/training_123922.csv</io:Path>
                             <io:Overwrite>false</io:Overwrite>
                             <io:Append>false</io:Append>
                           </Combinator>
@@ -16361,7 +16357,7 @@
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="io:WriteAllText">
-                            <io:Path>G:/.shortcut-targets-by-id/0ByIwavJ3nGrAbVVmNWo3OU5sM1k/RatBehaviorRoom/Rats/ILDtask/ASD_MV animals/batch/ANIMAL0420/260401/config/training_150035.csv</io:Path>
+                            <io:Path>G:\.shortcut-targets-by-id\0ByIwavJ3nGrAbVVmNWo3OU5sM1k\RatBehaviorRoom\Rats\ILDtask\ASD_MV animals/batch/ANIMAL0001/260415/config/training_123922.csv</io:Path>
                             <io:Overwrite>false</io:Overwrite>
                             <io:Append>false</io:Append>
                           </Combinator>
@@ -16494,7 +16490,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p2:GetOutputDir">
-                      <p2:OutputDirPath>G:/.shortcut-targets-by-id/0ByIwavJ3nGrAbVVmNWo3OU5sM1k/RatBehaviorRoom/Rats/ILDtask/ASD_MV animals</p2:OutputDirPath>
+                      <p2:OutputDirPath>G:\.shortcut-targets-by-id\0ByIwavJ3nGrAbVVmNWo3OU5sM1k\RatBehaviorRoom\Rats\ILDtask\ASD_MV animals</p2:OutputDirPath>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
@@ -16741,7 +16737,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="io:ReadAllText">
-                <io:Path>G:/.shortcut-targets-by-id/0ByIwavJ3nGrAbVVmNWo3OU5sM1k/RatBehaviorRoom/Setup Configs/batch/ANIMAL0420.yml</io:Path>
+                <io:Path>C:/Users/RenartLab/Desktop/SLT_config_0_10_0/batch/ANIMAL0001.yml</io:Path>
               </Combinator>
             </Expression>
             <Expression xsi:type="p6:DeserializeFromYaml">
@@ -19245,7 +19241,7 @@
             <Expression xsi:type="gui:LabelBuilder">
               <gui:Enabled>true</gui:Enabled>
               <gui:Visible>true</gui:Visible>
-              <gui:Text>Rat: ANIMAL0420</gui:Text>
+              <gui:Text>Rat: ANIMAL0001</gui:Text>
             </Expression>
             <Expression xsi:type="VisualizerMapping" />
             <Expression xsi:type="Combinator">
@@ -19271,7 +19267,7 @@
             <Expression xsi:type="gui:LabelBuilder">
               <gui:Enabled>true</gui:Enabled>
               <gui:Visible>true</gui:Visible>
-              <gui:Text>Trial: 4</gui:Text>
+              <gui:Text>Trial: 2</gui:Text>
             </Expression>
             <Expression xsi:type="VisualizerMapping" />
             <Expression xsi:type="Combinator">
@@ -19297,7 +19293,7 @@
             <Expression xsi:type="gui:LabelBuilder">
               <gui:Enabled>true</gui:Enabled>
               <gui:Visible>true</gui:Visible>
-              <gui:Text>Trials Completed: 3</gui:Text>
+              <gui:Text>Trials Completed: 1</gui:Text>
             </Expression>
             <Expression xsi:type="VisualizerMapping" />
             <Expression xsi:type="Combinator">
@@ -19354,7 +19350,7 @@
             <Expression xsi:type="gui:LabelBuilder">
               <gui:Enabled>true</gui:Enabled>
               <gui:Visible>true</gui:Visible>
-              <gui:Text>ILD: 8 dB</gui:Text>
+              <gui:Text>ILD: 2 dB</gui:Text>
             </Expression>
             <Expression xsi:type="VisualizerMapping" />
             <Expression xsi:type="Combinator">
@@ -19456,7 +19452,7 @@
             <Expression xsi:type="gui:LabelBuilder">
               <gui:Enabled>true</gui:Enabled>
               <gui:Visible>true</gui:Visible>
-              <gui:Text>Current Performance: 100.00 %</gui:Text>
+              <gui:Text>Current Performance: NaN %</gui:Text>
             </Expression>
             <Expression xsi:type="VisualizerMapping" />
             <Expression xsi:type="Combinator">
@@ -19501,7 +19497,7 @@
             <Expression xsi:type="gui:LabelBuilder">
               <gui:Enabled>true</gui:Enabled>
               <gui:Visible>true</gui:Visible>
-              <gui:Text>Current Abort Rate: 0.00 %</gui:Text>
+              <gui:Text>Current Abort Rate: 100.00 %</gui:Text>
             </Expression>
             <Expression xsi:type="VisualizerMapping" />
             <Expression xsi:type="Combinator">
@@ -19510,15 +19506,8 @@
               </Combinator>
             </Expression>
             <Expression xsi:type="SubscribeSubject">
-              <Name>IntendedOptoOnset</Name>
-            </Expression>
-            <Expression xsi:type="SubscribeSubject">
               <Name>IntendedSoundOnset</Name>
             </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="rx:CombineLatest" />
-            </Expression>
-            <Expression xsi:type="Add" />
             <Expression xsi:type="scr:ExpressionTransform">
               <scr:Expression>it.ToString("0.00")</scr:Expression>
             </Expression>
@@ -19539,7 +19528,7 @@
             <Expression xsi:type="gui:LabelBuilder">
               <gui:Enabled>true</gui:Enabled>
               <gui:Visible>true</gui:Visible>
-              <gui:Text>Current Fixation Time: 558.80 ms</gui:Text>
+              <gui:Text>Current Fixation Time: 411.93 ms</gui:Text>
             </Expression>
             <Expression xsi:type="VisualizerMapping" />
             <Expression xsi:type="Combinator">
@@ -19599,7 +19588,7 @@
             <Expression xsi:type="gui:LabelBuilder">
               <gui:Enabled>true</gui:Enabled>
               <gui:Visible>true</gui:Visible>
-              <gui:Text>Bias: 0.04</gui:Text>
+              <gui:Text>Bias: -0.04</gui:Text>
             </Expression>
             <Expression xsi:type="VisualizerMapping" />
             <Expression xsi:type="Combinator">
@@ -19628,7 +19617,7 @@
             <Expression xsi:type="gui:LabelBuilder">
               <gui:Enabled>true</gui:Enabled>
               <gui:Visible>true</gui:Visible>
-              <gui:Text>Setup: 4</gui:Text>
+              <gui:Text>Setup: 11</gui:Text>
             </Expression>
             <Expression xsi:type="VisualizerMapping" />
             <Expression xsi:type="Combinator">
@@ -19658,7 +19647,7 @@
             <Expression xsi:type="gui:LabelBuilder">
               <gui:Enabled>true</gui:Enabled>
               <gui:Visible>true</gui:Visible>
-              <gui:Text>Time Elapsed: 00:00:42</gui:Text>
+              <gui:Text>Time Elapsed: 00:01:06</gui:Text>
             </Expression>
             <Expression xsi:type="VisualizerMapping" />
             <Expression xsi:type="gui:TableLayoutPanelBuilder">
@@ -19749,7 +19738,7 @@
             <Expression xsi:type="gui:LabelBuilder">
               <gui:Enabled>true</gui:Enabled>
               <gui:Visible>true</gui:Visible>
-              <gui:Text>Optogenetics Trial: No</gui:Text>
+              <gui:Text>Protocol Duration: 0 ms</gui:Text>
             </Expression>
             <Expression xsi:type="VisualizerMapping" />
             <Expression xsi:type="Combinator">
@@ -19836,7 +19825,7 @@
             <Expression xsi:type="gui:LabelBuilder">
               <gui:Enabled>true</gui:Enabled>
               <gui:Visible>true</gui:Visible>
-              <gui:Text>Optogenetics Trial: No</gui:Text>
+              <gui:Text>Onset Moment: Mid-fixation</gui:Text>
             </Expression>
             <Expression xsi:type="VisualizerMapping" />
             <Expression xsi:type="Combinator">
@@ -19870,7 +19859,7 @@
             <Expression xsi:type="gui:LabelBuilder">
               <gui:Enabled>true</gui:Enabled>
               <gui:Visible>true</gui:Visible>
-              <gui:Text>Optogenetics Trial: No</gui:Text>
+              <gui:Text>Protocol Delay: 0 ms</gui:Text>
             </Expression>
             <Expression xsi:type="VisualizerMapping" />
             <Expression xsi:type="Combinator">
@@ -20015,7 +20004,7 @@
             <Expression xsi:type="gui:LabelBuilder">
               <gui:Enabled>true</gui:Enabled>
               <gui:Visible>true</gui:Visible>
-              <gui:Text>Optogenetics Trial: No</gui:Text>
+              <gui:Text>Ramp Mode: None</gui:Text>
             </Expression>
             <Expression xsi:type="VisualizerMapping" />
             <Expression xsi:type="Combinator">
@@ -20049,7 +20038,7 @@
             <Expression xsi:type="gui:LabelBuilder">
               <gui:Enabled>true</gui:Enabled>
               <gui:Visible>true</gui:Visible>
-              <gui:Text>Optogenetics Trial: No</gui:Text>
+              <gui:Text>Ramp Time: 1 ms</gui:Text>
             </Expression>
             <Expression xsi:type="VisualizerMapping" />
             <Expression xsi:type="Combinator">
@@ -20083,7 +20072,7 @@
             <Expression xsi:type="gui:LabelBuilder">
               <gui:Enabled>true</gui:Enabled>
               <gui:Visible>true</gui:Visible>
-              <gui:Text>Optogenetics Trial: No</gui:Text>
+              <gui:Text>LED0 Voltage: 0 mV</gui:Text>
             </Expression>
             <Expression xsi:type="VisualizerMapping" />
             <Expression xsi:type="Combinator">
@@ -20112,7 +20101,7 @@
             <Expression xsi:type="gui:LabelBuilder">
               <gui:Enabled>true</gui:Enabled>
               <gui:Visible>true</gui:Visible>
-              <gui:Text>Optogenetics Trial: No</gui:Text>
+              <gui:Text>LED0 pulses: False</gui:Text>
             </Expression>
             <Expression xsi:type="VisualizerMapping" />
             <Expression xsi:type="Combinator">
@@ -20146,7 +20135,7 @@
             <Expression xsi:type="gui:LabelBuilder">
               <gui:Enabled>true</gui:Enabled>
               <gui:Visible>true</gui:Visible>
-              <gui:Text>Optogenetics Trial: No</gui:Text>
+              <gui:Text>LED0 Pulse Frequency: 1 Hz</gui:Text>
             </Expression>
             <Expression xsi:type="VisualizerMapping" />
             <Expression xsi:type="Combinator">
@@ -20180,7 +20169,7 @@
             <Expression xsi:type="gui:LabelBuilder">
               <gui:Enabled>true</gui:Enabled>
               <gui:Visible>true</gui:Visible>
-              <gui:Text>Optogenetics Trial: No</gui:Text>
+              <gui:Text>LED0 Duty Cycle: 100%</gui:Text>
             </Expression>
             <Expression xsi:type="VisualizerMapping" />
             <Expression xsi:type="Combinator">
@@ -20214,7 +20203,7 @@
             <Expression xsi:type="gui:LabelBuilder">
               <gui:Enabled>true</gui:Enabled>
               <gui:Visible>true</gui:Visible>
-              <gui:Text>Optogenetics Trial: No</gui:Text>
+              <gui:Text>LED1 Voltage: 0 mV</gui:Text>
             </Expression>
             <Expression xsi:type="VisualizerMapping" />
             <Expression xsi:type="Combinator">
@@ -20243,7 +20232,7 @@
             <Expression xsi:type="gui:LabelBuilder">
               <gui:Enabled>true</gui:Enabled>
               <gui:Visible>true</gui:Visible>
-              <gui:Text>Optogenetics Trial: No</gui:Text>
+              <gui:Text>LED1 pulses: False</gui:Text>
             </Expression>
             <Expression xsi:type="VisualizerMapping" />
             <Expression xsi:type="Combinator">
@@ -20277,7 +20266,7 @@
             <Expression xsi:type="gui:LabelBuilder">
               <gui:Enabled>true</gui:Enabled>
               <gui:Visible>true</gui:Visible>
-              <gui:Text>Optogenetics Trial: No</gui:Text>
+              <gui:Text>LED1 Pulse Frequency: 1 Hz</gui:Text>
             </Expression>
             <Expression xsi:type="VisualizerMapping" />
             <Expression xsi:type="Combinator">
@@ -20311,7 +20300,7 @@
             <Expression xsi:type="gui:LabelBuilder">
               <gui:Enabled>true</gui:Enabled>
               <gui:Visible>true</gui:Visible>
-              <gui:Text>Optogenetics Trial: No</gui:Text>
+              <gui:Text>LED1 Duty Cycle: 100%</gui:Text>
             </Expression>
             <Expression xsi:type="VisualizerMapping" />
             <Expression xsi:type="gui:TableLayoutPanelBuilder">
@@ -20355,8 +20344,8 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="cv:CreatePoint2d">
-                <cv:X>8</cv:X>
-                <cv:Y>8</cv:Y>
+                <cv:X>2</cv:X>
+                <cv:Y>2</cv:Y>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -20502,8 +20491,8 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="cv:CreatePoint">
-                <cv:X>8</cv:X>
-                <cv:Y>2</cv:Y>
+                <cv:X>2</cv:X>
+                <cv:Y>1</cv:Y>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -21076,8 +21065,8 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="cv:CreatePoint2d">
-                <cv:X>8</cv:X>
-                <cv:Y>1</cv:Y>
+                <cv:X>2</cv:X>
+                <cv:Y>0</cv:Y>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -21126,8 +21115,8 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="cv:CreatePoint2d">
-                <cv:X>8</cv:X>
-                <cv:Y>1</cv:Y>
+                <cv:X>2</cv:X>
+                <cv:Y>0</cv:Y>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -21176,8 +21165,8 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="cv:CreatePoint2d">
-                <cv:X>8</cv:X>
-                <cv:Y>0</cv:Y>
+                <cv:X>2</cv:X>
+                <cv:Y>0.33333333333333331</cv:Y>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -21246,8 +21235,8 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="cv:CreatePoint2d">
-                <cv:X>8</cv:X>
-                <cv:Y>NaN</cv:Y>
+                <cv:X>2</cv:X>
+                <cv:Y>1.2797436714172363</cv:Y>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -21607,7 +21596,7 @@
             </Expression>
             <Expression xsi:type="gui:ButtonBuilder">
               <gui:Name>OptogeneticsButton</gui:Name>
-              <gui:Enabled>false</gui:Enabled>
+              <gui:Enabled>true</gui:Enabled>
               <gui:Visible>true</gui:Visible>
               <gui:Text>Activate Optogenetics Protocol</gui:Text>
             </Expression>
@@ -21722,7 +21711,7 @@
             <Edge From="6" To="7" Label="Source1" />
             <Edge From="7" To="8" Label="Source1" />
             <Edge From="8" To="9" Label="Source1" />
-            <Edge From="9" To="133" Label="Source1" />
+            <Edge From="9" To="130" Label="Source1" />
             <Edge From="10" To="13" Label="Source1" />
             <Edge From="11" To="12" Label="Source1" />
             <Edge From="12" To="13" Label="Source2" />
@@ -21730,7 +21719,7 @@
             <Edge From="14" To="15" Label="Source1" />
             <Edge From="15" To="16" Label="Source1" />
             <Edge From="16" To="17" Label="Source1" />
-            <Edge From="17" To="133" Label="Source2" />
+            <Edge From="17" To="130" Label="Source2" />
             <Edge From="18" To="21" Label="Source1" />
             <Edge From="19" To="20" Label="Source1" />
             <Edge From="20" To="21" Label="Source2" />
@@ -21738,7 +21727,7 @@
             <Edge From="22" To="23" Label="Source1" />
             <Edge From="23" To="24" Label="Source1" />
             <Edge From="24" To="25" Label="Source1" />
-            <Edge From="25" To="133" Label="Source3" />
+            <Edge From="25" To="130" Label="Source3" />
             <Edge From="26" To="29" Label="Source1" />
             <Edge From="27" To="28" Label="Source1" />
             <Edge From="28" To="29" Label="Source2" />
@@ -21746,7 +21735,7 @@
             <Edge From="30" To="31" Label="Source1" />
             <Edge From="31" To="32" Label="Source1" />
             <Edge From="32" To="33" Label="Source1" />
-            <Edge From="33" To="133" Label="Source4" />
+            <Edge From="33" To="130" Label="Source4" />
             <Edge From="34" To="38" Label="Source1" />
             <Edge From="35" To="36" Label="Source1" />
             <Edge From="36" To="38" Label="Source2" />
@@ -21755,7 +21744,7 @@
             <Edge From="39" To="40" Label="Source1" />
             <Edge From="40" To="41" Label="Source1" />
             <Edge From="41" To="42" Label="Source1" />
-            <Edge From="42" To="133" Label="Source5" />
+            <Edge From="42" To="130" Label="Source5" />
             <Edge From="43" To="47" Label="Source1" />
             <Edge From="44" To="45" Label="Source1" />
             <Edge From="45" To="47" Label="Source2" />
@@ -21764,7 +21753,7 @@
             <Edge From="48" To="49" Label="Source1" />
             <Edge From="49" To="50" Label="Source1" />
             <Edge From="50" To="51" Label="Source1" />
-            <Edge From="51" To="133" Label="Source6" />
+            <Edge From="51" To="130" Label="Source6" />
             <Edge From="52" To="55" Label="Source1" />
             <Edge From="53" To="54" Label="Source1" />
             <Edge From="54" To="55" Label="Source2" />
@@ -21772,7 +21761,7 @@
             <Edge From="56" To="57" Label="Source1" />
             <Edge From="57" To="58" Label="Source1" />
             <Edge From="58" To="59" Label="Source1" />
-            <Edge From="59" To="133" Label="Source7" />
+            <Edge From="59" To="130" Label="Source7" />
             <Edge From="60" To="68" Label="Source1" />
             <Edge From="61" To="65" Label="Source1" />
             <Edge From="62" To="63" Label="Source1" />
@@ -21785,7 +21774,7 @@
             <Edge From="69" To="70" Label="Source1" />
             <Edge From="70" To="71" Label="Source1" />
             <Edge From="71" To="72" Label="Source1" />
-            <Edge From="72" To="133" Label="Source8" />
+            <Edge From="72" To="130" Label="Source8" />
             <Edge From="73" To="81" Label="Source1" />
             <Edge From="74" To="78" Label="Source1" />
             <Edge From="75" To="76" Label="Source1" />
@@ -21798,401 +21787,398 @@
             <Edge From="82" To="83" Label="Source1" />
             <Edge From="83" To="84" Label="Source1" />
             <Edge From="84" To="85" Label="Source1" />
-            <Edge From="85" To="133" Label="Source9" />
-            <Edge From="86" To="93" Label="Source1" />
-            <Edge From="87" To="89" Label="Source1" />
-            <Edge From="88" To="89" Label="Source2" />
-            <Edge From="89" To="90" Label="Source1" />
+            <Edge From="85" To="130" Label="Source9" />
+            <Edge From="86" To="90" Label="Source1" />
+            <Edge From="87" To="88" Label="Source1" />
+            <Edge From="88" To="90" Label="Source2" />
+            <Edge From="89" To="90" Label="Source3" />
             <Edge From="90" To="91" Label="Source1" />
-            <Edge From="91" To="93" Label="Source2" />
-            <Edge From="92" To="93" Label="Source3" />
+            <Edge From="91" To="92" Label="Source1" />
+            <Edge From="92" To="93" Label="Source1" />
             <Edge From="93" To="94" Label="Source1" />
-            <Edge From="94" To="95" Label="Source1" />
-            <Edge From="95" To="96" Label="Source1" />
+            <Edge From="94" To="130" Label="Source10" />
+            <Edge From="95" To="100" Label="Source1" />
             <Edge From="96" To="97" Label="Source1" />
-            <Edge From="97" To="133" Label="Source10" />
-            <Edge From="98" To="103" Label="Source1" />
-            <Edge From="99" To="100" Label="Source1" />
+            <Edge From="97" To="98" Label="Source1" />
+            <Edge From="98" To="100" Label="Source2" />
+            <Edge From="99" To="100" Label="Source3" />
             <Edge From="100" To="101" Label="Source1" />
-            <Edge From="101" To="103" Label="Source2" />
-            <Edge From="102" To="103" Label="Source3" />
+            <Edge From="101" To="102" Label="Source1" />
+            <Edge From="102" To="103" Label="Source1" />
             <Edge From="103" To="104" Label="Source1" />
-            <Edge From="104" To="105" Label="Source1" />
-            <Edge From="105" To="106" Label="Source1" />
+            <Edge From="104" To="130" Label="Source11" />
+            <Edge From="105" To="108" Label="Source1" />
             <Edge From="106" To="107" Label="Source1" />
-            <Edge From="107" To="133" Label="Source11" />
-            <Edge From="108" To="111" Label="Source1" />
+            <Edge From="107" To="108" Label="Source2" />
+            <Edge From="108" To="109" Label="Source1" />
             <Edge From="109" To="110" Label="Source1" />
-            <Edge From="110" To="111" Label="Source2" />
+            <Edge From="110" To="111" Label="Source1" />
             <Edge From="111" To="112" Label="Source1" />
-            <Edge From="112" To="113" Label="Source1" />
-            <Edge From="113" To="114" Label="Source1" />
+            <Edge From="112" To="130" Label="Source12" />
+            <Edge From="113" To="117" Label="Source1" />
             <Edge From="114" To="115" Label="Source1" />
-            <Edge From="115" To="133" Label="Source12" />
-            <Edge From="116" To="120" Label="Source1" />
+            <Edge From="115" To="116" Label="Source1" />
+            <Edge From="116" To="117" Label="Source2" />
             <Edge From="117" To="118" Label="Source1" />
             <Edge From="118" To="119" Label="Source1" />
-            <Edge From="119" To="120" Label="Source2" />
+            <Edge From="119" To="120" Label="Source1" />
             <Edge From="120" To="121" Label="Source1" />
-            <Edge From="121" To="122" Label="Source1" />
-            <Edge From="122" To="123" Label="Source1" />
+            <Edge From="121" To="130" Label="Source13" />
+            <Edge From="122" To="125" Label="Source1" />
             <Edge From="123" To="124" Label="Source1" />
-            <Edge From="124" To="133" Label="Source13" />
-            <Edge From="125" To="128" Label="Source1" />
+            <Edge From="124" To="125" Label="Source2" />
+            <Edge From="125" To="126" Label="Source1" />
             <Edge From="126" To="127" Label="Source1" />
-            <Edge From="127" To="128" Label="Source2" />
+            <Edge From="127" To="128" Label="Source1" />
             <Edge From="128" To="129" Label="Source1" />
-            <Edge From="129" To="130" Label="Source1" />
+            <Edge From="129" To="130" Label="Source14" />
             <Edge From="130" To="131" Label="Source1" />
-            <Edge From="131" To="132" Label="Source1" />
-            <Edge From="132" To="133" Label="Source14" />
+            <Edge From="131" To="285" Label="Source1" />
+            <Edge From="132" To="139" Label="Source1" />
             <Edge From="133" To="134" Label="Source1" />
-            <Edge From="134" To="288" Label="Source1" />
-            <Edge From="135" To="142" Label="Source1" />
+            <Edge From="133" To="136" Label="Source1" />
+            <Edge From="134" To="135" Label="Source1" />
+            <Edge From="135" To="138" Label="Source1" />
             <Edge From="136" To="137" Label="Source1" />
-            <Edge From="136" To="139" Label="Source1" />
-            <Edge From="137" To="138" Label="Source1" />
-            <Edge From="138" To="141" Label="Source1" />
+            <Edge From="137" To="138" Label="Source2" />
+            <Edge From="138" To="139" Label="Source2" />
             <Edge From="139" To="140" Label="Source1" />
-            <Edge From="140" To="141" Label="Source2" />
-            <Edge From="141" To="142" Label="Source2" />
+            <Edge From="140" To="141" Label="Source1" />
+            <Edge From="141" To="142" Label="Source1" />
             <Edge From="142" To="143" Label="Source1" />
-            <Edge From="143" To="144" Label="Source1" />
-            <Edge From="144" To="145" Label="Source1" />
+            <Edge From="143" To="283" Label="Source1" />
+            <Edge From="144" To="150" Label="Source1" />
             <Edge From="145" To="146" Label="Source1" />
-            <Edge From="146" To="286" Label="Source1" />
-            <Edge From="147" To="153" Label="Source1" />
-            <Edge From="148" To="149" Label="Source1" />
-            <Edge From="149" To="150" Label="Source1" />
+            <Edge From="146" To="147" Label="Source1" />
+            <Edge From="147" To="148" Label="Source1" />
+            <Edge From="148" To="150" Label="Source2" />
+            <Edge From="149" To="150" Label="Source3" />
             <Edge From="150" To="151" Label="Source1" />
-            <Edge From="151" To="153" Label="Source2" />
-            <Edge From="152" To="153" Label="Source3" />
+            <Edge From="151" To="152" Label="Source1" />
+            <Edge From="152" To="153" Label="Source1" />
             <Edge From="153" To="154" Label="Source1" />
-            <Edge From="154" To="155" Label="Source1" />
-            <Edge From="155" To="156" Label="Source1" />
+            <Edge From="154" To="283" Label="Source2" />
+            <Edge From="155" To="163" Label="Source1" />
             <Edge From="156" To="157" Label="Source1" />
-            <Edge From="157" To="286" Label="Source2" />
-            <Edge From="158" To="166" Label="Source1" />
-            <Edge From="159" To="160" Label="Source1" />
+            <Edge From="157" To="158" Label="Source1" />
+            <Edge From="157" To="160" Label="Source1" />
+            <Edge From="158" To="159" Label="Source1" />
+            <Edge From="159" To="162" Label="Source1" />
             <Edge From="160" To="161" Label="Source1" />
-            <Edge From="160" To="163" Label="Source1" />
-            <Edge From="161" To="162" Label="Source1" />
-            <Edge From="162" To="165" Label="Source1" />
+            <Edge From="161" To="162" Label="Source2" />
+            <Edge From="162" To="163" Label="Source2" />
             <Edge From="163" To="164" Label="Source1" />
-            <Edge From="164" To="165" Label="Source2" />
-            <Edge From="165" To="166" Label="Source2" />
+            <Edge From="164" To="165" Label="Source1" />
+            <Edge From="165" To="166" Label="Source1" />
             <Edge From="166" To="167" Label="Source1" />
-            <Edge From="167" To="168" Label="Source1" />
-            <Edge From="168" To="169" Label="Source1" />
+            <Edge From="167" To="283" Label="Source3" />
+            <Edge From="168" To="173" Label="Source1" />
             <Edge From="169" To="170" Label="Source1" />
-            <Edge From="170" To="286" Label="Source3" />
-            <Edge From="171" To="176" Label="Source1" />
-            <Edge From="172" To="173" Label="Source1" />
+            <Edge From="170" To="171" Label="Source1" />
+            <Edge From="171" To="173" Label="Source2" />
+            <Edge From="172" To="173" Label="Source3" />
             <Edge From="173" To="174" Label="Source1" />
-            <Edge From="174" To="176" Label="Source2" />
-            <Edge From="175" To="176" Label="Source3" />
+            <Edge From="174" To="175" Label="Source1" />
+            <Edge From="175" To="176" Label="Source1" />
             <Edge From="176" To="177" Label="Source1" />
-            <Edge From="177" To="178" Label="Source1" />
-            <Edge From="178" To="179" Label="Source1" />
+            <Edge From="177" To="283" Label="Source4" />
+            <Edge From="178" To="190" Label="Source1" />
             <Edge From="179" To="180" Label="Source1" />
-            <Edge From="180" To="286" Label="Source4" />
-            <Edge From="181" To="193" Label="Source1" />
-            <Edge From="182" To="183" Label="Source1" />
+            <Edge From="180" To="181" Label="Source1" />
+            <Edge From="180" To="183" Label="Source1" />
+            <Edge From="180" To="185" Label="Source1" />
+            <Edge From="180" To="187" Label="Source1" />
+            <Edge From="181" To="182" Label="Source1" />
+            <Edge From="182" To="189" Label="Source1" />
             <Edge From="183" To="184" Label="Source1" />
-            <Edge From="183" To="186" Label="Source1" />
-            <Edge From="183" To="188" Label="Source1" />
-            <Edge From="183" To="190" Label="Source1" />
-            <Edge From="184" To="185" Label="Source1" />
-            <Edge From="185" To="192" Label="Source1" />
-            <Edge From="186" To="187" Label="Source1" />
-            <Edge From="187" To="192" Label="Source2" />
-            <Edge From="188" To="189" Label="Source1" />
-            <Edge From="189" To="192" Label="Source3" />
+            <Edge From="184" To="189" Label="Source2" />
+            <Edge From="185" To="186" Label="Source1" />
+            <Edge From="186" To="189" Label="Source3" />
+            <Edge From="187" To="188" Label="Source1" />
+            <Edge From="188" To="189" Label="Source4" />
+            <Edge From="189" To="190" Label="Source2" />
             <Edge From="190" To="191" Label="Source1" />
-            <Edge From="191" To="192" Label="Source4" />
-            <Edge From="192" To="193" Label="Source2" />
+            <Edge From="191" To="192" Label="Source1" />
+            <Edge From="192" To="193" Label="Source1" />
             <Edge From="193" To="194" Label="Source1" />
-            <Edge From="194" To="195" Label="Source1" />
-            <Edge From="195" To="196" Label="Source1" />
+            <Edge From="194" To="283" Label="Source5" />
+            <Edge From="195" To="200" Label="Source1" />
             <Edge From="196" To="197" Label="Source1" />
-            <Edge From="197" To="286" Label="Source5" />
-            <Edge From="198" To="203" Label="Source1" />
-            <Edge From="199" To="200" Label="Source1" />
+            <Edge From="197" To="198" Label="Source1" />
+            <Edge From="198" To="200" Label="Source2" />
+            <Edge From="199" To="200" Label="Source3" />
             <Edge From="200" To="201" Label="Source1" />
-            <Edge From="201" To="203" Label="Source2" />
-            <Edge From="202" To="203" Label="Source3" />
+            <Edge From="201" To="202" Label="Source1" />
+            <Edge From="202" To="203" Label="Source1" />
             <Edge From="203" To="204" Label="Source1" />
-            <Edge From="204" To="205" Label="Source1" />
-            <Edge From="205" To="206" Label="Source1" />
+            <Edge From="204" To="283" Label="Source6" />
+            <Edge From="205" To="210" Label="Source1" />
             <Edge From="206" To="207" Label="Source1" />
-            <Edge From="207" To="286" Label="Source6" />
-            <Edge From="208" To="213" Label="Source1" />
-            <Edge From="209" To="210" Label="Source1" />
+            <Edge From="207" To="208" Label="Source1" />
+            <Edge From="208" To="210" Label="Source2" />
+            <Edge From="209" To="210" Label="Source3" />
             <Edge From="210" To="211" Label="Source1" />
-            <Edge From="211" To="213" Label="Source2" />
-            <Edge From="212" To="213" Label="Source3" />
+            <Edge From="211" To="212" Label="Source1" />
+            <Edge From="212" To="213" Label="Source1" />
             <Edge From="213" To="214" Label="Source1" />
-            <Edge From="214" To="215" Label="Source1" />
-            <Edge From="215" To="216" Label="Source1" />
+            <Edge From="214" To="283" Label="Source7" />
+            <Edge From="215" To="219" Label="Source1" />
             <Edge From="216" To="217" Label="Source1" />
-            <Edge From="217" To="286" Label="Source7" />
-            <Edge From="218" To="222" Label="Source1" />
+            <Edge From="217" To="218" Label="Source1" />
+            <Edge From="218" To="219" Label="Source2" />
             <Edge From="219" To="220" Label="Source1" />
             <Edge From="220" To="221" Label="Source1" />
-            <Edge From="221" To="222" Label="Source2" />
+            <Edge From="221" To="222" Label="Source1" />
             <Edge From="222" To="223" Label="Source1" />
-            <Edge From="223" To="224" Label="Source1" />
-            <Edge From="224" To="225" Label="Source1" />
+            <Edge From="223" To="283" Label="Source8" />
+            <Edge From="224" To="229" Label="Source1" />
             <Edge From="225" To="226" Label="Source1" />
-            <Edge From="226" To="286" Label="Source8" />
-            <Edge From="227" To="232" Label="Source1" />
-            <Edge From="228" To="229" Label="Source1" />
+            <Edge From="226" To="227" Label="Source1" />
+            <Edge From="227" To="229" Label="Source2" />
+            <Edge From="228" To="229" Label="Source3" />
             <Edge From="229" To="230" Label="Source1" />
-            <Edge From="230" To="232" Label="Source2" />
-            <Edge From="231" To="232" Label="Source3" />
+            <Edge From="230" To="231" Label="Source1" />
+            <Edge From="231" To="232" Label="Source1" />
             <Edge From="232" To="233" Label="Source1" />
-            <Edge From="233" To="234" Label="Source1" />
-            <Edge From="234" To="235" Label="Source1" />
+            <Edge From="233" To="283" Label="Source9" />
+            <Edge From="234" To="239" Label="Source1" />
             <Edge From="235" To="236" Label="Source1" />
-            <Edge From="236" To="286" Label="Source9" />
-            <Edge From="237" To="242" Label="Source1" />
-            <Edge From="238" To="239" Label="Source1" />
+            <Edge From="236" To="237" Label="Source1" />
+            <Edge From="237" To="239" Label="Source2" />
+            <Edge From="238" To="239" Label="Source3" />
             <Edge From="239" To="240" Label="Source1" />
-            <Edge From="240" To="242" Label="Source2" />
-            <Edge From="241" To="242" Label="Source3" />
+            <Edge From="240" To="241" Label="Source1" />
+            <Edge From="241" To="242" Label="Source1" />
             <Edge From="242" To="243" Label="Source1" />
-            <Edge From="243" To="244" Label="Source1" />
-            <Edge From="244" To="245" Label="Source1" />
+            <Edge From="243" To="283" Label="Source10" />
+            <Edge From="244" To="249" Label="Source1" />
             <Edge From="245" To="246" Label="Source1" />
-            <Edge From="246" To="286" Label="Source10" />
-            <Edge From="247" To="252" Label="Source1" />
-            <Edge From="248" To="249" Label="Source1" />
+            <Edge From="246" To="247" Label="Source1" />
+            <Edge From="247" To="249" Label="Source2" />
+            <Edge From="248" To="249" Label="Source3" />
             <Edge From="249" To="250" Label="Source1" />
-            <Edge From="250" To="252" Label="Source2" />
-            <Edge From="251" To="252" Label="Source3" />
+            <Edge From="250" To="251" Label="Source1" />
+            <Edge From="251" To="252" Label="Source1" />
             <Edge From="252" To="253" Label="Source1" />
-            <Edge From="253" To="254" Label="Source1" />
-            <Edge From="254" To="255" Label="Source1" />
+            <Edge From="253" To="283" Label="Source11" />
+            <Edge From="254" To="258" Label="Source1" />
             <Edge From="255" To="256" Label="Source1" />
-            <Edge From="256" To="286" Label="Source11" />
-            <Edge From="257" To="261" Label="Source1" />
+            <Edge From="256" To="257" Label="Source1" />
+            <Edge From="257" To="258" Label="Source2" />
             <Edge From="258" To="259" Label="Source1" />
             <Edge From="259" To="260" Label="Source1" />
-            <Edge From="260" To="261" Label="Source2" />
+            <Edge From="260" To="261" Label="Source1" />
             <Edge From="261" To="262" Label="Source1" />
-            <Edge From="262" To="263" Label="Source1" />
-            <Edge From="263" To="264" Label="Source1" />
+            <Edge From="262" To="283" Label="Source12" />
+            <Edge From="263" To="268" Label="Source1" />
             <Edge From="264" To="265" Label="Source1" />
-            <Edge From="265" To="286" Label="Source12" />
-            <Edge From="266" To="271" Label="Source1" />
-            <Edge From="267" To="268" Label="Source1" />
+            <Edge From="265" To="266" Label="Source1" />
+            <Edge From="266" To="268" Label="Source2" />
+            <Edge From="267" To="268" Label="Source3" />
             <Edge From="268" To="269" Label="Source1" />
-            <Edge From="269" To="271" Label="Source2" />
-            <Edge From="270" To="271" Label="Source3" />
+            <Edge From="269" To="270" Label="Source1" />
+            <Edge From="270" To="271" Label="Source1" />
             <Edge From="271" To="272" Label="Source1" />
-            <Edge From="272" To="273" Label="Source1" />
-            <Edge From="273" To="274" Label="Source1" />
+            <Edge From="272" To="283" Label="Source13" />
+            <Edge From="273" To="278" Label="Source1" />
             <Edge From="274" To="275" Label="Source1" />
-            <Edge From="275" To="286" Label="Source13" />
-            <Edge From="276" To="281" Label="Source1" />
-            <Edge From="277" To="278" Label="Source1" />
+            <Edge From="275" To="276" Label="Source1" />
+            <Edge From="276" To="278" Label="Source2" />
+            <Edge From="277" To="278" Label="Source3" />
             <Edge From="278" To="279" Label="Source1" />
-            <Edge From="279" To="281" Label="Source2" />
-            <Edge From="280" To="281" Label="Source3" />
+            <Edge From="279" To="280" Label="Source1" />
+            <Edge From="280" To="281" Label="Source1" />
             <Edge From="281" To="282" Label="Source1" />
-            <Edge From="282" To="283" Label="Source1" />
+            <Edge From="282" To="283" Label="Source14" />
             <Edge From="283" To="284" Label="Source1" />
-            <Edge From="284" To="285" Label="Source1" />
-            <Edge From="285" To="286" Label="Source14" />
-            <Edge From="286" To="287" Label="Source1" />
-            <Edge From="287" To="288" Label="Source2" />
-            <Edge From="288" To="289" Label="Source1" />
-            <Edge From="289" To="417" Label="Source1" />
-            <Edge From="290" To="296" Label="Source1" />
-            <Edge From="291" To="293" Label="Source1" />
+            <Edge From="284" To="285" Label="Source2" />
+            <Edge From="285" To="286" Label="Source1" />
+            <Edge From="286" To="414" Label="Source1" />
+            <Edge From="287" To="293" Label="Source1" />
+            <Edge From="288" To="290" Label="Source1" />
+            <Edge From="289" To="290" Label="Source2" />
+            <Edge From="290" To="291" Label="Source1" />
+            <Edge From="291" To="292" Label="Source1" />
             <Edge From="292" To="293" Label="Source2" />
             <Edge From="293" To="294" Label="Source1" />
             <Edge From="294" To="295" Label="Source1" />
-            <Edge From="295" To="296" Label="Source2" />
+            <Edge From="294" To="298" Label="Source1" />
+            <Edge From="294" To="301" Label="Source1" />
+            <Edge From="295" To="296" Label="Source1" />
             <Edge From="296" To="297" Label="Source1" />
-            <Edge From="297" To="298" Label="Source1" />
-            <Edge From="297" To="301" Label="Source1" />
             <Edge From="297" To="304" Label="Source1" />
             <Edge From="298" To="299" Label="Source1" />
             <Edge From="299" To="300" Label="Source1" />
-            <Edge From="300" To="307" Label="Source1" />
+            <Edge From="300" To="304" Label="Source2" />
             <Edge From="301" To="302" Label="Source1" />
             <Edge From="302" To="303" Label="Source1" />
-            <Edge From="303" To="307" Label="Source2" />
+            <Edge From="303" To="304" Label="Source3" />
             <Edge From="304" To="305" Label="Source1" />
-            <Edge From="305" To="306" Label="Source1" />
-            <Edge From="306" To="307" Label="Source3" />
-            <Edge From="307" To="308" Label="Source1" />
-            <Edge From="308" To="417" Label="Source2" />
-            <Edge From="309" To="315" Label="Source1" />
-            <Edge From="310" To="312" Label="Source1" />
+            <Edge From="305" To="414" Label="Source2" />
+            <Edge From="306" To="312" Label="Source1" />
+            <Edge From="307" To="309" Label="Source1" />
+            <Edge From="308" To="309" Label="Source2" />
+            <Edge From="309" To="310" Label="Source1" />
+            <Edge From="310" To="311" Label="Source1" />
             <Edge From="311" To="312" Label="Source2" />
             <Edge From="312" To="313" Label="Source1" />
             <Edge From="313" To="314" Label="Source1" />
-            <Edge From="314" To="315" Label="Source2" />
+            <Edge From="313" To="317" Label="Source1" />
+            <Edge From="313" To="320" Label="Source1" />
+            <Edge From="313" To="323" Label="Source1" />
+            <Edge From="313" To="326" Label="Source1" />
+            <Edge From="313" To="329" Label="Source1" />
+            <Edge From="313" To="332" Label="Source1" />
+            <Edge From="313" To="335" Label="Source1" />
+            <Edge From="313" To="338" Label="Source1" />
+            <Edge From="313" To="341" Label="Source1" />
+            <Edge From="313" To="344" Label="Source1" />
+            <Edge From="313" To="347" Label="Source1" />
+            <Edge From="314" To="315" Label="Source1" />
             <Edge From="315" To="316" Label="Source1" />
-            <Edge From="316" To="317" Label="Source1" />
-            <Edge From="316" To="320" Label="Source1" />
-            <Edge From="316" To="323" Label="Source1" />
-            <Edge From="316" To="326" Label="Source1" />
-            <Edge From="316" To="329" Label="Source1" />
-            <Edge From="316" To="332" Label="Source1" />
-            <Edge From="316" To="335" Label="Source1" />
-            <Edge From="316" To="338" Label="Source1" />
-            <Edge From="316" To="341" Label="Source1" />
-            <Edge From="316" To="344" Label="Source1" />
-            <Edge From="316" To="347" Label="Source1" />
             <Edge From="316" To="350" Label="Source1" />
             <Edge From="317" To="318" Label="Source1" />
             <Edge From="318" To="319" Label="Source1" />
-            <Edge From="319" To="353" Label="Source1" />
+            <Edge From="319" To="350" Label="Source2" />
             <Edge From="320" To="321" Label="Source1" />
             <Edge From="321" To="322" Label="Source1" />
-            <Edge From="322" To="353" Label="Source2" />
+            <Edge From="322" To="350" Label="Source3" />
             <Edge From="323" To="324" Label="Source1" />
             <Edge From="324" To="325" Label="Source1" />
-            <Edge From="325" To="353" Label="Source3" />
+            <Edge From="325" To="350" Label="Source4" />
             <Edge From="326" To="327" Label="Source1" />
             <Edge From="327" To="328" Label="Source1" />
-            <Edge From="328" To="353" Label="Source4" />
+            <Edge From="328" To="350" Label="Source5" />
             <Edge From="329" To="330" Label="Source1" />
             <Edge From="330" To="331" Label="Source1" />
-            <Edge From="331" To="353" Label="Source5" />
+            <Edge From="331" To="350" Label="Source6" />
             <Edge From="332" To="333" Label="Source1" />
             <Edge From="333" To="334" Label="Source1" />
-            <Edge From="334" To="353" Label="Source6" />
+            <Edge From="334" To="350" Label="Source7" />
             <Edge From="335" To="336" Label="Source1" />
             <Edge From="336" To="337" Label="Source1" />
-            <Edge From="337" To="353" Label="Source7" />
+            <Edge From="337" To="350" Label="Source8" />
             <Edge From="338" To="339" Label="Source1" />
             <Edge From="339" To="340" Label="Source1" />
-            <Edge From="340" To="353" Label="Source8" />
+            <Edge From="340" To="350" Label="Source9" />
             <Edge From="341" To="342" Label="Source1" />
             <Edge From="342" To="343" Label="Source1" />
-            <Edge From="343" To="353" Label="Source9" />
+            <Edge From="343" To="350" Label="Source10" />
             <Edge From="344" To="345" Label="Source1" />
             <Edge From="345" To="346" Label="Source1" />
-            <Edge From="346" To="353" Label="Source10" />
+            <Edge From="346" To="350" Label="Source11" />
             <Edge From="347" To="348" Label="Source1" />
             <Edge From="348" To="349" Label="Source1" />
-            <Edge From="349" To="353" Label="Source11" />
+            <Edge From="349" To="350" Label="Source12" />
             <Edge From="350" To="351" Label="Source1" />
-            <Edge From="351" To="352" Label="Source1" />
-            <Edge From="352" To="353" Label="Source12" />
-            <Edge From="353" To="354" Label="Source1" />
-            <Edge From="354" To="417" Label="Source3" />
-            <Edge From="355" To="361" Label="Source1" />
-            <Edge From="356" To="358" Label="Source1" />
+            <Edge From="351" To="414" Label="Source3" />
+            <Edge From="352" To="358" Label="Source1" />
+            <Edge From="353" To="355" Label="Source1" />
+            <Edge From="354" To="355" Label="Source2" />
+            <Edge From="355" To="356" Label="Source1" />
+            <Edge From="356" To="357" Label="Source1" />
             <Edge From="357" To="358" Label="Source2" />
             <Edge From="358" To="359" Label="Source1" />
             <Edge From="359" To="360" Label="Source1" />
-            <Edge From="360" To="361" Label="Source2" />
-            <Edge From="361" To="362" Label="Source1" />
-            <Edge From="362" To="363" Label="Source1" />
-            <Edge From="363" To="364" Label="Source1" />
-            <Edge From="364" To="387" Label="Source1" />
-            <Edge From="365" To="372" Label="Source1" />
-            <Edge From="366" To="369" Label="Source1" />
+            <Edge From="360" To="361" Label="Source1" />
+            <Edge From="361" To="384" Label="Source1" />
+            <Edge From="362" To="369" Label="Source1" />
+            <Edge From="363" To="366" Label="Source1" />
+            <Edge From="364" To="365" Label="Source1" />
+            <Edge From="365" To="366" Label="Source2" />
+            <Edge From="366" To="367" Label="Source1" />
             <Edge From="367" To="368" Label="Source1" />
             <Edge From="368" To="369" Label="Source2" />
             <Edge From="369" To="370" Label="Source1" />
             <Edge From="370" To="371" Label="Source1" />
-            <Edge From="371" To="372" Label="Source2" />
-            <Edge From="372" To="373" Label="Source1" />
-            <Edge From="373" To="374" Label="Source1" />
-            <Edge From="374" To="375" Label="Source1" />
-            <Edge From="375" To="387" Label="Source2" />
-            <Edge From="376" To="383" Label="Source1" />
-            <Edge From="377" To="380" Label="Source1" />
+            <Edge From="371" To="372" Label="Source1" />
+            <Edge From="372" To="384" Label="Source2" />
+            <Edge From="373" To="380" Label="Source1" />
+            <Edge From="374" To="377" Label="Source1" />
+            <Edge From="375" To="376" Label="Source1" />
+            <Edge From="376" To="377" Label="Source2" />
+            <Edge From="377" To="378" Label="Source1" />
             <Edge From="378" To="379" Label="Source1" />
             <Edge From="379" To="380" Label="Source2" />
             <Edge From="380" To="381" Label="Source1" />
             <Edge From="381" To="382" Label="Source1" />
-            <Edge From="382" To="383" Label="Source2" />
-            <Edge From="383" To="384" Label="Source1" />
+            <Edge From="382" To="383" Label="Source1" />
+            <Edge From="383" To="384" Label="Source3" />
             <Edge From="384" To="385" Label="Source1" />
-            <Edge From="385" To="386" Label="Source1" />
-            <Edge From="386" To="387" Label="Source3" />
+            <Edge From="385" To="414" Label="Source4" />
+            <Edge From="386" To="387" Label="Source1" />
             <Edge From="387" To="388" Label="Source1" />
-            <Edge From="388" To="417" Label="Source4" />
-            <Edge From="389" To="390" Label="Source1" />
-            <Edge From="390" To="391" Label="Source1" />
-            <Edge From="391" To="417" Label="Source5" />
-            <Edge From="392" To="398" Label="Source1" />
-            <Edge From="393" To="395" Label="Source1" />
+            <Edge From="388" To="414" Label="Source5" />
+            <Edge From="389" To="395" Label="Source1" />
+            <Edge From="390" To="392" Label="Source1" />
+            <Edge From="391" To="392" Label="Source2" />
+            <Edge From="392" To="393" Label="Source1" />
+            <Edge From="393" To="394" Label="Source1" />
             <Edge From="394" To="395" Label="Source2" />
             <Edge From="395" To="396" Label="Source1" />
             <Edge From="396" To="397" Label="Source1" />
-            <Edge From="397" To="398" Label="Source2" />
+            <Edge From="396" To="400" Label="Source1" />
+            <Edge From="396" To="403" Label="Source1" />
+            <Edge From="396" To="406" Label="Source1" />
+            <Edge From="396" To="409" Label="Source1" />
+            <Edge From="397" To="398" Label="Source1" />
             <Edge From="398" To="399" Label="Source1" />
-            <Edge From="399" To="400" Label="Source1" />
-            <Edge From="399" To="403" Label="Source1" />
-            <Edge From="399" To="406" Label="Source1" />
-            <Edge From="399" To="409" Label="Source1" />
             <Edge From="399" To="412" Label="Source1" />
             <Edge From="400" To="401" Label="Source1" />
             <Edge From="401" To="402" Label="Source1" />
-            <Edge From="402" To="415" Label="Source1" />
+            <Edge From="402" To="412" Label="Source2" />
             <Edge From="403" To="404" Label="Source1" />
             <Edge From="404" To="405" Label="Source1" />
-            <Edge From="405" To="415" Label="Source2" />
+            <Edge From="405" To="412" Label="Source3" />
             <Edge From="406" To="407" Label="Source1" />
             <Edge From="407" To="408" Label="Source1" />
-            <Edge From="408" To="415" Label="Source3" />
+            <Edge From="408" To="412" Label="Source4" />
             <Edge From="409" To="410" Label="Source1" />
             <Edge From="410" To="411" Label="Source1" />
-            <Edge From="411" To="415" Label="Source4" />
+            <Edge From="411" To="412" Label="Source5" />
             <Edge From="412" To="413" Label="Source1" />
-            <Edge From="413" To="414" Label="Source1" />
-            <Edge From="414" To="415" Label="Source5" />
-            <Edge From="415" To="416" Label="Source1" />
-            <Edge From="416" To="417" Label="Source6" />
-            <Edge From="417" To="418" Label="Source1" />
-            <Edge From="418" To="457" Label="Source1" />
+            <Edge From="413" To="414" Label="Source6" />
+            <Edge From="414" To="415" Label="Source1" />
+            <Edge From="415" To="454" Label="Source1" />
+            <Edge From="416" To="417" Label="Source1" />
+            <Edge From="417" To="452" Label="Source1" />
+            <Edge From="418" To="419" Label="Source1" />
             <Edge From="419" To="420" Label="Source1" />
-            <Edge From="420" To="455" Label="Source1" />
+            <Edge From="420" To="421" Label="Source1" />
             <Edge From="421" To="422" Label="Source1" />
-            <Edge From="422" To="423" Label="Source1" />
+            <Edge From="422" To="448" Label="Source1" />
             <Edge From="423" To="424" Label="Source1" />
             <Edge From="424" To="425" Label="Source1" />
-            <Edge From="425" To="451" Label="Source1" />
+            <Edge From="425" To="426" Label="Source1" />
             <Edge From="426" To="427" Label="Source1" />
-            <Edge From="427" To="428" Label="Source1" />
+            <Edge From="427" To="448" Label="Source2" />
             <Edge From="428" To="429" Label="Source1" />
             <Edge From="429" To="430" Label="Source1" />
-            <Edge From="430" To="451" Label="Source2" />
+            <Edge From="430" To="448" Label="Source3" />
             <Edge From="431" To="432" Label="Source1" />
             <Edge From="432" To="433" Label="Source1" />
-            <Edge From="433" To="451" Label="Source3" />
+            <Edge From="433" To="448" Label="Source4" />
             <Edge From="434" To="435" Label="Source1" />
             <Edge From="435" To="436" Label="Source1" />
-            <Edge From="436" To="451" Label="Source4" />
+            <Edge From="436" To="437" Label="Source1" />
             <Edge From="437" To="438" Label="Source1" />
             <Edge From="438" To="439" Label="Source1" />
-            <Edge From="439" To="440" Label="Source1" />
+            <Edge From="439" To="448" Label="Source5" />
             <Edge From="440" To="441" Label="Source1" />
             <Edge From="441" To="442" Label="Source1" />
-            <Edge From="442" To="451" Label="Source5" />
+            <Edge From="442" To="443" Label="Source1" />
             <Edge From="443" To="444" Label="Source1" />
-            <Edge From="444" To="445" Label="Source1" />
+            <Edge From="444" To="448" Label="Source6" />
             <Edge From="445" To="446" Label="Source1" />
             <Edge From="446" To="447" Label="Source1" />
-            <Edge From="447" To="451" Label="Source6" />
+            <Edge From="447" To="448" Label="Source7" />
             <Edge From="448" To="449" Label="Source1" />
-            <Edge From="449" To="450" Label="Source1" />
-            <Edge From="450" To="451" Label="Source7" />
-            <Edge From="451" To="452" Label="Source1" />
-            <Edge From="452" To="455" Label="Source2" />
-            <Edge From="453" To="454" Label="Source1" />
-            <Edge From="454" To="455" Label="Source3" />
-            <Edge From="455" To="456" Label="Source1" />
-            <Edge From="456" To="457" Label="Source2" />
-            <Edge From="457" To="458" Label="Source1" />
+            <Edge From="449" To="452" Label="Source2" />
+            <Edge From="450" To="451" Label="Source1" />
+            <Edge From="451" To="452" Label="Source3" />
+            <Edge From="452" To="453" Label="Source1" />
+            <Edge From="453" To="454" Label="Source2" />
+            <Edge From="454" To="455" Label="Source1" />
           </Edges>
         </Workflow>
       </Expression>
@@ -22627,10 +22613,6 @@
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="rx:Merge" />
             </Expression>
-            <Expression xsi:type="IncludeWorkflow" Path="Extensions\PrintRequest.bonsai">
-              <PrintCode>fixation_time</PrintCode>
-              <PrintSubjectName>PrintCode</PrintSubjectName>
-            </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="rx:Take">
                 <rx:Count>1</rx:Count>
@@ -22647,7 +22629,6 @@
             <Edge From="5" To="6" Label="Source2" />
             <Edge From="6" To="7" Label="Source1" />
             <Edge From="7" To="8" Label="Source1" />
-            <Edge From="8" To="9" Label="Source1" />
           </Edges>
         </Workflow>
       </Expression>
@@ -23655,7 +23636,7 @@
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="rx:Delay">
-                            <rx:DueTime>PT1S</rx:DueTime>
+                            <rx:DueTime>PT15S</rx:DueTime>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="Combinator">
@@ -23777,7 +23758,7 @@
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="rx:Delay">
-                            <rx:DueTime>PT0.145S</rx:DueTime>
+                            <rx:DueTime>PT1S</rx:DueTime>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="Combinator">
