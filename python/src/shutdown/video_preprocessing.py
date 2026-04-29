@@ -32,6 +32,7 @@ def add_frame_numbers(out: pd.DataFrame, path: Path, time_str: str):
 
     # Convert the type of the relevant columns to float
     temp_out["trial_start"] = temp_out["trial_start"].astype(float)
+    temp_out["trial_end"] = temp_out["trial_end"].astype(float)
     temp_out["cnp_start"] = temp_out["cnp_start"].astype(float)
     temp_out["rt_start"] = temp_out["rt_start"].astype(float)
     temp_out["mt_start"] = temp_out["mt_start"].astype(float)
@@ -47,6 +48,18 @@ def add_frame_numbers(out: pd.DataFrame, path: Path, time_str: str):
     )
     df = df.rename(columns={"FrameID": "trial_start_frame"})
     df = df[["trial", "trial_start_frame"]]
+    out = out.merge(df, how="left", on="trial")
+
+    # Get the frame number of the end of each trial
+    df = pd.merge_asof(
+        left=temp_out[temp_out["trial_end"].notna()],
+        right=strobe,
+        left_on="trial_end",
+        right_on="Timestamp",
+        direction="forward",
+    )
+    df = df.rename(columns={"FrameID": "trial_end_frame"})
+    df = df[["trial", "trial_end_frame"]]
     out = out.merge(df, how="left", on="trial")
 
     # Get the frame number of the CNP events for each trial
