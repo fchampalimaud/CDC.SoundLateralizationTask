@@ -549,6 +549,8 @@ namespace Output
     
         private double _startTime;
     
+        private double _endTime;
+    
         private double _timedDuration;
     
         public LnpTime()
@@ -559,6 +561,7 @@ namespace Output
         {
             _intendedDuration = other._intendedDuration;
             _startTime = other._startTime;
+            _endTime = other._endTime;
             _timedDuration = other._timedDuration;
         }
     
@@ -599,6 +602,24 @@ namespace Output
         }
     
         /// <summary>
+        /// The timestamp at which the LNP time ended (s).
+        /// </summary>
+        [Newtonsoft.Json.JsonPropertyAttribute("end_time", Required=Newtonsoft.Json.Required.Always)]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="end_time")]
+        [System.ComponentModel.DescriptionAttribute("The timestamp at which the LNP time ended (s).")]
+        public double EndTime
+        {
+            get
+            {
+                return _endTime;
+            }
+            set
+            {
+                _endTime = value;
+            }
+        }
+    
+        /// <summary>
         /// The timed LNP time (s).
         /// </summary>
         [Newtonsoft.Json.JsonPropertyAttribute("timed_duration", Required=Newtonsoft.Json.Required.Always)]
@@ -630,6 +651,7 @@ namespace Output
         {
             stringBuilder.Append("IntendedDuration = " + _intendedDuration + ", ");
             stringBuilder.Append("StartTime = " + _startTime + ", ");
+            stringBuilder.Append("EndTime = " + _endTime + ", ");
             stringBuilder.Append("TimedDuration = " + _timedDuration);
             return true;
         }

@@ -119,6 +119,9 @@ class LnpTime(BaseModel):
     start_time: float = Field(
         description="The timestamp at which the LNP time started (s)."
     )
+    end_time: float = Field(
+        description="The timestamp at which the LNP time ended (s)."
+    )
     timed_duration: float = Field(description="The timed LNP time (s).", ge=0)
 
 
