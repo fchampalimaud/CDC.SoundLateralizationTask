@@ -8,6 +8,7 @@ import pandas as pd
 
 from shutdown.block_plots import generate_plots
 from shutdown.video_preprocessing import add_frame_numbers
+from shutdown.zip import zip_events
 
 
 def read_out_json(file: Path):
@@ -122,6 +123,11 @@ def convert_output(session_dir: Path, backup_dir: Optional[Path] = None):
 
     # Generate plots with some metrics for the each block of the current session
     generate_plots(out, plot_path, plot_backup_path)
+
+    # Zip events directory
+    zip_events(session_dir)
+    # if backup_dir is not None:
+    #     zip_events(session_dir)
 
 
 COLUMN_RENAMES = {
