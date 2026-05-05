@@ -4,6 +4,7 @@
       "properties": {
         "animal": {
           "description": "The path to the animal.yml configuration file.",
+          "format": "file-path",
           "pattern": "\\.yml$",
           "title": "Animal",
           "type": "string"
