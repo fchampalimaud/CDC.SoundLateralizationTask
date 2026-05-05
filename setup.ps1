@@ -3,6 +3,8 @@ if (!(Get-Command uv -ErrorAction SilentlyContinue)) {
     powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 }
 
+uv tool install git+https://github.com/ZegCricket/slt-tools.git --force
+
 if (!(Get-Command ffmpeg -ErrorAction SilentlyContinue)) {
     Write-Host "Installing FFmpeg ..."
     powershell -ExecutionPolicy ByPass -c "winget install Gyan.FFmpeg"
@@ -115,5 +117,4 @@ if (!(Test-Path ".\assets\LibUsbDotNet.dll")) {
     Invoke-WebRequest "https://github.com/fchampalimaud/cdc-speaker-calibration/releases/download/v0.3.0-alpha/LibUsbDotNet.dll" -OutFile ".\python\assets\LibUsbDotNet.dll"
 }
 
-cd .\python
-uv run config
+setup-config

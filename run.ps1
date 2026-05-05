@@ -1,6 +1,3 @@
-cd python
-uv run startup
-cd ..
+slt startup
 .\bonsai\Bonsai.exe .\src\SoundLateralizationTask.bonsai --start-no-debug
-cd python
-uv run convert-output
+slt shutdown
